@@ -1,5 +1,7 @@
 (()=>{
-    alert("hello");
+    const __test__ = {};
+
+
     let isOrigionalProduct = true;
     const plainBg = document.querySelector("#plain-background").value
     const platternedBg = document.querySelector("#patterned-background").value
@@ -235,5 +237,18 @@ function modifyUrlWithResolutions(url) { // used to return a source set with mul
     }
     //return("")
     return result;
+  }
+
+  __test__.modifyUrlWithResolutions = modifyUrlWithResolutions;
+    __test__.updateAtcButton = updateAtcButton;
+    __test__.swapImages = swapImages;
+    __test__.submitSubForm = submitSubForm;
+    __test__.addSubToCart = addSubToCart;
+    __test__.swapSub = swapSub;
+  if (typeof window !== 'undefined') {
+    window.__subsModule__ = __test__;
+  }
+  if (typeof module !== 'undefined' && module.exports) {
+    module.exports = __test__;
   }
 })()
