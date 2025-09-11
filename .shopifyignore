@@ -11,3 +11,24 @@
 #
 # Ignore templates and sections with a regular expression:
 #   /(templates|sections)/.*\.json/
+# tests & coverage
+tests/
+**/*.test.js
+**/*.spec.js
+coverage/
+
+# tooling/config
+jest.config.js
+babel.config.js
+vitest.config.*    # if you ever switch
+playwright.config.*  # if you add e2e
+
+# node stuff
+node_modules/
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+
+# local build output (if you have one)
+dist/
+build/
