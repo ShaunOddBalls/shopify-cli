@@ -1,0 +1,62 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "conditional_banner_CRXQN6": {
+      "type": "ob-conditional-banner-old",
+      "blocks": {
+        "link_banner_pNhcqY": {
+          "type": "link_banner",
+          "settings": {
+            "block_active": true,
+            "customers": "both",
+            "url_handle": "ob-unidays\nstudent-beans",
+            "not_url_handle": "",
+            "country_iso": "*",
+            "link_list": "student-discount",
+            "title": "",
+            "wrapper_classes": "bg-gray-100 max-w-4xl lg:mx-auto mx-5 mt-1 md:mt-3 -mb-0 sm:mt-3",
+            "links_wrapper_classes": "flex justify-evenly border-b-2 border-l-2 md:border-r-0 md:border-2 border-r-0 border-solid my-",
+            "link_block_classes": "px-2 py-2 font-bebas text-xl md:text-2xl flex-1 text-center border-r-2 border-t-2 md:border-t-0 border-solid cursor-pointer hover:bg-magenta-500 hover:text-white hover:border-r-2 hover:border-solid hover:border-black items-center flex justify-center leading-5",
+            "link_block_active_classes": "px-2 py-2 font-bebas text-xl md:text-3xl flex-1 text-center border-r-2 border-solid cursor-pointer bg-magenta-500 text-white border-r-2 hover:border-solid border-black border-t-2 md:border-t-0 items-center flex justify-center leading-5"
+          }
+        }
+      },
+      "block_order": [
+        "link_banner_pNhcqY"
+      ],
+      "settings": {
+        "banner_background": "",
+        "wrapper_classes": "pt-2 pb-4"
+      }
+    },
+    "16605602210a232916": {
+      "type": "ob-just-page-content",
+      "blocks": {
+        "98419850-bd79-45c1-87a2-30053247d993": {
+          "type": "page",
+          "settings": {
+            "country_iso": "*",
+            "wrapper_classes": "max-w-7xl mx-auto px-5 md:px-0 pb-10",
+            "page": "unidays"
+          }
+        }
+      },
+      "block_order": [
+        "98419850-bd79-45c1-87a2-30053247d993"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "conditional_banner_CRXQN6",
+    "16605602210a232916"
+  ]
+}

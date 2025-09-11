@@ -1,0 +1,32 @@
+{% layout none %}
+
+{"oldData": [
+    {% paginate search.results by 50 %}
+      {% assign first = true %}
+      {%- comment %}<locksmith:fad2>{% endcomment -%}
+        {%- assign locksmith_93a6_forloop__size = 0 %}{% for article in search.results %}{% capture var %}{% render 'locksmith-variables', scope: 'subject', subject: article, subject_parent: search, variable: 'transparent' %}{% endcapture %}{% if var == 'true' %}{% assign locksmith_93a6_forloop__size = locksmith_93a6_forloop__size | plus: 1 %}{% endif %}{% endfor %}{% assign locksmith_93a6_forloop__index = nil -%}
+      {%- comment %}</locksmith:fad2>{% endcomment -%}
+      {% for article in search.results %}
+        {%- comment %}<locksmith:f977>{% endcomment -%}
+          {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: article, subject_parent: search, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% if locksmith_93a6_forloop__index == nil %}{% assign locksmith_93a6_forloop__index = 1 %}{% assign locksmith_93a6_forloop__index0 = 0 %}{% else %}{% assign locksmith_93a6_forloop__index = locksmith_93a6_forloop__index | plus: 1 %}{% assign locksmith_93a6_forloop__index0 = locksmith_93a6_forloop__index0 | plus: 1 %}{% endif %}{% if locksmith_93a6_forloop__index == 1 %}{% assign locksmith_93a6_forloop__first = true %}{% else %}{% assign locksmith_93a6_forloop__first = false %}{% endif %}{% if locksmith_93a6_forloop__index == locksmith_93a6_forloop__size %}{% assign locksmith_93a6_forloop__last = true %}{% else %}{% assign locksmith_93a6_forloop__last = false %}{% endif %}{% assign locksmith_93a6_forloop__rindex = locksmith_93a6_forloop__size | minus: locksmith_93a6_forloop__index | minus: 1 %}{% assign locksmith_93a6_forloop__rindex0 = locksmith_93a6_forloop__size | minus: locksmith_93a6_forloop__index0 | minus: 1 %}{% else %}{% continue %}{% endif -%}
+        {%- comment %}</locksmith:f977>{% endcomment -%}
+        {% if article.object_type == 'article' %}
+          {% unless first %},{% endunless %}
+          {
+            "title": {{ article.title | json }},
+            "handle": {{ article.handle | json }},
+            "content": {{ article.content | strip_html | truncate: 100 | json }},
+            "tags": [
+              {% for tag in article.tags %}
+                {{ tag | json }}{% unless forloop.last %},{% endunless %}
+              {% endfor %}
+            ],
+            "id": "faq-{{ article.id }}",
+            "url": {{ article.url | json }}
+          }
+          {% assign first = false %}
+        {% endif %}
+      {% endfor %}
+    {% endpaginate %}
+  ]
+}

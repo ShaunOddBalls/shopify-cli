@@ -1,0 +1,546 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "ob_image_text_grid_7EDhTE": {
+      "type": "ob-image-text-grid",
+      "blocks": {
+        "image_and_text_VG43Ey": {
+          "type": "image-and-text",
+          "settings": {
+            "country_iso": "*",
+            "title": "",
+            "block_wrapper_classes": "col-span-12 flex justify-center  px-4 items-center text-center relative",
+            "block_title": "",
+            "title_classes": "text",
+            "description": "<h2 class=\"text-center font-bebas text-3xl lg:text-4xl\">Sign Up To Enter Our Competition!🎉 </h2>",
+            "description_classes": "",
+            "svg": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_and_text_VG43Ey"
+      ],
+      "disabled": true,
+      "settings": {
+        "outer_wrapper_classes": "relative pb-6",
+        "inner_wrapper_classes": "col-span-12 flex justify-center  py-3 px-4 items-center text-center",
+        "grid_wrapper_classes": "mt-6 grid grid-cols-2 gap-0.5 md:grid-cols-3 lg:mt-8",
+        "title": "",
+        "title_classes": "text-center text-base font-semibold uppercase text-gray-600 tracking-wider",
+        "section_bg_colour": "",
+        "block_bg_colour": "",
+        "block_bg_colour_hover": "",
+        "block_text_colour": "",
+        "block_text_colour_hover": "",
+        "block_image_classes": "",
+        "block_svg_classes": "",
+        "custom_css": ""
+      }
+    },
+    "ob_klaviyo_forms_CbcNwF": {
+      "type": "ob-klaviyo-forms",
+      "blocks": {
+        "form_YURChX": {
+          "type": "form",
+          "disabled": true,
+          "settings": {
+            "country_iso": "*",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": "",
+            "slide_active": true,
+            "title": "Northumbria Uni",
+            "klaviyo_id": "YaHfeb",
+            "html_id": "",
+            "wrapper_classes": "",
+            "url_handle": "student-giveaway",
+            "not_url_handle": "",
+            "domains": "*",
+            "device": "all",
+            "customers": "all"
+          }
+        },
+        "form_jpntDe": {
+          "type": "form",
+          "settings": {
+            "country_iso": "*",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": "",
+            "slide_active": true,
+            "title": "Durham Regatta",
+            "klaviyo_id": "QVcKgP",
+            "html_id": "",
+            "wrapper_classes": "",
+            "url_handle": "student-giveaway",
+            "not_url_handle": "",
+            "domains": "*",
+            "device": "all",
+            "customers": "all"
+          }
+        },
+        "form_gzKRFw": {
+          "type": "form",
+          "settings": {
+            "country_iso": "*",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": "",
+            "slide_active": true,
+            "title": "Valentines Day",
+            "klaviyo_id": "XsyydY",
+            "html_id": "",
+            "wrapper_classes": "",
+            "url_handle": "valentines-day",
+            "not_url_handle": "",
+            "domains": "*",
+            "device": "all",
+            "customers": "all"
+          }
+        }
+      },
+      "block_order": [
+        "form_YURChX",
+        "form_jpntDe",
+        "form_gzKRFw"
+      ],
+      "settings": {
+        "section_width": "full",
+        "custom_width": ""
+      }
+    },
+    "christmas_waiting_header_mGhKr4": {
+      "type": "christmas-waiting-header",
+      "name": "Christmas Waiting Header",
+      "settings": {
+        "image": "shopify://shop_images/SSALE_92.png",
+        "title": "OUR BLACK FRIDAY EVENT IS NOW OVER🏷️",
+        "text": "Black Friday 2024 may be over — but the savings don’t stop here.",
+        "arrow_1": "Clearance",
+        "arrow_1_collection": "",
+        "arrow_1_page": "clearance",
+        "arrow_2": "Sale by Size",
+        "arrow_2_collection": "",
+        "arrow_2_page": "sale-by-size",
+        "arrow_3": "New In",
+        "arrow_3_collection": "new",
+        "arrow_3_page": "",
+        "arrow_4": "Subscriptions",
+        "arrow_4_collection": "",
+        "arrow_4_page": "subscription-selector"
+      }
+    },
+    "christmas_waiting_explore_VXQizr": {
+      "type": "christmas-waiting-explore",
+      "blocks": {
+        "image_block_jXUWV6": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/mens_boxers_button.png",
+            "page": "him-individuals",
+            "url": "",
+            "title": "Men's Boxers",
+            "button-classes": "mt-4 text-center shadow-xl rounded-full w-full mx-auto max-w-[175px] bg-black",
+            "text-classes": "text-white px-2 py-1 font-bold text-xs uppercase lw-black rounded-full text-nowrap"
+          }
+        },
+        "image_block_wTmUC3": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/bamboo_button_e436ad30-6ec1-4eb6-9330-8bdee84306e7.png",
+            "page": "mens-bamboo-boxer-shorts-individuals",
+            "url": "",
+            "title": "Men's Bamboo Boxers",
+            "button-classes": "mt-4 text-center shadow-xl rounded-full w-full mx-auto max-w-[175px] bg-black",
+            "text-classes": "text-white px-2 py-1 font-bold text-xs uppercase lw-black rounded-full text-nowrap"
+          }
+        },
+        "image_block_NYJiDd": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/bralettes_2.png",
+            "page": "bralette",
+            "url": "",
+            "title": "Bralettes",
+            "button-classes": "mt-4 text-center shadow-xl rounded-full w-full mx-auto max-w-[175px] bg-black",
+            "text-classes": "text-white px-2 py-1 font-bold text-xs uppercase lw-black rounded-full text-nowrap"
+          }
+        },
+        "image_block_nAHQ4D": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/seamless_8682b8a8-d79f-485d-b14d-c0031ebd0d65.png",
+            "page": "seamless-underwear",
+            "url": "",
+            "title": "Seamless",
+            "button-classes": "mt-4 text-center shadow-xl rounded-full w-full mx-auto max-w-[175px] bg-black",
+            "text-classes": "text-white px-2 py-1 font-bold text-xs uppercase lw-black rounded-full text-nowrap"
+          }
+        },
+        "image_block_MPXdRR": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/Socks_e306af76-f2d1-4de9-b2ea-761e801d17c3.png",
+            "page": "socks",
+            "url": "",
+            "title": "Socks",
+            "button-classes": "mt-4 text-center shadow-xl rounded-full w-full mx-auto max-w-[175px] bg-black",
+            "text-classes": "text-white px-2 py-1 font-bold text-xs uppercase lw-black rounded-full text-nowrap"
+          }
+        },
+        "image_block_9PGbkT": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/mens_briefs_8d74bd24-ead6-4723-9d3e-4d36f755aaf1.png",
+            "page": "his-briefs",
+            "url": "",
+            "title": "Men's Briefs",
+            "button-classes": "mt-4 text-center shadow-xl rounded-full w-full mx-auto max-w-[175px] bg-black",
+            "text-classes": "text-white px-2 py-1 font-bold text-xs uppercase lw-black rounded-full text-nowrap"
+          }
+        }
+      },
+      "block_order": [
+        "image_block_jXUWV6",
+        "image_block_wTmUC3",
+        "image_block_NYJiDd",
+        "image_block_nAHQ4D",
+        "image_block_MPXdRR",
+        "image_block_9PGbkT"
+      ],
+      "name": "Christmas Waiting Explore",
+      "settings": {
+        "title": "More to explore..."
+      }
+    },
+    "ob_instagram_feed_KE8kzE": {
+      "type": "ob-instagram-feed",
+      "blocks": {
+        "shop_the_look_343AiU": {
+          "type": "shop-the-look",
+          "settings": {
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": "",
+            "display": "block",
+            "display-medium": "md:block",
+            "collection-link": "https://www.myoddballs.com/collections/him-individuals",
+            "image_wrapper_classes": "m-1",
+            "img_alt_text": "Mens Boxers Collection",
+            "image": "shopify://shop_images/mens_boxers_button.png",
+            "overlay": false,
+            "opacity": 100,
+            "cta-section-classes": "md:m-4 m-4 md:w-2/3",
+            "cta-section-inner-classes": "p-4",
+            "position-y": "bottom-0",
+            "position-x": "left-0",
+            "title-text-size": "text-xl",
+            "text-size-medium": "md:text-4xl",
+            "call-to-action-title-font-weight": "font-bold",
+            "cta-title-classes": "text-white text-4xl md:mb-3 tracking-wider text-shadow  marujo",
+            "call-to-action-title": "Men's Boxers",
+            "btn-type": "rounded",
+            "call-to-action-btn-text": "SHOP NOW",
+            "btn-text-size": "text-xs",
+            "btn-text-size-medium": "md:text-base",
+            "call-to-action-btn-font-weight": "font-bold",
+            "call-to-action-btn-font-style": "",
+            "cta-btn-classes": "oddballs-button oddballs-button--secondary py-1 px-3 md:py-2 rounded-xl md:rounded-full uppercase",
+            "btn-outer-wrapper": ""
+          }
+        },
+        "shop_the_look_k7DDwz": {
+          "type": "shop-the-look",
+          "settings": {
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": "",
+            "display": "block",
+            "display-medium": "md:block",
+            "collection-link": "https://www.myoddballs.com/collections/bamboo-boxer-shorts",
+            "image_wrapper_classes": "m-1",
+            "img_alt_text": "Mens Bamboo Boxers Collection",
+            "image": "shopify://shop_images/bamboo_button_e436ad30-6ec1-4eb6-9330-8bdee84306e7.png",
+            "overlay": false,
+            "opacity": 100,
+            "cta-section-classes": "md:m-4 m-4 md:w-2/3",
+            "cta-section-inner-classes": "p-4",
+            "position-y": "bottom-0",
+            "position-x": "left-0",
+            "title-text-size": "text-xl",
+            "text-size-medium": "md:text-4xl",
+            "call-to-action-title-font-weight": "font-bold",
+            "cta-title-classes": "text-white text-4xl md:mb-3 tracking-wider text-shadow  marujo",
+            "call-to-action-title": "Men's Bamboo Boxers",
+            "btn-type": "rounded",
+            "call-to-action-btn-text": "SHOP NOW",
+            "btn-text-size": "text-xs",
+            "btn-text-size-medium": "md:text-base",
+            "call-to-action-btn-font-weight": "font-bold",
+            "call-to-action-btn-font-style": "",
+            "cta-btn-classes": "oddballs-button oddballs-button--secondary py-1 px-3 md:py-2 rounded-xl md:rounded-full uppercase",
+            "btn-outer-wrapper": ""
+          }
+        },
+        "shop_the_look_WUtafY": {
+          "type": "shop-the-look",
+          "settings": {
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": "",
+            "display": "block",
+            "display-medium": "md:block",
+            "collection-link": "https://www.myoddballs.com/collections/seamless-underwear",
+            "image_wrapper_classes": "m-1",
+            "img_alt_text": "Seamless Collection",
+            "image": "shopify://shop_images/HOMEPAGE_BUTTONS_SEAMLESS.jpg",
+            "overlay": false,
+            "opacity": 100,
+            "cta-section-classes": "md:m-4 m-4 md:w-2/3",
+            "cta-section-inner-classes": "p-4",
+            "position-y": "bottom-0",
+            "position-x": "left-0",
+            "title-text-size": "text-xl",
+            "text-size-medium": "md:text-4xl",
+            "call-to-action-title-font-weight": "font-bold",
+            "cta-title-classes": "text-white text-4xl md:mb-3 tracking-wider text-shadow  marujo",
+            "call-to-action-title": "Seamless",
+            "btn-type": "rounded",
+            "call-to-action-btn-text": "SHOP NOW",
+            "btn-text-size": "text-xs",
+            "btn-text-size-medium": "md:text-base",
+            "call-to-action-btn-font-weight": "font-bold",
+            "call-to-action-btn-font-style": "",
+            "cta-btn-classes": "oddballs-button oddballs-button--secondary py-1 px-3 md:py-2 rounded-xl md:rounded-full uppercase",
+            "btn-outer-wrapper": ""
+          }
+        },
+        "shop_the_look_HP78TC": {
+          "type": "shop-the-look",
+          "settings": {
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": "",
+            "display": "block",
+            "display-medium": "md:block",
+            "collection-link": "https://www.myoddballs.com/collections/swimming-shorts",
+            "image_wrapper_classes": "m-1",
+            "img_alt_text": "Swim Shorts Collection",
+            "image": "shopify://shop_images/swim_shorts_5e5174fd-9f6d-47c6-b065-f6c0a139629b.png",
+            "overlay": false,
+            "opacity": 100,
+            "cta-section-classes": "md:m-4 m-4 md:w-2/3",
+            "cta-section-inner-classes": "p-4",
+            "position-y": "bottom-0",
+            "position-x": "left-0",
+            "title-text-size": "text-xl",
+            "text-size-medium": "md:text-4xl",
+            "call-to-action-title-font-weight": "font-bold",
+            "cta-title-classes": "text-white text-4xl md:mb-3 tracking-wider text-shadow  marujo",
+            "call-to-action-title": "Swim Shorts",
+            "btn-type": "rounded",
+            "call-to-action-btn-text": "SHOP NOW",
+            "btn-text-size": "text-xs",
+            "btn-text-size-medium": "md:text-base",
+            "call-to-action-btn-font-weight": "font-bold",
+            "call-to-action-btn-font-style": "",
+            "cta-btn-classes": "oddballs-button oddballs-button--secondary py-1 px-3 md:py-2 rounded-xl md:rounded-full uppercase",
+            "btn-outer-wrapper": ""
+          }
+        },
+        "shop_the_look_hTyUmG": {
+          "type": "shop-the-look",
+          "settings": {
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": "",
+            "display": "block",
+            "display-medium": "md:block",
+            "collection-link": "https://www.myoddballs.com/collections/bralette",
+            "image_wrapper_classes": "m-1",
+            "img_alt_text": "Bralettes Collection",
+            "image": "shopify://shop_images/bralettes_2.png",
+            "overlay": false,
+            "opacity": 100,
+            "cta-section-classes": "md:m-4 m-4 md:w-2/3",
+            "cta-section-inner-classes": "p-4",
+            "position-y": "bottom-0",
+            "position-x": "left-0",
+            "title-text-size": "text-xl",
+            "text-size-medium": "md:text-4xl",
+            "call-to-action-title-font-weight": "font-bold",
+            "cta-title-classes": "text-white text-4xl md:mb-3 tracking-wider text-shadow  marujo",
+            "call-to-action-title": "Bralettes",
+            "btn-type": "rounded",
+            "call-to-action-btn-text": "SHOP NOW",
+            "btn-text-size": "text-xs",
+            "btn-text-size-medium": "md:text-base",
+            "call-to-action-btn-font-weight": "font-bold",
+            "call-to-action-btn-font-style": "",
+            "cta-btn-classes": "oddballs-button oddballs-button--secondary py-1 px-3 md:py-2 rounded-xl md:rounded-full uppercase",
+            "btn-outer-wrapper": ""
+          }
+        },
+        "shop_the_look_9mjwn6": {
+          "type": "shop-the-look",
+          "settings": {
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": "",
+            "display": "block",
+            "display-medium": "md:block",
+            "collection-link": "https://www.myoddballs.com/collections/socks",
+            "image_wrapper_classes": "m-1",
+            "img_alt_text": "Socks Collection",
+            "image": "shopify://shop_images/images_homepage_Socks_3cfc33f8-b563-4bcc-91aa-d2b6507fcdf8.png",
+            "overlay": false,
+            "opacity": 100,
+            "cta-section-classes": "md:m-4 m-4 md:w-2/3",
+            "cta-section-inner-classes": "p-4",
+            "position-y": "bottom-0",
+            "position-x": "left-0",
+            "title-text-size": "text-xl",
+            "text-size-medium": "md:text-4xl",
+            "call-to-action-title-font-weight": "font-bold",
+            "cta-title-classes": "text-white text-4xl md:mb-3 tracking-wider text-shadow  marujo",
+            "call-to-action-title": "Socks",
+            "btn-type": "rounded",
+            "call-to-action-btn-text": "SHOP NOW",
+            "btn-text-size": "text-xs",
+            "btn-text-size-medium": "md:text-base",
+            "call-to-action-btn-font-weight": "font-bold",
+            "call-to-action-btn-font-style": "",
+            "cta-btn-classes": "oddballs-button oddballs-button--secondary py-1 px-3 md:py-2 rounded-xl md:rounded-full uppercase",
+            "btn-outer-wrapper": ""
+          }
+        }
+      },
+      "block_order": [
+        "shop_the_look_343AiU",
+        "shop_the_look_k7DDwz",
+        "shop_the_look_WUtafY",
+        "shop_the_look_HP78TC",
+        "shop_the_look_hTyUmG",
+        "shop_the_look_9mjwn6"
+      ],
+      "disabled": true,
+      "custom_css": [
+        ".call-to-action-section {position: absolute; z-index: 2;}",
+        ".img-overlay-full {background: linear-gradient( 0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 100% ); z-index: 1; height: 40%; width: 100%; position: absolute; bottom: 0;}",
+        ".line-height {line-height: 0.88em;}",
+        "@media only screen and (min-width: 640px) {.line-height {line-height: 0.8em; }}",
+        ".text-shadow {text-shadow: 1px 1px 3px #000000a8;}"
+      ],
+      "name": "Insta Feed Manual",
+      "settings": {
+        "outer_wrapper_classes": "border-black border-solid blend-divide py-4 pb-8",
+        "inner_wrapper_classes": "max-w-7xl mx-auto",
+        "grid_classes": "grid grid-cols-2 md:grid-cols-3",
+        "header": "MORE TO EXPLORE",
+        "insta_handle": "",
+        "insta_link": "",
+        "header_classes": "text-2xl md:text-4xl uppercase  mx-auto text-center montserrat px-4 mb-8",
+        "insta_handle_classes": "",
+        "footer-title": "pt-4  uppercase px-4 mx-auto text-center text-magenta text-2xl md:text-4xl mx-auto text-center marujo",
+        "brutal_classes": "",
+        "add-to-footer": false
+      }
+    },
+    "ob_image_text_grid_aAPURq": {
+      "type": "ob-image-text-grid",
+      "blocks": {
+        "image_and_text_8zX6hR": {
+          "type": "image-and-text",
+          "settings": {
+            "country_iso": "*",
+            "title": "",
+            "block_wrapper_classes": "col-span-12 flex justify-center  px-4 items-center text-center relative",
+            "block_title": "",
+            "title_classes": "text",
+            "description": "<br><br><h2 class=\"text-center font-bebas text-3xl lg:text-4xl\">🛍️Black Friday 2025 Deals – Shop the OddBalls Sale Now🛍️\n</h2>\n<br>\n<p class=\"text-md lg:text-lg\">\n</p><p>\nOur big Black Friday underwear sale has wrapped up for now, but that doesn’t mean you have to wait until November to find brilliant bargains. You can still shop exclusive offers, limited-edition designs, and clearance deals across our most popular collections. \n<br>\n</p><p>\n</p><p class=\"text-md lg:text-lg\">\n</p><p>\nOur <a href=\"https://www.myoddballs.com/pages/clearance\" class=\"link\"> clearance </a> and sale underwear is packed with discounted favourites, last-chance designs, and bundle deals you won’t want to miss. Whether you're stocking up for yourself or shopping for a fun gift, OddBalls is guaranteed to put a smile on your face no matter the occasion. From licensed underwear inspired by <a href=\"https://www.myoddballs.com/collections/england-rugby\" class=\"link\">England Rugby</a>, <a href=\"https://www.myoddballs.com/collections/team-gb\" class=\"link\">Team GB</a>, <a href=\"https://www.myoddballs.com/collections/emoji%20\" class=\"link\">Emoji</a>, and more, to everyday best-sellers – you’ll find seriously good deals across our men’s and women’s underwear ranges. All with <a href=\"https://www.myoddballs.com/collections/free-gift\" class=\"link\">free gifts</a> on orders over £40 and bundles for even bigger savings.\n<br>\n</p><p>\n</p><p class=\"text-md lg:text-lg\">\n</p><p>\nShop our sale men’s underwear from cotton and bamboo <a href=\"https://www.myoddballs.com/collections/underwear-clearance-mens-boxer-shorts\" class=\"link\">boxer shorts</a> and <a href=\"https://www.myoddballs.com/collections/underwear-clearance-mens-briefs%20\" class=\"link\">classic briefs</a>– all made for comfort, breathability, and everyday wear. For women, choose from a variety of discounted styles, our women’s <a href=\"https://www.myoddballs.com/collections/underwear-clearance-ladies-boxers\" class=\"link\"> boxer shorts </a> and <a href=\"https://www.myoddballs.com/collections/underwear-clearance-ladies-briefs\" class=\"link\">briefs</a> are perfect for everyday wear, whilst our <a href=\"https://www.myoddballs.com/collections/underwear-clearance-ladies-bralette\" class=\"link\">bralettes</a>, <a href=\"https://www.myoddballs.com/collections/underwear-clearance-ladies-thongs\" class=\"link\">thongs</a> and <a href=\"https://www.myoddballs.com/collections/seamless-underwear/collection-sale-all\" class=\"link\">seamless</a> styles offer support and softness. You’ll also find incredible discounts across our accessories and clothing, including <a href=\"https://www.myoddballs.com/collections/fleece-blanket\" class=\"link\"> cosy fleece blankets </a>, <a href=\"https://www.myoddballs.com/collections/christmas-matching-pyjamas\" class=\"link\">cotton towels</a>, and clothing styles like <a href=\"https://www.myoddballs.com/collections/sports-shorts\" class=\"link\">sports shorts</a>, <a href=\"https://www.myoddballs.com/collections/training-tops\" class=\"link\">men’s training tops</a>, <a href=\"https://www.myoddballs.com/collections/clearance-swimwear\" class=\"link\">swim shorts</a>, swimmers, and <a href=\"https://www.myoddballs.com/collections/womens-gym-shorts\" class=\"link\">women’s gym shorts</a>.\n<br>\n</p><p>\n</p><p class=\"text-md lg:text-lg\">\n</p><p>\nWhat to Expect on Black Friday 2025:\nOur Black Friday sale will return in November 2025 with even better deals across the OddBalls range – think limited edition designs, sitewide discounts and early access bundles. But until then, you don’t have to wait to save – check back later this year when Black Friday 2025 officially kicks off.📅 \n</p>",
+            "description_classes": "",
+            "svg": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_and_text_8zX6hR"
+      ],
+      "name": "Image Text Grid",
+      "settings": {
+        "outer_wrapper_classes": "relative pb-6",
+        "inner_wrapper_classes": "",
+        "grid_wrapper_classes": "",
+        "title": "",
+        "title_classes": "",
+        "section_bg_colour": "",
+        "block_bg_colour": "",
+        "block_bg_colour_hover": "",
+        "block_text_colour": "",
+        "block_text_colour_hover": "",
+        "block_image_classes": "",
+        "block_svg_classes": "",
+        "custom_css": ""
+      }
+    },
+    "ob_klaviyo_forms_AwcqLH": {
+      "type": "ob-klaviyo-forms",
+      "blocks": {
+        "form_gXBaxg": {
+          "type": "form",
+          "settings": {
+            "country_iso": "*",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": "",
+            "slide_active": true,
+            "title": "Black Friday Sign Up",
+            "klaviyo_id": "XNbhUK",
+            "html_id": "",
+            "wrapper_classes": "",
+            "url_handle": "black-friday",
+            "not_url_handle": "",
+            "domains": "*",
+            "device": "all",
+            "customers": "all"
+          }
+        }
+      },
+      "block_order": [
+        "form_gXBaxg"
+      ],
+      "name": "Klaviyo Forms",
+      "settings": {
+        "section_width": "full",
+        "custom_width": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "ob_image_text_grid_7EDhTE",
+    "ob_klaviyo_forms_CbcNwF",
+    "christmas_waiting_header_mGhKr4",
+    "christmas_waiting_explore_VXQizr",
+    "ob_instagram_feed_KE8kzE",
+    "ob_klaviyo_forms_AwcqLH",
+    "ob_image_text_grid_aAPURq"
+  ]
+}

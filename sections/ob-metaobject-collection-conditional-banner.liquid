@@ -1,0 +1,205 @@
+{% schema %}
+{
+  "name": "ob Collection Banner List",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title"
+    },
+    {
+      "type": "metaobject",
+      "id": "metaobject",
+      "label": "Metaobject Collection Conditional Banner List",
+      "metaobject_type": "collection_conditional_banner_list"
+    }
+  ],
+  "presets": [
+    {
+      "name": "ob Collection Banner List"
+    }
+  ]
+}
+{% endschema %}
+
+{% comment %} Check Market Code {% endcomment %}
+{% assign market_code = localization.language.root_url %}
+{% if market_code == '/' %}
+  {% assign market_code = 'uk' %}
+{% else %}
+  {% assign market_code = market_code | remove: '/' %}
+{% endif %}
+
+<div style="">
+  {% assign collection_conditional_banner_fields = shop.metaobjects.collection_conditional_banner_list[section.settings.metaobject].collection_conditional_banner_list %}
+  {%- paginate collection_conditional_banner_fields.value by 500 -%}
+    {% for collection_conditional_banner in collection_conditional_banner_fields.value %}
+      
+      {% assign show_banner = false %}
+
+      {% if collection_conditional_banner.show_on_all_collections.value == true %}
+        {% assign show_banner = true %}
+      {% else %}
+        {% for collection_to_show in collection_conditional_banner.show_only_on_these_collections.value %}
+          {%- comment %}<locksmith:e9ba>{% endcomment -%}
+            {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: collection_to_show, subject_parent: collection_conditional_banner.show_only_on_these_collections, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+          {%- comment %}</locksmith:e9ba>{% endcomment -%}
+          {% assign clean_col_handle = collection.handle %}
+          {% assign clean_to_show_handle = collection_to_show.handle %}
+          {% if clean_col_handle == clean_to_show_handle %}
+            {% assign show_banner = true %}
+            {% break %}
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+
+      {% comment %} Check currency conditions {% endcomment %}
+      {% if show_banner %}
+        {% if collection_conditional_banner.show_on_all_currencies.value != true %}
+          {% assign show_banner = false %}
+          {% for currency in collection_conditional_banner.only_on_these_currencies.value %}
+            {% if currency == cart.currency.iso_code %}
+              {% assign show_banner = true %}
+              {% break %}
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+      {% endif %}
+
+      {% comment %} Check market conditions {% endcomment %}
+        {% if show_banner and collection_conditional_banner.show_on_all_markets.value == false %}
+          {% assign markets_to_show = collection_conditional_banner.markets_to_show_on.value %}
+
+          {% assign markets_to_exclude = collection_conditional_banner.markets_to_exclude_from.value %}
+          {% assign markets_to_exclude = markets_to_exclude | replace: '[', '' | replace: ']', '' | replace: '"', '' %}
+          {% assign markets_to_exclude = markets_to_exclude | split: ',' %}
+
+          {% comment %} First check exclusions {% endcomment %}
+          {% if markets_to_exclude != blank %}
+            {% for market in markets_to_exclude %}
+              {% assign market_strip = market | strip %}
+              {% assign market_downcase = market_strip | downcase %}
+              {% if market_code == market_downcase %}
+                {% assign show_banner = false %}
+                {% break %}
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+
+          {% comment %} Then check inclusions if any are specified {% endcomment %}
+          {% if show_banner == true %}
+            {% assign show_banner = false %}
+            {% for market in markets_to_show %}
+              {% assign market_strip = market | strip %}
+              {% assign market_downcase = market_strip | downcase %}
+              {% if market_code == market_downcase %}
+                {% assign show_banner = true %}
+                {% break %}
+              {% endif %}
+            {% endfor %}
+    
+        {% endif %}
+      {% endif %}
+
+      {% if show_banner %}
+        {% if collection_conditional_banner.type == 'banner' %}
+          {% capture banner_html %}
+            {% assign meta_info = collection_conditional_banner.meta_data %}
+            {% capture meta_handles %}
+                  {% for product in meta_info.value.products_in_banner.value %}{%- comment %}<locksmith:3160>{% endcomment -%}{%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product, subject_parent: meta_info.value.products_in_banner, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}{%- comment %}</locksmith:3160>{% endcomment -%}{{- product.handle -}},{% endfor %}  
+            {% endcapture %}
+            {% assign meta_handles = meta_handles | strip %}
+            
+          <div class="conditional-banner" data-people="{{ meta_info.value.people_in_banner }}" data-number-of-people="{{ meta_info.value.number_of_people }}" data-theme="{{ meta_info.value.theme }}" data-campaign="{{ meta_info.value.campaign }}" data-prod-handles="{{ meta_handles }}">
+            <a {% if collection_conditional_banner.banner_link.value %}href="{{ collection_conditional_banner.banner_link.value | default: '#' }}" {% endif %} class="relative block">
+              <picture>
+                <source media="(min-width: 768px)" srcset="{{ collection_conditional_banner.desktop_image | img_url: 'master' }}">
+                <img src="{{ collection_conditional_banner.mobile_image | img_url: 'master' }}" alt="{{ collection_conditional_banner.name.value }}" class="w-full">
+              </picture>
+              {% if collection_conditional_banner.desktop_svg.value != blank %}
+                <div class="desktop-svg hidden md:block absolute top-0 left-0 w-full h-full">
+                  <img src="{{ collection_conditional_banner.desktop_svg.value | image_url}}" />
+                </div>
+              {% endif %}
+              {% if collection_conditional_banner.mobile_svg.value != blank %}
+                <div class="mobile-svg md:hidden absolute top-0 left-0 w-full h-full">
+                  <img src="{{ collection_conditional_banner.mobile_svg.value | image_url}}" />
+                </div>
+              {% endif %}
+            </a>
+          </div>
+          {% endcapture %}
+        {% elsif collection_conditional_banner.type == 'HTML' %}
+          {% assign html_object = collection_conditional_banner.html_banner_with_popup.value %}
+          {% assign popup_reference = html_object.popup_optional.value %}
+          {% assign meta_info = collection_conditional_banner.meta_data %}
+
+          {% comment %}
+            {% capture html_banner %}
+              <div {% if popUp %}class="js-open-generic-banner" data-metaobjecthandle="{{ popUp.system.handle }}" {% endif %} >
+                 {{ html_object.banner_html }}
+              </div>
+            {% endcapture %}
+          {% endcomment %}
+
+          {% capture html_banner %}
+            <div class="justify-center {% if popup_reference.system.handle %} js-open-generic-banner {% endif %} flex items-center justify-center" style="color:{{ html_object.text_color.value }}; background-color:{{ html_object.banner_color.value }}" {%  if popup_reference.system.handle %}data-metaobjecthandle="{{ popup_reference.system.handle }}"{% endif %}>
+              <div class="lg:py-4 py-2 px-4 md:px-0 flex items-center justify-center">
+              {{ html_object.svg_icon_side_html.value }}
+              {{ html_object.banner_header.value }}
+              </div>
+            </div>
+          {% endcapture %}
+
+        {% elsif collection_conditional_banner.type == 'free-product' %}
+          {% assign html_object = collection_conditional_banner.html_free_product_banner_with_popup.value %}            
+              {% capture free_product_banner %}
+               {% render 'ob-free-card-banner-pass-metaobject-ref', metaobject: html_object %}
+              {% endcapture %}
+        
+
+        {% elsif collection_conditional_banner.type == 'link' %}
+          {% capture link_banner_html %}
+          {% capture link_block_active_classes %}px-5 py-2 font-semibold font-bebas uppercase md:text-base flex-1 text-center  rounded-full border border-solid border-magenta-500  cursor-pointer bg-magenta-500 text-white hover:border-solid md:border-t-0 items-center flex justify-center leading-5 text-xxs md:text-sm{% endcapture %}
+          {% capture link_block_classes %}px-5 py-2 font-semibold text-gray-900  uppercase font-bebas md:text-base flex-1 text-center rounded-full border border-solid border-gray-800  cursor-pointer hover:border-magenta-500 hover:bg-magenta-500 hover:text-white  items-center flex justify-center leading-5 text-xxs md:text-sm{% endcapture %}
+          {% assign linklist = collection_conditional_banner.link_list_handle %}
+          {% assign url = canonical_url %}
+          {% assign path = url | remove_first: "https://www.myoddballs.com" | downcase %}
+      
+          <div class="link-banner blend-divide-yy tw-relative {{ collection_conditional_banner.wrapper_classes }}" style="background-color:{{ collection_conditional_banner.banner_background }}">
+            {% assign desktop_grid_cols = linklists[linklist].links.size %}
+            {% assign mobile_grid_cols = linklists[linklist].links.size %}
+            {% if linklists[linklist].links.size > 6 %}
+              {% assign desktop_grid_cols = 6 %}
+            {% endif %}
+            {% if linklists[linklist].links.size > 3 %}
+              {% assign mobile_grid_cols = 3 %}
+            {% endif %}
+            <div class=" 2xl:mx-auto 2xl:container lg:px-20 md:px-6 px-4 my-6 grid grid-cols-{{ mobile_grid_cols }} md:grid-cols-{{ desktop_grid_cols }} gap-[0.4rem] md:gap-2">
+              {% assign link_banner_count = 0 %}
+              {% for link in linklists[linklist].links %}
+    
+                {%- comment %}<locksmith:d35a>{% endcomment -%}
+                  {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: link, subject_parent: linklists[linklist], variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+                {%- comment %}</locksmith:d35a>{% endcomment -%}
+    
+                {% assign link_banner_count = link_banner_count | plus: 1 %}
+                {% assign link_lower = link.url | remove_first: "https://www.myoddballs.com" | downcase %}
+    
+                <a href="{%- render 'ob-process-international-link', url: link.url -%}" class="link-banner-{{ link_banner_count }}-{{ linklists[linklist].links.size }} {% if link_lower == path %}{{link_block_active_classes }}{% else %}{{ link_block_classes }}{% endif %}">{{ link.title }}</a>
+              {% endfor %}
+            </div>
+          </div>
+          {% endcapture %}
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+  {% endpaginate %}
+
+  {{ banner_html }}
+  {% unless collection.handle contains "subscription" or collection.handle contains "clearance" or collection.handle contains "gift-cards" %}  
+    {% render 'ob-process-line-links-in-text', html_text: free_product_banner  %}
+    {% render 'ob-process-line-links-in-text', html_text: html_banner  %}
+  {% endunless %}
+  {{ link_banner_html }}
+</div>

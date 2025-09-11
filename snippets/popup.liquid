@@ -1,0 +1,422 @@
+{% assign banner_object = settings.banner_metaobject %}
+{% assign popup_object = shop.metaobjects.popup_with_banner[settings.banner_metaobject].popup_optional %}
+{% assign handle = popup_reference.system.handle %}
+{% assign banner = shop.metaobjects.collection_conditional_banner_list[settings.banner_metaobject].  %}
+<div id="page-popup" class="relative">
+  
+  <div id="generic-popup" class="page-popup-content" style="display:none; z-index:1">
+    <div class="popup-safety-screen" ></div>
+    <div  class="popup-section relative" >
+      <div class="relative">
+        <div class="absolute top-5 right-4">
+          <div class="popup-safety-screen-button">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <line x1="4.93" y1="4.93" x2="19.07" y2="19.07" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> </line>
+              <line x1="19.07" y1="4.93" x2="4.93" y2="19.07" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> </line>
+            </svg>
+          </div>
+        </div>
+        <div id="generic-header" class="popup-header py-6 items-center justify-center flex border-b border-gray-300 border-solid">
+        </div>
+      </div>
+      <div id="generic-popup-contents" class="popup-content">
+      </div>
+    </div>
+  </div>
+ 
+
+    <div id="back-in-stock-popup-content" class="page-popup-content" style="display:none;">
+      <div class="popup-safety-screen" ></div>
+      <div  class="popup-section relative" >
+        <div id="back-in-stock-header" class="popup-header py-6 items-center justify-center border-b border-gray-300 border-solid flex justify-between">
+          <div class="captialise  text-lg">{{ "ob_popup.bis_sign_up" | t }}</div>
+          <button class="popup-safety-screen-button button button--variant-ghost button--icon bg-[#F5F5F5] !w-6 !h-6 !bg-[#F0F0F0]" translate="no" aria-label="Close">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 14 14">
+              <rect width="16.9705" height="1.13137" rx="0.565684" transform="matrix(0.707106 -0.707108 0.707106 0.707108 0.600586 12.6001)" fill="currentColor"></rect>
+              <rect width="16.9705" height="1.13137" rx="0.565684" transform="matrix(-0.707106 -0.707107 0.707106 -0.707108 12.6006 13.4001)" fill="currentColor"></rect>
+            </svg>
+          </button>
+
+        </div>
+        <div id="back-in-stock-contents" class="popup-content p-2">   
+          <div class="px-4 font-bold pt-2 uppercase">{{ "ob_popup.select_size" | t }}</div>
+          <div id="back-in-stock-variants" class="grid grid-cols-4 px-4 gap-2 py-4 font-bold"></div>
+          <div class="px-4">
+              <div class="flex mb-2q flex-col">
+              <div class="uppercase font-bold">{{ "ob_popup.email" | t }}</div>
+              <input id="back-in-stock-input" class="border border-solid border-gray-300 rounded-md block flex-1 p-1 px-2 py-2 my-4" type="email" />
+            </div>
+            <div id="back-in-stock-submit" class="button mt-2 w-full bis-start">
+              <div id="bis-start">
+                  {{ "ob_popup.sign_up" | t }}
+              </div>
+              <div id="bis-loading">
+                <svg class="loading-ele-outer h-6 w-6" viewBox="25 25 50 50"><circle class="loading-ele-inner" style="stroke: white;" cx="50" cy="50" r="20" fill="none" stroke-width="4"></circle></svg>
+              </div>
+              <div id="bis-added">
+                <svg fill="#488848" height="15px" width="15px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve" style="    width: 15px;    height: 15px;"><polygon points="437.3,30 202.7,339.3 64,200.7 0,264.7 213.3,478 512,94 "></polygon></svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="free-gift-popup" class="page-popup-content" style="display:none; z-index:1">
+      <div class="popup-safety-screen" ></div>
+      <div  class="popup-section relative" >
+        <div id="free-gift-popup-header" class="popup-header py-6 items-center justify-center flex border-b border-gray-300 border-solid px-4">
+          <svg class="absolute right-2" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <line x1="4.93" y1="4.93" x2="19.07" y2="19.07" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> </line>
+            <line x1="19.07" y1="4.93" x2="4.93" y2="19.07" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> </line>
+          </svg>
+          <div> {{ popup_object.popup_title }} {{ banner_object }}</div>
+        </div>
+        <div id="free-gift-popup-contents" class="popup-content">
+              <div id="theme_popup_modal_content" class="overflow-y-scroll max-h-70v md:max-h-full p-5 blend-divide"><div class="faq-answer-content flex flex-col md:flex-row gap-x-2 md:gap-y-2">
+                        {{ popup_object.popup_content }}
+                      </div>
+              </div>
+        </div>
+      </div>
+    </div>
+  {% assign current_prod = product %}
+    {% for banner in shop.metaobjects.product_page_banner.values %}
+      {% for banner_product in banner.product_list.value %}
+        {% if banner_product == current_prod %}
+            <div id="product-page-banner-popup" class="page-popup-content" style="display:none; z-index:1">
+              <div class="popup-safety-screen" ></div>
+              <div  class="popup-section relative" >
+                <div id="product-page-banner-popup" class="popup-header py-6 items-center justify-center flex border-b border-gray-300 border-solid relative">
+                  <div>{{  banner.banner_text.value }}</div>
+                </div>
+                <div id="product-page-banner-popup" class="popup-content">
+                  <div class="grid grid-cols-2">
+                    <div class="">
+                      <img loading="lazy" src="{{ banner.image.value | image_url }}" height="100%" width="100%"/> 
+                    </div>
+                    <div class="p-3">
+                      <div class="mb-4">{{ banner.dropdown_text.value }}</div>
+                      <div class="button w-full"style="background-color:{{ banner.button_bg_color.value }}; color: {{ banner.button_text_color.value }}">
+                        <a class="w-full text-center" href="{{ banner.link_url.value }}">{{ banner.button_text.value }} </a>
+                      </div>
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {% endif %}
+      {% endfor %}
+    {% endfor %}
+  
+    <div id="ctl-upsell-popup-content" class="page-popup-content" style="display:none; z-index:3;">
+      <div class="popup-safety-screen" ></div>
+      <div class="popup-section relative" >
+        <div id="ctl-header" class="popup-header text-center flex items-center justify-between text-lg">
+          <div>Complete your look</div>
+          <div class="popup-safety-screen-button">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <line x1="4.93" y1="4.93" x2="19.07" y2="19.07" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></line>
+              <line x1="19.07" y1="4.93" x2="4.93" y2="19.07" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></line>
+            </svg>
+          </div>
+        </div>
+        <div id="ctl-content" class="popup-content overflow-y-scroll mx-4 pb-4 py-2">
+          
+        </div>
+
+      </div>
+    </div>
+
+  <div id="general-popup-content" class="page-popup-content" style="display:none; z-index:3;">
+      <div class="popup-safety-screen" ></div>
+      <div class="popup-section relative" >
+        <div id="general-popup-header" class="popup-header text-center flex items-center justify-between text-lg">
+          <div class="popup-safety-screen-button">
+         
+          </div>
+          <div class="popup-safety-screen-button">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <line x1="4.93" y1="4.93" x2="19.07" y2="19.07" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></line>
+              <line x1="19.07" y1="4.93" x2="4.93" y2="19.07" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></line>
+            </svg>
+          </div>
+        </div>
+        <div id="general-popup-contents" class="popup-content overflow-y-scroll mx-4 pb-4 py-2">
+
+        </div>
+
+      </div>
+    </div>
+
+    <div id="gs-list-popup-content" class="page-popup-content" style="display:none; z-index:3;">
+    <div id="snow" class="popup-safety-screen" style="position:fixed; top:0px; left:0px; width:100vw; height:100vh;"></div>
+      <div id="gs-list-popup-contents" class="popup-section relative bg-gray-300" style="height:90vh; background:transparent;" >
+        
+      <img id="gs-santa-div" style="position:absolute; right:69%; width:50%; top:14%; z-index:1; transform: translateX(-1px);" src="https://cdn.shopify.com/s/files/1/0353/7249/files/GIFT_LIST_-_santa_-_mobile_version.png?v=1732535600" />
+        <div id="gs-list-loc" style="width:75%; position:absolute; bottom:1%; right:3%; height:95%" class="px-4 py-2 bg-white text-xs md:text-sm shadow-lg">
+          <div class="w-full text-center text-xl mb-2">Your List</div>
+          <div id="gs-list-loc-content" class="flex flex-col gap-2" style="max-height:72%; overflow-y:auto;"></div>
+          <div id="list-loc-footer" class="absolute bottom-0 left-0 w-full p-4 flex text-sm flex-col">
+            <div class="capitalize mr-2">order value: <span id="gs-comp-price"></span></div>
+            <div class="capitalize mr-2 mb-3 ">total price: <span id="gs-total-price" class="text-magenta-500"></span></div>
+            <div id="add-gift-list-to-cart" class="w-full h-8"> 
+             <div  class="button bg-green-500 w-full"> 
+               <div id="gs-add-to-basket">
+                 Add to Basket
+               </div>
+               <div id="gs-add-to-basket-loading">
+                 <svg style="height:20px; width:20px;" class="loading-ele-outer" viewBox="25 25 50 50"><circle class="loading-ele-inner" cx="50" cy="50" r="20" fill="none" stroke-width="4"></circle></svg>
+               </div>
+             </div>
+            </div>
+          </div>
+            <span class="corner-shade corner-top-left"></span>
+            <span class="corner-shade corner-top-right"></span>
+            <span class="corner-shade corner-bottom-left"></span>
+            <span class="corner-shade corner-bottom-right"></span>
+        </div>
+        <div  class="">
+          <div class="popup-safety-screen-button absolute right-2 text-white" style="top:-20px;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <line x1="4.93" y1="4.93" x2="19.07" y2="19.07" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></line>
+              <line x1="19.07" y1="4.93" x2="4.93" y2="19.07" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></line>
+            </svg>
+          </div>
+
+        </div>
+        
+      </div>
+    </div>
+  
+    <div id="multibuy-upsell-popup-content" class="page-popup-content" style="display:none; z-index:3;">
+      <div class="popup-safety-screen" ></div>
+      <div class="popup-section relative" >
+        <div id="multibuy-header" class="popup-header text-center flex items-center justify-between text-lg">
+          <div>{{ "ob_popup.finish_multibuy" | t }}</div>
+          <div class="popup-safety-screen-button">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <line x1="4.93" y1="4.93" x2="19.07" y2="19.07" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></line>
+              <line x1="19.07" y1="4.93" x2="4.93" y2="19.07" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></line>
+            </svg>
+          </div>
+        </div>
+        <div id="multibuy-content" class="popup-content overflow-y-scroll mx-4 pb-4 py-2">
+          <div id="cart-multibuy-loading" class="flex flex-col items-center jsutify-center w-full h-full"> 
+            <div>{{ "ob_popup.finding_products" | t }}</div>
+            <img loading="lazy" src="https://cdn.shopify.com/s/files/1/0353/7249/files/oddballs-loading-balls.gif?v=1724235557" alt="Loading Balls">
+
+          </div>
+          <div id="cart-multibuy-reckeck" clas="justify-center" style="display: none;">
+              <div class="flex w-full justify-center flex-col items-center">
+                 <img loading="lazy" height="48px" width="48px" id="cmb-success-gif" src="https://cdn.shopify.com/s/files/1/0353/7249/files/animated-checkmark.gif?v=1727972023" />
+                 <div class="text-md font-bold">{{ "ob_popup.item_added_to_cart" | t }}</div>
+                 <div class="mb-2 border border-solid w-full border-gray-200 rounded-lg p-4 py-3 my-3 mb-6 bg-gray-50 flex-flex-col ">
+                     <span class="font-semibold">{{ "ob_popup.add_another_product" | t }}</span>
+                     <span>
+                       {{ "ob_popup.away_from_html"  | t}}
+                     </span>
+                 </div>
+              </div>
+              <div class="grid grid-cols-2 w-full gap-2">
+                  <div id="cmb-continue" class="button">{{ "ob_popup.yes"  | t}}</div>
+                  <div id="cmb-exit" class="button button-secondary">{{ "ob_popup.back_to_cart"  | t}}</div>
+              </div>
+          </div>
+          <div id="cart-multibuy-with-size">
+            <div class="relative rounded-full p-1 mb-2 mt-2 bg-gray-200" id="cart-mulitbuy-style-selector">
+              <div class="relative grid grid-cols-2 rounded-full bg-opacity-40">
+                  <div style="z-index:1" class="js-mb-patterned-patterned-selector text-center p-2 cursor-pointer text-gray-800 text-gray-900 active">{{ "ob_popup.patterned" | t }}</div>
+                  <div style="z-index:1" class="js-mb-patterned-plain-selector text-center p-2 cursor-pointer text-gray-800 ">{{ "ob_popup.plain" | t }}</div>
+                  <div id="cart-multibuy-slider" class="print-swap-slider w-1/2 h-full absolute top-0 bottom-0 rounded-full bg-white"></div>
+              </div>
+            </div>
+            <div id="cart-multibuy-loc">
+              <div id="cmb-patterned" class="grid grid-cols-2"></div>
+              <div id="cmb-plain" class="grid grid-cols-2" style="display:none;"></div>
+            </div>
+          </div>
+          
+        </div>
+
+      </div>
+    </div>
+
+    <div id="description-popup-content" class="page-popup-content" style="display:none;">
+      <div class="popup-safety-screen" ></div>
+      <div  class="popup-section" >
+        <div id="description-header" class="popup-header text-center flex items-center justify-between text-lg">
+          <div>{{ "ob_popup.description" | t }}</div>
+          <div class="popup-safety-screen-button">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <line x1="4.93" y1="4.93" x2="19.07" y2="19.07" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></line>
+              <line x1="19.07" y1="4.93" x2="4.93" y2="19.07" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></line>
+            </svg>
+          </div>
+        </div>
+        <div id="description-content" class="popup-content overflow-y-scroll mx-4 pb-4 py-2">
+          {{ product.description }}
+        </div>
+      </div>
+    </div>
+
+    <div id="default-quick-buy-popup-content" class="page-popup-content" style="display:none; z-index:4;">
+      <div class="popup-safety-screen" ></div>
+      <div  class="popup-section" >
+        <div id="default-quick-buy-header" class="popup-header text-center flex items-center h-[60px] justify-between text-lg">
+          <div>{{ 'ob_quick_buy.title' | t }}</div>
+          <button class="popup-safety-screen-button button button--variant-ghost button--icon bg-[#F5F5F5] !w-6 !h-6 !bg-[#F0F0F0]" translate="no" aria-label="Close">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 14 14">
+              <rect width="16.9705" height="1.13137" rx="0.565684" transform="matrix(0.707106 -0.707108 0.707106 0.707108 0.600586 12.6001)" fill="currentColor"></rect>
+              <rect width="16.9705" height="1.13137" rx="0.565684" transform="matrix(-0.707106 -0.707107 0.707106 -0.707108 12.6006 13.4001)" fill="currentColor"></rect>
+            </svg>
+          </button> 
+        </div>
+        <div id="default-quick-buy-content" class="popup-content relative pb-0 -bottom-[5px] h-full">
+            {% render 'quick-buy-skellington' %}
+        </div>
+      </div>
+    </div>
+
+  
+    <div id="free-gift-size-selector-popup-content" class="page-popup-content" style="display:none; z-index:4;">
+      <div class="popup-safety-screen" ></div>
+      <div  class="popup-section" >
+        <div id="default-fg-size-header" class="popup-header text-center flex items-center h-[60px] justify-between text-lg">
+          <div>{{ 'ob_quick_buy.select_size' | t }}</div>
+          <button class="popup-safety-screen-button button button--variant-ghost button--icon bg-[#F5F5F5] !w-6 !h-6 !bg-[#F0F0F0]" translate="no" aria-label="Close">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 14 14">
+              <rect width="16.9705" height="1.13137" rx="0.565684" transform="matrix(0.707106 -0.707108 0.707106 0.707108 0.600586 12.6001)" fill="currentColor"></rect>
+              <rect width="16.9705" height="1.13137" rx="0.565684" transform="matrix(-0.707106 -0.707107 0.707106 -0.707108 12.6006 13.4001)" fill="currentColor"></rect>
+            </svg>
+          </button> 
+        </div>
+        <div id="fg-size-quick-buy-content" class="popup-content relative pb-0 -bottom-[5px] h-full">
+            {% render 'ob-quick-buy-loading' %}
+        </div>
+      </div>
+    </div>
+
+  <div id="size-guide-popup-content" class="page-popup-content" style="display:none;">
+      <div class="popup-safety-screen" ></div>
+      <div class="popup-section relative" >
+        <div id="size-guide-header" class="popup-header text-center flex items-center justify-between text-lg">
+          <div>{{ "ob_popup.size_guide" | t }}</div>
+          <div class="popup-safety-screen-button">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <line x1="4.93" y1="4.93" x2="19.07" y2="19.07" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></line>
+              <line x1="19.07" y1="4.93" x2="4.93" y2="19.07" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></line>
+            </svg>
+          </div>
+        </div>
+        <div id="size-guide-content" class="popup-content overflow-y-scroll mx-4 pb-4 py-2">
+          
+        </div>
+
+      </div>
+    </div>
+
+    <div id="cart-popup-content" class="page-popup-content" style="display:none;">
+      <div class="popup-safety-screen" ></div>
+      <div  class="popup-section">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+        <div id="cart-header" class="popup-header text-center flex items-center justify-between text-lg">
+          <div class="flex">
+           <div>{{ "ob_popup.basket" | t }} - </div>
+            <div  class="mx-2 cart-items-number"></div>
+            <div id="cart-header-items"> {{ "ob_popup.items"  | t}}</div>
+          </div>
+          <div class="popup-safety-screen-button">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <line x1="4.93" y1="4.93" x2="19.07" y2="19.07" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> </line>
+              <line x1="19.07" y1="4.93" x2="4.93" y2="19.07" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> </line>
+            </svg>
+          </div>
+        </div>
+
+        <div id="cart-content" class="popup-content overflow-x-auto" style="padding-bottom:20dvh;">
+          
+          <div id="cart-progress-bar" {{ cart.items.size }} class="{% unless cart.items.size > 0 %} hidden {% endunless %}{% if cart.currency.iso_code != "GBP" %}hidden{% endif %}">
+            {% render "cart-progress-bar" %}
+          </div>
+                  {% if settings.cart_banner == "on" %}
+          <!-- <div style="background-color:{{ banner_object.banner_color }};" class="py-4 flex open-cart-banner-popup">
+            <svg style="color:black" class="mx-4" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="-0.5 0 24 24" fill="currentColor"> <path d="M11 24h-9v-12h9v12zm0-18h-11v4h11v-4zm2 18h9v-12h-9v12zm0-18v4h11v-4h-11zm4.369-6c-2.947 0-4.671 3.477-5.369 5h5.345c3.493 0 3.53-5 .024-5zm-.796 3.621h-2.043c.739-1.121 1.439-1.966 2.342-1.966 1.172 0 1.228 1.966-.299 1.966zm-9.918 1.379h5.345c-.698-1.523-2.422-5-5.369-5-3.506 0-3.469 5 .024 5zm.473-3.345c.903 0 1.603.845 2.342 1.966h-2.043c-1.527 0-1.471-1.966-.299-1.966z"></path> </svg>
+          <div >{{ banner_object.banner_title }}</div>
+          </div> -->
+
+              <div class="px-2 py-2 {%  if settings.banner_metaobject.popup_optional.value.system.handle %}js-open-generic-banner{% endif %} flex items-center" style="color:{{ settings.banner_metaobject.text_color.value }}; background-color:{{ settings.banner_metaobject.banner_color.value }}" data-metaobjecthandle="{{ settings.banner_metaobject.popup_optional.value.system.handle }}">
+               <!-- <svg style="color:black" class="mx-2" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="-0.5 0 24 24" fill="currentColor"> <path d="M11 24h-9v-12h9v12zm0-18h-11v4h11v-4zm2 18h9v-12h-9v12zm0-18v4h11v-4h-11zm4.369-6c-2.947 0-4.671 3.477-5.369 5h5.345c3.493 0 3.53-5 .024-5zm-.796 3.621h-2.043c.739-1.121 1.439-1.966 2.342-1.966 1.172 0 1.228 1.966-.299 1.966zm-9.918 1.379h5.345c-.698-1.523-2.422-5-5.369-5-3.506 0-3.469 5 .024 5zm.473-3.345c.903 0 1.603.845 2.342 1.966h-2.043c-1.527 0-1.471-1.966-.299-1.966z"></path> </svg> -->
+                {{ settings.banner_metaobject.svg_icon_side_html.value }}
+                {{ settings.banner_metaobject.banner_header.value }}
+              </div>
+                    
+        {% endif %}
+          
+          <div id="cart-items" class="scroll-shadows flex-1 mb-3">
+            <div class="cart-item flex flex-col relative"> <div class="flex flex-col gap-y-4 px-3 py-6" style="max-width:98%;"> <div class="grid grid-cols-[auto_1fr] gap-6"> <a href="#"> <div class="w-[118px] h-[118px] object-cover border border-solid border-100 animate-mt" alt=""></div> </a> <div class="flex flex-col items-start justify-between flex-1"> <div class="flex flex-col w-full gap-y-1"> <a href="#"> <p class="animate-mt font-semibold text-base-primary typography typography--body-md">UFO - Mens Boxer Shorts - 2XL</p> </a> <div class="grid grid-cols-1 grid-flow-dense [&amp;>*]:col-start-1 gap-1"> <div class="animate-mt flex gap-x-1 w-max"> <p class="font-semibold opacity-0 text-base-primary transparent typography typography--body-sm">£12.00</p> <p class="!text-[#C8C8C8] font-semibold js-cart-item-comp-price line-through opacity-0 text-base-primary typography typography--body-sm">£12.00</p> </div> <p class="animate-mt text-[#7D7D7D] typography typography--body-sm w-max">2XL</p> </div> </div> <div class="flex flex-wrap justify-between items-center w-full gap-2 mt-3"> <div class="animate-mt flex gap-x-3 quantity"> <button class="border border-gray-200 button button--icon button--variant-ghost h-6 js-cart-minus-button opacity-0 rounded-full w-6"> <svg style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);" xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 16 16"><path d="M16 7.9999C16 8.29446 15.7761 8.53324 15.5 8.53324L0.500001 8.53322C0.223859 8.53322 3.25878e-07 8.29444 0 7.99989V7.99989C-3.25878e-07 7.70533 0.223856 7.46655 0.499998 7.46655L15.5 7.46657C15.7761 7.46657 16 7.70535 16 7.9999V7.9999Z" fill="#000"></path></svg> </button> <input class="border opacity-0 pointer-events-none rounded-full text-center w-14" type="text" name="quantity" value="1" readonly=""> <button class="border border-gray-200 button button--icon button--variant-ghost h-6 js-cart-plus-button opacity-0 rounded-full w-6"> <svg style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);" xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 18 18"><path d="M9 17V9M9 9V1M9 9H17M9 9H1" stroke="#000" stroke-width="1.33333" stroke-linecap="round"></path></svg> </button> </div> <button class="animate-mt border-gray-200 button button--icon button--variant-ghost js-remove-from-cart"> <svg style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);" xmlns="http://www.w3.org/2000/svg" width="16" class="icon" fill="currentColor" height="16" viewBox="0 0 17 16"><path d="M4.50065 12.6665C4.50065 13.0202 4.64113 13.3593 4.89118 13.6094C5.14122 13.8594 5.48036 13.9999 5.83398 13.9999H11.1673C11.5209 13.9999 11.8601 13.8594 12.1101 13.6094C12.3602 13.3593 12.5007 13.0202 12.5007 12.6665V4.66654H4.50065V12.6665ZM5.83398 5.99988H11.1673V12.6665H5.83398V5.99988ZM10.834 2.66654L10.1673 1.99988H6.83398L6.16732 2.66654H3.83398V3.99988H13.1673V2.66654H10.834Z" fill="currentColor"></path></svg> </button> </div> </div> </div> </div> <input class="item-json" type="hidden" value="{&quot;id&quot;:41124878352445,&quot;properties&quot;:{&quot;_Bundle&quot;:&quot;Missed Offer - Mens Boxers Bundle&quot;,&quot;_Upgrade&quot;:&quot;Why not add 2 more and save \u0026#163;6.00?&quot;},&quot;quantity&quot;:1,&quot;variant_id&quot;:41124878352445,&quot;key&quot;:&quot;41124878352445:960b6f84ae01f68470aa5ef219b85e9d&quot;,&quot;title&quot;:&quot;UFO - Mens Boxer Shorts - 2XL&quot;,&quot;price&quot;:1200,&quot;original_price&quot;:1200,&quot;discounted_price&quot;:1200,&quot;line_price&quot;:1200,&quot;original_line_price&quot;:1200,&quot;total_discount&quot;:0,&quot;discounts&quot;:[],&quot;sku&quot;:&quot;UFO-MBOXER-2XL&quot;,&quot;grams&quot;:120,&quot;vendor&quot;:&quot;OddBalls&quot;,&quot;taxable&quot;:true,&quot;product_id&quot;:7262215307325,&quot;product_has_only_default_variant&quot;:false,&quot;gift_card&quot;:false,&quot;final_price&quot;:1200,&quot;final_line_price&quot;:1200,&quot;url&quot;:&quot;\/products\/ufo-mens-boxer-shorts?variant=41124878352445&quot;,&quot;featured_image&quot;:{&quot;aspect_ratio&quot;:1.072,&quot;alt&quot;:&quot;UFO - Mens Boxer Shorts&quot;,&quot;height&quot;:1865,&quot;url&quot;:&quot;\/\/www.myoddballs.com\/cdn\/shop\/files\/UFOM.BOXERFRONT-min.png?v=1723730125&quot;,&quot;width&quot;:2000},&quot;image&quot;:&quot;\/\/www.myoddballs.com\/cdn\/shop\/files\/UFOM.BOXERFRONT-min.png?v=1723730125&quot;,&quot;handle&quot;:&quot;ufo-mens-boxer-shorts&quot;,&quot;requires_shipping&quot;:true,&quot;product_type&quot;:&quot;Boxer Shorts&quot;,&quot;product_title&quot;:&quot;UFO - Mens Boxer Shorts&quot;,&quot;product_description&quot;:&quot;\nUFO&nbsp;has arrived. Grab it on general sale now!\nChoose a breathable, comfortable and sporty look in our OddBalls underwear and loungewear range.\n\n\n\n\nStretch Cotton Boxers\nContrast Waistband\nOverlock Stitching\nOddBalls Collection branding\nFabric Content: Body: 95% Cotton, 5% Elastane\nCare: Machine wash at 30°C\n\n\n\nUnsure on sizing? Simply check out our size guide to find out your perfect fit.\n&quot;,&quot;variant_title&quot;:&quot;2XL&quot;,&quot;variant_options&quot;:[&quot;2XL&quot;],&quot;options_with_values&quot;:[{&quot;name&quot;:&quot;Size&quot;,&quot;value&quot;:&quot;2XL&quot;}],&quot;line_level_discount_allocations&quot;:[],&quot;line_level_total_discount&quot;:0}"> <div class="hidden absolute left-1/2 top-1/2 w-1/5 h-1/5 loader" style="transform: translate(-50%, -50%); z-index: 1;"> <svg class="loading-ele-outer" viewBox="25 25 50 50"><circle class="loading-ele-inner" cx="50" cy="50" r="20" fill="none" stroke-width="4"></circle></svg> </div> <!--- complete your look  ------> <!-------- ./complete your look ----------------------> <hr class="divider mt-3" aria-orientation="horizontal"> </div>
+            <div class="cart-item flex flex-col relative"> <div class="flex flex-col gap-y-4 px-3 py-6" style="max-width:98%;"> <div class="grid grid-cols-[auto_1fr] gap-6"> <a href="#"> <div class="w-[118px] h-[118px] object-cover border border-solid border-100 animate-mt" alt=""></div> </a> <div class="flex flex-col items-start justify-between flex-1"> <div class="flex flex-col w-full gap-y-1"> <a href="#"> <p class="animate-mt font-semibold text-base-primary typography typography--body-md">UFO - Mens Boxer Shorts - 2XL</p> </a> <div class="grid grid-cols-1 grid-flow-dense [&amp;>*]:col-start-1 gap-1"> <div class="animate-mt flex gap-x-1 w-max"> <p class="font-semibold opacity-0 text-base-primary transparent typography typography--body-sm">£12.00</p> <p class="!text-[#C8C8C8] font-semibold js-cart-item-comp-price line-through opacity-0 text-base-primary typography typography--body-sm">£12.00</p> </div> <p class="animate-mt text-[#7D7D7D] typography typography--body-sm w-max">2XL</p> </div> </div> <div class="flex flex-wrap justify-between items-center w-full gap-2 mt-3"> <div class="animate-mt flex gap-x-3 quantity"> <button class="border border-gray-200 button button--icon button--variant-ghost h-6 js-cart-minus-button opacity-0 rounded-full w-6"> <svg style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);" xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 16 16"><path d="M16 7.9999C16 8.29446 15.7761 8.53324 15.5 8.53324L0.500001 8.53322C0.223859 8.53322 3.25878e-07 8.29444 0 7.99989V7.99989C-3.25878e-07 7.70533 0.223856 7.46655 0.499998 7.46655L15.5 7.46657C15.7761 7.46657 16 7.70535 16 7.9999V7.9999Z" fill="#000"></path></svg> </button> <input class="border opacity-0 pointer-events-none rounded-full text-center w-14" type="text" name="quantity" value="1" readonly=""> <button class="border border-gray-200 button button--icon button--variant-ghost h-6 js-cart-plus-button opacity-0 rounded-full w-6"> <svg style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);" xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 18 18"><path d="M9 17V9M9 9V1M9 9H17M9 9H1" stroke="#000" stroke-width="1.33333" stroke-linecap="round"></path></svg> </button> </div> <button class="animate-mt border-gray-200 button button--icon button--variant-ghost js-remove-from-cart"> <svg style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);" xmlns="http://www.w3.org/2000/svg" width="16" class="icon" fill="currentColor" height="16" viewBox="0 0 17 16"><path d="M4.50065 12.6665C4.50065 13.0202 4.64113 13.3593 4.89118 13.6094C5.14122 13.8594 5.48036 13.9999 5.83398 13.9999H11.1673C11.5209 13.9999 11.8601 13.8594 12.1101 13.6094C12.3602 13.3593 12.5007 13.0202 12.5007 12.6665V4.66654H4.50065V12.6665ZM5.83398 5.99988H11.1673V12.6665H5.83398V5.99988ZM10.834 2.66654L10.1673 1.99988H6.83398L6.16732 2.66654H3.83398V3.99988H13.1673V2.66654H10.834Z" fill="currentColor"></path></svg> </button> </div> </div> </div> </div> <input class="item-json" type="hidden" value="{&quot;id&quot;:41124878352445,&quot;properties&quot;:{&quot;_Bundle&quot;:&quot;Missed Offer - Mens Boxers Bundle&quot;,&quot;_Upgrade&quot;:&quot;Why not add 2 more and save \u0026#163;6.00?&quot;},&quot;quantity&quot;:1,&quot;variant_id&quot;:41124878352445,&quot;key&quot;:&quot;41124878352445:960b6f84ae01f68470aa5ef219b85e9d&quot;,&quot;title&quot;:&quot;UFO - Mens Boxer Shorts - 2XL&quot;,&quot;price&quot;:1200,&quot;original_price&quot;:1200,&quot;discounted_price&quot;:1200,&quot;line_price&quot;:1200,&quot;original_line_price&quot;:1200,&quot;total_discount&quot;:0,&quot;discounts&quot;:[],&quot;sku&quot;:&quot;UFO-MBOXER-2XL&quot;,&quot;grams&quot;:120,&quot;vendor&quot;:&quot;OddBalls&quot;,&quot;taxable&quot;:true,&quot;product_id&quot;:7262215307325,&quot;product_has_only_default_variant&quot;:false,&quot;gift_card&quot;:false,&quot;final_price&quot;:1200,&quot;final_line_price&quot;:1200,&quot;url&quot;:&quot;\/products\/ufo-mens-boxer-shorts?variant=41124878352445&quot;,&quot;featured_image&quot;:{&quot;aspect_ratio&quot;:1.072,&quot;alt&quot;:&quot;UFO - Mens Boxer Shorts&quot;,&quot;height&quot;:1865,&quot;url&quot;:&quot;\/\/www.myoddballs.com\/cdn\/shop\/files\/UFOM.BOXERFRONT-min.png?v=1723730125&quot;,&quot;width&quot;:2000},&quot;image&quot;:&quot;\/\/www.myoddballs.com\/cdn\/shop\/files\/UFOM.BOXERFRONT-min.png?v=1723730125&quot;,&quot;handle&quot;:&quot;ufo-mens-boxer-shorts&quot;,&quot;requires_shipping&quot;:true,&quot;product_type&quot;:&quot;Boxer Shorts&quot;,&quot;product_title&quot;:&quot;UFO - Mens Boxer Shorts&quot;,&quot;product_description&quot;:&quot;\nUFO&nbsp;has arrived. Grab it on general sale now!\nChoose a breathable, comfortable and sporty look in our OddBalls underwear and loungewear range.\n\n\n\n\nStretch Cotton Boxers\nContrast Waistband\nOverlock Stitching\nOddBalls Collection branding\nFabric Content: Body: 95% Cotton, 5% Elastane\nCare: Machine wash at 30°C\n\n\n\nUnsure on sizing? Simply check out our size guide to find out your perfect fit.\n&quot;,&quot;variant_title&quot;:&quot;2XL&quot;,&quot;variant_options&quot;:[&quot;2XL&quot;],&quot;options_with_values&quot;:[{&quot;name&quot;:&quot;Size&quot;,&quot;value&quot;:&quot;2XL&quot;}],&quot;line_level_discount_allocations&quot;:[],&quot;line_level_total_discount&quot;:0}"> <div class="hidden absolute left-1/2 top-1/2 w-1/5 h-1/5 loader" style="transform: translate(-50%, -50%); z-index: 1;"> <svg class="loading-ele-outer" viewBox="25 25 50 50"><circle class="loading-ele-inner" cx="50" cy="50" r="20" fill="none" stroke-width="4"></circle></svg> </div> <!--- complete your look  ------> <!-------- ./complete your look ----------------------> <hr class="divider mt-3" aria-orientation="horizontal"> </div>
+            <div class="cart-item flex flex-col relative"> <div class="flex flex-col gap-y-4 px-3 py-6" style="max-width:98%;"> <div class="grid grid-cols-[auto_1fr] gap-6"> <a href="#"> <div class="w-[118px] h-[118px] object-cover border border-solid border-100 animate-mt" alt=""></div> </a> <div class="flex flex-col items-start justify-between flex-1"> <div class="flex flex-col w-full gap-y-1"> <a href="#"> <p class="animate-mt font-semibold text-base-primary typography typography--body-md">UFO - Mens Boxer Shorts - 2XL</p> </a> <div class="grid grid-cols-1 grid-flow-dense [&amp;>*]:col-start-1 gap-1"> <div class="animate-mt flex gap-x-1 w-max"> <p class="font-semibold opacity-0 text-base-primary transparent typography typography--body-sm">£12.00</p> <p class="!text-[#C8C8C8] font-semibold js-cart-item-comp-price line-through opacity-0 text-base-primary typography typography--body-sm">£12.00</p> </div> <p class="animate-mt text-[#7D7D7D] typography typography--body-sm w-max">2XL</p> </div> </div> <div class="flex flex-wrap justify-between items-center w-full gap-2 mt-3"> <div class="animate-mt flex gap-x-3 quantity"> <button class="border border-gray-200 button button--icon button--variant-ghost h-6 js-cart-minus-button opacity-0 rounded-full w-6"> <svg style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);" xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 16 16"><path d="M16 7.9999C16 8.29446 15.7761 8.53324 15.5 8.53324L0.500001 8.53322C0.223859 8.53322 3.25878e-07 8.29444 0 7.99989V7.99989C-3.25878e-07 7.70533 0.223856 7.46655 0.499998 7.46655L15.5 7.46657C15.7761 7.46657 16 7.70535 16 7.9999V7.9999Z" fill="#000"></path></svg> </button> <input class="border opacity-0 pointer-events-none rounded-full text-center w-14" type="text" name="quantity" value="1" readonly=""> <button class="border border-gray-200 button button--icon button--variant-ghost h-6 js-cart-plus-button opacity-0 rounded-full w-6"> <svg style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);" xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 18 18"><path d="M9 17V9M9 9V1M9 9H17M9 9H1" stroke="#000" stroke-width="1.33333" stroke-linecap="round"></path></svg> </button> </div> <button class="animate-mt border-gray-200 button button--icon button--variant-ghost js-remove-from-cart"> <svg style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);" xmlns="http://www.w3.org/2000/svg" width="16" class="icon" fill="currentColor" height="16" viewBox="0 0 17 16"><path d="M4.50065 12.6665C4.50065 13.0202 4.64113 13.3593 4.89118 13.6094C5.14122 13.8594 5.48036 13.9999 5.83398 13.9999H11.1673C11.5209 13.9999 11.8601 13.8594 12.1101 13.6094C12.3602 13.3593 12.5007 13.0202 12.5007 12.6665V4.66654H4.50065V12.6665ZM5.83398 5.99988H11.1673V12.6665H5.83398V5.99988ZM10.834 2.66654L10.1673 1.99988H6.83398L6.16732 2.66654H3.83398V3.99988H13.1673V2.66654H10.834Z" fill="currentColor"></path></svg> </button> </div> </div> </div> </div> <input class="item-json" type="hidden" value="{&quot;id&quot;:41124878352445,&quot;properties&quot;:{&quot;_Bundle&quot;:&quot;Missed Offer - Mens Boxers Bundle&quot;,&quot;_Upgrade&quot;:&quot;Why not add 2 more and save \u0026#163;6.00?&quot;},&quot;quantity&quot;:1,&quot;variant_id&quot;:41124878352445,&quot;key&quot;:&quot;41124878352445:960b6f84ae01f68470aa5ef219b85e9d&quot;,&quot;title&quot;:&quot;UFO - Mens Boxer Shorts - 2XL&quot;,&quot;price&quot;:1200,&quot;original_price&quot;:1200,&quot;discounted_price&quot;:1200,&quot;line_price&quot;:1200,&quot;original_line_price&quot;:1200,&quot;total_discount&quot;:0,&quot;discounts&quot;:[],&quot;sku&quot;:&quot;UFO-MBOXER-2XL&quot;,&quot;grams&quot;:120,&quot;vendor&quot;:&quot;OddBalls&quot;,&quot;taxable&quot;:true,&quot;product_id&quot;:7262215307325,&quot;product_has_only_default_variant&quot;:false,&quot;gift_card&quot;:false,&quot;final_price&quot;:1200,&quot;final_line_price&quot;:1200,&quot;url&quot;:&quot;\/products\/ufo-mens-boxer-shorts?variant=41124878352445&quot;,&quot;featured_image&quot;:{&quot;aspect_ratio&quot;:1.072,&quot;alt&quot;:&quot;UFO - Mens Boxer Shorts&quot;,&quot;height&quot;:1865,&quot;url&quot;:&quot;\/\/www.myoddballs.com\/cdn\/shop\/files\/UFOM.BOXERFRONT-min.png?v=1723730125&quot;,&quot;width&quot;:2000},&quot;image&quot;:&quot;\/\/www.myoddballs.com\/cdn\/shop\/files\/UFOM.BOXERFRONT-min.png?v=1723730125&quot;,&quot;handle&quot;:&quot;ufo-mens-boxer-shorts&quot;,&quot;requires_shipping&quot;:true,&quot;product_type&quot;:&quot;Boxer Shorts&quot;,&quot;product_title&quot;:&quot;UFO - Mens Boxer Shorts&quot;,&quot;product_description&quot;:&quot;\nUFO&nbsp;has arrived. Grab it on general sale now!\nChoose a breathable, comfortable and sporty look in our OddBalls underwear and loungewear range.\n\n\n\n\nStretch Cotton Boxers\nContrast Waistband\nOverlock Stitching\nOddBalls Collection branding\nFabric Content: Body: 95% Cotton, 5% Elastane\nCare: Machine wash at 30°C\n\n\n\nUnsure on sizing? Simply check out our size guide to find out your perfect fit.\n&quot;,&quot;variant_title&quot;:&quot;2XL&quot;,&quot;variant_options&quot;:[&quot;2XL&quot;],&quot;options_with_values&quot;:[{&quot;name&quot;:&quot;Size&quot;,&quot;value&quot;:&quot;2XL&quot;}],&quot;line_level_discount_allocations&quot;:[],&quot;line_level_total_discount&quot;:0}"> <div class="hidden absolute left-1/2 top-1/2 w-1/5 h-1/5 loader" style="transform: translate(-50%, -50%); z-index: 1;"> <svg class="loading-ele-outer" viewBox="25 25 50 50"><circle class="loading-ele-inner" cx="50" cy="50" r="20" fill="none" stroke-width="4"></circle></svg> </div> <!--- complete your look  ------> <!-------- ./complete your look ----------------------> <hr class="divider mt-3" aria-orientation="horizontal"> </div>
+          </div>
+          <div class="w-full justify-center items-center px-4 py-4 fixed bottom-0 bg-white border-slate-200 border-solid border-t">
+            <div id="checkout-button" class="button flex items-center bg-magenta-500 rounded-full text-white text-base font-semibold justify-center items-center flex py-3"><a href="{%- render 'ob-process-international-link', url: '/checkout' -%}" oldhref="/checkout" class="w-full bold h-full flex justify-center items-center">
+              {{ "ob_popup.checkout"  | t}}
+            </a></div>
+            <div id="continue-shopping-button" class="popup-safety-screen-button mt-1.5 -mb-2 fontsemibold text-center text-magenta-500">
+              {{ "ob_popup.continue_shopping_html"  | t}}
+            </div>
+          </div>
+        </div>
+    </div>
+      
+    <div id="upsell-popup" class="page-popup-content" style="display:none; z-index:1" data-upsell="on">
+    <div class="popup-safety-screen"></div>
+    <div class="popup-section relative">
+      <div id="upsell-header" class="popup-header items-center justify-center flex relative overflow-visable">
+        <div class="bg-gray-200 rounded-full flex items-center justify-center absolute -bottom-8 right-4 p-2 cursor-pointer cursor-pointer">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <line x1="4.93" y1="4.93" x2="19.07" y2="19.07" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> </line>
+                <line x1="19.07" y1="4.93" x2="4.93" y2="19.07" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> </line>
+              </svg>
+        </div>
+      </div>
+      <div id="upsell-popup-contents" class="popup-content">
+      </div>
+    </div>
+  </div>
+
+    </div>
+
+   {% if template.suffix == 'build-a-bundle-product' or template.suffix == 'summer-bundle' %}
+      <div id="easy-bundle-popup" class="page-popup-content" style="display:none; z-index:50" >
+      <div class="popup-safety-screen"></div>
+      <div class="popup-section relative">
+        <div id="easy-bundle-header" class="marujo text-2xl popup-header items-center justify-center flex relative overflow-visable uppercase"> Add To build a Bundle
+          <div class="bg-gray-200 rounded-full flex items-center justify-center absolute -bottom-1 right-4 p-2 cursor-pointer cursor-pointer">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <line x1="4.93" y1="4.93" x2="19.07" y2="19.07" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> </line>
+                  <line x1="19.07" y1="4.93" x2="4.93" y2="19.07" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> </line>
+                </svg>
+          </div>
+        </div>
+        <div id="easy-bundle-popup-contents" class="popup-content px-4">
+         Bundle Item Here
+        </div>
+      </div>
+    </div>
+  {% endif %}
+  </div>

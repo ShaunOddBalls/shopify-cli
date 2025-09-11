@@ -1,0 +1,501 @@
+<!--- section - quiz-q-slide.liquid -->
+<div id="quiz_{{ section.id }}" class="quiz-slide {{ section.settings.outer_wrapper_classes }}"  quiz-step="{{ section.settings.step_identifier }}{{ section.settings.quiz_step_number }}" quiz-dev="{{ section.settings.quiz_dev }}">
+  	{% if section.settings.background_image_mobile != blank or section.settings.background_image_desktop != blank %}
+  	<div>
+      <img class="block md:hidden h-full w-full inset-0 {{ section.settings.background_image_wrapper_classes }}" src="{{ section.settings.background_image_mobile | img_url: "800x"}}">
+      <img class="hidden md:block h-full w-full inset-0 {{ section.settings.background_image_wrapper_classes }}" src="{{ section.settings.background_image_desktop | img_url: "800x"}}">
+  	</div>
+  	{% endif %}
+    <div class="{{ section.settings.inner_wrapper_classes }}">
+      <div class="{{ section.settings.q_side_wrapper_classes }}">
+        {% if section.settings.title != blank %}
+            <h2 class="{{ section.settings.title_classes }}" data-question="{{ section.settings.title | strip_html }}">{{ section.settings.title }}</h2>
+        {% endif %}
+        {% if section.settings.subtitle != blank %}
+            <h3 class="{{ section.settings.subtitle_classes }}">{{ section.settings.subtitle }} </h3>
+        {% endif %}         
+        <div class="{{ section.settings.questions_wrapper_classes }}">
+        	{% for block in section.blocks %}
+          		{% if block.type == 'answer' %}
+          		<button class="js-answer {{ block.settings.wrapper_classes }}" data-answer="{{ block.settings.title | strip_html }}" data-collection="{{ block.settings.link_1.handle }}{% if block.settings.link_2 != blank %},{{ block.settings.link_2.handle }}{% endif %}{% if block.settings.link_3 != blank %},{{ block.settings.link_3.handle }}{% endif %}" next-slide="{{ block.settings.next_slide }}" quiz-progress="{{ block.settings.quiz_progress }}">
+                  {% if block.settings.title != blank or block.settings.subtitle != blank %}
+                  <div class="{{ block.settings.text_wrapper_classes}}">
+                  {% if block.settings.title != blank %}
+                  	<h3 class="{{ block.settings.title_classes }}">{{ block.settings.title }}</h3>
+                  {% endif %}
+                  {% if block.settings.subtitle != blank %}
+                  	<h4 class="{{ block.settings.subtitle_classes }}">{{ block.settings.subtitle }}</h4>
+                  {% endif %}
+                  </div>
+                  {% endif %}
+                  {% if block.settings.image_link != blank %}
+                  <div class="{{ block.settings.image_wrapper_classes }}">
+                    <img class="{{ block.settings.image_classes}}" src="{{ block.settings.image_link | img_url: "500x" }}">                    
+                    {% if block.settings.image_link_mobile != blank %}
+                    <img class="{{ block.settings.image_classes_mobile}}" src="{{ block.settings.image_link_mobile | img_url: "500x" }}">                    
+                    {% endif %}
+                  </div> 
+                  {% endif %}
+                  {% if block.settings.additional_subtitle != blank %}
+                  	<h4 class="{{ block.settings.additional_subtitle_classes }}">{{ block.settings.additional_subtitle }}</h4>
+                  {% endif %}
+          		</button>          
+          		{% elsif block.type == 'custom_html' %}
+          		<div class="{{ block.settings.wrapper_classes }}" data-collection="{{ block.settings.link_1 }}{% if block.settings.link_2 != blank %},{{ block.settings.link_2 }}{% endif %}{% if block.settings.link_3 != blank %},{{ block.settings.link_3 }}{% endif %}"> 
+          			{{ block.settings.custom_html }}
+          		</div>
+          		{% endif %}
+          	{% endfor %}
+        </div> 
+      </div>
+      <div class="{{ section.settings.image_side_wrapper_classes }}">
+      	{% if section.settings.image_side_image_mobile != blank %}
+        <img src="{{ section.settings.image_side_image_mobile | file_url }}" class="{{ section.settings.image_side_image_mobile_classes }}">
+        {% endif %}
+      	{% if section.settings.image_side_image_desktop != blank %}
+        <img src="{{ section.settings.image_side_image_desktop | file_url }}" class="{{ section.settings.image_side_image_desktop_classes }}">
+        {% endif %}        
+      </div>
+    </div>
+</div>
+
+<style>
+  
+  .slide-linear {
+  
+  	transition: transform linear 1s;
+  
+  }
+  
+  .max-w-80 {
+  
+  	max-width: 80%;  
+    
+  }
+  
+  .min-w-50 {
+  
+  	min-width: 60%;
+    
+  }
+  {%  comment %}
+  @media only screen and (max-width: 549px) {
+  
+    #quiz_page.quiz-inner {
+    
+    	top: 148px !important;
+      	height: calc(100vh - 148px) !important;
+    
+    }
+    
+    #quiz_page .progress-offset {
+    
+    	top: 92px !important;
+      	
+    }    
+  
+  }
+  
+  @media only screen and (min-width: 550px) and (max-width: 1023px) {
+  
+    #quiz_page.quiz-inner {
+    
+    	top: 164px !important;
+       	height: calc(100vh - 164px) !important;
+    }
+    
+    #quiz_page .progress-offset {
+    
+    	top: 108px !important;
+    
+    }    
+  
+  }    
+  
+  @media only screen and (min-width: 1024px) {
+  
+   #quiz_page.quiz-inner {
+    
+    	top: 225px !important;
+       	height: calc(100vh - 225px) !important;
+    }
+    
+    #quiz_page .progress-offset {
+    
+    	top: 169px !important;
+    
+    }
+  
+  } 
+  
+  @media screen and (max-width: 767px) {
+  
+    .max-w-80 {
+    
+    	max-width: 60%;
+      
+    }
+  
+  }
+  
+  
+  @media only screen and (max-width: 549px) {
+  
+    #quiz_page.js-sub-quiz.referral-landing.quiz-inner {
+    
+    	top: 60px !important;
+      	height: calc(100vh - 60px) !important;
+    
+    }
+    
+     #quiz_page.js-sub-quiz.referral-landing .progress-offset {
+    
+    	top: 60px !important;
+      	
+    }    
+  
+  }
+  
+  @media only screen and (min-width: 550px) and (max-width: 1023px) {
+  
+    #quiz_page.js-sub-quiz.referral-landing.quiz-inner {
+    
+    	top: 79px !important;
+       	height: calc(100vh - 79px) !important;
+    }
+    
+     #quiz_page.js-sub-quiz.referral-landing .progress-offset {
+    
+    	top: 79px !important;
+    
+    }    
+  
+  }    
+  
+  @media only screen and (min-width: 1024px) {
+  
+    #quiz_page.js-sub-quiz.referral-landing.quiz-inner {
+    
+    	top: 50px !important;
+       	height: calc(100vh - 50px) !important;
+    }
+    
+     #quiz_page.js-sub-quiz.referral-landing .progress-offset {
+    
+    	top: 50px !important;
+    
+    }
+  
+  } 
+  
+  
+  
+  @media screen and (max-width: 767px) {
+  
+    .max-w-80 {
+    
+    	max-width: 60%;
+      
+    }
+  
+  }    
+  {%  endcomment %}  
+  
+  
+    
+</style>
+
+{% schema %}
+  {
+  	"name": "Quiz Q Slide",
+	"class":"js-quiz-slide hidden",
+	"presets": [
+		{
+			"name": "Quiz Q Slide"
+		}
+	],
+  	"settings": [{
+  			"type": "text",
+  			"id": "outer_wrapper_classes",
+  			"label": "Outer Wrapper Classes",
+			"default": "relative z-10"
+  		},
+  		{
+  			"type": "text",
+  			"id": "inner_wrapper_classes",
+  			"label": "Inner Wrapper Classes",
+			"default": "max-w-7xl mx-auto grid md:grid-cols-2"
+  		},
+  		{
+  			"type": "text",
+  			"id": "background_image_wrapper_classes",
+  			"label": "Background Image Wrapper Classes",
+			"default": "absolute object-cover z-50"
+  		},
+  		{
+  			"type": "image_picker",
+  			"id": "background_image_mobile",
+  			"label": "Background Image Mobile"
+  		},
+  		{
+  			"type": "image_picker",
+  			"id": "background_image_desktop",
+  			"label": "Background Image Desktop"
+  		},
+  		{
+  			"type": "header",
+  			"content": "Question Side"
+  		},
+  		{
+  			"type": "text",
+  			"id": "q_side_wrapper_classes",
+  			"label": "Wrapper Classes",
+			"default": "z-100 relative"
+  		},
+  		{
+  			"type": "text",
+  			"id": "questions_wrapper_classes",
+  			"label": "Questions Wrapper Classes",
+			"default": "flex flex-col px-5 md:px-10 gap-y-4"
+  		},
+  		{
+  			"type": "text",
+  			"id": "title",
+  			"label": "Title"
+  		},
+  		{
+  			"type": "text",
+  			"id": "title_classes",
+  			"label": "Title Classes",
+			"default": "text-white text-4xl text-center"
+  		},
+  		{
+  			"type": "text",
+  			"id": "subtitle",
+  			"label": "Subtitle"
+  		},
+  		{
+  			"type": "text",
+  			"id": "subtitle_classes",
+  			"label": "Subtitle Classes",
+			"default": "text-white text-2xl text-center"
+  		},
+  		{
+  			"type": "header",
+  			"content": "Image Side"
+  		},
+  		{
+  			"type": "text",
+  			"id": "image_side_wrapper_classes",
+  			"label": "Wrapper Classes",
+			"default": "relative order-first md:order-last"
+  		},
+  		{
+  			"type": "text",
+  			"id": "image_side_image_mobile",
+  			"label": "Image Mobile Name"
+  		},
+  		{
+  			"type": "text",
+  			"id": "image_side_image_mobile_classes",
+  			"label": "Image Mobile Classes",
+			"default": "inset-0 h-full w-full absolute z-100"
+  		},
+  		{
+  			"type": "text",
+  			"id": "image_side_image_desktop",
+  			"label": "Image Desktop name"
+  		},
+  		{
+  			"type": "text",
+  			"id": "image_side_image_desktop_classes",
+  			"label": "Image Desktop Classes",
+			"default": "inset-0 h-full w-full absolute z-100"
+  		},
+        {
+            "type": "header",
+            "content": "Dev Work Only"
+        },
+        {
+  			"type": "text",
+  			"id": "quiz_dev",
+  			"label": "Quiz Dev Attribute",
+			"info": "Used to identify each quiz slide in dev tools - use unique identifier."
+  		} 
+  	],
+	"blocks": [
+      {
+        "type": "answer",
+        "name": "Answer",
+        "settings": [
+         	{
+				"id": "wrapper_classes",
+				"type": "text",
+				"label": "Wrapper Classes",
+				"default": "bg-white rounded-lg px-5 py-3 grid grid-cols-2"
+			},
+            {
+                "type": "text",
+                "id": "text_wrapper_classes",
+                "label": "Text Wrapper Classes",
+				"default": "flex flex-col justify-center"
+            },           
+            {
+                "type": "range",
+                "id": "next_slide",
+                "min": 0,
+                "max": 20,
+                "step": 1,
+                "label": "Next Slide",
+                "default": 0
+            },
+            {
+              "type": "range",
+              "id": "quiz_progress",
+              "min": 10,
+              "max": 100,
+              "step": 10,
+              "label": "Quiz Progress",
+              "default": 10
+            },
+            {
+                "type": "text",
+                "id": "title",
+                "label": "Title"
+            },
+            {
+                "type": "text",
+                "id": "title_classes",
+                "label": "Title Classes",
+				"default": "text-3xl"
+            },
+            {
+                "type": "text",
+                "id": "subtitle",
+                "label": "Subtitle"
+            },
+            {
+                "type": "text",
+                "id": "subtitle_classes",
+                "label": "Subtitle Classes",
+				"default": "text-sm"
+            },
+            {
+                "type": "text",
+                "id": "additional_subtitle",
+                "label": "Additional Subtitle"
+            },
+            {
+                "type": "text",
+                "id": "additional_subtitle_classes",
+                "label": "Additional Subtitle Classes",
+				"default": "text-sm"
+            },          
+            {
+                "type": "image_picker",
+                "id": "image_link",
+                "label": "Image"
+            },
+            {
+                "type": "text",
+                "id": "image_classes",
+                "label": "Image Classes",
+				"default": "w-1/2"
+            },
+            {
+                "type": "image_picker",
+                "id": "image_link_mobile",
+                "label": "Image Mobile (Optional)"
+            },
+            {
+                "type": "text",
+                "id": "image_classes_mobile",
+                "label": "Image Classes Mobile (Optional)",
+				"default": "w-1/2"
+            },			
+            {
+                "type": "text",
+                "id": "image_wrapper_classes",
+                "label": "Image Wrapper Classes",
+				"default": "justify-end flex w-full"
+            },
+			{
+				"type": "header",
+				"content": "Collection Links"
+			},
+            {
+                "type": "collection",
+                "id": "link_1",
+                "label": "Collection 1"
+            },
+            {
+                "type": "collection",
+                "id": "link_2",
+                "label": "Collection 2"
+            },
+            {
+                "type": "collection",
+                "id": "link_3",
+                "label": "Collection 3"
+            }
+		]
+	 },
+     {
+      "type": "custom_html",
+      "name": "Custom HTML",
+      "settings": [
+        {
+            "id": "wrapper_classes",
+            "type": "text",
+            "label": "Wrapper Classes",
+            "default": "bg-white rounded-lg px-5 py-3 grid grid-cols-2"
+        },
+        {
+		 	"type": "html",
+			"id": "custom_html",
+			"label": "Custom HTML"
+		},
+        {
+            "type": "range",
+            "id": "next_slide",
+            "min": 1,
+            "max": 20,
+            "step": 1,
+            "label": "Next Slide",
+            "default": 1
+        },
+        {
+          "type": "range",
+          "id": "quiz_progress",
+          "min": 10,
+          "max": 100,
+          "step": 10,
+          "label": "Quiz Progress",
+          "default": 10
+        },
+        {
+            "type": "collection",
+            "id": "link_1",
+            "label": "Collection 1"
+        },
+        {
+            "type": "collection",
+            "id": "link_2",
+            "label": "Collection 2"
+        },
+        {
+            "type": "collection",
+            "id": "link_3",
+            "label": "Collection 3"
+        }
+	]
+  }
+]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

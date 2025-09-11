@@ -1,0 +1,713 @@
+<style>
+  
+  .default-tab {
+    
+   background-color: {{ section.settings.default_tab_bg_colour }}; 
+   color: {{ section.settings.default_tab_text_colour }};
+    
+  }  
+  
+  .default-tab:hover {
+    
+   background-color: {{ section.settings.default_tab_bg_hover_colour }}; 
+   color: {{ section.settings.default_tab_text_hover_colour }};
+    
+  }
+  
+  a.selected-tab.default-tab:hover,
+  a.selected-tab {
+    
+   background-color: {{ section.settings.selected_tab_bg_colour }}; 
+   color: {{ section.settings.selected_tab_text_colour }};
+    
+  }
+  
+  
+  
+</style>
+
+{% include 'include-set-current-country' %}
+{% include 'include-country-ok-to-proceed', thingObj:section %}  
+{% if country_ok_to_proceed == 'yes' %}
+<div class="js-tabs-and-blocks-wrapper {{ section.settings.outer_wrapper_classes }}" {% if section.settings.outer_wrapper_attr != blank %} {{ section.settings.outer_wrapper_attr }} {% endif %}>
+	<div class="{{ section.settings.inner_wrapper_classes }}">
+      	{% if section.settings.title != blank or section.settings.description != blank %}
+		<div class="{{ section.settings.header_wrapper_classes }}">
+          	{% if section.settings.title != blank %}
+			<h1 class="{{ section.settings.title_classes }}">{{ section.settings.title }}</h1>
+          	{% endif %}
+          	{% if section.settings.description != blank %}
+			<p class="{{ section.settings.description_classes }}">
+				{{ section.settings.description }}
+			</p>
+            {% endif %}
+            {% if section.settings.html != blank %}
+            <div class="{{ section.settings.html_wrapper_classes }}">
+                {{ section.settings.html }}
+            </div>
+            {% endif %}         
+		</div>
+      	{% endif %}
+
+ 
+          {% assign all_tab_dropdown = '' %}
+          {% assign all_tab = '' %}
+          {% assign all_tab_content = '' %}
+		  {% assign tab_count = 0 %}
+      	  {% assign active_tab_id = '' %}
+      	  {% assign section_handle = 'tailwind-tabs-and-blocks' %}
+
+          {% for block in section.blocks %}
+
+           {% include 'include-country-ok-to-proceed', thingObj:block %}      
+
+            
+		  	{% assign tab_content_hidden = 'hidden' %} {% comment %} have tab content hidden by default {% endcomment %}
+      		{% assign active_tab = '' %} {% comment %} have active tab blank by default {% endcomment %}
+      		{% assign active_state = '' %}
+      
+            {% if block.type == 'tab' %}
+
+      			{% if block.settings.default_tab  %} {% comment %} Check if the tab block 'default tab' box is ticked {% endcomment %}   
+      				{% assign active_tab = 'selected' %} {% comment %} Assign active tab as active instead of blank {% endcomment %}
+            		{% assign active_tab_id =  block.settings.tab_id %} {% comment %} Assign active_tab_id to the tab_id of the tab block, which will match the content block identifier {% endcomment %}
+     			{% endif %}
+      
+              {% capture tab_dropdown %}
+    			{% assign tab_count = tab_count | plus: 1 %}
+				{% if block.settings.title != blank %}
+          			<option {{ active_tab }} data-block-class="tab_{{ section_handle }}{{ block.settings.tab_id }}" class="js-tab {{ active_tab }}-tab">{{ block.settings.title }}</option>
+          		{% endif %}
+              {% endcapture %}
+
+              {% assign all_tab_dropdown = all_tab_dropdown | append: tab_dropdown %}
+              {% capture the_tab %}
+
+          		<a id="{{ block.settings.tab_id }}" href="javascript://" data-block-class="tab_{{ section_handle }}{{ block.settings.tab_id }}" class="js-tab {{ active_tab }}-tab default-tab {{ block.settings.block_wrapper_classes }}"  {{ block.shopify_attributes }}>
+                  {% if block.settings.block_extra_field != blank %}
+                  <span class="{{ block.settings.block_extra_field_classes }}">{{ block.settings.block_extra_field }}</span>
+                  {% endif %}
+                  <span class="{{ block.settings.block_title_classes }}">{{ block.settings.title }}</span>
+          		</a>
+      			
+              {% endcapture %}
+              {% assign all_tabs = all_tabs | append: the_tab %}
+            {% else %}
+              {% capture tab_content %}   
+
+                {% if country_ok_to_proceed == 'yes' %}
+        			{% if block.settings.tab_identifier == active_tab_id %}
+        				{% assign tab_content_hidden = "" %} {% comment %} Clear tab_content_hidden to remove hidden class from the content wrapper {% endcomment %}
+        			{% endif %}
+  
+                  {% if block.type == 'content-multi-use-block' %}
+                    {%  assign tab_identifiers_arr =  block.settings.tab_identifier | split: ','  %}
+                    {%  capture  tab_identifiers %}{% for identifier in tab_identifiers_arr %} tab_{{ section_handle }}{{ identifier }}{% endfor %} {% endcapture %}
+  					{% if block.settings.block_wrapper_classes != blank %}{% assign block_wrapper_classes = block.settings.block_wrapper_classes %}{% else %}{% assign block_wrapper_classes = section.settings.block_wrapper_classes %}{% endif %}
+  					{% if block.settings.block_image_desktop_classes != blank %}{% assign block_image_desktop_classes = block.settings.block_image_desktop_classes %}{% else %}{% assign block_image_desktop_classes = section.settings.block_image_desktop_classes %}{% endif %}
+  					{% if block.settings.block_image_mobile_classes != blank %}{% assign block_image_mobile_classes = block.settings.block_image_mobile_classes %}{% else %}{% assign block_image_mobile_classes = section.settings.block_image_mobile_classes %}{% endif %}
+  					{% if block.settings.block_text_wrapper_classes != blank %}{% assign block_text_wrapper_classes = block.settings.block_text_wrapper_classes %}{% else %}{% assign block_text_wrapper_classes = section.settings.block_text_wrapper_classes %}{% endif %}
+  					{% if block.settings.block_title_classes != blank %}{% assign block_title_classes = block.settings.block_title_classes %}{% else %}{% assign block_title_classes = section.settings.block_title_classes %}{% endif %}
+  
+                    <div id="block_{{ section_handle }}_{{block.id}}" class="js-content tab_{{ section_handle }}{{ tab_identifiers }} {{ tab_content_hidden }} {{ block_wrapper_classes }}" data-type="{{ block.type }}" {{ block.shopify_attributes }}>
+                      {% if block.settings.block_link != blank %}
+                        <a class="h-full w-full inset-0 absolute z-10 test-class" href="{{ block.settings.block_link }}"></a>
+                      {% endif %}
+                      {% if block.settings.block_image_desktop != blank %}
+  
+                        {% assign id = block.id %}
+                        {% assign section_id = id | append: '-' | append: section.id %}
+                        {% assign slide_image_desktop = block.settings.block_image_desktop %}
+                        {% assign slide_image_desktop_classes = section.settings.block_image_desktop_classes %}
+                        {% render 'lazy-image', image: slide_image_desktop, id: section_id, class: slide_image_desktop_classes,  sizes: '100vw' %}
+  
+                      {% endif %}
+                      {% if block.settings.block_image_mobile != blank %}
+                        {% assign id = block.id %}
+                        {% assign section_id = id | append: '-' | append: section.id %}
+                        {% assign slide_image_mobile = block.settings.block_image_mobile %}
+                        {% assign slide_image_mobile_classes = section.settings.block_image_mobile_classes %}
+                        {% render 'lazy-image', image: slide_image_mobile, id: section_id, class: slide_image_mobile_classes,  sizes: '100vw' %}
+  
+                      {% elsif block.settings.block_image_desktop != blank %}
+                        {% assign id = block.id %}
+                        {% assign section_id = id | append: '-' | append: section.id %}
+                        {% assign slide_image_desktop = block.settings.block_image_desktop %}
+                        {% assign slide_image_mobile_classes = section.settings.block_image_mobile_classes %}
+                        {% render 'lazy-image', image: slide_image_desktop, id: section_id, class: slide_image_mobile_classes,  sizes: '100vw' %}
+                        
+                      {% endif %}
+                      <div class="{{ block_text_wrapper_classes }}">
+                        {% if block.settings.title != blank %}
+                            <h3 class="{{ block_title_classes }}">{{ block.settings.title }}</h3>
+                        {% endif %}
+                        {% if block.settings.description != blank %}               
+                            <p class="{% if block.settings.description_as_label != blank %} {{ block.settings.description_as_label }} {% else %} {{ block.settings.block_description_classes }} {% endif %}">{{ block.settings.description }}</p>
+                        {% endif %}
+                        {% if block.settings.additional_info_field != blank or block.settings.show_product_number %}
+                        	  <div class="{{ block.settings.additional_info_field_classes }}">
+                              {% if block.settings.show_product_number %}
+                                {% assign collection_handle = block.settings.block_link | replace: '/collections/','' %}
+                                {% if collections[collection_handle].products != blank %}
+                                	<span class="font-semibold">{{ collections[collection_handle].all_products_count }} Products</span>
+                                {% endif %}
+                              {% else %}
+                              	{{ block.settings.additional_info_field }}
+                              {% endif %}
+                        	  </div>
+                        {% endif %}
+                        {% if block.settings.block_label_text != blank %}
+  
+                          {% if block.settings.use_label_settings %}
+                            {% assign label_bg_colour = block.settings.block_color %}
+                            {% assign label_text_colour = block.settings.block_text_color %}
+                            {% assign label_border_colour = block.settings.block_border_color %}
+                          {% else %}
+                            {% assign label_bg_colour = section.settings.default_label_bg_colour %}
+                            {% assign label_text_colour = section.settings.default_label_text_colour %}
+                            {% assign label_border_colour = section.settings.default_label_border_colour %}                          
+                          {% endif %}
+  
+  
+  
+  
+                          {% comment %}
+                          {% if block.settings.block_text_color != blank %}
+                            {% assign label_text_colour = block.settings.block_text_color %}
+                          {% endif %}                      
+                          {% if block.settings.block_color != blank %}
+                            {% assign label_colour = block.settings.block_color %}
+                          {% endif %}
+                          {% if block.settings.block_border_color != blank %}
+                            {% assign label_border = '1px solid ' %}
+                            {% assign label_border_colour = block.settings.block_border_color %}
+                          {% endif %}
+                          {% endcomment %}
+     
+                          <span class="rounded-md text-xs px-1 py-0.5" style="color:{{ label_text_colour }}; background:{{ label_bg_colour }}; border: 1px solid {{ label_border_colour }};">
+                            {{ block.settings.block_label_text }}
+                          </span>
+                        {% endif %}
+                        {% if block.settings.button_text != blank %}
+                        <div class="{{ block.settings.text_button }}">
+                          <a class="{{ block.settings.link_classes }}" href="{{ block.settings.button_link }}">{{ block.settings.button_text }}</a>
+                        </div>
+                        {% endif %}
+                      </div>
+                    </div>       
+  
+                  {% elsif block.type == 'content-multi-use-img-blk' %}
+                    {%  assign tab_identifiers_arr =  block.settings.tab_identifier | split: ','  %}
+                    {%  capture  tab_identifiers %}{% for identifier in tab_identifiers_arr %} tab_{{ section_handle }}{{ identifier }}{% endfor %} {% endcapture %}
+                    <div id="block_{{ section_handle }}_{{block.id}}" class="{{ tab_identifiers }} js-content {{ tab_content_hidden }}  {{ block.settings.block_wrapper_classes }}" data-type="{{ block.type }}" {{ block.shopify_attributes }}>
+                        {% if block.settings.block_label_text != blank %}
+                          <span class="rounded-md absolute top-3 right-3 text-xs px-1 py-0.5">
+                            {{ block.settings.block_label_text }}
+                          </span>
+                        {% endif %}
+                        {% if block.settings.block_link != blank %}
+                            <a class="h-full w-full {{ block.settings.link_classes }}" href="{{ block.settings.block_link }}"></a>
+                        {% endif %}
+                        {% if block.settings.block_image_desktop != blank %}
+                            <img class="{{ block.settings.block_image_desktop_classes }}" src="{{ block.settings.block_image_desktop | image_url }}">
+                        {% endif %}
+                        {% if block.settings.block_image_mobile != blank %}
+                            <img class="{{ block.settings.block_image_mobile_classes }}" src="{{ block.settings.block_image_mobile | image_url }}">
+                        {% endif %}
+                        {% if block.settings.block_video_desktop != blank and block.settings.block_video_mobile != blank %}
+                            <div class="video-replace-me {{ block.settings.video_wrap_classes }}" data-src-mobile="{{ block.settings.block_video_mobile | file_url }}" data-src="{{ block.settings.block_video_desktop | file_url }}">                    
+                                <video class="object-cover h-full w-full" src=""><source src="" type="video/mp4"></video>             	     	
+                            </div>
+                        {% endif %}
+                            <div class="{{ block.settings.svg_wrap }}"> <!-- svg -->
+                        {% if block.settings.block_svg_desktop != blank %}
+                            <img class="{{ block.settings.block_svg_desktop_classes }}" src="{{ block.settings.block_svg_desktop | file_url }}">
+                        {% endif %}
+                        {% if block.settings.block_svg_mobile != blank %}
+                            <img class="{{ block.settings.block_svg_mobile_classes }}" src="{{ block.settings.block_svg_mobile | file_url }}">                       
+                        {% endif %}         
+                            </div>
+                    </div>      
+  
+                  {% endif %}
+                {% endif %}
+              {% endcapture %}
+              {% assign all_tab_content = all_tab_content | append: tab_content %}
+            {% endif %}
+
+          {% endfor %}
+
+      	{% if section.settings.option_menu_selected %}
+     	<div class="col-span-12 md:hidden w-full">
+          <select id="location" name="location" class="mt-6 block w-full pl-3 pr-10 py-2 text-base btn-shadow-lg border-2 border-black border-solid focus:ring-magenta-200 focus:border-black sm:text-sm rounded-md">
+			{{ all_tab_dropdown }}
+          </select>
+        </div>
+       {% endif %}
+
+      
+      
+		<div class="js-all-tabs {{ section.settings.all_tabs_wrapper_classes}} ">
+        	{{ all_tabs }}
+      	</div>
+
+
+		<div class="js-all-content {{ section.settings.content_wrapper_classes }}">
+        	{{ all_tab_content }}
+      	</div>
+     
+
+          
+    </div>
+</div>
+{% endif %}
+{%  comment %}
+<script>
+  
+  $(document).ready(function() {
+  
+    if($('[data-swapme="[data-swapme-target]"]').length) {
+      	
+      console.log('inside first if');
+    
+       if($('[data-swapme-target]').length) {
+         
+         console.log('inside second if');
+      
+         $( '[data-swapme="[data-swapme-target]"] [data-type="content-multi-use-block"]' ).each(function( index ) {
+
+           console.log('inside for loop');
+           
+           //$(this).appendTo('[data-swapme-target] .js-all-content');
+                   
+          });         
+         
+    	}
+       
+    };
+  
+  
+  });
+  
+</script>
+{%  endcomment %}
+
+{% schema %}
+  {
+    "name": "Shop By Selector",
+	"presets": [
+      {
+        "name": "Shop By Selector"
+      }
+  	],
+	"settings": [
+      {
+          "type": "html",
+          "id": "country_iso",
+          "label": "Only display if current iso is (* for all)",
+          "info": "Comma seperated",
+          "default":"*"
+      },       
+      {
+        "id": "outer_wrapper_attr",
+        "type": "text",
+        "label": "Outer wrapper attribute",
+      	"default": "data-attribute for linking section content"
+      },      
+	  {
+         "type": "header",
+      	 "content": "Wrappers"
+      },
+      {
+        "id": "outer_wrapper_classes",
+        "type": "text",
+        "label": "Outer wrapper classes",
+      	"default": "2xl:mx-auto 2xl:container py-12 lg:px-20 md:px-6 px-4"
+      },      
+      {
+        "id": "inner_wrapper_classes",
+        "type": "text",
+        "label": "Inner wrapper classes",
+      	"default": "grid grid-cols-12 gap-6"
+      },
+	  {
+      	"id": "header_wrapper_classes",
+      	"type": "text",
+      	"label": "Header wrapper classes",
+        "default": "col-span-12 flex flex-col justify-center items-center text-center space-y-4"
+      },
+	  {
+		"id": "all_tabs_wrapper_classes",
+		"type": "text",
+		"label": "Tabs bar wrapper classes",
+		"default": "hidden col-span-12 md:block md:grid grid-cols-2 sm:grid-cols-3 w-full lg:grid-cols-4 xl:grid-cols-5 justify-items-around gap-x-6 gap-y-6 xl:gap-y-0 xl:gap-x-8 mt-10"
+	  },
+	  {
+      	"id": "content_wrapper_classes",
+      	"type": "text",
+      	"label": "Content wrapper classes",
+        "default": "col-span-12 mt-16 grid grid-cols-12 space-y-8",
+		"info": "Default grid - change grid cols and gap here, or display type."
+      },
+	  {
+		"type": "checkbox",
+		"id": "option_menu_selected",
+		"label": "Mobile dropdown menu needed?",
+		"info": "Check this if mobile dropdown menu is required"
+	  },
+      {
+      	"type": "header",
+      	"content": "Block Wrapper Default Classes"
+      },
+	  {
+      	"id": "block_wrapper_classes",
+      	"type": "text",
+      	"label": "Block wrapper classes"
+	  },
+	  {
+      	"id": "block_image_desktop_classes",
+      	"type": "text",
+      	"label": "Block image desktop classes"
+	  },
+	  {
+      	"id": "block_image_mobile_classes",
+      	"type": "text",
+      	"label": "Block mobile mobile classes"
+	  },
+	  {
+      	"id": "block_text_wrapper_classes",
+      	"type": "text",
+      	"label": "Block text wrapper classes"
+	  },
+	  {
+      	"id": "block_title_classes",
+      	"type": "text",
+      	"label": "Block title classes"
+	  },
+      {
+      	"type": "header",
+      	"content": "Label Defaults"
+      },      
+      {
+      	"id": "default_label_bg_colour",
+      	"type": "color",
+      	"label": "Label BG Colour"
+      },
+      {
+      	"id": "default_label_text_colour",
+      	"type": "color",
+      	"label": "Label Text Colour"
+      },
+      {
+      	"id": "default_label_border_colour",
+      	"type": "color",
+      	"label": "Label Border Colour"
+      },      
+      {
+      	"type": "header",
+      	"content": "Title"
+      },
+      {
+        "id": "title",
+        "type": "text",
+        "label": "Title"		
+      },
+      {
+      	"id": "title_classes",
+      	"type": "text",
+      	"label": "Title classes",
+      	"default": "text-3xl lg:text-4xl font-semibold  leading-9 md:leading-7 lg:leading-9 text-gray-800"
+      },
+      {
+      	"type": "header",
+      	"content": "Description"
+      },      
+      {
+        "id": "description",
+        "type": "text",
+        "label": "Description"
+      },
+      {
+      	"id": "description_classes",
+      	"type": "text",
+      	"label": "Description classes",
+      	"default": "text-base leading-6 text-center text-gray-600 w-full md:w-10/12"
+      },
+      {
+        "id": "html",
+        "type": "html",
+        "label": "HTML code - e.g. TP Widget"
+      },
+      {
+      	"id": "html_wrapper_classes",
+      	"type": "text",
+      	"label": "HTML classes"
+      },
+      {
+        "type": "header",
+        "content": "Tab Colours"
+      },
+      {
+      	"id": "default_tab_bg_colour",
+      	"type": "color",
+      	"label": "Default Tab BG Colour"
+      },
+      {
+      	"id": "default_tab_text_colour",
+      	"type": "color",
+      	"label": "Default Tab Text Colour"
+      },
+      {
+      	"id": "default_tab_bg_hover_colour",
+      	"type": "color",
+      	"label": "Default Tab BG Hover Colour"
+      },
+      {
+      	"id": "default_tab_text_hover_colour",
+      	"type": "color",
+      	"label": "Default Tab Text Hover Colour"
+      },
+      {
+      	"id": "selected_tab_bg_colour",
+      	"type": "color",
+      	"label": "Selected Tab BG Colour"
+      },
+      {
+      	"id": "selected_tab_text_colour",
+      	"type": "color",
+      	"label": "Selected Tab Text Colour"
+      } 
+	],
+	"blocks": [
+      {
+        "type": "tab",
+        "name": "Tab",
+        "settings": [
+         	{
+				"id": "tab_id",
+				"type": "text",
+				"label": "Tab id"
+			},
+			{
+				"id": "default_tab",
+				"type": "checkbox",
+				"label": "Check if default tab"
+			},
+			{
+				"type": "header",
+				"content": "Title"
+			},
+         	{
+				"id": "title",
+				"type": "text",
+				"label": "Tab title"
+			},
+			{
+				"id": "block_title_classes",
+				"type": "text",	
+				"label": "Title classes"
+			},		
+			{
+				"type": "header",
+				"content": "Additional Field"
+			},
+         	{
+				"id": "block_extra_field",
+				"type": "html",
+				"label": "Extra field",
+				"info": "Use this for any content additional to the title"
+			},
+			{
+				"id": "block_extra_field_classes",
+				"type": "text",	
+				"label": "Extra field classes"
+			},
+			{
+				"id": "block_wrapper_classes",
+				"type": "text",	
+				"label": "Block wrapper classes",
+				"default": "flex justify-center items-center flex-col text-center py-5 px-2 flex justify-center items-center flex-col text-center py-5 px-2 btn-shadow-lg border-2 border-solid border-black rounded-md hover:bg-magenta-200 transition-colors duration-200"
+			}
+		]
+	  },
+      {
+        "type": "content-multi-use-block",
+        "name": "Content Multi Use",
+        "settings": [
+         	{
+				"id": "tab_identifier",
+				"type": "text",
+				"label": "Linked to tab (comma seperated)",
+				"info": "Enter the id(s) of the tab it links with"
+			},
+            {
+                "type": "html",
+                "id": "country_iso",
+                "label": "Only display if current iso is (* for all)",
+                "info": "Comma seperated",
+                "default":"*"
+            },          
+			{
+				"id": "block_wrapper_classes",
+				"type": "text",
+				"label": "Block wrapper classes",
+				"info": "col-span-6 sm:col-span-4 md:col-span-3 flex justify-start items-start flex-col text-left w-full"
+			},
+            {
+                "type": "url",
+                "id": "block_link",
+                "label": "Block link"
+            },
+            {
+              "type": "header",
+              "content": "Label"
+            },
+            {
+              "type": "checkbox",
+              "id": "use_label_settings",
+              "label": "Override Label Colours"
+            },
+            {
+              "id": "block_label_text",
+              "type": "text",
+              "label": "Label Text"
+            },
+            {
+              "id": "block_text_color",
+              "type": "color",
+              "label": "Label Text Colour"
+            },           
+            {
+              "id": "block_color",
+              "type": "color",
+              "label": "Label Colour"
+            },          
+            {
+              "id": "block_border_color",
+              "type": "color",
+              "label": "Label Border Colour"
+            }, 
+            {
+              "type": "header",
+              "content": "Images"
+            },
+            {
+              "id": "block_image_desktop",
+              "type": "image_picker",
+              "label": "desktop image (optional)"
+            },
+            {
+              "id": "block_image_desktop_classes",
+              "type": "text",
+              "label": "Desktop image classes",
+              "info": "eg. object-cover h-full w-full hidden sm:block"
+            },
+            {
+              "id": "block_image_mobile",
+              "type": "image_picker",
+              "label": "mobile image (optional)"
+            },
+            {
+              "id": "block_image_mobile_classes",
+              "type": "text",
+              "label": "Mobile image classes",
+              "info": "eg. object-cover h-full w-full block sm:hidden"
+            },
+			{
+				"id": "text_wrapper_classes",
+			 	"type": "text",
+				"label": "Text wrapper classes",
+				"info": "Wrapper of the title and description"
+			},
+			{
+				"type": "header",
+				"content": "Title"
+			},
+         	{
+				"id": "title",
+				"type": "text",
+				"label": "Block title"
+			},
+         	{
+				"id": "block_title_classes",
+				"type": "text",
+				"label": "Block title classes"
+			},
+			{
+				"type": "header",
+				"content": "Description"
+			},
+         	{
+				"id": "description",
+				"type": "text",
+				"label": "Block description"
+			},
+         	{
+				"id": "block_description_classes",
+				"type": "text",
+				"label": "Block description classes"
+			},
+			{
+				"id": "description_as_label",
+				"type": "text",
+				"label": "Classes for label use",
+				"info": "Enter classes here only if a label is required in the block"
+			},
+			{
+				"type": "header",
+				"content": "Addtional info field"
+			},
+			{
+				"id": "show_product_number",
+				"type": "checkbox",
+				"label": "Show number of products in the linked collection"
+			},
+			{
+				"id": "additional_info_field",
+				"type": "text",
+				"label": "Content",
+				"info": "Enter anything required other than options above "
+			},
+			{
+				"id": "additional_info_field_classes",
+				"type": "text",
+				"label": "Field classes"
+			},
+			{
+				"type": "header",
+				"content": "Button"
+			},
+         	{
+				"id": "button_link",
+				"type": "url",
+				"label": "Button link"
+			},
+         	{
+				"id": "button_text",
+				"type": "text",
+				"label": "Button text"
+			},
+         	{
+				"id": "link_classes",
+				"type": "text",
+				"label": "Button classes"
+			},
+          {
+            "type": "header",
+            "content": "add to call to action nav settings"
+          },
+           {
+				"id": "add-to-nav",
+				"type": "checkbox",
+				"label": "add links to call to action nav links"
+			}
+			
+		]
+	  }
+	]
+  }
+{% endschema %}
+{% stylesheet %}
+{% endstylesheet %}
+{% javascript %}
+{% endjavascript %}

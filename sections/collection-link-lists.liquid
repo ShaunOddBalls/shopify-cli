@@ -1,0 +1,305 @@
+{% for block in section.blocks %}
+  {% assign nav_links_lists = shop.metaobjects.collection_link_list[block.settings.metaobject] %}
+  {% assign nav_links = nav_links_lists.link_list_metaobjects %}
+
+  {% comment %} Calculate slide widths for responsive layout {% endcomment %}
+  {% assign mobile_visible = section.settings.mobile_slides %}
+  {% assign desktop_visible = section.settings.desktop_slides %}
+  {% assign mobile_slide_width = 100 | divided_by: mobile_visible %}
+  {% assign desktop_slide_width = 100 | divided_by: desktop_visible %}
+
+  {% comment %} Calculate centering offset for desktop {% endcomment %}
+  {% assign total_slides = nav_links.value.size %}
+
+  {% comment %} Center if we have fewer slides than desktop_slides {% endcomment %}
+  {% if total_slides <= desktop_visible %}
+    {% comment %} Calculate slide width percentage {% endcomment %}
+    {% assign slide_width_percent = 100 | divided_by: desktop_visible %}
+    {% assign total_slides_width_percent = slide_width_percent | times: total_slides %}
+    {% assign centering_offset_percent = 100 | minus: total_slides_width_percent | divided_by: 2 %}
+  {% else %}
+    {% assign centering_offset_percent = 0 %}
+  {% endif %}
+
+  {% assign show_on_all_markets = nav_links_lists.show_on_all_markets %}
+  {% assign markets_to_show = nav_links_lists.markets_to_show_on %}
+  {% assign markets_to_show = markets_to_show | replace: '[', '' | replace: ']', '' | replace: '"', '' %}
+  {% assign markets_to_show = markets_to_show | split: ',' %}
+  {% assign markets_to_exclude = nav_links_lists.markets_to_exclude_from %}
+  {% assign markets_to_exclude = markets_to_exclude | replace: '[', '' | replace: ']', '' | replace: '"', '' %}
+  {% assign markets_to_exclude = markets_to_exclude | split: ',' %}
+  {% assign show_on_all_collections = nav_links_lists.show_on_all_collections %}
+  {% assign collection_extas_to_show_on = nav_links_lists.collections_to_show_on_extras %}
+  {% assign collection_lists_to_exclude_from = nav_links_lists.collections_to_exclude_from_default_listed %}
+  {% assign collection_extas_to_exclude_from = nav_links_lists.collections_to_exclude_from_extras %}
+
+  {% assign collection_lists_to_show_on = nav_links_lists.collections_to_show_on_using_default_listed %}
+
+  {%- capture show_block_markets -%}
+  {%- render 'ob-process-show-on-by-market',markets_to_show: markets_to_show, show_on_all_markets: show_on_all_markets, markets_to_exclude_on: markets_to_exclude, collection_lists_to_show_on:collection_lists_to_show_on,  -%}
+{%- endcapture -%}
+
+  {% capture show_block %}
+  {% if show_block_markets contains "true" %}
+    {% render 'ob-process-collection-show-on', show_on_all_collections: show_on_all_collections,collection_lists_to_show_on:collection_lists_to_show_on, collection_extas_to_show_on:collection_extas_to_show_on,collection_extas_to_exclude:collection_extas_to_exclude_from,collection_lists_to_exclude_from:collection_lists_to_exclude_from %}
+  {% else %}
+    false
+  {% endif %}
+{% endcapture %}
+
+  {% if show_block contains 'true' %}
+    <div class="ob-slider-container w-full p2  max-w-7xl mx-auto px-4 relative">
+      {% if section.settings.title != blank %}
+        <h2 class="{{ section.settings.title-classes }}">{{ section.settings.title }}</h2>
+      {% endif %}
+      <div
+        class="ob-slider 2xl:container mx-auto max-w-7xl overflow-hidden"
+        data-slides-mobile="{{ section.settings.mobile_slides }}"
+        data-slides-md="{{ section.settings.tablet_slides }}"
+        data-slides-lg="{{ section.settings.desktop_slides }}"
+        data-gap="{{ section.settings.gap }}"
+        data-autoplay="{{ section.settings.autoplay }}"
+        data-loop="{{ section.settings.loop }}"
+        data-drag-scroll="{{ section.settings.drags_scroll }}"
+        data-slide-by="all"
+        data-slider-enabled="true"
+        data-center-when-fewer-slides="true"
+        data-dots="false"
+      >
+        <div class="ob-slides-wrappers py-2 flex items-stretch h-full" style="gap: {{ section.settings.gap }}px; ">
+          {% for nav_link in nav_links.value %}
+            {% assign link = nav_link.url %}
+            {% assign text = nav_link.text %}
+            {% assign image = nav_link.image %}
+            <div class="ob-slide col-nav-slide-width w-full h-full" id="collection-filter-slider-{{ forloop.index }}">
+              <a
+                href="{{ link }}"
+                class="{{ section.settings.slide_classes }} block w-full h-full flex items-center border  rounded-lg"
+              >
+                {% if image != blank %}
+                  <div class="flex-shrink-0">
+                    <img
+                      class="h-12 w-12 object-cover {{ section.settings.image-classes }}"
+                      src="{{ image | image_url }}"
+                      width="48"
+                      height="48"
+                      alt="{{ text }}"
+                      {% if forloop.index <= mobile_visible %}
+                        loading="eager"
+                      {% else %}
+                        loading="lazy"
+                      {% endif %}
+                    >
+                  </div>
+                {% endif %}
+                <div class="flex items-center flex-1 justify-center">
+                  <p class="{{ section.settings.text }}">{{ text }}</p>
+                </div>
+              </a>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="ob-next md:hidden w-10 w-10 absolute right-0 top-1/2 -translate-y-1/2 z-10">
+        <svg class="w-5 h-10" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 6L15 12L9 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="ob-prev md:hidden absolute left-0 top-1/2 -translate-y-1/2 w-10 h-10 z-10 text-black text-4xl flex justify-center items-center font-bold">
+        <svg class="w-5 h-10" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M15 6L9 12L15 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </div>
+  {% endif %}
+{% endfor %}
+
+<style>
+  #shopify-section-{{ section.id }} {
+      position: sticky;
+      top: 132px;
+      background-color: #ffffffb5;
+      backdrop-filter: blur(10px);
+      z-index: 20;
+  }
+
+   /* Mobile slide widths */
+   #shopify-section-{{ section.id }} .col-nav-slide-width {
+       min-width: {{ mobile_slide_width }}%;
+       max-width: {{ mobile_slide_width }}%;
+       
+   }
+
+   /* Tablet and Desktop slide widths */
+   @media (min-width: 768px) {
+       #shopify-section-{{ section.id }} .col-nav-slide-width {
+           min-width: {{ desktop_slide_width }}%;
+           max-width: {{ desktop_slide_width }}%;
+       }
+   }
+
+   /* Desktop centering for fewer slides - matches JavaScript behavior */
+   @media (min-width: 768px) {
+
+       #shopify-section-{{ section.id }} .ob-slides-wrappers {
+          transform: translateX(179px)
+       }
+   }
+
+  /* Ensure consistent height across all slides */
+  {% comment %} #shopify-section-{{ section.id }} .ob-slide {
+      min-height: 68px;
+  } {% endcomment %}
+</style>
+
+{% schema %}
+{
+  "name": "Collection Nav Filter",
+  "settings": [
+    {
+      "type": "text",
+      "id": "handle",
+      "label": "handle for scrollable link list Meta object",
+      "default": "custom-product-nav"
+    },
+    {
+      "type": "header",
+      "content": "Slider Settings"
+    },
+    {
+      "type": "number",
+      "id": "mobile_slides",
+      "default": 4,
+      "label": "Number of slides on mobile"
+    },
+    {
+      "type": "number",
+      "id": "tablet_slides",
+      "default": 4,
+      "label": "Number of slides on tablet"
+    },
+    {
+      "type": "number",
+      "id": "desktop_slides",
+      "default": 4,
+      "label": "Number of slides on desktop"
+    },
+    {
+      "type": "number",
+      "id": "gap",
+      "default": 5,
+      "label": "Gap Between Slides"
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "default": false,
+      "label": "AutoPlay Slides"
+    },
+    {
+      "type": "checkbox",
+      "id": "loop",
+      "default": false,
+      "label": "loop Slides"
+    },
+    {
+      "type": "checkbox",
+      "id": "drags_scroll",
+      "default": true,
+      "label": "Drag Scoll"
+    },
+    {
+      "type": "header",
+      "content": "Desktop Settings"
+    },
+    {
+      "type": "range",
+      "id": "desktop_slides_per_view",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "label": "Desktop Slides Per View",
+      "default": 5
+    },
+    {
+      "type": "checkbox",
+      "id": "desktop_allow_touch_move",
+      "label": "Enable Touch Scrolling on Desktop",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "desktop_autoplay",
+      "label": "Enable Autoplay on Desktop",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "desktop_gap",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Desktop Gap Between Slides",
+      "default": 30
+    },
+    {
+      "type": "text",
+      "id": "wrapper-classes",
+      "label": "section wrapper classes"
+    },
+    {
+      "type": "text",
+      "id": "slide_classes",
+      "label": "slide wrapper classes",
+      "default": "block w-full h-full flex items-center border  rounded-lg"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "title text"
+    },
+    {
+      "type": "text",
+      "id": "title-classes",
+      "label": "title text classes",
+      "default": "text-2xl md:text-4xl uppercase  mx-auto text-center marujo"
+    },
+    {
+      "type": "text",
+      "id": "image-classes",
+      "label": "image classes"
+    },
+    {
+      "type": "text",
+      "id": "text",
+      "label": "text classes",
+      "default": "text-xs md:text-sm lg:text-base text-black text-wrap text-center py-2 uppercase marujo"
+    },
+    {
+      "type": "text",
+      "id": "background-image",
+      "label": "Background image url"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "link-list",
+      "name": "Link List",
+      "settings": [
+        {
+          "type": "metaobject",
+          "metaobject_type": "collection_link_list",
+          "label": "Metaobject nav link list",
+          "id": "metaobject"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collection Nav Filter"
+    }
+  ]
+}
+{% endschema %}

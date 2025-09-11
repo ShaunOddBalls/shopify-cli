@@ -1,0 +1,1126 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "f7b8470c-5dfc-4a80-84f9-a574d9391aa9": {
+      "type": "ob-conditional-banner",
+      "blocks": {
+        "ec5cc587-bdfd-4da4-92ca-d4c38e687df6": {
+          "type": "page-banner",
+          "settings": {
+            "block_active": true,
+            "banner_background": "",
+            "wrapper_classes": "",
+            "title": "",
+            "text": "",
+            "text_wrapper_classes": "",
+            "customers": "both",
+            "url_handle": "*",
+            "not_url_handle": "",
+            "country_iso": "*",
+            "banner_link": "",
+            "desktop_image": "shopify://shop_images/Desktop-BG-CoreDesigns.webp",
+            "mobile_image": "shopify://shop_images/Mobile-BG-CoreDesigns.webp",
+            "desktop_image_classes": "mx-auto w-full hidden md:block",
+            "mobile_image_classes": "mx-auto w-full md:hidden",
+            "desktop_svg": "Desktop-FG-All.svg",
+            "mobile_svg": "Mobile-FG-All.svg",
+            "desktop_svg_classes": "absolute inset-0 w-full h-full mx-auto hidden md:block",
+            "mobile_svg_classes": "absolute inset-0 w-full h-full mx-auto md:hidden"
+          }
+        }
+      },
+      "block_order": [
+        "ec5cc587-bdfd-4da4-92ca-d4c38e687df6"
+      ],
+      "settings": {
+        "banner_background": "",
+        "wrapper_classes": ""
+      }
+    },
+    "free_card_banner_section_M3FTEM": {
+      "type": "free-card-banner-section",
+      "disabled": true,
+      "settings": {
+        "text": "my text",
+        "free_card_metaobject": "free-card-popup-1"
+      }
+    },
+    "260d0e54-27e1-4d94-8a4b-2234abe73b2e": {
+      "type": "ob-three-text-fields",
+      "blocks": {
+        "f5e55140-37b6-45d6-8eb9-b72896d55d92": {
+          "type": "text-lines",
+          "settings": {
+            "country_iso": "*",
+            "text-field-outer-wrapper-classes": "",
+            "text-field-inner-wrapper-classes": "text-center text-black relative max-w-4xl mx-auto py-2",
+            "text-field-1": "Discover OddBalls Valentine’s Day Collection",
+            "text-field-1-classes": "font-bebas md:text-2xl  text-xl",
+            "text-field-2": "",
+            "text-field-2-classes": "",
+            "text-field-3": "",
+            "text-field-3-classes": "",
+            "text-field-4": "",
+            "text-field-4-classes": "",
+            "html-field": "",
+            "html-field-classes": ""
+          }
+        }
+      },
+      "block_order": [
+        "f5e55140-37b6-45d6-8eb9-b72896d55d92"
+      ],
+      "settings": {}
+    },
+    "289ab40a-57e7-4538-a246-879f383aad57": {
+      "type": "ob-trust-pilot-widget",
+      "settings": {
+        "outer_wrapper_classes": "border-blackblend-divide mt-3 mb-2 md:mb-1",
+        "wrapper_classes": "max-w-7xl mx-auto",
+        "widget_header": "",
+        "widget_header_classes": "",
+        "widget_subheader": "",
+        "widget_subheader_classes": "",
+        "widget_code": "<!-- TrustBox widget - Micro Combo -->\n<div class=\"trustpilot-widget\" data-locale=\"en-GB\" data-template-id=\"5419b6ffb0d04a076446a9af\" data-businessunit-id=\"5c7f9459871dac0001ea0238\" data-style-height=\"40px\" data-style-width=\"100%\" data-theme=\"light\">\n  <a href=\"https://uk.trustpilot.com/review/myoddballs.com\" target=\"_blank\" rel=\"noopener\">Trustpilot</a>\n</div>\n<!-- End TrustBox widget -->",
+        "widget_wrapper_classes": "",
+        "use_microcombo": false
+      }
+    },
+    "lw_circles_V49dc9": {
+      "type": "ob-tw-circles",
+      "blocks": {
+        "image_block_hdkBFr": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/Artboard_1_9b39c384-6280-4259-82e6-6d8596b51add.png",
+            "page": "him-individuals",
+            "title": "",
+            "button-classes": "mt-4 text-center shadow-xl rounded-full w-full mx-auto max-w-[175px] bg-black",
+            "text-classes": "text-white px-2 py-1 font-bold text-xs uppercase lw-black rounded-full text-nowrap"
+          }
+        },
+        "image_block_iyAp8N": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/Artboard_1_copy_2_9a07681c-3772-458e-9f02-b97512d61071.png",
+            "page": "ladies-boxer-shorts",
+            "title": "",
+            "button-classes": "mt-4 text-center shadow-xl rounded-full w-full mx-auto max-w-[175px] bg-black",
+            "text-classes": "text-white px-2 py-1 font-bold text-xs uppercase lw-black rounded-full text-nowrap"
+          }
+        },
+        "image_block_KNb3ia": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/Artboard_1_copy_4_e1e76c7d-ffda-4691-b08b-22cd49bf6600.png",
+            "page": "ladies-thongs",
+            "title": "",
+            "button-classes": "mt-4 text-center shadow-xl rounded-full w-full mx-auto max-w-[175px] bg-black",
+            "text-classes": "text-white px-2 py-1 font-bold text-xs uppercase lw-black rounded-full text-nowrap"
+          }
+        },
+        "image_block_CBy3kF": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/Artboard_1_copy_3_2b9640bc-ebb3-432e-8109-f34bf5607c04.png",
+            "page": "her-individuals",
+            "title": "",
+            "button-classes": "mt-4 text-center shadow-xl rounded-full w-full mx-auto max-w-[175px] bg-black",
+            "text-classes": "text-white px-2 py-1 font-bold text-xs uppercase lw-black rounded-full text-nowrap"
+          }
+        },
+        "image_block_HpLrgY": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/Artboard_1_copy_5_e0feb82b-2818-4ac1-bce8-18735919ed90.png",
+            "page": "bralette",
+            "title": "",
+            "button-classes": "mt-4 text-center shadow-xl rounded-full w-full mx-auto max-w-[175px] bg-black",
+            "text-classes": "text-white px-2 py-1 font-bold text-xs uppercase lw-black rounded-full text-nowrap"
+          }
+        },
+        "image_block_EKPUJz": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/Artboard_1_copy_7059baa0-7ed7-4eea-bd44-03b8d7c1eaff.png",
+            "page": "his-briefs",
+            "title": "",
+            "button-classes": "mt-4 text-center shadow-xl rounded-full w-full mx-auto max-w-[175px] bg-black",
+            "text-classes": "text-white px-2 py-1 font-bold text-xs uppercase lw-black rounded-full text-nowrap"
+          }
+        }
+      },
+      "block_order": [
+        "image_block_hdkBFr",
+        "image_block_iyAp8N",
+        "image_block_KNb3ia",
+        "image_block_CBy3kF",
+        "image_block_HpLrgY",
+        "image_block_EKPUJz"
+      ],
+      "custom_css": [
+        ".grid.grid-cols-3.my-1.gap-x-10.gap-y-6 {padding: 0 0.75rem;}"
+      ],
+      "settings": {}
+    },
+    "ob_tailwind_image_text_video_swiper_eA3i6X": {
+      "type": "ob-tailwind-image-text-video-swiper",
+      "blocks": {
+        "multi_use_image_block_B4iBYr": {
+          "type": "multi_use_image_block",
+          "settings": {
+            "block_active": true,
+            "country_iso": "*",
+            "url_handle": "*",
+            "not_url_handle": "",
+            "title": "Valentines Day Video",
+            "block_link": "",
+            "link_classes": "block",
+            "block_wrap": "col-span-6 relative",
+            "block_image_desktop": "shopify://shop_images/Screenshot_2025-01-16_113723.png",
+            "block_image_desktop_class": "object-cover h-full w-full hidden sm:block",
+            "placeholder_desktop": "medium",
+            "block_image_mobile": "shopify://shop_images/Screenshot_2025-01-16_113743.png",
+            "block_image_mobile_class": "object-cover h-full w-full block sm:hidden",
+            "placeholder_mobile": "medium",
+            "video_wrap": "col-span-12 absolute inset-0 w-full h-full",
+            "block_video_desktop": "Valentines (Desktop) Design Cycle 2.mp4",
+            "block_video_desktop_class": "object-cover h-full w-full",
+            "block_video_mobile": "Valentines (Mobile) Design Cycle 2.mp4",
+            "block_video_mobile_class": "object-cover h-full w-full",
+            "video_title": "",
+            "video_addon_class": "z-50 justify-center absolute text-white w-full h-full flex flex-col items-center p-5",
+            "video_title_class": "text-4xl",
+            "video_text": "",
+            "video_text_class": "",
+            "video_button_text": "",
+            "video_button_class": "",
+            "video_button_url": "",
+            "svg_wrap": "absolute w-full h-full inset-0",
+            "block_svg_desktop": "",
+            "block_svg_desktop_class": "w-full h-full hidden sm:block",
+            "block_svg_mobile": "",
+            "block_svg_mobile_class": "w-full h-full block sm:hidden"
+          }
+        }
+      },
+      "block_order": [
+        "multi_use_image_block_B4iBYr"
+      ],
+      "settings": {
+        "country_iso": "*",
+        "section_wrapper_classes": "border-solid  top-hero-wrapper my-6",
+        "is_swiper": "true",
+        "lazy_images": "true",
+        "text_wrap": "absolute bottom-10 right-20",
+        "title": "",
+        "text_header_classes": "text-5xl pb-1",
+        "description": "",
+        "text_description": "text-xl",
+        "swiper_classes": "",
+        "swiper_wrapper_classes": "",
+        "custom_css": "",
+        "custom_options": "",
+        "slides_per_view_mobile": 1,
+        "space_between_mobile": 0,
+        "slides_per_view_640": 1,
+        "space_between_640": 0,
+        "slides_per_view_768": 1,
+        "space_between_768": 0,
+        "slides_per_view_1024": 1,
+        "space_between_1024": 0,
+        "slides_per_view_1280": 1,
+        "space_between_1280": 0,
+        "pagination_checked": false,
+        "navigation_checked": false,
+        "scrollbar_checked": false,
+        "effect": "slide",
+        "autoplay_checked": false,
+        "autoplay_delay": 3000,
+        "autoplay_loop_checked": false
+      }
+    },
+    "ob_mosaic_hero_JztgiC": {
+      "type": "ob-mosaic-hero",
+      "blocks": {
+        "collection_block_gRWGEp": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative row-span-6 col-span-2 md:row-span-2",
+            "image": "shopify://shop_images/PerfectPair_copy.jpg",
+            "img-overlay": "",
+            "img-class-list": "cover",
+            "button-text": "",
+            "button_link": "https://www.myoddballs.com/pages/perfect-pair",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "collection_block_pwjTUe": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/SEAMLESS-100_ef9a49cf-7e50-4c83-88b5-76018fb29417.jpg",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "",
+            "button_link": "https://www.myoddballs.com/collections/seamless-underwear",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "collection_block_hy3jnB": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/SUBSCRIPTION-100.jpg",
+            "img-overlay": "",
+            "img-class-list": "font-babes",
+            "button-text": "",
+            "button_link": "https://www.myoddballs.com/pages/subscription-selector",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "collection_block_iUqkjJ": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/BAMBOO-100.jpg",
+            "img-overlay": "",
+            "img-class-list": "font-babes",
+            "button-text": "",
+            "button_link": "https://www.myoddballs.com/collections/bamboo-underwear",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "collection_block_6UGhbf": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/Bundles-copy.jpg",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "",
+            "button_link": "https://www.myoddballs.com/collections/him-individuals/mens-boxer-shorts-bundles",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_block_gRWGEp",
+        "collection_block_pwjTUe",
+        "collection_block_hy3jnB",
+        "collection_block_iUqkjJ",
+        "collection_block_6UGhbf"
+      ],
+      "settings": {
+        "mosaic-container": "grid md:grid-cols-4 md:grid-rows-2 grid-cols-2 mb-6 gap-2 p-3",
+        "all-block-outer-class": "",
+        "all-image-class": "cover",
+        "img-overlay": "h-1/2 w-full gradient absolute bottom-0 left-0 z-index-1",
+        "all-button-class": ""
+      }
+    },
+    "collection_product_slider_xdKxWb": {
+      "type": "ob-collection-slider-old",
+      "settings": {
+        "collection": "best-sellers-homepage",
+        "product_list": [],
+        "title": "Mens Bestsellers",
+        "wrapper_class": "mt-6",
+        "text_class": "marujo  text-3xl md:text-5xl text-center col-span-2 md:col-span-3"
+      }
+    },
+    "conditional_banner_dfDmqb": {
+      "type": "ob-conditional-banner",
+      "blocks": {
+        "page_banner_V3DJkq": {
+          "type": "page-banner",
+          "settings": {
+            "block_active": true,
+            "banner_background": "",
+            "wrapper_classes": "",
+            "title": "",
+            "text": "",
+            "text_wrapper_classes": "",
+            "customers": "both",
+            "url_handle": "*",
+            "not_url_handle": "",
+            "country_iso": "*",
+            "banner_link": "https://www.myoddballs.com/collections/free-gift",
+            "desktop_image": "shopify://shop_images/Desktop-BG_f03a9a1f-d94e-46ec-a6e7-60d70d3682cb.jpg",
+            "mobile_image": "shopify://shop_images/Mobile-BG_e0c97356-aaaa-4f89-a023-bec8ea7a1319.jpg",
+            "desktop_image_classes": "mx-auto w-full hidden md:block",
+            "mobile_image_classes": "mx-auto w-full md:hidden",
+            "desktop_svg": "Desktop-FG_24ad197a-dc03-4976-8858-246889604a3e.svg",
+            "mobile_svg": "Mobile-FG_a6594006-7e6f-4b3a-8455-d49c3d9ad385.svg",
+            "desktop_svg_classes": "absolute inset-0 w-full h-full mx-auto hidden md:block",
+            "mobile_svg_classes": "absolute inset-0 w-full h-full mx-auto md:hidden"
+          }
+        },
+        "page_banner_4LqyDw": {
+          "type": "page-banner",
+          "disabled": true,
+          "settings": {
+            "block_active": true,
+            "banner_background": "",
+            "wrapper_classes": "",
+            "title": "",
+            "text": "",
+            "text_wrapper_classes": "",
+            "customers": "both",
+            "url_handle": "*",
+            "not_url_handle": "",
+            "country_iso": "*",
+            "banner_link": "",
+            "desktop_image": "shopify://shop_images/Desktop-BG-Friday.jpg",
+            "mobile_image": "shopify://shop_images/Mobile-BG-Friday.jpg",
+            "desktop_image_classes": "mx-auto w-full hidden md:block",
+            "mobile_image_classes": "mx-auto w-full md:hidden",
+            "desktop_svg": "Desktop-FG_2_f4cdcdb2-9f2e-4196-b5e3-9e0e49bd5b82.svg",
+            "mobile_svg": "Mobile-FG_5a2c384a-5ab7-434d-a5a2-a5933b68b0ae.svg",
+            "desktop_svg_classes": "absolute inset-0 w-full h-full mx-auto hidden md:block",
+            "mobile_svg_classes": "absolute inset-0 w-full h-full mx-auto md:hidden"
+          }
+        }
+      },
+      "block_order": [
+        "page_banner_V3DJkq",
+        "page_banner_4LqyDw"
+      ],
+      "settings": {
+        "banner_background": "",
+        "wrapper_classes": ""
+      }
+    },
+    "23dddb08-6703-4d0d-a048-d0052e8a9c1d": {
+      "type": "ob-mosaic-hero",
+      "blocks": {
+        "89d8e02b-ef40-43d4-b96c-04d9285923b2": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative row-span-6 col-span-2 md:row-span-2",
+            "image": "shopify://shop_images/GiftsForHim_copy_4214eb64-d5d7-42cf-bf57-61de78c4fa12.jpg",
+            "img-overlay": "",
+            "img-class-list": "cover",
+            "button-text": "",
+            "button_link": "https://www.myoddballs.com/collections/gifts-for-him",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "0d193e51-28ff-4c09-8047-7b02b25e716c": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/LoveHearts.jpg",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "",
+            "button_link": "https://www.myoddballs.com/collections/love-hearts",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "collection_block_FHj4pD": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/GIFTS_FOR_HER-100.jpg",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "",
+            "button_link": "https://www.myoddballs.com/collections/gifts-for-her",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "collection_block_9zQ3hd": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/GiftCards_fcaed556-2b83-48a9-a951-40c5d21048e2.jpg",
+            "img-overlay": "",
+            "img-class-list": "font-babes",
+            "button-text": "",
+            "button_link": "https://www.myoddballs.com/collections/gift-cards",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "f2aa6a61-3d15-43d9-a617-47bb5410aa58": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/HotLips.jpg",
+            "img-overlay": "",
+            "img-class-list": "font-babes",
+            "button-text": "",
+            "button_link": "https://www.myoddballs.com/collections/hot-lips",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "collection_block_TMtpax": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/LovedUp.jpg",
+            "img-overlay": "",
+            "img-class-list": "font-babes",
+            "button-text": "",
+            "button_link": "https://www.myoddballs.com/collections/loved-up",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "collection_block_wDXfGr": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/SOCKS-100.jpg",
+            "img-overlay": "",
+            "img-class-list": "font-babes",
+            "button-text": "",
+            "button_link": "https://www.myoddballs.com/collections/socks",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "collection_block_ViyE8z": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/Emoji-TBD_ed674008-ed03-458a-9a66-3da6ea6abc27.jpg",
+            "img-overlay": "",
+            "img-class-list": "font-babes",
+            "button-text": "",
+            "button_link": "https://www.myoddballs.com/collections/emoji",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "collection_block_fNXRem": {
+          "type": "collection_block",
+          "disabled": true,
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/GiftCards_fcaed556-2b83-48a9-a951-40c5d21048e2.jpg",
+            "img-overlay": "",
+            "img-class-list": "font-babes",
+            "button-text": "",
+            "button_link": "https://www.myoddballs.com/collections/gift-cards",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        }
+      },
+      "block_order": [
+        "89d8e02b-ef40-43d4-b96c-04d9285923b2",
+        "0d193e51-28ff-4c09-8047-7b02b25e716c",
+        "collection_block_FHj4pD",
+        "collection_block_9zQ3hd",
+        "f2aa6a61-3d15-43d9-a617-47bb5410aa58",
+        "collection_block_TMtpax",
+        "collection_block_wDXfGr",
+        "collection_block_ViyE8z",
+        "collection_block_fNXRem"
+      ],
+      "custom_css": [
+        ".cover {object-fit: cover; width: 100%; height: 100%;}",
+        ".btn-max-width {max-width: 500px;}",
+        ".z-index-1 {z-index: 1;}",
+        ".z-index-2 {z-index: 2;}"
+      ],
+      "settings": {
+        "mosaic-container": "grid md:grid-cols-4 md:grid-rows-2 grid-cols-2 mb-6 gap-2 p-3",
+        "all-block-outer-class": "",
+        "all-image-class": "cover",
+        "img-overlay": "h-1/2 w-full gradient absolute bottom-0 left-0 z-index-1",
+        "all-button-class": ""
+      }
+    },
+    "collection_product_slider_PrRd86": {
+      "type": "ob-collection-slider-old",
+      "settings": {
+        "collection": "womens-best-sellers-homepage",
+        "product_list": [],
+        "title": "Womens Bestsellers",
+        "wrapper_class": "",
+        "text_class": "marujo  text-3xl md:text-5xl text-center col-span-2 md:col-span-3"
+      }
+    },
+    "mosaic_hero_CqKhhC": {
+      "type": "ob-mosaic-hero",
+      "blocks": {
+        "collection_block_4htyii": {
+          "type": "collection_block",
+          "disabled": true,
+          "settings": {
+            "class-list": "relative row-span-6 col-span-2 md:row-span-2",
+            "image": "shopify://shop_images/Artboard_1_copy_2_259cfd1b-f2e5-4582-90eb-f22b3b6f52a1.jpg",
+            "img-overlay": "",
+            "img-class-list": "cover",
+            "button-text": "",
+            "button_link": "",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "collection_block_kWT4En": {
+          "type": "collection_block",
+          "disabled": true,
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/Artboard_1_copy_3_ead76124-ca81-4835-aa6c-55dba435165a.jpg",
+            "img-overlay": "",
+            "img-class-list": "font-babes",
+            "button-text": "",
+            "button_link": "https://www.myoddballs.com/collections/pyjamas",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "collection_block_Jknrhr": {
+          "type": "collection_block",
+          "disabled": true,
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/Artboard_1_copy_4_a1ff16eb-f983-4536-922c-26466064a1d5.jpg",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "",
+            "button_link": "https://www.myoddballs.com/collections/ladies-boxer-shorts",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "collection_block_AX73WR": {
+          "type": "collection_block",
+          "disabled": true,
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/Artboard_1_copy_5_91ae0133-9ea0-409a-a413-3bff44a7f615.jpg",
+            "img-overlay": "",
+            "img-class-list": "font-babes",
+            "button-text": "",
+            "button_link": "https://www.myoddballs.com/collections/bralette",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "collection_block_H7N7Uk": {
+          "type": "collection_block",
+          "disabled": true,
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/Artboard_1_copy_6_31f009e0-3686-4dac-8887-7abbff827f3c.jpg",
+            "img-overlay": "",
+            "img-class-list": "font-babes",
+            "button-text": "",
+            "button_link": "https://www.myoddballs.com/collections/bamboo-underwear",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "collection_block_EbKbT6": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/Socks_5346c2fd-d0af-4d53-9ce2-c7f6b151678a.jpg",
+            "img-overlay": "",
+            "img-class-list": "font-babes",
+            "button-text": "",
+            "button_link": "https://www.myoddballs.com/collections/socks",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "collection_block_kbgHE8": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/GiftsForHer.jpg",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "",
+            "button_link": "https://www.myoddballs.com/collections/gifts-for-her",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "collection_block_X34gJx": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative row-span-6 col-span-2 md:row-span-2",
+            "image": "shopify://shop_images/GiftsForHim_copy.jpg",
+            "img-overlay": "",
+            "img-class-list": "cover",
+            "button-text": "",
+            "button_link": "https://www.myoddballs.com/collections/gifts-for-him",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "collection_block_VpyKPP": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/GiftCards_f0d652dc-1560-4d9b-a369-8e32cbcebea0.jpg",
+            "img-overlay": "",
+            "img-class-list": "font-babes",
+            "button-text": "",
+            "button_link": "https://www.myoddballs.com/collections/gift-cards",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "collection_block_3RwQKm": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/Emoji-TBD.jpg",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "",
+            "button_link": "https://www.myoddballs.com/collections/emoji",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "collection_block_tpHCUh": {
+          "type": "collection_block",
+          "disabled": true,
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/WomensBundles.jpg",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "",
+            "button_link": "https://www.myoddballs.com/collections/bralette/bralette-bundle",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "collection_block_wBHqkb": {
+          "type": "collection_block",
+          "disabled": true,
+          "settings": {
+            "class-list": "relative row-span-6 col-span-2 md:row-span-2",
+            "image": "shopify://shop_images/Blankets_315cde1c-9884-4329-8d7a-bb90113e0b56.jpg",
+            "img-overlay": "",
+            "img-class-list": "cover",
+            "button-text": "",
+            "button_link": "https://www.myoddballs.com/collections/fleece-blanket",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "collection_block_jP36yR": {
+          "type": "collection_block",
+          "disabled": true,
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/Mystery_ab86d3e6-123a-432d-947b-fa64ba5dd0f2.jpg",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "",
+            "button_link": "https://www.myoddballs.com/collections/mystery-bundles",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "collection_block_agArLn": {
+          "type": "collection_block",
+          "disabled": true,
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/Towels_db10afaa-ea1c-4e3f-8a5f-0610aca933e9.jpg",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "",
+            "button_link": "https://www.myoddballs.com/collections/all-towels",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "collection_block_3r7rag": {
+          "type": "collection_block",
+          "disabled": true,
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/BobbleHats.jpg",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "",
+            "button_link": "https://www.myoddballs.com/collections/obble",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_block_4htyii",
+        "collection_block_kWT4En",
+        "collection_block_Jknrhr",
+        "collection_block_AX73WR",
+        "collection_block_H7N7Uk",
+        "collection_block_EbKbT6",
+        "collection_block_kbgHE8",
+        "collection_block_X34gJx",
+        "collection_block_VpyKPP",
+        "collection_block_3RwQKm",
+        "collection_block_tpHCUh",
+        "collection_block_wBHqkb",
+        "collection_block_jP36yR",
+        "collection_block_agArLn",
+        "collection_block_3r7rag"
+      ],
+      "disabled": true,
+      "settings": {
+        "mosaic-container": "grid md:grid-cols-4 md:grid-rows-2 grid-cols-2 gap-2 p-3",
+        "all-block-outer-class": "",
+        "all-image-class": "cover",
+        "img-overlay": "h-1/2 w-full gradient absolute bottom-0 left-0 z-index-1",
+        "all-button-class": ""
+      }
+    },
+    "7c0698a0-7c77-464c-bdc7-fa2a9b9041e4": {
+      "type": "ob-mosaic-hero",
+      "blocks": {
+        "f2eb8f59-5b40-4623-bf60-0f76df0c14d9": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative row-span-6 col-span-2 md:col-start-3 md:row-span-2 md:row-start-1 md:hidden",
+            "image": "shopify://shop_images/Gift_Page_-_Insta_Wheel_1_81a22956-1ee5-44d6-a296-ac64bdb311cd.png",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "Grooming Sets",
+            "button_link": "shopify://collections/grooming-sets",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "7365b639-9932-4ea5-a975-f4871f6b141e": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative md:hidden",
+            "image": "shopify://shop_images/Licenced_Underwear.png",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "Licenced Underwear",
+            "button_link": "shopify://collections/christmas-underwear",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "c265b984-9c50-416a-8017-27586e7845c5": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative md:hidden",
+            "image": "shopify://shop_images/Hats_1c54909a-87eb-4278-a5da-827c9bececa5.png",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "Hats",
+            "button_link": "shopify://collections/obble",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "5a27f35d-8b2c-417c-a8af-9056a5f60dc4": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/Seamless_402267ff-1359-4caa-8562-6b10e2ea7382.png",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "Seamless",
+            "button_link": "shopify://collections/seamless-underwear",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "5f378643-53f8-4ce1-9b8f-f82fa49c00e1": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/Bralettes_1c3ef292-7c69-4729-b34b-8e7784c773d9.png",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "Bralettes",
+            "button_link": "shopify://collections/bralette",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        }
+      },
+      "block_order": [
+        "f2eb8f59-5b40-4623-bf60-0f76df0c14d9",
+        "7365b639-9932-4ea5-a975-f4871f6b141e",
+        "c265b984-9c50-416a-8017-27586e7845c5",
+        "5a27f35d-8b2c-417c-a8af-9056a5f60dc4",
+        "5f378643-53f8-4ce1-9b8f-f82fa49c00e1"
+      ],
+      "disabled": true,
+      "settings": {
+        "mosaic-container": "grid md:grid-cols-4 md:grid-rows-2 gap-1  grid-cols-2",
+        "all-block-outer-class": "border-solid  border-black border-2 mt-1",
+        "all-image-class": "",
+        "img-overlay": "",
+        "all-button-class": "text-center absolute    uppercase  bg-white block p-4 bg-opacity-80 backdrop-blur-xl  drop-shadow-lg font-bold font-babas  border-black border-2 font-bebas tracking-wider md:text-xl -translate-y-1/2  -translate-x-1/2  transform left-1/2   top-1/2 rounded  text-xl leading-none"
+      }
+    },
+    "image_text_grid_KdbFFR": {
+      "type": "ob-image-text-grid",
+      "blocks": {
+        "image_and_text_XwY4Xy": {
+          "type": "image-and-text",
+          "settings": {
+            "country_iso": "*",
+            "title": "",
+            "block_wrapper_classes": "col-span-12 flex justify-center  px-4 items-center text-center relative",
+            "block_title": "",
+            "title_classes": "text",
+            "description": "<h2 class=\"text-center font-bebas text-2xl lg:text-4xl\">Sign up for early access to our christmas collection!</h2>\n\n<br>",
+            "description_classes": "",
+            "svg": "<svg fill=\"#000000\" height=\"800px\" width=\"800px\" version=\"1.1\" id=\"snowflake-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" viewBox=\"0 0 297 297\" xml:space=\"preserve\" style=\"\n    position: absolute;\n    width: 200px;\n    bottom: -120px;\n    height: 100%;\n    opacity: 0.05;\n    z-index: -1;\n    left: 50%;\n\">\n<g>\n\t<path d=\"M289.5,141.5h-11.732l8.986-9.283c2.881-2.977,2.804-7.725-0.172-10.605c-2.978-2.882-7.726-2.805-10.605,0.172\n\t\tL256.89,141.5h-13.918l8.842-9.346c2.847-3.009,2.715-7.756-0.294-10.602c-3.01-2.845-7.755-2.717-10.602,0.294L222.321,141.5\n\t\th-12.853l16.607-18.014c1.337-1.45,1.985-3.286,1.977-5.114c0.001-0.046,0.008-0.09,0.008-0.136c0.031-4.142-3.3-7.346-7.442-7.379\n\t\tl-22.961-0.201l8.155-8.156H232.5c4.143,0,7.5-3.357,7.5-7.5s-3.357-7.5-7.5-7.5h-11.686l10-10H257.5c4.143,0,7.5-3.357,7.5-7.5\n\t\ts-3.357-7.5-7.5-7.5h-11.686l8.045-8.045c2.929-2.93,2.929-7.678,0-10.607c-2.929-2.927-7.677-2.929-10.607,0l-8.294,8.294\n\t\tl-0.212-13.09c-0.066-4.1-3.411-7.552-7.496-7.552c-0.042,0-0.083,0-0.125,0c-4.142,0-7.444,3.698-7.377,7.84l0.444,27.567\n\t\tl-9.842,9.842l-0.355-12.859c-0.114-4.141-3.558-7.375-7.704-7.29c-4.141,0.114-7.404,3.565-7.29,7.704l0.748,27.047l-8.613,8.613\n\t\tl-0.241-22.409c0.254-2.085-0.358-4.264-1.879-5.942c-2.783-3.071-7.691-3.304-10.76-0.525l-19.088,17.137V74.178l19.821-18.595\n\t\tc3.009-2.847,3.224-7.594,0.377-10.603c-2.848-3.01-7.72-3.141-10.727-0.294l-9.471,8.842V39.609l19.883-19.086\n\t\tc2.976-2.881,3.136-7.629,0.255-10.605c-2.879-2.975-7.752-3.055-10.73-0.172l-9.408,8.986V7.5c0-4.143-3.357-7.5-7.5-7.5\n\t\tc-4.143,0-7.5,3.357-7.5,7.5v10.528l-8.03-8.196c-2.929-2.93-7.594-2.929-10.523-0.001c-2.93,2.929-3.055,7.678-0.126,10.606\n\t\tl18.679,18.805v13.786l-8.03-8.196c-2.929-2.93-7.594-2.929-10.523-0.001c-2.93,2.929-3.055,7.678-0.126,10.606l18.679,18.805\n\t\tv13.02l-16.711-16.319c-2.979-2.881-7.644-2.801-10.521,0.179c-1.658,1.714-2.287,4.015-1.995,6.207l-0.704,21.825l-8.068-7.923\n\t\tV64.5c0-4.143-3.357-7.5-7.5-7.5s-7.5,3.357-7.5,7.5v11.73l-10-10V39.5c0-4.143-3.357-7.5-7.5-7.5s-7.5,3.357-7.5,7.5v11.73\n\t\tl-7.876-8.043c-2.929-2.927-7.593-2.929-10.524,0c-2.929,2.93-2.887,7.678,0.042,10.607l8.132,8.111l-12.723,0.292\n\t\tc-4.142,0.067-7.439,3.683-7.372,7.823c0.066,4.1,3.416,7.479,7.502,7.479c0.041,0,0.082,0,0.124,0l27.476-0.605l9.802,9.802\n\t\tl-12.859,0.356c-4.141,0.114-7.404,3.564-7.29,7.704c0.112,4.07,3.447,7.293,7.493,7.293c0.07,0,0.141-0.001,0.211-0.003\n\t\tl27.047-0.749l9.433,9.434l-23.242,0.52c-2.053,0.057-4.567,0.588-6.274,2.212c-3.003,2.854-3.123,7.601-0.269,10.603l0.154,0.162\n\t\tc0.16,0.186,0.327,0.361,0.503,0.529L87.573,141.5H74.179l-18.596-19.654c-2.848-3.011-7.595-3.141-10.603-0.294\n\t\tc-3.009,2.847-3.141,7.594-0.294,10.602l8.842,9.346H39.61l-19.087-19.717c-2.879-2.976-7.627-3.055-10.605-0.172\n\t\tc-2.976,2.881-3.053,7.629-0.172,10.605l8.986,9.283H7.5c-4.143,0-7.5,3.357-7.5,7.5s3.357,7.5,7.5,7.5h10.528l-8.196,8.196\n\t\tc-2.93,2.929-2.93,7.678-0.001,10.606c1.465,1.465,3.384,2.197,5.304,2.197c1.919,0,3.839-0.732,5.303-2.196L39.242,156.5h13.786\n\t\tl-8.196,8.196c-2.93,2.929-2.93,7.678-0.001,10.606c1.465,1.465,3.384,2.197,5.304,2.197c1.919,0,3.839-0.732,5.303-2.196\n\t\tL74.242,156.5H87.43l-16.254,16.898c-2.871,2.985-2.779,7.733,0.206,10.604c1.392,1.338,3.164,2.025,4.952,2.083\n\t\tc0.038,0.002,0.073,0.008,0.111,0.009l23.938,0.622l-9.387,9.387l-27.046-0.749c-4.146-0.085-7.591,3.149-7.705,7.289\n\t\tc-0.115,4.141,3.149,7.591,7.289,7.705l12.86,0.356l-10.06,10.06l-27.22-0.265c-0.042,0-0.083,0-0.124,0\n\t\tc-4.086,0-7.431,3.055-7.497,7.154c-0.067,4.142,3.235,7.33,7.377,7.398l12.985,0.19l-8.009,8.009\n\t\tc-2.929,2.93-2.929,7.678,0,10.607c1.465,1.464,3.385,2.196,5.304,2.196c1.919,0,3.672-0.732,5.137-2.196l6.878-7.045V258.5\n\t\tc0,4.143,3.357,7.5,7.5,7.5s7.5-3.357,7.5-7.5v-26.686l10-10V233.5c0,4.143,3.357,7.5,7.5,7.5s7.5-3.357,7.5-7.5v-26.686\n\t\tl9.691-9.525l0.592,22.714c-0.187,2.11,0.555,4.453,2.156,6.083c1.468,1.496,3.451,2.413,5.393,2.413c0.008,0,0.017,0,0.024,0\n\t\tc0.008,0,0.016,0,0.023,0c2.262,0.038,4.299-1.509,5.524-2.938l15.596-15.495v12.19l-18.637,18.805\n\t\tc-2.929,2.929-2.845,7.678,0.084,10.606c1.464,1.464,3.425,2.196,5.344,2.196s3.693-0.732,5.158-2.197l8.051-8.196v13.786\n\t\tl-18.637,18.805c-2.929,2.929-2.845,7.678,0.084,10.606c1.464,1.464,3.425,2.196,5.344,2.196s3.693-0.732,5.158-2.197l8.051-8.196\n\t\tV289.5c0,4.143,3.357,7.5,7.5,7.5c4.143,0,7.5-3.357,7.5-7.5v-11.732l9.45,8.986c1.457,1.41,3.42,2.111,5.299,2.111\n\t\tc1.96,0,3.961-0.764,5.431-2.283c2.881-2.977,2.658-7.725-0.318-10.605l-19.862-19.086v-13.919l9.512,8.842\n\t\tc1.45,1.372,3.386,2.052,5.237,2.052c1.989,0,4.015-0.786,5.491-2.346c2.847-3.009,2.569-7.756-0.44-10.602l-19.8-18.595V209.23\n\t\tl17.333,16.332c1.901,1.648,3.724,2.938,6.243,2.938c0.018,0,0.034,0,0.052,0c4.118,0,7.471-3.422,7.499-7.547l0.166-24.548\n\t\tl9.645,9.645l-0.749,27.046c-0.115,4.141,3.148,7.591,7.289,7.705c0.071,0.002,0.142,0.003,0.212,0.003\n\t\tc4.046,0,7.381-3.223,7.493-7.292l0.356-12.86l9.845,9.845l-0.448,27.408c-0.067,4.142,3.235,7.595,7.377,7.595\n\t\tc0.042,0,0.083,0,0.124,0c4.086,0,7.431-3.147,7.497-7.246l0.212-12.995l7.94,7.94c1.465,1.464,3.385,2.196,5.304,2.196\n\t\tc1.919,0,3.839-0.732,5.304-2.196c2.929-2.93,2.929-7.678,0-10.607l-7.092-7.092h11.73c4.143,0,7.5-3.357,7.5-7.5\n\t\ts-3.357-7.5-7.5-7.5h-26.73l-10-10h11.73c4.143,0,7.5-3.357,7.5-7.5s-3.357-7.5-7.5-7.5h-26.73l-9.082-9.082l22.994-1.004\n\t\tc1.944-0.081,3.911-0.969,5.123-2.152c2.964-2.894,3.02-7.642,0.127-10.605L210.157,156.5h12.101l18.805,18.804\n\t\tc1.464,1.464,3.384,2.196,5.303,2.196c1.919,0,3.839-0.732,5.304-2.197c2.929-2.929,2.929-7.678-0.001-10.606l-8.196-8.196h13.786\n\t\tl18.805,18.804c1.464,1.464,3.384,2.196,5.303,2.196c1.919,0,3.839-0.732,5.304-2.197c2.929-2.929,2.929-7.678-0.001-10.606\n\t\tl-8.196-8.196H289.5c4.143,0,7.5-3.357,7.5-7.5S293.643,141.5,289.5,141.5z M115.347,125.293l16.207,16.207h-23.286l-14.64-15.4\n\t\tL115.347,125.293z M115.007,172.093l-21.232-0.552l14.468-15.041H130.6L115.007,172.093z M140.167,189.048l-14.174,14.079\n\t\tl-0.543-20.512l14.718-14.801V189.048z M140.167,129.231l-15.282-15.448l0.43-20.098l14.851,14.439V129.231z M155.167,108.46\n\t\tl16.731-15.002l0.147,21.346l-16.878,16.795V108.46z M171.245,203.547l-16.078-14.811v-23.291l16.144,16.061L171.245,203.547z\n\t\t M183.301,172.031L167.77,156.5h21.424l14.304,14.649L183.301,172.031z M189.065,141.5h-22.252l16.104-16.104l20.941,0.058\n\t\tL189.065,141.5z\"></path>\n</g>\n</svg>\n\n<svg fill=\"#000000\" version=\"1.1\" id=\"snow-flake-2\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" viewBox=\"0 0 297 297\" xml:space=\"preserve\" style=\"\n    position: absolute;\n    width: 200px;\n    left: 0px;\n    top: -60px;\n    z-index: -1;\n    opacity: 0.05;\n\">\n<g>\n\t<path d=\"M289.5,141.5h-11.732l8.986-9.283c2.881-2.977,2.804-7.725-0.172-10.605c-2.978-2.882-7.726-2.805-10.605,0.172\n\t\tL256.89,141.5h-13.918l8.842-9.346c2.847-3.009,2.715-7.756-0.294-10.602c-3.01-2.845-7.755-2.717-10.602,0.294L222.321,141.5\n\t\th-12.853l16.607-18.014c1.337-1.45,1.985-3.286,1.977-5.114c0.001-0.046,0.008-0.09,0.008-0.136c0.031-4.142-3.3-7.346-7.442-7.379\n\t\tl-22.961-0.201l8.155-8.156H232.5c4.143,0,7.5-3.357,7.5-7.5s-3.357-7.5-7.5-7.5h-11.686l10-10H257.5c4.143,0,7.5-3.357,7.5-7.5\n\t\ts-3.357-7.5-7.5-7.5h-11.686l8.045-8.045c2.929-2.93,2.929-7.678,0-10.607c-2.929-2.927-7.677-2.929-10.607,0l-8.294,8.294\n\t\tl-0.212-13.09c-0.066-4.1-3.411-7.552-7.496-7.552c-0.042,0-0.083,0-0.125,0c-4.142,0-7.444,3.698-7.377,7.84l0.444,27.567\n\t\tl-9.842,9.842l-0.355-12.859c-0.114-4.141-3.558-7.375-7.704-7.29c-4.141,0.114-7.404,3.565-7.29,7.704l0.748,27.047l-8.613,8.613\n\t\tl-0.241-22.409c0.254-2.085-0.358-4.264-1.879-5.942c-2.783-3.071-7.691-3.304-10.76-0.525l-19.088,17.137V74.178l19.821-18.595\n\t\tc3.009-2.847,3.224-7.594,0.377-10.603c-2.848-3.01-7.72-3.141-10.727-0.294l-9.471,8.842V39.609l19.883-19.086\n\t\tc2.976-2.881,3.136-7.629,0.255-10.605c-2.879-2.975-7.752-3.055-10.73-0.172l-9.408,8.986V7.5c0-4.143-3.357-7.5-7.5-7.5\n\t\tc-4.143,0-7.5,3.357-7.5,7.5v10.528l-8.03-8.196c-2.929-2.93-7.594-2.929-10.523-0.001c-2.93,2.929-3.055,7.678-0.126,10.606\n\t\tl18.679,18.805v13.786l-8.03-8.196c-2.929-2.93-7.594-2.929-10.523-0.001c-2.93,2.929-3.055,7.678-0.126,10.606l18.679,18.805\n\t\tv13.02l-16.711-16.319c-2.979-2.881-7.644-2.801-10.521,0.179c-1.658,1.714-2.287,4.015-1.995,6.207l-0.704,21.825l-8.068-7.923\n\t\tV64.5c0-4.143-3.357-7.5-7.5-7.5s-7.5,3.357-7.5,7.5v11.73l-10-10V39.5c0-4.143-3.357-7.5-7.5-7.5s-7.5,3.357-7.5,7.5v11.73\n\t\tl-7.876-8.043c-2.929-2.927-7.593-2.929-10.524,0c-2.929,2.93-2.887,7.678,0.042,10.607l8.132,8.111l-12.723,0.292\n\t\tc-4.142,0.067-7.439,3.683-7.372,7.823c0.066,4.1,3.416,7.479,7.502,7.479c0.041,0,0.082,0,0.124,0l27.476-0.605l9.802,9.802\n\t\tl-12.859,0.356c-4.141,0.114-7.404,3.564-7.29,7.704c0.112,4.07,3.447,7.293,7.493,7.293c0.07,0,0.141-0.001,0.211-0.003\n\t\tl27.047-0.749l9.433,9.434l-23.242,0.52c-2.053,0.057-4.567,0.588-6.274,2.212c-3.003,2.854-3.123,7.601-0.269,10.603l0.154,0.162\n\t\tc0.16,0.186,0.327,0.361,0.503,0.529L87.573,141.5H74.179l-18.596-19.654c-2.848-3.011-7.595-3.141-10.603-0.294\n\t\tc-3.009,2.847-3.141,7.594-0.294,10.602l8.842,9.346H39.61l-19.087-19.717c-2.879-2.976-7.627-3.055-10.605-0.172\n\t\tc-2.976,2.881-3.053,7.629-0.172,10.605l8.986,9.283H7.5c-4.143,0-7.5,3.357-7.5,7.5s3.357,7.5,7.5,7.5h10.528l-8.196,8.196\n\t\tc-2.93,2.929-2.93,7.678-0.001,10.606c1.465,1.465,3.384,2.197,5.304,2.197c1.919,0,3.839-0.732,5.303-2.196L39.242,156.5h13.786\n\t\tl-8.196,8.196c-2.93,2.929-2.93,7.678-0.001,10.606c1.465,1.465,3.384,2.197,5.304,2.197c1.919,0,3.839-0.732,5.303-2.196\n\t\tL74.242,156.5H87.43l-16.254,16.898c-2.871,2.985-2.779,7.733,0.206,10.604c1.392,1.338,3.164,2.025,4.952,2.083\n\t\tc0.038,0.002,0.073,0.008,0.111,0.009l23.938,0.622l-9.387,9.387l-27.046-0.749c-4.146-0.085-7.591,3.149-7.705,7.289\n\t\tc-0.115,4.141,3.149,7.591,7.289,7.705l12.86,0.356l-10.06,10.06l-27.22-0.265c-0.042,0-0.083,0-0.124,0\n\t\tc-4.086,0-7.431,3.055-7.497,7.154c-0.067,4.142,3.235,7.33,7.377,7.398l12.985,0.19l-8.009,8.009\n\t\tc-2.929,2.93-2.929,7.678,0,10.607c1.465,1.464,3.385,2.196,5.304,2.196c1.919,0,3.672-0.732,5.137-2.196l6.878-7.045V258.5\n\t\tc0,4.143,3.357,7.5,7.5,7.5s7.5-3.357,7.5-7.5v-26.686l10-10V233.5c0,4.143,3.357,7.5,7.5,7.5s7.5-3.357,7.5-7.5v-26.686\n\t\tl9.691-9.525l0.592,22.714c-0.187,2.11,0.555,4.453,2.156,6.083c1.468,1.496,3.451,2.413,5.393,2.413c0.008,0,0.017,0,0.024,0\n\t\tc0.008,0,0.016,0,0.023,0c2.262,0.038,4.299-1.509,5.524-2.938l15.596-15.495v12.19l-18.637,18.805\n\t\tc-2.929,2.929-2.845,7.678,0.084,10.606c1.464,1.464,3.425,2.196,5.344,2.196s3.693-0.732,5.158-2.197l8.051-8.196v13.786\n\t\tl-18.637,18.805c-2.929,2.929-2.845,7.678,0.084,10.606c1.464,1.464,3.425,2.196,5.344,2.196s3.693-0.732,5.158-2.197l8.051-8.196\n\t\tV289.5c0,4.143,3.357,7.5,7.5,7.5c4.143,0,7.5-3.357,7.5-7.5v-11.732l9.45,8.986c1.457,1.41,3.42,2.111,5.299,2.111\n\t\tc1.96,0,3.961-0.764,5.431-2.283c2.881-2.977,2.658-7.725-0.318-10.605l-19.862-19.086v-13.919l9.512,8.842\n\t\tc1.45,1.372,3.386,2.052,5.237,2.052c1.989,0,4.015-0.786,5.491-2.346c2.847-3.009,2.569-7.756-0.44-10.602l-19.8-18.595V209.23\n\t\tl17.333,16.332c1.901,1.648,3.724,2.938,6.243,2.938c0.018,0,0.034,0,0.052,0c4.118,0,7.471-3.422,7.499-7.547l0.166-24.548\n\t\tl9.645,9.645l-0.749,27.046c-0.115,4.141,3.148,7.591,7.289,7.705c0.071,0.002,0.142,0.003,0.212,0.003\n\t\tc4.046,0,7.381-3.223,7.493-7.292l0.356-12.86l9.845,9.845l-0.448,27.408c-0.067,4.142,3.235,7.595,7.377,7.595\n\t\tc0.042,0,0.083,0,0.124,0c4.086,0,7.431-3.147,7.497-7.246l0.212-12.995l7.94,7.94c1.465,1.464,3.385,2.196,5.304,2.196\n\t\tc1.919,0,3.839-0.732,5.304-2.196c2.929-2.93,2.929-7.678,0-10.607l-7.092-7.092h11.73c4.143,0,7.5-3.357,7.5-7.5\n\t\ts-3.357-7.5-7.5-7.5h-26.73l-10-10h11.73c4.143,0,7.5-3.357,7.5-7.5s-3.357-7.5-7.5-7.5h-26.73l-9.082-9.082l22.994-1.004\n\t\tc1.944-0.081,3.911-0.969,5.123-2.152c2.964-2.894,3.02-7.642,0.127-10.605L210.157,156.5h12.101l18.805,18.804\n\t\tc1.464,1.464,3.384,2.196,5.303,2.196c1.919,0,3.839-0.732,5.304-2.197c2.929-2.929,2.929-7.678-0.001-10.606l-8.196-8.196h13.786\n\t\tl18.805,18.804c1.464,1.464,3.384,2.196,5.303,2.196c1.919,0,3.839-0.732,5.304-2.197c2.929-2.929,2.929-7.678-0.001-10.606\n\t\tl-8.196-8.196H289.5c4.143,0,7.5-3.357,7.5-7.5S293.643,141.5,289.5,141.5z M115.347,125.293l16.207,16.207h-23.286l-14.64-15.4\n\t\tL115.347,125.293z M115.007,172.093l-21.232-0.552l14.468-15.041H130.6L115.007,172.093z M140.167,189.048l-14.174,14.079\n\t\tl-0.543-20.512l14.718-14.801V189.048z M140.167,129.231l-15.282-15.448l0.43-20.098l14.851,14.439V129.231z M155.167,108.46\n\t\tl16.731-15.002l0.147,21.346l-16.878,16.795V108.46z M171.245,203.547l-16.078-14.811v-23.291l16.144,16.061L171.245,203.547z\n\t\t M183.301,172.031L167.77,156.5h21.424l14.304,14.649L183.301,172.031z M189.065,141.5h-22.252l16.104-16.104l20.941,0.058\n\t\tL189.065,141.5z\"></path>\n</g>\n</svg>"
+          }
+        },
+        "image_and_text_wCDHqb": {
+          "type": "image-and-text",
+          "disabled": true,
+          "settings": {
+            "country_iso": "*",
+            "title": "",
+            "block_wrapper_classes": "",
+            "block_title": "",
+            "title_classes": "text",
+            "description": "",
+            "description_classes": "",
+            "svg": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_and_text_XwY4Xy",
+        "image_and_text_wCDHqb"
+      ],
+      "disabled": true,
+      "settings": {
+        "outer_wrapper_classes": "relative pb-6",
+        "inner_wrapper_classes": "col-span-12 flex justify-center  py-3 px-4 items-center text-center",
+        "grid_wrapper_classes": "",
+        "title": "",
+        "title_classes": "text-center text-base font-semibold uppercase text-gray-600 tracking-wider",
+        "section_bg_colour": "",
+        "block_bg_colour": "",
+        "block_bg_colour_hover": "",
+        "block_text_colour": "",
+        "block_text_colour_hover": "",
+        "block_image_classes": "",
+        "block_svg_classes": "",
+        "custom_css": ""
+      }
+    },
+    "klaviyo_forms_bp3ABn": {
+      "type": "ob-klaviyo-forms",
+      "blocks": {
+        "form_YUepdq": {
+          "type": "form",
+          "settings": {
+            "country_iso": "*",
+            "slide_active": true,
+            "title": "Christmas",
+            "klaviyo_id": "X9Br5R",
+            "html_id": "",
+            "wrapper_classes": "",
+            "url_handle": "gift-guide",
+            "not_url_handle": "",
+            "domains": "*",
+            "device": "all",
+            "customers": "all"
+          }
+        }
+      },
+      "block_order": [
+        "form_YUepdq"
+      ],
+      "disabled": true,
+      "settings": {
+        "section_width": "full",
+        "custom_width": ""
+      }
+    },
+    "image_text_grid_74nJtc": {
+      "type": "ob-image-text-grid",
+      "blocks": {
+        "image_and_text_WhYnrq": {
+          "type": "image-and-text",
+          "settings": {
+            "country_iso": "*",
+            "title": "",
+            "block_wrapper_classes": "col-span-12 flex justify-center  px-4 items-center text-center relative",
+            "block_title": "",
+            "title_classes": "text",
+            "description": "<p class=\"text-md lg:text-lg\">\nCheck out our wide range of <a href=\"https://www.myoddballs.com/collections/him-individuals\" class=\"link\">Men's Boxers</a>, <a href=\"https://www.myoddballs.com/collections/ladies-boxer-shorts\" class=\"link\">Women’s Boxers</a>, and <a href=\"https://www.myoddballs.com/collections/bralette\" class=\"link\">Bralettes </a> for unbeatable comfort and bold, colourful designs. Discover exclusive designs through our exciting <a href=\"https://www.myoddballs.com/pages/shop-by-design#popular\" class=\"link\">Partnerships</a>, create personalised sets with our <a href=\"https://www.myoddballs.com/pages/build-a-bundle\" class=\"link\">Build a Bundle</a> or surprise them with a <a href=\"https://www.myoddballs.com/collections/oddballs-subscriptions\" class=\"link\">Subscription</a> for brand new designs every month! \n</p>",
+            "description_classes": "",
+            "svg": ""
+          }
+        },
+        "image_and_text_e6fDEP": {
+          "type": "image-and-text",
+          "disabled": true,
+          "settings": {
+            "country_iso": "*",
+            "title": "",
+            "block_wrapper_classes": "",
+            "block_title": "",
+            "title_classes": "text",
+            "description": "",
+            "description_classes": "",
+            "svg": ""
+          }
+        },
+        "image_and_text_VYVwqP": {
+          "type": "image-and-text",
+          "settings": {
+            "country_iso": "*",
+            "title": "",
+            "block_wrapper_classes": "col-span-1 flex justify-center py-8 px-8 gap-x-5 items-center cursor-pointer",
+            "block_title": "",
+            "title_classes": "text",
+            "description": "",
+            "description_classes": "",
+            "svg": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_and_text_WhYnrq",
+        "image_and_text_e6fDEP",
+        "image_and_text_VYVwqP"
+      ],
+      "disabled": true,
+      "settings": {
+        "outer_wrapper_classes": "relative pb-6",
+        "inner_wrapper_classes": "col-span-12 flex justify-center  py-3 px-4 items-center text-center",
+        "grid_wrapper_classes": "",
+        "title": "",
+        "title_classes": "text-center text-base font-semibold uppercase text-gray-600 tracking-wider",
+        "section_bg_colour": "",
+        "block_bg_colour": "",
+        "block_bg_colour_hover": "",
+        "block_text_colour": "",
+        "block_text_colour_hover": "",
+        "block_image_classes": "",
+        "block_svg_classes": "",
+        "custom_css": ""
+      }
+    },
+    "image_text_grid_UKLi6d": {
+      "type": "ob-image-text-grid",
+      "blocks": {
+        "image_and_text_gKGmDW": {
+          "type": "image-and-text",
+          "disabled": true,
+          "settings": {
+            "country_iso": "*",
+            "title": "",
+            "block_wrapper_classes": "col-span-1 flex justify-center py-8 px-8 gap-x-5 items-center cursor-pointer",
+            "block_title": "",
+            "title_classes": "text",
+            "description": "",
+            "description_classes": "",
+            "svg": ""
+          }
+        },
+        "image_and_text_a6CfCe": {
+          "type": "image-and-text",
+          "settings": {
+            "country_iso": "*",
+            "title": "",
+            "block_wrapper_classes": "col-span-12 flex justify-center  px-4 items-center text-center relative",
+            "block_title": "",
+            "title_classes": "text",
+            "description": "<h2 class=\"text-center font-bebas text-2xl lg:text-4xl\">Celebrate Love With OddBalls</h2>\n<br>\n<p class=\"text-md lg:text-lg\">\nGive the gift of love (and comfort) with our bold and colourful <a href=\"https://www.myoddballs.com/pages/mens-underwear\" class=\"link\"> men’s underwear</a>. Made from soft, cotton-rich fabrics, our <a href=\"https://www.myoddballs.com/collections/him-individuals\" class=\"link\">boxers </a>and <a href=\"https://www.myoddballs.com/collections/his-briefs\" class=\"link\">briefs </a> are designed for all-day wear, making them perfect for date night—or any night! Shopping for your partner or treating yourself? Our <a href=\"https://www.myoddballs.com/collections/valentines-day-underwear\" class=\"link\"> Valentine’s Day collection</a> makes gifting simple with curated <a href=\"https://www.myoddballs.com/collections/him-individuals/mens-boxer-shorts-bundles%20\" class=\"link\"> bundles </a> of underwear and socks—great for sharing or keeping all to yourself. Want to match with your significant other? Our <a href=\"https://www.myoddballs.com/pages/perfect-pair\" class=\"link\"> Perfect Pair </a> feature makes it easy to select matching underwear and socks for both of you!\n</p>\n<br>\n<p class=\"text-md lg:text-lg\">\n<a href=\"https://www.myoddballs.com/collections/seamless-underwear%20\" class=\"link\">Sexy Seamless</a> or Cosy Cotton? The Choice Is Yours! Celebrate YOU this Valentine’s Day with our women’s collection of <a href=\"https://www.myoddballs.com/collections/ladies-boxer-shorts\" class=\"link\">boxers</a>, <a href=\"https://www.myoddballs.com/collections/her-individuals\" class=\"link\">briefs</a>, <a href=\"https://www.myoddballs.com/collections/bralette\" class=\"link\">bralettes </a> and <a href=\"https://www.myoddballs.com/collections/ladies-thongs\" class=\"link\">thongs</a>. Whether you’re dressing for a romantic night out or planning a cosy Galentine’s night in, we’ve got you covered. Designed for lounging and feeling great, our soft, breathable cotton fabrics and fun, vibrant prints ensure all-day comfort. \n\n</p>\n<br> \n<p class=\"text-md lg:text-lg\">\nPlus, spend over £40 and enjoy a <a href=\"https://www.myoddballs.com/collections/free-gift\" class=\"link\">free gift</a> with your order! \n\nAdd some fun to your Valentines Day gifts with OddBalls accessories. Stay cosy in our <a href=\"https://www.myoddballs.com/collections/obble\" class=\"link\">bobble hats</a> and super-soft <a href=\"https://www.myoddballs.com/collections/slippers\" class=\"link\">slippers</a>, perfect for chilly days and lounging around. Snuggle up under our <a href=\"https://www.myoddballs.com/collections/fleece-blanket\" class=\"link\">fleece blankets</a> or brighten your mornings with reusable <a href=\"https://www.myoddballs.com/collections/coffee-cups\" class=\"link\">coffee cups</a> that are as colourful as they are practical. Elevate your self-care with our handy <a href=\"https://www.myoddballs.com/collections/grooming-sets\" class=\"link\">grooming sets</a>, and dry off with our eye-catching <a href=\"https://www.myoddballs.com/collections/all-towels\" class=\"link\">towels </a>– perfect for the bathroom, beach, or pool. Shop now to discover the perfect pieces for Valentine’s Day and beyond! \n</p>",
+            "description_classes": "",
+            "svg": ""
+          }
+        },
+        "image_and_text_pizeH9": {
+          "type": "image-and-text",
+          "disabled": true,
+          "settings": {
+            "country_iso": "*",
+            "title": "",
+            "block_wrapper_classes": "",
+            "block_title": "",
+            "title_classes": "text",
+            "description": "",
+            "description_classes": "",
+            "svg": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_and_text_gKGmDW",
+        "image_and_text_a6CfCe",
+        "image_and_text_pizeH9"
+      ],
+      "settings": {
+        "outer_wrapper_classes": "relative pb-6 boxing-day-bottom-text",
+        "inner_wrapper_classes": "col-span-12 flex justify-center  py-3 px-4 items-center text-center",
+        "grid_wrapper_classes": "",
+        "title": "",
+        "title_classes": "text-center text-base font-semibold uppercase text-gray-600 tracking-wider",
+        "section_bg_colour": "",
+        "block_bg_colour": "",
+        "block_bg_colour_hover": "",
+        "block_text_colour": "",
+        "block_text_colour_hover": "",
+        "block_image_classes": "",
+        "block_svg_classes": "",
+        "custom_css": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "f7b8470c-5dfc-4a80-84f9-a574d9391aa9",
+    "free_card_banner_section_M3FTEM",
+    "260d0e54-27e1-4d94-8a4b-2234abe73b2e",
+    "289ab40a-57e7-4538-a246-879f383aad57",
+    "lw_circles_V49dc9",
+    "ob_tailwind_image_text_video_swiper_eA3i6X",
+    "ob_mosaic_hero_JztgiC",
+    "collection_product_slider_xdKxWb",
+    "conditional_banner_dfDmqb",
+    "23dddb08-6703-4d0d-a048-d0052e8a9c1d",
+    "collection_product_slider_PrRd86",
+    "mosaic_hero_CqKhhC",
+    "7c0698a0-7c77-464c-bdc7-fa2a9b9041e4",
+    "image_text_grid_KdbFFR",
+    "klaviyo_forms_bp3ABn",
+    "image_text_grid_74nJtc",
+    "image_text_grid_UKLi6d"
+  ]
+}

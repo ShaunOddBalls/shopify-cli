@@ -1,0 +1,12 @@
+{% layout none %}
+{
+    {% paginate shop.metaobjects.design.values by 500 %}   "designs": [
+{% for design in shop.metaobjects.design.values %}
+ { 
+       "title": "{{ design.title.value }}",
+    "tag": "{{ design.tag.value }}",
+    "img_url": "{{ design.img_url.value | replace: ".png", "_100x.png" | replace: ".jpg", "_100x.jpg"  }}"
+    }{% unless forloop.last %},{% endunless %}
+{% endfor %}
+{%endpaginate %}]
+}

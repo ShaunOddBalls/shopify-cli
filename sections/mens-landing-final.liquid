@@ -1,0 +1,89 @@
+{% schema %}
+{
+  "name": "Mens Landing Final",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "background_image",
+        "label": "Mobile Background Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "desktop_background_image",
+        "label": "Desktop Background Image"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title Text"
+      },
+      {
+        "type": "text",
+        "id": "button_text",
+        "label": "Button Text"
+      },
+      {
+        "type": "text",
+        "id": "button_link",
+        "label": "Button Link"
+      }
+
+    ],
+  "presets": [
+    {
+      "name": "Mens Landing Final",
+    }
+  ]
+}
+{% endschema %}
+
+<div class="">
+  <div class="student-custom-block-ticks w-full max-md:mb-2" {{ block.shopify_attributes }}>
+    <div class="background-image w-full h-full relative py-8 md:py-28">
+      {% if section.settings.background_image %}
+        <style>
+          .background-image {
+            background-image: url('{{ section.settings.background_image | img_url: 'master' }}');
+          }
+
+          @media (min-width: 768px) {
+            .background-image {
+              background-image: url('{{ section.settings.desktop_background_image | img_url: 'master' }}');
+            }
+          }
+        </style>
+      {% endif %}
+
+      <div class="w-min h-full flex flex-col justify-center pl-12">
+        {% if section.settings.title %}
+          <div>
+            <h2 class="text-xl md:text-5xl font-bold text-wrap text-start text-white">
+              {{ section.settings.title }}
+            </h2>
+          </div>
+        {% endif %}
+        {% if section.settings.button_text %}
+          <div class="w-full flex justify-center">
+            <a href="{{ section.settings.button_link }}" class="w-full mt-4 px-4 py-1 text-center uppercase font-bold border-2 border-solid border-white text-white rounded-full md:text-3xl">
+              {{ section.settings.button_text }}
+            </a>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<style>
+  .student-custom-block-ticks {
+    width: 100%;
+  }
+
+  .background-image {
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+  }
+  
+</style>

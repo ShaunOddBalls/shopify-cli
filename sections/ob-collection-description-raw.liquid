@@ -1,0 +1,52 @@
+{%- comment -%}
+  sections/collection-description.liquid
+  Displays the current collection’s description, with Tailwind-based
+  alignment and max-width controlled via theme settings.
+{%- endcomment -%}
+
+<section class="py-8">
+  {%- if collection.description -%}
+    <div class="{{ section.settings.max_width }} mx-auto px-4">
+      <div class="prose {{ section.settings.alignment }}">
+        {{ collection.description }}
+      </div>
+    </div>
+  {%- endif -%}
+</section>
+
+{% schema %}
+{
+  "name": "Collection Description",
+  "settings": [
+    {
+      "type": "select",
+      "id": "alignment",
+      "label": "Text alignment",
+      "default": "text-left",
+      "options": [
+        { "value": "text-left",   "label": "Left" },
+        { "value": "text-center", "label": "Center" },
+        { "value": "text-right",  "label": "Right" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "max_width",
+      "label": "Max width",
+      "default": "max-w-2xl",
+      "options": [
+        { "value": "max-w-md",   "label": "Medium (≈28rem)" },
+        { "value": "max-w-2xl",  "label": "Large (≈42rem)" },
+        { "value": "max-w-4xl",  "label": "XL (≈56rem)" },
+        { "value": "max-w-full", "label": "Full width" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collection description",
+      "category": "Collection pages"
+    }
+  ]
+}
+{% endschema %}

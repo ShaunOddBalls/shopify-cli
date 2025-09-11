@@ -1,0 +1,317 @@
+<style>
+  :root { --bg:#0f172a; --fg:#e5e7eb; --muted:#94a3b8; --card:#111827; --accent:#38bdf8; --ok:#22c55e; --warn:#f59e0b; --err:#ef4444; }
+
+  header.obhead { padding:24px; background:linear-gradient(135deg,#0ea5e9 0%, #8b5cf6 100%); color:white; }
+  header.obhead h1 { margin:0 0 6px; font-size:22px; }
+  header.obhead p { margin:0; opacity:.9 }
+  main.ob-main { padding:24px; display:grid; gap:16px; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
+  .ob-main section { background: #0f172a; border:1px solid #1f2937; border-radius:14px; padding:16px; box-shadow: 0 8px 30px rgba(0,0,0,.25); }
+    .ob-main section h2 { margin:0 0 12px; font-size:16px; color:#c7d2fe; letter-spacing:.3px }
+    .ob-main .row { display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin:8px 0; }
+    .ob-main button { padding:8px 10px; border-radius:10px; border:1px solid #334155; background:#111827; color:#e5e7eb; cursor:pointer; }
+    .ob-main button:hover { border-color:#475569; }
+    .ob-main input[type="text"] { background:#0b1220; color:#e5e7eb; border:1px solid #334155; border-radius:10px; padding:8px 10px; }
+    .ob-main .badge { padding:2px 8px; border-radius:999px; font-size:12px; background:#172554; color:#93c5fd; border:1px solid #1e3a8a; }
+    .ob-main .muted { color: var(--muted); }
+    .ob-main .panel { padding:10px; background:#0b1220; border:1px dashed #334155; border-radius:10px; }
+    .ob-main .hidden { display:none; } /* intentionally used for testing effects */
+    .ob-main .list li { padding:4px 6px; background:#0b1220; border:1px solid #253048; margin:4px 0; border-radius:8px; }
+    .ob-main .hl { background:#1a2a44; }
+    .ob-main pre#log { background:#0b1220; border:1px solid #1f2937; border-radius:12px; padding:12px; max-height:260px; overflow:auto; white-space:pre-wrap; }
+    .ob-main code { background:#0b1220; padding:2px 6px; border-radius:8px; border:1px solid #233047; }
+    .ob-main .ok { color: var(--ok); } .warn{color:var(--warn);} .err{color:var(--err);}
+    .ob-main .grid-2 { display:grid; grid-template-columns: 1fr 1fr; gap:8px; }
+</style>
+
+<header class="obhead">
+  <h1>OddBalls <code>$ob</code> Playground</h1>
+  <p>Interactive cheatsheet for your micro jQuery-like lib. Open the console panel below or your browser console to see outputs.</p>
+</header>
+
+<main class="ob-main">
+
+  <!-- Console -->
+  <section style="grid-column: 1 / -1">
+    <h2>Console</h2>
+    <pre id="log" aria-live="polite"></pre>
+    <div class="row"><button id="clearLog">Clear Log</button><span class="muted">You can also use your browser console.</span></div>
+  </section>
+
+  <!-- DOM Manipulation -->
+  <section>
+    <h2>DOM Manipulation <span class="badge">html / text / val / append / prepend / before / after / remove</span></h2>
+    <div id="domTarget" class="panel">Hello <strong>world</strong></div>
+    <div class="row">
+      <button data-act="set-html">.html("&lt;em&gt;replaced&lt;/em&gt;")</button>
+      <button data-act="get-html">.html() → log</button>
+      <button data-act="set-text">.text("plain text")</button>
+      <button data-act="get-text">.text() → log</button>
+    </div>
+    <div class="row">
+      <input id="domInput" type="text" value="Type here" />
+      <button data-act="get-val">#input .val() → log</button>
+      <button data-act="set-val">#input .val("new")</button>
+    </div>
+    <div class="row">
+      <button data-act="append">.append("…")</button>
+      <button data-act="prepend">.prepend("…")</button>
+      <button data-act="before">.before("…")</button>
+      <button data-act="after">.after("…")</button>
+      <button data-act="remove">.remove()</button>
+    </div>
+  </section>
+
+  <!-- Attributes & Properties -->
+  <section>
+    <h2>Attributes & Properties <span class="badge">attr / removeAttr / prop</span></h2>
+    <img id="attrImg" src="https://via.placeholder.com/80x40" alt="placeholder" />
+    <div class="row">
+      <button data-act="get-attr">.attr("alt") → log</button>
+      <button data-act="set-attr">.attr("alt","new alt")</button>
+      <button data-act="remove-attr">.removeAttr("alt")</button>
+    </div>
+    <div class="row">
+      <input id="propChk" type="checkbox" />
+      <button data-act="get-prop">#chk .prop("checked") → log</button>
+      <button data-act="set-prop">#chk .prop("checked", true)</button>
+    </div>
+  </section>
+
+  <!-- CSS & Classes -->
+  <section>
+    <h2>CSS & Classes <span class="badge">css / addClass / removeClass / toggleClass / hasClass</span></h2>
+    <div id="cssBox" class="panel">A box</div>
+    <div class="row">
+      <button data-act="set-css">.css({ padding:"20px", borderRadius:"12px" })</button>
+      <button data-act="get-css">.css("padding") → log</button>
+    </div>
+    <div class="row">
+      <button data-act="add-class">.addClass("hl")</button>
+      <button data-act="remove-class">.removeClass("hl")</button>
+      <button data-act="toggle-class">.toggleClass("hl")</button>
+      <button data-act="has-class">.hasClass("hl") → log</button>
+    </div>
+  </section>
+
+  <!-- Events (normal + delegated) -->
+  <section>
+    <h2>Events <span class="badge">on / off / one + delegation</span></h2>
+    <div class="row">
+      <button id="evtBtn">Click me</button>
+      <button id="evtOnce">Once only</button>
+      <button id="evtOff">Remove click</button>
+    </div>
+    <div class="row">
+      <button id="addDyn">Add dynamic item</button>
+      <div id="dynList" class="panel list"></div>
+    </div>
+  </section>
+
+  <!-- Traversal -->
+  <section>
+    <h2>Traversal <span class="badge">find / children / parent / closest / siblings / next / prev / filter / first / last / eq / index</span></h2>
+    <ul id="travList" class="list">
+      <li class="it">Alpha</li>
+      <li class="it">Bravo</li>
+      <li class="it">Charlie</li>
+    </ul>
+    <div class="row">
+      <button data-act="children">#travList.children(".it")</button>
+      <button data-act="next">2nd.next().text()</button>
+      <button data-act="prev">2nd.prev().text()</button>
+      <button data-act="siblings">2nd.siblings().length</button>
+      <button data-act="first-last">first().text() / last().text()</button>
+      <button data-act="filter">filter(text includes "a")</button>
+      <button data-act="eq">eq(1).text()</button>
+      <button data-act="index">index of "Bravo"</button>
+    </div>
+  </section>
+
+  <!-- Effects -->
+  <section>
+    <h2>Effects <span class="badge">show / hide / fadeIn / fadeOut / slideUp / slideDown / slideToggle</span></h2>
+    <div id="fxPanel" class="panel hidden">I start hidden (class)</div>
+    <div class="row">
+      <button data-act="show">show()</button>
+      <button data-act="hide">hide()</button>
+      <button data-act="fadeIn">fadeIn(400)</button>
+      <button data-act="fadeOut">fadeOut(400)</button>
+      <button data-act="slideDown">slideDown(400)</button>
+      <button data-act="slideUp">slideUp(400)</button>
+      <button data-act="slideToggle">slideToggle(400)</button>
+    </div>
+  </section>
+
+  <!-- Data -->
+  <section>
+    <h2>Data <span class="badge">data / removeData</span></h2>
+    <div id="dataBox" class="panel">Data target</div>
+    <div class="row">
+      <button data-act="set-data">.data("foo","bar")</button>
+      <button data-act="get-data">.data("foo") → log</button>
+      <button data-act="remove-data">.removeData("foo")</button>
+    </div>
+  </section>
+
+  <!-- Iteration -->
+  <section>
+    <h2>Iteration <span class="badge">each</span></h2>
+    <ul id="eachList" class="list">
+      <li>One</li><li>Two</li><li>Three</li>
+    </ul>
+    <div class="row">
+      <button data-act="each-number">Prefix with indexes</button>
+    </div>
+  </section>
+
+  <!-- AJAX -->
+  <section>
+    <h2>AJAX <span class="badge">get / post / ajax</span></h2>
+    <div class="row">
+      <button data-act="ajax-get">GET /todos/1</button>
+      <button data-act="ajax-post">POST /posts</button>
+    </div>
+    <div id="ajaxOut" class="panel"></div>
+  </section>
+
+</main>
+
+<script defer>
+  // tiny logger
+  function log(msg, cls) {
+    const el = document.getElementById('log');
+    const line = document.createElement('div');
+    if (cls) line.className = cls;
+    line.textContent = typeof msg === 'string' ? msg : JSON.stringify(msg, null, 2);
+    el.appendChild(line);
+    el.scrollTop = el.scrollHeight;
+  }
+  const $ = sel => $ob(sel); // alias for brevity here
+
+document.addEventListener("DOMContentLoaded", evt => {
+    // console controls
+    $('#clearLog').on('click', () => { $('#log').html(''); });
+
+    // --- DOM Manipulation
+    $('[data-act="set-html"]').on('click', () => { $('#domTarget').html('<em>replaced</em>'); });
+    $('[data-act="get-html"]').on('click', () => { log($('#domTarget').html()); });
+    $('[data-act="set-text"]').on('click', () => { $('#domTarget').text('plain text'); });
+    $('[data-act="get-text"]').on('click', () => { log($('#domTarget').text()); });
+
+    $('[data-act="get-val"]').on('click', () => { log($('#domInput').val()); });
+    $('[data-act="set-val"]').on('click', () => { $('#domInput').val('new'); });
+
+    $('[data-act="append"]').on('click', () => { $('#domTarget').append(' [appended]'); });
+    $('[data-act="prepend"]').on('click', () => { $('#domTarget').prepend('[prepended] '); });
+    $('[data-act="before"]').on('click', () => { $('#domTarget').before('<div class="panel">Before block</div>'); });
+    $('[data-act="after"]').on('click', () => { $('#domTarget').after('<div class="panel">After block</div>'); });
+    $('[data-act="remove"]').on('click', () => { $('#domTarget').remove(); });
+
+    // --- Attributes & Props
+    $('[data-act="get-attr"]').on('click', () => { log($('#attrImg').attr('alt')); });
+    $('[data-act="set-attr"]').on('click', () => { $('#attrImg').attr('alt','new alt'); log('alt set'); });
+    $('[data-act="remove-attr"]').on('click', () => { $('#attrImg').removeAttr('alt'); log('alt removed', 'warn'); });
+
+    $('[data-act="get-prop"]').on('click', () => { log($('#propChk').prop('checked')); });
+    $('[data-act="set-prop"]').on('click', () => { $('#propChk').prop('checked', true); log('checked=true'); });
+
+    // --- CSS & Classes
+    $('[data-act="set-css"]').on('click', () => { $('#cssBox').css({ padding:'20px', borderRadius:'12px' }); });
+    $('[data-act="get-css"]').on('click', () => { log($('#cssBox').css('padding')); });
+
+    $('[data-act="add-class"]').on('click', () => { $('#cssBox').addClass('hl'); });
+    $('[data-act="remove-class"]').on('click', () => { $('#cssBox').removeClass('hl'); });
+    $('[data-act="toggle-class"]').on('click', () => { $('#cssBox').toggleClass('hl'); });
+    $('[data-act="has-class"]').on('click', () => { log($('#cssBox').hasClass('hl')); });
+
+    // --- Events (normal)
+    const handleClick = () => log('evtBtn clicked', 'ok');
+    $('#evtBtn').on('click', handleClick);
+    $('#evtOnce').one('click', () => log('evtOnce fired (only once)', 'ok'));
+    $('#evtOff').on('click', () => { $('#evtBtn').off('click', handleClick); log('evtBtn click removed', 'warn'); });
+
+    // --- Events (delegated)
+    let dynId = 1;
+    $('#addDyn').on('click', () => {
+      $('#dynList').append(`<button class="dyn" data-id="${dynId++}">Dynamic #${dynId-1}</button> `);
+    });
+    // delegate clicks from container
+    $('#dynList').on('click', '.dyn', function (e) {
+      log(`delegated click: ${$ob(this).text()} (data-id=${$ob(this).attr('data-id')})`);
+      $ob(this).toggleClass('hl');
+    });
+
+    // --- Traversal
+    $('[data-act="children"]').on('click', () => {
+      const n = $('#travList').children('.it').length;
+      log(`children(".it"): ${n}`);
+    });
+    $('[data-act="next"]').on('click', () => {
+      log($($('#travList .it')[1]).next().text());
+    });
+    $('[data-act="prev"]').on('click', () => {
+      log($($('#travList .it')[1]).prev().text());
+    });
+    $('[data-act="siblings"]').on('click', () => {
+      const count = $($('#travList .it')[1]).siblings().length;
+      log(`siblings: ${count}`);
+    });
+    $('[data-act="first-last"]').on('click', () => {
+      log(`first: ${$('#travList .it').first().text()} | last: ${$('#travList .it').last().text()}`);
+    });
+    $('[data-act="filter"]').on('click', () => {
+      const texts = $('#travList .it').filter(function () {
+        return $ob(this).text().toLowerCase().includes('a');
+      }).toArray().map(el => el.textContent);
+      log(texts);
+    });
+    $('[data-act="eq"]').on('click', () => {
+      log($('#travList .it').eq(1).text());
+    });
+    $('[data-act="index"]').on('click', () => {
+      const i = $('#travList .it').filter(function(){ return $ob(this).text()==='Bravo'; }).eq(0).index();
+      log(`index of "Bravo": ${i}`);
+    });
+
+    // --- Effects
+    $('[data-act="show"]').on('click', () => { $('#fxPanel').show(); });
+    $('[data-act="hide"]').on('click', () => { $('#fxPanel').hide(); });
+    $('[data-act="fadeIn"]').on('click', () => { $('#fxPanel').fadeIn(400); });
+    $('[data-act="fadeOut"]').on('click', () => { $('#fxPanel').fadeOut(400); });
+    $('[data-act="slideDown"]').on('click', () => { $('#fxPanel').slideDown(400); });
+    $('[data-act="slideUp"]').on('click', () => { $('#fxPanel').slideUp(400); });
+    $('[data-act="slideToggle"]').on('click', () => { $('#fxPanel').slideToggle(400); });
+
+    // --- Data
+    $('[data-act="set-data"]').on('click', () => { $('#dataBox').data('foo','bar'); log('data foo=bar'); });
+    $('[data-act="get-data"]').on('click', () => { log($('#dataBox').data('foo')); });
+    $('[data-act="remove-data"]').on('click', () => { $('#dataBox').removeData('foo'); log('data foo removed','warn'); });
+
+    // --- Iteration
+    $('[data-act="each-number"]').on('click', () => {
+      $('#eachList li').each(function(i){ $ob(this).text(`${i+1}. ${$ob(this).text()}`); });
+      log('prefixed list items', 'ok');
+    });
+
+    // --- AJAX (uses jsonplaceholder)
+    const api = 'https://jsonplaceholder.typicode.com';
+    $('[data-act="ajax-get"]').on('click', () => {
+      $ob.get(`${api}/todos/1`).then(json => {
+        $('#ajaxOut').text(JSON.stringify(json, null, 2));
+        log('GET done', 'ok');
+      }).catch(err => log(err.message, 'err'));
+    });
+    $('[data-act="ajax-post"]').on('click', () => {
+      $ob.post(`${api}/posts`, { title:'foo', body:'bar', userId:1 }).then(json => {
+        $('#ajaxOut').text(JSON.stringify(json, null, 2));
+        log('POST done', 'ok');
+      }).catch(err => log(err.message, 'err'));
+    });
+
+    // quick demo: clicking any list item logs its "next"
+    $('#travList').on('click', '.it', function() {
+      const next = $ob(this).next().text() || '(none)';
+      log(`${$ob(this).text()} → next: ${next}`);
+    });
+  });
+</script>

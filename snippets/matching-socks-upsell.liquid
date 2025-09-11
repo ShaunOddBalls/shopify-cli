@@ -1,0 +1,113 @@
+{% capture show_matching_sock_upsell %}
+ {% render "ob-show-feature-check", metaobject_handle: "matching-sock-upsell" %}
+{% endcapture %}
+
+
+{% assign proceed = settings.matching_product_upsell %}
+{% assign ok_to_proceed = "ok" %}
+{% assign formatted_part = "" %}
+{% assign productType = product.type %}
+{% assign collectionName = "" %}
+{% assign sockUpsell = 'no' %}
+{% assign sockUpsellList = "Boxer Shorts,Briefs,Bamboo Boxer Shorts," | split: "," %}
+
+{% assign Designtag = "" %}
+{% for tag in product.tags %}
+  {% if tag contains "design-" and tag != "feature-design-selector" %}
+    {% assign Designtag = tag %}
+  {% endif %}
+{% endfor %}
+
+{% assign parts = Designtag | split: "-" %}
+{% for part in parts %}
+  {% if forloop.first == false %}
+    {% assign formatted_part = part | downcase %}
+    {% capture collectionName %}{{ collectionName }}-{{ formatted_part }}{% endcapture %}
+  {% endif %}
+{% endfor %}
+
+{% assign collectionName = collectionName | slice: 1, collectionName.size | strip %}
+{% assign colection_products = collections[collectionName].products | where: "available", true %}
+
+{% if colection_products.size == 0 %}
+  {% capture collectionName %}{{ Designtag }}{% endcapture %}
+  {% assign colection_products = collections[collectionName].products | where: "available", true %}
+{% endif %}
+
+{% if colection_products.size == 0 %}
+  {% assign ok_to_proceed = "no" %}
+{% endif %}
+
+{% assign this_type_array = colection_products | where: "type", productType %}
+{% assign productToSearch = "Socks" %}
+{% assign search_for_lowercase = productToSearch | downcase | strip %}
+{% assign product_upsell = "" %}
+
+{% for prod in colection_products %}
+  {%- comment %}<locksmith:9bf3>{% endcomment -%}
+    {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: prod, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+  {%- comment %}</locksmith:9bf3>{% endcomment -%}
+  {% assign prod_type_lowercase = prod.type | downcase | strip %}
+  {% if prod_type_lowercase == search_for_lowercase %}
+    {% capture product_upsell %}
+      <div class="flex w-full flex-col p-2 hidden matching-sock-upsell">
+        <!-- Left: Product Image -->
+          <div class="flex justify-center items-center">
+            <picture>
+              <img class="w-full lg:max-w-[67%] mx-auto transition mix-blend-multiply duration-100 ease-in-out opacity-100 rounded-sm aspect-square object-cover border border-solid borrder-gray-200 rounded-lg" src="{{ prod.featured_image | img_url: 'medium' }}" alt="{{ product.title }}" loading="eager" width="84" height="84" draggable="false">
+            </picture>
+          </div>
+          <div class="py-2">
+            {% assign product_type = prod.title | split: "-" | last %}
+
+             {% capture title_translation %} {{ 'ob_popup.upsells.matching_product_title_html' | t: type: product_type  }}?{% endcapture %}
+            <h2 class="text-xl lg:text-lg uppercase font-semibold mb-2 text-center">
+              {{ title_translation }}
+            </h2>
+            {% capture paragraph_translation %}
+              {{ 'ob_popup.upsells.matching_product_paragraph' | t: product: prod.title | replace: '-' , " " }}
+            {% endcapture %}
+            <p class="text-md text-center">{{ paragraph_translation }}?</p>
+          </div>
+
+        <!-- Right: Product Details & Size Selectors -->
+        <div class="w-full flex flex-col justify-center">
+          <div>
+          {% assign product_form_class = "flex h-full flex-col divide-y divide-gray-200 bg-white product-form" %}
+          {% capture product_form_id %}product-form-{{ prod.id }}{% endcapture %}
+            {%- form 'product', prod, data-product-id: prod.id, id: product_form_id, class: product_form_class, novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
+            
+                {% render 'ob-product-form-attributes', product:prod %}
+                <input type="hidden" id="pop-up-upsell" name="attributes[ _Popup Upsell]" value="{{ product.id }}" />
+
+                         <div class="flex flex-1 flex-col justify-between">
+                          <div class="divide-y divide-gray-200">
+                              <div class="space-y-6 p-6 py-4">
+                                  <!-- Variant Options -->
+                                  {% render 'ob-product-variants', product:prod %}
+                              </div>
+                            </div>
+                         </div>
+                          <div class="flex w-full lg:fixed bottom-0 flex-shrink-0 justify-end px-6 py-6 bg-white left-0">
+                              <!-- Add to Cart Button -->
+                              <div class="grid grid-cols-4 w-full gap-2">
+                                  {% render 'ob-product-atc-button', product:prod %}
+                                  {% render 'ob-product-atc-quantity', product:prod %}
+                              </div>
+                          </div>
+           
+                       <input type="hidden" class="product-json" product-id="{{ prod.id }}" value="{{ prod | json | escape }}"/>
+                      {% endform %}
+                      </div>
+                    </div>
+                  </div>
+              
+                {% endcapture %}
+              {% break %}
+            {% endif %}
+          {% endfor %}
+
+
+{% if proceed and ok_to_proceed == "ok" and product_upsell != "" and show_matching_sock_upsell contains 'true' %}
+        {{ product_upsell }}
+{% endif %}

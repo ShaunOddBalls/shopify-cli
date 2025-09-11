@@ -1,0 +1,209 @@
+<script type="text/javascript"  src="{{'ob-sbd.js'| asset_url}}" defer></script>
+<style>
+  .sbd-active{
+    color:white;
+    background-color:#f00f83;
+  }
+</style>
+<div class="2xl:mx-auto 2xl:container pt-122 lg:px-20 md:px-6 px-4 mb-10" data-attribute="" for="" linking="" section="" content="">
+	<div class="w-fullS">  
+		<div class="js-all-tabs  grid {% if localization.country.iso_code == "GB" %} grid-cols-3 {% else %} grid-cols-2{% endif %} max-w-3xl mx-auto w-full rounded-md gap-2">
+        	
+          		<a id="patterned" class="js-sbd-tab js-sbd-tab-patterned -tab default-tab  px-5 py-2 font-semibold text-gray-900  uppercase font-bebas text-sm md:text-base flex-1 text-center rounded-full border-2 border-solid   cursor-pointer hover:border-magenta-500 hover:bg-magenta-500 hover:text-white  items-center flex justify-center leading-5 text-xs md:text-sm">
+                  
+                 Patterned
+          		</a>
+         		<a id="plain" class="js-sbd-tab js-sbd-tab-plain -tab  px-5 py-2 font-semibold text-gray-900  uppercase font-bebas text-sm md:text-base flex-1 text-center rounded-full border-2 border-solid   cursor-pointer hover:border-magenta-500 hover:bg-magenta-500 hover:text-white  items-center flex justify-center leading-5 text-xs md:text-sm">
+                  
+                 Plain
+          		</a>
+                {% if localization.country.iso_code == "GB" %}
+          		<a id="partnerships" class="js-sbd-tab js-sbd-tab-partnerships -tab  px-5 py-2 font-semibold text-gray-900  uppercase font-bebas text-sm md:text-base flex-1 text-center rounded-full border-2 border-solid   cursor-pointer hover:border-magenta-500 hover:bg-magenta-500 hover:text-white  items-center flex justify-center leading-5 text-xs md:text-sm">
+                 partnerships
+          		</a>
+                {% endif %}
+          	             
+      	</div>
+		<div class="js-all-content ">        	
+      	</div>        
+    </div>
+</div>
+<div class="flex justify-center px-4 pb-10">
+
+  
+{% for object in shop.metaobjects.sbd_tab.values %}
+  <div data-name="{{ object.tab_name }}" class="js-sbd-tab-contents grid grid-cols-2 md:grid-cols-5 max-w-7xl gap-y-8 gap-5" style="display:none;">
+  {% for design in object.design.value %}
+    {% assign current_year = "now" | date: "%Y" %}
+    {% assign current_month = "now" | date: "%m" %}
+    {% assign current_day = "now" | date: "%d" %}
+    {% assign current_hour = "now" | date: "%H" %}
+    {% assign current_min = "now" | date: "%M" %}
+    {% assign active_year = design.go_live_date | date: "%Y" %}
+    {% assign active_month = design.go_live_date | date: "%m" %}
+    {% assign active_day = design.go_live_date | date: "%d" %}
+    {% assign active_hour = design.go_live_date | date: "%H" %}
+    {% assign active_min = design.go_live_date | date: "%M" %} 
+
+    
+    {% assign show_on_all_markets = design.show_on_all_country_s %}
+    {% assign markets_to_show = design.markets_to_show_on %}
+    {% assign markets_to_show = markets_to_show | replace: '[', '' | replace: ']', '' | replace: '"', '' %}
+    {% assign markets_to_show = markets_to_show | split: "," %}
+    
+    {% assign markets_to_exclude = design.markets_to_exclude_from %}
+    {% assign markets_to_exclude = markets_to_exclude | replace: '[', '' | replace: ']', '' | replace: '"', '' %}
+    {% assign markets_to_exclude = markets_to_exclude | split: "," %}
+
+{% if design.go_live_date %}   
+  
+  {% if current_year > active_year %}
+      {% assign show_design = true %}
+  {% elsif current_year == active_year %}
+      {% if current_month > active_month %}
+          {% assign show_design = true %}
+      {% elsif current_month == active_month %}
+          {% if current_day > active_day %}
+              {% assign show_design = true %}
+          {% elsif current_day == active_day %}
+              {% if current_hour > active_hour %}
+                  {% assign show_design = true %}
+              {% elsif current_hour == active_hour %}
+                  {% if current_min >= active_min %}
+                      {% assign show_design = true %}
+                  {% else %}
+                      {% assign show_design = false %}
+                  {% endif %}
+              {% else %}
+                  {% assign show_design = false %}
+              {% endif %}
+          {% else %}
+              {% assign show_design = false %}
+          {% endif %}
+      {% else %}
+          {% assign show_design = false %}
+      {% endif %}
+  {% else %}
+      {% assign show_design = false %}
+  {% endif %}
+  {% else %}
+    {% assign show_design = true %}
+  
+
+{% endif %}
+    {% assign active_year = design.go_un_live_date | date: "%Y" %}
+    {% assign active_month = design.go_un_live_date | date: "%m" %}
+    {% assign active_day = design.go_un_live_date | date: "%d" %}
+    {% assign active_hour = design.go_un_live_date | date: "%H" %}
+    {% assign active_min = design.go_un_live_date | date: "%M" %}
+      {% assign show_design_1 = false %}
+{% if design.go_un_live_date %}
+  {% assign show_design_1 = false %}
+    {% if current_year > active_year %}
+      {% assign show_design_1 = true %}
+  {% elsif current_year == active_year %}
+      {% if current_month > active_month %}
+          {% assign show_design_1 = true %}
+      {% elsif current_month == active_month %}
+          {% if current_day > active_day %}
+              {% assign show_design_1 = true %}
+          {% elsif current_day == active_day %}
+              {% if current_hour > active_hour %}
+                  {% assign show_design_1 = true %}
+              {% elsif current_hour == active_hour %}
+                  {% if current_min >= active_min %}
+                      {% assign show_design_1 = true %}
+                  {% else %}
+                      {% assign show_design_1 = false %}
+                  {% endif %}
+              {% else %}
+                  {% assign show_design_1 = false %}
+              {% endif %}
+          {% else %}
+              {% assign show_design_1 = false %}
+          {% endif %}
+      {% else %}
+          {% assign show_design_1 = false %}
+      {% endif %}
+  {% else %}
+      {% assign show_design_1 = false %}
+  {% endif %}
+  {% else %}
+    {% assign show_design_1 = false %}
+{% endif %}
+
+{% comment %} Check Market Code {% endcomment %}
+{% assign market_code = localization.language.root_url %}
+{% if market_code == "/" %}
+  {% assign market_code = "uk" %}
+{% else %}
+  {% assign market_code = market_code | remove: "/" %}
+{% endif %}
+
+
+
+  
+{% if show_design == true and markets_to_exclude != blank and show_on_all_markets == false %}
+  {% comment %} check to see if it's in the to show on list {% endcomment %}
+
+    {% for market in markets_to_exclude %}
+      {% assign market_strip = market | strip %}
+        {% assign market_downcase = market_strip | downcase %}
+        {% if market_code == market_downcase %}
+          {% assign show_design = false %}
+          {% break %}
+        {% endif %}
+      {% endfor %}
+{% endif %}
+
+{% if show_design == true and markets_to_show != blank and show_on_all_markets == false %}
+      {% assign show_design = false %}
+      {% for market in markets_to_show %}
+        {% assign market_strip = market | strip %}
+        {% assign market_downcase = market_strip | downcase %}
+        {% if market_code == market_downcase %}
+          {% assign show_design = true %}
+          {% break %}
+          {% endif %}
+      {% endfor %}
+{% endif %}
+
+{% if markets_to_show == blank and markets_to_exclude == blank and show_on_all_markets == false and show_design == true %}
+  {% assign show_design = false %}
+{% endif %}
+  
+
+
+    
+{{ design.collection.handle }}
+
+    <div style="text-align:center;{% if show_design == false %}display: none;{% endif %}{% if show_design_1 == true %}display:none;{% endif %}" class="pb-1">
+      <a href="{%- render 'ob-process-international-link', url:design.collection_url %}">
+    <div class="shop-by-design-collection shop-by-design-collection-{{ design.collection_url | replace:"https://www.myoddballs.com/collections/", "" }} rounded-md border border-solid ">
+      <img class="p-1" src="{{ design.img_url }}" />
+    </div>
+      </a>
+      
+    
+    <div class="font-bebas text-xl md:text-2xl pt-1">{{ design.name }}</div>
+      {% if design.label_text %}
+        <div class="w-full flex justify-center uppercase"><div class="rounded-md text-xs px-1 py-0.5" style="color:#ffffff; background:#f00f83; border: 1px solid #f00f83; width:fit-content;">{{ design.label_text }}</div></div>
+        {% else %}
+           {% comment %}     <div class="w-full flex justify-center uppercase"><div class="rounded-md text-xs px-1 py-0.5" style="color:#ffffff; background:#f00f83; border: 1px solid #f00f83; width:fit-content;">20% off</div></div>{% endcomment %}
+
+        {% endif %}
+
+    </div>
+  {% endfor %}
+  </div>
+{% endfor %}
+</div>
+{% schema %}
+  {
+    "name": "sbd1",
+    "settings": [],
+    "presets": [{
+      "name": "sbd1"
+  }]
+  }
+{% endschema %}

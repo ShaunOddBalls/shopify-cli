@@ -1,0 +1,67 @@
+{% comment %}
+  Takes inputs and renders pagantion dots for slider
+  - product_count = number of dots
+  - dots_container_classes = classes added to the pagnation dots container. To be used for positioning
+  - dots_classes = classes for the pagnation dots
+  - slides_mobile: slides to show on mobile
+  - slides_md: = slides to show medium screens
+  - slides_lg = slides to show on large screens
+  - slide_by = number ob slides to move by
+  - show_dots = whether to show the dots (adds hidden class if false)
+{% endcomment %}
+
+{% assign container_visibility = '' %}
+{% unless show_dots %}
+  {% assign container_visibility = 'hidden' %}
+{% endunless %}
+
+<div
+  class="{{ dots_container_classes }} {{ container_visibility }}"
+  role="tablist"
+  aria-label="slider navigation"
+>
+  {% for i in (1..product_count) %}
+    {% assign dot_index = forloop.index0 %}
+    {% assign visibility_classes = '' %}
+
+    {% comment %} Calculate visibility for each breakpoint {% endcomment %}
+    {% if slide_by == 'all' %}
+      {% comment %} Mobile visibility {% endcomment %}
+      {% assign mobile_remainder = dot_index | modulo: slides_mobile %}
+      {% if mobile_remainder == 0 %}
+        {% assign visibility_classes = visibility_classes | append: ' block' %}
+      {% else %}
+        {% assign visibility_classes = visibility_classes | append: ' hidden' %}
+      {% endif %}
+
+      {% comment %} Tablet visibility {% endcomment %}
+      {% assign md_remainder = dot_index | modulo: slides_md %}
+      {% if md_remainder == 0 %}
+        {% assign visibility_classes = visibility_classes | append: ' md:block' %}
+      {% else %}
+        {% assign visibility_classes = visibility_classes | append: ' md:hidden' %}
+      {% endif %}
+
+      {% comment %} Desktop visibility {% endcomment %}
+      {% assign lg_remainder = dot_index | modulo: slides_lg %}
+      {% if lg_remainder == 0 %}
+        {% assign visibility_classes = visibility_classes | append: ' lg:block' %}
+      {% else %}
+        {% assign visibility_classes = visibility_classes | append: ' lg:hidden' %}
+      {% endif %}
+    {% else %}
+      {% comment %} If moving one at a time, show all dots {% endcomment %}
+      {% assign visibility_classes = 'block md:block lg:block' %}
+    {% endif %}
+
+    <button
+      class="{{ dot_classes }} {{ visibility_classes }} {% if forloop.first %} active {% endif %}"
+      data-dot-index="{{ dot_index }}"
+      role="tab"
+      aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
+      aria-label="Go to slide {{ forloop.index }} of {{ product_count }}"
+    >
+      <span class="sr-only">Slide {{ forloop.index }} of {{ product_count }}</span>
+    </button>
+  {% endfor %}
+</div>

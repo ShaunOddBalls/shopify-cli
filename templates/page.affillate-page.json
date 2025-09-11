@@ -1,0 +1,514 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "ob_text_video_slider_bGDiNb": {
+      "type": "ob-text-video-slider",
+      "settings": {
+        "handle": "affiliates-hero",
+        "extra-attributes": "",
+        "section_wrapper_classes": "relative",
+        "extra-logged-in": "",
+        "extra-logged-out": "",
+        "show_dots": true,
+        "dots_container_classes": "ob-dots absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10",
+        "dot_classes": "ob-dot w-2 h-2 rounded-full bg-gray-300 transition-colors duration-200",
+        "slider_enabled": true,
+        "autoplay": true,
+        "loop": true,
+        "slides_mobile": 1,
+        "slides_md": 1,
+        "slides_lg": 1,
+        "slide_gap": 0,
+        "cta-setting": false,
+        "position": "start",
+        "title": "Title",
+        "title-text-classes": "text-3xl md:text-6xl capitalize dbl-cta-title pb-1 font-bebas",
+        "title-text-postion": "left",
+        "title-text-size": 18,
+        "title-color": "",
+        "desktop-title-text-size": 32,
+        "paragragh": "My Paragraph",
+        "p-classes": "",
+        "paragraph-text-postion": "left",
+        "paragragh-font-size": 12,
+        "paragraph-color": "",
+        "desktop-paragraph-text-size": 18,
+        "btn-one-text": "button one",
+        "btn-one-classes": "px-8 relative p-2 rounded-md uppercase btn-shadow-lg block border-solid border-2 border-md border-black text-black font-semibold text-center  transition-colors duration-200",
+        "btn-1-url": "",
+        "btn-one-color": "#ffffff",
+        "btn-one-bg-color": "#000000",
+        "btn-two-text": "button two",
+        "btn-two-classes": "px-8 relative p-2 rounded-md uppercase btn-shadow-lg block border-solid border-2 border-md border-black text-black font-semibold text-center  transition-colors duration-200",
+        "btn-2-url": "",
+        "btn-two-color": "#000000",
+        "btn-two-bg-color": "#ffffff",
+        "button-postion": "start"
+      }
+    },
+    "conditional_banner_LgxU4L": {
+      "type": "ob-conditional-banner",
+      "blocks": {
+        "page_banner_A8c8Hd": {
+          "type": "page-banner",
+          "settings": {
+            "block_active": true,
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": "",
+            "banner_background": "",
+            "wrapper_classes": "",
+            "title": "",
+            "text": "",
+            "text_wrapper_classes": "",
+            "customers": "both",
+            "url_handle": "affiliates-creators",
+            "not_url_handle": "",
+            "country_iso": "*",
+            "banner_link": "",
+            "desktop_image": "shopify://shop_images/Desktop-BG_1f04354d-8094-4d80-a2b4-7227335b8d94.jpg",
+            "mobile_image": "shopify://shop_images/Mobile-BG_ff0b7810-8999-4f1c-87ab-5a676d01e413.jpg",
+            "desktop_image_classes": "mx-auto w-full hidden md:block",
+            "mobile_image_classes": "mx-auto w-full md:hidden",
+            "desktop_svg": "Desktop-FG_c3a63e14-8ca1-4778-9d43-35e0cfdb0223.svg",
+            "mobile_svg": "Mobile-FG_28d0d1d6-1a6d-44e9-8758-4bbd83fc649b.svg",
+            "desktop_svg_classes": "absolute inset-0 w-full h-full mx-auto hidden md:block",
+            "mobile_svg_classes": "absolute inset-0 w-full h-full mx-auto md:hidden"
+          }
+        }
+      },
+      "block_order": [
+        "page_banner_A8c8Hd"
+      ],
+      "settings": {
+        "banner_background": "",
+        "wrapper_classes": ""
+      }
+    },
+    "image_text_grid_aWgbMy": {
+      "type": "ob-image-text-grid",
+      "blocks": {
+        "image_and_text_arh6hy": {
+          "type": "image-and-text",
+          "settings": {
+            "country_iso": "*",
+            "title": "",
+            "block_wrapper_classes": "col-span-12 flex justify-center  px-4 items-center text-center relative",
+            "block_title": "",
+            "title_classes": "text",
+            "description": "<h2 class=\"text-center font-bebas text-xl lg:text-3xl\">SHARE THE LOVE</h2>\n\n<br>\n<p class=\"text-md lg:text-lg\">\nEarn commission by sharing your favourite OddBalls underwear! Join our community and spread the word about our bold, bright, and fun designs.\n</p>",
+            "description_classes": "",
+            "svg": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_and_text_arh6hy"
+      ],
+      "settings": {
+        "outer_wrapper_classes": "",
+        "inner_wrapper_classes": "relative pb-6",
+        "grid_wrapper_classes": "col-span-12 flex justify-center  py-3 px-4 items-center text-center",
+        "title": "",
+        "title_classes": "text-center text-base font-semibold uppercase text-gray-600 tracking-wider",
+        "section_bg_colour": "",
+        "block_bg_colour": "",
+        "block_bg_colour_hover": "",
+        "block_text_colour": "",
+        "block_text_colour_hover": "",
+        "block_image_classes": "",
+        "block_svg_classes": "",
+        "custom_css": ""
+      }
+    },
+    "conditional_banner_zP7UmF": {
+      "type": "ob-conditional-banner",
+      "blocks": {
+        "page_banner_XpYP4w": {
+          "type": "page-banner",
+          "settings": {
+            "block_active": true,
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": "",
+            "banner_background": "",
+            "wrapper_classes": "",
+            "title": "",
+            "text": "",
+            "text_wrapper_classes": "",
+            "customers": "both",
+            "url_handle": "affiliates-creators",
+            "not_url_handle": "",
+            "country_iso": "*",
+            "banner_link": "",
+            "desktop_image_classes": "mx-auto w-full hidden md:block",
+            "mobile_image_classes": "mx-auto w-full md:hidden",
+            "desktop_svg": "",
+            "mobile_svg": "",
+            "desktop_svg_classes": "absolute inset-0 w-full h-full mx-auto hidden md:block",
+            "mobile_svg_classes": "absolute inset-0 w-full h-full mx-auto md:hidden"
+          }
+        }
+      },
+      "block_order": [
+        "page_banner_XpYP4w"
+      ],
+      "settings": {
+        "banner_background": "",
+        "wrapper_classes": ""
+      }
+    },
+    "tw_card_section_FyciMx": {
+      "type": "tw-card-section",
+      "blocks": {
+        "title_U38eqR": {
+          "type": "title",
+          "settings": {
+            "text": "How to Join?",
+            "wrapper-classes": "",
+            "logged_in": "",
+            "logged_out": "",
+            "classes": "mx-auto text-center text-magenta marujo text-4xl lg:text-5xl py-3 pb-6",
+            "btn_attr": ""
+          }
+        },
+        "card_N7zMpC": {
+          "type": "card",
+          "settings": {
+            "classes": "rounded-md shadow-lg p-5 flex flex-col justify-between",
+            "title": "1. Sign Up",
+            "title_classes": "text-3xl text-center marujo text-magenta pb-2",
+            "paragraph": "Create your account on Impact and apply to join the OddBalls Affiliate or Creator Programme",
+            "para_class": "text-center mx-auto  text-base md:text-lg",
+            "svg": "",
+            "img": "shopify://shop_images/SignUp.svg"
+          }
+        },
+        "card_XiaQQR": {
+          "type": "card",
+          "settings": {
+            "classes": "rounded-md shadow-lg p-5 flex flex-col justify-between",
+            "title": "2. LINK",
+            "title_classes": "text-3xl text-center marujo text-magenta pb-2",
+            "paragraph": "Generate your custom affiliate link",
+            "para_class": "text-center mx-auto  text-base md:text-lg",
+            "svg": "",
+            "img": "shopify://shop_images/Link.png"
+          }
+        },
+        "card_M4UyKw": {
+          "type": "card",
+          "settings": {
+            "classes": "rounded-md shadow-lg p-5 flex flex-col justify-between",
+            "title": "3. SHARE",
+            "title_classes": "text-3xl text-center marujo text-magenta pb-2",
+            "paragraph": "Share content or offers with your audience",
+            "para_class": "text-center mx-auto  text-base md:text-lg",
+            "svg": "",
+            "img": "shopify://shop_images/Share.svg"
+          }
+        },
+        "card_kBJ9gb": {
+          "type": "card",
+          "settings": {
+            "classes": "rounded-md shadow-lg p-5 flex flex-col justify-between",
+            "title": "4. Earn Rewards",
+            "title_classes": "text-3xl text-center marujo text-magenta pb-2",
+            "paragraph": "Receive commission on every sale made through your link!",
+            "para_class": "text-center mx-auto  text-base md:text-lg",
+            "svg": "",
+            "img": "shopify://shop_images/Rewards.svg"
+          }
+        },
+        "button_KyD67B": {
+          "type": "button",
+          "settings": {
+            "text": "Join Affiliate",
+            "wrapper-classes": "rounded-md uppercase bg-magenta px-3 pb-3 pt-1  marujo text-2xl inline-block text-white  cursor-pointer mb-6 mt-6",
+            "text-classes": "",
+            "link": "https://app.impact.com/campaign-promo-signup/OddBalls-Apparel.brand?execution=e1s1&#/?viewkey=signUpPreStart"
+          }
+        },
+        "button_UDKzRX": {
+          "type": "button",
+          "settings": {
+            "text": "JOIN CREATOR",
+            "wrapper-classes": "rounded-md uppercase bg-magenta px-3 pb-3 pt-1  marujo text-2xl inline-block text-white  cursor-pointer mb-6 mt-6",
+            "text-classes": "",
+            "link": "https://app.impact.com/campaign-promo-signup/OddBalls-Apparel-Creator.brand?execution=e2s1&#/?viewkey=signUpPreStart"
+          }
+        }
+      },
+      "block_order": [
+        "title_U38eqR",
+        "card_N7zMpC",
+        "card_XiaQQR",
+        "card_M4UyKw",
+        "card_kBJ9gb",
+        "button_KyD67B",
+        "button_UDKzRX"
+      ],
+      "settings": {
+        "section-wrap": "px-3",
+        "grid-classes": "grid grid-cols-2 lg:grid-cols-4"
+      }
+    },
+    "ugc_autoplay_video_qpfdeD": {
+      "type": "ugc-autoplay-video",
+      "blocks": {
+        "image_picker_nWaiQE": {
+          "type": "image_picker",
+          "settings": {
+            "image_file": "shopify://shop_images/image00075.jpg"
+          }
+        },
+        "image_picker_7EMRDz": {
+          "type": "image_picker",
+          "settings": {
+            "image_file": "shopify://shop_images/DSC04618.jpg"
+          }
+        },
+        "video_block_8r63XW": {
+          "type": "video_block",
+          "disabled": true,
+          "settings": {
+            "video_file": "shopify://files/videos/Christmas Website Banner Mobile WITHOUT BRANDING.mp4"
+          }
+        },
+        "image_picker_pyiCzi": {
+          "type": "image_picker",
+          "settings": {
+            "image_file": "shopify://shop_images/EGGS_17.png"
+          }
+        },
+        "image_picker_VXNHBb": {
+          "type": "image_picker",
+          "settings": {
+            "image_file": "shopify://shop_images/IMG_7391_2.jpg"
+          }
+        },
+        "image_picker_JgT76M": {
+          "type": "image_picker",
+          "settings": {
+            "image_file": "shopify://shop_images/WPRODUCT_07.png"
+          }
+        },
+        "image_picker_JVxbBi": {
+          "type": "image_picker",
+          "settings": {
+            "image_file": "shopify://shop_images/shannon_aggett.jpg"
+          }
+        },
+        "image_picker_ikKVCA": {
+          "type": "image_picker",
+          "settings": {
+            "image_file": "shopify://shop_images/WPRODUCT_42.png"
+          }
+        },
+        "image_picker_yXwxXP": {
+          "type": "image_picker",
+          "settings": {
+            "image_file": "shopify://shop_images/image00004.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "image_picker_nWaiQE",
+        "image_picker_7EMRDz",
+        "video_block_8r63XW",
+        "image_picker_pyiCzi",
+        "image_picker_VXNHBb",
+        "image_picker_JgT76M",
+        "image_picker_JVxbBi",
+        "image_picker_ikKVCA",
+        "image_picker_yXwxXP"
+      ],
+      "settings": {
+        "title": "Autoplay UGC Video Section"
+      }
+    },
+    "ob_image_text_grid_xCnm3a": {
+      "type": "ob-image-text-grid",
+      "blocks": {
+        "image_and_text_AqPFVR": {
+          "type": "image-and-text",
+          "settings": {
+            "country_iso": "*",
+            "title": "",
+            "block_wrapper_classes": "col-span-12 flex justify-center  px-4 items-center text-center relative",
+            "block_title": "",
+            "title_classes": "text",
+            "description": "<h2 class=\"text-cener font-bebas text-xl lg:text-3xl\">Join the Conversation...</h2>",
+            "description_classes": "",
+            "svg": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_and_text_AqPFVR"
+      ],
+      "settings": {
+        "outer_wrapper_classes": "",
+        "inner_wrapper_classes": "relative pb-6",
+        "grid_wrapper_classes": "col-span-12 flex justify-center  py-3 px-4 items-center text-center",
+        "title": "",
+        "title_classes": "text-center text-base font-semibold uppercase text-gray-600 tracking-wider",
+        "section_bg_colour": "",
+        "block_bg_colour": "",
+        "block_bg_colour_hover": "",
+        "block_text_colour": "",
+        "block_text_colour_hover": "",
+        "block_image_classes": "",
+        "block_svg_classes": "",
+        "custom_css": ""
+      }
+    },
+    "coffee_slidey_thing_pVaATE": {
+      "type": "coffee-slidey-thing",
+      "blocks": {
+        "section_FJcKQE": {
+          "type": "section",
+          "settings": {
+            "header_text": "Creator Programme",
+            "content_text": "Calling all creators! \n<br>\n<br>\nLove making content for bold, feel good brands? You’ve just found your\nperfect match.\n<br>\n<br>\nWe’re offering 15% commission on\nevery sale through your bespoke link\nso you can earn while you create.\nPlus, we run gifted and paid UGC\ncampaigns throughout the year, giving\nyou even more ways to grow your\nincome and create amazing content!\n<br>\n<br>\nSigning up is super easy, and you’ll get\ninstant access to bespoke content\nand gifted products on request to\nhelp you show off our bold designs in\nyour own authentic way.\n<br>\n<br>\nJoin the fun and start earning today!",
+            "content_image": "shopify://shop_images/SEAMLESS_30__1_-min.png"
+          }
+        },
+        "section_t7yQTr": {
+          "type": "section",
+          "settings": {
+            "header_text": "Affiliate Programme",
+            "content_text": "Are you an affiliate publisher looking for\nunique products to promote? Whether\nyou are in the content, cash back or\nloyalty sector, we want to hear from you!\n<br> \n<br> \nEarn commission on every sale (our public\nterms offer 6% for new customers and 2%\nfor returning customers) with a generous\n30-day cookie window to maximise your\nearning potential.\n<br> \n<br> \nWe offer competitive commission rates,\nwith options for bespoke commission\nstructures tailored to your needs. Setting\nup is quick, hassle-free, and supported by bespoke content available via Impact to help you succeed.\n<br> \n<br> \nThere is also potential for unique offers\nfor your audience such as cash back,\ndiscounts and exclusive access.\n<br> \n<br> \nJoin now and start earning while sharing\nproducts your community will love!",
+            "content_image": "shopify://shop_images/40pollyfrier.png"
+          }
+        }
+      },
+      "block_order": [
+        "section_FJcKQE",
+        "section_t7yQTr"
+      ],
+      "settings": {
+        "title": "Coffee Slidey Thing Section"
+      }
+    },
+    "trust_pilot_widget_4E69jj": {
+      "type": "ob-trust-pilot-widget",
+      "custom_css": [
+        ".bg-blue-1000 {background-color: #caedfa;}",
+        ".bg-blue-900 {background-color: rgb(202, 236, 255);}",
+        ".text-indigo-900 {color: #08013d !important;}"
+      ],
+      "settings": {
+        "outer_wrapper_classes": "bg-blue-1000 text-indigo-900 px-3",
+        "wrapper_classes": "max-w-7xl mx-auto py-10 px-2",
+        "widget_header": "Motivate your audience",
+        "widget_header_classes": "text-center text-4xl md:text-5xl uppercase pb-8 text-indigo-900  marujo",
+        "widget_subheader": "",
+        "widget_subheader_classes": "",
+        "widget_code": "<!-- TrustBox widget - Slider -->\n<div class=\"trustpilot-widget\" data-locale=\"en-GB\" data-template-id=\"54ad5defc6454f065c28af8b\" data-businessunit-id=\"5c7f9459871dac0001ea0238\" data-style-height=\"240px\" data-style-width=\"100%\" data-theme=\"light\" data-stars=\"5\" data-review-languages=\"en\">\n<a href=\"https://uk.trustpilot.com/review/myoddballs.com\" target=\"_blank\" rel=\"noopener\">Trustpilot</a>\n</div>\n<!-- End TrustBox widget -->",
+        "widget_wrapper_classes": "",
+        "use_microcombo": false
+      }
+    },
+    "tabs_and_blocks_3WdyM4": {
+      "type": "tabs-and-blocks",
+      "blocks": {
+        "content_faq_K8QrXy": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "How do I get paid?",
+            "title_text": "How do I get paid?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "<br> You’ll earn a commission in your Impact account every time someone shops through your affiliate link. You can withdraw funds directly through Impact at your convenience or set up Autopay to automatically withdraw once your balance hits your preferred threshold.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_BmwEJT": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "How often are payouts made?",
+            "title_text": "How often are payouts made?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "<br>Sales lock on the 28th of the following month, and once locked, funds are available for withdrawal after the 20th day of the next month. For example, you make a sale on the 15th of July, this sale will lock on the 28th of August and the commission funds will be available from the 20th of September!",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_QRb9T7": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "Can I be an affiliate if I’m outside the UK?",
+            "title_text": "Can I be an affiliate if I’m outside the UK?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "<br> Currently, our affiliate program is only available to UK partners.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        }
+      },
+      "block_order": [
+        "content_faq_K8QrXy",
+        "content_faq_BmwEJT",
+        "content_faq_QRb9T7"
+      ],
+      "settings": {
+        "outer_wrapper_attr": "data-attribute for linking section content",
+        "outer_wrapper_classes": "2xl:mx-auto  py-12 lg:px-20 md:px-6 px-4",
+        "inner_wrapper_classes": "grid grid-cols-12 gap-6",
+        "header_wrapper_classes": "col-span-12 flex flex-col justify-center items-center text-center space-y-4",
+        "all_tabs_wrapper_classes": "",
+        "content_wrapper_classes": "col-span-12 mt-16 grid grid-cols-12",
+        "option_menu_selected": false,
+        "title": "Affiliate Program FAQs",
+        "title_classes": "text-3xl lg:text-4xl font-semibold  leading-9 md:leading-7 lg:leading-9 text-gray-800",
+        "description": "",
+        "description_classes": "text-base leading-6 text-center text-gray-600 w-full md:w-10/12"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "ob_text_video_slider_bGDiNb",
+    "conditional_banner_LgxU4L",
+    "image_text_grid_aWgbMy",
+    "conditional_banner_zP7UmF",
+    "tw_card_section_FyciMx",
+    "ugc_autoplay_video_qpfdeD",
+    "ob_image_text_grid_xCnm3a",
+    "coffee_slidey_thing_pVaATE",
+    "trust_pilot_widget_4E69jj",
+    "tabs_and_blocks_3WdyM4"
+  ]
+}

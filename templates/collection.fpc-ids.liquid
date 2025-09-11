@@ -1,0 +1,18 @@
+{% layout none %}
+{% assign collection_handle = "fpc" %}
+{% assign numeric_ids = "" %}
+{% assign first_item = true %}
+{% paginate collections[collection_handle].products by 100 %}
+  {% for product in collections[collection_handle].products %}
+    {%- comment %}<locksmith:0c79>{% endcomment -%}
+      {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product, subject_parent: collections[collection_handle], variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+    {%- comment %}</locksmith:0c79>{% endcomment -%}
+    {% for variant in product.variants %}
+      {% unless first_item %}
+        {% assign numeric_ids = numeric_ids | append: "," %}
+      {% endunless %}
+      {% assign numeric_ids = numeric_ids | append: variant.id %}
+      {% assign first_item = false %}
+    {% endfor %}
+  {% endfor %}
+{% endpaginate %}{"numericIds":[{{ numeric_ids }}]}

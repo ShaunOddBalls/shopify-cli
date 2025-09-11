@@ -1,0 +1,160 @@
+{% assign prod_type = product.type | downcase | replace: " ", "-" %}
+{% assign sas_metaobject = shop.metaobjects.sas_product[prod_type] %}
+{% assign sas_product = sas_metaobject.product.value %}
+ {% assign sas_subscription_equivalent_price = sas_metaobject.subscription_equivalent.value.price | divided_by: 100 %}
+{% assign sas_sock_product = sas_metaobject.sock_subscription.value %}
+{% assign sas_sock_sizes = sas_metaobject.sock_size_product.value %}
+
+{% if sas_sock_sizes %}
+  {% assign sas_size_sock_product = sas_metaobject.sock_size_product.value %}
+{% else %}
+  {% assign sas_size_sock_product = sas_metaobject.sock_subscription.value %}
+{% endif %}
+
+                  <div class="w-full bg-gray-100 border-b border" >
+                  <div class="w-full flex justify-between mx-auto px-6" style="max-width: 500px">
+                    <div class="rounded-lg p-2 text-black ">
+               
+                      <span class="font-semibold text-xs text-center block pb-0.5">This Order You Will Get</span>
+                      <div class="flex text-xs gap-4 relative">
+                        <div class="flex flex-col">
+                          <div class="relative">
+                            <div class=" top-0 left-0 bg-white">
+                            {{ product.featured_image | image_url: width: 100, height:100  | image_tag }}
+                            </div>
+                          </div>
+                          <div class="block text-center pt-2">
+                          This Design
+                          </div>
+                        </div>
+                        <div class="absolute top-1/2 bottom-1/2 tranform-y-1/2 right-1/2 left-1/2 transform-x-1/2 flex items-center text-center justify-center font-semibold text-2xl" style="transform: translate(-50%, -108%);font-size: 55px;z-index: 10;}">
+                          +
+                        </div>
+                        <div class="flex flex-col">
+                          <div class="relative">
+                            <div class="bg-white">
+                            {{ sas_sock_product.featured_image | image_url: width: 100, height:100  | image_tag }}
+                            </div>
+                          </div>
+                          <div class="pt-2 block text-center">
+                            Free Socks
+                          </div>
+                        </div>
+                   
+                      
+                    </div>
+                  </div>
+                    <div class="rounded p-2 text-black flex flex-col items-between border-l border-dashed" style="border-color: #b4b4b4;">
+                      
+                     <div class="font-semibold text-xs text-center pb-0.5">Next Month</div>
+                      <div class="px-2">
+                        
+                        <div class="relative">
+                            <div class="bg-white">
+                             {{ sas_product.featured_image | image_url: width: 100, height:100  | image_tag }}
+                            </div>
+                          </div>
+                        <div class="text-xs block text-center pt-2
+                          ">New Design </div>
+                      </div>
+                    </div>
+                  
+                  
+                  </div>
+                  </div>
+               {%- form 'product',
+                  product,
+                  data-product-id: product.id,
+                  id: product_form_id,
+                  class: "sas-product-form-form px-6",
+                  novalidate: 'novalidate',
+                  data-type: 'add-to-cart-form'
+                -%}
+    
+                  {% render 'ob-product-form-attributes', product: sasproduct, sas-subscription_equivalent_price: sas_subscription_equivalent_price %}
+                  <div class="flex-1">
+                    <div class="flex flex-1 flex-col justify-between">
+                      <div class="divide-y divide-gray-200">
+                        <div class="space-y-6 pt-4">
+                          <!-- Variant Options -->
+                          <div class="sas-product-variants-wrap">
+                            {% render 'ob-product-variants', product: product, form_type: "sas_product" %}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                 {% endform %}
+                 
+                  <div class="sas-sock-selector px-6">
+                    {% render 'ob-product-variants', product: sas_size_sock_product, form_type: "sas_product" %}
+                  </div>
+
+                  
+                  <div class="w-full pb-14 px-6">
+                    <div class="w-full border border-solid rounded-lg">
+                  <div class="w-full ">
+                    <div class="uppercase text-sm text-center text-black font-semibold pt-2">Subscription Benefits:</div>
+                    <div class="ob-slider-container w-full overflow-hidden">
+
+                    <div class="ob-slider w-full" 
+                      data-slides-mobile="3"
+                      data-slides-md="3"
+                      data-slides-lg="3"
+                      data-gap="5"
+                      data-autoplay="true"
+                      data-loop="true"
+                      data-drag-scroll="true"
+                      data-slider-enabled="true"
+                      data-dots="false"
+                      data-slide-by="all">
+                    <div class="ob-slides-wrappers w-full border-b flex py-2">
+                      
+                      <div class="ob-slide w-1/3 flex flex-col justify-center items-center text-center h-full">
+                        <div><img src="https://cdn.shopify.com/s/files/1/0353/7249/files/FreeDelivery.svg?v=1722324793" alt="3.Free Delivery" class="w-14 h-14"></div>
+                        <div><h2 class="mx-auto text-xs text-black marujo leading-none uppercase">Free Shipping<br>On All Orders</h2></div>
+                      </div>
+
+                      <div class="ob-slide w-1/3 flex flex-col justify-center items-center text-center h-full">
+                        <div><img src="https://cdn.shopify.com/s/files/1/0353/7249/files/VIP.svg?v=1722324793" alt="5.VIP Access" class="w-14 h-14"></div>
+                        <div><h2 class="mx-auto text-xs text-black marujo leading-none uppercase">Exclusive Access<br>To Sale Events</h2></div>
+                      </div>
+
+                      <div class="ob-slide w-1/3 flex flex-col justify-center items-center text-center h-full">
+                        <div><img src="https://cdn.shopify.com/s/files/1/0353/7249/files/ExclusiveGifts-2.svg?v=1722324793" alt="4.Exclusive Gifts" class="w-14 h-14"></div>
+                        <div><h2 class="mx-auto text-xs text-black marujo leading-none uppercase">Free Gifts<br>Vip Offers</h2></div>
+                      </div>
+                      
+                      <div class="ob-slide w-1/3 flex flex-col justify-center items-center text-center h-full">
+                        <div><img src="https://cdn.shopify.com/s/files/1/0353/7249/files/Designs.svg?v=1722324793" alt="1. Fun Designs" class="w-14 h-14"></div>
+                        <div><h2 class="mx-auto text-xs text-black marujo leading-none uppercase">Fun New<br>Designs</h2></div>
+                      </div>
+                      
+                      <div class="ob-slide w-1/3 flex flex-col justify-center items-center text-center h-full">
+                        <div><img src="https://cdn.shopify.com/s/files/1/0353/7249/files/Socks-2.svg?v=1722324793" alt="2. Free Socks" class="w-14 h-14"></div>
+                        <div><h2 class="mx-auto text-xs text-black marujo leading-none uppercase">Free<br>Socks</h2></div>
+                      </div>
+
+                      <div class="ob-slide w-1/3 flex flex-col justify-center items-center text-center h-full">
+                        <div><img src="https://cdn.shopify.com/s/files/1/0353/7249/files/Discounts-2.svg?v=1722324793" alt="6.Exclusive Discounts" class="w-14 h-14"></div>
+                        <div><h2 class="mx-auto text-xs text-black marujo leading-none uppercase">Exclusive<br>Discounts</h2></div>
+                      </div>
+                    </div>
+                   
+                  </div>
+                    </div>
+                    <div class=" text-center text-sm  font-semibold py-2">Cancel Or Pause Any Time!</div>
+                    
+                  </div> 
+                    </div>
+                  </div>
+                  
+                  <div class="px-6 py-4 fixed bottom-0 left-0  block w-full bg-gray-100 ">
+                  {% render  'ob-sas-atc-button'%}
+                  </div>
+
+
+
+
+ 
+

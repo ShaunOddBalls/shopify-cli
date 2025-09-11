@@ -1,0 +1,301 @@
+{% schema %}
+  {
+    "name": "Partnership Marque",
+    "settings": [
+    {
+      "type": "header",
+      "content": "Section Market Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_on_all_markets",
+      "default": true,
+      "label": "Show On All Markets",
+      "info": "on to show on all"
+    },
+    {
+      "type": "text",
+      "id": "markets_to_show_on",
+      "label": "Markets to show on",
+      "info": "Example would look like: uk, en-eu (shows on UK and EU markets)"
+    },
+    {
+      "type": "text",
+      "id": "markets_to_exclude_on",
+      "label": "Markets to Exclude on",
+      "info": "Example would look like: uk, en-eu (Would not show on UK and EU markets)"
+    },
+      {
+        "type": "header",
+        "content": "Title"
+      },
+      {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "GHeading Text"
+    },
+    {
+      "type": "select",
+      "id": "button_style",
+      "label": "Button Style",
+      "options": [
+        {
+          "value": "primary",
+          "label": "Primary"
+        },
+        {
+          "value": "secondary",
+          "label": "Secondary"
+        },
+        {
+          "value": "outline",
+          "label": "Outline"
+        }
+        ],
+        "default": "primary"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Text",
+          "default": "Shop Now"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Link"
+        },
+        {
+          "type": "checkbox",
+          "id": "is_rounded",
+          "label": "Use rounded style",
+          "default": false
+        },
+        {
+          "type": "text",
+          "id": "extra_classes",
+          "label": "Extra Classes",
+          "info": "Add any additional classes, separated by spaces"
+        },
+        {
+          "type": "text",
+          "id": "button_id",
+          "label": "Button ID",
+          "info": "Add a unique ID to the button"
+        },
+        {
+          "type": "text",
+          "id": "custom_attributes",
+          "label": "Custom Attributes",
+          "info": "Add custom attributes to the button (e.g., data-custom='value')"
+        }
+    ],
+    "blocks": [
+      {
+        "name": "Collection Block",
+        "type": "collection",
+        "settings": [
+          {
+            "type": "checkbox",
+            "id": "show_on_all_markets",
+            "default": true,
+            "label": "Show On All Markets",
+            "info": "on to show on all"
+          },
+          {
+            "type": "text",
+            "id": "markets_to_show_on",
+            "label": "Markets to show on",
+            "info": "Example would look like: uk, en-eu (shows on UK and EU markets)"
+          },
+          {
+            "type": "text",
+            "id": "markets_to_exclude_on",
+            "label": "Markets to Exclude on",
+            "info": "Example would look like: uk, en-eu (Would not show on UK and EU markets)"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "image alt text"
+          },
+          {
+            "type": "image_picker",
+            "id": "img",
+            "label": "Image"
+          },
+          {
+            "type": "url",
+            "id": "url",
+            "label": "Collection Link"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Partnership Marquee slider",
+        "blocks": [
+          {
+            "type": "collection"
+          },
+          {
+            "type": "collection"
+          },
+          {
+            "type": "collection"
+          },
+          {
+            "type": "collection"
+          },
+          {
+            "type": "collection"
+          },
+          {
+            "type": "collection"
+          },
+          {
+            "type": "collection"
+          },
+          {
+            "type": "collection"
+          },
+          {
+            "type": "collection"
+          },
+          {
+            "type": "collection"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
+
+<style>
+   .partnership-marquee .swiper-wrapper {
+  transition-timing-function: linear !important;
+}
+</style>
+
+{% assign market_code = localization.language.root_url %}
+{% if market_code == '/' %}
+  {% assign market_code = 'uk' %}
+{% else %}
+  {% assign market_code = market_code | remove: '/' %}
+{% endif %}
+
+{% assign section_markets_to_show = section.settings.markets_to_show_on | split: ',' %}
+  {% assign section_markets_to_exclude_on = section.settings.markets_to_exclude_on | split: ',' %}
+  {% assign section_show_on_all_markets = section.settings.show_on_all_markets %}
+  {% assign show_block = 'false' %}
+  {%- capture show_section -%}
+  {%- render 'ob-process-show-on-by-market', show_on_all_markets: section_show_on_all_markets, markets_to_show:section_markets_to_show, markets_to_exclude_on: section_markets_to_exclude_on -%}
+  {% endcapture %}
+  <!-- show_block:  {{ show_section }} -->
+  {% if show_section contains 'true' %}
+
+   <div class="bg-gray-100 py-6 text-center">
+  <h2 class="text-2xl md:text-4xl uppercase mx-auto text-center marujo px-4 mb-8">{{ section.settings.heading }}</h2>
+
+  <div class="ob-slider-container relative w-full overflow-hidden">
+    <div
+      class="ob-slider flex transition-transform duration-500 ease-out overflow-visible rounded-lg relative w-full"
+      data-autoplay="true"
+      data-loop="true"
+      data-marquee="true"
+      data-marquee-pause="true"
+      data-marquee-speed="1"
+      data-gap="10"
+      data-slides-mobile="2"
+      data-slides-md="4"
+      data-slides-lg="7"
+      data-drag-scroll="true"
+      data-slider-enabled="true"
+    >
+      <div class="ob-slides-wrappers flex overflow-visible relative w-max">
+        {% for block in section.blocks %}
+          {% assign show_block = true %}
+          {% if block.settings.show_on_all_markets == false %}
+            {% assign markets_to_show = block.settings.markets_to_show_on | split: ',' %}
+            {% assign markets_to_exclude_on = block.settings.markets_to_exclude_on | split: ',' %}
+
+            {% if markets_to_exclude_on != blank %}
+              {% for market in markets_to_exclude_on %}
+                {% assign market_strip = market | strip %}
+                {% assign market_downcase = market_strip | downcase %}
+                {% if market_code == market_downcase %}
+                  {% assign show_block = false %}
+                  {% break %}
+                {% endif %}
+              {% endfor %}
+            {% endif %}
+
+            {% if markets_to_show != blank and show_block %}
+              {% assign show_block = false %}
+              {% for market in markets_to_show %}
+                {% assign market_strip = market | strip %}
+                {% assign market_downcase = market_strip | downcase %}
+                {% if market_code == market_downcase %}
+                  {% assign show_block = true %}
+                  {% break %}
+                {% endif %}
+              {% endfor %}
+            {% endif %}
+          {% endif %}
+
+          {% if show_block %}
+            <div class="ob-slide flex-shrink-0 relative w-full">
+              {% if block.settings.img != blank %}
+                <a
+                  href="{{ block.settings.url }}"
+                  class="block"
+                  aria-label="go to {{ block.settings.title }} collection"
+                >
+                  <img
+                    loading="lazy"
+                    width="176"
+                    height="176"
+                    class="w-44 h-44 object-cover border border-black border-opacity-60 rounded-md"
+                    src="{{ block.settings.img | image_url: width: 176, height: 176}}"
+                    alt="{{ block.settings.img.alt }}"
+                  >
+                </a>
+              {% else %}
+                <a
+                  href="{{ block.settings.url }}"
+                  class="block"
+                  aria-label="go to {{ block.settings.title }} collection"
+                >
+                  <img
+                    width="176"
+                    height="176"
+                    class="w-44 h-44 object-cover border border-black border-opacity-60 rounded-md"
+                    src="img/brands/1.avif"
+                    alt="{{ block.settings.title }} image"
+                  >
+                </a>
+              {% endif %}
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  <div class="flex items-center justify-center">
+    {% render 'ob-include-button',
+      type: section.settings.button_style,
+      text: section.settings.button_text,
+      link: section.settings.button_link,
+      extra_classes: section.settings.extra_classes,
+      section_id: section.id,
+      is_rounded: section.settings.is_rounded,
+      custom_attributes: section.settings.custom_attributes,
+      button_id: section.settings.button_id
+    %}
+  </div>
+</div>
+
+    {% endif %}

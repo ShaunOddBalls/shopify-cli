@@ -1,0 +1,97 @@
+<div class="js-sub-landing max-w-5xl mx-auto px-4 pt-6 pb-10 md:py-10 flex flex-col lg:flex-row md:justify-between md:items-center lg:px-10 gap-8">
+    <div class="w-full md:w-1/2 flex flex-col gap-5 mb-4 md:mb-0">
+        {% for block in section.blocks %}
+        {% if block.type == 'block' %}
+        <div class="flex flex-col md:flex-row items-center md:gap-5">
+            <img class="w-32" src="{{ block.settings.icon | img_url: 'master' }}" alt="">
+            <div class="text-center md:text-left">
+                <h3 class="font-extrabold uppercase">{{ block.settings.heading }}</h3>
+                <p class="font-semibold leading-none">{{ block.settings.desc }}</p>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+    <div class="w-full md:w-1/2 max-w-sm mx-auto md:mx-0">
+        <h3 class="font-extrabold text-center leading-tight uppercase mb-4">
+            {{ section.settings.heading }}
+        </h3>
+        <div class="swiper swiper-member border-solid border-2 rounded-md">
+            <div class="swiper-wrapper">
+                {% for block in section.blocks %}
+                {% if block.type == 'image' %}
+                <div class="swiper-slide ratio ratio-130">
+                    <img class="object-cover" src="{{ block.settings.image_gallery | img_url: 'master' }}" alt="">
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+         </div>
+         {% if section.settings.btnText != blank %}
+         <a class="show-quiz block max-w-xs mx-auto mt-10 rounded-md uppercase btn-shadow-lg block bg-magenta border-solid border-2 border-md border-black relative font-semibold text-center p-4 text-white hover:bg-magenta-700 transition-colors duration-200" href="{{ section.settings.btnUrl }}">{{ section.settings.btnText }}</a>
+         {% endif %}
+    </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Become a member",
+    "settings": [
+      {
+        "type": "textarea",
+        "id": "heading",
+        "label": "Heading"
+      },
+      {
+        "type": "text",
+        "id": "btnText",
+        "label": "Button Text"
+      },
+      {
+        "type": "url",
+        "id": "btnUrl",
+        "label": "Button Url"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "block",
+        "name": "Icon Block",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "icon",
+            "label": "Icon"
+          },
+          {
+            "type": "text",
+            "id": "heading",
+            "label": "Heading"
+          },
+          {
+            "type": "text",
+            "id": "desc",
+            "label": "Descrption"
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "name": "Image Gallery",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image_gallery",
+            "label": "Image"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

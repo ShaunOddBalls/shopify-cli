@@ -1,0 +1,8 @@
+{% assign payment_methods = 'shopify_pay,visa,maestro,master,paypal,apple_pay,google_pay,klarna,laybuy,afterpay,american_express,discover' %}
+{% assign payment_arr = payment_methods | split: ',' %}
+<div class="grid grid-cols-6 flex flex-wrap gap-x-4 gap-y-2 flex-1 ">
+{% for payment in payment_arr %}
+<img loading="lazy" class="w-full xs:w-9/12 md:w-auto mx-auto my-auto shadow" src="{{ payment | payment_type_img_url }}" alt="{{ payment }}"/>
+{% endfor %}
+
+</div>

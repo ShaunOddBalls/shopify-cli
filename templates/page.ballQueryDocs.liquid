@@ -1,0 +1,220 @@
+{% layout none %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>$ob — OddBalls Micro DOM Library</title>
+<style>
+  body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f4f4f4; color: #333; }
+  header { background: #f00f83; color: white; padding: 1rem; text-align: center; }
+  main { padding: 2rem; max-width: 900px; margin: auto; }
+  h1, h2, h3 { color: #f00f83; }
+  pre { background: #222; color: #f4f4f4; padding: 1rem; overflow-x: auto; }
+  code { color: #f4f4f4; }
+  section { margin-bottom: 2rem; }
+  table { width: 100%; border-collapse: collapse; margin-bottom: 1rem; }
+  th, td { border: 1px solid #ddd; padding: 0.5rem; text-align: left; }
+  th { background: #f00f83; color: white; }
+  .example { background: #fff8e1; padding: 1rem; border-left: 4px solid #f00f83; margin-bottom: 1rem; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>$ob — OddBalls Micro DOM Library</h1>
+  <p>A lightweight jQuery-style helper for DOM manipulation, events, traversal, and AJAX</p>
+</header>
+
+<main>
+
+<section>
+  <h2>Getting Started</h2>
+  <p>Include the <code>$ob</code> library in your project:</p>
+  <pre><code>&lt;script src="ballQuery.js"&gt;&lt;/script&gt;</code></pre>
+  <p>Usage is similar to jQuery:</p>
+  <pre><code>$ob('#my-button').on('click', function() {
+  console.log('Clicked!', this); // `this` is the button
+});</code></pre>
+</section>
+
+<section>
+  <h2>DOM Manipulation</h2>
+  <table>
+    <tr><th>Method</th><th>Description</th></tr>
+    <tr><td>html(content)</td><td>Set innerHTML</td></tr>
+    <tr><td>text(content)</td><td>Set textContent</td></tr>
+    <tr><td>val(value)</td><td>Get/set input value</td></tr>
+    <tr><td>append(content)</td><td>Insert HTML at the end</td></tr>
+    <tr><td>prepend(content)</td><td>Insert HTML at the start</td></tr>
+    <tr><td>before(content)</td><td>Insert HTML before element</td></tr>
+    <tr><td>after(content)</td><td>Insert HTML after element</td></tr>
+    <tr><td>remove()</td><td>Remove element(s)</td></tr>
+  </table>
+
+  <div class="example">
+    <strong>Example:</strong><br>
+    <pre><code>$ob('#container').append('&lt;div class="item"&gt;Hello&lt;/div&gt;');
+$ob('.item').text('Updated text');</code></pre>
+  </div>
+</section>
+
+<section>
+  <h2>Attributes & Properties</h2>
+  <table>
+    <tr><th>Method</th><th>Description</th></tr>
+    <tr><td>attr(name, value)</td><td>Get/set attribute</td></tr>
+    <tr><td>removeAttr(name)</td><td>Remove attribute</td></tr>
+    <tr><td>prop(name, value)</td><td>Get/set property</td></tr>
+  </table>
+
+  <div class="example">
+    <strong>Example:</strong><br>
+    <pre><code>$ob('#my-input').attr('placeholder', 'Type here');
+console.log($ob('#my-input').attr('placeholder'));</code></pre>
+  </div>
+</section>
+
+<section>
+  <h2>CSS & Classes</h2>
+  <table>
+    <tr><th>Method</th><th>Description</th></tr>
+    <tr><td>css(prop, val)</td><td>Get/set style or object of styles</td></tr>
+    <tr><td>addClass(className)</td><td>Add class(es)</td></tr>
+    <tr><td>removeClass(className)</td><td>Remove class(es)</td></tr>
+    <tr><td>toggleClass(className)</td><td>Toggle class(es)</td></tr>
+    <tr><td>hasClass(className)</td><td>Check if element has class</td></tr>
+  </table>
+
+  <div class="example">
+    <strong>Example:</strong><br>
+    <pre><code>$ob('.box').css({background: 'yellow', color: 'red'});
+$ob('.box').addClass('highlight');</code></pre>
+  </div>
+</section>
+
+<section>
+  <h2>Events</h2>
+  <table>
+    <tr><th>Method</th><th>Description</th></tr>
+    <tr><td>on(event, handler)</td><td>Add normal event</td></tr>
+    <tr><td>on(event, selector, handler)</td><td>Add delegated event</td></tr>
+    <tr><td>off(event, handler/selector)</td><td>Remove event</td></tr>
+    <tr><td>one(event, handler)</td><td>Fire once</td></tr>
+  </table>
+
+  <div class="example">
+    <strong>Example:</strong><br>
+    <pre><code>$ob('#btn').on('click', () =&gt; console.log('Clicked!'));
+$ob(document).on('click', '.dynamic-btn', function() { console.log(this.textContent); });</code></pre>
+  </div>
+</section>
+
+<section>
+  <h2>Traversal</h2>
+  <table>
+    <tr><th>Method</th><th>Description</th></tr>
+    <tr><td>find(selector)</td><td>Find descendant elements</td></tr>
+    <tr><td>children(selector)</td><td>Get children optionally filtered by selector</td></tr>
+    <tr><td>parent()</td><td>Get parent element</td></tr>
+    <tr><td>closest(selector)</td><td>Get closest matching ancestor</td></tr>
+    <tr><td>siblings()</td><td>Get sibling elements</td></tr>
+    <tr><td>next()</td><td>Get next sibling</td></tr>
+    <tr><td>prev()</td><td>Get previous sibling</td></tr>
+    <tr><td>filter(fn)</td><td>Filter elements by function</td></tr>
+    <tr><td>first()</td><td>Get first element</td></tr>
+    <tr><td>last()</td><td>Get last element</td></tr>
+  </table>
+
+  <div class="example">
+    <strong>Example:</strong><br>
+    <pre><code>$ob('#container').children('.item').first().addClass('highlight');</code></pre>
+  </div>
+</section>
+
+<section>
+  <h2>Effects</h2>
+  <table>
+    <tr><th>Method</th><th>Description</th></tr>
+    <tr><td>show()</td><td>Show element</td></tr>
+    <tr><td>hide()</td><td>Hide element</td></tr>
+    <tr><td>fadeIn(duration)</td><td>Fade in element</td></tr>
+    <tr><td>fadeOut(duration)</td><td>Fade out element</td></tr>
+    <tr><td>slideUp(duration)</td><td>Slide up element</td></tr>
+    <tr><td>slideDown(duration)</td><td>Slide down element</td></tr>
+  </table>
+
+  <div class="example">
+    <strong>Example:</strong><br>
+    <pre><code>$ob('.box').fadeIn(500).addClass('active');
+$ob('.box').slideUp(400);</code></pre>
+  </div>
+</section>
+
+<section>
+  <h2>Data</h2>
+  <table>
+    <tr><th>Method</th><th>Description</th></tr>
+    <tr><td>data(key, value)</td><td>Store or get custom data</td></tr>
+    <tr><td>removeData(key)</td><td>Remove stored data</td></tr>
+  </table>
+
+  <div class="example">
+    <strong>Example:</strong><br>
+    <pre><code>$ob('#input').data('name', 'OddBalls');
+console.log($ob('#input').data('name'));</code></pre>
+  </div>
+</section>
+
+<section>
+  <h2>Iteration</h2>
+  <table>
+    <tr><th>Method</th><th>Description</th></tr>
+    <tr><td>each(fn)</td><td>Iterate over all matched elements</td></tr>
+  </table>
+
+  <div class="example">
+    <strong>Example:</strong><br>
+    <pre><code>$ob('.item').each(function(i, el) {
+  console.log(i, el.textContent);
+});</code></pre>
+  </div>
+</section>
+
+<section>
+  <h2>AJAX</h2>
+  <table>
+    <tr><th>Method</th><th>Description</th></tr>
+    <tr><td>ajax({ url, method, data, headers })</td><td>Generic AJAX request</td></tr>
+    <tr><td>get(url)</td><td>GET request</td></tr>
+    <tr><td>post(url, data)</td><td>POST request</td></tr>
+  </table>
+
+  <div class="example">
+    <strong>Example:</strong><br>
+    <pre><code>$ob().get('/api/data').then(console.log);
+$ob().post('/api/data', { name: 'OddBalls' }).then(console.log);</code></pre>
+  </div>
+</section>
+
+<section>
+  <h2>Quick Reference / Cheat Sheet</h2>
+  <p>Common usage patterns:</p>
+  <pre><code>
+// DOM
+$ob('#id').html('New content').addClass('active');
+
+// Event
+$ob('.btn').on('click', () =&gt; alert('Clicked!'));
+
+// Traversal
+$ob('#container').children('.item').first().fadeIn(300);
+
+// AJAX
+$ob().get('/api/data').then(console.log);
+</code></pre>
+</section>
+
+</main>
+</body>
+</html>

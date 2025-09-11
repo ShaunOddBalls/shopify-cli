@@ -1,0 +1,148 @@
+{% schema %}
+  {
+    "name": "Text and Swiper",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Section heading"
+      },
+      {
+        "type": "text",
+        "id": "heading_classes",
+        "label": "Section heading classes"
+      },
+      {
+        "type": "textarea",
+        "id": "text",
+        "label": "Section Text"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Under swiper Image"
+      },
+      {
+        "type": "header",
+        "content": "Button ",
+        "info": "ℹ️ add text to the button text field to add in a button."
+      },
+      {
+        "type": "text",
+        "id": "btn-text",
+        "label": "Button Text",
+      },
+      {
+        "type": "text",
+        "id": "btn-classes",
+        "label": "Button Classes",
+        "visible_if": "{{ section.settings.btn-text != blank }}"
+      },
+      {
+        "type": "color_background",
+        "id": "btn-bg-colour",
+        "label": "Button background-color",
+        "visible_if": "{{ section.settings.btn-text != blank }}"
+      },
+      {
+        "type": "color",
+        "id": "btn-text-color",
+        "label": "Button Text Color",
+        "visible_if": "{{ section.settings.btn-text != blank }}"
+      },
+      {
+        "type": "url",
+        "id": "btn-url",
+        "label": "Button url",
+        "visible_if": "{{ section.settings.btn-text != blank }}"
+      }
+    ],
+    "blocks": [
+      {
+        "name": "slide",
+        "type": "slide",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Text and Swiper"
+      }
+    ]
+  }
+{% endschema %}
+
+<div class="p-6 w-full mx-auto max-w-7xl">
+  {% if section.settings.title != blank %}
+    <div class="w-full"><h2 class="{{ section.settings.heading_classes }}">{{ section.settings.title }}</h2></div>
+  {% endif %}
+  <div class="grid md:grid-cols-2 w-full">
+    <div class="col-span-1">
+      <div class="">
+        <p class="para md:pr-6">{{ section.settings.text }}</p>
+      </div>
+
+      {% if section.settings.btn-text != blank %}
+       
+          <a
+            href="{%- render 'ob-process-international-link', url:section.settings.btn-url %}"
+            class="{{ section.settings.btn-classes }}"
+            style="background: {{ section.settings.btn-bg-colour }}; color: {{ section.settings.btn-text-color }}"
+          >
+            {{ section.settings.btn-text }}
+          </a>
+
+      
+      {% endif %}
+    </div>
+    <div class="col-span-1 hidden md:block flex flex-col ">
+      <div class="swiper-{{ section.id }} overflow-hidden">
+        <div class="swiper-wrapper ">
+          <!-- Slides --> 
+          {% for block in section.blocks %}
+            {% if block.type == "slide" %}
+              <div class="swiper-slide">
+                <img 
+                  src="{{ block.settings.image | img_url: '1200x' }}" 
+                  alt="{{ block.settings.image.alt | escape }}"
+                  loading="lazy"
+                >
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+
+      {% if section.settings.image != blank %}
+        <div class="w-full h-auto bg-white flex justify-center">
+          <img 
+            src="{{ section.settings.image | img_url: '1200x' }}" 
+            alt="{{ section.settings.image.alt | escape }}"
+            loading="lazy"
+          >
+        </div>
+      {% endif %}
+      
+    </div>
+  </div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const swiper = new Swiper('.swiper-{{ section.id }}', {
+    slidesPerView: 1,
+    spaceBetween: 0,
+    loop: true,
+
+    autoplay: {
+      delay: 3000, // Adjust delay as needed
+      disableOnInteraction: false, // Keeps autoplay even after user interaction
+    },
+  });
+});
+</script>

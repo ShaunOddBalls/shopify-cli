@@ -1,0 +1,694 @@
+{% schema %}
+{
+  "name": "UCG Swiper",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Slider Settings"
+    },
+    {
+      "type": "range",
+      "id": "slides_per_view_mobile",
+      "min": 1,
+      "max": 3,
+      "step": 0.1,
+      "label": "Slides to show on mobile",
+      "default": 1.5
+    },
+    {
+      "type": "range",
+      "id": "slides_per_view_desktop",
+      "min": 2,
+      "max": 6,
+      "step": 0.1,
+      "label": "Slides to show on desktop",
+      "default": 4
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_loop",
+      "label": "Enable loop",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "stop_on_last_slide",
+      "label": "Stop on last slide",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "header",
+          "content": "image 1",
+          "info": "These are the settings for the top image in the ucg slider"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image 1"
+        },
+        {
+          "type": "text",
+          "id": "hashtag",
+          "label": "Image text"
+        },
+        {
+          "type": "header",
+          "content": "image 1 Popup Settings",
+          "info": "These are the Pop up settings for the top image in the ucg slider"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text content",
+          "default": "<p>Share information about your brand with your customers</p>"
+        },
+        {
+          "type": "product_list",
+          "id": "products",
+          "label": "Products to appear in the popup"
+        },
+
+        {
+          "type": "header",
+          "content": "image 2 Popup Settings",
+          "info": "These are the Pop up settings for the bottom image in the ucg slider"
+        },
+        {
+          "type": "image_picker",
+          "id": "image-2",
+          "label": "Image 2"
+        },
+        {
+          "type": "text",
+          "id": "hashtag-2",
+          "label": "Image text 2"
+        },
+        {
+          "type": "richtext",
+          "id": "text-2",
+          "label": "Text content",
+          "default": "<p>Share information about your brand with your customers</p>"
+        },
+        {
+          "type": "product_list",
+          "id": "products-2",
+          "label": "Products to appear in the popup"
+        }
+      ]
+    },
+    {
+      "type": "first-slide",
+      "name": "First Slide",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "default": "Welcome to the first slide",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "paragraph",
+          "default": "Default paragraph for first slide",
+          "label": "Paragraph"
+        },
+        {
+          "type": "text",
+          "id": "button-text",
+          "default": "Click Me",
+          "label": "Button text"
+        },
+        {
+          "type": "text",
+          "id": "button-link",
+          "label": "Button link"
+        }
+      ]
+    },
+    {
+      "type": "last-slide",
+      "name": "Last Slide",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "default": "Thank you for visiting",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "paragraph",
+          "default": "Default paragraph for last slide",
+          "label": "Paragraph"
+        },
+        {
+          "type": "text",
+          "id": "button-text",
+          "default": "Learn More",
+          "label": "Button text"
+        },
+        {
+          "type": "text",
+          "id": "button-link",
+          "label": "Button link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "UCG Swiper",
+      "blocks": [
+        {
+          "type": "first-slide",
+          "settings": {
+            "title": "Welcome to the first slide",
+            "paragraph": "Default paragraph for first slide",
+            "button-text": "Click Me",
+            "button-link": "#"
+          }
+        },
+        {
+          "type": "slide",
+          "settings": {
+            "text": "<p>This is the content of the second slide</p>"
+          }
+        },
+        {
+          "type": "slide",
+          "settings": {
+            "text": "<p>This is the content of the second slide</p>"
+          }
+        },
+        {
+          "type": "slide",
+          "settings": {
+            "text": "<p>This is the content of the second slide</p>"
+          }
+        },
+        {
+          "type": "last-slide",
+          "settings": {
+            "title": "Thank you for visiting",
+            "paragraph": "This is the final slide",
+            "button-text": "Learn More",
+            "button-link": "#"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+  .ucg .swiper-wrapper {
+    transition-timing-function: linear !important;
+  }
+  .ucg .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    max-width: 400px;
+    height: 100%;
+  }
+
+  /* Add specific max-width for first and last slides if needed */
+  .ucg .swiper-slide.wide {
+    max-width: 600px;
+  }
+
+  .ucg-img-8,
+  .ucg-img-7,
+  .ucg-img-6,
+  .ucg-img-5,
+  .ucg-img-4,
+  .ucg-img-3,
+  .ucg-img-2,
+  .ucg-img-1 {
+    position: relative;
+    transform-origin: center center;
+    transform: scale(0.8);
+  }
+
+  /* Remove individual image scaling */
+  .ucg-img-8 img,
+  .ucg-img-7 img,
+  .ucg-img-6 img,
+  .ucg-img-5 img,
+  .ucg-img-4 img,
+  .ucg-img-3 img,
+  .ucg-img-2 img,
+  .ucg-img-1 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .ucg-img-5,
+  .ucg-img-6,
+  .ucg-img-1 {
+    width: 80%;
+    height: 80%;
+  }
+
+  .ucg-img-8,
+  .ucg-img-2,
+  .ucg-img-3 {
+    width: 55%;
+    height: 55%;
+  }
+
+  .ucg-img-7,
+  .ucg-img-4 {
+    width: 100%;
+    height: 100%;
+  }
+
+  .ucg-img-1 {
+    top: 60px;
+    left: 60px;
+  }
+
+  .ucg-img-2 {
+    top: 20px;
+    left: 100px;
+  }
+
+  .ucg-img-3 {
+    top: 20px;
+  }
+
+  .ucg-img-4 {
+    top: -100px;
+    left: 20px;
+  }
+
+  .ucg-img-5 {
+    left: -30px;
+    bottom: -10px;
+  }
+
+  .ucg-img-6 {
+    top: 0px;
+    left: 40px;
+  }
+
+  .ucg-img-7 {
+    left: -20px
+  }
+
+  .ucg-img-8 {
+    top: -60px;
+    left: 80px;
+  }
+
+  .ucg-img-6 .ucg-img-5 {
+    z-index: 2;
+  }
+
+  /* Update fade animations to target the container instead of just the image */
+  .ucg .swiper-slide .fade-in {
+    transform: scale(1) !important;
+    transition: transform 5s linear;
+  }
+
+  .ucg .swiper-slide .fade-out {
+    transform: scale(0.8) !important;
+    transition: transform 5s linear;
+  }
+
+  /* Ensure text stays positioned correctly */
+  .ucg-img-8 .absolute,
+  .ucg-img-7 .absolute,
+  .ucg-img-6 .absolute,
+  .ucg-img-5 .absolute,
+  .ucg-img-4 .absolute,
+  .ucg-img-3 .absolute,
+  .ucg-img-2 .absolute,
+  .ucg-img-1 .absolute {
+    transform-origin: bottom left;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+  }
+
+  .js-ucg:hover {
+    opacity: 80%;
+  }
+
+
+</style>
+{% capture ucg-slider %}
+  {% assign slides_capture = "" %} <!-- Initialize a variable to store all 'slide' blocks -->
+  {% assign  image_slider_count_1 = 0 %}
+  {% assign  image_slider_count_2 = 1 %}
+  {% assign slide_count = 0 %}
+  {% assign  image_slider_count_for_position_1 = 1 %}
+  {% assign  image_slider_count_for_position_2 = 2 %}
+
+  
+  {% for block in section.blocks %}
+    
+
+    
+    {% case block.type %}
+      {% when 'first-slide' %}
+      <div class="swiper-slide wide flex items-center justify-center first-slide p-3 wide px-4 ">
+        <div class="w-full h-full flex items-center max-w-xs text-center">
+          <div class="w-full">
+          <h2 class="text-4xl font-bold pt-2 pr-2  uppercase marujo">{{ block.settings.title }}</h2>
+          <p class="py-2 text-md  py-4">{{ block.settings.paragraph }}</p>
+          {% if block.settings.button-text %}
+          <a href="{{ block.settings.button-link }}">
+          <div class="py-2 px-4 bg-pink-500 text-white rounded-full">
+            {{ block.settings.button-text }}
+          </div>
+          </a>
+          {% endif %}
+          </div>
+        </div>
+      </div>
+
+      {% when 'slide' %}
+      {% capture slide_block_main %}
+      <div class="swiper-slide flex flex-col h-full wide">
+        <!-- Top image container - square aspect ratio -->
+        <div class="js-ucg w-full aspect-square relative" data-slide-number="{{ image_slider_count_1 }}">
+            <div class="absolute relative ucg-img-{{ image_slider_count_for_position_1 }}">
+            <div class="absolute z-10 bottom-0 left-0">
+              <p class="py-2 px-6 text-xl text-white" }}>{{ block.settings.hashtag }}</p>
+            </div>
+          {% if block.settings.image %}
+            <img src="{{ block.settings.image | img_url: 'master' }}" alt="{{ block.settings.image.alt }}"
+              class="h-full w-full object-cover">
+      
+          {% else %}
+           
+              <img src="https://picsum.photos/200" alt="Image" 
+                class="w-full h-full object-cover">
+              <div class="absolute z-10 bottom-1 left-0">
+                <div class="h-full w-full">
+                <p class="py-2 px-6 text-xl text-white" }}>{{ block.settings.hashtag }}</p>
+                </div>
+              </div>
+          {% endif %}
+            </div>
+        </div>
+        <!-- Bottom image container - square aspect ratio -->
+        <div class="js-ucg w-full aspect-square relative" data-slide-number="{{ image_slider_count_2 }}">
+         <div class="absolute relative ucg-img-{{ image_slider_count_for_position_2 }}">
+            <div class="absolute z-10 bottom-0 left-0">
+              <p class="py-2 px-6 text-xl text-white" }}>{{ block.settings.hashtag }}</p>
+            </div>
+          {% if block.settings.image-2 %}
+            <img src="{{ block.settings.image-2 | img_url: 'master' }}" alt="{{ block.settings.image-2.alt}}"
+              class="w-full h-full object-cover   ">
+          {% else %}
+            <img src="https://picsum.photos/200" alt="Image" 
+              class="w-full h-full   object-cover ">
+          {% endif %}
+            </div>
+          
+        </div>
+      </div>
+      {% endcapture %}
+
+
+
+      <!-- Slider popup slides -->
+      {% capture slide_block_popup %}
+      <div class="swiper-slide flex flex-col " data-slide-number="{{ image_slider_count_1 }}">
+        <div class="popup-image w-full h-full relative">
+          {% if block.settings.image %}
+              <img src="{{ block.settings.image | img_url: 'master' }}" alt="{{ block.settings.hashtag }}" 
+                class="w-full h-full object-cover aspect-square w-full ">
+            {% else %}
+              <img src="https://picsum.photos/200" alt="Image" class="w-full h-full object-cover aspect-square w-full ">
+            {% endif %}
+        </div>
+        <div class="popup-content  w-full text-center">
+          <h3 class="px-3 text-xl font-semibold ">{{ block.settings.hashtag }}</h3>
+          <div class="px-3">{{ block.settings.text }}</div>
+          
+        {% if block.settings.products != blank %}
+  
+          <p class="text-center text-2xl font-bold marujo">Shop the Look</p>
+          <div class="w-full">
+        <div class="w-full px-4">
+          <div class="grid grid-cols-2 md:grid-cols- xl:grid-cols-2 2xl:grid-cols-2 3xl:grid-cols-2 grid-flow-dense auto-rows-[1fr] gap-x-2.5 gap-y-6 my-3 w-full overflow-hidden">
+        {% for product in block.settings.products %}
+        
+            {%- comment %}<locksmith:3878>{% endcomment -%}
+              {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product, subject_parent: block.settings, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+            {%- comment %}</locksmith:3878>{% endcomment -%}
+        
+            {% assign buttontype =  "small-buttons" %}
+            {% render 'ob-product-grid-item', product:product, buttontype:buttontype %}
+            {% assign product_count = product_count | plus: 1 %}
+        {% endfor %}
+        </div>
+        </div>
+</div>
+        {% endif %}
+        </div>
+
+      </div>
+
+        
+      <div class="swiper-slide flex flex-col" data-slide-number="{{ image_slider_count_2 }}">
+        <div class="popup-image w-full">
+    
+          {% if block.settings.image-2 %}
+              <img src="{{ block.settings.image-2 | img_url: 'master' }}" alt="{{ block.settings.hashtag }}" 
+                class="w-full  object-cover aspect-square w-full">
+            {% else %}
+              <img src="https://picsum.photos/200" alt="Image" class="object-cover aspect-square w-full">
+            {% endif %}
+        </div>
+        <div class="popup-content w-full">
+          <h3 class="text-xl font-semibold text-center">{{ block.settings.hashtag-2 }}</h3>
+          {% if block.settings.text %}
+            <div class="text-center p-3">{{ block.settings.text-2 }}</div>
+          {% endif %}
+          
+          {% if block.settings.products-2 != blank %}
+        <div class="w-full px-4">
+          
+          <p class="text-center text-3xl font-bold marujo">Shop The Look</p>
+          <div class="w-full ">
+            {% if block.settings.products-2 %}
+        <div class="w-full px-4">
+          <div class="grid grid-cols-2 md:grid-cols- xl:grid-cols-2 2xl:grid-cols-2 3xl:grid-cols-2 grid-flow-dense auto-rows-[1fr] gap-x-2.5 gap-y-6 my-8 w-full overflow-hidden">
+        {% for product in block.settings.products-2 %}
+        
+            {%- comment %}<locksmith:dc2c>{% endcomment -%}
+              {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product, subject_parent: block.settings, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+            {%- comment %}</locksmith:dc2c>{% endcomment -%}
+        
+            {% assign buttontype =  "small-buttons" %}
+            {% render 'ob-product-grid-item', product:product, buttontype:buttontype %}
+            {% assign product_count = product_count | plus: 1 %}
+        {% endfor %}
+        </div>
+        </div>
+        {% endif %}
+          </div>
+          
+        </div>
+        {% endif %}
+        </div>
+      </div>
+      {% endcapture %}
+
+      {% assign slides_capture = slides_capture | append: slide_block_popup %} 
+
+      {{ slide_block_main }} 
+
+   
+        {% assign  image_slider_count_1 = image_slider_count_1 | plus: 2 %}
+        {% assign  image_slider_count_2 = image_slider_count_2 | plus: 2 %}
+
+        {% if image_slider_count_for_position_2 < 8  %}
+          {% assign  image_slider_count_for_position_1 = image_slider_count_for_position_1 | plus: 2 %}
+          {% assign  image_slider_count_for_position_2 = image_slider_count_for_position_2 | plus: 2 %}
+          {% else %}
+          {% assign  image_slider_count_for_position_1 = 1 %}
+          {% assign  image_slider_count_for_position_2 = 2 %}
+        {% endif %}
+
+
+      {% when 'last-slide' %}
+      <div class="swiper-slide wide flex items-center justify-end p-3 last-slide ">
+        <div class="w-full max-w-xs text-center max-w-sm">
+          <h2 class="text-2xl font-bold pt-2 pr-2 ">{{ block.settings.title }}</h2>
+          <p class="py-2 text-lg ">{{ block.settings.paragraph }}</p>
+          {% if block.settings.button-text %}
+          <a href="{{ block.settings.button-link}}">
+          <div class="py-2 px-4 bg-pink-500 text-white rounded-full text-center">
+            {{ block.settings.button-text }}
+          </div>
+          </a>
+          {% endif %}
+        </div>
+      </div>
+    {% endcase %}
+  {% endfor %}
+{% endcapture %}
+<div class="w-full overflow-hidden py-10">
+  <div class="text-2xl md:text-4xl uppercase  marujo px-4">@OddBalls</div>
+  <div class="ucg-swiper-{{ section.id }} ucg w-full h-[550px] md:h-[400px] lg:h-[700px] xl:h-[850px]">
+    <div class="swiper-wrapper">
+      <!-- Slides -->
+      {{ ucg-slider }}
+    </div>
+  </div>
+</div>
+
+  <div id="ucg-popup-content"  class="page-popup-content" style="display:none; z-index:1;">
+    <div class="popup-safety-screen" ></div>
+
+    <div class="popup-section bg-white"> 
+      <div
+        id="ucg-popup-header">
+        <div id="ucg-header" class="w-full justify-between flex relative ">
+          <div class="popup-prev w-full cursor-pointer flex justify-center py-2">Prev</div>
+          <div class="popup-next w-full cursor-pointer flex justify-center py-2">Next</div>
+          <button class=" w-[20px] popup-safety-screen-button button button--variant-ghost button--icon bg-[#F5F5F5] !w-6 !h-6 !bg-[#F0F0F0] bg-white right-4 top-2 opacity-80" translate="no" aria-label="Close">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 14 14">
+              <rect width="16.9705" height="1.13137" rx="0.565684" transform="matrix(0.707106 -0.707108 0.707106 0.707108 0.600586 12.6001)" fill="currentColor"></rect>
+              <rect width="16.9705" height="1.13137" rx="0.565684" transform="matrix(-0.707106 -0.707107 0.707106 -0.707108 12.6006 13.4001)" fill="currentColor"></rect>
+            </svg>
+          </button> 
+        </div>
+      </div>
+      <div id="ucg-popup-contents" class="popup-content relative pb-0 -bottom-[5px] h-full overflow-y-scroll">
+        <div class="popup-swiper-{{ section.id }} swiper" id="ucg-popup-swiper">
+          <div class="swiper-wrapper">
+            {{ slides_capture }}
+          </div>
+        </div>
+    
+      </div>
+    </div>
+  </div>
+
+
+<script>
+      document.addEventListener('DOMContentLoaded', function () {
+         const ucgPopupContent = document.getElementById('ucg-popup-content');
+         const pagePopup = document.getElementById('page-popup');
+        
+        if (ucgPopupContent && pagePopup) {
+          pagePopup.appendChild(ucgPopupContent);
+          console.log('#ucg-popup-content moved to #page-popup');
+        } else {            
+          console.warn('One or both elements not found: #ucg-popup-content or #page-popup');
+        }
+      
+      // Initialize swiper with autoplay disabled initially
+      let mainSwiper = new Swiper('.ucg-swiper-{{ section.id }}', {
+        slidesPerView: {{ section.settings.slides_per_view_mobile }},
+        loop: {{ section.settings.enable_loop }},
+        autoplay: false, // Start with autoplay disabled
+        speed: 100000,
+        pauseOnMouseEnter: true, // Add pause on hover
+        breakpoints: {
+          768: {
+            slidesPerView: {{ section.settings.slides_per_view_desktop }},
+          },
+        },
+      });
+
+      // Create intersection observer for the swiper
+      const swiperObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            // Start autoplay when swiper comes into view
+            mainSwiper.autoplay.start();
+            mainSwiper.params.autoplay = {
+              delay: 1,
+              disableOnInteraction: false,
+              stopOnLastSlide: {{ section.settings.stop_on_last_slide }},
+            };
+          } else {
+            // Stop autoplay when swiper is out of view
+            mainSwiper.autoplay.stop();
+          }
+        });
+      }, {
+        threshold: 0.1 // Trigger when at least 10% of the element is visible
+      });
+
+      // Start observing the swiper
+      const swiperElement = document.querySelector('.ucg-swiper-{{ section.id }}');
+      if (swiperElement) {
+        swiperObserver.observe(swiperElement);
+      }
+
+      // Rest of your existing popup swiper code remains the same
+      const popupSwiper = new Swiper('.popup-swiper-{{ section.id }}', {
+        slidesPerView: 1,
+        loop: true,
+        loopedSlides: 2,
+        navigation: {
+          nextEl: '.popup-next',
+          prevEl: '.popup-prev',
+        },
+        speed: 400,
+        slideToClickedSlide: true,
+        slidesPerGroup: 1,
+        observer: true,
+        observeParents: true,
+      });
+
+      const ucgElements = document.querySelectorAll('.js-ucg');
+
+      ucgElements.forEach(function (element) {
+        element.addEventListener('click', function () {
+          const slideNumber = parseInt(element.getAttribute('data-slide-number'));
+          const ucgPopup = document.getElementById('ucg-popup-content');
+          
+          openPopup(ucgPopup);
+          
+          // Update the swiper properly
+          popupSwiper.update(); // Force swiper to update
+          popupSwiper.slideTo(slideNumber, 0); // Adjust index (zero-based)
+          popupSwiper.update(); // Update again after slide change
+        });
+      });
+   ;
+
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const images = entry.target.querySelectorAll('img'); // Find images inside the slide
+
+        if (entry.isIntersecting) {
+          images.forEach(img => {
+            img.classList.add('fade-in');
+            img.classList.remove('fade-out');
+          }); // Add the class to images
+         
+        } else if (entry.intersectionRatio < 0.9) {
+          {% comment %} console.log('Slide left view (less than 30% visible):', entry.target); {% endcomment %}
+          images.forEach(img => {
+            img.classList.remove('fade-in');
+            img.classList.add('fade-out');
+          }); // Remove the class from images
+        }
+      });
+    }, {
+      threshold: [0.4, 0.5] // Trigger at 40% and 50% visibility
+    });
+
+    // Select all slides or elements to observe
+    const slides = document.querySelectorAll('.ucg .swiper-slide'); // Replace with your slide class or selector
+    slides.forEach(slide => observer.observe(slide));
+  });
+</script>

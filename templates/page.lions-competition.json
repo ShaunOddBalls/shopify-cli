@@ -1,0 +1,459 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "f7b8470c-5dfc-4a80-84f9-a574d9391aa9": {
+      "type": "ob-conditional-banner",
+      "blocks": {
+        "ec5cc587-bdfd-4da4-92ca-d4c38e687df6": {
+          "type": "page-banner",
+          "settings": {
+            "block_active": true,
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": "",
+            "banner_background": "",
+            "wrapper_classes": "",
+            "title": "",
+            "text": "",
+            "text_wrapper_classes": "",
+            "customers": "both",
+            "url_handle": "*",
+            "not_url_handle": "",
+            "country_iso": "*",
+            "banner_link": "",
+            "desktop_image": "shopify://shop_images/Desktop-BG_7efb39c6-fa08-455d-8c92-3c02b33cd8e6.jpg",
+            "mobile_image": "shopify://shop_images/Mobile-BG_f3f0c99c-0d61-4ac1-a15e-a3e7de8e9aaa.jpg",
+            "desktop_image_classes": "mx-auto w-full hidden md:block",
+            "mobile_image_classes": "mx-auto w-full md:hidden",
+            "desktop_svg": "Desktop-FG_043aff85-81f9-43f6-9010-c6040051db41.svg",
+            "mobile_svg": "Mobile-FG_a0ff9082-7db9-4684-b644-4bc66e736ca1.svg",
+            "desktop_svg_classes": "absolute inset-0 w-full h-full mx-auto hidden md:block",
+            "mobile_svg_classes": "absolute inset-0 w-full h-full mx-auto md:hidden"
+          }
+        }
+      },
+      "block_order": [
+        "ec5cc587-bdfd-4da4-92ca-d4c38e687df6"
+      ],
+      "settings": {
+        "banner_background": "",
+        "wrapper_classes": "pb-4"
+      }
+    },
+    "ob_countdown_timer_section_aH86cK": {
+      "type": "ob-countdown-timer-section",
+      "blocks": {
+        "title_pPKjjW": {
+          "type": "title",
+          "settings": {
+            "text": "COMPETITION ENDS SOON!",
+            "custom_class": "!text- md:!text-2xl"
+          }
+        },
+        "paragraph_ePHC3G": {
+          "type": "paragraph",
+          "settings": {
+            "text": "Time is ticking! Enter now for your chance to win big before the competition ends.",
+            "custom_class": ""
+          }
+        },
+        "countdown_timer_JQNAEt": {
+          "type": "countdown_timer",
+          "settings": {
+            "date": "2025-05-27",
+            "time": "00:00",
+            "number_class": "font-semibold text-2xl md:text-4xl",
+            "text_class": "text-2xl marujo"
+          }
+        },
+        "button_kXcxaq": {
+          "type": "button",
+          "settings": {
+            "text": "Shop Now",
+            "link": "shopify://collections/pringles",
+            "custom_class": "!rounded-full bg-magenta text-white font-bold uppercase hover:opacity-50"
+          }
+        }
+      },
+      "block_order": [
+        "title_pPKjjW",
+        "paragraph_ePHC3G",
+        "countdown_timer_JQNAEt",
+        "button_kXcxaq"
+      ],
+      "disabled": true,
+      "name": "New countdown section",
+      "settings": {
+        "bg_color": "#ffffff",
+        "text_color": "#000000",
+        "section_custom_classes": "px-4"
+      }
+    },
+    "ob_three_text_fields_gbLMpk": {
+      "type": "ob-three-text-fields",
+      "blocks": {
+        "text_lines_dhNhbN": {
+          "type": "text-lines",
+          "settings": {
+            "country_iso": "*",
+            "text-field-outer-wrapper-classes": "",
+            "text-field-inner-wrapper-classes": "text-center text-black relative max-w-4xl mx-auto py-2",
+            "text-field-1": "ODDBALLS x LIONS x DODDIE COMPETITION!",
+            "text-field-1-classes": "font-bebas md:text-2xl  text-xl font-bold",
+            "text-field-2": "",
+            "text-field-2-classes": "",
+            "text-field-3": "",
+            "text-field-3-classes": "",
+            "text-field-4": "",
+            "text-field-4-classes": "",
+            "html-field": "",
+            "html-field-classes": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_lines_dhNhbN"
+      ],
+      "settings": {}
+    },
+    "custom_liquid_nhRGiQ": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "custom_liquid": "<div class=\"klaviyo-form-Xygv9C\"></div>",
+        "color_scheme": "",
+        "padding_top": 0,
+        "padding_bottom": 4
+      }
+    },
+    "pringles_img_text_kPHTmF": {
+      "type": "pringles-img-text",
+      "blocks": {
+        "text_block_jGLerP": {
+          "type": "text_block",
+          "settings": {
+            "text": "Win BIG with the Lions Tour this summer!",
+            "class_list": "font-bold"
+          }
+        },
+        "text_block_a3k9fq": {
+          "type": "text_block",
+          "settings": {
+            "text": "We are teaming up with The British & Irish Lions and My Name’5 Doddie Foundation to give away the ultimate Lions 2025 Tour prize!",
+            "class_list": ""
+          }
+        },
+        "text_block_g3A4eE": {
+          "type": "text_block",
+          "settings": {
+            "text": "Official underwear, accessories and My Name’5 Doddie Foundation bespoke merch - you won’t want to miss out! 🦁 🏉",
+            "class_list": ""
+          }
+        },
+        "text_block_z6BUML": {
+          "type": "text_block",
+          "settings": {
+            "text": "Here's what your prize haul includes: £100 worth of OddBalls x Lions underwear for you & a friend, a Doddie x Canterbury x Lions Shirt, a Lions Tour Rugby Ball, a Lions x Canterbury Backpack, a Doddie Foundation Bobble Hat, Sun Hat, Towel & Blanket, and a bundle of OddBalls Socks.",
+            "class_list": ""
+          }
+        },
+        "text_block_aEgqBj": {
+          "type": "text_block",
+          "settings": {
+            "text": "So, what are you waiting for? Enter now and roar with pride this summer!",
+            "class_list": ""
+          }
+        },
+        "text_block_GD4L8b": {
+          "type": "text_block",
+          "settings": {
+            "text": "Entering is easy – simply complete the sign up form above to be entered into the draw! ☝️",
+            "class_list": ""
+          }
+        },
+        "text_block_MYe3PN": {
+          "type": "text_block",
+          "settings": {
+            "text": "Full <a href=\"https://www.myoddballs.com/pages/terms-conditions\" class=\"text-magenta-500\"> terms and conditions </a> apply. UK residents only. 18+.",
+            "class_list": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_block_jGLerP",
+        "text_block_a3k9fq",
+        "text_block_g3A4eE",
+        "text_block_z6BUML",
+        "text_block_aEgqBj",
+        "text_block_GD4L8b",
+        "text_block_MYe3PN"
+      ],
+      "custom_css": [
+        "img {height: 100%; width: 700px; object-fit: cover;}"
+      ],
+      "name": "Lions Text Image",
+      "settings": {
+        "image": "shopify://shop_images/COMP_02_5x4-min.png"
+      }
+    },
+    "ob_three_text_fields_G7rxXq": {
+      "type": "ob-three-text-fields",
+      "blocks": {
+        "text_lines_JUb4nh": {
+          "type": "text-lines",
+          "settings": {
+            "country_iso": "*",
+            "text-field-outer-wrapper-classes": "",
+            "text-field-inner-wrapper-classes": "",
+            "text-field-1": "",
+            "text-field-1-classes": "",
+            "text-field-2": "",
+            "text-field-2-classes": "",
+            "text-field-3": "",
+            "text-field-3-classes": "",
+            "text-field-4": "",
+            "text-field-4-classes": "",
+            "html-field": "",
+            "html-field-classes": ""
+          }
+        },
+        "text_lines_NFfVcW": {
+          "type": "text-lines",
+          "settings": {
+            "country_iso": "*",
+            "text-field-outer-wrapper-classes": "",
+            "text-field-inner-wrapper-classes": "text-center text-black relative max-w-4xl mx-auto py-2",
+            "text-field-1": "We’re giving one lucky winner the chance to win the ultimate weekend prize - everything you need to relax, indulge, and enjoy your weekend in style!",
+            "text-field-1-classes": "font-bebas md:text-xl",
+            "text-field-2": "",
+            "text-field-2-classes": "",
+            "text-field-3": "",
+            "text-field-3-classes": "",
+            "text-field-4": "",
+            "text-field-4-classes": "",
+            "html-field": "",
+            "html-field-classes": ""
+          }
+        },
+        "text_lines_aCXPGp": {
+          "type": "text-lines",
+          "settings": {
+            "country_iso": "*",
+            "text-field-outer-wrapper-classes": "",
+            "text-field-inner-wrapper-classes": "text-center text-black relative max-w-4xl mx-auto py-2",
+            "text-field-1": "The prize includes a £300 Sainsbury’s e-voucher, perfect for stocking up on all your favourite food, drinks, BBQ treats, and more. Whether you’re planning a garden party, a movie night, or a lazy weekend indoors, you’ll have everything covered.",
+            "text-field-1-classes": "font-bebas md:text-xl",
+            "text-field-2": "",
+            "text-field-2-classes": "",
+            "text-field-3": "",
+            "text-field-3-classes": "",
+            "text-field-4": "",
+            "text-field-4-classes": "",
+            "html-field": "",
+            "html-field-classes": ""
+          }
+        },
+        "text_lines_UDerra": {
+          "type": "text-lines",
+          "settings": {
+            "country_iso": "*",
+            "text-field-outer-wrapper-classes": "",
+            "text-field-inner-wrapper-classes": "text-center text-black relative max-w-4xl mx-auto py-2",
+            "text-field-1": "That’s not all – you’ll also receive a £200 OddBalls e-voucher to treat yourself to the brightest, boldest, and most comfortable underwear around. ",
+            "text-field-1-classes": "font-bebas md:text-xl",
+            "text-field-2": "",
+            "text-field-2-classes": "",
+            "text-field-3": "",
+            "text-field-3-classes": "",
+            "text-field-4": "",
+            "text-field-4-classes": "",
+            "html-field": "",
+            "html-field-classes": ""
+          }
+        },
+        "text_lines_zxGP7e": {
+          "type": "text-lines",
+          "settings": {
+            "country_iso": "*",
+            "text-field-outer-wrapper-classes": "",
+            "text-field-inner-wrapper-classes": "text-center text-black relative max-w-4xl mx-auto py-2",
+            "text-field-1": "And of course, no long weekend is complete without snacks – so we’re throwing in a mountain of Pringles! That’s a HUGE haul of your favourite flavours, enough to keep you and your mates going all weekend long!",
+            "text-field-1-classes": "font-bebas md:text-xl",
+            "text-field-2": "",
+            "text-field-2-classes": "",
+            "text-field-3": "",
+            "text-field-3-classes": "",
+            "text-field-4": "",
+            "text-field-4-classes": "",
+            "html-field": "",
+            "html-field-classes": ""
+          }
+        },
+        "text_lines_mDwBDW": {
+          "type": "text-lines",
+          "settings": {
+            "country_iso": "*",
+            "text-field-outer-wrapper-classes": "",
+            "text-field-inner-wrapper-classes": "text-center text-black relative max-w-4xl mx-auto py-2",
+            "text-field-1": "Entering is easy – just purchase a pair of Pringles x OddBalls underwear for an automatic entry! This is your chance to win the ultimate bundle of Bank Holiday goodness.",
+            "text-field-1-classes": "font-bebas md:text-xl",
+            "text-field-2": "",
+            "text-field-2-classes": "",
+            "text-field-3": "",
+            "text-field-3-classes": "",
+            "text-field-4": "",
+            "text-field-4-classes": "",
+            "html-field": "",
+            "html-field-classes": ""
+          }
+        },
+        "text_lines_KGWhey": {
+          "type": "text-lines",
+          "settings": {
+            "country_iso": "*",
+            "text-field-outer-wrapper-classes": "",
+            "text-field-inner-wrapper-classes": "text-center text-black relative max-w-4xl mx-auto py-2",
+            "text-field-1": "So, what are you waiting for? Enter now and win BIG this Bank Holiday before the competition ends Monday 26th May!",
+            "text-field-1-classes": "font-bebas md:text-xl",
+            "text-field-2": "Full  terms and conditions apply. UK residents only. 18+.",
+            "text-field-2-classes": "",
+            "text-field-3": "",
+            "text-field-3-classes": "",
+            "text-field-4": "",
+            "text-field-4-classes": "",
+            "html-field": "",
+            "html-field-classes": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_lines_JUb4nh",
+        "text_lines_NFfVcW",
+        "text_lines_aCXPGp",
+        "text_lines_UDerra",
+        "text_lines_zxGP7e",
+        "text_lines_mDwBDW",
+        "text_lines_KGWhey"
+      ],
+      "disabled": true,
+      "settings": {}
+    },
+    "collection_product_slider_xdKxWb": {
+      "type": "ob-collection-slider-old",
+      "settings": {
+        "collection": "doddie-weir-x-british-irish-lions",
+        "product_list": [],
+        "title": "Best of Doddie & British & Irish Lions",
+        "wrapper_class": "mt-6",
+        "text_class": "font-bebas md:text-3xl font-bold text-center col-span-2 md:col-span-3 mx-auto py-4",
+        "slider_enabled": true,
+        "autoplay": false,
+        "loop": false,
+        "slides_mobile": 2,
+        "slides_md": 3,
+        "slides_lg": 5,
+        "slide_gap": 10,
+        "slide_by": "all",
+        "drag_scroll": true,
+        "show_dots": true,
+        "dots_container_classes": "relative ob-dots w-full justify-center items-center flex gap-2 z-10 my-4",
+        "dot_classes": "ob-dot w-2 h-2 rounded-full bg-neutral-300 transition-colors duration-300 ease-in-out",
+        "show_on_all_markets": true,
+        "markets_to_show_on": "",
+        "markets_to_exclude_on": ""
+      }
+    },
+    "ob_countdown_timer_section_KNBapX": {
+      "type": "ob-countdown-timer-section",
+      "blocks": {
+        "title_JrENcP": {
+          "type": "title",
+          "disabled": true,
+          "settings": {
+            "text": "Countdown Starts Now",
+            "custom_class": "marujo text-4xl"
+          }
+        },
+        "paragraph_UqiGmJ": {
+          "type": "paragraph",
+          "disabled": true,
+          "settings": {
+            "text": "Join us as the countdown begins. Don't miss out!",
+            "custom_class": ""
+          }
+        },
+        "countdown_timer_ikrtHa": {
+          "type": "countdown_timer",
+          "settings": {
+            "date": "",
+            "time": "",
+            "number_class": "",
+            "text_class": ""
+          }
+        },
+        "button_4AFXpn": {
+          "type": "button",
+          "settings": {
+            "text": "Shop Now",
+            "link": "https://www.myoddballs.com/collections/doddie-weir-x-british-irish-lions",
+            "custom_class": "!rounded-full bg-magenta text-white font-bold uppercase hover:opacity-50"
+          }
+        }
+      },
+      "block_order": [
+        "title_JrENcP",
+        "paragraph_UqiGmJ",
+        "countdown_timer_ikrtHa",
+        "button_4AFXpn"
+      ],
+      "name": "New countdown section",
+      "settings": {
+        "bg_color": "#ffffff",
+        "text_color": "#000000",
+        "section_custom_classes": ""
+      }
+    },
+    "289ab40a-57e7-4538-a246-879f383aad57": {
+      "type": "ob-trust-pilot-widget",
+      "settings": {
+        "outer_wrapper_classes": "border-blackblend-divide mt-3 mb-2 md:mb-1",
+        "wrapper_classes": "max-w-7xl mx-auto",
+        "widget_header": "",
+        "widget_header_classes": "",
+        "widget_subheader": "",
+        "widget_subheader_classes": "",
+        "widget_code": "<!-- TrustBox widget - Micro Combo -->\n<div class=\"trustpilot-widget\" data-locale=\"en-GB\" data-template-id=\"5419b6ffb0d04a076446a9af\" data-businessunit-id=\"5c7f9459871dac0001ea0238\" data-style-height=\"40px\" data-style-width=\"100%\" data-theme=\"light\">\n  <a href=\"https://uk.trustpilot.com/review/myoddballs.com\" target=\"_blank\" rel=\"noopener\">Trustpilot</a>\n</div>\n<!-- End TrustBox widget -->",
+        "widget_wrapper_classes": "",
+        "use_microcombo": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "f7b8470c-5dfc-4a80-84f9-a574d9391aa9",
+    "ob_countdown_timer_section_aH86cK",
+    "ob_three_text_fields_gbLMpk",
+    "custom_liquid_nhRGiQ",
+    "pringles_img_text_kPHTmF",
+    "ob_three_text_fields_G7rxXq",
+    "collection_product_slider_xdKxWb",
+    "ob_countdown_timer_section_KNBapX",
+    "289ab40a-57e7-4538-a246-879f383aad57"
+  ]
+}

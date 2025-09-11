@@ -1,0 +1,322 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "ob_charities_content_h8DmaH": {
+      "type": "ob-charities-content",
+      "blocks": {
+        "46fdeaa5-1128-4ae0-bc18-f0a21618eb7d": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/Band_of_Builders_Logo.png"
+          }
+        },
+        "33b02bbe-3041-4f34-bef5-53c34710fc12": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/Bowel_Cancer_Logo.png"
+          }
+        },
+        "597c430d-444c-486c-bb93-1784a1d08789": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/Dallaglio_Logo.png"
+          }
+        },
+        "9d0b0f87-e4ea-4e23-9891-e4d0547a2c7a": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/Dogs_Trust_Logo.png"
+          }
+        },
+        "339549b3-81a9-4996-97a4-f02ce3a2a2d1": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/Jos_Cervical_Cancer_Trust_Logo.png"
+          }
+        },
+        "137c4d43-604f-4769-8da0-bf0e2f6c3ec6": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/LGBT_Foundation.png"
+          }
+        },
+        "1d49a513-3719-433a-ab33-5c36063b3bc7": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/MNDA_Logo.png"
+          }
+        },
+        "0ac534af-f304-421f-9e94-72b32238fdcf": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/My_Name5_Doddie_Logo.png"
+          }
+        },
+        "4217fc95-6279-4788-9800-ce972bc82573": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/OddBalls_Foundation_Logo.png"
+          }
+        },
+        "43d4b638-9d14-465d-b829-b366db47ff55": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/Parkinsons_UK_Logo.png"
+          }
+        },
+        "f7449bb6-9a5d-463a-8db1-68afad74a1a7": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/Prostate_Cancer_UK.png"
+          }
+        },
+        "8e706907-b962-4290-972f-385e13bd9a11": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/Restart_RPA_Logo.png"
+          }
+        },
+        "0ea763e4-5605-491f-84fc-c3700d19a743": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/RNRMC_Logo.png"
+          }
+        },
+        "819e50bb-a9de-482b-9092-a23191b67880": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/Royal_Marines_Commando_Logo.png"
+          }
+        },
+        "64863b9d-a21c-4f64-b664-45fa01b54b16": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/Samaritans_Logo.png"
+          }
+        },
+        "ef3f35f7-4f1e-4121-90be-08e7754519a9": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/Show_Racism_The_Red_Card.png"
+          }
+        },
+        "55731c36-789f-4791-857b-a9e3be587d8a": {
+          "type": "logo",
+          "disabled": true,
+          "settings": {
+            "logo": "shopify://shop_images/Show_Racism_The_Red_Card_d6501728-b4ff-4cc6-8952-e4109500833f.png"
+          }
+        },
+        "183fc986-7928-4b78-a55a-71474f94235f": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/Support_Our_Paras_Logo.png"
+          }
+        },
+        "f64bdc07-98a1-4c11-ae50-a1e8a341d7cc": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/Testicular_Awareness_Logo.png"
+          }
+        },
+        "1e43d72e-016e-465c-acce-c656b2eac318": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/The_Ambulance_Staff_Charity_Logo.png"
+          }
+        },
+        "fc765722-3886-423e-b726-859d9cb0dce2": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/The_Firefighters_Charity_Logo.png"
+          }
+        },
+        "4d3a11aa-16f4-43ea-9055-9148f40dc23c": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/Wooden_Spoon_Logo.png"
+          }
+        },
+        "e9b08969-694e-4ff1-bc71-ae51f386533b": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/Young_Lives_vs_Cancer_Logo.png"
+          }
+        },
+        "d8770b4c-a015-44c9-8b99-ef472f2a32a0": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/Brain_Tumour_Charity_1863009a-401d-4df9-97ab-012592340b78.png"
+          }
+        },
+        "20418d19-02eb-451a-ac89-9b68e878a061": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/UK_Sepsis.png"
+          }
+        },
+        "a2608839-41fc-4000-8f58-5b4b5b4d8fcd": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/Refugee_Action_Logo.png"
+          }
+        },
+        "2e01b9a1-92ca-48fe-a8d2-e5f1a344006e": {
+          "type": "image_text_block_style1",
+          "settings": {
+            "title": "The OddBalls Foundation",
+            "intro": "The OddBalls Foundation was founded in 2015, to raise awareness of Testicular Cancer. Through the Foundation we hope to make a difference to male health around the world.",
+            "content": "<p>One of the main ways we deliver our message is through our University Ambassador scheme. The Ambassadors visit schools, universities and workplaces, delivering talks on Testicular Cancer; reminding boys and men to check their balls – and removing any stigma and embarrassment about it! They also fit Check Yourself Guides into public spaces and workplaces.</p><p>Testicular Cancer is around 95% curable so early diagnosis and regular checking is important. Our aim is to fit as many ‘check yourself ‘ guides into male toilets and changing rooms across the country. This will encourage males to check themselves regularly and in doing so detect any problems early.</p>",
+            "image": "shopify://shop_images/OB-foundation_f13b004e-6c85-476a-906b-1e88cf079f7f.png",
+            "caption": "The OddBalls Foundation - more information",
+            "link": "https://www.theoddballsfoundation.com/",
+            "stats_per_row": 2,
+            "stats_per_row_mobile": 2,
+            "stats_title_1": "2000000",
+            "stats_caption_1": "Check Yourself Guides Distributed",
+            "stats_title_2": "100000",
+            "stats_caption_2": "People spoken to in assemblies and talks",
+            "stats_title_3": "",
+            "stats_caption_3": "",
+            "stats_title_4": "",
+            "stats_caption_4": "",
+            "stats_title_5": "",
+            "stats_caption_5": "",
+            "stats_title_6": "",
+            "stats_caption_6": ""
+          }
+        },
+        "b412d73d-b94c-49e8-860f-aded18adebcf": {
+          "type": "image_text_block_style1",
+          "disabled": true,
+          "settings": {
+            "title": "Jo's Cervical Cancer Trust",
+            "intro": "We are proud partners of Jo's Cervical Cancer Trust – helping them raise awareness of Cervical Cancer through our marketing, branding and the sale of our female products.",
+            "content": "<p>Their mission is to see cervical cancer prevented and reduce the impact for everyone affected by cervical cell changes (abnormal cells) and cervical cancer through providing the highest quality information and support, and campaigning for excellence in cervical cancer treatment and prevention.<br/><br/>Cervical cancer and screening is something many of us at OddBalls have been affected by or experienced first hand. This made the decision to help promote the awareness and importance of cervical cancer screening an easy choice! Keeping it below the belt for women as well as men!<br/><br/>To date we have donated <strong>£30000</strong> to Jo’s Cervical Cancer Trust, and look forward to continuing this partnership in the future.</p>",
+            "image": "shopify://shop_images/JosTrustLogo_d47949f9-d74d-4693-ba3e-9c8f92af76b0.png",
+            "caption": "Jo's Cervical Cancer Trust - more information",
+            "link": "https://www.jostrust.org.uk/",
+            "stats_per_row": 2,
+            "stats_per_row_mobile": 2,
+            "stats_title_1": "",
+            "stats_caption_1": "",
+            "stats_title_2": "",
+            "stats_caption_2": "",
+            "stats_title_3": "",
+            "stats_caption_3": "",
+            "stats_title_4": "",
+            "stats_caption_4": "",
+            "stats_title_5": "",
+            "stats_caption_5": "",
+            "stats_title_6": "",
+            "stats_caption_6": ""
+          }
+        },
+        "c2928f73-d5c1-4df7-966b-c3fcf42de600": {
+          "type": "image_text_block_style1",
+          "settings": {
+            "title": "Testicular Cancer Awareness Foundation",
+            "intro": "We are proud partners of the Testicular Cancer Awareness Foundation – helping them to raise awareness and educate the general public about the most common form of cancer in men ages 15-44.",
+            "content": "<p>They are a nonprofit compassionately dedicated in the fight against testicular cancer through awareness and outreach, promoting the importance of monthly self-exams for early detection, support and guidance to patients and families, providing a resource for the medical community, providing financial assistance to those in need and continuing to save lives.</p><p>TCAF stress the importance of early detection through the practice of monthly testicular self-exams (TSE), just as women are taught to detect early signs of breast cancer through monthly breast self-exams. We are fighting to make TSE part of education classes taught at the jr. high, high school and college levels.</p>",
+            "image": "shopify://shop_images/tcaf-long_1d4dbb31-6924-4e2c-a7d9-3df011921679.png",
+            "caption": "Testicular Cancer Awareness Foundation - more information",
+            "link": "https://www.testicularcancerawarenessfoundation.org/",
+            "stats_per_row": 2,
+            "stats_per_row_mobile": 2,
+            "stats_title_1": "",
+            "stats_caption_1": "",
+            "stats_title_2": "",
+            "stats_caption_2": "",
+            "stats_title_3": "",
+            "stats_caption_3": "",
+            "stats_title_4": "",
+            "stats_caption_4": "",
+            "stats_title_5": "",
+            "stats_caption_5": "",
+            "stats_title_6": "",
+            "stats_caption_6": ""
+          }
+        },
+        "8f3af9d8-ee6f-4a04-87f8-dab2e72691a5": {
+          "type": "image_text_block_style1",
+          "settings": {
+            "title": "My Name'5 Doddie Foundation",
+            "intro": "We are proud partners of My Name's Doddie Foundation – helping improve the lives of those affected by Motor Neuron Disease through the sale of our charity branded products.",
+            "content": "<p>They help to fund grants, giving considerable sums to the MND Association and MND Scotland to administer to individuals and families living with MND.</p><p>They work in partnership with existing frontline care providers to ensure the holistic needs of patients and their families are understood and met. They initiate and encourage research to better understand the information and support needs of MND patients and their families.</p><p>To date we have donated over <strong>£125,000</strong> to the My Name'5 Doddie Foundation since 2020 and look forward to continuing this partnership in the future.</p>",
+            "image": "shopify://shop_images/doddies_5d8467d4-ca5a-47f3-9db0-ea9d77853ee7.png",
+            "caption": "MY NAME'5 DODDIE Foundation - more information",
+            "link": "https://myname5doddie.co.uk/",
+            "stats_per_row": 2,
+            "stats_per_row_mobile": 2,
+            "stats_title_1": "",
+            "stats_caption_1": "",
+            "stats_title_2": "",
+            "stats_caption_2": "",
+            "stats_title_3": "",
+            "stats_caption_3": "",
+            "stats_title_4": "",
+            "stats_caption_4": "",
+            "stats_title_5": "",
+            "stats_caption_5": "",
+            "stats_title_6": "",
+            "stats_caption_6": ""
+          }
+        }
+      },
+      "block_order": [
+        "46fdeaa5-1128-4ae0-bc18-f0a21618eb7d",
+        "33b02bbe-3041-4f34-bef5-53c34710fc12",
+        "597c430d-444c-486c-bb93-1784a1d08789",
+        "9d0b0f87-e4ea-4e23-9891-e4d0547a2c7a",
+        "339549b3-81a9-4996-97a4-f02ce3a2a2d1",
+        "137c4d43-604f-4769-8da0-bf0e2f6c3ec6",
+        "1d49a513-3719-433a-ab33-5c36063b3bc7",
+        "0ac534af-f304-421f-9e94-72b32238fdcf",
+        "4217fc95-6279-4788-9800-ce972bc82573",
+        "43d4b638-9d14-465d-b829-b366db47ff55",
+        "f7449bb6-9a5d-463a-8db1-68afad74a1a7",
+        "8e706907-b962-4290-972f-385e13bd9a11",
+        "0ea763e4-5605-491f-84fc-c3700d19a743",
+        "819e50bb-a9de-482b-9092-a23191b67880",
+        "64863b9d-a21c-4f64-b664-45fa01b54b16",
+        "ef3f35f7-4f1e-4121-90be-08e7754519a9",
+        "55731c36-789f-4791-857b-a9e3be587d8a",
+        "183fc986-7928-4b78-a55a-71474f94235f",
+        "f64bdc07-98a1-4c11-ae50-a1e8a341d7cc",
+        "1e43d72e-016e-465c-acce-c656b2eac318",
+        "fc765722-3886-423e-b726-859d9cb0dce2",
+        "4d3a11aa-16f4-43ea-9055-9148f40dc23c",
+        "e9b08969-694e-4ff1-bc71-ae51f386533b",
+        "d8770b4c-a015-44c9-8b99-ef472f2a32a0",
+        "20418d19-02eb-451a-ac89-9b68e878a061",
+        "a2608839-41fc-4000-8f58-5b4b5b4d8fcd",
+        "2e01b9a1-92ca-48fe-a8d2-e5f1a344006e",
+        "b412d73d-b94c-49e8-860f-aded18adebcf",
+        "c2928f73-d5c1-4df7-966b-c3fcf42de600",
+        "8f3af9d8-ee6f-4a04-87f8-dab2e72691a5"
+      ],
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "main",
+    "ob_charities_content_h8DmaH"
+  ]
+}

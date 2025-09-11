@@ -1,0 +1,95 @@
+{% schema %}
+  {
+    "name": "SS-25-Blocks-2",
+    "settings": [],
+    "blocks": [
+          {
+            "type": "image_block",
+            "name": "Image Block",
+            "settings": [
+              {
+                "type": "image_picker",
+                "id": "circle_image",
+                "label": "Image"
+              },{
+                "type": "collection",
+                "id": "page",
+                "label": "Page"
+              },
+              {
+                "type": "url",
+                "id": "url",
+                "label": "Use Url instead of a collection"
+              },
+              {
+                "type": "text",
+                "id": "title",
+                "label": "button text",
+              },
+              {
+                "type": "text",
+                "id": "button-classes",
+                "label": "button classes"
+              },
+              {"type":"text",
+              "id": "colspan",
+              "label": "block Size",
+              "info": "1 for regular 2 for bigger"
+              },
+              {
+                "type": "text",
+                "id": "text-classes",
+                "label": "button text classes"
+              }
+            ]
+          }
+    ],
+    "presets":[{"name":"SS-25-Blocks-2"}]
+  }
+{% endschema %}
+<div class="grid md:grid-cols-2 gap-2">
+  {% for block in section.blocks %}
+  {% if forloop.first %}
+    <div class="ss-big-image">
+       {{ block.settings.circle_image | media_tag: image_size: '400x' }}
+          {% if block.settings.title != blank %}
+            <div class="absolute bottom-2 flex justify-center w-full">
+          <div class="{{ block.settings.button-classes }}">
+                      <div
+                        class="{{ block.settings.text-classes }}"
+                      >
+                        {{ block.settings.title }}
+                      </div>
+                    </div>
+            </div>
+          {% endif %}
+    </div>
+    {% endif %}
+  {% endfor %}
+  <div class="grid-cols-2 grid gap-2">
+  {% for block in section.blocks %}
+  {% unless forloop.first %}
+    <div class="col-span-{{ block.settings.colspan }}">
+     {{ block.settings.circle_image | media_tag: image_size: '400x' }}
+          {% if block.settings.title != blank %}
+            <div class="absolute bottom-2 flex justify-center w-full">
+          <div class="{{ block.settings.button-classes }}">
+                      <div
+                        class="{{ block.settings.text-classes }}"
+                      >
+                        {{ block.settings.title }}
+                      </div>
+                    </div>
+            </div>
+          {% endif %}
+    </div>
+    {% endunless %}
+  {% endfor %}
+  </div>
+</div>
+<style>
+  .ss-big-image img{
+    width:100%;
+    height:100%;
+  }
+</style>

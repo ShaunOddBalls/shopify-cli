@@ -1,0 +1,122 @@
+<div class="{{ section.settings.outer_wrapper_classes }}">
+  <div class="{{ section.settings.inner_wrapper_classes }}">
+    {% include 'ob-include-set-current-country' %}	
+  	{% for block in section.blocks %}
+      {% include 'ob-include-country-ok-to-proceed', thingObj:block %}
+      {% if country_ok_to_proceed == 'yes' %}  
+        <div class="{{ section.settings.card_wrapper_classes }}"  style="height:500px;">
+          <div class="relative border-b-2 border-solid h-3/5">
+           	<img src="{{ block.settings.image | img_url: '500x' }}" class="absolute inset-0 w-full h-full object-cover z-10">
+            <div class="absolute inset-0 w-full h-full object-cover z-20 {{ block.settings.backdrop_colour }} bg-opacity-40" style="backdrop-filter:blur(3px);"></div>
+          	<img src="{{ block.settings.image | img_url: '500x' }}" class="relative z-30 h-full mx-auto">
+          </div>
+          <div class="flex flex-col items-center justify-center h-2/5 gap-y-4 justify-between py-4">
+            {% if block.settings.title != blank %}
+            <div class="{{ section.settings.card_title_classes }}">{{ block.settings.title }}</div>
+            {% endif %}
+            {% if block.settings.subtitle != blank %}
+            <div class="{{ section.settings.card_subtitle_classes }}">{{ block.settings.subtitle }}</div>
+            {% endif %}
+            <div class="flex justify-center items-center">
+              <a class="{{ section.settings.card_button_classes }}" target="_blank" href="{{ block.settings.file }}" download{% if block.settings.filename != blank %}="{{ block.settings.filename }}"{% endif %}>Download</a>    
+            </div>
+          </div>
+        </div>
+      {% endif %}
+	{% endfor %}  
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "Download cards",
+	"presets": [
+      {
+        "name": "Download cards"
+      }
+	],
+    "settings": [
+  		{
+  			"type": "text",
+  			"id": "outer_wrapper_classes",
+  			"label": "Outer wrapper classes"
+  		},
+  		{
+  			"type": "text",
+  			"id": "inner_wrapper_classes",
+  			"label": "Inner wrapper classes"
+  		},
+  		{
+  			"type": "text",
+  			"id": "card_wrapper_classes",
+  			"label": "Card wrapper classes"
+  		},
+  		{
+  			"type": "text",
+  			"id": "card_title_classes",
+  			"label": "Card title classes"
+  		},  
+  		{
+  			"type": "text",
+  			"id": "card_subtitle_classes",
+  			"label": "Card subtitle classes"
+  		},
+  		{
+  			"type": "text",
+  			"id": "card_button_classes",
+  			"label": "Card button classes"
+  		}  
+  	],
+	"blocks": [
+		{
+          "type": "download_card",
+          "name": "Download card",
+          "settings": [
+            {
+              "type": "html",
+              "id": "country_iso",
+              "label": "Only display if current iso is (* for all)",
+              "info": "Comma seperated",
+              "default":"*"
+            },             
+            {
+                "type": "text",
+                "id": "title",
+                "label": "Title"
+            },
+            {
+                "type": "text",
+                "id": "subtitle",
+                "label": "Subtitle"
+            },
+            {
+              "type": "text",
+              "id": "file",
+              "label": "The file url"
+            },
+            {
+              "type": "text",
+              "id": "filename",
+              "label": "custom filename"
+            },
+            {
+              "type": "image_picker",
+              "id": "image",
+              "label": "Preview image"
+            },
+            {
+              "type": "text",
+              "id": "backdrop_colour",
+              "label": "Image backdrop colour",
+			  "default": "bg-white"
+            }
+  		  ]
+  		}
+  	]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

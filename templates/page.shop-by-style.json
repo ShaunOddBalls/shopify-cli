@@ -1,0 +1,194 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "sections": {
+    "e4751dde-b346-4470-93dd-e307899964e0": {
+      "type": "ob-trust-pilot-widget",
+      "settings": {
+        "outer_wrapper_classes": "",
+        "wrapper_classes": "max-w-7xl mx-auto py-10 py-10 pt-5",
+        "widget_header": "Shop By Design",
+        "widget_header_classes": "text-3xl lg:text-4xl font-semibold  leading-9 md:leading-7 lg:leading-9 text-gray-800 text-center font-bebas",
+        "widget_subheader": "HOW DOES IT WORK? You can view all of our underwear prints by selecting Popular, Patterned, Plain or one of our Partnerships below! Pick a design you like and view all of the products available.",
+        "widget_subheader_classes": "text-sm leading-6 text-center text-gray-600 w-full mx-auto mt-4 max-w-4xl mx-auto pb-5 px-2",
+        "widget_code": "<!-- TrustBox widget - Micro Combo -->\n<div class=\"trustpilot-widget\" data-locale=\"en-GB\" data-template-id=\"5419b6ffb0d04a076446a9af\" data-businessunit-id=\"5c7f9459871dac0001ea0238\" data-style-height=\"40px\" data-style-width=\"100%\" data-theme=\"light\">\n  <a href=\"https://uk.trustpilot.com/review/myoddballs.com\" target=\"_blank\" rel=\"noopener\">Trustpilot</a>\n</div>\n<!-- End TrustBox widget -->",
+        "widget_wrapper_classes": "",
+        "use_microcombo": false
+      }
+    },
+    "4d424129-de48-4f1c-ade7-4ce6471eb191": {
+      "type": "ob-conditional-banner",
+      "blocks": {
+        "41a403e3-c6d5-4bdc-92cc-0d0e366b3e1c": {
+          "type": "page-banner",
+          "settings": {
+            "block_active": true,
+            "banner_background": "",
+            "wrapper_classes": "-mt-1 sm:-mt-8",
+            "title": "",
+            "text": "",
+            "text_wrapper_classes": "",
+            "customers": "both",
+            "url_handle": "shop-by-design",
+            "not_url_handle": "",
+            "country_iso": "*",
+            "banner_link": "",
+            "desktop_image": "shopify://shop_images/Desktop-BG_5cdafff0-77e0-4eb6-acf7-ace338c3cc4f.jpg",
+            "mobile_image": "shopify://shop_images/Mobile-BG_e7f3c772-683b-4e36-bdf4-3018c36474b7.jpg",
+            "desktop_image_classes": "mx-auto w-full hidden md:block",
+            "mobile_image_classes": "mx-auto w-full md:hidden",
+            "desktop_svg": "Desktop-FG_ab5bf874-9a37-4c8d-a899-ccb712a05eb2.svg",
+            "mobile_svg": "Mobile-FG_acf89f76-3728-4e1e-be1d-c83688884b6e.svg",
+            "desktop_svg_classes": "absolute inset-0 w-full h-full mx-auto hidden md:block",
+            "mobile_svg_classes": "absolute inset-0 w-full h-full mx-auto md:hidden"
+          }
+        },
+        "3e5fd76c-8a59-4449-98f2-f8b07f7c84ca": {
+          "type": "page-banner",
+          "disabled": true,
+          "settings": {
+            "block_active": true,
+            "banner_background": "",
+            "wrapper_classes": "-mt-1 sm:-mt-8",
+            "title": "",
+            "text": "",
+            "text_wrapper_classes": "",
+            "customers": "both",
+            "url_handle": "shop-by-design",
+            "not_url_handle": "",
+            "country_iso": "*",
+            "banner_link": "",
+            "desktop_image": "shopify://shop_images/Desktop-BG_15_ae63f2a0-c56a-44eb-a8c3-aa2ace011e19.jpg",
+            "mobile_image": "shopify://shop_images/Mobile-BG_15_413fb44f-4c7f-43fe-9426-1a60d784c164.jpg",
+            "desktop_image_classes": "mx-auto w-full hidden md:block",
+            "mobile_image_classes": "mx-auto w-full md:hidden",
+            "desktop_svg": "Desktop-FG_15_3c8256e1-30cf-4951-8744-9849a1d0f986.svg",
+            "mobile_svg": "Mobile-FG_13_3b46cc90-807d-4fa0-a486-d19891e3a643.svg",
+            "desktop_svg_classes": "absolute inset-0 w-full h-full mx-auto hidden md:block",
+            "mobile_svg_classes": "absolute inset-0 w-full h-full mx-auto md:hidden"
+          }
+        },
+        "f02c6de3-4bc2-4c0f-bb5e-bbc581f484d4": {
+          "type": "page-banner",
+          "disabled": true,
+          "settings": {
+            "block_active": true,
+            "banner_background": "",
+            "wrapper_classes": "-mt-1 sm:-mt-8",
+            "title": "",
+            "text": "",
+            "text_wrapper_classes": "",
+            "customers": "both",
+            "url_handle": "shop-by-design",
+            "not_url_handle": "",
+            "country_iso": "*",
+            "banner_link": "",
+            "desktop_image": "shopify://shop_images/Desktop-BG-Weekend.jpg",
+            "mobile_image": "shopify://shop_images/Mobile-BG-Weekend.jpg",
+            "desktop_image_classes": "mx-auto w-full hidden md:block",
+            "mobile_image_classes": "mx-auto w-full md:hidden",
+            "desktop_svg": "Desktop-FG-Weekend_1b350971-8411-4c2f-80f1-4b0615bfafb2.svg",
+            "mobile_svg": "Mobile-FG-Weekend_63ecb87d-c206-4b71-af52-6f0671feeadb.svg",
+            "desktop_svg_classes": "absolute inset-0 w-full h-full mx-auto hidden md:block",
+            "mobile_svg_classes": "absolute inset-0 w-full h-full mx-auto md:hidden"
+          }
+        },
+        "auto_discount_PU6tqz": {
+          "type": "Auto-discount",
+          "disabled": true,
+          "settings": {
+            "block_active": true,
+            "customers": "both",
+            "url_handle": "*",
+            "not_url_handle": "christmas-underwear-sign-up, gift-guide, oddballs-subscriptions, kids-subscription, womens-subscriptions, mens-subscriptions, gifts-for-men, gifts-for-women, gifts-for-kids, all-gifts-gift-guide,gift-cards, subscription",
+            "country_iso": "GB",
+            "svg-color": "",
+            "action-type": "banner",
+            "text_color": "#f00f83",
+            "bg_color": "#fee7f3",
+            "border_color": "",
+            "text-align": "center",
+            "discount-code": "BIRTHDAY10",
+            "discount-message": "CLICK HERE FOR AN EXTRA 10% OFF WITH CODE - 'BIRTHDAY10'",
+            "success-message": "YOUR 10% OFF CODE: BIRTHDAY10 HAS BEEN ADDED TO YOUR CART"
+          }
+        }
+      },
+      "block_order": [
+        "41a403e3-c6d5-4bdc-92cc-0d0e366b3e1c",
+        "3e5fd76c-8a59-4449-98f2-f8b07f7c84ca",
+        "f02c6de3-4bc2-4c0f-bb5e-bbc581f484d4",
+        "auto_discount_PU6tqz"
+      ],
+      "disabled": true,
+      "settings": {
+        "banner_background": "",
+        "wrapper_classes": "pb-8"
+      }
+    },
+    "01644b94-622d-4193-8750-870c918f31cb": {
+      "type": "ob-countdown-timer-new",
+      "disabled": true,
+      "settings": {
+        "title": "",
+        "country_iso": "*",
+        "customers": "both",
+        "product_types": "",
+        "url_handle": "*",
+        "not_url_handle": "",
+        "timer_active": false,
+        "timer_type": "skinny",
+        "countdown_dd": "27",
+        "countdown_mm": "May",
+        "countdown_yyyy": "2024",
+        "countdown_time": "23:59:00 GMT+00:00",
+        "wrapper_classes": "border-t-2 border-solid border-red-900 flex flex-col justify-center mx-auto py-2 mb-6",
+        "title_classes": "text-2xl text-center",
+        "sub_message_classes": "text-xl",
+        "timer_classes": "grid grid-cols-4",
+        "timer_numbers_classes": "font-bold text-2xl text-center",
+        "timer_words_classes": "text-xs sm:text-sm text-center",
+        "button_wrapper_classes": "flex justify-center mt-6",
+        "button_classes": "border border-solid px-10 py-3",
+        "wrapper_background_color": "radial-gradient(rgba(48, 166, 238, 1) 100%, rgba(255, 145, 0, 1) 100%)",
+        "title_color": "#ffffff",
+        "timer_color": "#ffffff",
+        "button_color": "",
+        "timer_message": "BANK HOLIDAY BONANZA IS NOW LIVE!",
+        "timer_sub_message": "",
+        "button_text": "",
+        "button_link": "",
+        "title_font": "Bebas Neue",
+        "sub_title_font": "Bebas Neue",
+        "timer_text_font": "Bebas Neue",
+        "timer_numbers_font": "Bebas Neue",
+        "button_font": "Bebas Neue",
+        "learn_more_active": false,
+        "lean_more_text": "View delivery options",
+        "lean_more_title": "pages/countdown-timer-more-info .rte h1",
+        "lean_more_content": "pages/countdown-timer-more-info .rte #countdown_timer_content",
+        "show_certain_days": "no",
+        "show_certain_days_days": "",
+        "show_certain_days_months": ""
+      }
+    },
+    "sbd_EzQnwq": {
+      "type": "ob-shop-by-design",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "e4751dde-b346-4470-93dd-e307899964e0",
+    "4d424129-de48-4f1c-ade7-4ce6471eb191",
+    "01644b94-622d-4193-8750-870c918f31cb",
+    "sbd_EzQnwq"
+  ]
+}

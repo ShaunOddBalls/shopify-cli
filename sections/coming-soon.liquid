@@ -1,0 +1,157 @@
+{%- comment -%}
+  sections/page-content.liquid
+  Displays either the current page or collection title and content/description,
+  with Tailwind-based width, alignment, style, and padding settings on both axes.
+{%- endcomment -%}
+
+<section class="py-8 {{ section.settings.bg_color }}">
+  <div class="{{ section.settings.max_width }} mx-auto px-4 {{ section.settings.alignment }}">
+    {%- if collection and collection.title != blank -%}
+      <h1 class="{% if section.settings.hide_title == "yes" %}hidden{% endif %}{{ section.settings.title_size }} font-bold mb-6 {{ section.settings.title_padding_y }} {{ section.settings.title_padding_x }}">
+        {{ collection.title }}
+      </h1>
+      <div class="prose {{ section.settings.body_style }} {{ section.settings.content_padding_y }} {{ section.settings.content_padding_x }}">
+        {{ collection.description }}
+      </div>
+
+    {%- elsif page and page.title != blank -%}
+      <h1 class="{% if section.settings.hide_title == "yes" %}hidden{% endif %} {{ section.settings.title_size }} font-bold mb-6 {{ section.settings.title_padding_y }} {{ section.settings.title_padding_x }}">
+        {{ page.title }}
+      </h1>
+      <div class="prose {{ section.settings.body_style }} {{ section.settings.content_padding_y }} {{ section.settings.content_padding_x }}">
+        {{ page.content }}
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Page or Col Content",
+  "settings": [
+    {
+      "type": "select",
+      "id": "alignment",
+      "label": "Text Alignment",
+      "default": "text-left",
+      "options": [
+        { "value": "text-left",   "label": "Left" },
+        { "value": "text-center", "label": "Center" },
+        { "value": "text-right",  "label": "Right" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "hide_title",
+      "label": "Hide title",
+      "default": "no",
+      "options": [
+        { "value": "yes",   "label": "Yes" },
+        { "value": "no", "label": "No" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "max_width",
+      "label": "Max Width",
+      "default": "max-w-3xl",
+      "options": [
+        { "value": "max-w-md",   "label": "Medium (≈28rem)" },
+        { "value": "max-w-3xl",  "label": "Large (≈48rem)" },
+        { "value": "max-w-4xl",  "label": "XL (≈56rem)" },
+        { "value": "max-w-full", "label": "Full width" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "bg-transparent",
+      "options": [
+        { "value": "bg-transparent", "label": "Transparent" },
+        { "value": "bg-white",       "label": "White" },
+        { "value": "bg-gray-50",     "label": "Gray 50" },
+        { "value": "bg-gray-100",    "label": "Gray 100" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "title_size",
+      "label": "Title Size",
+      "default": "text-4xl",
+      "options": [
+        { "value": "text-2xl", "label": "2xl" },
+        { "value": "text-3xl", "label": "3xl" },
+        { "value": "text-4xl", "label": "4xl" },
+        { "value": "text-5xl", "label": "5xl" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "body_style",
+      "label": "Body Text Style",
+      "default": "",
+      "options": [
+        { "value": "",             "label": "Default" },
+        { "value": "prose-lg",     "label": "Large prose" },
+        { "value": "prose-sm",     "label": "Small prose" },
+        { "value": "prose-neutral","label": "Neutral prose" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "title_padding_y",
+      "label": "Title Padding (Vertical)",
+      "default": "py-0",
+      "options": [
+        { "value": "py-0", "label": "None (py-0)" },
+        { "value": "py-2", "label": "Small (py-2)" },
+        { "value": "py-4", "label": "Medium (py-4)" },
+        { "value": "py-6", "label": "Large (py-6)" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "title_padding_x",
+      "label": "Title Padding (Horizontal)",
+      "default": "px-0",
+      "options": [
+        { "value": "px-0", "label": "None (px-0)" },
+        { "value": "px-2", "label": "Small (px-2)" },
+        { "value": "px-4", "label": "Medium (px-4)" },
+        { "value": "px-6", "label": "Large (px-6)" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "content_padding_y",
+      "label": "Content Padding (Vertical)",
+      "default": "py-0",
+      "options": [
+        { "value": "py-0", "label": "None (py-0)" },
+        { "value": "py-2", "label": "Small (py-2)" },
+        { "value": "py-4", "label": "Medium (py-4)" },
+        { "value": "py-6", "label": "Large (py-6)" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "content_padding_x",
+      "label": "Content Padding (Horizontal)",
+      "default": "px-0",
+      "options": [
+        { "value": "px-0", "label": "None (px-0)" },
+        { "value": "px-2", "label": "Small (px-2)" },
+        { "value": "px-4", "label": "Medium (px-4)" },
+        { "value": "px-6", "label": "Large (px-6)" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Page or Collection Content",
+      "category": "Pages & Collections"
+    }
+  ]
+}
+{% endschema %}

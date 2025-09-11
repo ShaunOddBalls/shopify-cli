@@ -1,0 +1,92 @@
+{% schema %}
+  {
+    "name": "coppafeel-reviews",
+    "settings": [
+      {
+        "type":"collection",
+        "id": "collection",
+        "label": "Collection"
+      },
+      {
+        "type":"text",
+        "id": "wrapperclasses",
+        "label": "Wrapper Classes"
+      },
+      {
+        "type": "text",
+        "id": "quote",
+        "label":"quote"
+      },
+      {
+        "type": "text",
+        "id": "name",
+        "label":"Name"
+      },
+      {
+        "type": "text",
+        "id": "buttontext",
+        "label":"Button Text"
+      },
+      {
+        "type": "text",
+        "id": "buttonclasses",
+        "label":"Button Classes",
+        "default":"border border-solid border-white rounded-md py-1 px-2 text-white"
+      },
+      {
+        "type":"color",
+        "id":"backgroundcolor",
+        "label":"Background Colour"
+      },
+      {
+        "type":"color",
+        "id":"textcolor",
+        "label":"Text Colour"
+      },
+      {
+          "type": "image_picker",
+          "id": "desktopImage",
+          "label": "Desktop Image"
+        },
+      {
+          "type": "image_picker",
+          "id": "mobileImage",
+          "label": "Mobile Image"
+        }
+    ],
+    "presets":[{"name":"coppafeel-reviews"}]
+  }
+{% endschema %}
+<a href="/collections/{{ section.settings.collection }}">
+  
+<div class="grid md:grid-cols-2 {{ section.settings.wrapperclasses }}">
+  <div style="background:{{ section.settings.backgroundcolor }}; color:{{ section.settings.textcolor }}" class="flex flex-col items-center justify-center w-full h-full max-md:py-4 md:px-6 max-md:px-4 max-md:gap-2 gap-4">
+    <div class="flex justify-center">
+            <img style="width:60%;" src="https://cdn.shopify.com/s/files/1/0353/7249/files/5_stars_1.svg?v=1752748549" />
+
+    </div>
+    <div class="text-xl md:text-4xl text-center">
+      {{ section.settings.quote }}
+    </div>
+    <div class="italic md:text-xl text-center">
+      {{ section.settings.name }}
+    </div>
+    <div class="{{ section.settings.buttonclasses }} max-md:text-xs">
+      {{ section.settings.buttontext }}
+    </div>
+  </div>
+  <div class="reviews-image max-md:hidden">
+    {{ section.settings.desktopImage | media_tag: image_size: '800x' }}
+  </div>
+  <div class="reviews-image md:hidden">
+    {{ section.settings.mobileImage | media_tag: image_size: '400x' }}
+  </div>
+  
+</div>
+</a>
+
+<style>
+  .reviews-image img{
+    width:100%;
+  }
+</style>

@@ -1,0 +1,35 @@
+<div id="discounts-popular-products" class="py-6 border-b-2 border-solid">
+  <h4 class="block pb-3 px-5 text-xl uppercase marujo">Popular Products</h4>
+  <ul class="grid">
+  {% assign collection_handle = "him-individuals" %}
+  {% assign count = 0 %}
+  {% for product in collections[collection_handle].products limit:10 %}
+    {%- comment %}<locksmith:db5d>{% endcomment -%}
+      {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product, subject_parent: collections[collection_handle], variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+    {%- comment %}</locksmith:db5d>{% endcomment -%}
+    {% if product.available %}
+      {% assign count = count | plus: 1 %}
+      <li class="grid grid-cols-3 xs:grid-cols-4 lg:grid-cols-3 z-100 cursor-pointer relative py-2 px-5 {% if count > 1 %} border-solid border-t {% endif %} mb-0" >
+        <a class="absolute inset-0" href="{{ product.url }}"></a>
+        <div class="col-span-1 flex justify-center">
+          <img class="lg:h-auto lg:w-auto md:h-28 md:w-28 h-16 w-16 xs:h-20 xs:w-20" src="{{ product.featured_image | img_url: "200x200"}}">
+        </div>
+        <div class="col-span-2 flex pl-2">
+          {% capture title-logic-capture %}{% render 'ob-include-product-title-logic', product:product%}{% endcapture %}
+          {{ title-logic-capture | replace: "grid-price-text", "grid-price-text hidden" | replace: "flex justify-between flex-col", "flex flex-col justify-center" | replace: "uppercase text-sm clean-title", "uppercase text-sm font-semibold"}}
+        </div>
+      </li>
+    {% endif %}
+  {% endfor %}
+  </ul>
+</div>
+<style>
+  
+  .clean-title {
+    
+  	font-size: 0.9rem; 
+    line-height: 1.5rem; 
+    font-weight: 600;
+  
+  }
+</style>

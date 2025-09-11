@@ -1,0 +1,280 @@
+<style>
+      blockquote.quote {
+          position: relative; 
+          text-align: center;
+          padding: 1rem 1.2rem;
+
+          color: #484748;
+          margin: 1rem auto 2rem;
+      }
+      blockquote {
+          background:
+          linear-gradient(to right, #f00f83 4px, transparent 4px) 0 100%,
+          linear-gradient(to left, #f00f83 4px, transparent 4px) 100% 0,
+          linear-gradient(to bottom, #f00f83 4px, transparent 4px) 100% 0,
+          linear-gradient(to top, #f00f83 4px, transparent 4px) 0 100%;
+          background-repeat: no-repeat;
+          background-size: 20px 20px;
+      }
+
+      /* Update the quotation mark styles */
+      blockquote.quote {
+        position: relative;
+        padding: 20px;
+      }
+
+      blockquote.quote:before,
+      blockquote.quote:after {
+        font-family: FontAwesome;
+        position: absolute;
+        color: #f00f83;
+        font-size: 34px;
+      }
+
+      blockquote.quote.EN:before {
+        content: "\f10d";
+        top: -12px;
+        margin-right: -20px;
+        right: 100%;
+      }
+
+      blockquote.quote.EN:after {
+        content: "\f10e";
+        margin-left: -20px;
+        left: 100%;
+        top: auto;
+        bottom: -12px;
+      }
+
+      .zitat1 {
+        position: relative;
+        font-family: 'Verdana', serif;
+        font-size: 2.4em;
+        line-height: 1.5em;
+      }
+      .zitat1 cite {
+        font-family: 'Verdana', sans-serif;
+        font-size: 0.6em;
+        font-weight: 700;
+        color: #f00f83;
+        float: right;
+      }
+      .zitat1 cite:before {
+        content: '\2015'' ';
+      }
+      .zitat1:after {
+        content: '\201d';
+        position: absolute;
+        top: 0.28em;
+        right: 0px;
+        font-size: 6em;
+        font-style: italic;
+        color: #bdbec0;
+        z-index: -1;
+      }
+      .sidekick {
+        position: relative;
+        padding-left: 1em;
+        border-left: 0.2em solid #039be5;
+        font-family: 'Roboto', serif;
+        font-size: 2.4em;
+        line-height: 1.5em;
+        font-weight: 100;
+      }
+      .sidekick:before, .sidekick:after {
+        font-family: Calibri;
+        color: #039be5;
+        font-size: 34px;
+      }
+      .sidekick:before {content: '\201e'}
+      .sidekick:after {content: '\201c';}
+      .sidekick cite {font-size: 50%; text-align:center; top:50%}
+      .sidekick cite:before {content: ' \2015 '}
+</style>
+    {
+
+    {{ 'template-giftcard.css' | asset_url | stylesheet_tag }}
+    <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+  integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+>
+
+    {% section 'product-metafield-hero' %}
+
+
+    
+    {% if gift_card.pass_url %}
+  <a href="{{ gift_card.pass_url }}" >
+    <img id="apple-wallet-badge"
+      src="{{ 'gift-card/add-to-apple-wallet.svg' | shopify_asset_url }}"
+      width="120"
+      height="40"
+      alt="Add To Apple Wallet">
+    </a>
+{% endif %}
+
+    <div class="gift-card__image-wrapper">
+      {%- if settings.logo != blank -%}
+        {%- assign logo_alt = settings.logo.alt | default: shop.name | escape -%}
+        {{ settings.logo | image_url: width: 300 | image_tag: class: 'gift-card__image mx-auto', alt: logo_alt }}
+      {%- else %}
+        <img
+          class="gift-card__image"
+          src="{{ 'gift-card/card.svg' | shopify_asset_url }}"
+          alt=""
+          height="{{ 570 | divided_by: 1.5 }}"
+          width="300"
+          loading="eager"
+        >
+      {%- endif %}
+    </div>
+
+     {% if gift_card.recipient %}
+            {% if gift_card.customer %}
+              {% if gift_card.customer.name != blank %}
+                {% assign sender_name = gift_card.customer.name %}
+              {% elsif gift_card.customer.email != blank %}
+                {% assign sender_name = gift_card.customer.email %}
+              {% else %}
+                {% assign sender_name = gift_card.customer.phone %}
+              {% endif %}
+            {% else %}
+              {% assign sender_name = shop.name %}
+            {% endif %}
+          
+            {% if gift_card.recipient.nickname != blank %}
+              {% assign recipient_name = gift_card.recipient.nickname %}
+            {% elsif gift_card.recipient.name != blank %}
+              {% assign recipient_name = gift_card.recipient.name %}
+            {% else %}
+              {% assign recipient_name = gift_card.recipient.email %}
+            {% endif %}
+          
+            {% capture into_message %}
+               <p class="gift-card-title text-base">{% if recipient_name != blank %}<span style="text-transform: capitalize;">{{ recipient_name }}</span>.{% else %}Guess what!{% endif %} You've been sent an e-gift card {% if sender_name != shop.name %}from {{ sender_name }}{% endif %} to spend at OddBalls worth</p>
+               <p class="gift-card-balance font-bold text-2xl py-4">{% if settings.currency_code_enabled %}
+              {{ gift_card.balance | money_with_currency }}
+            {% else %}
+              {{ gift_card.balance | money }}
+            {% endif %} GBP</p>
+                {% endcapture %}
+              {% endif %}
+
+
+    <div class="w-full max-w-7xl mx-auto text-center px-6 mt-8">
+      {{ into_message }}
+      
+      {%  if gift_card.message %}
+      <div class="my-4 p-6 text-base ">
+        <p>
+          <blockquote class="p-3 quote EN  max-w-2xl bg-magenta-50 text-black">
+            <span id="message" class="text-base italic font-bold">{{ gift_card.message }}</span>
+          </blockquote>
+        </p>
+      </div>
+      {% endif %}
+
+
+      {%- assign gift_card_expiration_date = gift_card.expires_on | date: '%B %e, %Y' -%}
+
+      <div class="gift-card__text-wrapper">
+        <p class="text-base">You can redeem your e-gift by adding your code at the <a href="{{ shop.url }}/checkout" class="text-magenta">Checkout</a></p>
+      </div>
+      <p id="gift-card-code" class="gift-card__number !text-2xl text-bold">{{ gift_card.code | format_code }}</p>
+      <div class="gift-card__qr-code  !hidden" data-identifier="{{ gift_card.qr_identifier }}"></div>
+      {%- if gift_card.pass_url -%}
+        <a href="{{ gift_card.pass_url }}" class="gift_card__apple-wallet no-print">
+          <img
+            src="{{ 'gift-card/add-to-apple-wallet.svg' | shopify_asset_url }}"
+            width="120"
+            height="40"
+            alt="{{ 'gift_cards.issued.add_to_apple_wallet' | t }}"
+            loading="lazy"
+          >
+        </a>
+      {%- endif -%}
+      <div class="gift-card__buttons no-print">
+        <span class="gift-card__copy-success form__message" role="status"></span>
+        <template>
+          {%- render 'icon-success' -%}
+          {{ 'gift_cards.issued.copy_code_success' | t }}
+        </template>
+          <button class="gift-card__copy-button block mx-auto max-w-md font-semibold uppercase rounded-full py-4 text-base w-full bg-gray-200 text-black mb-4 border-0 flex justify-center gap-2 items-center">
+          {{ 'gift_cards.issued.copy_code' | t }} 
+          {% render 'icon-copy', height: 30, width: 30 %}
+        </button>
+        <a
+          href="{{ shop.url }}"
+          class="block mx-auto max-w-md !uppercase rounded-full py-4 text-base font-bold w-full capitalize  px-4  font-semibold mb-4 rounded-full uppercase text-white semi-bold bg-magenta border-0 flex justify-center"
+          target="_blank"
+          rel="noopener"
+          aria-describedby="a11y-new-window-message"
+        >
+          {{ 'gift_cards.issued.shop_link' | t }}
+        </a>
+      </div>
+
+      {% if gift_card.expires_on %}
+        <p class="text-sm mt-4">
+          Your e-gift card is valid for 1 and will expire
+          <span> {{ gift_card.expires_on }}</span>
+        </p>
+      {% endif %}
+    </div>
+
+    <hr class="w-full mx-auto max-w-5xl my-8">
+
+    <div class="w-full max-w-5xl mx-auto px-6 mb-26">
+      <p class="font-bold text-xl py-4 text-md">HOW TO USE YOUR E-GIFT CARD</p>
+      <ol>
+        <li class="text-base">Copy your gift card code above</li>
+        <li class="text-base">Go to <a href="https://www.myoddballs.com" target="_blank">www.myoddballs.com</a></li>
+        <li class="text-base">Add items to your cart at myOddballs.com (exclusions apply)</li>
+        <li class="text-base">Proceed to checkout</li>
+        <li class="text-base">Find the gift card field</li>
+        <li class="text-base">Enter the gift card code</li>
+        <li class="text-base">Click apply</li>
+        <li class="text-base">Complete the purchase</li>
+      </ol>
+
+      <p class="text-base py-4">Thanks,</p>
+    </div>
+
+    <div hidden>
+      <span id="a11y-new-window-message">{{ 'accessibility.link_messages.new_window' | t }}</span>
+    </div>
+
+    
+   <div hidden>
+      <span id="a11y-new-window-message">{{ 'accessibility.link_messages.new_window' | t }}</span>
+    </div>
+
+
+
+  <script>
+  var string = { qrImageAlt: {{ 'gift_cards.issued.qr_image_alt' | t | json }} };
+  document.addEventListener('DOMContentLoaded', function() {
+   new QRCode( document.querySelector('.gift-card__qr-code'), {
+    text: document.querySelector('.gift-card__qr-code').dataset.identifier,
+    width: 72,
+    height: 72,
+    imageAltText: string.qrImageAlt
+    });
+  });
+  var template = document.getElementsByTagName("template")[0];
+  var clonedTemplate = template.content.cloneNode(true);
+  var isMessageDisplayed = false
+  document
+  .querySelector('.gift-card__copy-button')
+  .addEventListener('click', () => {
+    navigator.clipboard.writeText(document.getElementById('gift-card-code').innerText).then(function () {
+      if (!isMessageDisplayed) {
+        document.querySelector('.gift-card__copy-success').appendChild(clonedTemplate);
+        isMessageDisplayed = true
+      }
+    });
+  });
+</script>

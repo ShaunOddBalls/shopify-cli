@@ -1,0 +1,113 @@
+<div class="vodafone-25-banner">
+  <div class="banner-image">
+    {% if section.settings.desktop_image %}
+      <img
+        class="banner-desktop-img max-md:hidden"
+        src="{{ section.settings.desktop_image | image_url: width: 2000 }}"
+        alt="Vodafone 25 Desktop"
+      >
+    {% endif %}
+    {% if section.settings.mobile_image %}
+      <img
+        class="banner-mobile-img md:hidden"
+        src="{{ section.settings.mobile_image | image_url: width: 1000 }}"
+        alt="Vodafone 25 Mobile"
+      >
+    {% endif %}
+  </div>
+
+  <div class="svg-overlay flex justify-center">
+    {% if section.settings.desktop_svg %}
+      <div class="banner-desktop-svg w-1/2 max-md:hidden">
+        <img
+          src="{{ section.settings.desktop_svg | image_url: width: 500 }}"
+          alt="Vodafone 25 SVG Desktop"
+        >
+      </div>
+    {% endif %}
+    {% if section.settings.mobile_svg %}
+      <div class="banner-mobile-svg md:hidden">
+        <img
+          src="{{ section.settings.mobile_svg | image_url: width: 500 }}"
+          alt="Vodafone 25 SVG Mobile"
+        >
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+<style>
+.vodafone-25-banner {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.banner-image img {
+  width: 100%;
+  /* display: none; */
+}
+
+.banner-desktop-img,
+.banner-desktop-svg {
+  /* display: none; */
+}
+
+.banner-mobile-img,
+.banner-mobile-svg {
+  /* display: block; */
+  width: 100%;
+}
+
+.svg-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  justify-content: center;
+}
+
+/* @media (min-width: 768px) {
+  .banner-desktop-img,
+  .banner-desktop-svg {
+    display: block;
+  }
+
+  .banner-mobile-img,
+  .banner-mobile-svg {
+    display: none;
+  }
+} */
+</style>
+
+
+{% schema %}
+{
+  "name": "Vodafone 25 Banner",
+  "presets":[{"name":"vodafone 25 banner"}],
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "desktop_image",
+      "label": "Desktop Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "Mobile Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "desktop_svg",
+      "label": "Desktop SVG (inline)"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_svg",
+      "label": "Mobile SVG (inline)"
+    }
+  ]
+}
+{% endschema %}

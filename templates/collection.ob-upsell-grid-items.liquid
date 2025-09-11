@@ -1,0 +1,67 @@
+{%  layout none %}
+{% assign label_sep = '' %}{% include 'ob-include-set-current-country' %}{% for block in section.blocks %}{%- include 'ob-include-country-ok-to-proceed', thingObj:block -%}{% if country_ok_to_proceed == 'yes' %}{% if block.settings.product_label != blank and block.settings.label != blank and block.settings.product_tag != blank %}{% capture label %}{{label_sep}}label_tag_{{block.settings.product_tag}}||label_bg_{{block.settings.bg_color}}||label_color_{{block.settings.text_color}}||label_border_{{block.settings.border_color}}||label_shape_{{block.settings.label_shape}}||label_product_{{block.settings.product_label}}||label_grid_{{block.settings.label}}{% endcapture %}{% assign label_sep = ',' %}{% assign label_arr = label_arr | append: label %}{% endif %}{% endif %}{% endfor %}
+
+                {% assign product_count = 0 %}
+                <div>
+                <div id="ajax-ctl-collection">
+                <div class="ctl-grid-container w-full grid grid-cols-2">
+
+                {%- comment %}<locksmith:3c76>{% endcomment -%}
+                  {%- assign locksmith_63f1_forloop__size = 0 %}{%- for product in collection.products %}{% capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product, subject_parent: collection, variable: 'transparent' %}{% endcapture %}{% if var == 'true' %}{% assign locksmith_63f1_forloop__size = locksmith_63f1_forloop__size | plus: 1 %}{% endif %}{% endfor %}{% assign locksmith_63f1_forloop__index = nil -%}
+                {%- comment %}</locksmith:3c76>{% endcomment -%}
+                {%- for product in collection.products %}
+
+                {%- comment %}<locksmith:9b00>{% endcomment -%}
+                  {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product, subject_parent: collection, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% if locksmith_63f1_forloop__index == nil %}{% assign locksmith_63f1_forloop__index = 1 %}{% assign locksmith_63f1_forloop__index0 = 0 %}{% else %}{% assign locksmith_63f1_forloop__index = locksmith_63f1_forloop__index | plus: 1 %}{% assign locksmith_63f1_forloop__index0 = locksmith_63f1_forloop__index0 | plus: 1 %}{% endif %}{% if locksmith_63f1_forloop__index == 1 %}{% assign locksmith_63f1_forloop__first = true %}{% else %}{% assign locksmith_63f1_forloop__first = false %}{% endif %}{% if locksmith_63f1_forloop__index == locksmith_63f1_forloop__size %}{% assign locksmith_63f1_forloop__last = true %}{% else %}{% assign locksmith_63f1_forloop__last = false %}{% endif %}{% assign locksmith_63f1_forloop__rindex = locksmith_63f1_forloop__size | minus: locksmith_63f1_forloop__index | minus: 1 %}{% assign locksmith_63f1_forloop__rindex0 = locksmith_63f1_forloop__size | minus: locksmith_63f1_forloop__index0 | minus: 1 %}{% else %}{% continue %}{% endif -%}
+                {%- comment %}</locksmith:9b00>{% endcomment -%}
+
+                {% assign show_product = 'yes' %}
+                {% if product.tags contains 'hide_me' %}
+                    {% assign show_product = 'no' %}
+                {%  endif  %}
+                {%  if product.available %}
+                    {% assign show_product = 'yes' %}
+                {%  else  %}
+                     {% assign show_product = 'no' %}
+                     {%  if product.tags contains 'show-out-of-stock' or  product.tags contains 'show-out-of-stock-sold-out' %}
+                         {% assign show_product = 'yes' %}
+                     {% endif %}
+                {%  endif %}
+                  {% if product.tags contains 'not-for-sale' %}
+                    {% assign show_product = 'no' %}
+                {%  endif  %}
+
+                {%  if show_product == 'yes' %}
+                {% assign product_count = product_count | plus: 1 %}  
+                  {% if product.type == "Bralette" or product.type == "Ladies Boxers" or product.type == "Low Rise Briefs" or product.type == "seamless" or product.type == "Thong" or product.type == "Ladies Bamboo Boxers" or product.type == "Seamless Full Briefs" or product.type == "Towels" or product.type == "Socks" %}
+                    <div class="cart-item flex flex-col relative h-full p-1">
+			  <div class="flex flex-col gap-y-4 h-full items-between" style="max-width:98%;">
+				  <a href="{{ product.url }}" class="flex justify-center">
+                   
+					<img width="100px" height="100px" class="w-[118px] h-[118px] object-cover" src="{{ product.featured_image | image_url }}" alt="" />
+				  </a>
+				  <div class="flex flex-col items-start justify-between flex-1">
+					<div class="flex flex-col w-full gap-y-1">
+					  <a href="#">
+						<p class="typography typography--body-md text-base-primary font-semibold">{% render 'ob-include-product-title-logic' product: product %}</p>
+					  </a>
+					  <div class="grid grid-cols-1 grid-flow-dense [&>*]:col-start-1 gap-1">
+						<div class="flex gap-x-1">
+						</div>
+					  </div>
+					</div>
+				  </div>
+                  <div class="flex w-full justify-center">
+                  <div id="complete-the-look-quickbuy-{{ locksmith_63f1_forloop__index }}" class="button px-2 w-full add-ctl-to-cart text-center" data-handle="{{ product }}">{{ 'products.product.add_to_cart' | t }}</div>
+                </div>
+			  </div>
+      <input class="item-json" type="hidden" value='{{ product | json | escape }}'><div class="hidden absolute left-1/2 top-1/2 w-1/5 h-1/5 loader" style="transform: translate(-50%, -50%); z-index: 1;">
+        <svg class="loading-ele-outer" viewBox="25 25 50 50"><circle class="loading-ele-inner" cx="50" cy="50" r="20" fill="none" stroke-width="4"></circle></svg>
+      </div>
+    </div>
+                  {% endif %}
+                {% endif %}
+                {% endfor %}
+                  </div>
+                </div>
+                </div>

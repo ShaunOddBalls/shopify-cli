@@ -1,0 +1,41 @@
+<div id="quiz_progress" class="relative border-b-2 border-solid bg-black">
+<div class="w-full p-3 py-1 flex justify-center bg-white border-b border-color border-solid ">
+  <img src="//cdn.shopify.com/s/files/1/0353/7249/files/oddballs-logo-2_350x.png?v=1646047036" srcset="//cdn.shopify.com/s/files/1/0353/7249/files/oddballs-logo-2_350x.png?v=1646047036 1x, //cdn.shopify.com/s/files/1/0353/7249/files/oddballs-logo-2_350x.png?v=1646047036 2x" alt="OddBalls" itemprop="logo">
+</div>
+  <div class="flex flex-col h-16 justify-center max-w-7xl mx-auto w-full">
+    <div class="flex h-10 justify-between px-5 relative z-100 items-center gap-x-5">
+      <div class="flex-grow">
+        <p class="text-xs text-white"><span id="quiz_complete">20</span>% COMPLETE</p>
+        <div class="relative border-2 border-solid rounded-md overflow-hidden">
+          <span id="quiz_progress_dynamic" class="width-animate block z-100 h-3 bg-magenta-500 rounded-r-md absolute inset-0" style="width: 0%;"></span>
+          <span class="block z-50 w-full h-3 bg-white inset-0"></span>
+        </div>
+      </div>
+      <div class="grid grid-cols-3 border-2 border-solid border-black rounded-md overflow-hidden w-32 bg-white">
+        <button class="js-prev-slide  fill-current flex items-center justify-center transform rotate-180 text-magenta-500 h-10">
+			<svg class="h-6 w-6"xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M15 10l-9 5V5l9 5z"/></svg>
+        </button>        
+        <button class="js-next-slide fill-current flex items-center justify-center text-magenta-500 h-10">
+			<svg class="h-6 w-6"xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M15 10l-9 5V5l9 5z"/></svg>
+        </button>
+        <button class="js-close-quiz text-black fill-current flex items-center justify-center h-10">
+			<svg class="h-6 w-6" viewBox="0 0 92 92"><path d="M70.7 64.3c1.8 1.8 1.8 4.6 0 6.4-.9.9-2 1.3-3.2 1.3-1.2 0-2.3-.4-3.2-1.3L46 52.4 27.7 70.7c-.9.9-2 1.3-3.2 1.3s-2.3-.4-3.2-1.3c-1.8-1.8-1.8-4.6 0-6.4L39.6 46 21.3 27.7c-1.8-1.8-1.8-4.6 0-6.4 1.8-1.8 4.6-1.8 6.4 0L46 39.6l18.3-18.3c1.8-1.8 4.6-1.8 6.4 0 1.8 1.8 1.8 4.6 0 6.4L52.4 46l18.3 18.3z"/></svg>          
+        </button>        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<style>
+
+.width-animate {  
+    -webkit-transition: width 0.7s ease-in-out;
+    -moz-transition: width 0.7s ease-in-out;
+    -o-transition: width 0.7s ease-in-out;
+  
+}
+    
+
+
+</style>

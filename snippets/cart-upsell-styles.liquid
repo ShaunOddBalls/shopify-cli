@@ -1,0 +1,294 @@
+<style>#upsellplus-cart {
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    z-index: 2000;
+    width: 500px;
+}
+@media screen and (max-width: 480px) {
+    #upsellplus-cart {
+        right: 0;
+        bottom: 0;
+        width: 100%;
+    }
+}
+
+  .upsellplus-drawer-offer {
+    padding-top: 10px;
+    margin-bottom: 15px;
+  }
+  #upsellplus_drawer_offer .carousel-cell {
+    width: calc(100% - 10px);
+    margin-right: 10px;
+  }
+  
+  /*
+  .carousel-cell:last-child {
+    width: 100%;
+    margin-right: 0;
+  }
+  */
+  .upsellplus-message {
+    font-size: 10px;
+    margin: 0;
+  }
+  .upsellplus-container {
+    border: 1px #d9d9d9 solid;
+    border-radius: 5px;
+    color: #212b36;
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: white; /* should this be transparent by default? */
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    align-content: center;
+    flex-wrap: wrap;
+  }
+  .upsellplus-banner {
+    box-sizing: border-box;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    line-height: 18px;
+    text-align: center;
+  }
+  .upsellplus-image-container {
+    box-sizing: border-box;
+    display: inline-block;
+    width: 64px;
+    height: 64px;
+    border-radius: 5px;
+    border: 1px solid #aaa;
+    margin-right: 6px;
+    background: white;
+    align-self: center;
+  }
+  .upsellplus-image {
+    object-fit: cover;
+    object-position: center;
+    height: 62px;
+    width: 62px;
+    border-radius: 5px;
+  }
+
+  .upsellplus-title-container {
+    box-sizing: border-box;
+    display: flex;
+    flex: 2;
+    flex-direction: column;
+    margin: auto;
+    min-width: 100px;
+    padding: 5px;
+    text-align: left;
+    padding-right: 12px;
+  }
+  .upsellplus-title {
+    box-sizing: border-box;
+    color: #212b36;
+    font-size: 15px;
+    font-weight: 600;
+    margin: 0 0 2px;
+    line-height: 18px;
+    text-align: left;
+  }
+  .upsellplus-action-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 5px 0;
+  }
+  .upsellplus-price-container {
+    text-align: right;
+  }
+  .upsellplus-price-container-left {
+    text-align: left;
+  }
+  .upsellplus-price {
+    box-sizing: border-box;
+    color: #212b36;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 20px;
+    margin: 0;
+    text-align: right;
+  }
+  .upsellplus-price-left {
+    text-align: left;
+  }
+  .upsellplus-original-price {
+    text-decoration: line-through;
+    margin-right: 5px;
+    display: inline;
+  }
+  .upsellplus-compare-at-price {
+    box-sizing: border-box;
+    color: #212b36;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 20px;
+    margin: 0;
+    text-align: right;
+    display:inline;
+  }
+  .upsellplus-subtitle {
+    box-sizing: border-box;
+    color: #637381;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: left;
+    margin: 0;
+  }
+  .upsellplus-product-description {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+    cursor: pointer;
+  }
+  .upsellplus-product-description div * {
+    display: none;
+  }
+  .upsellplus-product-description div p {
+    display: inline;
+  }
+  .upsellplus-selection {
+    -webkit-appearance: menulist;
+    -moz-appearance: menulist; 
+    appearance: menulist; 
+    margin-top: 5px;
+    padding: 0 3px;
+    max-width: 130px;
+    border: 1px solid #767676;
+    border-radius: 3px;
+  }
+  .upsellplus-button {
+    align-items: center;
+    border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+    box-shadow: rgba(22,29,37,.05) 0 1px 0 0;
+    box-sizing: border-box;
+    color: #212b36;
+    cursor: pointer;
+    font-size: 13.3333px;
+    justify-content: center;
+    line-height: 1;
+    margin: 0;
+    margin-top: 10px;
+    padding: 5px 20px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition: background, border, box-shadow;
+    user-select: none;
+    border-radius: 3px;
+    border-width: 1px;
+    border-style: solid;
+    float: right;
+    min-width: 100px;     
+  }
+
+  .upsellplus-button-content {
+    font-weight: var(--p-button-font-weight, 400);
+    line-height: 16px;
+    text-transform: initial;
+    letter-spacing: initial;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 1px;
+    min-height: 1px;  
+  }
+
+  .upsellplus-button-text {
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .upsellplus-remove-item-btn {
+    display: block;
+    color: #AEB4B9;
+    cursor: pointer;
+  }
+
+  .upsellplus-remove-item-btn:hover {
+    text-decoration: underline;
+  }
+
+  .upsellplus-button-mobile {
+    display: none;
+  }
+  .Polaris-Spinner--sizeSmall svg {
+    height: 1em;
+    width: 1em;
+  }
+  .Polaris-Spinner svg {
+    animation: Polaris-Spinner--loading 500ms linear infinite;
+  }
+  @keyframes Polaris-Spinner--loading {
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  #upsellplus_drawer_offer .flickity-button {
+    background: transparent;
+  }
+  #upsellplus_drawer_offer .flickity-prev-next-button.previous {
+    left: -25px;
+  }
+  #upsellplus_drawer_offer .flickity-prev-next-button.next {
+    right: -25px;
+  }
+  #upsellplus_drawer_offer .flickity-page-dots {
+    bottom: -10px;
+  }
+@media screen and (max-width: 480px) {
+  .upsellplus-container {
+      padding: 0.9285714286em 1.4285714286em 1.4285714286em;
+  }
+  .upsellplus-button-desktop {
+      display: none;
+  }
+  .upsellplus-button-mobile {
+      display: block;
+      width: 100%;
+      float: none !important;
+      height: 45px;
+      flex-basis: 100%;
+  }
+  #upsellplus_drawer_offer .carousel-cell .upsellplus-button-mobile {
+    margin: 10px 15px 0 15px;
+  }
+  .upsellplus-button-text {
+    font-size: 1.2857142857em;
+  }
+  .upsellplus-original-price {
+    margin-right: 0;
+  }
+  .upsellplus-compare-at-price {
+    display: block;
+  }
+  .upsellplus-price-container-left .upsellplus-compare-at-price {
+    text-align: left;
+  }
+  #upsellplus_drawer_offer .flickity-prev-next-button.previous {
+    left: -25px;
+  }
+  #upsellplus_drawer_offer .flickity-prev-next-button.next {
+    right: -25px;
+  }
+}
+.text-magenta {
+    --tw-text-opacity: 1;
+    color: rgb(240 15 131 / var(--tw-text-opacity, 1));
+}
+
+@media not all and (min-width: 768px) {
+    .max-md\:flex-col {
+        flex-direction: column;
+    }
+}
+</style>

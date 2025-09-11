@@ -1,0 +1,927 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "ob_three_text_fields_ChEtxa": {
+      "type": "ob-three-text-fields",
+      "blocks": {
+        "text_lines_FeTagx": {
+          "type": "text-lines",
+          "settings": {
+            "country_iso": "*",
+            "text-field-outer-wrapper-classes": "",
+            "text-field-inner-wrapper-classes": "",
+            "text-field-1": "Gifting Ideas",
+            "text-field-1-classes": "uppercase text-center font-bold text-xl py-4",
+            "text-field-2": "",
+            "text-field-2-classes": "",
+            "text-field-3": "",
+            "text-field-3-classes": "",
+            "text-field-4": "",
+            "text-field-4-classes": "",
+            "html-field": "",
+            "html-field-classes": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_lines_FeTagx"
+      ],
+      "settings": {}
+    },
+    "ob_mosaic_hero_Mm6JdC": {
+      "type": "ob-mosaic-hero",
+      "blocks": {
+        "collection_block_jJHrAK": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "",
+            "image": "shopify://shop_images/Gifts_for_her_0c4f720f-dcce-4a3c-bb72-5f149e0eeca6.jpg",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "Gifts for her",
+            "button_link": "https://www.myoddballs.com/collections/gifts-for-her",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "collection_block_nG7V8w": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "",
+            "image": "shopify://shop_images/Gifts_for_him_7ace0398-bf95-4eb2-8676-cd4d5c9b7c7f.jpg",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "Gifts for him",
+            "button_link": "https://www.myoddballs.com/collections/gifts-for-him",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "collection_block_VnFR8Y": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "",
+            "image": "shopify://shop_images/Gifts_for_kids_1f3a2555-8187-4c95-8fe6-1a1a1a7be958.jpg",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "Gifts for kids",
+            "button_link": "https://www.myoddballs.com/collections/gifts-for-kids",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "collection_block_F4Tihi": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "",
+            "image": "shopify://shop_images/Gifts_for_couples_694d8150-2363-409a-9995-073871524093.jpg",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "Gifts for couples",
+            "button_link": "https://www.myoddballs.com/collections/gifts-for-couples",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "collection_block_fMQ4k6": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "",
+            "image": "shopify://shop_images/Gifts_for_dads_20f9a260-9efa-4258-b898-401573fbe87c.jpg",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "New Gifts",
+            "button_link": "https://www.myoddballs.com/collections/new",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "collection_block_E6NBzL": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "",
+            "image": "shopify://shop_images/Square-2_6d6ad5ab-676d-49b6-a73f-733eb7d0672b.jpg",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "Gift Cards",
+            "button_link": "https://www.myoddballs.com/pages/gift-card-selector",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_block_jJHrAK",
+        "collection_block_nG7V8w",
+        "collection_block_VnFR8Y",
+        "collection_block_F4Tihi",
+        "collection_block_fMQ4k6",
+        "collection_block_E6NBzL"
+      ],
+      "settings": {
+        "mosaic-container": "grid grid-cols-3 md:grid-cols-6 gap-1 p-2",
+        "all-block-outer-class": "relative aspect-square overflow-hidden",
+        "all-image-class": "",
+        "img-overlay": "",
+        "all-button-class": "text-center uppercase text-xxs bg-white p-2 absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 text-nowrap rounded-md xl:text-lg"
+      }
+    },
+    "ob_sidenav_with_grid_blocks_w9cEgE": {
+      "type": "ob-sidenav-with-grid-blocks",
+      "blocks": {
+        "new_grid_h78yaW": {
+          "type": "new-grid",
+          "settings": {
+            "title": "Gifts for every budget",
+            "grid_type": "image",
+            "title_classes_1": "uppercase text-center font-bold text-xl py-4",
+            "columns": 3,
+            "rows": 1,
+            "gap": 2,
+            "total_grid_items": 3,
+            "grid_item_text_classes": "text-center",
+            "url_1": "https://www.myoddballs.com/collections/gifts-under-20",
+            "background-color_1": "",
+            "image_1": "shopify://shop_images/Under_20.jpg",
+            "grid_text_1": "",
+            "grid-text-classes_1": "",
+            "text_block_header_1": "",
+            "text_block_text_1": "",
+            "text_block_colour_1": "#bde9ff",
+            "url_2": "https://www.myoddballs.com/collections/gifts-under-30",
+            "background-color_2": "",
+            "image_2": "shopify://shop_images/Under_30.jpg",
+            "grid_text_2": "",
+            "grid-text-classes_2": "",
+            "text_block_header_2": "",
+            "text_block_text_2": "",
+            "text_block_colour_2": "#bde9ff",
+            "url_3": "https://www.myoddballs.com/collections/gifts-under-50",
+            "background-color_3": "",
+            "image_3": "shopify://shop_images/Under_50.jpg",
+            "grid_text_3": "",
+            "grid-text-classes_3": "",
+            "text_block_header_3": "",
+            "text_block_text_3": "",
+            "text_block_colour_3": "#bde9ff",
+            "url_4": "",
+            "background-color_4": "",
+            "grid_text_4": "",
+            "grid-text-classes_4": "",
+            "url_5": "",
+            "background-color_5": "",
+            "grid_text_5": "",
+            "grid-text-classes_5": "",
+            "url_6": "",
+            "background-color_6": "",
+            "grid_text_6": "",
+            "grid-text-classes_6": ""
+          }
+        },
+        "new_grid_6dkTqY": {
+          "type": "new-grid",
+          "settings": {
+            "title": "Perfect presents for every occasion",
+            "grid_type": "image",
+            "title_classes_1": "uppercase text-center font-bold text-xl py-4",
+            "columns": 3,
+            "rows": 2,
+            "gap": 2,
+            "total_grid_items": 6,
+            "grid_item_text_classes": "text-center text-sm md:text-xl font-bold",
+            "url_1": "https://www.myoddballs.com/pages/buy-prepaid-subscription",
+            "background-color_1": "",
+            "image_1": "shopify://shop_images/Fathers_day.jpg",
+            "grid_text_1": "Gift Subscriptions",
+            "grid-text-classes_1": "",
+            "text_block_header_1": "Gift Subscriptions",
+            "text_block_text_1": "Father's Day Gifts",
+            "text_block_colour_1": "#bde9ff",
+            "url_2": "https://www.myoddballs.com/pages/summer-shop",
+            "background-color_2": "",
+            "image_2": "shopify://shop_images/Birthday.png",
+            "grid_text_2": "Summer Gifts",
+            "grid-text-classes_2": "",
+            "text_block_header_2": "",
+            "text_block_text_2": "Summer Gifts",
+            "text_block_colour_2": "#bde9ff",
+            "url_3": "https://www.myoddballs.com/collections/anniversary-gifts",
+            "background-color_3": "",
+            "image_3": "shopify://shop_images/Anniversary.jpg",
+            "grid_text_3": "Anniversary Gifts",
+            "grid-text-classes_3": "",
+            "text_block_header_3": "",
+            "text_block_text_3": "",
+            "text_block_colour_3": "#bde9ff",
+            "url_4": "https://www.myoddballs.com/collections/birthday-gifts",
+            "background-color_4": "",
+            "image_4": "shopify://shop_images/Birthday.jpg",
+            "grid_text_4": "Birthday Gifts",
+            "grid-text-classes_4": "",
+            "url_5": "https://www.myoddballs.com/collections/thank-you-gifts",
+            "background-color_5": "",
+            "image_5": "shopify://shop_images/Thank_you.jpg",
+            "grid_text_5": "Thank You Gifts",
+            "grid-text-classes_5": "",
+            "url_6": "https://www.myoddballs.com/collections/congratulations-gifts",
+            "background-color_6": "",
+            "image_6": "shopify://shop_images/Congratulaitons.jpg",
+            "grid_text_6": "Congratulations Gifts",
+            "grid-text-classes_6": ""
+          }
+        },
+        "new_grid_FaxJeU": {
+          "type": "new-grid",
+          "disabled": true,
+          "settings": {
+            "title": "Gifts for every interest",
+            "grid_type": "text",
+            "title_classes_1": "uppercase text-center font-bold text-xl",
+            "columns": 3,
+            "rows": 1,
+            "gap": 2,
+            "total_grid_items": 3,
+            "grid_item_text_classes": "",
+            "url_1": "",
+            "background-color_1": "",
+            "image_1": "shopify://shop_images/Artboard_1_copy_5_8dba0e4e-00bb-41d2-97b8-0f279e11cebf.png",
+            "grid_text_1": "Sports Gifts",
+            "grid-text-classes_1": "",
+            "text_block_header_1": "hello",
+            "text_block_text_1": "big hello",
+            "text_block_colour_1": "#bde9ff",
+            "url_2": "",
+            "background-color_2": "",
+            "grid_text_2": "",
+            "grid-text-classes_2": "",
+            "text_block_header_2": "",
+            "text_block_text_2": "",
+            "text_block_colour_2": "#bde9ff",
+            "url_3": "",
+            "background-color_3": "",
+            "grid_text_3": "",
+            "grid-text-classes_3": "",
+            "text_block_header_3": "",
+            "text_block_text_3": "",
+            "text_block_colour_3": "#bde9ff",
+            "url_4": "",
+            "background-color_4": "",
+            "grid_text_4": "",
+            "grid-text-classes_4": "",
+            "url_5": "",
+            "background-color_5": "",
+            "grid_text_5": "",
+            "grid-text-classes_5": "",
+            "url_6": "",
+            "background-color_6": "",
+            "grid_text_6": "",
+            "grid-text-classes_6": ""
+          }
+        }
+      },
+      "block_order": [
+        "new_grid_h78yaW",
+        "new_grid_6dkTqY",
+        "new_grid_FaxJeU"
+      ],
+      "settings": {
+        "menu": "evergreen-side-bar-menu",
+        "mobile": false,
+        "wrapper_class": "w-full",
+        "grid_class": "grid grid-cols-2 gap-6 md:hidden p-4",
+        "heading_class": "font-semibold text-black mb-2 capitalise",
+        "link_class": "text-gray-800 hover:underline"
+      }
+    },
+    "ob_collection_slider_old_DWmt6w": {
+      "type": "ob-collection-slider-old",
+      "settings": {
+        "collection": "best-sellers-homepage",
+        "product_list": [],
+        "title": "Men's Bestsellers",
+        "wrapper_class": "",
+        "text_class": "uppercase text-center font-bold text-xl pt-4",
+        "show_on_all_markets": true,
+        "markets_to_show_on": "",
+        "markets_to_exclude_on": ""
+      }
+    },
+    "ob_three_text_fields_hRbEgf": {
+      "type": "ob-three-text-fields",
+      "blocks": {
+        "text_lines_nJmGXz": {
+          "type": "text-lines",
+          "settings": {
+            "country_iso": "*",
+            "text-field-outer-wrapper-classes": "",
+            "text-field-inner-wrapper-classes": "",
+            "text-field-1": "Gifts for every interest",
+            "text-field-1-classes": "uppercase text-center font-bold text-xl py-4",
+            "text-field-2": "",
+            "text-field-2-classes": "",
+            "text-field-3": "",
+            "text-field-3-classes": "",
+            "text-field-4": "",
+            "text-field-4-classes": "",
+            "html-field": "",
+            "html-field-classes": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_lines_nJmGXz"
+      ],
+      "disabled": true,
+      "settings": {}
+    },
+    "lw_circles_text_link_jBa8Vn": {
+      "type": "lw-circles-text-link",
+      "blocks": {
+        "image_block_hdkBFr": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/Artboard_1_copy_5_8dba0e4e-00bb-41d2-97b8-0f279e11cebf.png",
+            "page": "https://www.myoddballs.com/collections/gifts-for-sports-lovers",
+            "title": "",
+            "button-classes": "mt-4 text-center shadow-xl rounded-full w-full mx-auto max-w-[175px] bg-black",
+            "text-classes": "text-white px-2 py-1 font-bold text-xs uppercase lw-black rounded-full text-nowrap"
+          }
+        },
+        "image_block_iyAp8N": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/Artboard_1_copy_6_b95591ed-2828-4c83-b88c-9390c1317660.png",
+            "page": "https://www.myoddballs.com/collections/gifts-for-foodies",
+            "title": "",
+            "button-classes": "mt-4 text-center shadow-xl rounded-full w-full mx-auto max-w-[175px] bg-black",
+            "text-classes": "text-white px-2 py-1 font-bold text-xs uppercase lw-black rounded-full text-nowrap"
+          }
+        },
+        "image_block_KNb3ia": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/Artboard_1_copy_4_799483fa-d64d-45c2-9f95-0694f4369f5b.png",
+            "page": "https://www.myoddballs.com/collections/gifts-for-music-lovers",
+            "title": "",
+            "button-classes": "mt-4 text-center shadow-xl rounded-full w-full mx-auto max-w-[175px] bg-black",
+            "text-classes": "text-white px-2 py-1 font-bold text-xs uppercase lw-black rounded-full text-nowrap"
+          }
+        },
+        "image_block_CBy3kF": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/Artboard_1_copy_3_23eae68a-8ac1-4f1d-8817-dbcd6390f945.png",
+            "page": "https://www.myoddballs.com/collections/gifts-for-tv-lovers",
+            "title": "",
+            "button-classes": "mt-4 text-center shadow-xl rounded-full w-full mx-auto max-w-[175px] bg-black",
+            "text-classes": "text-white px-2 py-1 font-bold text-xs uppercase lw-black rounded-full text-nowrap"
+          }
+        },
+        "image_block_HpLrgY": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/Artboard_1_copy_18ad28c7-ca70-4288-a6db-e807c469e16d.png",
+            "page": "https://www.myoddballs.com/collections/charity-gifts",
+            "title": "",
+            "button-classes": "mt-4 text-center shadow-xl rounded-full w-full mx-auto max-w-[175px] bg-black",
+            "text-classes": "text-white px-2 py-1 font-bold text-xs uppercase lw-black rounded-full text-nowrap"
+          }
+        },
+        "image_block_EKPUJz": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/Artboard_1_02b75c18-3a3a-4b57-94a2-34ea2a975264.png",
+            "page": "https://www.myoddballs.com/collections/gifts-for-film-lovers",
+            "title": "",
+            "button-classes": "mt-4 text-center shadow-xl rounded-full w-full mx-auto max-w-[175px] bg-black",
+            "text-classes": "text-white px-2 py-1 font-bold text-xs uppercase lw-black rounded-full text-nowrap"
+          }
+        },
+        "image_block_xMzxzH": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/Artboard_1_copy_2_ce286e71-23bd-445a-b42c-05f0f6f20ba6.png",
+            "page": "https://www.myoddballs.com/collections/nostalgic-gifts",
+            "title": "",
+            "button-classes": "mt-4 text-center shadow-xl rounded-full w-full mx-auto max-w-[175px] bg-black",
+            "text-classes": "text-white px-2 py-1 font-bold text-xs uppercase lw-black rounded-full text-nowrap"
+          }
+        }
+      },
+      "block_order": [
+        "image_block_hdkBFr",
+        "image_block_iyAp8N",
+        "image_block_KNb3ia",
+        "image_block_CBy3kF",
+        "image_block_HpLrgY",
+        "image_block_EKPUJz",
+        "image_block_xMzxzH"
+      ],
+      "disabled": true,
+      "custom_css": [
+        ".grid.grid-cols-3.my-1.gap-x-10.gap-y-6 {padding: 0 0.75rem;}"
+      ],
+      "settings": {}
+    },
+    "ob_custom_page_slider_nav_QMiGhf": {
+      "type": "ob-custom-page-slider-nav",
+      "settings": {
+        "handle": "ever-gifting",
+        "slides_per_view": "4",
+        "space_between": 0,
+        "grab_cursor": true,
+        "mousewheel": false,
+        "allow_touch_move": true,
+        "keyboard_enabled": true,
+        "autoplay_delay": 2000,
+        "disable_autoplay_on_interaction": false,
+        "loop": true,
+        "looped_slides": 50,
+        "transition_speed": 1000,
+        "desktop_slides_per_view": 7,
+        "desktop_allow_touch_move": true,
+        "desktop_autoplay": false,
+        "desktop_gap": 10,
+        "wrapper-classes": "",
+        "swiper_class_list": "mx-auto",
+        "slide_classes": "p-2 md:p-8",
+        "title": "Gifts For Every Interest",
+        "title-classes": "uppercase text-center font-bold text-xl py-4",
+        "image-classes": "",
+        "text": "hidden",
+        "background-image": ""
+      }
+    },
+    "ob_three_text_fields_Kg3NTB": {
+      "type": "ob-three-text-fields",
+      "blocks": {
+        "text_lines_CQznbd": {
+          "type": "text-lines",
+          "settings": {
+            "country_iso": "*",
+            "text-field-outer-wrapper-classes": "",
+            "text-field-inner-wrapper-classes": "uppercase text-center font-bold text-xl py-4",
+            "text-field-1": "Oddballs partnership gifts",
+            "text-field-1-classes": "",
+            "text-field-2": "",
+            "text-field-2-classes": "",
+            "text-field-3": "",
+            "text-field-3-classes": "",
+            "text-field-4": "",
+            "text-field-4-classes": "",
+            "html-field": "",
+            "html-field-classes": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_lines_CQznbd"
+      ],
+      "settings": {}
+    },
+    "ob_mosaic_hero_hyGiW8": {
+      "type": "ob-mosaic-hero",
+      "blocks": {
+        "collection_block_DmxrVx": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "",
+            "image": "shopify://shop_images/ABOUT_US_-__PARTNERSHIPS_SQUARE_9.png",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "",
+            "button_link": "https://www.myoddballs.com/collections/pringles",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "collection_block_zHdEVF": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "",
+            "image": "shopify://shop_images/Gas_Monkey.png",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "",
+            "button_link": "https://www.myoddballs.com/collections/gas-monkey",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "collection_block_Cfif6b": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "",
+            "image": "shopify://shop_images/ABOUT_US_-__PARTNERSHIPS_SQUARE_7.png",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "",
+            "button_link": "https://www.myoddballs.com/collections/emoji",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "collection_block_EUYK7Q": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "",
+            "image": "shopify://shop_images/ABOUT_US_-__PARTNERSHIPS_SQUARE_6.png",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "",
+            "button_link": "https://www.myoddballs.com/collections/rocky-horror",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "collection_block_fxQmMw": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "",
+            "image": "shopify://shop_images/ABOUT_US_-__PARTNERSHIPS_SQUARE_4.png",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "",
+            "button_link": "https://www.myoddballs.com/collections/acdc",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "collection_block_VcLDzH": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "",
+            "image": "shopify://shop_images/ABOUT_US_-__PARTNERSHIPS_SQUARE_2.png",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "",
+            "button_link": "https://www.myoddballs.com/collections/frosties",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "collection_block_mRQGaJ": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "",
+            "image": "shopify://shop_images/ABOUT_US_-__PARTNERSHIPS_SQUARE_3.png",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "",
+            "button_link": "https://www.myoddballs.com/collections/coco-pops",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "collection_block_fCCgNR": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "",
+            "image": "shopify://shop_images/British_Irish_Lions_Logo_-_new.png",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "",
+            "button_link": "https://www.myoddballs.com/collections/design-british-and-irish-lions",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "collection_block_bFDEQR": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "block md:hidden",
+            "image": "shopify://shop_images/ABOUT_US_-__PARTNERSHIPS_SQUARE_11.png",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "",
+            "button_link": "https://www.myoddballs.com/collections/grease",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "collection_block_dGGXTP": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "md:hidden",
+            "image": "shopify://shop_images/Partnerships_-_extra-03.png",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "",
+            "button_link": "https://www.myoddballs.com/collections/design-england-fa",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "collection_block_w9ki4M": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "md:hidden",
+            "image": "shopify://shop_images/ABOUT_US_-__PARTNERSHIPS_SQUARE_8.png",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "",
+            "button_link": "https://www.myoddballs.com/collections/teenage-mutant-ninja-turtles",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "collection_block_F449Yi": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "md:hidden",
+            "image": "shopify://shop_images/Partnerships_-_extra-01.png",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "",
+            "button_link": "https://www.myoddballs.com/collections/top-gun",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_block_DmxrVx",
+        "collection_block_zHdEVF",
+        "collection_block_Cfif6b",
+        "collection_block_EUYK7Q",
+        "collection_block_fxQmMw",
+        "collection_block_VcLDzH",
+        "collection_block_mRQGaJ",
+        "collection_block_fCCgNR",
+        "collection_block_bFDEQR",
+        "collection_block_dGGXTP",
+        "collection_block_w9ki4M",
+        "collection_block_F449Yi"
+      ],
+      "settings": {
+        "mosaic-container": "grid md:grid-cols-8 grid-cols-4",
+        "all-block-outer-class": "",
+        "all-image-class": "",
+        "img-overlay": "",
+        "all-button-class": ""
+      }
+    },
+    "ob_collection_slider_old_Nt4Fwg": {
+      "type": "ob-collection-slider-old",
+      "settings": {
+        "collection": "womens-best-sellers-homepage",
+        "product_list": [],
+        "title": "Women's Bestsellers",
+        "wrapper_class": "",
+        "text_class": "uppercase text-center font-bold text-xl pt-4",
+        "show_on_all_markets": true,
+        "markets_to_show_on": "",
+        "markets_to_exclude_on": ""
+      }
+    },
+    "ob_sidenav_with_grid_blocks_PLG4UX": {
+      "type": "ob-sidenav-with-grid-blocks",
+      "settings": {
+        "menu": "evergreen-side-bar-menu",
+        "mobile": true,
+        "wrapper_class": "w-full",
+        "grid_class": "grid grid-cols-2 gap-6 md:hidden p-4",
+        "heading_class": "font-semibold text-black mb-2 capitalise",
+        "link_class": "text-gray-800 hover:underline"
+      }
+    },
+    "ob_image_text_grid_dtKEGh": {
+      "type": "ob-image-text-grid",
+      "blocks": {
+        "image_and_text_ejcxRn": {
+          "type": "image-and-text",
+          "settings": {
+            "country_iso": "*",
+            "title": "",
+            "block_wrapper_classes": "col-span-12 flex justify-center  items-center text-center relative",
+            "block_title": "",
+            "title_classes": "text",
+            "description": "<h2 class=\"uppercase text-center font-bold text-xl \">🎁Gifting made easy!🎁</h2>\n<br>\n<p class=\"text-md lg:text-lg\">\nLooking for a gift that stands out? At OddBalls, we make gifting fun, easy, and full of personality. Whether you're shopping by budget, occasion, or recipient, our colourful gift ideas are guaranteed to put a smile on their face.\n\n</p> <br> \n<p class=\"text-md lg:text-lg\">\nFrom fun stocking fillers to underwear bundles, we’ve made it easy to find something that fits your price range. We have dedicated pages for gifts under <a href=\"https://www.myoddballs.com/collections/gifts-under-20\" class=\"link text-magenta-500 font-bold\"> £20</a>, <a href=\"https://www.myoddballs.com/collections/gifts-under-30\" class=\"link text-magenta-500 font-bold\">£30</a> and <a href=\"https://www.myoddballs.com/collections/gifts-under-50\" class=\"link text-magenta-500 font-bold\"> £50</a> dependent on how much you’re looking to spend, as well as individual <a href=\"https://www.myoddballs.com/collections/gifts-for-her\" class=\"link text-magenta-500 font-bold\"> gifts for her</a> and <a href=\"https://www.myoddballs.com/collections/gifts-for-him\" class=\"link text-magenta-500 font-bold\"> gifts for him</a> pages.\n\n</p> <br> \n<p class=\"text-md lg:text-lg\">\nGot a birthday, celebration, or just-because moment coming up? Mark it with something a little different. From milestone birthdays to festive seasons like Christmas or Father’s Day, our gifts are packed with fun, comfort, and colour to make any occasion special. And whoever you’re shopping for – we’ve got you covered. From patterned <a href=\"https://www.myoddballs.com/collections/him-individuals\" class=\"link text-magenta-500 font-bold\">men's boxers </a>and <a href=\"https://www.myoddballs.com/collections/his-briefs\" class=\"link text-magenta-500 font-bold\">briefs </a> in cotton and bamboo styles for him, to comfortable <a href=\"https://www.myoddballs.com/collections/bralette\" class=\"link text-magenta-500 font-bold\">bralettes </a> and summer accessories for her, plus <a href=\"https://www.myoddballs.com/collections/goolies\" class=\"link text-magenta-500 font-bold\">boy’s boxers </a> the kids will love, there’s something for everyone. Looking for a couple’s gift? Our Perfect Pair feature helps you find  <a href=\"https://www.myoddballs.com/pages/perfect-pair\" class=\"link text-magenta-500 font-bold\">matching underwear</a> sets for double the joy. \n\n</p> <br> \n<p class=\"text-md lg:text-lg\">\nWant to make it even more memorable? Check out our <a href=\"https://www.myoddballs.com/pages/shop-by-design#partnerships\" class=\"link text-magenta-500 font-bold\">exclusive licensed collections</a>, including <a href=\"https://www.myoddballs.com/collections/england-rugby\" class=\"link text-magenta-500 font-bold\">England Rugby</a>, <a href=\"https://www.myoddballs.com/collections/the-rolling-stones\" class=\"link text-magenta-500 font-bold\">The Rolling Stones</a>, <a href=\"https://www.myoddballs.com/collections/mr-men\" class=\"link text-magenta-500 font-bold\">Mr. Men</a>, and more. These limited-edition designs are perfect for sports fans, music lovers, and anyone who appreciates a nostalgic twist. Or, give a gift that keeps on giving with the OddBalls <a href=\"https://www.myoddballs.com/collections/oddballs-subscriptions\" class=\"link text-magenta-500 font-bold\">Subscription</a>. Every month, they’ll get a brand-new design of your choice of underwear delivered straight to their door (don’t forget the free socks) – available in 3, 6, or 12-month options. \n\n</p> <br> \n<p class=\"text-md lg:text-lg\">\nNot sure what to choose? Let them decide with an OddBalls <a href=\"https://www.myoddballs.com/collections/gift-cards\" class=\"link text-magenta-500 font-bold\">Gift Card</a>. Available in a range of values and delivered instantly by email, it’s the easiest way to give them something they’ll love – and it always fits.\n</p>",
+            "description_classes": "",
+            "svg": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_and_text_ejcxRn"
+      ],
+      "settings": {
+        "outer_wrapper_classes": "",
+        "inner_wrapper_classes": "max-w-7xl mx-auto py-2 px-4 sm:px-6 lg:py-16 lg:px-8",
+        "grid_wrapper_classes": "mt-6 grid grid-cols-2 gap-0.5 md:grid-cols-3 lg:mt-8",
+        "title": "",
+        "title_classes": "text-center text-base font-semibold uppercase text-gray-600 tracking-wider",
+        "section_bg_colour": "",
+        "block_bg_colour": "",
+        "block_bg_colour_hover": "",
+        "block_text_colour": "",
+        "block_text_colour_hover": "",
+        "block_image_classes": "",
+        "block_svg_classes": "",
+        "custom_css": ""
+      }
+    },
+    "tabs_and_blocks_9m4xCn": {
+      "type": "tabs-and-blocks",
+      "blocks": {
+        "content_faq_733VWe": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "What makes a good birthday gift?",
+            "title_text": "What makes a good birthday gift?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "A great birthday gift should be fun, thoughtful, and a little out of the ordinary. Whether it’s our colourful boxers, breathable socks, summer accessories, or exclusive licensed designs, OddBalls has unique gift ideas that stand out. Want to keep the surprises coming? Our monthly underwear subscription is the gift that keeps on giving.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_dNdqMc": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "What can I buy as a gift for under £10?",
+            "title_text": "What can I buy as a gift for under £10?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "Our gifts under £10 are full of colour and character. Think colourful socks, quality accessories, and fun little finds that make a big impact. Shop our socks or clearance section to find gifts that don't break the bank, or for a one-stop-shop browse our Sale by Size feature.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_pxjXm4": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "What’s the best gift for someone who has everything?",
+            "title_text": "What’s the best gift for someone who has everything?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "When they’ve already got it all, give them something they didn’t know they needed – like a subscription to OddBalls! A new pair of underwear for either him or her. From boxers, briefs, bralettes and thongs, delivered every month, straight to your door is the gift that keeps on giving.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_jtCixk": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "What are good last-minute gift ideas?",
+            "title_text": "What are good last-minute gift ideas?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "Need a gift in a hurry? Our OddBalls Gift Cards are delivered instantly by email and can be used across our full range – including underwear, socks, clothing, and accessories. Why not shop our Gift Card Selector to choose your gift card type, design, value and write a personalised message.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_FkwiWX": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "What’s a good gift for someone sporty?",
+            "title_text": "What’s a good gift for someone sporty?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "We’ve got exclusive collections with England Rugby, England FA, Welsh Rugby Union, England Cricket and more – perfect for sports lovers. Our men's briefs and bamboo underwear are a fan favourite for sports activities, paired with our sports socks also make great picks for active types. Whether you love cricket, football, rugby, or support Team GB, we have a gift for every supporter and player.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_W7VnTn": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "What should I buy for someone who loves to match?",
+            "title_text": "What should I buy for someone who loves to match?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "Try our matching underwear sets for couples, or explore our ‘Perfect Pair’ feature to build a set they’ll love. We even have kids’ versions of our favourite prints, our Dad & Lad bundles, for fun family gifting.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_KLdn6w": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "What’s a good Christmas gift idea?",
+            "title_text": "What’s a good Christmas gift idea?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "OddBalls makes Christmas easy – with festive prints, cosy pyjamas, stocking fillers, and colourful boxers that are made to stand out under the tree (and under trousers).",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_APVVVr": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "What should I get for a thank-you gift?",
+            "title_text": "What should I get for a thank-you gift?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "Say thanks with a splash of colour – from bold socks to patterned and classic boxers, we’ve got small gifts with big personality. Our accessories and bundles also make thoughtful, feel-good presents.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_apUgnt": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "How do I choose the right size?",
+            "title_text": "How do I choose the right size?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "Our handy Size Guide can help you pick the perfect fit. If you’re not sure, a gift card or subscription is a great alternative – and many of our products are stretchy and flexible for added comfort.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_LF3jqA": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "Can I send my OddBalls gift directly to someone else?",
+            "title_text": "Can I send my OddBalls gift directly to someone else?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "Yes – just pop their details in at checkout. While we don’t offer gift wrapping, our packaging is bold, fun and ready to impress.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        }
+      },
+      "block_order": [
+        "content_faq_733VWe",
+        "content_faq_dNdqMc",
+        "content_faq_pxjXm4",
+        "content_faq_jtCixk",
+        "content_faq_FkwiWX",
+        "content_faq_W7VnTn",
+        "content_faq_KLdn6w",
+        "content_faq_APVVVr",
+        "content_faq_apUgnt",
+        "content_faq_LF3jqA"
+      ],
+      "settings": {
+        "outer_wrapper_attr": "data-attribute for linking section content",
+        "outer_wrapper_classes": "2xl:mx-auto  py-4 lg:px-20 md:px-6 px-4",
+        "inner_wrapper_classes": "grid grid-cols-12 gap-6",
+        "header_wrapper_classes": "col-span-12 flex flex-col justify-center items-center text-center space-y-4",
+        "all_tabs_wrapper_classes": "",
+        "content_wrapper_classes": "col-span-12 mt-16 grid grid-cols-12",
+        "option_menu_selected": false,
+        "title": "Gifting FAQs",
+        "title_classes": "uppercase text-center font-bold text-xl",
+        "description": "Here are the answers to our most frequently asked questions about OddBalls gifts. Whether you’re shopping for a birthday, Christmas, or just-because gift, looking for something within budget, or want to know more about our subscriptions and gift cards – you’ll find everything you need right here to make gifting fun and easy.",
+        "description_classes": "text-base leading-6 text-center text-gray-600 w-full md:w-10/12"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "ob_three_text_fields_ChEtxa",
+    "ob_mosaic_hero_Mm6JdC",
+    "ob_sidenav_with_grid_blocks_w9cEgE",
+    "ob_collection_slider_old_DWmt6w",
+    "ob_three_text_fields_hRbEgf",
+    "lw_circles_text_link_jBa8Vn",
+    "ob_custom_page_slider_nav_QMiGhf",
+    "ob_three_text_fields_Kg3NTB",
+    "ob_mosaic_hero_hyGiW8",
+    "ob_collection_slider_old_Nt4Fwg",
+    "ob_sidenav_with_grid_blocks_PLG4UX",
+    "ob_image_text_grid_dtKEGh",
+    "tabs_and_blocks_9m4xCn"
+  ]
+}

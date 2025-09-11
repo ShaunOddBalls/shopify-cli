@@ -1,0 +1,19 @@
+.hero .ob-dot.active {
+  background-color: #007bff;
+}
+
+.product-slider .ob-dot.active {
+  border: solid black 2px;
+}
+
+.product-recommendation-ob-slider .ob-dot.active {
+  background-color: #000;
+  width: 25px;
+}
+
+.active {
+  transition: width 1s ease;
+}
+
+
+

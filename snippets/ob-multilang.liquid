@@ -1,0 +1,44 @@
+{% assign brandname = 'Oddballs' %}
+{% assign storeurl = 'https://' | append: shop.domain %}
+{% assign storedomain = shop.domain %}
+{% assign companyname = 'ODDBALLS HOLDINGS LIMITED' %}
+{% assign companynumber = '11781415' %}
+{% assign supportemail = 'lookafter@myoddballs.com' %}
+{% assign supportphone = '0191 296 3098' %}
+{% assign totalraised = '£950,000' %}
+{% assign raisedgoal = '£1,000,000' %}
+{% assign raisedyear = '2024' %}
+{% assign us_totalraised = '$750,000' %}
+{% assign ca_totalraised = '$1,000,000' %}
+{% assign totalraised_counter = settings.total_raised_uk %}
+{{ totalraised_counter }}
+{% assign us_totalraised_counter = '750000' %}
+{% assign ca_totalraised_counter = '1000000' %}
+{% assign totalraised_convertor = '650,000' %}
+{% assign currentyear = 'now' | date: "%Y" %}
+{% assign thecontent = multilang %}
+{% assign theproducttype = product.type %}
+{% assign address = settings.footer_about_address %}
+{% assign bareaddress = '' %}
+{% assign thecontentused = thecontent 
+	| replace: '{{brandname}}', brandname 
+	| replace: '{{storeurl}}', storeurl 
+	| replace: '{{storedomain}}', storedomain 
+	| replace: '{{companyname}}', companyname 
+	| replace: '{{companynumber}}', companynumber 
+	| replace: '{{supportemail}}', supportemail 
+	| replace: '{{supportphone}}', supportphone
+	| replace: '{{totalraised}}', totalraised
+	| replace: '{{us_totalraised}}', us_totalraised
+	| replace: '{{ca_totalraised}}', ca_totalraised 
+	| replace: '{{totalraised_counter}}', totalraised_counter
+	| replace: '{{raisedgoal}}', raisedgoal
+ 	| replace: '{{raisedyear}}', raisedyear
+	| replace: '{{us_totalraised_counter}}', us_totalraised_counter
+	| replace: '{{ca_totalraised_counter}}', ca_totalraised_counter 
+	| replace: '{{currentyear}}', currentyear 
+	| replace: '{{producttype}}', theproducttype 
+	| replace: '{{address}}', address 
+	| replace: '{{bareaddress}}', bareaddress
+%}
+<span>{{ thecontentused }}</span>

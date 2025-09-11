@@ -1,0 +1,145 @@
+<div class="{{ section.settings.wrapper_classes }}" style="background-color: {{ section.settings.bg_color }}">
+  {% if section.settings.title != blank %}
+    <div class="text-base max-w-prose mx-auto lg:max-w-none text-left mb-3 px-4">
+      <h2 class="mt-2 text-3xl leading-8 font-extrabold tracking-tight sm:text-4xl text-magenta font-bebas md:text-center marujo">
+        {{ section.settings.title }}
+      </h2>
+    </div>
+  {% endif %}
+  <div class="w-full mx-auto max-w-7xl px-4 md:px-1">
+    <div class="swiper swiper-width-slider-{{ section.id }}">
+      <div class="swiper-wrapper">
+        {% for block in section.blocks %}
+          <div class="swiper-slide">
+            <img
+              src="{{ block.settings.img | img_url: '600x' }}"
+              alt="{{ section.settings.background_heading }}"
+              class="h-full w-auto"
+            >
+          </div>
+        {% endfor %}
+      </div>
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "SLick Slider",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "section title"
+    },
+    {
+      "type": "text",
+      "id": "wrapper_classes",
+      "label": "section wrapper-classes"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "section background-color"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "slider image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "img",
+          "label": "image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Slick Slider"
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+  .swiper-width-slider-{{ section.id }} {
+    width: 100%;
+    height: 300px; /* Adjust this value as needed */
+  }
+
+  .swiper-width-slider-{{ section.id }}  .swiper-slide {
+    width: auto;
+    height: 100%;
+  }
+
+  .swiper-width-slider-{{ section.id }} .swiper-slide img {
+    height: 100%;
+    width: auto;
+    max-width: none;
+  }
+
+  .swiper-width-slider-{{ section.id }} .swiper-button-prev,
+  .swiper-width-slider-{{ section.id }}  .swiper-button-next {
+    height: 42px;
+    width: 42px;
+    background-color: #f00f83;
+    border-radius: 50%;
+    color: #fff;
+  }
+
+  .swiper-width-slider-{{ section.id }} .swiper-button-prev:after,
+  .swiper-width-slider-{{ section.id }}  .swiper-button-next:after {
+    font-size: 18px;
+  }
+
+  .swiper-width-slider-{{ section.id }}  .swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    background: #f00f83;
+    opacity: 0.5;
+  }
+
+  .swiper-width-slider-{{ section.id }}  .swiper-pagination-bullet-active {
+    opacity: 1;
+    width: 20px;
+    border-radius: 10px;
+    transition: width 0.5s;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    new Swiper('.swiper-width-slider-{{ section.id }}', {
+      slidesPerView: 'auto',
+      spaceBetween: 0,
+      loop: true,
+      centeredSlides: true,
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      breakpoints: {
+        // When window width is >= 768px (desktop)
+        768: {
+          slidesPerView: 'auto',
+        },
+      },
+      grabCursor: true,
+      touchEventsTarget: 'container',
+    });
+  });
+</script>

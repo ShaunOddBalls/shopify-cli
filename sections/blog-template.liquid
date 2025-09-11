@@ -1,0 +1,72 @@
+{% schema %}
+{
+  "name": "blog-template",
+  "settings": [
+    {
+      "type": "text",
+      "label": "Title",
+      "id": "title"
+    },
+    {
+      "type":"color",
+      "label":"title_bg color",
+      "id": "title_color"
+    },
+    {
+      "type":"color",
+      "label":"title color",
+      "id": "title_text_color"
+    }
+  ],
+  "presets": [
+    {
+      "name": "blog-template"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image_block",
+      "name": "Block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Page Url"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Block text",
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<div class="w-full py-6 md:py-12 text-xl md:text-3xl flex justify-center  px-4" style="background-color:{{ section.settings.title_color }}; color:{{ section.settings.title_text_color }}">
+ <div class="max-w-7xl text-start w-full">
+  {{ section.settings.title }}
+ </div>
+</div>
+<div class="flex justify-center px-4 py-6">
+  
+  <div class="grid md:grid-cols-3 gap-12 max-w-7xl">
+    {% for block in section.blocks %}
+      <a href="{{ block.settings.url }}">
+        <div class="w-full">
+        {{ block.settings.image | media_tag: image_size: '400x' }}
+        </div>
+      <div class="w-full text-center">
+        {{ block.settings.text }}
+      </div>
+      </a>
+    {% endfor %}
+  </div>
+
+</div>

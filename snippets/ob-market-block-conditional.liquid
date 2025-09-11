@@ -1,0 +1,45 @@
+{% assign market_code = localization.language.root_url %}
+{% if market_code == '/' %}
+  {% assign market_code = 'uk' %}
+{% else %}
+  {% assign market_code = market_code | remove: '/' %}
+{% endif %}
+
+{% assign show_block = true %}
+
+{% if block.settings.show_on_all_markets == false %}
+{% assign markets_to_show = block.settings.markets_to_show_on | split: ',' %}
+{% assign markets_to_exclude_on = block.settings.markets_to_exclude_on | split: ',' %}
+
+{% if markets_to_exclude_on != blank %}
+{% for market in markets_to_exclude_on %}
+{% assign market_strip = market | strip %}
+{% assign market_downcase = market_strip | downcase %}
+{% if market_code == market_downcase %}
+{% assign show_block = false %}
+{% break %}
+{% endif %}
+{% endfor %}
+{% endif %}
+
+{% if markets_to_show != blank and show_block  %}
+
+{% assign show_block = false %}
+{% for market in markets_to_show %}
+
+{% assign market_strip = market | strip %}
+{% assign market_downcase = market_strip | downcase %}
+{% if market_code == market_downcase %}
+{% assign show_block = true %}
+{% break %}
+{% endif %}
+{% endfor %}
+{% endif %}
+{% else %}
+{% assign show_block = true %}
+{% endif %}
+{%  if show_block == true %}
+<!-- show_block:TRUE -->
+{% else %}
+ <!-- show_block:FALSE -->
+{% endif %}

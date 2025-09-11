@@ -1,0 +1,16 @@
+<aside class="filters-nav hidden max-md:fixed max-md:inset-0 max-md:w-full flex flex-col sticky w-[334px] right-0 bg-white flex-none max-h-screen md:overflow-y-auto md:pr-8 md:py-8 max-md:z-50" style="">
+    <div id="nosto-search-active-filters-wrapper" class="bg-gray-50 border-b border-solid border-gray-300 px-2 py-1" >
+        <div>Active Filters:</div>
+        <div id="nosto-search-active-price" class="flex gap-2"></div>
+        <div id="nosto-search-active-filters" class="flex gap-2 max-w-full flex-wrap"></div>
+    </div>
+    <div id="nosto-results-filters" style="max-height: 90vh; overflow-y: auto;">
+    </div>
+    <div id="no-nosto-results-filters" class="hidden">
+      {% render 'filter-menu' %}
+    </div>
+    <div class="md:hidden grid grid-cols-2 gap-4 py-4 px-6 sticky w-full bottom-0 border-t bg-white">
+        <button class="button button--variant-outline" type="reset">Clear</button>
+        <button class="button" data-toggle="collapse" data-target=".filters-nav" aria-label="Close">Apply</button>
+    </div>
+</aside>

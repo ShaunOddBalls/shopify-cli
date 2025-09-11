@@ -1,0 +1,642 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "ob_text_video_slider_48H767": {
+      "type": "ob-text-video-slider",
+      "settings": {
+        "handle": "about-us-hero",
+        "extra-attributes": "",
+        "section_wrapper_classes": "relative",
+        "extra-logged-in": "",
+        "extra-logged-out": "",
+        "cta-setting": false,
+        "position": "start",
+        "title": "Title",
+        "title-text-classes": "text-3xl md:text-6xl capitalize dbl-cta-title pb-1 font-bebas",
+        "title-text-postion": "left",
+        "title-text-size": 18,
+        "title-color": "",
+        "desktop-title-text-size": 32,
+        "paragragh": "My Paragraph",
+        "p-classes": "",
+        "paragraph-text-postion": "left",
+        "paragragh-font-size": 12,
+        "paragraph-color": "",
+        "desktop-paragraph-text-size": 18,
+        "btn-one-text": "button one",
+        "btn-one-classes": "px-8 relative p-2 rounded-md uppercase btn-shadow-lg block border-solid border-2 border-md border-black text-black font-semibold text-center  transition-colors duration-200",
+        "btn-1-url": "",
+        "btn-one-color": "#ffffff",
+        "btn-one-bg-color": "#000000",
+        "btn-two-text": "button two",
+        "btn-two-classes": "px-8 relative p-2 rounded-md uppercase btn-shadow-lg block border-solid border-2 border-md border-black text-black font-semibold text-center  transition-colors duration-200",
+        "btn-2-url": "",
+        "btn-two-color": "#000000",
+        "btn-two-bg-color": "#ffffff",
+        "button-postion": "start"
+      }
+    },
+    "ob_text_and_swiper_EimmVw": {
+      "type": "ob-text-and-swiper",
+      "blocks": {
+        "slide_dWn764": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/ABOUT_US_-__TRUSTPILOT_REVIEW_6.png"
+          }
+        },
+        "slide_UKkxG9": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/ABOUT_US_-__TRUSTPILOT_REVIEW_5.png"
+          }
+        },
+        "slide_gXjyXd": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/ABOUT_US_-__TRUSTPILOT_REVIEW_1.png"
+          }
+        },
+        "slide_BqNjnn": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/ABOUT_US_-__TRUSTPILOT_REVIEW_2.png"
+          }
+        },
+        "slide_AcrPM6": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/ABOUT_US_-__TRUSTPILOT_REVIEW_3.png"
+          }
+        }
+      },
+      "block_order": [
+        "slide_dWn764",
+        "slide_UKkxG9",
+        "slide_gXjyXd",
+        "slide_BqNjnn",
+        "slide_AcrPM6"
+      ],
+      "settings": {
+        "title": "Join the Pants Party...",
+        "heading_classes": "pb-6 text-lg uppercase font-semibold",
+        "text": "Founded in 2014, OddBalls was created to shake up the boring underwear market with bold, vibrant designs. <br><br>\n\nSince day one, our mission has been to bring joy and comfort through colourful prints and top-quality products. OddBalls isn’t just about fun underwear—it’s about championing diversity and inclusion with something for everyone. Whether you're after boxers, briefs, knickers, or undies—call them what you like—we’ve got you covered. \n\n<br><br>Our designs are made to make a statement, with bold prints like Fat Cow, Tartan, and Filthy Animal. Not into patterns? Try our classic range for the same comfort in a subtle look. <br><br>",
+        "image": "shopify://shop_images/ABOUT_US_-__TRUSTPILOT_LOGO.png"
+      }
+    },
+    "ob_text_video_slider_XYfBJb": {
+      "type": "ob-text-video-slider",
+      "settings": {
+        "handle": "about-us-middle-banner",
+        "extra-attributes": "",
+        "section_wrapper_classes": "relative",
+        "extra-logged-in": "",
+        "extra-logged-out": "",
+        "cta-setting": false,
+        "position": "start",
+        "title": "Title",
+        "title-text-classes": "text-3xl md:text-6xl capitalize dbl-cta-title pb-1 font-bebas",
+        "title-text-postion": "left",
+        "title-text-size": 18,
+        "title-color": "",
+        "desktop-title-text-size": 32,
+        "paragragh": "My Paragraph",
+        "p-classes": "",
+        "paragraph-text-postion": "left",
+        "paragragh-font-size": 12,
+        "paragraph-color": "",
+        "desktop-paragraph-text-size": 18,
+        "btn-one-text": "button one",
+        "btn-one-classes": "px-8 relative p-2 rounded-md uppercase btn-shadow-lg block border-solid border-2 border-md border-black text-black font-semibold text-center  transition-colors duration-200",
+        "btn-1-url": "",
+        "btn-one-color": "#ffffff",
+        "btn-one-bg-color": "#000000",
+        "btn-two-text": "button two",
+        "btn-two-classes": "px-8 relative p-2 rounded-md uppercase btn-shadow-lg block border-solid border-2 border-md border-black text-black font-semibold text-center  transition-colors duration-200",
+        "btn-2-url": "",
+        "btn-two-color": "#000000",
+        "btn-two-bg-color": "#ffffff",
+        "button-postion": "start"
+      }
+    },
+    "ob_trustpilot_image_swiper_mobile_f77ffk": {
+      "type": "ob-trustpilot-image-swiper-mobile",
+      "blocks": {
+        "slide_PVRByH": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/ABOUT_US_-__TRUSTPILOT_REVIEW_6.png"
+          }
+        },
+        "slide_xB7yd3": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/ABOUT_US_-__TRUSTPILOT_REVIEW_5.png"
+          }
+        },
+        "slide_3nNTN4": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/ABOUT_US_-__TRUSTPILOT_REVIEW_1.png"
+          }
+        },
+        "slide_XHG6Gm": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/ABOUT_US_-__TRUSTPILOT_REVIEW_2.png"
+          }
+        },
+        "slide_BMWFED": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/ABOUT_US_-__TRUSTPILOT_REVIEW_3.png"
+          }
+        },
+        "slide_89WDfg": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/ABOUT_US_-__TRUSTPILOT_REVIEW_4.png"
+          }
+        }
+      },
+      "block_order": [
+        "slide_PVRByH",
+        "slide_xB7yd3",
+        "slide_3nNTN4",
+        "slide_XHG6Gm",
+        "slide_BMWFED",
+        "slide_89WDfg"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/ABOUT_US_-__TRUSTPILOT_LOGO.png"
+      }
+    },
+    "ob_story_slider_ChxqwT": {
+      "type": "ob-story-slider",
+      "blocks": {
+        "custom_block_ai7UmJ": {
+          "type": "custom_block",
+          "settings": {
+            "bg_color": "#00b0f0",
+            "circle_color": "#f5f5f5",
+            "image": "shopify://shop_images/ABOUT_US_-__TIMELINE_-_2014.png",
+            "block_text": "OddBalls started in a pub, where three friends set out to shake up the underwear market! Our first design, Hippy Jungle, was born.",
+            "date_color": "#00b0f0",
+            "button_color": "#00b0f0",
+            "button_text": "Shop Hippy Jungle",
+            "btn_link": "https://www.myoddballs.com/products/hippyjungle",
+            "year": "2014",
+            "margin-right": "10px",
+            "margin-left": "10px"
+          }
+        },
+        "custom_block_AtbdcD": {
+          "type": "custom_block",
+          "settings": {
+            "bg_color": "#f5f5f5",
+            "circle_color": "#f5f5f5",
+            "image": "shopify://shop_images/ABOUT_US_-__TIMELINE_-_2014_copy.png",
+            "block_text": "Expanding our range, we launched women’s underwear. Kicking things off with briefs, we made sure our fun designs are for everyone!",
+            "date_color": "#facac3",
+            "button_color": "#facac3",
+            "button_text": "shop Womens",
+            "btn_link": "https://www.myoddballs.com/pages/womens-underwear",
+            "year": "2015",
+            "margin-right": "10px",
+            "margin-left": "10px"
+          }
+        },
+        "custom_block_MArctr": {
+          "type": "custom_block",
+          "settings": {
+            "bg_color": "#f5f5f5",
+            "circle_color": "#f5f5f5",
+            "image": "shopify://shop_images/ABOUT_US_-__TIMELINE_-_2014_copy_2.png",
+            "block_text": "OddBalls partnered with Premiership Rugby, leading to collaborations with Welsh Rugby Union, England Rugby League, and English Rugby Union.",
+            "date_color": "#ed1c23",
+            "button_color": "#ed1c23",
+            "button_text": "shop partnerships",
+            "btn_link": "https://www.myoddballs.com/pages/shop-by-design#partnerships",
+            "year": "2016",
+            "margin-right": "9px",
+            "margin-left": "28px"
+          }
+        },
+        "custom_block_HL9YqW": {
+          "type": "custom_block",
+          "settings": {
+            "bg_color": "#f5f5f5",
+            "circle_color": "#f5f5f5",
+            "image": "shopify://shop_images/ABOUT_US_-__TIMELINE_-_2014_copy_3.png",
+            "block_text": "We launched our first line of socks so\nfans could wear OddBalls from head\nto toe.",
+            "date_color": "#f06eab",
+            "button_color": "#f06eab",
+            "button_text": "SHOP SOCKS",
+            "btn_link": "https://www.myoddballs.com/collections/socks",
+            "year": "2017",
+            "margin-right": "9px",
+            "margin-left": "9px"
+          }
+        },
+        "custom_block_VKPzwN": {
+          "type": "custom_block",
+          "settings": {
+            "bg_color": "#f5f5f5",
+            "circle_color": "#f5f5f5",
+            "image": "shopify://shop_images/ABOUT_US_-__TIMELINE_-_2014_copy_4.png",
+            "block_text": "We introduced our iconic Fat Cow\ndesign, a bold pattern that quickly\nbecame an OddBalls favourite!",
+            "date_color": "#000000",
+            "button_color": "#000000",
+            "button_text": "Fat cow",
+            "btn_link": "https://www.myoddballs.com/collections/design-fat-cow",
+            "year": "2018",
+            "margin-right": "10px",
+            "margin-left": "10px"
+          }
+        },
+        "custom_block_PniawR": {
+          "type": "custom_block",
+          "settings": {
+            "bg_color": "#f5f5f5",
+            "circle_color": "#f5f5f5",
+            "image": "shopify://shop_images/ABOUT_US_-__TIMELINE_-_2014_copy_5.png",
+            "block_text": "We added pyjamas to the OddBalls\nfamily, adding a cosy touch to your\nnighttime routine.",
+            "date_color": "#f7951e",
+            "button_color": "#f7951e",
+            "button_text": "shop pyjamas",
+            "btn_link": "https://www.myoddballs.com/collections/pyjamas",
+            "year": "2019",
+            "margin-right": "10px",
+            "margin-left": "10px"
+          }
+        },
+        "custom_block_wDDTyG": {
+          "type": "custom_block",
+          "settings": {
+            "bg_color": "#f5f5f5",
+            "circle_color": "#f5f5f5",
+            "image": "shopify://shop_images/ABOUT_US_-__TIMELINE_-_2014_copy_6.png",
+            "block_text": "Our subscription service launched,\ndelivering fresh designs straight to\nyour door each month.",
+            "date_color": "#001d4d",
+            "button_color": "#001d4d",
+            "button_text": "Subscription",
+            "btn_link": "shopify://pages/subscription-selector",
+            "year": "2020",
+            "margin-right": "17px",
+            "margin-left": "10px"
+          }
+        },
+        "custom_block_Ty8RAf": {
+          "type": "custom_block",
+          "settings": {
+            "bg_color": "#f5f5f5",
+            "circle_color": "#f5f5f5",
+            "image": "shopify://shop_images/ABOUT_US_-__TIMELINE_-_2014_copy_7.png",
+            "block_text": "OddBalls grew significantly prompting the move to a larger\nfacility and an expanded team to\nsupport the demand.",
+            "date_color": "#009e4f",
+            "button_color": "#009e4f",
+            "button_text": "Follow Us",
+            "btn_link": "https://www.instagram.com/myoddballs/?hl=en",
+            "year": "2021",
+            "margin-right": "14px",
+            "margin-left": "14px"
+          }
+        },
+        "custom_block_QMG3bX": {
+          "type": "custom_block",
+          "settings": {
+            "bg_color": "#f5f5f5",
+            "circle_color": "#f5f5f5",
+            "image": "shopify://shop_images/ABOUT_US_-__TIMELINE_-_2014_copy_8.png",
+            "block_text": "Our partnerships grew even bigger!\nWe rocked out with the launch of our\nRolling Stones collection.",
+            "date_color": "#ed1c23",
+            "button_color": "#ed1c23",
+            "button_text": "Shop Rolling Stones",
+            "btn_link": "https://www.myoddballs.com/collections/the-rolling-stones",
+            "year": "2022",
+            "margin-right": "9px",
+            "margin-left": "9px"
+          }
+        },
+        "custom_block_h4kRLM": {
+          "type": "custom_block",
+          "settings": {
+            "bg_color": "#f5f5f5",
+            "circle_color": "#f5f5f5",
+            "image": "shopify://shop_images/ABOUT_US_-__TIMELINE_-_2014_copy_9.png",
+            "block_text": "We got greener! Our new bamboo\nunderwear collection and recycled\npackaging brought a new and\neco-friendly twist to OddBalls.",
+            "date_color": "#f00f83",
+            "button_color": "#f00f83",
+            "button_text": "shop Bamboo",
+            "btn_link": "shopify://collections/bamboo-underwear",
+            "year": "2023",
+            "margin-right": "9px",
+            "margin-left": "9px"
+          }
+        },
+        "custom_block_LFDMgB": {
+          "type": "custom_block",
+          "settings": {
+            "bg_color": "#f5f5f5",
+            "circle_color": "#f5f5f5",
+            "image": "shopify://shop_images/ABOUT_US_-__TIMELINE_-_2014_copy_10.png",
+            "block_text": "Cheers to 10 years of OddBalls! With\na growing team, we’re all set to make\nthe next decade even bolder and\nbrighter.",
+            "date_color": "#000f40",
+            "button_color": "#000f40",
+            "button_text": "Shop New In",
+            "btn_link": "https://www.myoddballs.com/collections/new",
+            "year": "2024",
+            "margin-right": "14px",
+            "margin-left": "14px"
+          }
+        }
+      },
+      "block_order": [
+        "custom_block_ai7UmJ",
+        "custom_block_AtbdcD",
+        "custom_block_MArctr",
+        "custom_block_HL9YqW",
+        "custom_block_VKPzwN",
+        "custom_block_PniawR",
+        "custom_block_wDDTyG",
+        "custom_block_Ty8RAf",
+        "custom_block_QMG3bX",
+        "custom_block_h4kRLM",
+        "custom_block_LFDMgB"
+      ],
+      "settings": {
+        "heading": "THE ODDBALLS STORY",
+        "heading_classes": "pb-6 text-lg uppercase font-semibold text-center pt-6",
+        "top_text": "Here is our story from 2014, swipe through to seesome of the highlights over the years...",
+        "top_text_classes": "text-center max-w-lg mx-auto"
+      }
+    },
+    "marquee_info_slider_BiJJgh": {
+      "type": "marquee-info-slider",
+      "blocks": {
+        "collection_Uwaq93": {
+          "type": "collection",
+          "settings": {
+            "title": "The OddBalls Foundation",
+            "img": "shopify://shop_images/ABOUT_US_-__CHARITY_SQUARE_1.png",
+            "url": "https://theoddballsfoundation.com/"
+          }
+        },
+        "collection_tCiTMP": {
+          "type": "collection",
+          "settings": {
+            "title": "Dogs Trust",
+            "img": "shopify://shop_images/ABOUT_US_-__CHARITY_SQUARE_2.png",
+            "url": "shopify://collections/dogs-trust"
+          }
+        },
+        "collection_rJGJqn": {
+          "type": "collection",
+          "disabled": true,
+          "settings": {
+            "title": "Movember",
+            "img": "shopify://shop_images/ABOUT_US_-__CHARITY_SQUARE_9.png",
+            "url": "shopify://collections/movember"
+          }
+        },
+        "collection_9xeNbH": {
+          "type": "collection",
+          "settings": {
+            "title": "Bowel Cancer Uk",
+            "img": "shopify://shop_images/ABOUT_US_-__CHARITY_SQUARE_8.png",
+            "url": "shopify://collections/bowel-cancer-uk"
+          }
+        },
+        "collection_h6tyUV": {
+          "type": "collection",
+          "settings": {
+            "title": "Motor Neurones Disease",
+            "img": "shopify://shop_images/ABOUT_US_-__CHARITY_SQUARE_4.png",
+            "url": "shopify://collections/mnd-association"
+          }
+        },
+        "collection_6Wgkbd": {
+          "type": "collection",
+          "settings": {
+            "title": "Prostate Cancer Uk",
+            "img": "shopify://shop_images/ABOUT_US_-__CHARITY_SQUARE_7.png",
+            "url": "shopify://collections/prostate-cancer-uk"
+          }
+        },
+        "collection_4gDVwU": {
+          "type": "collection",
+          "settings": {
+            "title": "The Ambulance Staff",
+            "img": "shopify://shop_images/ABOUT_US_-__CHARITY_SQUARE_5.png",
+            "url": "shopify://collections/the-ambulance-staff-charity"
+          }
+        },
+        "collection_TXAwPV": {
+          "type": "collection",
+          "settings": {
+            "title": "The fire fighter Charity",
+            "img": "shopify://shop_images/ABOUT_US_-__CHARITY_SQUARE_10.png",
+            "url": "shopify://collections/design-firefighters-charity"
+          }
+        },
+        "collection_qUt7zw": {
+          "type": "collection",
+          "settings": {
+            "title": "Alzheimers research uk",
+            "img": "shopify://shop_images/ABOUT_US_-__CHARITY_SQUARE_12.png",
+            "url": "shopify://collections/alzheimers-research"
+          }
+        },
+        "collection_fxRGaU": {
+          "type": "collection",
+          "settings": {
+            "title": "My Name's Doddie",
+            "img": "shopify://shop_images/ABOUT_US_-__CHARITY_SQUARE_6.png",
+            "url": "shopify://collections/doddie-weir"
+          }
+        },
+        "collection_PDjWDw": {
+          "type": "collection",
+          "settings": {
+            "title": "Cat Protection",
+            "img": "shopify://shop_images/ABOUT_US_-__CHARITY_SQUARE_3.png",
+            "url": "shopify://collections/cats-protection"
+          }
+        }
+      },
+      "block_order": [
+        "collection_Uwaq93",
+        "collection_tCiTMP",
+        "collection_rJGJqn",
+        "collection_9xeNbH",
+        "collection_h6tyUV",
+        "collection_6Wgkbd",
+        "collection_4gDVwU",
+        "collection_TXAwPV",
+        "collection_qUt7zw",
+        "collection_fxRGaU",
+        "collection_PDjWDw"
+      ],
+      "custom_css": [
+        ".background-color {background: #00aae9;}"
+      ],
+      "settings": {
+        "mobile_background_image": "shopify://shop_images/MILLIMILLI_03_1.png",
+        "desktop_background_image": "shopify://shop_images/MILLIMILLI_03_1.png",
+        "heading": "£1 Million Donated",
+        "title_classes": "text-5xl md:text-4xl uppercase  text-left font-bold px-6 my-6 text-white max-w-lg  px-6",
+        "top_text": "We are proud to have donated over\n<strong>£1,000,000</strong> to charities since 2014!\n<br><br>\nRecognising our potential to do even\nmore, we decided to use our bright,\nfun underwear to raise awareness for\nseveral charities as well as Testicular\nCancer. We’re proud to have worked\nwith amazing charities through\npartnerships with organisations like\nThe OddBalls Foundation,\nMovember, Prostate UK, My Name’5\nDoddie Foundation, Alzheimer’s\nResearch UK and more.",
+        "top_text_classes": "text-left l text-white max-w-lg",
+        "bottom_text": "To learn more about the impactful\nwork of The OddBalls Foundation,\nclick below.",
+        "bottom_text_classes": "text-left text-white max-w-lg",
+        "button_style": "primary",
+        "button_text": "VISIT THE ODDBALLS FOUNDATION",
+        "button_link": "https://theoddballsfoundation.com/",
+        "is_rounded": false,
+        "extra_classes": "text-cyan-500 py-2 font-semibold text-white w-full text-center block rounded-full text-nowrap max-w-lg bg-white",
+        "button_id": "",
+        "custom_attributes": ""
+      }
+    },
+    "ob_text_image_grid_PjrPVg": {
+      "type": "ob-text-image-grid",
+      "blocks": {
+        "image_8kchr9": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/ABOUT_US_-__PARTNERSHIPS_SQUARE_12.png",
+            "link": "shopify://collections/gas-monkey"
+          }
+        },
+        "image_myqBxN": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/ABOUT_US_-__PARTNERSHIPS_SQUARE_5.png",
+            "link": "https://www.myoddballs.com/collections/the-rolling-stones"
+          }
+        },
+        "image_B6TkLK": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/ABOUT_US_-__PARTNERSHIPS_SQUARE_7.png",
+            "link": "shopify://collections/emoji"
+          }
+        },
+        "image_AXg7Ex": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/ABOUT_US_-__PARTNERSHIPS_SQUARE_6.png",
+            "link": "shopify://collections/rocky-horror"
+          }
+        },
+        "image_agENLr": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/ABOUT_US_-__PARTNERSHIPS_SQUARE_9.png",
+            "link": "shopify://collections/pringles"
+          }
+        },
+        "image_9HRext": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/ABOUT_US_-__PARTNERSHIPS_SQUARE_2.png",
+            "link": "shopify://collections/frosties"
+          }
+        },
+        "image_AaXLEV": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/ABOUT_US_-__PARTNERSHIPS_SQUARE_3.png",
+            "link": "shopify://collections/coco-pops"
+          }
+        },
+        "image_WUhnw4": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/ABOUT_US_-__PARTNERSHIPS_SQUARE_4.png",
+            "link": "shopify://collections/acdc"
+          }
+        },
+        "image_A4XiR6": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/ABOUT_US_-__PARTNERSHIPS_SQUARE_11.png",
+            "link": "shopify://collections/grease"
+          }
+        },
+        "image_W8jyMi": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Partnerships_-_extra-03.png",
+            "link": "https://www.myoddballs.com/collections/design-england-fa"
+          }
+        },
+        "image_bK7HcC": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/ABOUT_US_-__PARTNERSHIPS_SQUARE_8.png",
+            "link": "shopify://collections/teenage-mutant-ninja-turtles"
+          }
+        },
+        "image_gRiWV9": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Partnerships_-_extra-01.png",
+            "link": "https://www.myoddballs.com/collections/top-gun"
+          }
+        }
+      },
+      "block_order": [
+        "image_8kchr9",
+        "image_myqBxN",
+        "image_B6TkLK",
+        "image_AXg7Ex",
+        "image_agENLr",
+        "image_9HRext",
+        "image_AaXLEV",
+        "image_WUhnw4",
+        "image_A4XiR6",
+        "image_W8jyMi",
+        "image_bK7HcC",
+        "image_gRiWV9"
+      ],
+      "custom_css": [
+        "p {text-align: center;}"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/ABOUT_US_-__MOBILE_-_PARTNERSHIPS_HEADER_BACKGROUND.png",
+        "title": "Underwear  partnerships",
+        "heading_classes": "text-xl text-center py-6 py-6 px-12 md:px-0",
+        "text": "Our partnerships celebrate your most-loved brands and icons, creating unique designs that let fans showcase their favourites.<br><br> They allow us to bring your favourite teams, characters, and organisations to life in a fun, wearable way From collaborations with <a class=\"font-semibold\" href=\"https://www.myoddballs.com/collections/design-england-rugby\">England Rugby</a>, <a class=\"font-semibold\" href=\"https://www.myoddballs.com/collections/design-england-rugby\">Welsh Rugby Union</a>, and <a class=\"font-semibold\" href=\"https://www.myoddballs.com/collections/team-gb\">Team GB</a> to iconic names like <a class=\"font-semibold\" href=\"https://www.myoddballs.com/collections/acdc\">ACDC</a>, <a class=\"font-semibold\" href=\"https://www.myoddballs.com/collections/emoji\">Emoji</a>, and <a class=\"font-semibold\" href=\"https://www.myoddballs.com/collections/teenage-mutant-ninja-turtles\">Teenage Mutant Ninja Turtles</a>, OddBalls has something for everyone.",
+        "button_text": "view all partnerships",
+        "btn_url": "https://www.myoddballs.com/pages/shop-by-design#partnerships"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "ob_text_video_slider_48H767",
+    "ob_text_and_swiper_EimmVw",
+    "ob_text_video_slider_XYfBJb",
+    "ob_trustpilot_image_swiper_mobile_f77ffk",
+    "ob_story_slider_ChxqwT",
+    "marquee_info_slider_BiJJgh",
+    "ob_text_image_grid_PjrPVg"
+  ]
+}

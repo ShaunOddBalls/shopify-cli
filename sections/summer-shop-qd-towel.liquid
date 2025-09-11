@@ -1,0 +1,67 @@
+{% schema %}
+  {
+    "name": "Summer Shop QD towels",
+    "settings": [
+      {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "mobile_image",
+          "label": "Mobile Image"
+        },
+        {
+          "type": "collection",
+          "id": "page",
+          "label": "Collection"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Use Url instead of a collection",
+          "info": "Collection input must be Blank"
+        },
+        {
+          "type": "text",
+          "id": "title_text",
+          "label": "button text",
+        },
+        {
+          "type": "text",
+          "id": "mid_text",
+          "label": "bottom text"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "button text"
+        },
+    ],
+     "presets": [
+    {
+      "name": "Summer Shop QD towels",
+    }
+  ]
+  }
+{% endschema %}
+<a href = "{% if section.settings.page != blank %}/collections/{{ section.settings.page }}{% endif %}{% if section.settings.url != blank and section.settings.page == blank %}{{ section.settings.url }}{% endif %}">
+<div class="relative qd-towels">
+          <div class="max-md:hidden w-full top-0">{{ section.settings.image | media_tag: image_size: '2000x' }}</div>
+          <div class="md:hidden w-full top-0">{{ section.settings.mobile_image | media_tag: image_size: '600x' }}</div>
+<div class="grid md:grid-cols-2 absolute w-full z-10 top-0 h-full">
+  <div class="flex flex-col items-center justify-center z-10 gap-2 max-md:px-24">
+    <div class="text-white text-2xl md:text-7xl font-bold text-center leading-none">{{ section.settings.title_text }}</div>
+    <div class="text-white text-lg md:text-4xl text-center leading-none">{{ section.settings.mid_text }}</div>
+    <div class="px-3 md:px-6 py-1 md:py-2 shadow-md rounded-md bg-white font-bold md:text-lg">{{ section.settings.button_text }}</div>
+  </div>
+</div>
+  
+</div>
+</a>
+<style>
+  .qd-towels img{
+    width:100%;
+  }
+</style>

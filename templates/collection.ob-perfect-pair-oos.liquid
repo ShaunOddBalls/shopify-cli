@@ -1,0 +1,26 @@
+{%- layout none -%}
+{%- paginate collection.products by 500 -%}
+{%- assign found_prints = "" -%}
+{% assign available_products = collection.products %}
+{% for product in available_products %}
+  {%- comment %}<locksmith:6a54>{% endcomment -%}
+    {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+  {%- comment %}</locksmith:6a54>{% endcomment -%}
+  {%- for tag in product.tags -%}
+        {%- unless tag contains 'feature' -%}
+          {%- if tag contains 'design-' -%}
+            {%- assign design = tag | replace: 'design-', '' -%}
+              {% for object in shop.metaobjects.design_list.values %}
+                {%  assign objects = object.design.value | where: "tag", design %}
+                {% for each in objects %}
+                  {% assign image_url = each.design_image | image_url %}
+                {% endfor %}
+              {% endfor %}
+             {% capture found_prints %}{{ found_prints }}{{ product | json }}#{{ design }}@{{ image_url }}~{% endcapture %}
+            {% assign image_url = "" %}
+          {%- endif -%}
+        {%- endunless -%}
+      {%- endfor -%}
+  {%- endfor -%}
+  {% endpaginate %}
+{{ found_prints | strip}}

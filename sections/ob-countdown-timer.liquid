@@ -1,0 +1,508 @@
+{% include 'ob-include-set-current-country' %}	
+      {% include 'ob-include-country-ok-to-proceed', thingObj:section %}
+      fdsfsd
+      {% if country_ok_to_proceed == 'yes' %}
+
+      <div class="js-countdown hidden status {{ section.settings.wrapper_classes }}" id="section_{{ section.id }}" style="background:{{ section.settings.wrapper_background_color }}">
+      {% if section.settings.timer_type == 'skinny' %}
+        <div class="md:flex-row flex flex-col gap-x-5 gap-y-2">
+          {% if section.settings.timer_message != blank %}
+          <div class="md:text-left flex flex-col justify-center text-center">
+            <div class="{{ section.settings.title_classes }}" style="font-family:{{ section.settings.title_font }}; color:{{ section.settings.title_color }}">{{ section.settings.timer_message }}</div>
+            <div class="{{ section.settings.sub_message_classes }}" style="font-family:{{ section.settings.sub_title_font }}; color:{{ section.settings.title_color }}">{{ section.settings.timer_sub_message }}</div>	  
+          </div>
+          {% endif %}
+          <div>
+            <div class="{{ section.settings.timer_classes }}" style="color:{{ section.settings.timer_color }}">
+              <div class="col-span-1 grid grid-cols-1"><span class="countdown-days col-span-1 {{ section.settings.timer_numbers_classes }}" style="color:{{ section.settings.countdown_numbers_colour }}; font-family:{{ section.settings.timer_numbers_font }};"></span> <span class="countdown-days-text col-span-1 {{ section.settings.timer_words_classes }}" style="font-family:{{ section.settings.timer_text_font }};"></span></div>
+              <div class="col-span-1 grid grid-cols-1"><span class="countdown-hours col-span-1 {{ section.settings.timer_numbers_classes }}" style="color:{{ section.settings.countdown_numbers_colour }}; font-family:{{ section.settings.timer_numbers_font }};"></span> <span class="countdown-hours-text col-span-1 {{ section.settings.timer_words_classes }}" style="font-family:{{ section.settings.timer_text_font }};"></span></div>
+              <div class="col-span-1 grid grid-cols-1"><span class="countdown-minutes col-span-1 {{ section.settings.timer_numbers_classes }}" style="color:{{ section.settings.countdown_numbers_colour }}; font-family:{{ section.settings.timer_numbers_font }};"></span> <span class="countdown-minutes-text col-span-1 {{ section.settings.timer_words_classes }}" style="font-family:{{ section.settings.timer_text_font }};"></span></div>
+              <div class="col-span-1 grid grid-cols-1"><span class="countdown-seconds col-span-1 {{ section.settings.timer_numbers_classes }}" style="color:{{ section.settings.countdown_numbers_colour }}; font-family:{{ section.settings.timer_numbers_font }};"></span> <span class="countdown-seconds-text col-span-1 {{ section.settings.timer_words_classes }}" style="font-family:{{ section.settings.timer_text_font }};"></span></div>     
+            </div>      
+          </div>
+        </div>
+      {% elsif section.settings.timer_type == 'chonky' %}
+        <div id="timer_message">
+          <div id="timer_product">
+              <div class='timer-product-inner'>
+                <div class="{{ section.settings.title_classes }}" style="font-family:{{ section.settings.title_font }}; color:{{ section.settings.title_color }}">{{ section.settings.timer_message }}</div>          
+                <div class="{{ section.settings.timer_classes }}" style="font-family:{{ section.settings.timer_font }}; color:{{ section.settings.timer_color }}">
+                  <div class="col-span-1 grid grid-cols-1"><span class="countdown-days col-span-1 {{ section.settings.timer_numbers_classes }}" style="color:{{ section.settings.countdown_numbers_colour }}"></span> <span class="countdown-days-text col-span-1 {{ section.settings.timer_words_classes }}"></span></div>
+                  <div class="col-span-1 grid grid-cols-1"><span class="countdown-hours col-span-1 {{ section.settings.timer_numbers_classes }}" style="color:{{ section.settings.countdown_numbers_colour }}"></span> <span class="countdown-hours-text col-span-1 {{ section.settings.timer_words_classes }}"></span></div>
+                  <div class="col-span-1 grid grid-cols-1"><span class="countdown-minutes col-span-1 {{ section.settings.timer_numbers_classes }}" style="color:{{ section.settings.countdown_numbers_colour }}"></span> <span class="countdown-minutes-text col-span-1 {{ section.settings.timer_words_classes }}"></span></div>
+                  <div class="col-span-1 grid grid-cols-1"><span class="countdown-seconds col-span-1 {{ section.settings.timer_numbers_classes }}" style="color:{{ section.settings.countdown_numbers_colour }}"></span> <span class="countdown-seconds-text col-span-1 {{ section.settings.timer_words_classes }}"></span></div>     
+                </div>
+                {% if section.settings.button_text != blank %}
+                <div class="{{ section.settings.button_wrapper_classes }}">
+                  <a class="{{ section.settings.button_classes }}" style="color:{{ section.settings.button_color }}; border-color:{{ section.settings.button_color }}; font-family:'{{ section.settings.button_font }}'" href="{{ section.settings.button_link}}">
+                    {{ section.settings.button_text }}
+                  </a>
+                </div>
+                {% endif %}
+              </div>
+          </div>
+        </div>
+      {%endif %} 
+      </div>
+    {% endif %}
+
+
+
+<style>
+  #timer_message {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.4em;
+    text-align: center;
+    border-radius: 5px;
+  }
+
+  .font-bebas {
+   
+    font-family: 'Bebas Neue';
+    
+  }
+  
+  .font-gold {
+    
+  	color: #fff;
+    
+  }
+  
+  .bg-magenta-500 {
+  
+  	background-color: #F00F83;
+  
+  }
+  
+ 
+  
+</style>
+
+<script>
+
+
+</script>
+
+{% schema %}
+  {
+    "name": "Countdown Timer",
+  	"presets": [
+     	{
+       		"name": "Countdown Timer"
+		}
+	],
+    "settings": [
+        {
+            "type": "header",
+            "content": "Timer"
+        },
+        {
+            "type": "html",
+            "id": "country_iso",
+            "label": "Only display if current iso is (* for all)",
+            "info": "Comma seperated",
+            "default":"*"
+        },
+		{
+			"type": "checkbox",
+			"id": "timer_active",
+			"label": "Timer Active?"
+		},
+        {
+          "type": "select",
+          "id": "timer_type",
+          "label": "Timer Type",
+          "options": [
+            {
+              "value": "skinny",
+              "label": "Skinny"
+            },
+            {
+              "value": "chonky",
+              "label": "Chonky"
+            }
+		  ],
+  		  "default": "skinny"
+		},
+        {
+          "type": "select",
+          "id": "countdown_dd",
+          "label": "Day",
+          "options": [
+            {
+              "value": "01",
+              "label": "1"
+            },
+            {
+              "value": "02",
+              "label": "2"
+            },
+            {
+              "value": "03",
+              "label": "3"
+            },
+            {
+              "value": "04",
+              "label": "4"
+            },
+            {
+              "value": "05",
+              "label": "5"
+            },
+            {
+              "value": "06",
+              "label": "6"
+            },
+            {
+              "value": "07",
+              "label": "7"
+            },
+            {
+              "value": "08",
+              "label": "8"
+            },
+            {
+              "value": "09",
+              "label": "9"
+            },
+            {
+              "value": "10",
+              "label": "10"
+            },
+            {
+              "value": "11",
+              "label": "11"
+            },
+            {
+              "value": "12",
+              "label": "12"
+            },
+            {
+              "value": "13",
+              "label": "13"
+            },
+            {
+              "value": "14",
+              "label": "14"
+            },
+            {
+              "value": "15",
+              "label": "15"
+            },
+            {
+              "value": "16",
+              "label": "16"
+            },
+            {
+              "value": "17",
+              "label": "17"
+            },
+            {
+              "value": "18",
+              "label": "18"
+            },
+            {
+              "value": "19",
+              "label": "19"
+            },
+            {
+              "value": "20",
+              "label": "20"
+            },
+            {
+              "value": "21",
+              "label": "21"
+            },
+            {
+              "value": "22",
+              "label": "22"
+            },
+            {
+              "value": "23",
+              "label": "23"
+            },
+            {
+              "value": "24",
+              "label": "24"
+            },
+            {
+              "value": "25",
+              "label": "25"
+            },
+            {
+              "value": "26",
+              "label": "26"
+            },
+            {
+              "value": "27",
+              "label": "27"
+            },
+            {
+              "value": "28",
+              "label": "28"
+            },
+            {
+              "value": "29",
+              "label": "29"
+            },
+            {
+              "value": "30",
+              "label": "30"
+            },
+            {
+              "value": "31",
+              "label": "31"
+            }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "countdown_mm",
+          "label": "Month",
+          "options": [
+            {
+              "value": "January",
+              "label": "January"
+            },
+            {
+              "value": "February",
+              "label": "February"
+            },
+            {
+              "value": "March",
+              "label": "March"
+            },
+            {
+              "value": "April",
+              "label": "April"
+            },
+            {
+              "value": "May",
+              "label": "May"
+            },
+            {
+              "value": "June",
+              "label": "June"
+            },
+            {
+              "value": "July",
+              "label": "July"
+            },
+            {
+              "value": "August",
+              "label": "August"
+            },
+            {
+              "value": "September",
+              "label": "September"
+            },
+            {
+              "value": "October",
+              "label": "October"
+            },
+            {
+              "value": "November",
+              "label": "November"
+            },
+            {
+              "value": "December",
+              "label": "December"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "countdown_yyyy",
+          "label": "Year"
+        },
+        {
+          "type": "text",
+          "id": "countdown_time",
+          "label": "E.g. 0:00:00 GMT+00:00"
+        },
+        {
+            "type": "header",
+            "content": "Classes"
+        },
+       	{
+            "type": "text",
+            "id": "wrapper_classes",
+            "label": "Wrapper",
+			"default": "flex justify-center mx-auto"
+        },
+       	{
+            "type": "text",
+            "id": "title_classes",
+            "label": "Message",
+			"default": "text-2xl"
+        },
+       	{
+            "type": "text",
+            "id": "sub_message_classes",
+            "label": "Sub Message",
+			"default": "text-xl"
+        },
+       	{
+            "type": "text",
+            "id": "timer_classes",
+            "label": "Timer Wrapper",
+			"default": "grid grid-cols-4 gap-x-5 pr-3"
+        },
+       	{
+            "type": "text",
+            "id": "timer_numbers_classes",
+            "label": "Timer Numbers",
+			"default": "font-bold text-2xl"
+        },
+       	{
+            "type": "text",
+            "id": "timer_words_classes",
+            "label": "Timer Words",
+			"default": "text-xs sm:text-sm"
+        },
+       	{
+            "type": "text",
+            "id": "button_wrapper_classes",
+            "label": "Button Wrapper",
+			"default": "flex justify-center mt-6"
+        },
+       	{
+            "type": "text",
+            "id": "button_classes",
+            "label": "Button",
+			"default": "border border-solid px-10 py-3"
+        },
+        {
+            "type": "header",
+            "content": "Colours"
+        },
+        {
+            "type": "color_background",
+            "id": "wrapper_background_color",
+            "label": "Background Colour"
+        },
+        {
+            "type": "color",
+            "id": "title_color",
+            "label": "Title Colour"
+        },        
+        {
+            "type": "color",
+            "id": "timer_color",
+            "label": "Timer Colour"
+        }, 
+        {
+            "type": "color",
+            "id": "button_color",
+            "label": "Button Colour"
+        },
+        {
+            "type": "header",
+            "content": "Text"
+        },        
+        {
+            "type": "text",
+            "id": "timer_message",
+            "label": "Timer Message"
+        },
+        {
+            "type": "text",
+            "id": "timer_sub_message",
+            "label": "Timer Sub Message"
+        }, 
+        {
+            "type": "text",
+            "id": "button_text",
+            "label": "Button Text"
+        },
+        {
+            "type": "url",
+            "id": "button_link",
+            "label": "Button Link"
+        },                  
+        {
+            "type": "select",
+            "id": "title_font",
+            "label": "Title Font",
+            "options": [
+              {
+                "value": "Bebas Neue",
+                "label": "Bebas"
+              },
+              {
+                "value": "Mulish",
+                "label": "Mulish (Default)"
+              }
+            ]
+        },
+        {
+            "type": "select",
+            "id": "sub_title_font",
+            "label": "Sub Title Font",
+            "options": [
+              {
+                "value": "Bebas Neue",
+                "label": "Bebas"
+              },
+              {
+                "value": "Mulish",
+                "label": "Mulish (Default)"
+              }
+            ]
+        },
+        {
+            "type": "select",
+            "id": "timer_text_font",
+            "label": "Timer Text Font",
+            "options": [
+              {
+                "value": "Bebas Neue",
+                "label": "Bebas"
+              },
+              {
+                "value": "Mulish",
+                "label": "Mulish (Default)"
+              }
+            ]
+        },
+        {
+            "type": "select",
+            "id": "timer_numbers_font",
+            "label": "Timer Numbers Font",
+            "options": [
+              {
+                "value": "Bebas Neue",
+                "label": "Bebas"
+              },
+              {
+                "value": "Mulish",
+                "label": "Mulish (Default)"
+              }
+            ]
+        },
+        {
+            "type": "select",
+            "id": "button_font",
+            "label": "Button Font",
+            "options": [
+              {
+                "value": "Bebas Neue",
+                "label": "Bebas"
+              },
+              {
+                "value": "Mulish",
+                "label": "Mulish (Default)"
+              }
+            ]
+        }                
+            
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

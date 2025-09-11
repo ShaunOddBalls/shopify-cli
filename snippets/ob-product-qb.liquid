@@ -1,0 +1,297 @@
+{% capture banner %}
+<div class="px-4 py-2 gap-2 {%  if settings.christmas_banner_metaobject_quickbuy.popup_optional.value.system.handle %}js-open-generic-banner{% endif %} flex items-center" style="color:{{ settings.christmas_banner_metaobject_quickbuy.text_color.value }}; background-color:{{ settings.christmas_banner_metaobject.banner_color.value }}" data-metaobjecthandle="{{ settings.christmas_banner_metaobject.popup_optional.value.system.handle }}">
+  {{ settings.christmas_banner_metaobject_quickbuy.svg_icon_side_html.value }}
+  {{ settings.christmas_banner_metaobject_quickbuy.banner_header.value }}
+</div>                    
+{% endcapture %}
+
+{% render "matching-socks-upsell", product: product %}
+
+{% assign product_form_class = "flex h-full flex-col divide-y divide-gray-200 bg-white product-form" %}
+{% capture product_form_id %}product-form-{{ product.id }}{% endcapture %}
+{%- form 'product', product, data-product-id: product.id, id: product_form_id, class: product_form_class, novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
+
+    {% render 'ob-product-form-attributes', cart_attributes:cart_attributes, product:product %}
+    <div class="h-0 flex-1 overflow-y-auto">
+        <header class="qb-header relative flex items-center justify-between px-6 py-6 border-b">
+          <div class="absolute top-2 right-2">
+           {% render 'label-generator' product:product, labelTags:labelTags %}
+          </div>
+          <div>
+            <div class="flex">
+              <div id="default-quick-buy-image" class="flex-none">
+                <picture>
+                  <img class="transition duration-100 ease-in-out opacity-100 rounded-sm aspect-square object-cover border border-solid borrder-gray-200 rounded-lg" src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}" loading="eager" width="84" height="84" draggable="false">
+                </picture>
+              </div>
+              <div class="flex flex-col justify-center ml-4">
+                <div class="typography typography--body-md">
+                    <div>
+                          <h2 id="default-quick-buy-header-title" class="text-xl lg:text-3xl uppercase font-semibold mb-2">{{ product.title | split: '-' | first }}</h2>
+      
+      
+                      
+                          <h3 id="default-quick-buy-header-sub-title" class="text-[#7D7D7D]">{{ product.title | split: '-' | last }}</h3>
+                    </div>
+                </div>
+                <div class="flex">
+                    <div id="default-quick-buy-prod-price" class="typography typography--body-md font-medium text-magenta-500 text-semibold">
+                      {% assign price = product.variants[0].price %}
+                      {% assign compare_at_price = product.variants[0].compare_at_price  %}
+                      {{ price | money }}
+                    </div>
+                    
+                    <del id="default-quick-buy-comp-price" class="ml-2" style="{% if price == compare_at_price %}display: none;{% else %}display: block;{% endif %}">
+                      {{ compare_at_price | money }}
+                    </del>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- <button class="button button--variant-ghost button--icon bg-[#F5F5F5] !w-6 !h-6 !bg-[#F0F0F0] self-start" translate="no" aria-label="Close">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 14 14">
+              <rect width="16.9705" height="1.13137" rx="0.565684" transform="matrix(0.707106 -0.707108 0.707106 0.707108 0.600586 12.6001)" fill="currentColor"></rect>
+              <rect width="16.9705" height="1.13137" rx="0.565684" transform="matrix(-0.707106 -0.707107 0.707106 -0.707108 12.6006 13.4001)" fill="currentColor"></rect>
+            </svg>
+          </button> -->
+        </header>
+        <div class="flex flex-1 flex-col justify-between">
+          <div class="divide-y divide-gray-200">
+              <div class="space-y-6 p-6 py-4">
+                  <!-- Variant Options -->
+                  {% render 'ob-product-variants', cart_properties:cart_properties, product:product %}
+              </div>
+          
+          </div>
+          <div class="qb-gift-card-form px-6">
+            {% render "ob-gift-card-form" %}
+          </div>
+        </div>
+    
+    </div>
+
+    <div class="flex flex-shrink-0 justify-end px-6 py-6">
+        <!-- Add to Cart Button -->
+        <div class="grid grid-cols-4 w-full gap-2">
+            {% render 'ob-product-atc-button', product:product, qb:true %}
+            {% render 'ob-product-atc-quantity', product:product %}
+        </div>
+    </div>
+  
+      {% if settings.xmas-delivery-quickbuy == "on" %}
+        {% assign show_banner = false %}
+          {% unless settings.christmas_banner_metaobject_collection.countrys_to_show_on.value == blank %}
+            {% for value in settings.christmas_banner_metaobject_collection.countrys_to_show_on.value %}
+              {% if value == cart.currency.iso_code %}
+                {% assign show_banner = true %} 
+              {% endif %}
+            {% endfor %}
+            {% else %}
+            {% assign show_banner = true %}
+          {% endunless %}
+        {% if show_banner %}
+        {{ banner }}
+        {% endif %}
+      {% endif %}
+    <div></div>
+    <!-- Include Product Data -->
+    <input type="hidden" id="product-json" class="product-json" product-id="{{ product.id }}" value="{{ product | json | escape }}">
+  
+{% endform %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+{% comment %}
+{%- liquid
+if current_variant.available == false 
+assign form_class = 'disabled-cart'
+endif
+-%} 
+{%- assign product_form_id = 'product-form-' | append: product.id | append: '-' | append: section.id -%} 
+{%- form 'product', product, data-productid: product.id, id: product_form_id, class: form_class, novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
+    {%  for attribute in cart.attributes %}
+    <input type="hidden" id="ca_{{ attribute | first | handle }}_{{ attribute | last | handle }}" />       
+    {%  endfor %}
+    <input type="hidden" name="id" data-productid="{{ product.id }}" value="{{ current_variant.id }}">
+    {% render 'freeshipping-threshold-attribute' %}
+    {% if template contains 'free-gift'  %}
+    <input id="your-name" type="hidden" name="properties[_cg]" value="{{ variant.id }}" />
+    <input id="your-name" type="hidden" name="properties[_co]" value="a" />
+    {% endif %}
+    {% if template contains 'upsell'  %}
+    <input id="cart-matching-upsell" type="hidden" value="{{ product.type }}" name="properties[_Cart Matching Upsell]">
+    {% endif %}
+    {% if template contains 'subscription'  %}
+    <input id="subscription-page" type="hidden" value="{{ product.id }}" name="properties[_Subscription Page]">
+    {% endif %}
+    <!-- fg_campaign_name = {{ settings.fg_campaign_name }} -->
+    <!-- fg_campaign_tag = {{ settings.fg_campaign_tag }} -->
+    {% if settings.fg_campaign_name != blank %}
+    {% if settings.fg_campaign_tag != blank %}
+    {%  assign settings_fg_campaign_tag = settings.fg_campaign_tag %}
+    {% if product.tags contains settings_fg_campaign_tag %}
+    <input type="hidden" name="{{ settings.fg_campaign_name }}" value="true" />
+    {% endif %}
+    {% endif %}
+    {% endif %}
+
+    {%  if product.selling_plan_groups[0].selling_plans[0].id %}
+    <input type="hidden" name="selling_plan" value="{{ product.selling_plan_groups[0].selling_plans[0].id }}" />
+    {% endif %}
+    <input type="hidden" class="prod-info" value='{{ product | json | strip }}' />
+  
+    <div id="default-quick-buy-variants">
+      {% if product.options.size == 1 %}
+      <div class="px-6 typography typography--body-md font-medium mt-4 font-semibold">Select a {{ product.options[0] }}</div>
+      <div class="px-6 py-4 max-h-[336px] overflow-y-auto flex flex-col gap-6">
+          <div role="group" class="choice-chips grid grid-cols-[repeat(auto-fit,minmax(min(100%/2,max(64px,100%/5)),1fr))]">
+              {% for variant in product.variants %}
+                <div class="js-quick-buy-variant {% if variant.available == false %} choice-chips__item choice-chips__item--disabled flex items-center justify-center pointer-events-none {% else %} flex choice-chips__item flex items-center justify-center {% endif %}" var-id="{{ variant.id }}">
+                  <div class="absolute w-6 h-6 quick-buy-loader" style="transform: translateX(-50%); left: 50%;"><svg class="loading-ele-outer" viewBox="25 25 50 50"><circle class="loading-ele-inner" cx="50" cy="50" r="20" fill="none" stroke-width="4"></circle></svg></div>
+                  <div class="variant-title">{{ variant.title }}</div>
+                    {% if variant.available %}
+                      <!-- <div class="text-sm items-center flex">
+                        <div> +</div>
+                      </div> -->
+                    {% else %}
+                      <!-- <div class="h-0.5 w-1/2 bg-gray-400 absolute top-1/2"></div> -->
+                    {% endif %}
+                  
+                </div>
+              {% endfor %}
+          </div>
+      </div>
+      {% else %}
+        <div class="option-wrapper option-1-wrapper">
+          <div class="px-4 typography typography--body-md font-medium mb-4">{{ product.options[0] }}</div>
+          <div class="grid p-2 grid-cols-4 gap-1">
+            {% assign option1Set = product.variants | map: 'option1' | uniq %}
+            {% for option in option1Set %}
+              <div class="js-quick-buy-option flex justify-center px-4 py-1 font-bold relative border border-solid border-gray-300 rounded-md" data-title="{{ option }}">
+                <div class="absolute w-6 h-6 quick-buy-loader" style="transform: translateX(-50%); left: 50%;"><svg class="loading-ele-outer" viewBox="25 25 50 50"><circle class="loading-ele-inner" cx="50" cy="50" r="20" fill="none" stroke-width="4"></circle></svg></div>
+                <div>{{ option }}</div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+    
+        <div class="option-wrapper option-2-wrapper">
+          <div class="px-4">{{ product.options[1] }}</div>
+          <div class="grid p-2 grid-cols-4">
+            {% assign option2Set = product.variants | map: 'option2' | uniq %}
+            {% for option in option2Set %}
+              <div class="js-quick-buy-option flex justify-center px-4 py-1 font-bold relative border border-solid border-gray-300 rounded-md" data-title="{{ option }}">
+                <div class="absolute w-6 h-6 quick-buy-loader" style="transform: translateX(-50%); left: 50%;"><svg class="loading-ele-outer" viewBox="25 25 50 50"><circle class="loading-ele-inner" cx="50" cy="50" r="20" fill="none" stroke-width="4"></circle></svg></div>
+                <div>{{ option }}</div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+    
+        <div class="w-full p-4"><div class="button option-atc-button waiting w-full">Select Sizes</div></div>
+        <input type="hidden" class="prod-info" value='{{ product | json | strip }}' />
+      {% endif %}
+    </div>
+    <div class="grid grid-cols-4 gap-2 mb-6">
+        <div id="atc-button" class="w-full bg-magenta-500 rounded-full text-white text-base font-semibold justify-center items-center flex py-3 col-span-3" style="bottom:0px; top:0px">
+          <div id="add-to-cart-loaded" class="pointer-events-none">Add to Cart</div>
+          <div id="add-to-cart-loading" class="pointer-events-none w-full flex justify-center items-center h-full" style="display:none;"><svg class="loading-ele-outer h-6 w-6" viewBox="25 25 50 50"><circle class="loading-ele-inner" style="stroke: white;" cx="50" cy="50" r="20" fill="none" stroke-width="4"></circle></svg></div>
+        </div>
+        <div id="quantity-selector" x-data="{count:1}" class="cols-span-1 rounded-full px-2.5 py-2">
+          <div id="decrement" class="qs">-</div>
+          <div id="quantity" class="qs">1</div>
+          <div id="increment" class="qs">+</div>
+        </div>
+    </div>
+{% endform %}
+
+  <!-- <div class="px-6 py-4 max-h-[336px] overflow-y-auto flex flex-col gap-6">
+    <div role="group" class="choice-chips grid grid-cols-[repeat(auto-fit,minmax(min(100%/2,max(64px,100%/5)),1fr))]">
+      <button role="radio" aria-checked="false" type="button" class="choice-chips__item flex items-center justify-center">XS</button>
+      <button role="radio" aria-checked="false" type="button" class="choice-chips__item flex items-center justify-center">S</button>
+      <button role="radio" aria-checked="false" type="button" class="choice-chips__item flex items-center justify-center">M</button>
+      <button role="radio" aria-checked="false" type="button" class="choice-chips__item flex items-center justify-center">L</button>
+      <button role="radio" aria-checked="false" type="button" class="choice-chips__item flex items-center justify-center">XL</button>
+      <button role="radio" aria-checked="false" type="button" disabled="" class="choice-chips__item choice-chips__item--disabled flex items-center justify-center">XXL</button>
+      <button role="radio" aria-checked="false" type="button" disabled="" class="choice-chips__item choice-chips__item--disabled flex items-center justify-center">3XL</button>
+    </div>
+  </div> -->
+
+{% endcomment %}
+
+
+<!-- <div class="flex flex-col bg-white max-h-[calc(100vh_-_56px)] w-full pointer-events-auto relative rounded-t-md">
+  <header class="relative flex items-center justify-between px-6 py-4 border-b">
+    <div>
+      <p class="typography typography--body-md font-medium mb-4">Select Size</p>
+      <div class="flex">
+        <div class="flex-none">
+          <picture>
+            <img class="transition duration-100 ease-in-out opacity-100 rounded-sm aspect-square object-cover bg-background-primary-default" src="https://cdn.shopify.com/s/files/1/0929/1494/files/1.GreyLongSleeveKnitSkort.jpg?crop=center&amp;format=webp&amp;height=483&amp;quality=80&amp;v=1717145663&amp;width=325" srcset="https://cdn.shopify.com/s/files/1/0929/1494/files/1.GreyLongSleeveKnitSkort.jpg?crop=center&amp;format=webp&amp;height=483&amp;quality=80&amp;v=1717145663&amp;width=325 1x, https://cdn.shopify.com/s/files/1/0929/1494/files/1.GreyLongSleeveKnitSkort.jpg?crop=center&amp;format=webp&amp;height=966&amp;quality=60&amp;v=1717145663&amp;width=650 2x, https://cdn.shopify.com/s/files/1/0929/1494/files/1.GreyLongSleeveKnitSkort.jpg?crop=center&amp;format=webp&amp;height=1449&amp;quality=50&amp;v=1717145663&amp;width=975 3x" alt="Tia, S" loading="eager" width="84" height="84" draggable="false">
+          </picture>
+        </div>
+        <div class="flex flex-col justify-center ml-4">
+          <p class="typography typography--body-md">Knitted Pleated Skort <span class="text-[#7D7D7D]">- Marl Grey </span>
+          </p>
+          <p class="typography typography--body-md font-medium">£45.00 </p>
+        </div>
+      </div>
+    </div>
+    <button class="button button--variant-ghost button--icon bg-[#F5F5F5] !w-6 !h-6 !bg-[#F0F0F0] self-start" translate="no" aria-label="Close">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 14 14">
+        <rect width="16.9705" height="1.13137" rx="0.565684" transform="matrix(0.707106 -0.707108 0.707106 0.707108 0.600586 12.6001)" fill="currentColor"></rect>
+        <rect width="16.9705" height="1.13137" rx="0.565684" transform="matrix(-0.707106 -0.707107 0.707106 -0.707108 12.6006 13.4001)" fill="currentColor"></rect>
+      </svg>
+    </button>
+  </header>
+  <div class="px-6 py-4 max-h-[336px] overflow-y-auto flex flex-col gap-6">
+    <div role="group" class="choice-chips grid grid-cols-[repeat(auto-fit,minmax(min(100%/2,max(64px,100%/5)),1fr))]">
+      <button role="radio" aria-checked="false" type="button" class="choice-chips__item flex items-center justify-center">XS</button>
+      <button role="radio" aria-checked="false" type="button" class="choice-chips__item flex items-center justify-center">S</button>
+      <button role="radio" aria-checked="false" type="button" class="choice-chips__item flex items-center justify-center">M</button>
+      <button role="radio" aria-checked="false" type="button" class="choice-chips__item flex items-center justify-center">L</button>
+      <button role="radio" aria-checked="false" type="button" class="choice-chips__item flex items-center justify-center">XL</button>
+      <button role="radio" aria-checked="false" type="button" disabled="" class="choice-chips__item choice-chips__item--disabled flex items-center justify-center">XXL</button>
+      <button role="radio" aria-checked="false" type="button" disabled="" class="choice-chips__item choice-chips__item--disabled flex items-center justify-center">3XL</button>
+    </div>
+  </div>
+</div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  

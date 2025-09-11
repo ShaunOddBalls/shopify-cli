@@ -1,0 +1,107 @@
+<div id="generic_page" class="tw-w-full">
+	<div class="customer-account-main">
+		<div class="customer-account-main-inner">
+			<div class="card-style">	
+				<h1 class="p-25  marujo text-3xl md:text-4xl pb-6">{{ page.title }}</h1>
+				<div class="page-content">
+					{{ page.content }}
+				</div>
+			</div>
+		</div>
+	</div>
+    {% capture all_charts %}{% section 'ob-size-guide-charts' %}{% endcapture %}
+    {{ all_charts }}
+</div>
+
+<style>
+body {
+    width: 100vw;
+    overflow-x: hidden;
+}
+
+  table{
+    width:100%;
+    hieght: 100%;
+  }
+  
+hr {
+	width: 100vw;
+    position: absolute;
+    left: 0px;
+    overflow: hidden;    
+  	margin: 0em 0px;
+    border: 0;
+    border-top: 1px solid #ececec;
+    height: 0px;  
+}
+.size-table-wrap .title {
+	display:none;
+}
+#generic_page #shopify-section-size-guide-charts .card-style {
+    margin: 40px auto;
+    padding: 2.5em 3em;
+    text-align: left;
+}
+  #shopify-section-size-guide-charts {
+    display: inline-block;
+}
+  
+#generic_page .card-style {
+    margin: 40px auto 0px auto;
+    padding: 2.5em 3em 0px 3em;
+    text-align: left;
+}
+  
+#generic_page #shopify-section-size-guide-charts  h3 {
+    color: #24313e;
+    font-weight: inherit;
+    /* color: #f00f83; */
+    text-transform: lowercase;
+    font-size: 18px;
+    letter-spacing: 0.1em;
+    margin-bottom: 1.2em;
+}
+  
+#generic_page #shopify-section-size-guide-charts  h3 span:first-letter{
+  text-transform: capitalize
+}
+  
+#generic_page .card-style {
+    margin: 40px auto 0px auto;
+    padding: 2.5em 3em 0px 3em;
+    text-align: left;
+    text-align: center;
+    box-shadow: 0px 0px 0px 0px;
+}
+  
+.block-inner {
+    margin: 35px 0;
+    max-width: 550px;
+    margin: 40px auto;
+}
+.size-table-wrap{
+	display:inline-block !important;
+  	width:100%;
+}
+.size-table-wrap img {
+	margin-top: 1em;
+    width: 100%;
+    border-color: rgba(0, 0, 0, 0.28) rgba(0, 0, 0, 0.28) rgba(0, 0, 0, 0.28);
+    border-image: none;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+.size-table-inner {
+    border-radius: 0.375rem;
+    overflow: hidden;
+    border: 2px solid black;
+}
+  
+th {
+  background-color: #D1D5DB;
+  border-bottom: 2px solid black;
+}
+  
+</style>

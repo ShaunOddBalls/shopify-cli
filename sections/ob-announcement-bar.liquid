@@ -1,0 +1,159 @@
+          <!-- Announcement-bar -->
+          <div x-data="{            
+            // Sets the time between each slides in milliseconds
+            autoplayIntervalTime: 4000,
+            slides: [  
+            {% for block in section.blocks %}
+                {
+                    title: '{{ block.settings.text }}',       
+                },                
+            {% endfor %}
+       
+            ],            
+            currentSlideIndex: 1,
+            isPaused: false,
+            autoplayInterval: null,
+            previous() {                
+                if (this.currentSlideIndex > 1) {                    
+                    this.currentSlideIndex = this.currentSlideIndex - 1                
+                } else {   
+                    // If it's the first slide, go to the last slide           
+                    this.currentSlideIndex = this.slides.length                
+                }            
+            },            
+            next() {                
+                if (this.currentSlideIndex < this.slides.length) {                    
+                    this.currentSlideIndex = this.currentSlideIndex + 1                
+                } else {                 
+                    // If it's the last slide, go to the first slide    
+                    this.currentSlideIndex = 1                
+                }            
+            },    
+            autoplay() {
+                this.autoplayInterval = setInterval(() => {
+                    if (! this.isPaused) {
+                        this.next()
+                    }
+                }, this.autoplayIntervalTime)
+            },
+            // Updates interval time   
+            setAutoplayInterval(newIntervalTime) {
+                clearInterval(this.autoplayInterval)
+                this.autoplayIntervalTime = newIntervalTime
+                this.autoplay()
+            },    
+        }" x-init="autoplay" class="flex-1 ">
+           
+                <template x-for="(slide, index) in slides">
+                    <div class="overflow-hidden h-5" x-cloak x-show="currentSlideIndex == index + 1">
+                      <p class="text-center text-sm font-medium text-white" x-text="slide.title" x-bind:id="'slide' + (index + 1) + 'Description'"></p>
+                    </div>
+                </template>
+        </div>
+      
+{% schema %}
+{
+  "name": "t:sections.announcement-bar.name",
+  "max_blocks": 12,
+  "class": "announcement-bar-section",
+  "enabled_on": {
+    "groups": ["header"]
+  },
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-4"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_line_separator",
+      "default": true,
+      "label": "t:sections.header.settings.show_line_separator.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.announcement-bar.settings.header__1.content",
+      "info": "t:sections.announcement-bar.settings.header__1.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_social",
+      "default": false,
+      "label": "t:sections.announcement-bar.settings.show_social.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.announcement-bar.settings.header__2.content"
+    },
+    {
+      "type": "checkbox",
+      "id": "auto_rotate",
+      "label": "t:sections.announcement-bar.settings.auto_rotate.label",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "change_slides_speed",
+      "min": 3,
+      "max": 10,
+      "step": 1,
+      "unit": "s",
+      "label": "t:sections.announcement-bar.settings.change_slides_speed.label",
+      "default": 5
+    },
+    {
+      "type": "header",
+      "content": "t:sections.announcement-bar.settings.header__3.content",
+      "info": "t:sections.announcement-bar.settings.header__3.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_country_selector",
+      "default": false,
+      "label": "t:sections.announcement-bar.settings.enable_country_selector.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.announcement-bar.settings.header__4.content",
+      "info": "t:sections.announcement-bar.settings.header__4.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_language_selector",
+      "default": false,
+      "label": "t:sections.announcement-bar.settings.enable_language_selector.label"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "announcement",
+      "name": "t:sections.announcement-bar.blocks.announcement.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "default": "Welcome to our store",
+          "label": "t:sections.announcement-bar.blocks.announcement.settings.text.label"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "t:sections.announcement-bar.blocks.announcement.settings.link.label"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.announcement-bar.presets.name",
+      "blocks": [
+        {
+          "type": "announcement"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

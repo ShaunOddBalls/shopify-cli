@@ -1,0 +1,53 @@
+{% schema %}
+  {
+    "name": "app incentives",
+    "settings": [],
+    "blocks":[
+      {
+        "type": "image_block",
+        "name": "image block",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id":"image",
+            "label": "image"
+          },
+          {
+            "type": "text",
+            "id":"title",
+            "label": "title"
+          },
+          {
+            "type": "text",
+            "id":"text",
+            "label": "text"
+          }
+        ]
+      }
+    ],
+    "presets" : [{
+      "name": "app incentives"
+    }]
+  }
+{% endschema %}
+
+<div class="gap-4 grid grid-cols-2 max-w-6xl md:grid-cols-3 mx-auto px-4 py-4 md:gap-y-8">
+  {% for block in section.blocks %}
+    <div class="flex flex-col items-center justify-center">
+       {{ block.settings.image | image_url: width: "100px", height: "100px" | image_tag  }}  
+      <div class="font-bold w-full text-center">{{ block.settings.title }}</div>
+      <div class="sub-title text-center ">{{ block.settings.text }}</div>
+    </div>
+  {% endfor %}
+  
+</div>
+<style>
+  @media(min-width:720px){
+    .sub-title{
+      max-width:75%;
+    }
+  }
+  .sub-title{
+    width:100%;
+  }
+</style>

@@ -1,0 +1,30 @@
+{% schema %}
+  {
+  "name": "Mens Landing Rotating Gif",
+    "settings": [
+
+      {
+        "type": "image_picker",
+        "id": "mobile_gif",
+        "label": "Mobile Gif"
+      },
+      {
+        "type": "image_picker",
+        "id": "desktop_gif",
+        "label": "desktop Gif"
+      }
+
+    ],
+  "presets": [
+    {
+      "name": "Mens Landing Rotating Gif",
+    }
+  ]
+}
+  {% endschema %}
+  <div class="w-full md:hidden">
+    <img height:"100px" width:"400px"  class="w-full h-full" src="{{ section.settings.mobile_gif | img_url: 'master' }}" />
+  </div>
+  <div class="w-full max-md:hidden">
+    <img height:"100px" width:"400px"  class="w-full h-full" src="{{ section.settings.desktop_gif | img_url: 'master' }}" />
+  </div>

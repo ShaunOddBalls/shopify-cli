@@ -1,0 +1,62 @@
+{% if localization.language.root_url == '/' %}
+  {% if template.name == 'product' %}
+    {% assign to_show = 'true' %}
+    {% if product.vendor == 'OddBalls Subscriptions' or product.tags contains 'style-partnerships' %}
+      {% assign to_show = 'false' %}
+    {% endif %}
+    {% unless product.tags contains 'feature-multi-buy' %}
+      {% assign to_show = 'false' %}
+    {% endunless %}
+
+
+    {% if product.price != product.compare_at_price %}
+      {% assign to_show = 'false' %}
+    {% endif %}
+
+    {% if product.tags contains 'style-licenced'
+      or product.tags contains 'style-licenced'
+      or product.tags contains 'socks'
+      or product.tags contains 'seamless'
+      or product.tags contains 'goolies'
+      or product.tags contains 'Seamless Full Briefs'
+      or product.tags contains 'teen-boys-boxer-shorts'
+      or product.tags contains 'teen-boys-briefs'
+      or product.tags contains 'teen-girls-bralette'
+      or product.tags contains 'teen-girl-seamless'
+      or product.tags contains 'teen-girls-low-rise-briefs'
+      or product.tags contains 'teen-girls-thong'
+      or product.tags contains 'teen-girls-low-rise-briefs'
+    %}
+      {% assign to_show = 'false' %}
+    {% endif %}
+        {% if localization.market.handle == "eu" %}
+      {% assign to_show = 'false' %}
+    {% endif %}
+
+    {% if vodaphone_deal %}
+      {% assign to_show = "true" %}
+    {% endif %}
+
+    
+{% if to_show == "true" %}
+  {% assign comp_type = product.type | downcase | replace: " ", "-" %}
+{% assign current_metaobject = shop.metaobjects.gyf_values[comp_type] %}
+
+ {% assign current_value = current_metaobject.amount.value |times: 100  %}
+  {% assign current_money = current_value | money %}
+  
+  {% unless current_value == 0 and vodaphone_deal != true %}
+    <div
+      id="product-header-get-yours-from"
+      class="text-sm text-gray-700 ml-2"
+      style=""
+    >
+      - Get yours from
+      <span class="js-scroll-and-open" style="color: #f00f83;font-weight: bold;text-decoration: underline;">
+          {% if vodaphone_deal  %}{{ 600 | money }} {% else %}{{ current_money }}{% endif %} 
+      </span>
+    </div>
+    {% endunless %}
+  {% endif %}
+{% endif %}
+{% endif %}

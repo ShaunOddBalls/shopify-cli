@@ -1,0 +1,79 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "custom.AB_Banner_Group",
+  "name": "A/B Banner Test Group",
+  "sections": {
+    "hero-placeholder_a_b_testing": {
+      "type": "hero-placeholder",
+      "disabled": true,
+      "settings": {}
+    },
+    "ob_hero_banner_with_nav_slider_a_b_testing": {
+      "type": "ob-hero-banner-with-nav-slider",
+      "disabled": true,
+      "name": "Hero Banner With Slider",
+      "settings": {
+        "metaobject": "home-page-banner-test"
+      }
+    },
+    "ob_text_video_slider_a_b_testing": {
+      "type": "ob-text-video-slider",
+      "disabled": true,
+      "settings": {
+        "handle": "winter-sale",
+        "extra-attributes": "",
+        "section_wrapper_classes": "relative",
+        "extra-logged-in": "",
+        "extra-logged-out": "",
+        "show_dots": true,
+        "dots_container_classes": "ob-dots absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10",
+        "dot_classes": "ob-dot w-2 h-2 rounded-full bg-gray-300 transition-colors duration-200",
+        "slider_enabled": true,
+        "autoplay": false,
+        "loop": true,
+        "slides_mobile": 1,
+        "slides_md": 1,
+        "slides_lg": 1,
+        "slide_gap": 0,
+        "cta-setting": false,
+        "position": "start",
+        "title": "Title",
+        "title-text-classes": "text-3xl md:text-6xl capitalize dbl-cta-title pb-1 font-bebas",
+        "title-text-postion": "left",
+        "title-text-size": 18,
+        "title-color": "",
+        "desktop-title-text-size": 32,
+        "paragragh": "My Paragraph",
+        "p-classes": "",
+        "paragraph-text-postion": "left",
+        "paragragh-font-size": 12,
+        "paragraph-color": "",
+        "desktop-paragraph-text-size": 18,
+        "btn-one-text": "button one",
+        "btn-one-classes": "px-8 relative p-2 rounded-md uppercase btn-shadow-lg block border-solid border-2 border-md border-black text-black font-semibold text-center  transition-colors duration-200",
+        "btn-1-url": "",
+        "btn-one-color": "#ffffff",
+        "btn-one-bg-color": "#000000",
+        "btn-two-text": "button two",
+        "btn-two-classes": "px-8 relative p-2 rounded-md uppercase btn-shadow-lg block border-solid border-2 border-md border-black text-black font-semibold text-center  transition-colors duration-200",
+        "btn-2-url": "",
+        "btn-two-color": "#000000",
+        "btn-two-bg-color": "#ffffff",
+        "button-postion": "start"
+      }
+    }
+  },
+  "order": [
+    "hero-placeholder_a_b_testing",
+    "ob_hero_banner_with_nav_slider_a_b_testing",
+    "ob_text_video_slider_a_b_testing"
+  ]
+}

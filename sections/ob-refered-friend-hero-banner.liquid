@@ -1,0 +1,189 @@
+<div class="{{ section.settings.classes }}">
+  <div class="{{ section.settings.inner_classes }}">
+
+{% for block in section.blocks %}
+ 
+ {% case block.type %}
+
+{% when 'image' %}
+  <div class="w-full md:w-1/2 relative">
+     <div class="{{ block.settings.img_wrapper_classes }}">
+       <img src="{{ block.settings.mobile_img | img_url: "800x" }}" alt="{{ block.settings.title }}" class="h-full w-full  hidden lg:block {{ block.settings.img_classes }}">
+       <img src="{{ block.settings.desktop_img | img_url: "800x" }}" alt="{{ block.settings.title }}" class="h-full w-full  lg:hidden {{ block.settings.img_classes }}">
+      </div>
+  </div>
+
+  
+  {% when "text" %}
+        <div class="{{ block.settings.wrapper_classes }}">
+          <div class="w-full relative mx-auto ">
+           <div class="{{ block.settings.img_wrapper_classes }}">
+             <img src="{{ block.settings.mobile_img | img_url: "600x" }}" alt="{{ block.settings.title }}" class="h-full w-full  hidden lg:block {{ block.settings.img_classes }}">
+             <img src="{{ block.settings.desktop_img | img_url: "600x" }}" alt="{{ block.settings.title }}" class="h-full w-full  lg:hidden {{ block.settings.img_classes }}">
+            </div>
+        </div>
+          {% if block.settings.title != "" %}
+            <h2 class="{{ block.settings.title_classes }}">{{ block.settings.title }}</h2>
+          {% endif %}
+          
+          {% if block.settings.subtitle != "" %}
+            <p class="{{ block.settings.subtitle_classes }}">{{ block.settings.subtitle }}</p>
+          {% endif %}
+
+           {% if block.settings.call_to_action != "" %}
+          <h2 class="{{ block.settings.call_to_action_classes }}">{{ block.settings.call_to_action }}</h2>
+          {% endif %}
+
+          {% if block.settings.link_text %}
+              <div class="lg:p-6 pt-2 pb-6">
+                <a href="{{ block.settings.link_url }}" class="{{ block.settings.btn_classes }}">{{ block.settings.link_text }}</a>
+              </div>
+          {% endif %}
+        </div>
+    {% endcase %}
+  {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Refered friend hero",
+  "settings": [
+    {
+      "id": "classes",
+      "type": "text",
+      "label": "Outer Wrapper Classes",
+      "default": "w-full"
+    },
+    {
+      "id": "inner_classes",
+      "type": "text",
+      "label": "inner Wrapper Classes",
+      "default": "w-full  flex flex-col lg:flex-row-reverse bg-blue-1000 px-3 max-w-9xl mx-auto"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "id": "wrapper_classes",
+          "type": "text",
+          "label": "Wrapper Classes",
+          "default": "w-full md:w-1/2 p-5 relative"
+        },
+        {
+          "id": "img_wrapper_classes",
+          "type": "text",
+          "label": "Image Wrapper_Classes",
+          "default": "w-full"
+        },
+        {
+          "id": "img_classes",
+          "type": "text",
+          "label": "Image Classes",
+          "default": "h-full"
+        },
+        {
+          "id": "desktop_img",
+          "type": "image_picker",
+          "label": "Desktop Image"
+        },
+        {
+          "id": "mobile_img",
+          "type": "image_picker",
+          "label": "Mobile Image"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "Title Text & Button",
+      "settings": [
+        {
+          "id": "wrapper_classes",
+          "type": "text",
+          "label": "Wrapper Classes",
+          "default": "w-full md:w-1/2 flex flex-col align-center justify-center text-center lg:p-8"
+        },
+        {
+          "id": "title",
+          "type": "text",
+          "label": "Title",
+          "default": "Tile"
+        },
+        {
+          "id": "title_classes",
+          "type": "text",
+          "label": "Title",
+          "default": "mt-2 font-bebas text-4xl"
+        },
+          {
+          "id": "img_wrapper_classes",
+          "type": "text",
+          "label": "Image Wrapper_Classes",
+          "default": "inset-0 flex items-center justify-center w-full"
+        },
+        {
+          "id": "img_classes",
+          "type": "text",
+          "label": "Image Classes",
+          "default": "mt-2 font-bebas text-4xl"
+        },
+        {
+          "id": "mobile_img",
+          "type": "image_picker",
+          "label": "mobile img"
+        },
+        {
+          "id": "desktop_img",
+          "type": "image_picker",
+          "label": "desktop image"
+        },
+        {
+          "id": "subtitle",
+          "type": "text",
+          "label": "Subtitle",
+          "default": "mt-2 text-2xl"
+        },
+        {
+          "id": "subtitle_classes",
+          "type": "text",
+          "label": "Title",
+          "default": "mt-2 font-bebas text-4xl"
+        },
+        {
+          "id": "call_to_action",
+          "type": "text",
+          "label": "Call to Action",
+          "default": "Call to action"
+        },
+        {
+          "id": "call_to_action_classes",
+          "type": "text",
+          "label": "Call to Action",
+          "default": "Call to action classes"
+        },
+        {
+          "id": "btn_classes",
+          "type": "text",
+          "label": "Button Classes",
+          "default": "rounded-md uppercase btn-shadow-lg block bg-magenta border-solid border-2 border-md border-black relative font-semibold text-center p-3 md:p-4 text-white hover:bg-magenta-700 transition-colors duration-200 mb-4 w-full lg:inline"
+        },
+        {
+          "id": "link_text",
+          "type": "text",
+          "label": "Link Text",
+          "default": "button text"
+        },
+        {
+          "id": "link_url",
+          "type": "url",
+          "label": "Link URL",
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

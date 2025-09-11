@@ -1,0 +1,433 @@
+<div class="{{ section.settings.block_outter_wrap }}">
+<div class="{{ section.settings.section_wrap }}">
+	<div class="grid {{ section.settings.grid_columns }} {{ section.settings.grid_gap }}">
+		{% for block in section.blocks %}
+      		{% if block.settings.block_active %}
+              {% if block.type == 'multi_use_block' %}
+                <div id="block_{{section.id}}_{{block.id}}" class="{{ block.settings.block_wrap }} relative">
+                  {% if block.settings.block_link != blank %}
+                  <a class="h-full w-full absolute inset-0 {{ block.settings.link_classes }}" href="{{ block.settings.block_link }}"></a>
+                  {% endif %}
+                  {% if block.settings.block_image_desktop != blank %}              
+                  <img class="{{ block.settings.block_image_desktop_class }}" src="{{ block.settings.block_image_desktop | image_url }}">
+                  {% endif %}
+                  {% if block.settings.block_image_mobile != blank %}
+                  <img class="{{ block.settings.block_image_mobile_class }}" src="{{ block.settings.block_image_mobile  | image_url}}">
+                  {% endif %}
+                  <div class="{{ block.settings.text_wrap }}">
+                    {% if block.settings.text_header != blank %}
+                        <h3 class="{{ block.settings.text_header }}">{{ block.settings.title }}</h3>
+                    {% endif %}
+                    {% if block.settings.text_description != blank %}               
+                        <p class="{{ block.settings.text_description }}">{{ block.settings.description }}</p>
+                    {% endif %}
+                    {% if block.settings.button_text != blank %}
+                    <div class="{{ block.settings.text_button }}"><a class="{{ block.settings.link_classes }}" href="{{ block.settings.button_link }}">{{ block.settings.button_text }}</a></div>
+                    {% endif %}
+                  </div>
+                </div> 
+              {% elsif block.type == 'multi_use_html_block' %}
+              <div id="block_{{section.id}}_{{block.id}}" class="{{ block.settings.block_wrap }}">
+                  {{ block.settings.html }}
+              </div>
+              {% elsif  block.type == 'multi_use_snippet_block'%}
+              {% if block.settings.include != blank %}
+              <div id="block_{{section.id}}_{{block.id}}" class="{{ block.settings.block_wrap }}">
+              	{% include block.settings.include %}
+              </div>
+              {% endif %}
+			  {% elsif block.type == 'multi_use_image_block' %}
+              <div id="block_{{section.id}}_{{block.id}}" class="{{ block.settings.block_wrap }}">
+                  {% if block.settings.block_link != blank %}
+                  <a class="h-full w-full {{ block.settings.link_classes }}" href="{{ block.settings.block_link }}"></a>
+                  {% endif %}
+                  {% if block.settings.block_image_desktop != blank %}
+                  <img class="{{ block.settings.block_image_desktop_class }}" src="{{ block.settings.block_image_desktop | image_url }}">
+                  {% endif %}
+                  {% if block.settings.block_image_mobile != blank %}
+                  <img class="{{ block.settings.block_image_mobile_class }}" src="{{ block.settings.block_image_mobile | image_url }}">
+                  {% endif %}
+                  {% if block.settings.block_video_desktop != blank and block.settings.block_video_mobile != blank %}
+                  <div class="video-block video-replace-me {{ block.settings.video_wrap }}" data-src-mobile="{{ block.settings.block_video_mobile | file_url }}" data-src="{{ block.settings.block_video_desktop | file_url }}">                    
+                      <div class="fluid-width-video-wrapper">
+                          <video class="object-cover h-full w-full" src=""><source src="" type="video/mp4"></video>   
+                      </div>
+                  </div>
+                  {% endif %}
+                  <div class="{{ block.settings.svg_wrap }}"><!-- svg -->
+                  {% if block.settings.block_svg_desktop != blank %}
+                      <img class="{{ block.settings.block_svg_desktop_class }}" src="{{ block.settings.block_svg_desktop | file_url }}">
+                  {% endif %}
+                  {% if block.settings.block_svg_mobile != blank %}
+                      <img class="{{ block.settings.block_svg_mobile_class }}" src="{{ block.settings.block_svg_mobile | file_url }}">                       
+                  {% endif %}         
+                  </div>
+              </div>
+              {% endif %}
+      		{% endif %}
+      	{% endfor %}
+	</div>
+</div>
+</div>
+{% if section.settings.custom_css != blank %}
+<style>
+  {{ section.settings.custom_css }}
+</style>
+{% endif %}
+
+{% schema %}
+  {
+    "name": "TW video img svg block",
+	"class":"relative w-full",
+	"presets": [
+      {
+        "name": "TW video img svg block",
+        "category": "Blocks"
+      }
+  	],
+	"settings": [
+			{
+                "type": "html",
+                "id": "country_iso",
+                "label": "Only display if current iso is (* for all)",
+                "info": "Comma seperated",
+                "default":"*"
+            },
+      {
+            "id": "block_outter_wrap",
+            "type": "text",
+            "label": "block outer wrap",
+         	"default": "w-full",
+         	"info": "eg. w-full"			
+          },
+
+      {
+         "type": "text",
+         "id": "section_wrap",
+         "label": "wrapper div classes",
+         "default": "w-full",
+         "info": "Default: w-full"
+      },
+      
+
+      {
+         "type": "text",
+         "id": "grid_columns",
+         "label": "Number of columns",
+         "default": "grid-cols-12",
+         "info": "Default grid-cols-12"
+      },
+      {
+         "type": "text",
+         "id": "grid_gap",
+         "label": "Gap between grid columns",
+         "default": "gap-6",
+         "info": "Default gap-6"
+      },
+      {
+         "type": "html",
+         "id": "custom_css",
+         "label": "Custom CSS"
+      }
+	],
+	"blocks": [
+      {
+        "type": "multi_use_block",
+        "name": "image text and button",
+        "settings": [
+          {
+            "id": "block_active",
+            "type": "checkbox",
+            "label": "block active?",
+			"default": true
+          },
+			{
+                "type": "html",
+                "id": "country_iso",
+                "label": "Only display if current iso is (* for all)",
+                "info": "Comma seperated",
+                "default":"*"
+            },
+          {
+            "id": "block_link",
+            "type": "url",
+            "label": "block link"	
+          },
+          {
+            "id": "block_wrap",
+            "type": "text",
+            "label": "block wrap",
+         	"default": "col-span-6 relative",
+         	"info": "eg. col-span-6 relative"			
+          },
+          {
+            "type": "header",
+            "content": "Images"
+          },
+          {
+            "id": "block_image_desktop",
+            "type": "image_picker",
+            "label": "desktop image (optional)"
+          },
+          {
+            "id": "block_image_desktop_class",
+            "type": "text",
+            "label": "desktop image class",
+         	"default": "object-cover h-full w-full hidden sm:block",
+         	"info": "eg. object-cover h-full w-full hidden sm:block"
+          },
+          {
+            "id": "block_image_mobile",
+            "type": "image_picker",
+            "label": "mobile image (optional)"
+          },
+          {
+            "id": "block_image_mobile_class",
+            "type": "text",
+            "label": "mobile image class",
+         	"default": "object-cover h-full w-full block sm:hidden",
+         	"info": "eg. object-cover h-full w-full block sm:hidden"
+          },
+          {
+            "type": "header",
+            "content": "Block text"
+          },
+          {
+            "id": "text_wrap",
+            "type": "text",
+            "label": "text wrap",
+         	"default": "absolute bottom-10 right-20",
+         	"info": "eg. absolute bottom-10 right-20"			
+          },
+          {
+            "id": "title",
+            "type": "text",
+            "label": "title"		
+          },
+          {
+            "id": "text_header",
+            "type": "text",
+            "label": "text header class",
+         	"default": "text-5xl pb-1",
+         	"info": "eg. text-5xl pb-1"			
+          },
+          {
+            "id": "description",
+            "type": "text",
+            "label": "text description"			
+          },
+
+          {
+            "id": "text_description",
+            "type": "text",
+            "label": "text description class",
+         	"default": "text-xl",
+         	"info": "eg. text-xl"			
+          },
+          {
+            "id": "button_link",
+            "type": "url",
+            "label": "button url"			
+          },
+          {
+            "id": "link_classes",
+            "type": "text",
+            "label": "<a> link classes",
+         	"default": "block",
+         	"info": "eg. block"			
+          },
+          {
+            "id": "button_text",
+            "type": "text",
+            "label": "button text"			
+          },
+          {
+            "id": "text_button",
+            "type": "text",
+            "label": "button class",
+         	"default": "bg-black text-white py-2 px-5 mt-3 text-center w-auto inline-block",
+         	"info": "eg. bg-black text-white py-2 px-5 mt-3 text-center w-auto inline-block"			
+          }
+		]
+	  },
+      {
+        "type": "multi_use_html_block",
+        "name": "HTML block",
+        "settings": [
+          {
+            "id": "block_active",
+            "type": "checkbox",
+            "label": "block active?",
+			"default": true
+          },
+          {
+            "id": "block_wrap",
+            "type": "text",
+            "label": "block wrap",
+         	"default": "col-span-6 relative",
+         	"info": "eg. col-span-6 relative"			
+          },
+          {
+            "id": "html",
+            "type": "html",
+            "label": "HTML block"	
+          }
+        ]
+	},
+      {
+        "type": "multi_use_snippet_block",
+        "name": "Snippet block",
+        "settings": [
+          {
+            "id": "block_active",
+            "type": "checkbox",
+            "label": "block active?",
+			"default": true
+          },
+          {
+            "id": "block_wrap",
+            "type": "text",
+            "label": "block wrap",
+         	"default": "col-span-6 relative",
+         	"info": "eg. col-span-6 relative"			
+          },
+          {
+            "id": "include",
+            "type": "text",
+            "label": "HTML block"	
+          }
+        ]
+	},
+
+      {
+        "type": "multi_use_image_block",
+        "name": "image, svg and video",
+        "settings": [
+          {
+            "id": "block_active",
+            "type": "checkbox",
+            "label": "block active?",
+			"default": true
+          },
+          {
+            "id": "block_link",
+            "type": "url",
+            "label": "block link"	
+          },
+          {
+            "id": "link_classes",
+            "type": "text",
+            "label": "<a> link classes",
+         	"default": "block",
+         	"info": "eg. block"			
+          },
+          {
+            "id": "block_wrap",
+            "type": "text",
+            "label": "block wrap",
+         	"default": "col-span-6 relative",
+         	"info": "eg. col-span-6 relative"			
+          },
+          {
+            "type": "header",
+            "content": "Images"
+          },
+          {
+            "id": "block_image_desktop",
+            "type": "image_picker",
+            "label": "desktop image (optional)"
+          },
+          {
+            "id": "block_image_desktop_class",
+            "type": "text",
+            "label": "desktop image class",
+         	"default": "object-cover h-full w-full hidden sm:block",
+         	"info": "eg. object-cover h-full w-full hidden sm:block"
+          },
+          {
+            "id": "block_image_mobile",
+            "type": "image_picker",
+            "label": "mobile image (optional)"
+          },
+          {
+            "id": "block_image_mobile_class",
+            "type": "text",
+            "label": "mobile image class",
+         	"default": "object-cover h-full w-full block sm:hidden",
+         	"info": "eg. object-cover h-full w-full block sm:hidden"
+          },
+          {
+            "id": "video_wrap",
+            "type": "text",
+            "label": "video wrap",
+         	"default": "col-span-12",
+         	"info": "eg. col-span-12"			
+          },
+          {
+            "id": "block_video_desktop",
+            "type": "text",
+            "label": "desktop video (optional)"
+          },
+          {
+            "id": "block_video_desktop_class",
+            "type": "text",
+            "label": "desktop video class",
+         	"default": "object-cover h-full w-full",
+         	"info": "eg. object-cover h-full w-full"
+          },
+          {
+            "id": "block_video_mobile",
+            "type": "text",
+            "label": "mobile video (optional)"
+          },
+          {
+            "id": "block_video_mobile_class",
+            "type": "text",
+            "label": "mobile video class",
+         	"default": "object-cover h-full w-full",
+         	"info": "eg. object-cover h-full w-full"
+          },
+          {
+            "id": "svg_wrap",
+            "type": "text",
+            "label": "svg wrap",
+         	"default": "absolute w-full h-full inset-0",
+         	"info": "eg. absolute w-full h-full inset-0"			
+          },
+          {
+            "id": "block_svg_desktop",
+            "type": "text",
+            "label": "desktop svg (optional)"
+          },
+          {
+            "id": "block_svg_desktop_class",
+            "type": "text",
+            "label": "desktop image class",
+         	"default": "w-full h-full hidden sm:block",
+         	"info": "eg. w-full h-full hidden sm:block"
+          },
+          {
+            "id": "block_svg_mobile",
+            "type": "text",
+            "label": "desktop svg (optional)"
+          },
+          {
+            "id": "block_svg_mobile_class",
+            "type": "text",
+            "label": "desktop image class",
+         	"default": "w-full h-full block sm:hidden",
+         	"info": "eg. w-full h-full block sm:hidden"
+          }
+
+        ]
+	}
+	]
+
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

@@ -1,0 +1,307 @@
+{% schema %}
+{
+  "name": "Summer Shop Small Buttons",
+  "settings": [
+
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+        {
+          "type": "checkbox",
+          "id": "show_on_all_markets",
+          "default": true,
+          "label": "Show On All Markets",
+          "info": "on to show on all"
+        },
+        {
+          "type": "text",
+          "id": "markets_to_show_on",
+          "label": "Markets to show on",
+          "info": "Example would look like: uk, en-eu (shows on UK and EU markets)"
+        },
+        {
+          "type": "text",
+          "id": "markets_to_exclude_on",
+          "label": "Markets to Exclude on",
+          "info": "Example would look like: uk, en-eu (Would not show on UK and EU markets)"
+        }
+],
+  "blocks": [
+    {
+      "type": "image_block",
+      "name": "Image Block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },{
+          "type": "collection",
+          "id": "page",
+          "label": "Collection"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Use Url instead of a collection",
+          "info": "Collection input must be Blank"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+        },
+        {
+          "type": "text",
+          "id": "sub_title",
+          "label": "Sub Title"
+        },
+        {
+          "type": "text",
+          "id": "text_classes",
+          "label": "text classes"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Text"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_on_all_markets",
+          "default": true,
+          "label": "Show On All Markets",
+          "info": "on to show on all"
+        },
+        {
+          "type": "text",
+          "id": "markets_to_show_on",
+          "label": "Markets to show on",
+          "info": "Example would look like: uk, en-eu (shows on UK and EU markets)"
+        },
+        {
+          "type": "text",
+          "id": "markets_to_exclude_on",
+          "label": "Markets to Exclude on",
+          "info": "Example would look like: uk, en-eu (Would not show on UK and EU markets)"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Summer Shop Small Buttons",
+    }
+  ]
+}
+{% endschema %}
+
+
+
+
+
+
+
+
+
+{% comment %}
+/*-------------------------------- */
+/*  markets logic init
+/*-------------------------------- */
+{% endcomment %}
+{% assign market_code = localization.language.root_url %}
+{% if market_code == '/' %}
+  {% assign market_code = 'uk' %}
+{% else %}
+  {% assign market_code = market_code | remove: '/' %}
+{% endif %}
+{% comment %}
+/*-------------------------------- */
+/*  markets logic init END
+/*-------------------------------- */
+{% endcomment %}
+{% comment %}
+/*-------------------------------- */
+/*  markets logic 
+/*-------------------------------- */
+{% endcomment %}
+          {% assign show_section = true %}
+          {% if section.settings.show_on_all_markets == false %}
+            {% assign markets_to_show = section.settings.markets_to_show_on | split: ',' %}
+            {% assign markets_to_exclude_on = section.settings.markets_to_exclude_on | split: ',' %}
+
+            {% if markets_to_exclude_on != blank %}
+            {% for market in markets_to_exclude_on %}
+              {% assign market_strip = market | strip %}
+              {% assign market_downcase = market_strip | downcase %}
+              {% if market_code == market_downcase %}
+                {% assign show_section = false %}
+                {% break %}
+              {% endif %}
+            {% endfor %}
+            {% endif %}
+            
+            {% if markets_to_show != blank and show_section  %}
+              
+              {% assign show_section = false %}
+              {% for market in markets_to_show %}
+      
+                {% assign market_strip = market | strip %}
+                {% assign market_downcase = market_strip | downcase %}
+                {% if market_code == market_downcase %}
+                  {% assign show_section = true %}
+                  {% break %}
+                {% endif %}
+              {% endfor %}
+            {% endif %}
+          {% else %}
+            {% assign show_section = true %}
+          {% endif %}
+
+{% if show_section %}
+{% comment %}
+/*-------------------------------- */
+/*  markets logic END
+/*-------------------------------- */
+{% endcomment %}
+
+<div>
+  <div class="typography--title-five mx-auto text-center md:text-4xl mt-8 mb-4">
+    {{ section.settings.title }}
+  </div>
+  <div class="grid lg:grid-cols-3 grid-cols-1 px-2 gap-2 md:px-4 gap:4">
+    {% for block in section.blocks %}
+
+
+
+{% comment %}
+/*-------------------------------- */
+/*  markets logic 
+/*-------------------------------- */
+{% endcomment %}
+          {% assign show_block = true %}
+          {% if block.settings.show_on_all_markets == false %}
+            {% assign markets_to_show = block.settings.markets_to_show_on | split: ',' %}
+            {% assign markets_to_exclude_on = block.settings.markets_to_exclude_on | split: ',' %}
+
+            {% if markets_to_exclude_on != blank %}
+            {% for market in markets_to_exclude_on %}
+              {% assign market_strip = market | strip %}
+              {% assign market_downcase = market_strip | downcase %}
+              {% if market_code == market_downcase %}
+                {% assign show_block = false %}
+                {% break %}
+              {% endif %}
+            {% endfor %}
+            {% endif %}
+            
+            {% if markets_to_show != blank and show_block  %}
+              
+              {% assign show_block = false %}
+              {% for market in markets_to_show %}
+      
+                {% assign market_strip = market | strip %}
+                {% assign market_downcase = market_strip | downcase %}
+                {% if market_code == market_downcase %}
+                  {% assign show_block = true %}
+                  {% break %}
+                {% endif %}
+              {% endfor %}
+            {% endif %}
+          {% else %}
+            {% assign show_block = true %}
+          {% endif %}
+
+{% if show_block %}
+{% comment %}
+/*-------------------------------- */
+/*  markets logic END
+/*-------------------------------- */
+{% endcomment %}
+
+
+
+
+{% if block.settings.page.url %}
+  {% capture block_url_raw %}{{ block.settings.page.url }}{% endcapture %}
+{% elsif block.settings.url %}
+  {% capture block_url_raw %}{{ block.settings.url }}{% endcapture %}
+{% else %}
+  {% capture block_url_raw %}No valid URL or Page specified{% endcapture %}
+{% endif %}
+
+  
+      <div>
+      <div class="relative w-full h-full">
+      <a class="ss_image_block w-full block" style="width:100%; padding-top:50%;" href="{%- render 'ob-process-international-link', url: block_url_raw -%}" class="flex justify-center lw-circles flex-col ">
+                {{ block.settings.image |
+                  image_url: width: 2000 |
+                  image_tag:
+                    widths: '1000, 2000',
+                    sizes: '(min-width: 1000px) 760px, (min-width: 800px) calc(100vw - 380px), (min-width: 400px) 298px, 78.75vw',
+                    class: 'mobile-size-fix' }}
+                    <div
+                      class="w-full top-0 h-full absolute flex scale-75 sm:scale-100  lg:scale-75 2xl:scale-100 items-center text-center py-2 md:py-4 z-10 flex-col justify-center"
+                    >
+                      <div class="text-5xl font-bold pt-12 {{ block.settings.text_classes }}">
+                      {{ block.settings.title }}
+                      </div>
+                      <div class="{{ block.settings.text_classes }} text-2xl px-2 py-2 pb-5 leading-none" style="max-width:236px;">
+                      {{ block.settings.sub_title }}
+                      </div>
+                      <div class="bg-white px-2 py-1 rounded-lg font-bold md:py-2 bg-white px-2 py-1 md:py-2 md:px-6 rounded-lg font-bold  text-center max-md:text-xl">
+                       <div> {{ block.settings.button_text }} </div>
+                      </div>
+                    </div>
+      </a>
+      </div>
+        <div class="text-sm p-2">
+          {{ block.settings.bottom_text }}
+        </div>
+      </div>
+
+
+
+{% comment %}
+/*-------------------------------- */
+/*  markets logic 
+/*-------------------------------- */
+{% endcomment %}
+{% endif %}        
+{% comment %}
+/*-------------------------------- */
+/*  markets logic END
+/*-------------------------------- */
+{% endcomment %}
+
+
+    
+
+    {% endfor %}
+  </div>
+</div>
+
+<style>
+  .ss_image_block img{
+    position:absolute;
+    top:0px;
+    left:0px;
+    height:100%;
+    width:100%;
+    
+  }
+</style>
+
+{% comment %}
+/*-------------------------------- */
+/*  markets logic  show_section
+/*-------------------------------- */
+{% endcomment %}
+{% endif %}        
+{% comment %}
+/*-------------------------------- */
+/*  markets logic show_section END
+/*-------------------------------- */
+{% endcomment %}

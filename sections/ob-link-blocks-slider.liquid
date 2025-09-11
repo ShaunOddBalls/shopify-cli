@@ -1,0 +1,468 @@
+{% include 'ob-include-set-current-country' %}
+{% include 'ob-include-country-ok-to-proceed', thingObj:section %}
+
+{% if section.settings.wrapper_background_image_mobile != blank %}
+<style>
+  .background-wrapper-image {
+    background-image: url('{{ section.settings.wrapper_background_image_mobile }}');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;     
+  }
+  {% if section.settings.wrapper_background_image_desktop != blank %}
+  @media screen and (min-width: 768px){
+    .background-wrapper-image {
+      background-image: url('{{ section.settings.wrapper_background_image_desktop }}');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;     
+    }    
+  }
+  {% endif %}
+</style>
+{% endif %}
+
+
+{% if country_ok_to_proceed == 'yes' %}
+<div class="link-blocks-slider-wrapper background-wrapper-image {{ section.settings.section_outer_wrapper_classes }}">
+  <div class="{{ section.settings.section_inner_wrapper_classes }}">
+    {% if section.settings.title != blank %}
+    <div class="{{ section.settings.text_wrap }}">
+        {% if section.settings.title != blank %}
+        <h3 class="{{ section.settings.text_header_classes }}">{{ section.settings.title }}</h3>
+        {% endif %}
+        {% if section.settings.text_description != blank %}               
+        <p class="{{ section.settings.text_description }}">{{ section.settings.description }}</p>
+        {% endif %}
+    </div>
+    {% endif %}
+
+    <div class="text-center {{ section.settings.blocks_wrapper_classes }} whitespace-nowrap overflow-x-auto">
+      	{% if section.settings.double_layer_blocks %}
+          {% capture carousel_blocks %}
+          {% assign link_block_count_first = 0 %}
+          {% assign link_block_count_second = 2 %}
+          {% for block in section.blocks %}
+            {%  assign slider_flag = 'no' %}
+          {% assign country_ok_to_proceed = 'no' %}
+          {% include 'include-country-ok-to-proceed', thingObj:block %}
+
+          {% assign link_block_count_first = link_block_count_first | plus: 1 %}
+          {% assign link_block_count_second = link_block_count_second | plus: 1 %}
+            
+          {% assign block_count = 0 %}
+          {% if country_ok_to_proceed == 'yes' %}  
+      	  	{% if block.type == 'double-layer-block' %}
+            {% assign block_count = block_count | plus: 1 %}
+              {% if block_count == 1 %}
+                {% assign padding_bottom = 'pb-3' %}
+              {% else %}
+                {% assign padding_bottom = '' %}
+              {% endif %}
+            
+            <div class="{{ section.settings.container_wrapper_classes}} {{ padding_bottom }} align-top inline-block text-center whitespace-normal">
+              <div link-block-count="{{ link_block_count_first }}" class="relative {{ section.settings.block_wrapper_classes }} {{ section.settings.block_bg_colour }} {{ section.settings.block_text_colour }} hover:{{ section.settings.block_bg_colour_hover }} hover:{{ section.settings.block_text_colour_hover }}">
+                {% if block.settings.block_link_1 != blank %}
+                <a class="absolute w-full h-full inset-0 z-100" href="{{ block.settings.block_link_1 }}"></a>
+                {% endif %}
+                <div class="{{ section.settings.block_inner_wrapper_classes }}">
+                  {% if block.settings.block_svg_1 != blank %}
+                    {% capture block_svg_1 %}{{ block.settings.block_svg_1 }}{% endcapture %}
+                    {{ block_svg_1 | replace: 'svg_classes', svg_classes }}
+                  {% elsif block.settings.block_video_1 contains '.json' %}
+                    <lottie-player class="{{ section.settings.block_image_classes }}" src="{{ block.settings.block_video_1 | file_url }}"  background="transparent"  speed="1" loop autoplay></lottie-player>              
+                  {% elsif block.settings.block_img_1 != blank %}
+                    <img class="{{ section.settings.block_image_classes }}" src="{{ block.settings.block_img_1 | img_url: '400x' }}">        
+                  {% endif %}
+                  {% if block.settings.block_title_1 != blank %}
+                    <span class="{{ section.settings.block_title_classes }}">{{ block.settings.block_title_1 }}</span>
+                  {% endif %}				
+                </div>           
+              </div> 
+              <div link-block-count="{{ link_block_count_second }}" class="relative {{ section.settings.block_wrapper_classes }} {{ section.settings.block_bg_colour }} {{ section.settings.block_text_colour }} hover:{{ section.settings.block_bg_colour_hover }} hover:{{ section.settings.block_text_colour_hover }}">
+                {% if block.settings.block_link_2 != blank %}
+                <a class="absolute w-full h-full inset-0 z-100" href="{{ block.settings.block_link_2 }}"></a>
+                {% endif %}
+                <div class="{{ section.settings.block_inner_wrapper_classes }}">
+                  {% if block.settings.block_svg_2 != blank %}
+                    {% capture block_svg_2 %}{{ block.settings.block_svg_2 }}{% endcapture %}
+                    {{ block_svg_2 | replace: 'svg_classes', svg_classes }}
+                  {% elsif block.settings.block_video_2 contains '.json' %}
+                    <lottie-player class="{{ section.settings.block_image_classes }}" src="{{ block.settings.block_video_2 | file_url }}"  background="transparent"  speed="1" loop autoplay></lottie-player>              
+                  {% elsif block.settings.block_img_2 != blank %}
+                    <img class="{{ section.settings.block_image_classes }}" src="{{ block.settings.block_img_2 | img_url: '400x' }}">        
+                  {% endif %}
+                  {% if block.settings.block_title_2 != blank %}
+                    <span class="{{ section.settings.block_title_classes }}">{{ block.settings.block_title_2 }}</span>
+                  {% endif %}				
+                </div>           
+              </div>          
+            </div>
+      		{% endif %}
+          {% endif %}
+        {% endfor %}
+        {%  endcapture %}
+      {% else %}
+        {% capture carousel_blocks %}
+		<css-slider class="css-slider--simple-dots" 
+          data-options='{
+            "selector": ".cart-product-item",
+            "navigation": false,
+            "groupCells": true
+          }'
+          style="display:flex"
+        >  
+        {% for block in section.blocks %}
+          {% assign country_ok_to_proceed = 'no' %}
+          {% include 'ob-include-country-ok-to-proceed', thingObj:block %}
+          {% if country_ok_to_proceed == 'yes' %}            
+      		{% if block.type == 'single-layer-block' %}
+            <div class="cart-product-item w-1/3 md:w-1/4 lg:w-1/6 xxl:w-1/6 xxxl:w-1/8  ">
+              <div class="flex items-center justify-center relative mb-4 {{ section.settings.block_wrapper_classes }} {{ section.settings.block_bg_colour }} {{ section.settings.block_text_colour }} hover:{{ section.settings.block_bg_colour_hover }} hover:{{ section.settings.block_text_colour_hover }}">
+                {% if block.settings.block_link_1 != blank %}
+                <a class="absolute w-full h-full inset-0 z-100" href="{{ block.settings.block_link_1 }}"></a>
+                {% endif %}
+                <div class="{{ section.settings.block_inner_wrapper_classes }}">
+                  {% if block.settings.block_svg_1 != blank %}
+                    {% capture block_svg_1 %}{{ block.settings.block_svg_1 }}{% endcapture %}
+                    {{ block_svg_1 | replace: 'svg_classes', svg_classes }}
+                  {% elsif block.settings.block_video_1 contains '.json' %}
+                    <lottie-player class="{{ section.settings.block_image_classes }}" src="{{ block.settings.block_video_1 | file_url }}"  background="transparent"  speed="1" loop autoplay></lottie-player>              
+                  {% elsif block.settings.block_img_1 != blank %}
+                    <img class="{{ section.settings.block_image_classes }}" src="{{ block.settings.block_img_1 | img_url: '400x' }}">        
+                  {% endif %}
+                  {% if block.settings.block_title_1 != blank %}
+                    <span class="{{ section.settings.block_title_classes }}">{{ block.settings.block_title_1 }}</span>
+                  {% endif %}
+                  {% if block.settings.block_subtitle_1 != blank %}
+                    <span class="{{ section.settings.block_subtitle_classes }}">{{ block.settings.block_subtitle_1 }}</span>
+                  {% endif %}	              
+                </div>           
+              </div>        
+            </div>
+      	{% endif %}
+      {% endif %}    
+      {% endfor %} 
+      </css-slider>
+      {% endcapture  %}
+      {% endif %}
+
+
+      {{ carousel_blocks }}
+
+      {% if section.settings.button_text != blank %}
+      <div class="{{ section.settings.button_wrapper_classes }}">
+          <a href="{{ section.settings.button_url }}" class="{{ section.settings.button_classes }} {% if section.settings.use_primary_button_classes %}{{ settings.primary_button }}{% endif %}">
+              {{ section.settings.button_text }}
+          </a>
+      </div>
+      {% endif %}  
+      
+    </div>
+ 
+  </div>
+</div>
+
+{% if section.settings.custom_css != blank %}
+<style>
+  {{ section.settings.custom_css }}
+</style>
+{% endif %}
+
+{% endif %}
+
+{% schema %}
+  {
+    "name": "Link Blocks Slider",
+	"presets": [
+		{
+			"name": "Link Blocks Slider"
+		}
+	],
+    "settings": [
+        {
+            "type": "html",
+            "id": "country_iso",
+            "label": "Only display if current iso is (* for all)",
+            "info": "Comma seperated",
+            "default":"*"
+        },
+		{
+			"type": "text",
+			"id": "section_outer_wrapper_classes",
+			"label": "Section outer wrapper classes"
+		},
+		{
+			"type": "text",
+			"id": "section_inner_wrapper_classes",
+			"label": "Section inner wrapper classes"
+		},
+		{
+			"type": "text",
+			"id": "container_wrapper_classes",
+			"label": "Container wrapper classes",
+			"info": "Container of the blocks",
+            "default": "align-top inline-block m-4 text-center whitespace-normal"
+		},
+		{
+			"type": "text",
+			"id": "blocks_wrapper_classes",
+			"label": "Blocks wrapper_classes",
+			"info": "Wrapper of the blocks"
+		}, 
+		{
+			"type": "text",
+			"id": "wrapper_background_image_mobile",
+			"label": "Background Image Mobile",
+			"info": "Will apply to desktop too if desktop image setting left blank."
+		}, 
+		{
+			"type": "text",
+			"id": "wrapper_background_image_desktop",
+			"label": "Background Image Desktop",
+			"info": "Only use if mobile and desktop need to use different images"
+        },
+        {
+          "type": "header",
+          "content": "Intro block"
+        },
+        {
+          "id": "text_wrap",
+          "type": "text",
+          "label": "text wrap",
+          "default": "absolute bottom-10 right-20",
+          "info": "eg. absolute bottom-10 right-20"			
+        },
+        {
+          "id": "title",
+          "type": "text",
+          "label": "title"		
+        },
+        {
+          "id": "text_header_classes",
+          "type": "text",
+          "label": "text header class",
+          "default": "text-5xl pb-1",
+          "info": "eg. text-5xl pb-1"			
+        },
+        {
+          "id": "description",
+          "type": "html",
+          "label": "text description"			
+        },
+        {
+          "id": "text_description",
+          "type": "text",
+          "label": "text description class",
+          "default": "text-xl",
+          "info": "eg. text-xl"			
+        },
+		{
+			"type": "text",
+			"id": "button_text",
+			"label": "Button Text"
+		},
+		{
+			"type": "url",
+			"id": "button_url",
+			"label": "Button Url"
+		},
+		{
+			"type": "text",
+			"id": "button_classes",
+			"label": "Button Classes"
+		},
+		{
+			"type": "text",
+			"id": "button_wrapper_classes",
+			"label": "Button Wrapper Classes",
+			"default": "flex w-full justify-center items-center"
+		},
+		{
+			"type": "checkbox",
+			"id": "use_primary_button_classes",
+			"label": "Use primary button classes"
+		},
+		{
+		  "id": "double_layer_blocks",
+		  "type": "checkbox",
+		  "label": "Use double layer blocks"
+		},
+        {
+          "id": "block_wrapper_classes",
+          "type": "text",
+          "label": "Block wrapper classes"		
+        },
+        {
+          "id": "block_inner_wrapper_classes",
+          "type": "text",
+          "label": "Block inner wrapper classes"		
+        },
+        {
+          "id": "block_image_classes",
+          "type": "text",
+          "label": "Block image classes"		
+        },
+        {
+          "id": "block_title_classes",
+          "type": "text",
+          "label": "Block title classes"		
+        },
+        {
+          "id": "block_subtitle_classes",
+          "type": "text",
+          "label": "Block Subtitle classes"		
+        },
+        {
+          "id": "custom_css",
+          "type": "html",
+          "label": "Custom CSS"		
+        }      
+	],
+	"blocks": [
+		{
+          "type": "single-layer-block",
+          "name": "Single Layer Block",
+          "settings": [
+            {
+                "type": "checkbox",
+                "id": "block_active",
+                "label": "Block active?"
+            },
+            {
+                "type": "html",
+                "id": "country_iso",
+                "label": "Only display if current iso is (* for all)",
+                "info": "Comma seperated",
+                "default":"*"
+            },  
+            {
+                "type": "text",
+                "id": "title",
+                "label": "Block Identifier",
+                "info": "Used to identify the block in the section only."
+            },               
+			{
+				"type": "header",
+				"content": "Block 1"
+			},
+            {
+              "id": "block_link_1",
+              "type": "url",
+              "label": "Block link"	
+            },
+            {
+              "id": "block_svg_1",
+              "type": "textarea",
+              "label": "Block SVG"	
+            },		
+            {
+              "id": "block_img_1",
+              "type": "image_picker",
+              "label": "Block Image"	
+            },
+            {
+              "id": "block_video_1",
+              "type": "text",
+              "label": "Block Video",
+			  "info": "Enter file name for lottie animations"
+            },	
+            {
+              "id": "block_title_1",
+              "type": "text",
+              "label": "Block Title"	
+            },
+            {
+              "id": "block_subtitle_1",
+              "type": "text",
+              "label": "Block Subtitle"	
+            }            
+          ]
+		},
+		{
+          "type": "double-layer-block",
+          "name": "Double Layer Block",
+          "settings": [
+            {
+                "type": "checkbox",
+                "id": "block_active",
+                "label": "Block active?"
+            },
+            {
+                "type": "html",
+                "id": "country_iso",
+                "label": "Only display if current iso is (* for all)",
+                "info": "Comma seperated",
+                "default":"*"
+            },    
+            {
+                "type": "text",
+                "id": "title",
+                "label": "Block Identifier",
+                "info": "Used to identify the block in the section only."
+            },          
+			{
+				"type": "header",
+				"content": "Block 1"
+			},
+            {
+              "id": "block_link_1",
+              "type": "url",
+              "label": "Block link"	
+            },
+            {
+              "id": "block_svg_1",
+              "type": "textarea",
+              "label": "Block SVG"	
+            },		
+            {
+              "id": "block_img_1",
+              "type": "image_picker",
+              "label": "Block Image"	
+            },
+            {
+              "id": "block_video_1",
+              "type": "text",
+              "label": "Block Video",
+			  "info": "Enter file name for lottie animations"
+            },	
+            {
+              "id": "block_title_1",
+              "type": "text",
+              "label": "Block Title"	
+            },
+			{
+				"type": "header",
+				"content": "Block 2"
+			},
+            {
+              "id": "block_link_2",
+              "type": "url",
+              "label": "Block link"	
+            },
+            {
+              "id": "block_svg_2",
+              "type": "textarea",
+              "label": "Block SVG"	
+            },		
+            {
+              "id": "block_img_2",
+              "type": "image_picker",
+              "label": "Block Image"	
+            },
+            {
+              "id": "block_video_2",
+              "type": "text",
+              "label": "Block Video",
+			  "info": "Enter file name for lottie animations"
+            },	
+            {
+              "id": "block_title_2",
+              "type": "text",
+              "label": "Block Title"	
+            }
+          ]
+		}
+	]
+  }
+{% endschema %}

@@ -1,0 +1,75 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "layout": false,
+  "sections": {
+    "metaobject_search_section_6iQBiD": {
+      "type": "metaobject-search-section",
+      "blocks": {
+        "metaobject_Y4JN6M": {
+          "type": "metaobject",
+          "settings": {
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": "",
+            "metaobject": "subscription-upsell"
+          }
+        },
+        "metaobject_yHXwVr": {
+          "type": "metaobject",
+          "settings": {
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": "",
+            "metaobject": "free-christmas-card"
+          }
+        },
+        "metaobject_XWgRnT": {
+          "type": "metaobject",
+          "settings": {
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": "",
+            "metaobject": "santa-10"
+          }
+        },
+        "metaobject_VdgARG": {
+          "type": "metaobject",
+          "settings": {
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": "",
+            "metaobject": "free-valantines-day"
+          }
+        },
+        "metaobject_kxaiy6": {
+          "type": "metaobject",
+          "settings": {
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": "",
+            "metaobject": "test-title"
+          }
+        }
+      },
+      "block_order": [
+        "metaobject_Y4JN6M",
+        "metaobject_yHXwVr",
+        "metaobject_XWgRnT",
+        "metaobject_VdgARG",
+        "metaobject_kxaiy6"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "metaobject_search_section_6iQBiD"
+  ]
+}

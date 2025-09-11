@@ -1,0 +1,143 @@
+{% schema %}
+{
+  "name": "Hero Banner Tiles",
+  "max_blocks": 2,
+  "settings": [],
+  "blocks": [
+    {
+      "type": "feature_tile",
+      "name": "Feature Tile",
+      "limit": 2,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "tile_image_desktop",
+          "label": "Desktop Tile Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "tile_image_mobile",
+          "label": "Mobile Tile Image"
+        },
+        {
+          "type": "select",
+          "id": "button_style",
+          "label": "Button Style",
+          "options": [
+            {
+              "value": "primary",
+              "label": "Primary"
+            },
+            {
+              "value": "secondary",
+              "label": "Secondary"
+            },
+            {
+              "value": "outline",
+              "label": "Outline"
+            }
+          ],
+          "default": "primary"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Button Text",
+          "default": "Shop Now"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Link"
+        },
+        {
+          "type": "checkbox",
+          "id": "is_rounded",
+          "label": "Use rounded style",
+          "default": false
+        },
+        {
+          "type": "text",
+          "id": "extra_classes",
+          "label": "Extra Classes",
+          "info": "Add any additional classes, separated by spaces"
+        },
+        {
+          "type": "text",
+          "id": "button_id",
+          "label": "Button ID",
+          "info": "Add a unique ID to the button"
+        },
+        {
+          "type": "text",
+          "id": "custom_attributes",
+          "label": "Custom Attributes",
+          "info": "Add custom attributes to the button (e.g., data-custom='value')"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Dual Tiles",
+      "blocks": [
+        {
+          "type": "feature_tile"
+        },
+        {
+          "type": "feature_tile"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<div class="tiles tiles--items-2 spacer--size-xs tiles--aspect-ratio-7/5 py-14">
+  <div class="tiles__wrapper wrapper">
+    {% for block in section.blocks %}
+      {% if block.type == 'feature_tile' %}
+        <div class="tile tile--size-lg tile--content-placement-inside tile--aspect-ratio-7/5 md:!col-span-6 block">
+          <a class="tile__image" href="{{ block.settings.button_link }}">
+            <picture>
+              {% if block.settings.tile_image_desktop or block.settings.tile_image_mobile %}
+                {% if block.settings.tile_image_mobile %}
+                  <img
+                    class="object-cover object-top w-full h-full md:hidden"
+                    src="{{ block.settings.tile_image_mobile | img_url: 'master' }}"
+                    alt="{{ block.settings.tile_heading }}"
+                  >
+                {% endif %}
+                {% if block.settings.tile_image_desktop %}
+                  <img
+                    class="object-cover object-top w-full h-full hidden md:block"
+                    src="{{ block.settings.tile_image_desktop | img_url: 'master' }}"
+                    alt="{{ block.settings.tile_heading }}"
+                  >
+                {% endif %}
+              {% else %}
+                {{ 'lifestyle-1' | placeholder_svg_tag: 'object-cover object-top w-full h-full' }}
+              {% endif %}
+            </picture>
+          </a>
+          <div class="tile__content tile__content--left">
+            <div class="tile__actions">
+              {% if block.settings.title != blank %}
+                {% render 'ob-include-button',
+                  type: block.settings.button_style,
+                  text: block.settings.title,
+                  link: block.settings.button_link,
+                  extra_classes: block.settings.extra_classes,
+                  section_id: block.id,
+                  is_rounded: block.settings.is_rounded,
+                  custom_attributes: block.settings.custom_attributes,
+                  button_id: block.settings.button_id
+                %}
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>

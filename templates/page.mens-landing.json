@@ -1,0 +1,312 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "plain_banner_NQUqJ4": {
+      "type": "plain-banner",
+      "settings": {
+        "image": "shopify://shop_images/Banners-Underwear_Info_Guide_Desk-Banner.jpg",
+        "mobile_image": "shopify://shop_images/Banners-Underwear_Info_Guide_Mob-Banner_5bc3bbfa-a02d-435e-a9d8-95ac7655d1ad.jpg",
+        "title": "Men's Underwear Guide",
+        "sub_title": "The Ultimate Guide to Men's Underwear",
+        "text": "Find Your Perfect Fit"
+      }
+    },
+    "plain_text_gDgDiL": {
+      "type": "plain-text",
+      "settings": {
+        "text": "<br> When it comes to comfort, style, and functionality, choosing the right underwear is essential.\n<br> \n<br>\nAt OddBalls, we offer a variety of men’s underwear styles to suit different preferences, activities, and needs. Whether you're looking for everyday comfort, breathable fabrics, or something tailored for sport and movement, we've got you covered. Explore our collection below to find the perfect fit for you.\n<br>"
+      }
+    },
+    "mens_landing_split_KDaihE": {
+      "type": "mens-landing-split",
+      "blocks": {
+        "block_Q76fpi": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/Buttons-Mens_Information_Page_MENS_COTTON-03.jpg",
+            "shop_now_link": "https://www.myoddballs.com/collections/him-individuals",
+            "shop_now_classes": "px-4 py-1 text-center text-white uppercase font-bold border-2 border-solid border-white rounded-full md:text-xl",
+            "top_text": "Cotton Boxers",
+            "subtitle_text": "The everyday essential",
+            "content_text": "<b>Best for: </b>  All-day comfort, breathability, relaxed fit. <br> <b> Ideal for:  </b>Relaxing at home, everyday wear, those who prefer a non-restrictive fit. <br> Our classic cotton boxers are designed for those who love a traditional, loose-fitting style.  Made from soft cotton, these boxers provide excellent breathability and a relaxed fit for unrestricted movement.",
+            "button_1_image": "shopify://shop_images/Buttons-Mens_Information_Page_INFO_ICON_12.jpg",
+            "button_1_text": "Lightweight and breathable for all-day wear",
+            "button_2_image": "shopify://shop_images/Buttons-Mens_Information_Page_INFO_ICON_2.jpg",
+            "button_2_text": "Soft cotton fabric for maximum comfort",
+            "button_3_image": "shopify://shop_images/Buttons-Mens_Information_Page_INFO_ICON_1.jpg",
+            "button_3_text": "Elasticated waistband for a secure yet flexible fit",
+            "image_position": "left"
+          }
+        },
+        "block_TnDqa6": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/Buttons-Mens_Information_Page_BRIEFS.jpg",
+            "shop_now_link": "https://www.myoddballs.com/collections/his-briefs",
+            "shop_now_classes": "px-4 py-1 text-center text-white uppercase font-bold border-2 border-solid border-white rounded-full md:text-xl",
+            "top_text": "Cotton Briefs",
+            "subtitle_text": "The supportive choice",
+            "content_text": "<b> Best for: </b>  Maximum support, snug fit, active lifestyles.   <br> <b> Ideal for: </b>   Sports, everyday wear, those who prefer a supportive fit.  <br> For those who prefer a secure and streamlined fit, our cotton briefs offer superior support while keeping you comfortable throughout the day. Made from premium cotton, these briefs sit snugly against the skin, reducing friction and providing excellent shape retention.",
+            "button_1_image": "shopify://shop_images/Buttons-Mens_Information_Page_INFO_ICON_3.jpg",
+            "button_1_text": "Close-fitting design for enhanced support",
+            "button_2_image": "shopify://shop_images/Buttons-Mens_Information_Page_INFO_ICON_5.jpg",
+            "button_2_text": "Reduces chafing—great for high-intensity activities",
+            "button_3_image": "shopify://shop_images/Buttons-Mens_Information_Page_INFO_ICON_4.jpg",
+            "button_3_text": "Soft cotton fabric for breathability and moisture control",
+            "image_position": "right"
+          }
+        }
+      },
+      "block_order": [
+        "block_Q76fpi",
+        "block_TnDqa6"
+      ],
+      "settings": {}
+    },
+    "mens_landing_split_w9FEyi": {
+      "type": "mens-landing-split",
+      "blocks": {
+        "block_ViCH8g": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/Buttons-Mens_Information_Page_BAMBOO-04.jpg",
+            "shop_now_link": "https://www.myoddballs.com/collections/bamboo-boxer-shorts",
+            "shop_now_classes": "px-4 py-1 text-center text-white uppercase font-bold border-2 border-solid border-white rounded-full md:text-xl",
+            "top_text": "Bamboo Boxers",
+            "subtitle_text": "The eco-friendly choice",
+            "content_text": "<b> Best for: </b> Softness, breathability, sustainability.  <br> <b>  Ideal for:   </b>Warm climates, sports, those with sensitive skin, sustainable shoppers. <br> Our bamboo boxers are an eco-conscious option designed for ultimate comfort. Bamboo fabric is naturally breathable, moisture-wicking, and ultra-soft, making it an excellent choice for those with sensitive skin or anyone looking for a sustainable alternative.",
+            "button_1_image": "shopify://shop_images/Buttons-Mens_Information_Page_INFO_ICON_3.jpg",
+            "button_1_text": "Silky soft feel—perfect for sensitive skin",
+            "button_2_image": "shopify://shop_images/Buttons-Mens_Information_Page_INFO_ICON_9.jpg",
+            "button_2_text": "Naturally breathable and moisture-wicking to keep you cool",
+            "button_3_image": "shopify://shop_images/Buttons-Mens_Information_Page_INFO_ICON_6.jpg",
+            "button_3_text": "Sustainable fabric choice, kinder to the planet",
+            "image_position": "left"
+          }
+        },
+        "block_RkGmkd": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/Buttons-Mens_Information_Page_LOOSE_FIT.jpg",
+            "shop_now_link": "https://www.myoddballs.com/collections/mens-loose-fit-boxers",
+            "shop_now_classes": "px-4 py-1 text-center text-white uppercase font-bold border-2 border-solid border-white rounded-full md:text-xl",
+            "top_text": "Loose Fit Cotton Boxers",
+            "subtitle_text": "The relaxed fit",
+            "content_text": "<b> Best for: </b>  Maximum freedom, casual wear, breathability.  <br> <b> Ideal for:  </b> Lounging, sleeping, casual everyday wear.  <br> Our new loose fit cotton boxers offer a relaxed, airy feel while maintaining all the essential features of a comfortable everyday boxer. Made from 100% soft cotton with an elasticated waistband, they provide room to move with a blend of comfort and flexibility.",
+            "button_1_image": "shopify://shop_images/Buttons-Mens_Information_Page_INFO_ICON_1.jpg",
+            "button_1_text": "Relaxed fit for unrestricted movement",
+            "button_2_image": "shopify://shop_images/Buttons-Mens_Information_Page_INFO_ICON_10.jpg",
+            "button_2_text": "100% cotton fabric for superior breathability",
+            "button_3_image": "shopify://shop_images/Buttons-Mens_Information_Page_INFO_ICON_7.jpg",
+            "button_3_text": "Double-layered fly for extra support",
+            "image_position": "right"
+          }
+        }
+      },
+      "block_order": [
+        "block_ViCH8g",
+        "block_RkGmkd"
+      ],
+      "settings": {}
+    },
+    "title_with_text_9cT49n": {
+      "type": "title-with-text",
+      "settings": {
+        "title": "Style & Fit",
+        "text": "<br> Whether you prefer loose-fitting boxers, supportive briefs, or something in between, choosing the right style for your body shape and activity level is essential. A good fit prevents discomfort, chafing, and ride-up, what you need for all-day wear.\n<br>\n<br>\nFinding the perfect fit is essential for comfort and support when it comes to men’s underwear. Whether you prefer a snug, supportive fit or a looser, more relaxed style, understanding your size and the fit that suits you best can make all the difference. Our size guide will help you choose the right fit for your body, ensuring you feel confident and comfortable all day long. Click <a href=\"https://www.myoddballs.com/pages/all-size-guides\" class=\"link text-magenta-500\">here</a> to explore our size guide!"
+      }
+    },
+    "ob_tw_circles_ydfdWh": {
+      "type": "mens-landing-circles",
+      "blocks": {
+        "image_block_fFBWAM": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/buttons-01.png",
+            "page": "",
+            "url": "https://www.myoddballs.com/collections/him-individuals",
+            "title": "BOXERS",
+            "button-classes": "mt-4 text-center shadow-xl rounded-full w-full mx-auto max-w-[175px] bg-black",
+            "text-classes": "text-white px-2 py-1 font-bold text-xs uppercase lw-black rounded-full text-nowrap"
+          }
+        },
+        "image_block_7QhzRz": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/buttons-03.png",
+            "page": "",
+            "url": "https://www.myoddballs.com/collections/his-briefs",
+            "title": "BRIEFS",
+            "button-classes": "mt-4 text-center shadow-xl rounded-full w-full mx-auto max-w-[175px] bg-black",
+            "text-classes": "text-white px-2 py-1 font-bold text-xs uppercase lw-black rounded-full text-nowrap"
+          }
+        },
+        "image_block_PV9HFT": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/buttons-02.png",
+            "page": "",
+            "url": "https://www.myoddballs.com/collections/bamboo-boxer-shorts",
+            "title": "BAMBOO",
+            "button-classes": "mt-4 text-center shadow-xl rounded-full w-full mx-auto max-w-[175px] bg-black",
+            "text-classes": "text-white px-2 py-1 font-bold text-xs uppercase lw-black rounded-full text-nowrap"
+          }
+        },
+        "image_block_pXrUFe": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/buttons-04.png",
+            "page": "",
+            "url": "https://www.myoddballs.com/collections/mens-loose-fit-boxers",
+            "title": "LOOSE FIT",
+            "button-classes": "mt-4 text-center shadow-xl rounded-full w-full mx-auto max-w-[175px] bg-black",
+            "text-classes": "text-white px-2 py-1 font-bold text-xs uppercase lw-black rounded-full text-nowrap"
+          }
+        }
+      },
+      "block_order": [
+        "image_block_fFBWAM",
+        "image_block_7QhzRz",
+        "image_block_PV9HFT",
+        "image_block_pXrUFe"
+      ],
+      "custom_css": [],
+      "settings": {}
+    },
+    "title_with_text_bxiipT": {
+      "type": "title-with-text",
+      "settings": {
+        "title": "Material Matters",
+        "text": "<br>The right fabric makes all the difference. Soft cotton keeps things breathable, bamboo brings next-level comfort and moisture control, and blended fabrics for flexibility."
+      }
+    },
+    "student_discount_dual_block_UVHeQQ": {
+      "type": "student-discount-dual-block",
+      "blocks": {
+        "block_BrQFWw": {
+          "type": "block",
+          "settings": {
+            "background_image": "shopify://shop_images/Buttons-Mens_Information_Page_MENS_COTTON-07.jpg",
+            "title": "Cotton",
+            "button_text": "Shop Cotton",
+            "button_link": "https://www.myoddballs.com/collections/him-individuals",
+            "button_classes": "px-4 py-1 text-center text-white uppercase font-bold border-2 border-solid border-white rounded-full",
+            "content_position": "left"
+          }
+        },
+        "block_hKPTcC": {
+          "type": "block",
+          "settings": {
+            "background_image": "shopify://shop_images/Buttons-Mens_Information_Page_BAMBOO-09.jpg",
+            "title": "Bamboo",
+            "button_text": "Shop bamboo",
+            "button_link": "https://www.myoddballs.com/collections/bamboo-boxer-shorts",
+            "button_classes": "px-4 py-1 text-center black-white uppercase font-bold border-2 border-solid border-black rounded-full",
+            "content_position": "left"
+          }
+        }
+      },
+      "block_order": [
+        "block_BrQFWw",
+        "block_hKPTcC"
+      ],
+      "custom_css": [
+        ".rounded-full {white-space: nowrap;}"
+      ],
+      "settings": {}
+    },
+    "title_with_text_8BkYqh": {
+      "type": "title-with-text",
+      "settings": {
+        "title": "Colour Choices",
+        "text": "<br>Your underwear might not always be on display, but colour still matters. Love a classic? Black, white and navy have you covered. Feeling adventurous? Our bright, bold patterns bring some personality to your underwear drawer!"
+      }
+    },
+    "mens_landing_tri_block_JP89mD": {
+      "type": "mens-landing-tri-block",
+      "settings": {
+        "image_1": "shopify://shop_images/Buttons-Mens_Information_Page_PATTERNED.jpg",
+        "text_1": "Patterned",
+        "button_1": "SHOP PATTERNED",
+        "button_1_link": "https://www.myoddballs.com/pages/shop-by-design#patterned",
+        "image_2": "shopify://shop_images/Buttons-Mens_Information_Page_PALIN.jpg",
+        "text_2": "Plain",
+        "button_2": "SHOP PLAIN",
+        "button_2_link": "https://www.myoddballs.com/pages/shop-by-design#plain",
+        "text_classes": "text-white text-3xl font-bold",
+        "button_classes": "w-3/4 text-center font-bold  py-2 opacity-80 bg-white",
+        "image_3": "shopify://shop_images/Buttons-Mens_Information_Page_LICENSED.jpg",
+        "large_text": "Licensed Designs",
+        "large_button": "SHOP NOW",
+        "large_button_link": "https://www.myoddballs.com/pages/shop-by-design#partnerships",
+        "large_classes": "text-4xl font-bold text-white",
+        "large_button_classes": "border border-white rounded-full px-4 py-1 text-white mt-2 text-xl"
+      }
+    },
+    "title_with_text_zGTJ99": {
+      "type": "title-with-text",
+      "settings": {
+        "title": "Support & Comfort",
+        "text": "<br> For sports and active days, a supportive fit is a game-changer. For lounging, looser fits can enhance comfort. Always choose an elasticated waistband that stays put without digging in."
+      }
+    },
+    "mens_landing_rotating_gif_WeQnMK": {
+      "type": "mens-landing-rotating-gif",
+      "name": "Mens Landing Rotating Gif",
+      "settings": {
+        "mobile_gif": "shopify://shop_images/Mobile.gif",
+        "desktop_gif": "shopify://shop_images/Desktop.gif"
+      }
+    },
+    "title_with_text_WVbKVX": {
+      "type": "title-with-text",
+      "settings": {
+        "title": "Find Your Perfect Pair",
+        "text": "<br> No matter your preference, OddBalls has the right underwear for you. Explore our collection today and upgrade your essentials!"
+      }
+    },
+    "mens_landing_final_nLq7fg": {
+      "type": "mens-landing-final",
+      "settings": {
+        "background_image": "shopify://shop_images/Banners-Underwear_Info_Guide_Mob-Banner_-_Mid_Banner_eaff5b7a-3716-4968-be55-ccdad66d6508.jpg",
+        "desktop_background_image": "shopify://shop_images/Banners-Underwear_Info_Guide_Desk-Banner_-_Mid_Banner_e9c4a1a2-2edc-4770-91ec-53fa537d21e0.jpg",
+        "title": "Men's Bestsellers",
+        "button_text": "SHOP NOW",
+        "button_link": "https://www.myoddballs.com/#temp-tp-wrapper"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "plain_banner_NQUqJ4",
+    "plain_text_gDgDiL",
+    "mens_landing_split_KDaihE",
+    "mens_landing_split_w9FEyi",
+    "title_with_text_9cT49n",
+    "ob_tw_circles_ydfdWh",
+    "title_with_text_bxiipT",
+    "student_discount_dual_block_UVHeQQ",
+    "title_with_text_8BkYqh",
+    "mens_landing_tri_block_JP89mD",
+    "title_with_text_zGTJ99",
+    "mens_landing_rotating_gif_WeQnMK",
+    "title_with_text_WVbKVX",
+    "mens_landing_final_nLq7fg"
+  ]
+}

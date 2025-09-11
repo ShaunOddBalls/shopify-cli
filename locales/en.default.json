@@ -1,0 +1,930 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "ob_header": {
+    "icons": {
+      "account": "https://cdn.shopify.com/s/files/1/0353/7249/files/ACCOUNT_100x.png?v=1738559061",
+      "alert": "https://cdn.shopify.com/s/files/1/0353/7249/files/ALERT_100x.png?v=1738559052",
+      "basket": "https://cdn.shopify.com/s/files/1/0353/7249/files/BASKET_100x.png?v=1738559072",
+      "menu": "https://cdn.shopify.com/s/files/1/0353/7249/files/MENU.png?v=1738559092"
+    }
+  },
+  "js": {
+    "collection": {
+      "see_more": "see more",
+      "quick_buy": "quick buy",
+      "add_another": "add another",
+      "percent_saving": "% OFF SALE",
+      "value_saving": "Save £",
+      "filters": {
+        "price": "price",
+        "size": "size",
+        "material": "material",
+        "bundle": "bundle",
+        "print": "print",
+        "pattern": "pattern",
+        "product_type": "product type",
+        "primary_color": "primary colour",
+        "3XL": "3XL",
+        "2xL": "2XL",
+        "xL": "XL",
+        "large": "large",
+        "medium": "medium",
+        "small": "small",
+        "xs": "xs",
+        "2xs": "2xs",
+        "bamboo": "bamboo",
+        "cotton": "cotton",
+        "individual": "individual",
+        "partnership": "partnership",
+        "patterned": "patterned",
+        "plain": "plain",
+        "bamboo_boxer_shorts": "bamboo boxer shorts",
+        "boxer_shorts": "boxer shorts",
+        "boxer_shorts_bundle": "boxer shorts bundle",
+        "dad_and_lad_bundle": "dad & lad bundle",
+        "loose_fit_boxer_shorts": "loose fit boxer shorts",
+        "mens_bamboo_boxer_shorts_bundle": " mens bamboo boxer shorts bundle",
+        "subscription": "subscription",
+        "teen_boys_boxer_shorts": "teen boys boxer shorts",
+        "black": "black",
+        "blue": "blue",
+        "brown": "brown",
+        "green": "green",
+        "grey": "grey",
+        "orange": "orange",
+        "pink": "pink",
+        "red": "red",
+        "violet": "violet",
+        "white": "white",
+        "yellow": "yellow"
+      }
+    },
+    "perfect_pair": {
+      "see_more": "see more",
+      "quick_buy": "quick buy",
+      "add_another": "add another",
+      "set_price": "set price",
+      "remove": "remove"
+    },
+    "bab": {
+      "empty_button": "please select a size",
+      "full_button": "build your bundle",
+      "select_prints": "please select prints",
+      "add_to_cart": "add bundle to cart"
+    },
+    "collections": {
+      "see_more": "see more",
+      "quick_buy": "quick buy",
+      "add_another": "add another",
+      "percent_saving": "% OFF SALE",
+      "value_saving": "Save £"
+    },
+    "search": {
+      "search_terms": {
+        "fat_cow": "fat cow",
+        "neon_lava": "neon lava",
+        "mens_boxers": "mens boxers",
+        "hippy_jungle": "hippy jungle"
+      },
+      "or_maybe": "Or maybe ",
+      "try": "Try ",
+      "search_for_products": "Search for products...",
+      "see_more": "see more",
+      "quick_buy": "quick buy"
+    },
+    "custom": {
+      "add_to_basket": "Add to basket",
+      "item": "item",
+      "items": "items",
+      "please_select_size_html": "Please Select {{ size }}"
+    },
+    "cart": {
+      "upsells": {
+        "1": "Why not add 1 more ",
+        "2": "Why not add 2 more ",
+        "3": "Why not add 3 more ",
+        "4": "Why not add 3 more ",
+        "and_save_x": "and save £x",
+        "missed_offer": "Missed Offer ",
+        "mens": "mens ",
+        "womens": "womens ",
+        "ladies": "ladies ",
+        "boxers": "boxers ",
+        "briefs": "briefs ",
+        "bralette": "bralette ",
+        "bamboo": "bamboo ",
+        "thong": "thong ",
+        "seamless": "seamless ",
+        "full_seamless": "full seamless ",
+        "bundle": "bundle ",
+        "youve_saved_x": "You've saved £x",
+        "upgrade_and_save": "Upgrade and Save"
+      }
+    }
+  },
+  "ob_bab": {
+    "bab_intro": "Choose the designs YOU want by creating your own bundle. Select your underwear type and size, and then you can pick your PATTERNS! ",
+    "bab_save_up_to": "Save up to 33%!",
+    "bab_title": "Build a bundle",
+    "mens": "Men's",
+    "womens": "Women's",
+    "continue": "Continue Shopping",
+    "checkouta": "Checkout",
+    "checkout": "You can checkout below, or feel free to continue shopping.",
+    "your_saving": "You're saving",
+    "boxers": "Boxers",
+    "bundle_added": "Your bundle has been added to your cart!",
+    "alternatively": "or alternatively",
+    "briefs": "Briefs",
+    "add_to_bundle": "Add to Bundle",
+    "thongs": "Thongs",
+    "pairs": "Pairs",
+    "edit_selection": "Edit Selection",
+    "please_select_pairs": "Please Select Prints",
+    "bundle_price": "Bundle Price",
+    "another": "Build another bundle",
+    "start_again": "Start Again",
+    "seamless": "Seamless",
+    "items_in_bundle": "Items in your bundle",
+    "bamboo": "Bamboo",
+    "empty": "Bundle is empty, add some items to your bundle",
+    "patterned": "Patterned",
+    "plain": "Plain",
+    "empty_button": "Please select a size",
+    "current_size": "Current Size",
+    "sizes": "Sizes",
+    "add_more_to_save_html": "Add <b class=\"green\"><span id=\"saver-bar-number-of-pairs\" class=\"saver-bar-number-of-pairs\">3</span> More</b> and save <b class=\"green\">£<span class=\"saver-progress-savings\"></span> !</b>",
+    "price_per_pair": "Price per pair",
+    "fun_part": "Now the fun part!",
+    "instructions": "Select designs to see savings. Click 'Add to Bundle' when ready!",
+    "loading_message": "Finding your pants",
+    "full_seamless": "Full Seamless",
+    "select_type": "Select a product type"
+  },
+  "ob_label": {
+    "save": "save",
+    "off_sale": "off sale"
+  },
+  "ob_footer": {
+    "newletter_heading": "Subscribe to our newsletter",
+    "newletter_subheading": "Sign up to our newsletter for exclusive offers and discounts!"
+  },
+  "ob_about_us": {
+    "paragraph_1_html": "With over 300 unique underwear <a href=\"/pages/shop-by-design\" class=\"text-magenta-500\">designs</a>, <a href=\"/collections/all-sportswear\" class=\"text-magenta-500\">sportswear</a>, clothing and <a href=\"/collections/accessories\" class=\"text-magenta-500\">accessories</a> we have something for everyone!",
+    "paragraph_2_html": "OddBalls was originally founded, to not only produce incredible underwear, but to raise awareness of Testicular Cancer. We now donate to, support and make underwear for some brilliant charities – and have donated over {%- include 'ob-multilang' with '{{totalraised}}' -%}&nbsp;since 2014. Find out more in our charity section by clicking <a href=\"/pages/our-charities\" class=\"text-magenta-500\">here</a>.",
+    "paragraph_3_html": "Over the past 6 years we have developed partnerships with some of the biggest sporting bodies and teams in the world, including: <a href=\"https://www.myoddballs.com/collections/design-british-and-irish-lions\" class=\"text-magenta-500 no-underline\">The British & Irish Lions</a>, <a href=\"https://www.myoddballs.com/collections/design-england-rugby\" class=\"text-magenta-500 no-underline\">England Rugby</a>, <a href=\"https://www.myoddballs.com/collections/design-welsh-rugby-union\" class=\"text-magenta-500 no-underline\">Welsh Rugby Union</a>, <a href=\"https://www.myoddballs.com/collections/design-england-fa\" class=\"text-magenta-500 no-underline\">England Football</a>, <a href=\"https://www.myoddballs.com/collections/design-ecb\" class=\"text-magenta-500 no-underline\">England Cricket</a>, <a href=\"https://www.myoddballs.com/collections/design-welsh-fa\" class=\"text-magenta-500 no-underline\">Welsh FA</a> and hundreds of professional clubs across the UK and around the world.",
+    "paragraph_4_html": "What are you waiting for? Join the pants party and order your OddBalls today!"
+  },
+  "ob_product_page": {
+    "in_the": "in the",
+    "other_items": "Other items",
+    "other_items_in_the": "Other items in the",
+    "design": "Design",
+    "get_yours_from": "Get yours from",
+    "patterned": "Patterned",
+    "partnerships": "Partnerships",
+    "plain": "Plain",
+    "show_more": "Show More Prints",
+    "show_less": "Show Less Prints",
+    "recommendations": "Recommendations",
+    "reviews": "Reviews",
+    "pack": "pack"
+  },
+  "ob_search": {
+    "popular_searches": "Popular Searches",
+    "popular_products": "Our Popular Products",
+    "suggestions": "suggestions",
+    "related_products": "Products related to",
+    "results_for": "Results for",
+    "try_again": "Try Again With Another Search",
+    "search_suggestions": "search suggestions",
+    "see_all_results": "see all results",
+    "products_found_for": "products found for",
+    "search": "Search",
+    "show_filters": "show filters",
+    "sort_by": "sort by",
+    "search_products": "Search products",
+    "back_to_menu": "Back to menu"
+  },
+  "ob_popup": {
+    "continue_shopping_html": "Or <span href=\"\" class=\"font-bold\">continue shopping...</span>",
+    "you_have_chosen_html": "Your <b>Free Product</b> has been added!<br> <small> (You have chosen ⬇️)</small>",
+    "congratulations": "Congratulations you qualify for",
+    "free_tracked_uk_shipping_html": "<b>Free Tracked</b> UK shipping",
+    "learn_more": "Learn More",
+    "checkout": "checkout",
+    "items": "Items",
+    "basket": "Basket",
+    "size_guide": "Size Guide",
+    "description": "Product Description",
+    "patterned": "patterned",
+    "plain": "plain",
+    "sign_up": "Sign Up",
+    "bis_sign_up": "Back In Stock Sign Up",
+    "select_size": "Select size",
+    "finish_multibuy": "Finish your multibuy",
+    "finding_products": "Finding your products",
+    "item_added_to_cart": " Item Added to Cart",
+    "add_another_product": "Would You like to add another product?",
+    "away_from_html": "You're only <b class=\"text-magenta-500\"><span id=\"cmb-to-next\">1 </span> away</b> from saving <span id=\"cmb-next-saving\" class=\"text-magenta-500 font-bold\"></span>",
+    "free_tracked_shipping_html": "You have qualified for <b class=\"capitalize\">free tracked </b> UK Shipping",
+    "to_free_tracked_shipping_html": "Add <span id=\"to-shipping-threshold-span\" class=\"mx-1\"></span> more to get<span id=\"from-shipping-span\" class=\"ml-1\"> <b class=\"capitalize\">free tracked </b> UK Shipping</span>",
+    "to_free_gift_html": "Add <span id=\"to-gift-threshold-span\" class=\"mx-1\"></span> more to get a<b id=\"from-gift-span\" class=\"mx-1 capitalize\"> free product</b> <span>(worth up to £20)</span>",
+    "free_gift_qualified_html": "You have qualified for a <b>Free Product</b> worth up to £20.00. <small>(Please choose below)</small>",
+    "choose_free_product": "Choose Free Product",
+    "add_free_gift": "Add Free Gift",
+    "select": "Select",
+    "email": "email",
+    "yes": "yes",
+    "back_to_cart": "Back To Cart",
+    "empty_message": "Your cart's feeling lonely- don't let it go commando",
+    "other_items": "Your other items",
+    "upsells": {
+      "matching_product_title_html": "Add the matching {{ type }}",
+      "matching_product_paragraph": "Why not complete you look with these {{ product }}",
+      "cart_sub_and_save_title": "Upgrade To a Monthly Subscription",
+      "cart_more_info": "More Info",
+      "sub_quickbuy_reason_one": "Free socks with every subscription order",
+      "sub_quickbuy_reason_two": "Free standard delivery on all OddBalls orders!",
+      "sub_quickbuy_reason_three": "Receive a brand new design every month",
+      "sub_quickbuy_reason_four": "Cancel anytime – no commitment!",
+      "sub_quickbuy_size": "Sizes",
+      "ctl_matching_pair": "Add Matching Pair",
+      "ctl_matching_bralette": " Add Matching Bralette",
+      "ctl_matching_towel": "Add Matching Towel",
+      "ctl_matching_sock": " Add Matching Sock"
+    }
+  },
+  "ob_cart": {
+    "empty_cart": "Your Cart Is Empty",
+    "empty_message": "Your cart's feeling lonely- don't let it go commando",
+    "other_items": "Your other items",
+    "shop_mens": "Shop mens",
+    "shop_womens": "Shop womens",
+    "top_picks": "Top Picks that your cart will love",
+    "subtotal_shipping_and_taxes_message": "Shipping and taxes calculated at the checkout",
+    "have_a_discount_code_message": "Have a discount code? Apply at the checkout",
+    "subtotal": "Subtotal",
+    "extra_message_html": "20% of your subtotal will be donated to the Oddballs Foundation this weekend",
+    "cart_savings": "Cart Savings Applied",
+    "order_value": "Order Value (RRP)",
+    "upsell": {
+      "select_size_below": "Select size below"
+    }
+  },
+  "collection_page": {
+    "show_filters": "show filters",
+    "sort_by": "sort by",
+    "see_more": "see more",
+    "viewing": "viewing",
+    "low_to_high": "low - high",
+    "high_to_low": "high - low",
+    "most_relevant": "most relevant",
+    "quick_buy": "quick buy",
+    "view_more_count_html": "Viewing {{ count }} of {{ total }} Products"
+  },
+  "ob_quick_buy": {
+    "atc": "Add To Basket",
+    "title": "Quick Add",
+    "size_guide": "Size Guide",
+    "size_guide_recomendations": "We Recomend to Size Up.",
+    "select_size": "Select Size",
+    "out_of_stock_html": "<div class=\"tw-text-xs tw-mt-4\"> Size out of stock? <a class=\"tw-text-magenta-500 out-of-stock-message2 klaviyo-bis-trigger\" style=\"color:#f00f83 !important;\" href=\"#\">Click here</a> to get notified when it's back in stock </div>"
+  },
+  "ob_perfect_pair": {
+    "back": "back",
+    "loose_fit_boxers": "loose fit boxers",
+    "home_slide": {
+      "free_shipping_text": "Free UK shipping on ALL orders over £35",
+      "intro_text": "Get the perfect pair with our match making, underwear service. Shop matching underwear for you and someone special!",
+      "1st_pair_heading": "1st pair",
+      "department_intoduction": "You first, what kind of underwear do you wear?",
+      "mens": "men's",
+      "womens": "women's",
+      "prod_type_introduction": "Select a product type",
+      "boxers": "boxers",
+      "briefs": "briefs",
+      "bamboo": "bamboo",
+      "thongs": "thongs",
+      "seamless": "seamless",
+      "full_seamless": "full seamless",
+      "size_heading": "sizes",
+      "size_guide": "size guide",
+      "unavailable_button": "Please Select a Size",
+      "available_button": "Continue To Next Pair"
+    },
+    "slide_2": {
+      "2nd_pair_heading": "2nd pair",
+      "department_intoduction": "What kind of underwear do they wear?",
+      "mens": "men's",
+      "womens": "women's",
+      "prod_type_introduction": "Select a product type",
+      "boxers": "boxers",
+      "briefs": "briefs",
+      "bamboo": "bamboo",
+      "thongs": "thongs",
+      "seamless": "seamless",
+      "full_seamless": "full seamless",
+      "size_heading": "sizes",
+      "size_guide": "size guide",
+      "unavailable_button": "Please Select a Size",
+      "available_button": "See Your Matches"
+    },
+    "loading_screen": {
+      "loading": "Finding your pairs"
+    },
+    "results_screen": {
+      "title": "What a Perfect Pair!",
+      "selected_print": "The selected print is",
+      "patterned": "patterned",
+      "plain": "plain",
+      "no_plain": "no plain available",
+      "prints_available_in": "prints available in",
+      "add_bralette": "add a matching bralette",
+      "add_socks": "add a matching socks",
+      "no_socks": "no socks available",
+      "show_more": "show more",
+      "show_less": "show less",
+      "set_price": "set price",
+      "add_to_cart": "add to cart",
+      "back": "back",
+      "pair_1": "pair 1",
+      "pair_2": "pair 2"
+    }
+  },
+  "general": {
+    "breadcrumb": {
+      "homepage": "Home",
+      "collections": "Collections",
+      "search": "Search results for \"{{ terms }}\"",
+      "blog": "Blog",
+      "account": "Account",
+      "cart": "Cart",
+      "product_type": {
+        "boxer_shorts": "boxer shorts",
+        "bamboo_boxer_shorts": "bamboo boxer shorts",
+        "briefs": "briefs",
+        "socks": "socks",
+        "bralette": "Bralette",
+        "ladies_boxers": "ladies boxers",
+        "low_rise_briefs": "low rise briefs",
+        "thong": "Thong",
+        "seamless": "Seamless",
+        "ladies_bamboo_boxers": "Ladies Bamboo Boxers",
+        "goolies": "goolies",
+        "boxer_shorts_bundle": " Boxershorts-Bundle",
+        "mens_bamboo_boxer_shorts_bundle": "Mens Bamboo Boxer Shorts Bundle",
+        "mens_brief_bundle": "mens briefs bundle",
+        "ankle_socks_bundle": "Ankle Socks Bundle",
+        "bralette_bundle": "bralette_bundle",
+        "ladies_brief_bundle": "Ladies briefs bundle",
+        "ladies_seamless_bundle": "Ladies Seamless Bundle",
+        "ladies_bamboo_boxer_shorts_bundle": "Ladies Bamboo Boxer Shorts Bundle",
+        "ladies_thong_bundle": "Ladies Thong Bundle"
+      }
+    },
+    "password_page": {
+      "login_form_heading": "Enter store using password:",
+      "login_password_button": "Enter using password",
+      "login_form_password_label": "Password",
+      "login_form_password_placeholder": "Your password",
+      "login_form_error": "Wrong password!",
+      "login_form_submit": "Enter",
+      "admin_link_html": "Are you the store owner? <a href=\"/admin\" class=\"link underlined-link\">Log in here</a>",
+      "powered_by_shopify_html": "This shop will be powered by {{ shopify }}"
+    },
+    "social": {
+      "alt_text": {
+        "share_on_facebook": "Share on Facebook",
+        "share_on_twitter": "Share on X",
+        "share_on_pinterest": "Pin on Pinterest"
+      },
+      "links": {
+        "twitter": "X (Twitter)",
+        "facebook": "Facebook",
+        "pinterest": "Pinterest",
+        "instagram": "Instagram",
+        "tumblr": "Tumblr",
+        "snapchat": "Snapchat",
+        "youtube": "YouTube",
+        "vimeo": "Vimeo",
+        "tiktok": "TikTok"
+      }
+    },
+    "continue_shopping": "Continue shopping",
+    "pagination": {
+      "label": "Pagination",
+      "page": "Page {{ number }}",
+      "next": "Next page",
+      "previous": "Previous page"
+    },
+    "search": {
+      "search": "Search",
+      "reset": "Clear search term"
+    },
+    "cart": {
+      "view": "View cart ({{ count }})",
+      "view_empty_cart": "View cart",
+      "item_added": "Item added to your cart"
+    },
+    "share": {
+      "close": "Close share",
+      "copy_to_clipboard": "Copy link",
+      "share_url": "Link",
+      "success_message": "Link copied to clipboard"
+    },
+    "slider": {
+      "of": "of",
+      "next_slide": "Slide right",
+      "previous_slide": "Slide left",
+      "name": "Slider"
+    }
+  },
+  "newsletter": {
+    "label": "Email",
+    "email_placeholder": "Email Address",
+    "success": "Thanks for subscribing",
+    "button_label": "Subscribe"
+  },
+  "accessibility": {
+    "skip_to_text": "Skip to content",
+    "skip_to_product_info": "Skip to product information",
+    "close": "Close",
+    "unit_price_separator": "per",
+    "vendor": "Vendor:",
+    "error": "Error",
+    "refresh_page": "Choosing a selection results in a full page refresh.",
+    "link_messages": {
+      "new_window": "Opens in a new window.",
+      "external": "Opens external website."
+    },
+    "loading": "Loading...",
+    "total_reviews": "total reviews",
+    "star_reviews_info": "{{ rating_value }} out of {{ rating_max }} stars",
+    "collapsible_content_title": "Collapsible content",
+    "complementary_products": "Complementary products"
+  },
+  "blogs": {
+    "article": {
+      "blog": "Blog",
+      "read_more_title": "Read more: {{ title }}",
+      "comments": {
+        "one": "{{ count }} comment",
+        "other": "{{ count }} comments"
+      },
+      "moderated": "Please note, comments need to be approved before they are published.",
+      "comment_form_title": "Leave a comment",
+      "name": "Name",
+      "email": "Email",
+      "message": "Comment",
+      "post": "Post comment",
+      "back_to_blog": "Back to blog",
+      "share": "Share this article",
+      "success": "Your comment was posted successfully! Thank you!",
+      "success_moderated": "Your comment was posted successfully. We will publish it in a little while, as our blog is moderated."
+    }
+  },
+  "onboarding": {
+    "product_title": "Example product title",
+    "collection_title": "Your collection's name"
+  },
+  "products": {
+    "product": {
+      "add_to_cart": "Add to cart",
+      "choose_options": "Choose options",
+      "choose_product_options": "Choose options for {{ product_name }}",
+      "description": "Description",
+      "inventory_in_stock": "In stock",
+      "inventory_in_stock_show_count": "{{ quantity }} in stock",
+      "inventory_low_stock": "Low stock",
+      "inventory_low_stock_show_count": "Low stock: {{ quantity }} left",
+      "inventory_out_of_stock": "Out of stock",
+      "inventory_out_of_stock_continue_selling": "In stock",
+      "sku": "SKU",
+      "on_sale": "Sale",
+      "product_variants": "Product variants",
+      "media": {
+        "gallery_viewer": "Gallery Viewer",
+        "load_image": "Load image {{ index }} in gallery view",
+        "load_model": "Load 3D Model {{ index }} in gallery view",
+        "load_video": "Play video {{ index }} in gallery view",
+        "image_available": "Image {{ index }} is now available in gallery view",
+        "open_media": "Open media {{ index }} in modal",
+        "play_model": "Play 3D Viewer",
+        "play_video": "Play video"
+      },
+      "quantity": {
+        "label": "Quantity",
+        "input_label": "Quantity for {{ product }}",
+        "increase": "Increase quantity for {{ product }}",
+        "decrease": "Decrease quantity for {{ product }}",
+        "minimum_of": "Minimum of {{ quantity }}",
+        "maximum_of": "Maximum of {{ quantity }}",
+        "multiples_of": "Increments of {{ quantity }}",
+        "min_of": "Min {{ quantity }}",
+        "max_of": "Max {{ quantity }}",
+        "in_cart_html": "<span class=\"quantity-cart\">{{ quantity }}</span> in cart",
+        "note": "View quantity rules"
+      },
+      "volume_pricing": {
+        "title": "Volume Pricing",
+        "note": "Volume pricing available",
+        "minimum": "{{ quantity }}+",
+        "price_at_each": "at {{ price }}/ea",
+        "price_range": "{{ minimum }} - {{ maximum }}"
+      },
+      "pickup_availability": {
+        "view_store_info": "View store information",
+        "check_other_stores": "Check availability at other stores",
+        "pick_up_available": "Pickup available",
+        "pick_up_available_at_html": "Pickup available at <span class=\"color-foreground\">{{ location_name }}</span>",
+        "pick_up_unavailable_at_html": "Pickup currently unavailable at <span class=\"color-foreground\">{{ location_name }}</span>",
+        "unavailable": "Couldn't load pickup availability",
+        "refresh": "Refresh"
+      },
+      "price": {
+        "from_price_html": "From {{ price }}",
+        "regular_price": "Regular price",
+        "sale_price": "Sale price",
+        "unit_price": "Unit price"
+      },
+      "share": "Share this product",
+      "sold_out": "Sold out",
+      "unavailable": "Unavailable",
+      "vendor": "Vendor",
+      "value_unavailable": "{{ option_value }} - Unavailable",
+      "variant_sold_out_or_unavailable": "Variant sold out or unavailable",
+      "video_exit_message": "{{ title }} opens full screen video in same window.",
+      "view_full_details": "View full details",
+      "xr_button": "View in your space",
+      "xr_button_label": "View in your space, loads item in augmented reality window",
+      "include_taxes": "Tax included.",
+      "shipping_policy_html": "<a href=\"{{ link }}\">Shipping</a> calculated at checkout."
+    },
+    "modal": {
+      "label": "Media gallery"
+    },
+    "facets": {
+      "filter_and_operator_subtitle": "Match all",
+      "apply": "Apply",
+      "clear": "Clear",
+      "clear_all": "Remove all",
+      "from": "From",
+      "filter_and_sort": "Filter and sort",
+      "filter_by_label": "Filter:",
+      "filter_button": "Filter",
+      "filters_selected": {
+        "one": "{{ count }} selected",
+        "other": "{{ count }} selected"
+      },
+      "filter_selected_accessibility": "{{ type }} ({{ count }} filters selected)",
+      "show_more": "Show more",
+      "show_less": "Show less",
+      "max_price": "The highest price is {{ price }}",
+      "product_count": {
+        "one": "{{ product_count }} of {{ count }} product",
+        "other": "{{ product_count }} of {{ count }} products"
+      },
+      "product_count_simple": {
+        "one": "{{ count }} product",
+        "other": "{{ count }} products"
+      },
+      "reset": "Reset",
+      "sort_button": "Sort",
+      "sort_by_label": "Sort by:",
+      "to": "To",
+      "clear_filter": "Remove filter"
+    }
+  },
+  "templates": {
+    "search": {
+      "no_results": "No results found for “{{ terms }}”. Check the spelling or use a different word or phrase.",
+      "page": "Page",
+      "products": "Products",
+      "results_pages_with_count": {
+        "one": "{{ count }} page",
+        "other": "{{ count }} pages"
+      },
+      "results_suggestions_with_count": {
+        "one": "{{ count }} suggestion",
+        "other": "{{ count }} suggestions"
+      },
+      "results_products_with_count": {
+        "one": "{{ count }} product",
+        "other": "{{ count }} products"
+      },
+      "results_with_count": {
+        "one": "{{ count }} result",
+        "other": "{{ count }} results"
+      },
+      "results_with_count_and_term": {
+        "one": "{{ count }} result found for “{{ terms }}”",
+        "other": "{{ count }} results found for “{{ terms }}”"
+      },
+      "title": "Search results",
+      "search_for": "Search for “{{ terms }}”",
+      "suggestions": "Suggestions",
+      "pages": "Pages"
+    },
+    "cart": {
+      "cart": "Cart"
+    },
+    "contact": {
+      "form": {
+        "title": "Contact form",
+        "name": "Name",
+        "email": "Email",
+        "phone": "Phone number",
+        "comment": "Comment",
+        "send": "Send",
+        "post_success": "Thanks for contacting us. We'll get back to you as soon as possible.",
+        "error_heading": "Please adjust the following:"
+      }
+    },
+    "404": {
+      "title": "Doesn't look like we can find that page",
+      "country_not_found": "Doesn't look like we can find that page in your country",
+      "subtext": "404",
+      "shop_bestsellers": "or shop some of our best sellers"
+    }
+  },
+  "sections": {
+    "announcements": {
+      "previous_announcement": "Previous announcement",
+      "next_announcement": "Next announcement",
+      "carousel": "Carousel",
+      "announcement": "Announcement",
+      "announcement_bar": "Announcement bar"
+    },
+    "header": {
+      "announcement": "Announcement",
+      "menu": "Menu",
+      "cart_count": {
+        "one": "{{ count }} item",
+        "other": "{{ count }} items"
+      }
+    },
+    "cart": {
+      "title": "Your cart",
+      "caption": "Cart items",
+      "remove_title": "Remove {{ title }}",
+      "estimated_total": "Estimated total",
+      "new_estimated_total": "New estimated total",
+      "note": "Order special instructions",
+      "checkout": "Check out",
+      "empty": "Your cart is empty",
+      "cart_error": "There was an error while updating your cart. Please try again.",
+      "cart_quantity_error_html": "You can only add {{ quantity }} of this item to your cart.",
+      "taxes_and_shipping_policy_at_checkout_html": "Taxes, Discounts and <a href=\"{{ link }}\">shipping</a> calculated at checkout",
+      "taxes_included_but_shipping_at_checkout": "Tax included and shipping and discounts calculated at checkout",
+      "taxes_included_and_shipping_policy_html": "Tax included. <a href=\"{{ link }}\">Shipping</a> and discounts calculated at checkout.",
+      "taxes_and_shipping_at_checkout": "Taxes, discounts and shipping calculated at checkout",
+      "headings": {
+        "product": "Product",
+        "price": "Price",
+        "total": "Total",
+        "quantity": "Quantity",
+        "image": "Product image"
+      },
+      "update": "Update",
+      "login": {
+        "title": "Have an account?",
+        "paragraph_html": "<a href=\"{{ link }}\" class=\"link underlined-link\">Log in</a> to check out faster."
+      }
+    },
+    "footer": {
+      "payment": "Payment methods"
+    },
+    "featured_blog": {
+      "view_all": "View all",
+      "onboarding_title": "Blog post",
+      "onboarding_content": "Give your customers a summary of your blog post"
+    },
+    "featured_collection": {
+      "view_all": "View all",
+      "view_all_label": "View all products in the {{ collection_name }} collection"
+    },
+    "collection_list": {
+      "view_all": "View all"
+    },
+    "collection_template": {
+      "empty": "No products found",
+      "title": "Collection",
+      "use_fewer_filters_html": "Use fewer filters or <a class=\"{{ class }}\" href=\"{{ link }}\">remove all</a>"
+    },
+    "video": {
+      "load_video": "Load video: {{ description }}"
+    },
+    "slideshow": {
+      "load_slide": "Load slide",
+      "previous_slideshow": "Previous slide",
+      "next_slideshow": "Next slide",
+      "pause_slideshow": "Pause slideshow",
+      "play_slideshow": "Play slideshow",
+      "carousel": "Carousel",
+      "slide": "Slide"
+    },
+    "page": {
+      "title": "Page title"
+    },
+    "quick_order_list": {
+      "product_total": "Product subtotal",
+      "view_cart": "View cart",
+      "each": "{{ money }}/ea",
+      "product": "Product",
+      "variant": "Variant",
+      "variant_total": "Variant total",
+      "items_added": {
+        "one": "{{ quantity }} item added",
+        "other": "{{ quantity }} items added"
+      },
+      "items_removed": {
+        "one": "{{ quantity }} item removed",
+        "other": "{{ quantity }} items removed"
+      },
+      "product_variants": "Product variants",
+      "total_items": "Total items",
+      "remove_all_single_item_confirmation": "Remove 1 item from your cart?",
+      "remove_all_items_confirmation": "Remove all {{ quantity }} items from your cart?",
+      "remove_all": "Remove all",
+      "cancel": "Cancel",
+      "min_error": "This item has a minimum of {{ min }}",
+      "max_error": "This item has a maximum of {{ max }}",
+      "step_error": "You can only add this item in increments of {{ step }}"
+    }
+  },
+  "localization": {
+    "country_label": "Country/region",
+    "language_label": "Language",
+    "update_language": "Update language",
+    "update_country": "Update country/region",
+    "search": "Search",
+    "popular_countries_regions": "Popular countries/regions",
+    "country_results_count": "{{ count }} countries/regions found"
+  },
+  "customer": {
+    "account": {
+      "title": "Account",
+      "details": "Account details",
+      "view_addresses": "View addresses",
+      "return": "Return to Account details"
+    },
+    "account_fallback": "Account",
+    "activate_account": {
+      "title": "Activate account",
+      "subtext": "Create your password to activate your account.",
+      "password": "Password",
+      "password_confirm": "Confirm password",
+      "submit": "Activate account",
+      "cancel": "Decline invitation"
+    },
+    "addresses": {
+      "title": "Addresses",
+      "default": "Default",
+      "add_new": "Add a new address",
+      "edit_address": "Edit address",
+      "first_name": "First name",
+      "last_name": "Last name",
+      "company": "Company",
+      "address1": "Address 1",
+      "address2": "Address 2",
+      "city": "City",
+      "country": "Country/region",
+      "province": "Province",
+      "zip": "Postal/ZIP code",
+      "phone": "Phone",
+      "set_default": "Set as default address",
+      "add": "Add address",
+      "update": "Update address",
+      "cancel": "Cancel",
+      "edit": "Edit",
+      "delete": "Delete",
+      "delete_confirm": "Are you sure you wish to delete this address?"
+    },
+    "log_in": "Log in",
+    "log_out": "Log out",
+    "login_page": {
+      "cancel": "Cancel",
+      "create_account": "Create account",
+      "email": "Email",
+      "forgot_password": "Forgot your password?",
+      "guest_continue": "Continue",
+      "guest_title": "Continue as a guest",
+      "password": "Password",
+      "title": "Login",
+      "sign_in": "Sign in",
+      "submit": "Submit",
+      "alternate_provider_separator": "or"
+    },
+    "order": {
+      "title": "Order {{ name }}",
+      "date_html": "Placed on {{ date }}",
+      "cancelled_html": "Order Cancelled on {{ date }}",
+      "cancelled_reason": "Reason: {{ reason }}",
+      "billing_address": "Billing Address",
+      "payment_status": "Payment Status",
+      "shipping_address": "Shipping Address",
+      "fulfillment_status": "Fulfillment Status",
+      "discount": "Discount",
+      "shipping": "Shipping",
+      "tax": "Tax",
+      "product": "Product",
+      "sku": "SKU",
+      "price": "Price",
+      "quantity": "Quantity",
+      "total": "Total",
+      "total_refunded": "Refunded",
+      "fulfilled_at_html": "Fulfilled {{ date }}",
+      "track_shipment": "Track shipment",
+      "tracking_url": "Tracking link",
+      "tracking_company": "Carrier",
+      "tracking_number": "Tracking number",
+      "subtotal": "Subtotal",
+      "total_duties": "Duties"
+    },
+    "orders": {
+      "title": "Order history",
+      "order_number": "Order",
+      "order_number_link": "Order number {{ number }}",
+      "date": "Date",
+      "payment_status": "Payment status",
+      "fulfillment_status": "Fulfillment status",
+      "total": "Total",
+      "none": "You haven't placed any orders yet."
+    },
+    "recover_password": {
+      "title": "Reset your password",
+      "subtext": "We will send you an email to reset your password",
+      "success": "We've sent you an email with a link to update your password."
+    },
+    "register": {
+      "sign_in": "sign in",
+      "sign_up": "sign up",
+      "my_account": "my account",
+      "sign_in_message": "Sign into your account to make the checkout process quicker!",
+      "title": "Create account",
+      "first_name": "First name",
+      "last_name": "Last name",
+      "email": "Email",
+      "password": "Password",
+      "submit": "Create"
+    },
+    "reset_password": {
+      "title": "Reset account password",
+      "subtext": "Enter a new password",
+      "password": "Password",
+      "password_confirm": "Confirm password",
+      "submit": "Reset password"
+    }
+  },
+  "gift_cards": {
+    "issued": {
+      "how_to_use_gift_card": "Use the gift card code online or QR code in-store",
+      "title": "Here's your {{ value }} gift card balance for {{ shop }}!",
+      "subtext": "Your gift card",
+      "gift_card_code": "Gift card code",
+      "shop_link": "Visit online store",
+      "add_to_apple_wallet": "Add to Apple Wallet",
+      "qr_image_alt": "QR code — scan to redeem gift card",
+      "copy_code": "Copy gift card code",
+      "expiration_date": "Expires {{ expires_on }}",
+      "copy_code_success": "Code copied successfully",
+      "expired": "Expired"
+    }
+  },
+  "recipient": {
+    "form": {
+      "checkbox": "I want to send this as a gift",
+      "expanded": "Gift card recipient form expanded",
+      "collapsed": "Gift card recipient form collapsed",
+      "email_label": "Recipient email",
+      "email_label_optional_for_no_js_behavior": "Recipient email (optional)",
+      "email": "Email",
+      "name_label": "Recipient name (optional)",
+      "name": "Name",
+      "message_label": "Message (optional)",
+      "message": "Message",
+      "max_characters": "{{ max_chars }} characters max",
+      "send_on": "YYYY-MM-DD",
+      "send_on_label": "Send on (optional)"
+    }
+  },
+  "shopify": {
+    "checkout": {
+      "discount_errors": {
+        "generic_error": "Discount codes are disabled during our site-wide sale events."
+      },
+      "payment": {
+        "ideal_label": "iDEAL"
+      }
+    }
+  }
+}

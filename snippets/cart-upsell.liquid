@@ -1,0 +1,117 @@
+{% assign upsell_list =  shop.metaobjects.cart_upsell_list.cart-upsell-list-builha0k %}
+{% assign upsell_found = "false" %}
+  {% for upsell in upsell_list.list.value %}
+    {% assign product = upsell.product.value %}
+    {% assign show =  "true" %}
+    {% if upsell_found == "true" %}
+      {% assign show = "false" %}
+    {% endif %}
+    {% unless upsell.active.value %}
+      {% assign show = "false" %}
+    {% endunless %}
+
+    
+    {% assign to_show_on = upsell.markets_to_show_on | replace: '[', ''| replace: '"', '' | replace: ']', '' | split: ',' %}
+    {% unless to_show_on contains localization.market.handle %}
+      {% assign show = "false" %}
+    {% endunless %}
+    {% for item in cart.items %}
+      {% for variant in product.variants %}
+        {% if variant.id == item.id %}
+          {% assign show = "false" %}
+        {% endif %}
+      {% endfor %}
+    {% endfor %}
+
+    {% assign cart_to_check = cart.total_price | divided_by: 100 %}
+    {% assign max_price = upsell.max_cart_value %}
+    {% assign min_price = upsell.min_cart_value %}
+    {% if cart_to_check > max_price %}
+      {% assign show = "false" %}
+    {% endif %}
+    {% if cart_to_check < min_price %}
+      {% assign show = "false" %}
+    {% endif %}
+
+    
+    {% if show == "true" %}
+      {% assign upsell_found = "true" %}
+
+      <div id="in-cart-upsell"class="pb-4" style="background-color: #f9fafb;">
+        <div class="font-bold font-bold text-center w-full py-4" style="font-size:16px;">{{ upsell.upsell_title }}</div>
+
+      <div class="flex justify-between px-4 max-md:flex-col">
+        <div class="flex">
+          <img height="110px" width="110px" src="{{ product.featured_image | image_url}}" />
+          <div class="py-4">
+            <div class="font-bold">{{ product.title }}</div>
+           
+            <div class="{% if product.variants.size == 1  %}hidden{% endif %}">
+              <div>
+                {{ 'ob_cart.upsell.select_size_below' | t }}
+              </div>
+              <select value="7-10" class="upsellplus-selection w-full" productid="7562112041021">
+                {% for variant in product.variants %}
+                  {% if variant.available  == true %}
+                    <option class="upsell-option" data-id="{{ variant.id }}" value="{{ variant.title }}">{{ variant.title }}</option>
+                  {% endif %}
+                {% endfor %}
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-col justify-between">
+          <div class="flex md:justify-end max-md:mb-2">
+            <div class="text-magenta mr-2">{{ upsell.product_price.value | money }}</div>
+            {% if upsell.comp_price %}
+              <del class="text-gray-500">{{ upsell.comp_price.value | money }}</del>
+            {% endif %}
+          </div>
+          {% assign product_form_class = "product-form" %}
+          {% capture product_form_id %}product-form-{{ product.id }}{% endcapture %}
+          {%- form 'product', product, data-product-id: product.id, id: product_form_id, class: product_form_class, novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
+            {% render 'ob-product-form-attributes', cart_attributes:cart_attributes, product:product %}
+            <input class="upsell-product-json" type="hidden" id="product-json-{{ product.id }}" product-id="{{ product.id }}" value="{{ product | json | escape }}">
+            <input type="hidden" name="properties[_in-cart-upsell]" value="{{ product.id }}" />
+          <button class="cart-upsell-atc button px-1">
+            {{ 'products.product.add_to_cart' | t }}
+          </button>
+         {% endform %}
+        </div>
+      </div>
+
+    </div>
+    {% endif %}
+  {% endfor %}
+
+
+
+
+
+
+
+
+
+
+<!-- 
+    <div class="flex justify-between px-4">
+      <div class="flex">
+        <img height="40px" width="40px" src="{{ product.featured_image | image_url}}" />
+        <div>
+          <div>{{ product.title }}</div>
+          <div>
+            <select value="7-10" class="upsellplus-selection" productid="7562112041021">
+              {% for variant in product.variants %}
+                {{ variant | json }}
+                {% if variant.available  == true %}
+                  <option value="{{ variant.title }}">{{ variant.title }}</option>
+                {% endif %}
+              {% endfor %}
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="cart-upsell-atc button">
+        ADD TO CART
+      </div>
+    </div> -->

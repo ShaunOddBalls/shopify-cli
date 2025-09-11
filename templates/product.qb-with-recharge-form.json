@@ -1,0 +1,69 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "layout": false,
+  "sections": {
+    "sub_product_quick_view_EUJdyk": {
+      "type": "gifting-qb-section",
+      "blocks": {
+        "recharge_subscriptions_gifting_widget_K8QUcF": {
+          "type": "shopify://apps/recharge-subscriptions/blocks/gifting-widget/371eed76-0b44-4869-9813-730372ea378e",
+          "settings": {
+            "rc_show_sender_name": true,
+            "rc_show_send_date": true,
+            "rc_gift_months_max": 24,
+            "rc_disable_add_to_cart": true,
+            "rc_gift_recipient_block_title": "Recipient information",
+            "rc_gift_sender_name_text_input": "Sender name",
+            "rc_gift_recipient_firstname_text_input": "First name",
+            "rc_gift_recipient_lastname_text_input": "Last name",
+            "rc_gift_recipient_email_text_input": "Email",
+            "rc_gift_message_text_input": "Message",
+            "rc_gift_send_date_text_input": "When should we tell the recipient about their gift?",
+            "rc_gift_name_wrapper": "{property_name}",
+            "rc_gift_form_wrapper": false
+          }
+        },
+        "recharge_subscriptions_gifting_buy_button_wBhg3i": {
+          "type": "shopify://apps/recharge-subscriptions/blocks/gifting-buy-button/371eed76-0b44-4869-9813-730372ea378e",
+          "disabled": true,
+          "settings": {
+            "rc_gift_button_text": "Send as gift",
+            "product": "adult-underwear-digital-gift-subscription",
+            "use_selected_product_url": true,
+            "horizontal_alignment": "center",
+            "max_width": 30,
+            "rc_gift_button_class": "button button--primary"
+          }
+        },
+        "recharge_subscriptions_gifting_buy_button_y7KYWY": {
+          "type": "shopify://apps/recharge-subscriptions/blocks/gifting-buy-button/371eed76-0b44-4869-9813-730372ea378e",
+          "settings": {
+            "rc_gift_button_text": "Send as gift",
+            "product": "{{product}}",
+            "use_selected_product_url": false,
+            "horizontal_alignment": "center",
+            "max_width": 30,
+            "rc_gift_button_class": "button button--primary"
+          }
+        }
+      },
+      "block_order": [
+        "recharge_subscriptions_gifting_widget_K8QUcF",
+        "recharge_subscriptions_gifting_buy_button_wBhg3i",
+        "recharge_subscriptions_gifting_buy_button_y7KYWY"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "sub_product_quick_view_EUJdyk"
+  ]
+}

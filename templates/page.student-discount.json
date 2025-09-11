@@ -1,0 +1,146 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "three_text_fields_AjNNAp": {
+      "type": "ob-three-text-fields",
+      "blocks": {
+        "text_lines_yKdKqR": {
+          "type": "text-lines",
+          "settings": {
+            "country_iso": "*",
+            "text-field-outer-wrapper-classes": "js-sub-landing",
+            "text-field-inner-wrapper-classes": "max-w-4xl mx-auto py-8",
+            "text-field-1": "Student Discounts",
+            "text-field-1-classes": "uppercase text-center font-bebas text-xl md:text-2xl tracking-wide",
+            "text-field-2": "20% Student Discount at OddBalls",
+            "text-field-2-classes": "uppercase text-center font-bebas text-3xl md:text-4xl tracking-wide",
+            "text-field-3": "",
+            "text-field-3-classes": "",
+            "text-field-4": "",
+            "text-field-4-classes": "",
+            "html-field": "",
+            "html-field-classes": ""
+          }
+        },
+        "text_lines_UXQUjH": {
+          "type": "text-lines",
+          "settings": {
+            "country_iso": "*",
+            "text-field-outer-wrapper-classes": "",
+            "text-field-inner-wrapper-classes": "",
+            "text-field-1": "",
+            "text-field-1-classes": "",
+            "text-field-2": "",
+            "text-field-2-classes": "",
+            "text-field-3": "",
+            "text-field-3-classes": "",
+            "text-field-4": "",
+            "text-field-4-classes": "",
+            "html-field": "",
+            "html-field-classes": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_lines_yKdKqR",
+        "text_lines_UXQUjH"
+      ],
+      "settings": {}
+    },
+    "tailwind_video_img_svg_block_JBhab3": {
+      "type": "ob-tailwind-video-img-svg-block",
+      "blocks": {
+        "multi_use_block_fqyR3H": {
+          "type": "multi_use_block",
+          "settings": {
+            "block_active": true,
+            "country_iso": "*",
+            "block_link": "shopify://pages/student-beans",
+            "block_wrap": "col-span-1 relative rounded-md overflow-hidden flex flex-col shadow bg-white",
+            "block_image_desktop": "shopify://shop_images/student-beans-removebg-preview.png",
+            "block_image_desktop_class": "object-cover h-full w-full hidden sm:block max-h-96 p-4",
+            "block_image_mobile": "shopify://shop_images/unidays.jpg",
+            "block_image_mobile_class": "object-cover h-full w-full block sm:hidden max-h-52",
+            "text_wrap": "py-6 px-12",
+            "title": "",
+            "text_header": "text-5xl pb-1",
+            "description": "Get 20% Off",
+            "text_description": "font-bebas text-xl text-center pb-1",
+            "button_link": "",
+            "link_classes": "block show-quiz cursor-pointer absolute inset-0 w-full h-full",
+            "button_text": "",
+            "text_button": "bg-black text-white py-2 px-5 mt-3 text-center w-auto inline-block"
+          }
+        },
+        "multi_use_block_aeW4xX": {
+          "type": "multi_use_block",
+          "settings": {
+            "block_active": true,
+            "country_iso": "*",
+            "block_link": "shopify://pages/unidays",
+            "block_wrap": "col-span-1 relative rounded-md overflow-hidden flex flex-col shadow bg-white",
+            "block_image_desktop": "shopify://shop_images/unidays-removebg-preview.png",
+            "block_image_desktop_class": "object-fill h-full w-full hidden sm:block max-h-96 py-14 px-4",
+            "block_image_mobile": "shopify://shop_images/unidays.jpg",
+            "block_image_mobile_class": "object-cover h-full w-full block sm:hidden max-h-52",
+            "text_wrap": "py-6 px-12",
+            "title": "",
+            "text_header": "text-5xl pb-1",
+            "description": "Get 20% Off",
+            "text_description": "font-bebas text-xl text-center pb-1",
+            "button_link": "",
+            "link_classes": "block show-quiz cursor-pointer absolute inset-0 w-full h-full",
+            "button_text": "",
+            "text_button": "bg-black text-white py-2 px-5 mt-3 text-center w-auto inline-block"
+          }
+        }
+      },
+      "block_order": [
+        "multi_use_block_fqyR3H",
+        "multi_use_block_aeW4xX"
+      ],
+      "settings": {
+        "country_iso": "*",
+        "block_outter_wrap": "w-full grey",
+        "section_wrap": "px-5 py-10 w-full max-w-4xl mx-auto",
+        "grid_columns": "md:grid-cols-2",
+        "grid_gap": "gap-6",
+        "custom_css": ".grey{\n background-color: #fbfbfb;\n}"
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "trust_pilot_widget_mLcHeB": {
+      "type": "ob-trust-pilot-widget",
+      "custom_css": [],
+      "settings": {
+        "outer_wrapper_classes": "js-sub-landing blend-divide",
+        "wrapper_classes": "max-w-7xl mx-auto py-10",
+        "widget_header": "",
+        "widget_header_classes": "",
+        "widget_subheader": "",
+        "widget_subheader_classes": "",
+        "widget_code": "<!-- TrustBox widget - Micro Combo -->\n<div class=\"trustpilot-widget\" data-locale=\"en-GB\" data-template-id=\"5419b6ffb0d04a076446a9af\" data-businessunit-id=\"5c7f9459871dac0001ea0238\" data-style-height=\"20px\" data-style-width=\"100%\" data-theme=\"light\">\n  <a href=\"https://uk.trustpilot.com/review/myoddballs.com\" target=\"_blank\" rel=\"noopener\">Trustpilot</a>\n</div>\n<!-- End TrustBox widget -->",
+        "widget_wrapper_classes": "",
+        "use_microcombo": false
+      }
+    }
+  },
+  "order": [
+    "three_text_fields_AjNNAp",
+    "tailwind_video_img_svg_block_JBhab3",
+    "main",
+    "trust_pilot_widget_mLcHeB"
+  ]
+}

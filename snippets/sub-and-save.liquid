@@ -1,0 +1,35 @@
+{% assign product_form_class = "flex h-full flex-col border-t bg-white sas-product-form hidden" %}
+            {% capture product_form_id %}product-form-{{ product.id }}{% endcapture %}
+
+{%- form 'product', product, data-product-id: product.id, id: product_form_id, class: product_form_class, novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
+                {% render 'ob-product-form-attributes',product:product %}
+                <div class="h-0 flex-1 overflow-y-auto">
+                    <div class="flex flex-1 flex-col justify-between">
+                      <div class="divide-y divide-gray-200">
+                          <div class="space-y-6 pt-4">
+                              <!-- Variant Options -->
+                              <div class="product-variants-wrap">
+                              {% render 'ob-product-variants', product:product %}
+                              </div>
+                          </div>
+                      
+                      </div>
+                    </div>
+                </div>
+
+<div class="flex justify-between">
+  <div class="sas-individual-selector">Buy Once</div>
+                  <div class="sas-subscription-selector">Subscribe</div>
+</div>
+                  
+
+              {% render "ob-bundle-swap" %}
+                <div class="flex flex-shrink-0 justify-end sm:px-0 pt-0">
+                    <!-- add to cart buttons -->
+                    <div id="cart-marker"></div>
+                    <div class="grid w-full grid-cols-4 gap-2 mb-8 mt-6">
+                        {% render 'ob-product-atc-button', product:product %}
+                        {% render 'ob-product-atc-quantity', product:product %}
+                    </div>
+                </div>
+{% endform %}

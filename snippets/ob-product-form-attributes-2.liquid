@@ -1,0 +1,36 @@
+    <input type="hidden" in="ob-product-form-attributes" class="product-selected-variant-id" name="id" data-product-id="{{ product.id }}" value="{% if product.selected_or_first_available_variant.id %}{{ product.selected_or_first_available_variant.id }}{% else %}a{% endif %}">
+    <input type="hidden" name="quantity" value="1" min="1" class="qty-selector product__quantity" style="" id="qty-template--16162885926973__main">
+    <input type="hidden" name="attributes[_freeshp]" value="{{ settings.vv_handle }}" />
+    
+    {{ cart_attributes }}
+    {% if settings.ab_cohort != blank  %}
+    <input type="hidden" name="attributes[_cohort]" value="{{ settings.ab_cohort }}" />
+    {% endif %}
+    {%  for attribute in cart.attributes %}
+    <input type="hidden" id="ca_{{ attribute | first | handle }}_{{ attribute | last | handle }}" />       
+    {%  endfor %}
+    <!-- fg_campaign_name = {{ settings.fg_campaign_name }} -->
+    <!-- fg_campaign_tag = {{ settings.fg_campaign_tag }} -->
+    {% if settings.fg_campaign_name != blank %}
+        {% if settings.fg_campaign_tag != blank %}
+            {%  assign settings_fg_campaign_tag = settings.fg_campaign_tag %}
+            {% if product.tags contains settings_fg_campaign_tag %}
+                <input type="hidden" name="{{ settings.fg_campaign_name }}" value="true" />
+                {% if template.name == 'product.qb' %}
+                    <input type="hidden" name="properties[_quickbuy]" value="a" />
+                    {% if template contains 'free-gift'  %}
+                    <!-- <input type="hidden" name="properties[_cg]" value="{{ variant.id }}" /> -->
+                    <input type="hidden" name="properties[_cg]" value="free product" />
+                    <input type="hidden" name="properties[_co]" value="a" />
+                    {% endif %}
+                    <!-- fg_campaign_name = {{ settings.fg_campaign_name }} -->
+                    <!-- fg_campaign_tag = {{ settings.fg_campaign_tag }} -->
+                {% else %}
+                  {% for attribute in cart.attributes %}
+                      <input type="hidden" id="ca_{{ attribute | first | handle }}_{{ attribute | last | handle }}" />       
+                  {% endfor %}
+                
+                {% endif %}
+            {% endif %}
+        {% endif %}
+    {% endif %}

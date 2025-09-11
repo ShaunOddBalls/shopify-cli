@@ -1,0 +1,210 @@
+<div class="{{ section.settings.outer-classes }}">
+  <div class="flex justify-between w-full wrapper items-center">
+  <div class="w-full">
+    {% if section.settings.message != blank %}
+      <h4 class="{{ section.settings.text-classes }}">{{ section.settings.message }}</h4>
+    {% endif %}
+  </div>
+  {% comment %}  
+  <div class="invisible {{ section.settings.inner-classes }} {{ section.settings.position }}">
+  {% for block in section.blocks %}
+      {% case block.type %}
+        
+        <!-- custom link -->
+        {% when 'link' %}
+        <div class="{{ block.settings.outer-classes }}">
+                <a href="{{ block.settings.alt-link }}" class="{{ block.settings.classes }}">{{ block.settings.title }}</a>
+        </div>
+
+        <!-- sign in -->
+        {% when 'sign-in' %}
+            <div class="{{ block.settings.outer-classes }}">
+            {% if block.settings.account == true %}
+              <a href="/account" class="{{ block.settings.classes }}">
+                <svg class="top-nav-icon pr-1" height="8px" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="6" fill="none" r="5.3" stroke="currentColor" stroke-width="1.4"></circle>
+                  <path d="M0.7 21.2778C0.7 17.3688 3.86883 14.2 7.77778 14.2H16.2222C20.1312 14.2 23.3 17.3688 23.3 21.2778C23.3 22.3946 22.3946 23.3 21.2778 23.3H2.72222C1.60538 23.3 0.7 22.3946 0.7 21.2778Z" fill="none" stroke="currentColor" stroke-width="1.4"></path>
+                </svg>
+                <span class="{{ block.settings.classes }}">account</span>
+              </a>
+            {% else %}
+              {% if customer %}
+                  <a href="/account/logout" class="{{ block.settings.classes }}">Log Out</a>
+              {% else %}
+                  <a href="/account" class="{{ block.settings.classes }}">Sign in </a> /
+                  <a href="/account/register" class="{{ block.settings.classes }}">Register</a>
+              {% endif %}
+            {% endif %}
+            </div>
+
+  <!-- Currency selector -->
+   {% when 'currency' %}
+        
+        {% if current_country != 'CA' %}
+          <div class="{{ block.settings.outer-classes }}">
+          <button class="js-toggle-iso-selector md:flex items-center cursor-pointer hidden">
+            {% assign country_iso = localization.country.iso_code | downcase %}
+            {% render 'ob-flag-icons', icon:country_iso, class:'tw-flex mr-1' %}
+            <div>
+              {% for currency in shop.enabled_currencies %}
+                {% if currency == cart.currency %}
+                <span class="{{ block.settings.classes }}">{{currency.iso_code}} {{currency.symbol}}</span>
+                {% endif %}
+              {% endfor %}
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" class="text-white w-3 h-3 ml-2" stroke="white" viewBox="9.52 13.52 14.95 8.47"><path d="M22.782 13.8L17 19.582 11.218 13.8a1 1 0 0 0-1.414 1.414L16.29 21.7a.992.992 0 0 0 .71.292.997.997 0 0 0 .71-.292l6.486-6.486a1 1 0 0 0-1.414-1.414z"></path></svg>                
+        </button>
+        {% render 'ob-country-popover' %}
+          </div>
+      {% endif %}
+
+    
+     {% endcase %}
+  {%  endfor %}
+    </div>
+    {% endcomment %}  
+  </div>
+</div>
+
+
+
+
+{% schema %}
+  {
+    "name": "header section top",
+    "class": "block sticky top-0 z-50",
+    "enabled_on": {
+    "groups": ["header"]
+      },
+    "settings": [
+      {
+        "type": "text",
+        "id": "outer-classes",
+        "label": "Outer Classes",
+        "default": "w-full h-10 bg-background-secondary-default  typography typography--body-sm"
+      },
+      {
+        "type": "text",
+        "id": "inner-classes",
+        "label": "Outer Classes",
+        "default": "flex w-full h-full w-full mx-auto md:wrapper wrapper sm:wrapper items-center"
+      },
+      {
+        "type": "text",
+        "id": "text-classes",
+        "label": "Message classes",
+        "default": "text-white"
+      },
+      {
+        "type": "select",
+        "id": "position",
+        "label": "Content Alignment",
+        "options": [
+          {
+            "label": "left",
+            "value": "justify-start"
+          },
+          {
+            "label": "center",
+            "value": "justify-center"
+          },
+          {
+            "label": "right",
+            "value": "justify-end"
+          }
+        ],
+        "default": "justify-start"
+      },
+      {
+        "type": "text",
+        "id": "message",
+        "label": "Top Header Message"
+      }
+    ],
+    "blocks": [
+       {
+         "name": "Custom Link",
+         "type": "link",
+         "settings": [
+           {
+             "type": "text",
+             "id": "title",
+             "label": "Link Text",
+              "default": "Custom Link"
+           },
+           {
+             "type": "url",
+             "id": "url",
+             "label": "Link Url"
+           },
+           {
+             "type": "text",
+             "id": "outer-classes",
+             "label": "Outer Classes",
+             "default": "border-r-2"
+           },
+           {
+             "type": "text",
+             "id": "classes",
+             "label": "Tailwind Classes",
+             "default": "hover:text-black capitalize px-2 flex items-center"
+           }
+         ]
+       },
+       {
+       "name": "Sign in / register",
+       "type": "sign-in",
+       "settings": [
+         {
+           "type": "text",
+           "id": "outer-classes",
+           "label": "Outer Classes",
+           "default": "border-r-2"
+         },
+         {
+           "type": "text",
+           "id": "classes",
+           "label": "Tailwind Classes",
+           "default": "hover:text-black capitalize px-2 flex items-center"
+         },
+         {
+           "type": "checkbox",
+           "id": "account",
+           "label": "Account instead of sign in / register",
+           "default": false
+         }
+       ]
+     },
+      {
+       "name": "Currency Selector",
+       "type": "currency",
+       "settings": [
+         {
+           "type": "checkbox",
+           "id": "add-flag",
+           "default": true,
+           "label": "add flags"
+         },
+         {
+           "type": "text",
+           "id": "outer-classes",
+           "label": "Outer Classes",
+           "default": "border-r-2"
+         },
+         {
+           "type": "text",
+           "id": "classes",
+           "label": "Tailwind Classes",
+           "default": "hover:text-black capitalize px-2 flex items-center"
+         }
+       ]
+     }
+    ],
+    "presets": [
+       {
+      "name": "Header Section top",
+      "category": "Custom"
+    }
+    ]
+  }
+{% endschema %}

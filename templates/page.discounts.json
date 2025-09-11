@@ -1,0 +1,154 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "discounts-content": {
+      "type": "ob-discounts-content",
+      "blocks": {
+        "cee86649-988c-4a98-9e4e-f2f296b90ea2": {
+          "type": "discount_block",
+          "disabled": true,
+          "settings": {
+            "block_active": true,
+            "customers": "both",
+            "country_iso": "*",
+            "embellishment_bar_active": true,
+            "exclusive_embellishment_bar_text": "",
+            "embellishment_bar_font_colour": "",
+            "label_text": "",
+            "label_text_colour": "",
+            "label_colour": "",
+            "discount_title": "10% OFF YOUR ORDER",
+            "discount_description": "Get an extra 10% off for a limited time only!",
+            "discount_end_active": false,
+            "discount_end_date": "",
+            "discount_code": "WINTER10",
+            "discount_code_end": "WINTER10",
+            "discount_link": "",
+            "discount_link_text": "",
+            "date_added": "",
+            "discount_terms": "",
+            "discount_information": "discount-code-gift",
+            "info_button_text": ""
+          }
+        },
+        "e0423004-37fe-43a0-8e86-f0519fb2c727": {
+          "type": "discount_block",
+          "settings": {
+            "block_active": true,
+            "customers": "both",
+            "country_iso": "*",
+            "embellishment_bar_active": true,
+            "exclusive_embellishment_bar_text": "",
+            "embellishment_bar_font_colour": "",
+            "label_text": "",
+            "label_text_colour": "",
+            "label_colour": "",
+            "discount_title": "FREE GIFT",
+            "discount_description": "Spend over £40 & get 1 FREE PRODUCT (Worth up to RRP £20.00).",
+            "discount_end_active": false,
+            "discount_end_date": "",
+            "discount_code": "",
+            "discount_code_end": "",
+            "discount_link": "",
+            "discount_link_text": "",
+            "date_added": "",
+            "discount_terms": "",
+            "discount_information": "discount-code-gift",
+            "info_button_text": "MORE INFO"
+          }
+        },
+        "695b943f-8b6f-489e-b2cc-04821ee2b783": {
+          "type": "discount_block",
+          "settings": {
+            "block_active": true,
+            "customers": "both",
+            "country_iso": "*",
+            "embellishment_bar_active": false,
+            "exclusive_embellishment_bar_text": "",
+            "embellishment_bar_font_colour": "",
+            "label_text": "",
+            "label_text_colour": "",
+            "label_colour": "",
+            "discount_title": "FREE DELIVERY",
+            "discount_description": "Spend over {freeshipping_threshold_money} to get Free UK Delivery",
+            "discount_end_active": false,
+            "discount_end_date": "",
+            "discount_code": "",
+            "discount_code_end": "",
+            "discount_link": "",
+            "discount_link_text": "",
+            "date_added": "",
+            "discount_terms": "",
+            "discount_information": "discount-code-shipping-b",
+            "info_button_text": "MORE INFO"
+          }
+        },
+        "e584bb37-1e13-4f74-9170-f8069154fa43": {
+          "type": "discount_block",
+          "settings": {
+            "block_active": true,
+            "customers": "both",
+            "country_iso": "*",
+            "embellishment_bar_active": false,
+            "exclusive_embellishment_bar_text": "",
+            "embellishment_bar_font_colour": "",
+            "label_text": "",
+            "label_text_colour": "",
+            "label_colour": "",
+            "discount_title": "FREE SOCKS AND DELIVERY",
+            "discount_description": "Get free socks and delivery with an OddBalls Subscription",
+            "discount_end_active": false,
+            "discount_end_date": "",
+            "discount_code": "",
+            "discount_code_end": "",
+            "discount_link": "shopify://pages/subscription-selector",
+            "discount_link_text": "SHOP MEMBERSHIP",
+            "date_added": "",
+            "discount_terms": "",
+            "discount_information": "subscription-selector",
+            "info_button_text": ""
+          }
+        },
+        "ffdaae50-9dc1-4ead-aa4b-a7aac9be3592": {
+          "type": "discounts_snippet",
+          "settings": {
+            "snippet_name": "ob-discount-promises"
+          }
+        },
+        "4d30aeca-be40-4119-a699-58f524c47e70": {
+          "type": "discounts_snippet",
+          "settings": {
+            "snippet_name": "ob-discount-popular-products"
+          }
+        },
+        "7b6a246d-5581-4248-bcc9-56639dd30e32": {
+          "type": "discounts_snippet",
+          "settings": {
+            "snippet_name": "ob-discounts-popular-categories"
+          }
+        }
+      },
+      "block_order": [
+        "cee86649-988c-4a98-9e4e-f2f296b90ea2",
+        "e0423004-37fe-43a0-8e86-f0519fb2c727",
+        "695b943f-8b6f-489e-b2cc-04821ee2b783",
+        "e584bb37-1e13-4f74-9170-f8069154fa43",
+        "ffdaae50-9dc1-4ead-aa4b-a7aac9be3592",
+        "4d30aeca-be40-4119-a699-58f524c47e70",
+        "7b6a246d-5581-4248-bcc9-56639dd30e32"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "discounts-content"
+  ]
+}

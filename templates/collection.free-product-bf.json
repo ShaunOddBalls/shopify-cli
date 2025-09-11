@@ -1,0 +1,127 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "ob_breadcrumbs_KabV7U": {
+      "type": "ob-breadcrumbs",
+      "settings": {}
+    },
+    "collection_title_kbw3mp": {
+      "type": "collection-title",
+      "settings": {}
+    },
+    "ob_image_text_grid_exacwB": {
+      "type": "ob-image-text-grid",
+      "blocks": {
+        "image_and_text_F7mwXK": {
+          "type": "image-and-text",
+          "settings": {
+            "country_iso": "*",
+            "title": "",
+            "block_wrapper_classes": "col-span-12 flex justify-center  px-4 items-center text-center relative",
+            "block_title": "",
+            "title_classes": "text",
+            "description": "<p class=\"text-md lg:text-lg\">\nSpend over £40 in a single order and choose ONE FREE product worth up to £20 at checkout</p>",
+            "description_classes": "",
+            "svg": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_and_text_F7mwXK"
+      ],
+      "settings": {
+        "outer_wrapper_classes": "",
+        "inner_wrapper_classes": "max-w-7xl mx-auto py-0 px-4 sm:px-6 lg:py-0 lg:px-8",
+        "grid_wrapper_classes": "mt-6 grid grid-cols-2 gap-0.5 md:grid-cols-3 lg:mb-8 mb-6",
+        "title": "",
+        "title_classes": "text-center text-base font-semibold uppercase text-gray-600 tracking-wider",
+        "section_bg_colour": "",
+        "block_bg_colour": "",
+        "block_bg_colour_hover": "",
+        "block_text_colour": "",
+        "block_text_colour_hover": "",
+        "block_image_classes": "",
+        "block_svg_classes": "",
+        "custom_css": ""
+      }
+    },
+    "ob_metaobject_collection_conditional_banner_aDXcte": {
+      "type": "ob-metaobject-collection-conditional-banner",
+      "settings": {
+        "metaobject": "black-friday-collection-conditional-banner-list"
+      }
+    },
+    "ob_trust_pilot_widget_TNt4mq": {
+      "type": "ob-trust-pilot-widget",
+      "disabled": true,
+      "settings": {
+        "outer_wrapper_classes": "border-blackblend-divide mt-3 mb-2 md:mb-1",
+        "wrapper_classes": "max-w-7xl mx-auto",
+        "widget_header": "",
+        "widget_header_classes": "",
+        "widget_subheader": "",
+        "widget_subheader_classes": "",
+        "widget_code": "<!-- TrustBox widget - Micro Combo -->\n<div class=\"hidden trustpilot-widget\" data-locale=\"en-GB\" data-template-id=\"5419b6ffb0d04a076446a9af\" data-businessunit-id=\"5c7f9459871dac0001ea0238\" data-style-height=\"40px\" data-style-width=\"100%\" data-theme=\"light\">\n  <a href=\"https://uk.trustpilot.com/review/myoddballs.com\" target=\"_blank\" rel=\"noopener\">Trustpilot</a>\n</div>\n<!-- End TrustBox widget -->",
+        "widget_wrapper_classes": "",
+        "use_microcombo": true
+      }
+    },
+    "main": {
+      "type": "ob-collection",
+      "settings": {
+        "title": "Collection",
+        "columns_desktop_sm": "3",
+        "columns_desktop_md": "4",
+        "columns_desktop_lg": "4",
+        "columns_desktop_xl": "4",
+        "columns_desktop_2xl": "4",
+        "columns_desktop_3xl": "5",
+        "columns_mobile": "2"
+      }
+    },
+    "ob_three_text_fields_RdhUcT": {
+      "type": "ob-three-text-fields",
+      "blocks": {
+        "text_lines_rGyVHz": {
+          "type": "text-lines",
+          "settings": {
+            "country_iso": "*",
+            "text-field-outer-wrapper-classes": "",
+            "text-field-inner-wrapper-classes": "",
+            "text-field-1": "",
+            "text-field-1-classes": "",
+            "text-field-2": "",
+            "text-field-2-classes": "",
+            "text-field-3": "",
+            "text-field-3-classes": "",
+            "text-field-4": "",
+            "text-field-4-classes": "",
+            "html-field": "",
+            "html-field-classes": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_lines_rGyVHz"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "ob_breadcrumbs_KabV7U",
+    "collection_title_kbw3mp",
+    "ob_image_text_grid_exacwB",
+    "ob_metaobject_collection_conditional_banner_aDXcte",
+    "ob_trust_pilot_widget_TNt4mq",
+    "main",
+    "ob_three_text_fields_RdhUcT"
+  ]
+}

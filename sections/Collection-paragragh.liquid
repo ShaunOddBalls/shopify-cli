@@ -1,0 +1,68 @@
+{% if collection.metafields.custom.extra_info and collection.metafields.custom.extra_info != '' %}
+<section class="extra-info-section">
+  <div class="container {{ section.settings.extra_class }}">
+    {% capture extra_info %}
+    {% assign extra_info = collection.metafields.custom.extra_info.value %}
+    {% for child in extra_info.children %}
+      {% case child.type %}
+      {% when 'paragraph' %}
+        <p>
+          {% for part in child.children %}
+            {% case part.type %}
+            {% when 'text' %}
+              {{ part.value }}
+            {% when 'link' %}
+              <a href="{{ part.url }}" title="{{ part.title }}">{{ part.children[0].value }}</a>
+            {% endcase %}
+          {% endfor %}
+        </p>
+      {% when 'heading' %}
+        <h2>
+          {% for part in child.children %}
+            {% if part.type == 'text' %}
+              {{ part.value }}
+            {% endif %}
+          {% endfor %}
+        </h2>
+      {% when 'list' %}
+        <ul>
+          {% for item in child.children %}
+            <li>
+              {% for part in item.children %}
+                {% case part.type %}
+                {% when 'text' %}
+                  {{ part.value }}
+                {% when 'link' %}
+                  <a href="{{ part.url }}" title="{{ part.title }}">{{ part.children[0].value }}</a>
+                {% endcase %}
+              {% endfor %}
+            </li>
+          {% endfor %}
+        </ul>
+      {% endcase %}
+    {% endfor %}
+    {% endcapture %}
+    {% capture extra_info_processed %}{% render 'ob-process-line-links-in-text', html_text: extra_info, debug: true %}{% endcapture %}
+    {{ extra_info_processed }}
+  </div>
+</section>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Collection Paragraph",
+  "settings": [
+    {
+      "type": "text",
+      "id": "extra_class",
+      "label": "Extra CSS Class",
+      "default": "max-w-7xl mx-auto py-2"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collection Extra Paragraph",
+    }
+  ]
+}
+{% endschema %}

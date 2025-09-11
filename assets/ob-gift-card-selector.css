@@ -1,0 +1,276 @@
+.gift-card-wrapper.active{
+  border: 2px solid #f00f83;
+}
+
+#progress-wrapper .active{
+  background-color:#000;
+  color:#fff;
+}
+#progress-wrapper {
+  position: relative;
+}
+
+#progress-wrapper .grid {
+  position: relative;
+  align-items: center;
+}
+
+#progress-wrapper .grid > .circle-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 2px;
+  background-color: black;
+  z-index: -1; 
+  transform: translate(-100%, -50%);
+}
+
+#progress-wrapper .grid > .circle-wrapper:first-child::before {
+  display: none;
+}
+.show-popover #gc-theme-popover{
+  opacity: 1 !important;  
+  pointer-events: auto !important;
+}
+
+
+
+.max-w-screen{
+  max-width:100vw;
+}
+.active img{
+  border:none !important;
+}
+
+/* Progress indicator improvements */
+#progress-wrapper .circle {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+#progress-wrapper .circle-wrapper::before {
+  transition: background-color 0.3s ease;
+}
+
+#progress-wrapper .active ~ .circle-wrapper::before {
+  background-color: #e5e5e5;
+}
+
+/* Form styling */
+input:focus, textarea:focus {
+  outline: none;
+  border-color: #000;
+  ring-color: #000;
+  ring-width: 1px;
+}
+
+.required::after {
+  content: '*';
+  color: #ff0000;
+  margin-left: 2px;
+}
+
+/* Custom amount input */
+#custom-amount::-webkit-inner-spin-button,
+#custom-amount::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+#custom-amount {
+  -moz-appearance: textfield;
+}
+
+.gc-swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
+    opacity: 1;
+    width: 25px;
+}
+
+.gc-swiper-pagination .swiper-pagination-bullet {
+    width: 7px;
+    height: 7px;
+    display: inline-block;
+    margin-right: 6px;
+    margin-left: 0;
+    border-radius: 7px;
+    transition: all .1s linear;
+    cursor: pointer;
+    background-color: var(--main-text, #000);
+    position: relative;
+    opacity: .28;
+} 
+
+
+.gc-swiper-button.swiper-button-next,
+.gc-swiper-button.swiper-button-prev {
+    color: #f00f83; /* Replace with your desired color */
+}
+
+/* If you need to change the hover state */
+.gc-swiper-button.swiper-button-next:hover,
+.gc-swiper-button.swiper-button-prev:hover {
+    color: #d00d6f; /* Slightly darker shade for hover */
+}
+
+blockquote.quote {
+    position: relative; 
+    text-align: center;
+    padding: 1rem 1.2rem;
+    width: 80%;  /* create space for the quotes */
+    color: #484748;
+    margin: 1rem auto 2rem;
+}
+blockquote {
+    background:
+    linear-gradient(to right, #f00f83 4px, transparent 4px) 0 100%,
+    linear-gradient(to left, #f00f83 4px, transparent 4px) 100% 0,
+    linear-gradient(to bottom, #f00f83 4px, transparent 4px) 100% 0,
+    linear-gradient(to top, #f00f83 4px, transparent 4px) 0 100%;
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+}
+
+    
+
+/* -- create the quotation marks -- */
+blockquote.quote:before,
+blockquote.quote:after{
+    font-family: FontAwesome;
+    position: absolute;
+    color: #f00f83;
+    font-size: 34px;
+}
+
+blockquote.EN:before{
+    content: "\f10d";
+    top: -12px;
+    margin-right: -20px;
+    right: 100%;
+}
+blockquote.EN:after{
+    content: "\f10e";
+    margin-left: -20px;
+    left: 100%;  
+    top: auto;
+    bottom: -20px;
+}
+
+.zitat1 {
+  position: relative;
+  font-family: 'Verdana', serif;
+  font-size: 2.4em;
+  line-height: 1.5em;
+}
+.zitat1 cite {
+  font-family: 'Verdana', sans-serif;
+  font-size: 0.6em;
+  font-weight: 700;
+  color: #f00f83;
+  float: right;
+}
+.zitat1 cite:before {
+  content: '\2015'' ';
+}
+.zitat1:after {
+  content: '\201d';
+  position: absolute;
+  top: 0.28em;
+  right: 0px;
+  font-size: 6em;
+  font-style: italic;
+  color: #bdbec0;
+  z-index: -1;
+}
+.sidekick {
+  position: relative;
+  padding-left: 1em;
+  border-left: 0.2em solid #039be5;
+  font-family: 'Roboto', serif;
+  font-size: 2.4em;
+  line-height: 1.5em;
+  font-weight: 100;
+}
+.sidekick:before, .sidekick:after {
+  font-family: Calibri;
+    color: #039be5;
+    font-size: 34px;
+}
+.sidekick:before {content: '\201e'}
+.sidekick:after {content: '\201c';}
+.sidekick cite {font-size: 50%; text-align:center; top:50%}
+.sidekick cite:before {content: ' \2015 '}
+
+/* Smooth height animation */
+.height-animation {
+  overflow: hidden; 
+  transition: height 0.5s ease;
+  height: 0; 
+}
+
+
+.height-animation.expanded {
+  height: auto;
+  overflow: visible
+}
+
+input.field_input {
+  display: block;
+}
+
+.calander-highlight{
+  background-color: #f2f3f5;
+  font-weight: 600;
+  color: black;
+}
+
+.date-picker .active{
+  background-color: #f00f83;
+  color: white;
+  font-weight: bolder
+}
+
+input[type="radio"]:checked + label {
+  font-weight: 600; /* Semibold for the checked label */
+}
+
+ul.error-list {
+	list-style: none;
+}
+
+ul.error-list li {
+	padding-left: 1.9em;
+	margin-bottom: 0.5em;
+}
+
+ul.error-list li::before {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 1px;
+	width: 2em;
+	height: 2em;
+	background-repeat: no-repeat;
+	background-image: url("data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20class%3D%22mr-1%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%20fill%3D%22%23e6252b%22%20height%3D%2220px%22%20width%3D%2220px%22%20version%3D%221.1%22%20id%3D%22Capa_1%22%20viewBox%3D%220%200%2027.963%2027.963%22%20xml%3Aspace%3D%22preserve%22%3E%20%3Cg%3E%20%3Cg%20id%3D%22c129_exclamation%22%3E%20%3Cpath%20d%3D%22M13.983%2C0C6.261%2C0%2C0.001%2C6.259%2C0.001%2C13.979c0%2C7.724%2C6.26%2C13.984%2C13.982%2C13.984s13.98-6.261%2C13.98-13.984%20C27.963%2C6.259%2C21.705%2C0%2C13.983%2C0z%20M13.983%2C26.531c-6.933%2C0-12.55-5.62-12.55-12.553c0-6.93%2C5.617-12.548%2C12.55-12.548%20c6.931%2C0%2C12.549%2C5.618%2C12.549%2C12.548C26.531%2C20.911%2C20.913%2C26.531%2C13.983%2C26.531z%22%3E%3C/path%3E%20%3Cpolygon%20points%3D%2215.579%2C17.158%2016.191%2C4.579%2011.804%2C4.579%2012.414%2C17.158%20%20%22%3E%3C/polygon%3E%20%3Cpath%20d%3D%22M13.998%2C18.546c-1.471%2C0-2.5%2C1.029-2.5%2C2.526c0%2C1.443%2C0.999%2C2.528%2C2.444%2C2.528h0.056c1.499%2C0%2C2.469-1.085%2C2.469-2.528%20C16.441%2C19.575%2C15.468%2C18.546%2C13.998%2C18.546z%22%3E%3C/path%3E%20%3C/g%3E%20%3C/g%3E%20%3C/svg%3E");
+}
+
+input.error{
+    border: 2px solid #e6252b !important;
+    border-radius: 7px;
+    position: relative;
+}
+
+.error-input::before{
+   content: '';
+	position: absolute;
+	left: 0;
+	top: 1px;
+	width: 2em;
+	height: 2em;
+	background-repeat: no-repeat;
+	background-image: url("data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20class%3D%22mr-1%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%20fill%3D%22%23e6252b%22%20height%3D%2220px%22%20width%3D%2220px%22%20version%3D%221.1%22%20id%3D%22Capa_1%22%20viewBox%3D%220%200%2027.963%2027.963%22%20xml%3Aspace%3D%22preserve%22%3E%20%3Cg%3E%20%3Cg%20id%3D%22c129_exclamation%22%3E%20%3Cpath%20d%3D%22M13.983%2C0C6.261%2C0%2C0.001%2C6.259%2C0.001%2C13.979c0%2C7.724%2C6.26%2C13.984%2C13.982%2C13.984s13.98-6.261%2C13.98-13.984%20C27.963%2C6.259%2C21.705%2C0%2C13.983%2C0z%20M13.983%2C26.531c-6.933%2C0-12.55-5.62-12.55-12.553c0-6.93%2C5.617-12.548%2C12.55-12.548%20c6.931%2C0%2C12.549%2C5.618%2C12.549%2C12.548C26.531%2C20.911%2C20.913%2C26.531%2C13.983%2C26.531z%22%3E%3C/path%3E%20%3Cpolygon%20points%3D%2215.579%2C17.158%2016.191%2C4.579%2011.804%2C4.579%2012.414%2C17.158%20%20%22%3E%3C/polygon%3E%20%3Cpath%20d%3D%22M13.998%2C18.546c-1.471%2C0-2.5%2C1.029-2.5%2C2.526c0%2C1.443%2C0.999%2C2.528%2C2.444%2C2.528h0.056c1.499%2C0%2C2.469-1.085%2C2.469-2.528%20C16.441%2C19.575%2C15.468%2C18.546%2C13.998%2C18.546z%22%3E%3C/path%3E%20%3C/g%3E%20%3C/g%3E%20%3C/svg%3E");
+}

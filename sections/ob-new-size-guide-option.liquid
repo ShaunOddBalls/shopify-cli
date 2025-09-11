@@ -1,0 +1,211 @@
+{% for block in section.blocks %}
+
+{% assign size_guide = shop.metaobjects.tables[block.settings.handle]  %}
+{% assign table_headings = size_guide.headings.value %}
+{%- assign table_rows = size_guide.rows.value | newline_to_br | split: '<br />' -%}
+
+{% assign meta_objects = size_guide.image_list %}
+{% assign table_title = size_guide.table_name.value %}
+{% assign svg = size_guide.svg.value %}
+
+
+<div class="w-full flex flex-col px-8  border-t-2 mb-8 md:max-w-6xl mx-auto">
+  <div class="pt-8">
+    <div class="flex w-full items-center gap-2  py-4">
+      {% if svg != blank %}
+        <div class="h-20 w-20 flex items-center">
+          <div class="aspect-square h-auto w-full ">
+              <img 
+                loading="lazy" 
+                class="object-cover h-full w-full aspect-square" 
+                src="{{ svg | img_url: "master" }}" style="filter: brightness(0) invert(0) !important;" >
+            </div>
+        </div>
+      {% endif %}
+      <div class="px-4">
+      <h2 class="text-lg marujo md:text-2xl">{{ table_title }}</h2>
+      </div>
+    </div>
+  </div>
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-1 pt-4">
+    {% for object in meta_objects.value %}
+      {% assign text = object.text.value %}
+      {% assign images = object.image_list.value %}
+      
+
+        {% assign index = 0 %}
+        {% for image in images %}
+          <div class="w-full flex flex-col">
+            <div class="aspect-square h-auto w-full">
+              <img 
+                loading="lazy" 
+                class="object-cover h-full w-full aspect-square" 
+                src="{{ image | img_url: "master" }}" >
+            </div>
+            <div class="tw-full">
+              <p class="md:text-lg marujo">{{ text[index]}}</p>
+            </div>
+            {% assign index = index | plus: 1 %}
+          </div>
+        {% endfor %}
+
+    {% endfor %}
+  </div>
+
+
+  
+  <div class="w-full size-guide-container pb-8">
+    
+    <div class="bg-gray-200 rounded-full p-1 my-8 max-w-md">
+      <div class="relative flex justify-around rounded-full  p-1">
+        <div class="text-center cursor-pointer selector-button">Inches</div>
+        <div class="text-center cursor-pointer selector-button" >Centimeters</div>
+        <div class="w-1/2 h-full absolute left-0 top-0 bottom-0 rounded-full bg-white text-black flex justify-center items-center p-1 selector-tab">Inches</div>
+      </div>
+    </div>
+    <div>
+    <table class="w-full shadow-lg rounded-lg ">
+      <thead>
+        <tr>
+          {% for heading in table_headings %}
+            <th class="p-2">{{ heading }}</th>
+          {% endfor %}
+        </tr>
+      </thead>
+    <tbody>
+     {% for table_row in table_rows %}
+      {% assign columns = table_row | split: "," %}
+        <tr>
+         {% for column in columns %}
+          <td class="text-center px-2 py-1">{{ column }}</td>
+         {% endfor %}
+       </tr>
+     {% endfor %}
+    </tbody>
+  </table>
+  </div>
+  </div>   
+        
+        
+            
+        </div>
+
+{% endfor %}
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+ <script>
+ $(document).ready(function() {
+  function roundToNearestFive(num) {
+    return Math.round(num / 5) * 5;
+  }
+
+  function convertToCm(inches) {
+    let cm = inches * 2.54;
+    cm = roundToNearestFive(cm);
+    return cm % 1 === 0 ? cm.toFixed(0) : cm.toFixed(2);
+  }
+
+  function convertToInches(cm) {
+    let inches = cm / 2.54;
+    inches = roundToNearestFive(inches);
+    return inches % 1 === 0 ? inches.toFixed(0) : inches.toFixed(2);
+  }
+
+  function updateTableUnits(selectedText) {
+    $('.size-guide-container table').find('th').each(function(thIndex) {
+      if (selectedText === 'Centimeters') {
+        if ($(this).text().includes('(in.)')) {
+          $(this).text($(this).text().replace('(in.)', '(cm)'));
+          $('.size-guide-container table').find('tr').each(function() {
+            var td = $(this).find('td').eq(thIndex);
+            var range = td.text().trim();
+
+            if (range.includes('-')) {
+              var inchesRange = range.split('-');
+              var cmsRange = inchesRange.map(function(inches) {
+                return convertToCm(parseFloat(inches.trim()));
+              });
+              td.text(cmsRange.join('-'));
+            } else {
+              var inches = parseFloat(range);
+              if (!isNaN(inches)) {
+                var cms = convertToCm(inches);
+                td.text(cms);
+              }
+            }
+          });
+        }
+      } else {
+        if ($(this).text().includes('(cm)')) {
+          $(this).text($(this).text().replace('(cm)', '(in.)'));
+          $('.size-guide-container table').find('tr').each(function() {
+            var td = $(this).find('td').eq(thIndex);
+            var range = td.text().replace(' cm', '').trim();
+
+            if (range.includes('-')) {
+              var cmsRange = range.split('-');
+              var inchesRange = cmsRange.map(function(cm) {
+                return convertToInches(parseFloat(cm.trim()));
+              });
+              td.text(inchesRange.join('-'));
+            } else {
+              var cms = parseFloat(range);
+              if (!isNaN(cms)) {
+                var inches = convertToInches(cms);
+                td.text(inches);
+              }
+            }
+          });
+        }
+      }
+    });
+  }
+
+  $('.selector-button').click(function() {
+    $('.selector-button').removeClass('active');
+    $(this).addClass('active');
+
+    var selectedText = $(this).text();
+    $('.selector-tab').text(selectedText);
+
+    var index = $(this).index();
+    var translateValue = index === 0 ? 0 : '100%';
+    $('.selector-tab').css({
+      transform: 'translateX(' + translateValue + ')'
+    });
+
+    // Only update the table on click
+    updateTableUnits(selectedText);
+  });
+});
+
+  </script>
+
+{% schema %}
+  {
+    "name": "New size Guides",
+    "settings": [],
+    "blocks": [
+      {
+        "name": "size guide",
+        "type": "size-guide",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Block name"
+          },
+          {
+            "type": "text",
+            "id": "handle",
+            "label": "Metaobject handle"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "New Size Guide Section"
+      }
+  ] 
+  }
+{% endschema %}

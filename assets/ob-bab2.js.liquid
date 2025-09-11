@@ -1,0 +1,985 @@
+$(document).ready(function(){
+ const saleSavings ={
+    "Mens boxer" : {
+      1: 20,
+      6: 25,
+      6: 25
+    },
+   menBamboo : {
+      1: 20,
+      6: 25,
+      6: 25
+    },
+    "Mens brief" : {
+      1: 20,
+      6: 25,
+      6: 25
+    },
+    "Ladies brief" : {
+      1: 20,
+      6:25,
+      6:25
+    },
+    "Ladies boxer" : {
+      1: 20,
+      6: 25,
+      6: 25
+    },
+    "Seamless" : {
+      1: 25,
+      3:30,
+      6:35,
+      9:40
+    },
+    "Thong" : {
+      1: 20,
+      6:25,
+      6:25
+    },
+    bralette :{
+      3:25,
+      
+    },
+   "Women's Bamboo" :{
+       1: 20,
+      6:25,
+      6:25
+   }
+    
+  }
+   const saleSavingsValues ={
+    "Mens boxer" : {
+      1: 0,
+      6: 0.6,
+      6: 0.6
+    },
+   menBamboo : {
+      1: 20,
+      6: 25,
+      6: 25
+    },
+    "Mens brief" : {
+      1: 0,
+      6: 0.6,
+      6: 0.6
+    },
+    "Ladies brief" : {
+      1: 0,
+      6:0.6,
+      6:0.6
+    },
+    "Ladies boxer" : {
+      1: 0,
+      6: 0.6,
+      6: 0.6
+    },
+    "Seamless" : {
+      1: 0,
+      3:0.5,
+      6:1,
+      9:1.5
+    },
+    "Thong" : {
+      1:0,
+      6: 0.6,
+      6: 0.6
+    },
+    bralette :{
+      3:25,
+      
+    },
+   "Women's Bamboo" :{
+       1: 0,
+      6:2,
+      6:2
+   }
+    
+  }
+   const womenBoxerSavings = saleSavings.womenBoxer;
+console.log("-------------------")
+    for (const quantity in womenBoxerSavings) {
+      if (womenBoxerSavings.hasOwnProperty(quantity)) {
+        const discount = womenBoxerSavings[quantity];
+        console.log(`Quantity: ${quantity}, Discount: ${discount}`);
+      }
+    }
+  
+  var choice = "";
+  var col_choice = "";
+  var size = "";
+  var bundle = [];
+  var temp_title;
+  var temp_price;
+  var temp_comp_price;
+  var temp_image;
+  var temp_id;
+  var temp_prod_id;
+  var bundle_buy_1;
+  var bundle_save_1;
+  var bundle_buy_2;
+  var bundle_save_2;
+  var bundle_buy_3;
+  var bundle_save_3;
+  var temp_step_1_gender;
+  var bamboo = false;
+
+  
+ $('body').on('click', '#bab-men', function(){
+     $('.bab-type-choice').each(function(){
+       $(this).addClass("hidden");
+     })
+     $('#bab-men-choice').removeClass("hidden");
+     $('#bab-size-choice').removeClass("hidden");
+     $('#bab-men-size').removeClass("hidden");
+     $('#bab-women-size').addClass("hidden");
+     $('#bab-gender-slider').css("left", "0%");
+     $('#bab-gender-slider').removeClass("hidden");
+     $('.bab-gender').each(function(){
+       $(this).removeClass("active text-white");
+		 $(this).removeClass("pointer-events-none text-white");
+		 $(this).addClass("cursor-pointer");
+     })
+      $(this).addClass("active");
+	   $(this).addClass("pointer-events-none");
+   $('.bab-type').each(function(){
+      $(this).removeClass("bab-active");
+    })
+
+   $('#bab-men-boxer').addClass("bab-active");
+   choice = "mens-boxer-shorts-individuals";
+   col_choice = "278855811133";
+ })
+
+
+  $('body').on('click','#bab-return-home-button', function(){
+    bundle = [];
+    $('#bab-loading').show();
+    $('#bab-loaded').hide();
+    $('#bab-patterned-prods').empty();
+    $('#bab-plain-prods').empty();
+    $('#bab-bamboo-prods').empty();
+    $('#bab-bundle-step').hide();
+    $('#bab-info-step').show();
+    if($('#show-bab').text()==$('#show-bab').data("text-2")){
+      $('#show-bab').trigger('click');
+    }
+  })
+  
+  $('body').on('click', '#bab-women', function(){
+     $('.bab-type-choice').each(function(){
+       $(this).addClass("hidden");
+     })
+      $('#bab-gender-slider').css("left", "50%");
+      $('#bab-women-choice').removeClass("hidden");
+      $('#bab-size-choice').removeClass("hidden");
+      $('#bab-gender-slider').removeClass("hidden");
+      $('#bab-women-size').removeClass("hidden");
+      $('#bab-men-size').addClass("hidden");
+      $('.bab-gender').each(function(){
+       $(this).removeClass("active");
+       $(this).removeClass("pointer-events-none");
+     })
+     $(this).addClass("active");
+     $(this).addClass("pointer-events-none");
+    $('.bab-type').each(function(){
+      $(this).removeClass("bab-active");
+    })
+
+    choice = "ladies-boxer-shorts-individuals";
+    col_choice = "278856073277";
+    $('#bab-women-boxer').addClass("bab-active");
+   })
+
+  $('body').on('click', '.bab-type', function(){
+    if($(this).hasClass("js-bab-bamboo")){
+      bamboo = true;
+    }else{
+      bamboo = false;
+    }
+    choice = $(this).data("type");
+    col_choice = $(this).data("col-id");
+    $('.bab-type').each(function(){
+      $(this).removeClass("bab-active");
+    })
+    $(this).addClass("bab-active");
+  })
+
+  $('body').on('click', '.bab-size', function(){
+    size = $(this).data("size");
+    $('.bab-size').each(function(){
+      $(this).removeClass("bab-active");
+    })
+    $(this).addClass("bab-active");
+     $('#bab-finish').text("Build Your Bundle");
+     $('#bab-finish').removeClass("pointer-events-none");
+     $('#bab-finish').addClass("bab-active");
+  })
+
+  $('body').on('click','.bab-gender', function(){
+    bamboo = false;
+    $('#bab-finish').removeClass("hidden");
+    $('#bab-finish').text("Please select a size");
+    $('#bab-finish').removeClass("bab-active");
+    temp_step_1_gender = $(this).data("gender");
+   
+  })
+
+  $('body').on('click', '#bab-finish', function(){
+    $('#bab-secondary-panel').addClass("bab-finished")
+    var bab_choice;
+    var bab_type;
+    $('#bab-info-step').hide();
+    $('#bab-bundle-step').show();
+    $('#bab-left-col').addClass('hidden')
+    if(choice == "mens-boxer-shorts-individuals"){
+      bab_choice = "Mens boxer"
+      bab_type = "Boxer Shorts"
+      prod_handle = "fat-cow-mens-boxer-shorts"
+    }
+    if(choice == "mens-briefs-individuals"){
+       bab_choice = "Mens brief";
+      bab_type = "Briefs"
+      prod_handle = "fat-cow-mens-briefs"
+    }
+    if(choice == "ladies-boxer-shorts-individuals"){
+     bab_choice = "Ladies boxer";
+      bab_type = "Ladies Boxers"
+      prod_handle = "fat-cow-ladies-boxers"
+    }
+    if(choice == "ladies-briefs-individuals"){
+     bab_choice = "Ladies brief";
+      bab_type = "Low Rise Briefs"
+      prod_handle = "fat-cow-ladies-brief"
+    }
+    if(choice == "ladies-thongs-individuals"){
+       bab_choice = "Thong";
+            bab_type = "Thong"
+      prod_handle = "fat-cow-ladies-thongs"
+    }
+    if(choice == "seamless-individuals"){
+       bab_choice = "Seamless";
+       bab_type = "Seamless";
+      prod_handle = "seamless-brazilian-briefs-fat-cow"
+    }
+    if(choice == "ladies-bamboo-boxer-shorts-individuals"){
+      bab_choice = "Women's Bamboo"
+      bab_type = "Ladies Bamboo Boxers";
+      prod_handle = "space-balls-ladies-bamboo-boxers";
+    }
+    const bundleName = choice.replace(/-/g, " ").replace(/individuals/g, "bundle");
+    $('.js-current_bundle_title').each(function(){
+      $(this).text(bundleName)
+    })
+    $('#bab-bundle-type').text(bab_choice + "s")
+    var in_cart = 0;
+
+    var url1 = `/products/${prod_handle}?view=prod_bundle`;
+      var params1 = {
+        type: 'GET',
+        url: url1,
+        dataType: 'html'
+      };
+  $('#bab-header-current-size').text(size);
+      $.ajax(params1).done(function (response1) {
+        $('#bab-banner-content').empty();
+        var bundleChoice;
+        for (const bundleType in saleSavings) {
+          if(bundleType == bab_choice){
+            bundleChoice = saleSavings[bundleType]
+          }
+        }
+        for (const quantity in bundleChoice) {
+          if (bundleChoice.hasOwnProperty(quantity)) {
+            const discount = bundleChoice[quantity];
+            const wrapper = $('<div>').addClass("flex text-sm");
+            const quantityDiv = $('<div>').text("Buy: " + quantity + ": "); 
+            const saving = $('<div>').text("Save: " + discount + "%").addClass("text-magenta-500 ml-1");
+            wrapper.append(quantityDiv, saving); 
+            $('#bab-banner-content').append(wrapper);
+          }
+        }
+        const quantities = Object.keys(bundleChoice); // Get an array of the keys
+            const firstQuantity = quantities[0]; // Access the first key
+            const firstDiscount = bundleChoice[firstQuantity]; // Access the corresponding value
+
+              var tempDiv = $('<div>').html(response1);
+
+            bundle_buy_1 = quantities[0];
+            bundle_save_1 = bundleChoice[quantities[0]];
+            bundle_buy_2 = quantities[1];
+           bundle_save_2 = bundleChoice[quantities[1]];
+        if (quantities.length > 2) {
+          bundle_buy_3 = quantities[2]
+           bundle_save_3 = bundleChoice[quantities[2]];
+        }else{
+          bundle_buy_3 = bundle_buy_2
+           bundle_save_3 = bundle_save_2;
+        }
+
+
+
+        var bundleChoiceValues;
+        for (const bundleType in saleSavingsValues) {
+          if (bundleType == bab_choice) {
+            bundleChoiceValues = saleSavingsValues[bundleType];
+          }
+        }
+        
+        
+        const quantitiesValues = Object.keys(bundleChoiceValues); // Get an array of the keys
+        const firstQuantityValues = quantitiesValues[0]; // Access the first key
+        const firstDiscountValues = bundleChoiceValues[firstQuantityValues]; // Access the corresponding value
+        
+        bundle_buy_1Values = quantitiesValues[0];
+        bundle_save_1Values = bundleChoiceValues[quantitiesValues[0]];
+        bundle_buy_2Values = quantitiesValues[1];
+        bundle_save_2Values = bundleChoiceValues[quantitiesValues[1]];
+        
+        if (quantitiesValues.length > 2) {
+          bundle_buy_3Values = quantitiesValues[2];
+          bundle_save_3Values = bundleChoiceValues[quantitiesValues[2]];
+        }else{
+          bundle_buy_3Values = bundle_buy_2Values;
+          bundle_save_3Values = bundle_save_2Values;
+        }
+
+
+        
+        
+        // $('#bab-milestone-1').text(bundle_buy_1);
+        // $('#bab-milestone-2').html(bundle_buy_2);
+        // $('#bab-savings-1').text("£" + bundle_save_1 * bundle_buy_1);
+        // $('#bab-savings-2').text("£" + bundle_save_1 * (parseInt(bundle_buy_1) + 1));
+        // $('#bab-savings-3').text("£" + bundle_save_1 * (parseInt(bundle_buy_1) + 2));
+        // $('#bab-savings-4').html("£" + (bundle_save_2 * bundle_buy_2)  + "");
+
+        
+        $.getJSON('/cart.js', function (cart) {//get items from the cart into the bundle
+          var bundle_choice = ""
+      var temp_price = 0;
+        $.each(cart.items, function (index, item) {
+            var title_parts = item.title.split('-');
+            var item_size = item.variant_options[0];
+          if(bamboo){
+            bab_choice = "bamboo bundle"
+          }
+            // if(item.properties._Bundle){
+            //     bundle_choice = item.properties._Bundle;
+            // }
+          if(true){
+            // console.log(bab_t)
+            if(bab_type.toLowerCase()==item.product_type.toLowerCase()){
+                var quantity = item.quantity;
+                var handle = item.handle;
+                var price = (item.price/100);
+                temp_price =  price;
+                var id = item.variant_id
+                bundle_in_cart = true;
+                bundle.push([0, item.title, id,item.featured_image.url, quantity, temp_price]);
+              in_cart += quantity
+              
+            }
+          }
+        })
+          if(in_cart == 0){
+            $('#included-from-cart').hide();
+          }
+      $('#items-in-bundle-footer').text(in_cart);
+          bundleUpdate(temp_price);
+        })
+
+      })
+    getProducts();
+  })
+
+  $('body').on('click','#bab-bamboo-prints', function(){
+    $('#bab-patterned-prods').hide();
+    $('#bab-plain-prods').hide();
+    $('#bab-bamboo-prods').show();
+  })
+  $('body').on('click','#bab-plain-prints', function(){
+    $('#bab-patterned-prods').hide();
+    $('#bab-plain-prods').show();
+  })
+  $('body').on('click','#bab-patterned-prints', function(){
+    $('#bab-patterned-prods').show();
+    $('#bab-plain-prods').hide();
+  })
+
+  $('body').on('click', '.js-bab-safety-screen', function(){
+    $('#bab-pop-up').hide();
+  })
+
+  $('body').on('click', '#bab-popup-button', function(){
+    var found = false;
+      bundle.push([1,temp_title, temp_id, temp_image,1, temp_price, temp_prod_id]);
+    bundleUpdate();
+    $('#bab-pop-up').hide();
+        const n = bundle.reduce(function(accumulator, currentValue) {
+      return accumulator + (currentValue[4] || 1);
+    }, 0);
+      const nthDiv = $('#bab-top-row .grid div:not(.absolute)').eq(n - 1);
+     if(bundle.length == bundle_buy_1){
+        const rect = nthDiv[0].getBoundingClientRect();
+        const x = (rect.left + rect.right) / 2 / window.innerWidth;
+        const y = (rect.top + rect.bottom) / 2 / window.innerHeight;
+        
+        confetti({
+            particleCount: 100,
+            spread: 70,
+            origin: { x, y } // Position calculated based on the element's location
+        });
+      }
+    if(bundle.length == bundle_buy_2){
+        const rect = nthDiv[0].getBoundingClientRect();
+        const x = (rect.left + rect.right) / 2 / window.innerWidth;
+        const y = (rect.top + rect.bottom) / 2 / window.innerHeight;
+        
+        confetti({
+            particleCount: 100,
+            spread: 70,
+            origin: { x, y } // Position calculated based on the element's location
+        });
+      }
+  })
+
+  
+  $('body').on('click', '.bab-bundle-item', function(){
+
+    try{
+      fbq('track', 'ViewContent', {
+        content_ids: [$(this).data("prod_id")],
+        content_name: [$(this).data("handle")],
+        content_type: 'product'
+      });
+      }catch(error){
+        console.error(error)
+      }
+
+    
+    $('#bab-pop-up').show();
+    $('#bab-popup-title').text($(this).data("title"))
+    $('#bab-popup-size').text(size);
+    $('#bab-popup-img img').attr("src", $(this).find('img').attr("src")).attr("srcset",$(this).find('img').attr("srcset"));
+    
+    temp_title = $(this).data("title");
+    temp_id = $(this).data("var_id");
+    temp_prod_id = $(this).data("prod_id");
+    temp_image = $(this).find("img").attr("src");
+    temp_price = parseFloat($(this).data("price"));
+    temp_comp_price = parseFloat($(this).data("comp-price"));
+
+  })
+
+  
+  $('body').on('click','#show-bab', function(){
+    if($(this).text()==$(this).data("text-2")){
+      $(this).text($(this).data("text-1"))
+    }else{
+      $(this).text($(this).data("text-2"))
+    }
+    $('#bab-showing-prods').toggle();
+    $('#bab-showing-bundle').toggle();
+  })
+
+  $('body').on('click', '#add-bab-to-cart', function(){
+            newBundle = bundle.filter(function(item){
+              return item[0] == 1;
+            })
+    $('#bab-left-col').removeClass('hidden')
+    console.log(newBundle)
+    var bundleIds = newBundle.map(function(item){
+      return(item[6])
+    })
+    console.log('-----------add-bab-to-cart-----------');
+    console.log(newBundle);
+    addToCartRecursive(0)
+  })
+
+
+  $('body').on('click', '.js-bab-remove-button', function() {
+      const item = $(this).closest('.bundle-item');
+      const id = item.data('id');
+      let found = false;
+      bundle = bundle.filter(function(item) {
+          if (!found && item[2] == id && item[0] == 1) {
+              found = true;
+              return false;
+          }
+          return true;
+      });
+    newBundle = bundle.filter(function(item){
+      return item[0] == 1;
+    })
+    if(newBundle .length == 0){
+      $('#bab-showing-prods').show();
+      $('#bab-showing-bundle').hide();
+    }
+      item.remove();
+    bundleUpdate();
+  });
+
+  $('body').on('click' ,'#bab-restart', function(){
+    location.reload();
+  })
+
+  function getProducts(){
+      var url1 = `https://oddballs-data--development.gadget.app/apps/oddballs-data/collection?handle=${choice}`;
+      var params1 = {
+        type: 'GET',
+        url: url1,
+        dataType: 'html'
+      };
+  
+      $.ajax(params1).done(function (response1) {
+        
+        var tempjson = JSON.parse(response1).products;
+        const prods = tempjson.map(function(product){
+          return(product.product)
+        })
+
+        for(prod of prods){
+          var available = false;
+          var var_id;
+          var prod_id;
+          var style = "";
+          if(prod){
+            prod_id = prod.id.replace("gid://shopify/Product/","");
+            for(variant of prod.variants){
+              if(variant.title.toLowerCase() == size.toLowerCase()){
+                var_id = variant.id.replace("gid://shopify/ProductVariant/","");
+                if(variant.availableForSale){
+                  available = true;
+                }else{
+                  available = false;
+                }
+              }
+            }
+            if(prod.handle.includes("vodafone") || prod.handle.includes("mystery")){
+              available = false;
+            }
+            if(parseFloat(prod.variants[0].price).toFixed(2) != parseFloat(prod.variants[0].compare_at_price * 0.8).toFixed(2)){
+              available = false;
+            }
+          }
+          var found_bamboo = false;
+          
+          if(available){
+            for (let tag of prod.tags.split(",")) {
+                tag = tag.replace(/g/, ",");
+              if(tag.includes("type-bamboo-underwear")){
+                found_bamboo = true;
+              }
+              if(tag.includes("style-")){
+                style = tag;
+              }
+            }
+            const card = $('<div>').attr("data-prod_id", prod_id).attr("data-var_id", var_id).addClass("relative bab-bundle-item h-full").attr("data-title", prod.title).attr("data-comp-price",prod.variants[0].compare_at_price).attr("data-price",prod.variants[0].price).attr("data-handle", prod.handle);
+            const numPop = $('<div>').addClass("absolute top-1 right-1 rounded-full bg-magenta-500 text-white px-2 js-bab-counter").css("display","none").text("0");
+            const img = $('<img>').attr("width","100%").attr("height","100%").attr("srcset",modifyUrlWithResolutions(prod.image.src)).attr("src",modifyUrlWithCustomResolutions(prod.image.src,200)).addClass("absolute top-0 left-0");
+            const padding = $('<div>').css("width","100%").css("padding-top", "100%");
+            card.append(img, padding, numPop);
+
+            if(bamboo){
+              if(found_bamboo){
+                if(style.includes("classic")){
+                  $('#bab-plain-prods').append(card)  
+                }else{
+                  $('#bab-patterned-prods').append(card)
+                }
+                
+              }
+            }else{
+              if(found_bamboo){
+                
+              }
+              else if(style.includes("classic")){
+                $('#bab-plain-prods').append(card)  
+              }else if(style.includes("adventurous")){
+                $('#bab-patterned-prods').append(card)
+              }
+            }
+          }   
+        }
+        $('#bab-loading').hide();
+        $('#bab-loaded').show();
+                console.log(bundle_save_3)
+        if(bundle_save_3){
+          const cpricee = $('.bab-bundle-item').data("comp-price")
+          for (var i = 0; i <= 6; i++) {
+            if(i == bundle_buy_3 - 1 || i == bundle_buy_2 - 1 || i == bundle_buy_1 - 1 ){
+              if(i != 0){
+                 $('.bab-comp-marker').eq(i).addClass("bundle-milestone")
+              }
+             
+            }
+             var calculatedValue
+            if(i>= bundle_buy_3 - 1){
+              calculatedValue = (cpricee * (i + 1)) - ((cpricee * (i + 1)) * (1-(bundle_save_3/100)));
+            }else if(i>= bundle_buy_2 - 1){
+              calculatedValue = (cpricee * (i + 1)) - ((cpricee * (i + 1)) * (1-(bundle_save_2/100)));
+            }
+            else if(i>= bundle_buy_1 - 1){
+              calculatedValue = (cpricee * (i + 1)) - ((cpricee * (i + 1)) * (1-(bundle_save_1/100)));
+            }
+           var formattedValue = (Math.round(calculatedValue) === calculatedValue) 
+                ? "£" + calculatedValue.toFixed(0)
+                : "£" + calculatedValue.toFixed(2); 
+            
+            $('.bab-comp-marker').eq(i).text(formattedValue);
+        }
+
+        }else{
+          setTimeout(function(){
+            console.log("waiting")
+            const cpricee = $('.bab-bundle-item').data("comp-price")
+          for (var i = 0; i <= 6; i++) {
+            if(i == bundle_buy_3 - 1 || i == bundle_buy_2 - 1 || i == bundle_buy_1 - 1 ){
+              if(i != 0){
+                 $('.bab-comp-marker').eq(i).addClass("bundle-milestone")
+              }
+             
+            }
+             var calculatedValue
+            if(i>= bundle_buy_3 - 1){
+              calculatedValue = (cpricee * (i + 1)) - ((cpricee * (i + 1)) * (1-(bundle_save_3/100)));
+            }else if(i>= bundle_buy_2 - 1){
+              calculatedValue = (cpricee * (i + 1)) - ((cpricee * (i + 1)) * (1-(bundle_save_2/100)));
+            }
+            else if(i>= bundle_buy_1 - 1){
+              calculatedValue = (cpricee * (i + 1)) - ((cpricee * (i + 1)) * (1-(bundle_save_1/100)));
+            }
+           var formattedValue = (Math.round(calculatedValue) === calculatedValue) 
+                ? "£" + calculatedValue.toFixed(0)
+                : "£" + calculatedValue.toFixed(2); 
+            
+            $('.bab-comp-marker').eq(i).text(formattedValue);
+        }
+          }, 400)
+        }
+        
+
+      })
+    
+  }
+
+  function bundleUpdate(set_price){
+    console.log(bundle)
+    var price = parseFloat($('.bab-bundle-item').data("price") / 0.8).toFixed(2); 
+    var bundle_length = 0;
+    var total_price;
+    $('#bab-items-in-bundle').empty();
+    for(item of bundle){
+      if(item[0] == 1){
+          const card = $('<div>').addClass("bundle-item border border-gray-200 border-solid p-2 flex flex-col justify-between").attr("data-id",item[2]);
+        const img_div = $('<div>').addClass("relative w-full");
+          const img = $('<img>').attr("src", item[3]).addClass("absolute")
+        const padding = $('<div>').addClass("w-full").css("padding-top","100%");
+        img_div.append(img,padding)
+          const title = $('<div>').text(item[1]).addClass("font-bold text-md md:text-md leading-tight");
+          const size_div = $('<div>').text(size).addClass("font-bold text-xs text-magenta uppercase");
+          const removeButton = $('<div>')
+            .addClass("text-magenta-500 border border-solid js-bab-remove-button rounded-full px-3 py-1 w-full text-center mt-1")
+            .text("Remove")
+            .css({
+              borderColor:"#f00f83",
+              padding: '2px',
+              borderRadius: '5px',
+              cursor: 'pointer',
+              fontWeight: 'bold',
+              fontSize: '14px',
+              transition: 'background-color 0.3s'
+            });
+
+        card.append(img_div, title, size_div, removeButton);
+        $('#bab-items-in-bundle').append(card);
+        bundle_length += 1;
+        
+      }else{
+        bundle_length += parseInt(item[4]);
+      }
+    }
+    
+    updateProgressBar(bundle_length);
+    // if(set_price){
+    //   price = set_price;
+    // }
+    var comp_pice;
+    console.log("hello")
+    if(bundle_length >= bundle_buy_3){
+      console.log("save: " + bundle_save_3Values);
+      total_price = parseFloat(bundle.reduce((acc, curr) => acc + curr[5], 0) - (bundle_save_3Values*bundle_length)).toFixed(2);
+      $('#saver-bar-number-of-pairs').text("1");
+      $('.saver-progress-savings').text(bundle_save_3  + "%");
+      $('#bab-not-complete').hide();
+      $('#bab-complete').show();
+    }else if (bundle_length >= bundle_buy_2){
+      console.log("save: " + bundle_save_2Values);
+      $('#bab-not-complete').hide();
+      $('#bab-complete').show();
+      total_price = parseFloat(bundle.reduce((acc, curr) => acc + curr[5], 0) - (bundle_save_2Values*bundle_length)).toFixed(2);
+      $('#saver-bar-number-of-pairs').text(bundle_buy_3 - bundle_length);
+      $('.saver-progress-savings').text(bundle_save_3  + "%");
+    }
+    else if (bundle_length >= bundle_buy_1){
+      $('#bab-not-complete').show();
+      $('#bab-complete').hide();
+      $('#saver-bar-number-of-pairs').text(bundle_buy_2 - bundle_length);
+      $('.saver-progress-savings').text(bundle_save_2  + "%");
+      total_price = parseFloat(bundle.reduce((acc, curr) => acc + curr[5], 0) - (bundle_save_1Values*bundle_length)).toFixed(2);
+      console.log(bundle_save_1Values)
+      console.log()
+      console.log("here2")
+      console.log(total_price)
+    }else{
+      $('#bab-not-complete').show();
+      $('#bab-complete').hide();
+      $('#saver-bar-number-of-pairs').text(bundle_buy_1 - bundle_length);
+      $('.saver-progress-savings').text(bundle_save_1  + "%");
+      total_price = parseFloat(bundle.reduce((acc, curr) => acc + curr[5], 0)).toFixed(2);
+    }
+    if(temp_comp_price){
+      comp_price = temp_comp_price * bundle_length;
+    }else{
+      document.arrive(".bab-bundle-item", function(){
+        let temp = parseFloat($('.bab-bundle-item').first().data("comp-price"));
+        comp_price = temp * bundle_length;
+        if(bundle_length >= bundle_buy_1){
+          $('#bab-compare-at-price').text("£" + parseFloat(comp_price).toFixed(2));
+           $('#bab-compare-at-price').show();
+        }else{
+          $('#bab-compare-at-price').hide();
+        }
+      })
+      
+    }
+    if(bundle_length == 0){
+          total_price = 0;
+        }
+
+    try{
+      var total_saving = parseFloat(comp_price - total_price).toFixed(2);
+    }catch(error){
+      console.log("waiting for comp price")
+    }
+          
+      $('#bab-final-savings').html(total_saving);
+      console.log("total price: " + total_price)
+      $('#bab-saving-price').text("£" + total_price);
+    try{
+       if(bundle_length >= bundle_buy_1 && comp_price){
+      $('#bab-compare-at-price').text("£" + parseFloat(comp_price).toFixed(2));
+       $('#bab-compare-at-price').show();
+      }else{
+        $('#bab-compare-at-price').hide();
+      }
+    }catch(error){
+      console.log("waiting for comp_price")
+    }
+   
+    
+
+
+    newBundle = bundle.filter(function(item){
+      return item[0] == 1;
+    })
+     $('.bab-bundle-item').each(function(){
+        $(this).find(".js-bab-counter").text("0");
+       $(this).find(".js-bab-counter").hide();
+     })
+    for(each of newBundle){
+      $('.bab-bundle-item').each(function(){
+        if($(this).data("var_id") == each[2]){
+          $(this).find(".js-bab-counter").text(parseInt($(this).find(".js-bab-counter").text()) + 1);
+          $(this).find(".js-bab-counter").show();
+        }
+      })
+    }
+    if(newBundle.length == 0){
+      $('#add-bab-to-cart').text("please select prints");
+      $('#add-bab-to-cart').addClass("pointer-events-none");
+      $('#bab-empty-bundle').show();
+      $('#bab-items-in-bundle-wrapper').hide()
+      
+    }else{
+       $('#bab-empty-bundle').hide();
+      $('#bab-items-in-bundle-wrapper').show();
+      $('#add-bab-to-cart').text("add bundle to cart");
+      $('#add-bab-to-cart').removeClass("pointer-events-none");
+    }
+    const n = bundle.reduce(function(accumulator, currentValue) {
+      return accumulator + (currentValue[4] || 1);
+    }, 0);
+
+    const nthDiv = $('#bab-top-row .grid div:not(.absolute)').eq(n - 1);
+    $('#bab-top-row .grid div').removeClass("font-bold");
+    if(!bundle.length == 0){
+      nthDiv.addClass("font-bold");
+     
+      
+    }
+    
+
+    
+  }
+
+  function updateProgressBar(bundle_length){
+    //$('#bab-bar').css("width",(bundle_length/6)*100 + "%");
+    var percentValue = (bundle_length/6)*100;
+    //$('#bab-bar').css("width",(percentValue + "%");
+    $('#bab-bar').css("width","100%");
+    const babBar = document.querySelector('#bab-bar');
+    const babBar_color1 = '#009fe2';
+    const babBar_color2 = '#d0288d';
+    const babBar_color3 =  '#e41087';
+    babBar.style.setProperty('--background', `linear-gradient(to right, ${babBar_color1}, ${babBar_color2}, ${babBar_color3})`);
+    babBar.style.setProperty('--progress', `${percentValue}%`);
+  }
+
+        function addToCartRecursive(index) {
+          if (index >= bundle.length) {
+            $('body').trigger('refreshDrawer');
+            $('#bab-loading').hide();
+            $('#bab-finished-screen').show()
+            $('#bab-loading-message').html("Finding your pants");
+            return;
+          }
+          
+          var currentItem = bundle[index];
+          $('#bab-loaded').hide();
+          $('#bab-loading').show();
+          $('#bab-loading-message').html("Adding your bundle to cart");
+      if (currentItem[0] == 1) {
+          var variant_id = currentItem[2];
+          var data = {
+              quantity: 1,
+              id: variant_id,
+              properties: {}
+              }
+                data.properties['_bab-landing'] = variant_id;
+            data.properties['_freeshp'] = "{{ settings.vv_handle }}";
+          $.ajax({
+              type: 'POST',
+              url: '/cart/add.js',
+              data: data,
+              dataType: 'json',
+              success: function(response) {
+                  addToCartRecursive(index + 1);
+                  if (typeof atc_track === 'function') {
+                      atc_track(response);
+                  }
+              },
+              error: function(error) {
+                  console.error('Error adding product to cart:', error);
+                  addToCartRecursive(index + 1);
+              },
+          });
+      } else {
+          addToCartRecursive(index + 1);
+      }
+      }
+
+      function loadSizeGuide($clickedElement, guideHref) {
+        const sizeGuidePopup = document.getElementById("size-guide-popup-content");
+        // Store references to the elements
+        const $button = $clickedElement;
+        const $tapeIcon = $button.find('.tape-svg');
+        const $loader = $button.find('.circular-loader');
+        
+        // Show loading state
+        $tapeIcon.addClass('hidden');
+        $loader.removeClass('hidden');
+        
+        // Load the guide
+        $('#size-guide-content').load(guideHref, function(response, status, xhr) {
+            if (status === "success") {
+                console.log('Size guide loaded successfully');
+                
+                // Reset button state
+                $tapeIcon.removeClass('hidden');
+                $loader.addClass('hidden');
+                
+                // Open the popup
+                openPopup(sizeGuidePopup);
+            } else {
+                console.error('Error loading size guide:', xhr.status, xhr.statusText);
+                
+                // Reset button state
+                $tapeIcon.removeClass('hidden');
+                $loader.addClass('hidden');
+                
+                // Show error message
+                $('#size-guide-content').html(`
+                    <div class="error-message">
+                        Failed to load size guide. Please try again.
+                    </div>
+                `);
+               openPopup(sizeGuidePopup);
+            }
+        });
+    }
+  
+		$('body').on('click','.js-match-size-guide-show', function(){
+		if(temp_step_1_gender == "men"){
+		  loadSizeGuide($(this), '/pages/all-size-guides #Mens-Underwear-Size-Guide')
+		}else{
+		  loadSizeGuide($(this), '/pages/all-size-guides #Womens-Underwear-Size-Guide')
+		}
+		
+	  })
+      $('body').on('click','.js-match-size-guide-safety-screen', function(){ 
+      $('#match-size-guide-wrapper').addClass("hidden");
+      $('body').removeClass("body-no-scroll");
+    })
+
+   function modifyUrlWithCustomResolutions(url, resolution) { //used to add a resolution to a product image url
+    var parts = url.split('.');
+    var fileName = parts.slice(0, -1).join('.'); 
+    var fileExtension = parts[parts.length - 1];
+    var modifiedUrl = fileName + "_" + resolution + "x." + fileExtension ;
+  
+    return modifiedUrl;
+  }
+    function modifyUrlWithResolutions(url) { // used to return a source set with multiple resolutions
+    var resolutions = [360, 420, 480, 640, 840, 1080, 1280, 1540, 1860, 1950];
+    var parts = url.split('.');
+    var fileName = parts.slice(0, -1).join('.'); 
+    var fileExtension = parts[parts.length - 1];
+    var modifiedUrls = [];
+  
+    for (var i = 0; i < resolutions.length; i++) {
+      var resolution = resolutions[i];
+      var modifiedUrl = fileName + "_" + resolution + "x." + fileExtension + " " + resolution + "w";
+      modifiedUrls.push(modifiedUrl);
+    }
+  
+    var result = '';
+    for (var j = 0; j < modifiedUrls.length; j++) {
+      result += modifiedUrls[j];
+      if (j !== modifiedUrls.length - 1) {
+        result += ',';
+      }
+      
+    }
+    //return("")
+    return result;
+  }
+
+        $('body').on('click', '.slider-control', function () {
+  
+        var position = $(this).index()
+        var translatePositionX = ((position) * 100) + "%"
+        var slider = $(this).siblings('.selection-tab-selection')
+        slider.css('transform', `translate(${translatePositionX}, -50%)`);
+
+        (position > 0)? slider.css('left', '-1%') : slider.css('left', '1%')
+        
+          
+        
+        
+         if (slider.hasClass("hidden")) {
+            slider.removeClass('hidden');
+          }
+    });
+  
+})

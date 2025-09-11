@@ -1,0 +1,118 @@
+{% comment %} print swap {% endcomment %}
+{% comment %}
+{% assign current_iso = localization.country.iso_code %}
+{% assign free_gift_and_shipping_isos = shop.metaobjects.localisations['print-swap'].iso_codes | replace: '[', ''| replace: '"', '' | replace: ']', '' | split: ',' %}
+{% if free_gift_and_shipping_isos contains current_iso %}
+{% endcomment %}
+  {% assign banned_handles = "vodafone,ideal-heating," %}
+  {% assign banned_handles_arr = banned_handles | split: "," %}
+  {% assign product_type = product.type %}
+  {% assign adventurous_prints = "" %}
+  {% assign classic_prints = "" %}
+  
+    {% assign style = "" %}
+    {% for tag in product.tags %}
+      {% if tag == "style-adventurous" %}
+        {% assign style = "patterned" %}
+      {% endif %}
+      {% if tag == "style-classic" %}
+        {% assign style = "plain" %}
+      {% endif %}
+      {% if tag == "style-partnerships" %}
+        {% assign style = "partnerships" %}
+      {% endif %}
+    {% endfor %}
+    <div id="print-swap-style-selector" class="relative rounded-full p-1 mb-4 mt-2 bg-gray-200">
+        <div class="relative grid grid-cols-3 rounded-full bg-opacity-40">
+            <div style="z-index:1" data-style="patterned" class="js-patterned-plain-selector text-center p-2 cursor-pointer text-gray-800 {% if style == "patterned" %}font-semibold text-gray-900{% endif %}">{{ "ob_product_page.patterned" | t }}</div>
+            <div style="z-index:1" data-style="plain" class="js-patterned-plain-selector text-center p-2 cursor-pointer text-gray-800 {% if style == "plain" %}font-semibold text-gray-900{% endif %}">{{ "ob_product_page.plain" | t }}</div>
+            <div style="z-index:1" data-style="partnerships" class="js-patterned-plain-selector text-center p-2 cursor-pointer text-gray-800 {% if style == "partnerships" %}font-semibold text-gray-900{% endif %}">{{ "ob_product_page.partnerships" | t }}</div>
+            <div id="print-swap-slider" class="w-1/3 h-full absolute top-0 bottom-0 rounded-full bg-white product-page-selector {% if style == "plain" %}plain-active{% endif %} {% if style == "patterned" %}patterned-active{% endif %}{% if style == "partnerships" %}partnership-active{% endif %}"></div>
+        </div>
+    </div>
+  <!-- <div id="print-swap-style-selector" class="relative grid grid-cols-2 rounded-full bg-opacity-40 mb-4 mt-2 bg-magenta-50">
+    <div class="js-patterned-plain-selector text-center cursor-pointer {% unless style == "plain" %}active{% endunless %}">Patterned</div>
+    <div class="js-patterned-plain-selector text-center cursor-pointer {% if style == "plain" %}active{% endif %}">Plain</div>
+    <div id="print-swap-slider" class="w-1/2 h-full absolute top-0 rounded-full bg-magenta-500 {% if style == "plain" %}plain-active{% endif %} {% if style == "patterned" %}patterned-active{% endif %}" style="z-index: -1"></div>
+  </div> -->
+{% capture skeleton_prints %}
+{% for i in (1..8) -%}
+    <div class="animate-pulse  rounded-lg aspect-square">
+        <div class="bg-gray-200 rounded-lg aspect-square"></div>
+    </div>
+{%- endfor %}
+{% endcapture %}
+  <div class="relative mb-3">
+    <div id="print-swap-patterned-container" data-prints-url="{{ routes.search_url }}/?view=design_list_by_style&q={{ product.handle }}|adventurous" class="js-print-container grid grid-cols-4 lg:grid-cols-4 gap-2 gap-y-2.5 p-1" style="{% unless style == "patterned" %}display:none{% endunless %}">
+      {{ skeleton_prints }}
+    </div>
+    <div id="print-swap-plain-container" data-prints-url="{{ routes.search_url }}/?view=design_list_by_style&q={{ product.handle }}|classic" class="js-print-container grid grid-cols-4 lg:grid-cols-4 gap-2 gap-y-2.5  p-1" style="{% unless style == "plain" %}display:none{% endunless %}">
+      {{ skeleton_prints }}
+    </div>
+    <div id="print-swap-partnerships-container" data-prints-url="{{ routes.search_url }}/?view=design_list_by_style&q={{ product.handle }}|partnerships" class="js-print-container grid grid-cols-4 lg:grid-cols-4 gap-2 gap-y-2.5  p-1" style="{% unless style == "partnerships" %}display:none{% endunless %}">
+      {{ skeleton_prints }}
+    </div>
+    <div id="show-more-prints-btn" ><div> 
+      {{ "ob_product_page.show_more" | t }}  
+    </div></div>
+    <div id="show-less-prints-btn" class="hidden"> 
+        {{ "ob_product_page.show_less" | t }}  
+    </div>
+  </div>
+  
+  <style>
+    
+    #show-more-prints-btn{
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.75) 50%, rgba(255, 255, 255, 1) 75%, rgba(255, 255, 255, 1) 100%);
+      position: absolute;
+      bottom: -1px;
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      width: 100%;
+      align-items: end;
+      height: 40%;
+    }
+    #show-less-prints-btn{
+      width:100%;
+      text-align:center;
+      justify-content:center;
+    }
+    #show-more-prints-btn > div {
+        background: #ffffffb3;
+        padding: 7px 20px 3px 20px;
+        backdrop-filter: blur(5px);
+        border-radius: 10px;
+        box-shadow: 0px -9px 10px rgb(0 0 0 / 7%);
+        width: auto;
+        display: inline-block;
+        color: #020202;
+        margin-top: 10px;
+    }
+    
+      .js-print-container{
+        max-height:10rem;
+        transition: max-height 1s;
+        overflow: hidden;
+      }
+    .pt-full{
+      padding-top:100%;
+    }
+    #print-swap-style-selector .active{
+      pointer-events:none;
+    }
+    #print-swap-slider{
+      transition: transform .25s;
+    }
+    .plain-active{
+      transform:translateX(100%)
+    }
+    .partnership-active{
+      transform:translateX(200%)
+    }
+    
+    
+  </style>
+  {% comment %}
+{% endif %}
+{% endcomment %}

@@ -1,0 +1,105 @@
+{% assign section_settings = section.settings %}
+{% assign blocks = section.blocks %}
+<div class="relative" style="background-color: {{ section_settings.bgColor }};color: {{ block.settings.textColor }};">
+{% if  section.settings.checkbox %}
+<svg class="absolute top-0 left-0 z-0 -translate-x-1/4" xmlns="http://www.w3.org/2000/svg" width="162" height="162" viewBox="0 0 162 162" fill="none">
+    <path d="M41 121.855L81.8553 81H122V121.855L81.8553 162V121.855H41Z" fill="{{ section.settings.patternColor }}"/>
+    <path d="M0 40.8553L40.8553 0H81V40.8553L40.8553 81V40.8553H0Z" fill="{{ section.settings.patternColor }}"/>
+    <path d="M81 41.3509L121.855 1H162V41.3509L121.855 81V41.3509H81Z" fill="{{ section.settings.patternColor }}"/>
+</svg>
+{% endif %}
+<div class="careers-wrapper mx-auto text-gray-900 font-normal">
+<div class="Xpx-[12px] Xmd:px-[36px] Xxl:px-3 mt-16 lg:mt-24">
+	<div class="relative px-[12px] py-[70px] Xrounded-[50px] Xborder-2 Xborder-solid Xborder-black Xbox-shadow">
+		<div class="text-center relative mb-[50px] md:mb-[70px]">
+			<h2 class="font-bold mx-auto text-[35px] leading-[44px] md:text-[46px] md:leading-[52px] lg:text-heading-1 text-gray-900 mb-5 md:mb-[30px] max-w-[725px]">{{ section_settings.heading }}</h2>
+			<p class="text-quote md:text-lead-lg text-gray-600 mx-auto md:max-w-[50ch]">{{ section_settings.subheading }}</p>
+		</div>
+		<div class="offers dots">
+			{% for block in blocks %}
+			{%- comment %}<locksmith:eba1>{% endcomment -%}
+			  {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: block, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+			{%- comment %}</locksmith:eba1>{% endcomment -%}
+			<div class="rounded-2xl py-[20px] px-[24px] md:py-[43px] md:px-[63px] m-1 md:mx-5 transition-all duration-300 bg-white border-2 border-solid border-black box-shadow hover:translate-y-[-3px]">
+			    {% if block.settings.icon %}
+				<div class="icon-wrap h-full w-full object-cover mb-[30px] max-w-[50px] max-h-[50px]">{{ block.settings.icon }}</div>
+				{% endif %}
+				<h3 class="font-bold text-[18px] md:text-heading-5 mb-2">{{ block.settings.title }}</h3>
+				<p class="text-base text-gray-600">{{ block.settings.text }}</p>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+</div>
+</div>
+</div>
+{% schema %}
+  {
+    "name": "Offers",
+    "settings": [
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading"
+      },
+      {
+        "type": "text",
+        "id": "subheading",
+        "label": "Subheading"
+      },
+      {
+        "type": "color",
+        "id": "bgColor",
+        "label": "Section Background"
+      },
+      {
+        "type": "color",
+        "id": "textColor",
+        "label": "Section Text Color"
+      },
+      {
+        "type": "color",
+        "id": "patternColor",
+        "label": "Pattern Color"
+      },
+      {
+        "type": "checkbox",
+        "id": "checkbox",
+        "label": "has pattern ?"
+      }
+    ],
+  "blocks": [
+    {
+      "type" : "block",
+      "name": "Block",
+       "settings": [
+        {
+          "type": "textarea",
+          "id": "icon",
+          "label": "Icon SVG"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text"
+        },
+        {
+          "type": "color",
+          "id": "bgColor",
+          "label": "Background Color"
+        },
+        {
+          "type": "color",
+          "id": "textColor",
+          "label": "Text Color"
+        }
+      ] 
+    }
+  ]
+}
+{% endschema %}

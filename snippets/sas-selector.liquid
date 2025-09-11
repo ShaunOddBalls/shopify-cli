@@ -1,0 +1,145 @@
+{% for selling_plan_group in sas_product.selling_plan_groups %}
+  {% for selling_plan in selling_plan_group.selling_plans %}
+    <input type="hidden" id="sas-sp-input" value="{{ selling_plan.id }}" {% unless first_option_selected %}selected{% endunless %} />
+    {% assign first_option_selected = true %}
+    {% endfor %}
+{% endfor %}
+
+{% assign sub_price = sas_metaobject.subscription_equivalent.value.price | divided_by: 100 %}
+{% assign shipping = 3.95 %}
+{% assign sub__compare_at_price = sas_metaobject.subscription_equivalent.value.compare_at_price | divided_by: 100 %}
+{% assign total_value = shipping | plus: sub__compare_at_price %}
+
+<div class="flex flex-col gap-4">
+            <!-- <label id="sas-individual-selector" class="cursor-pointer">
+                <input type="radio" name="sas-selector" class="peer sr-only" />
+                <div class="flex items-center gap-3 p-4 border rounded-lg transition-all duration-200 hover:border-gray-300">
+                    <div class="relative">
+                        <div class="outer-selector h-5 w-5 rounded-full border-2 border-gray-300  transition-colors duration-200"></div>
+                        <div class="inner-selector absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 h-2.5 w-2.5 rounded-full "></div>
+                    </div>
+                    <div class="font-medium">Buy Once</div>
+                </div>
+            </label> -->
+
+            
+            <label id="sas-subscription-selector" class="cursor-pointer text-white border-solid border rounded-lg relative" style="border-color: #009fe3;">
+              <div class="absolute  rounded px-1.5 py-1 font-display text-xs font-bold uppercase rounded-md" style="background-color: #009fe3;top: 0;right: 0;transform: translate(-28px,-50%);">Our Best Deal</div>
+                <input type="radio" name="sas-selector" class="peer sr-only" />
+                <div class=" items-center gap-3  border rounded-lg transition-all duration-200  hover:border-gray-300 overflow-hidden" style="border-color: #009fe3; border-width: 1px;">
+                  <div class="flex items-center justify-between" style="background-color: rgb(213 243 255); rounded-t-lg">
+                    <div class="text-xs ml-3 py-3  text-black"><span class="font-bold uppercase">Subscribe & Save:</span> <div><span class="font-bold text-magenta">Free</span> Socks. <span class="font-bold text-magenta">Free</span> Shipping. <span class="font-bold text-magenta">Big Savings.</span></div></div>
+                  </div>
+                  <div class="w-full p-4">
+                    <div class=" sas-change w-full bg-gray-100 rounded-lg" >
+                  <div class="w-full flex justify-between mx-auto">
+                    <div class="rounded-lg px-4 py-3 text-black ">
+               
+                      <span class="font-semibold text-xs text-center block pb-0.5">This Order You Will Get</span>
+                      <div class="flex text-xs gap-4 relative">
+                        <div class="flex flex-col">
+                          <div class="relative">
+                            <div class=" top-0 left-0 bg-white">
+                            {{ product.featured_image | image_url: width: 100, height:100  | image_tag }}
+                            </div>
+                          </div>
+                          <div class="block text-center pt-2">
+                          This Design
+                          </div>
+                        </div>
+                        <div class="absolute top-1/2 bottom-1/2 tranform-y-1/2 right-1/2 left-1/2 transform-x-1/2 flex items-center text-center justify-center font-semibold text-2xl" style="transform: translate(-50%, -108%);font-size: 55px;z-index: 10;}">
+                          +
+                        </div>
+                        <div class="flex flex-col">
+                          <div class="relative">
+                            <div class="bg-white">
+                            {{ sas_sock_product.featured_image | image_url: width: 100, height:100  | image_tag }}
+                            </div>
+                          </div>
+                          <div class="pt-2 block text-center">
+                            Free Socks
+                          </div>
+                        </div>
+                   
+                      
+                    </div>
+                  </div>
+                    <div class="rounded px-4 py-3 text-black flex flex-col items-between border-l border-dashed" style="border-color: #b4b4b4;">
+                      
+                     <div class="font-semibold text-xs text-center pb-0.5 whitespace-nowrap">Next Month</div>
+                      <div>
+                        
+                        <div class="relative">
+                            <div class="bg-white">
+                            {{ sas_product.featured_image | image_url: width: 100, height:100  | image_tag }}
+                            </div>
+                          </div>
+                        <div class="text-xs block text-center pt-2
+                          ">New Design </div>
+                      </div>
+                    </div>
+                  
+                  
+                  </div>
+                  </div>
+                </div>
+                
+                <div class="w-full pb-4">
+                  <div class="w-full">
+                    <div class="uppercase text-xs text-center text-black font-semibold">Subscription Benefits:</div>
+                    <div class="ob-slider-container w-full overflow-hidden max-w-[400px] mx-auto">
+
+                    <div class="ob-slider w-full" 
+                      data-slides-mobile="3"
+                      data-slides-md="3"
+                      data-slides-lg="3"
+                      data-gap="5"
+                      data-autoplay="true"
+                      data-loop="true"
+                      data-drag-scroll="true"
+                      data-slider-enabled="true"
+                      data-dots="false"
+                       data-slide-by="all">
+                    <div class="ob-slides-wrappers w-full pt-2 pb-2 border-b flex">
+                      
+                      <div class="ob-slide w-1/3 flex flex-col justify-center items-center text-center h-full">
+                        <div><img src="https://cdn.shopify.com/s/files/1/0353/7249/files/FreeDelivery.svg?v=1722324793" alt="3.Free Delivery" class="w-14 h-14"></div>
+                        <div><h2 class="mx-auto text-xs text-black marujo leading-none uppercase">Free Shipping<br>On All Orders</h2></div>
+                      </div>
+
+                      <div class="ob-slide w-1/3 flex flex-col justify-center items-center text-center h-full">
+                        <div><img src="https://cdn.shopify.com/s/files/1/0353/7249/files/VIP.svg?v=1722324793" alt="5.VIP Access" class="w-14 h-14"></div>
+                        <div><h2 class="mx-auto text-xs text-black marujo leading-none uppercase">Exclusive Access<br>To Sale Events</h2></div>
+                      </div>
+
+                      <div class="ob-slide w-1/3 flex flex-col justify-center items-center text-center h-full">
+                        <div><img src="https://cdn.shopify.com/s/files/1/0353/7249/files/ExclusiveGifts-2.svg?v=1722324793" alt="4.Exclusive Gifts" class="w-14 h-14"></div>
+                        <div><h2 class="mx-auto text-xs text-black marujo leading-none uppercase">Free Gifts<br>Vip Offers</h2></div>
+                      </div>
+                      
+                      <div class="ob-slide w-1/3 flex flex-col justify-center items-center text-center h-full">
+                        <div><img src="https://cdn.shopify.com/s/files/1/0353/7249/files/Designs.svg?v=1722324793" alt="1. Fun Designs" class="w-14 h-14"></div>
+                        <div><h2 class="mx-auto text-xs text-black marujo leading-none uppercase">Fun New<br>Designs</h2></div>
+                      </div>
+                      
+                      <div class="ob-slide w-1/3 flex flex-col justify-center items-center text-center h-full">
+                        <div><img src="https://cdn.shopify.com/s/files/1/0353/7249/files/Socks-2.svg?v=1722324793" alt="2. Free Socks" class="w-14 h-14"></div>
+                        <div><h2 class="mx-auto text-xs text-black marujo leading-none uppercase">Free<br>Socks</h2></div>
+                      </div>
+
+                      <div class="ob-slide w-1/3 flex flex-col justify-center items-center text-center h-full">
+                        <div><img src="https://cdn.shopify.com/s/files/1/0353/7249/files/Discounts-2.svg?v=1722324793" alt="6.Exclusive Discounts" class="w-14 h-14"></div>
+                        <div><h2 class="mx-auto text-xs text-black marujo leading-none uppercase">Exclusive<br>Discounts</h2></div>
+                      </div>
+                    </div>
+                   
+                  </div>
+                    </div>
+                  </div>
+                    <div class="text-md capitalize text-center py-4 text-black"><span class="text-magenta font-bold">£{{ total_value }}</span> value for just </span><span class="text-magenta font-bold">£{{ sub_price }}</span> per month</div>
+                    <div class=" w-full bg-cyan-500 rounded-full text-white text-base font-semibold justify-center items-center flex py-2 col-span-3 missing-variants mx-auto" style="bottom:0px; top:0px; max-width: 250px;">Continue
+                    </div>
+                </div>
+                </div>
+            </label>
+        </div>

@@ -1,0 +1,193 @@
+<div class="faq-hero py-16 px-8 text-center bg-gradient-to-br from-gray-50 to-gray-100 border-b border-gray-200 md:py-20" style="background-color: {{ section.settings.background_color }}; color: {{ section.settings.text_color }};">
+  <div class="max-w-4xl mx-auto relative z-10 text-white">
+    {% if section.settings.title != blank %}
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-semibold mb-4 leading-tight py-3">
+        {{ section.settings.title }}
+      </h1>
+    {% endif %}
+    <div class="max-w-2xl mx-auto faq-search-bar-container">
+      <div class="relative">
+        <input type="text" 
+               id="faq-search-input" 
+               class="faq-search-input text-black w-full py-4 px-6 text-lg border border-gray-300 rounded-full outline-none transition-all duration-300 shadow focus:border-blue-500 focus:shadow"
+               placeholder="{{ section.settings.placeholder_text }}"
+               autocomplete="off">
+              </div>
+              <div id="faq-search-results" role="listbox" class="faq-search-input absolute top-full left-0 right-0 bg-white border border-gray-300 border-t-0 rounded-b-xl shadow-xl max-h-80 overflow-y-auto z-50 hidden"></div>
+    </div>
+    {% if section.settings.subtitle != blank %}
+      <p id="search-prompt-text" class="text-lg md:text-xl opacity-80 font-light max-w-2xl mx-auto py-3">
+        {{ section.settings.subtitle }}
+      </p>
+    {% endif %}
+  </div>
+</div>
+<style>
+    .faq-hero {
+        position: relative;
+        height: 32rem;
+        background: url(https://www.myoddballs.com/cdn/shop/files/SUMMER_SALE_HOMEPAGE.png?v=1753185449&width=2400);
+        background-size: cover;
+        display: flex;
+        align-items: center;
+    }
+    .faq-hero:before {
+        content: "";
+        display: block;
+        background-color: #3e4242e8;
+        position: absolute;
+        inset: 0px;
+        z-index: 1;
+    }
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const searchInput = document.querySelector('#faq-search-input');
+  const searchResults = document.querySelector('#faq-search-results');
+  const searchPromtText = document.querySelector('#search-prompt-text');
+  console.log('Prompt text', searchPromtText )
+  let debounceTimer;
+
+  // Fetch articles from your JSON endpoint
+  async function fetchArticles(query) {
+    const url = `/search?type=article&q=${encodeURIComponent(query)}&view=articles`;
+    console.log('url', url)
+    const res = await fetch(url);
+    const data = await res.json();
+    return data.oldData || [];
+  }
+
+  searchInput.addEventListener('input', function () {
+    const query = this.value.trim().toLowerCase();
+
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(async () => {
+      if (query.length < 2) {
+        searchResults.classList.add('hidden');
+        searchPromtText.classList.remove('hidden')
+        return;
+      }
+
+      const articles = await fetchArticles(query);
+
+      // Filter client-side if needed
+      const results = articles.filter(item =>
+        item.title.toLowerCase().includes(query) ||
+        item.content.toLowerCase().includes(query) ||
+        item.tags.some(tag => tag.toLowerCase().includes(query))
+      ).slice(0, 5);
+
+      if (results.length) displayResults(results);
+      else searchResults.classList.add('hidden');
+
+    }, 300);
+  });
+
+  function displayResults(results) {
+  searchPromtText.classList.add('hidden') 
+  searchResults.innerHTML = '';
+
+  results.forEach(result => {
+    // only show results that actually exist on the page
+    const targetEl = document.getElementById(result.id);
+    if (!targetEl) return; // skip if not on the page
+
+    const resultItem = document.createElement('div');
+    resultItem.className =
+      'py-4 px-6 border-b border-gray-100 cursor-pointer transition-colors duration-200 hover:bg-gray-50 last:border-b-0';
+
+    const category = result.tags.length > 0 ? result.tags[0] : 'General';
+
+    resultItem.innerHTML = `
+      <div class="font-semibold text-gray-900 mb-1">${result.title}</div>
+      <div class="text-sm text-gray-500 font-medium">${category}</div>
+    `;
+
+    resultItem.addEventListener('click', () => {
+      scrollToFAQ(result.id);
+      searchInput.value = result.title;
+      searchResults.classList.add('hidden');
+    });
+
+    searchResults.appendChild(resultItem);
+  });
+
+  if (searchResults.children.length > 0) {
+    searchResults.classList.remove('hidden');
+  } else {
+    searchResults.classList.add('hidden');
+    searchPromtText.classList.remove('hidden') 
+  }
+}
+
+
+  function scrollToFAQ(faqId) {
+    const faqElement = document.getElementById(faqId);
+    if (!faqElement) return;
+
+    // Scroll smoothly with offset (if you have a fixed header)
+    const yOffset = -200; 
+    const y = faqElement.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+    window.scrollTo({ top: y, behavior: 'smooth' });
+
+    // Open the accordion if applicable
+    setTimeout(() => {
+      const toggle = faqElement.querySelector('.accordion__toggle');
+      if (toggle) toggle.click();
+
+      // Highlight for a moment
+      faqElement.classList.add('bg-yellow-100');
+      setTimeout(() => faqElement.classList.remove('bg-yellow-100'), 2000);
+    }, 300);
+  }
+
+  
+  document.addEventListener('click', function (e) {
+    if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
+      searchResults.classList.add('hidden');
+    }
+  }); 
+});
+
+
+</script>
+{% schema %}
+{
+  "name": "FAQ Hero Banner",
+  "class": "faq-hero-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "How can we help?"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Find answers to frequently asked questions"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#f8f9fa"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#212529"
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ Hero Banner",
+      "category": "FAQ"
+    }
+  ]
+}
+{% endschema %}

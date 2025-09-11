@@ -1,0 +1,1050 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "wrapper": "div.faq-helpdesk-wrapper",
+  "sections": {
+    "faq_hero_banner": {
+      "type": "faq-hero-banner",
+      "settings": {
+        "title": "How can we help?",
+        "subtitle": "Find answers to frequently asked questions",
+        "background_color": "#f8f9fa",
+        "text_color": "#212529"
+      }
+    },
+    "faq_category_nav": {
+      "type": "faq-category-nav",
+      "blocks": {
+        "category_1": {
+          "type": "category_link",
+          "settings": {
+            "category_id": "shipping",
+            "category_name": "Shipping & Delivery",
+            "description": "",
+            "icon": "truck"
+          }
+        },
+        "category_2": {
+          "type": "category_link",
+          "settings": {
+            "category_id": "returns",
+            "category_name": "Returns & Exchanges",
+            "description": "",
+            "icon": "refresh"
+          }
+        },
+        "category_3": {
+          "type": "category_link",
+          "settings": {
+            "category_id": "account",
+            "category_name": "Account & Checkout",
+            "description": "",
+            "icon": "credit-card"
+          }
+        },
+        "category_4": {
+          "type": "category_link",
+          "settings": {
+            "category_id": "product",
+            "category_name": "Products & Sizing",
+            "description": "",
+            "icon": "help"
+          }
+        }
+      },
+      "block_order": [
+        "category_1",
+        "category_2",
+        "category_3",
+        "category_4"
+      ],
+      "settings": {
+        "show_title": true,
+        "title": "Browse by Category",
+        "blog_handle": "faq",
+        "show_article_count": true,
+        "section_background_color": "rgba(0,0,0,0)",
+        "card_background_color": "#ffffff"
+      }
+    },
+    "faq_search": {
+      "type": "faq-search",
+      "disabled": true,
+      "settings": {
+        "placeholder_text": "Search for help...",
+        "blog_handle": "faq"
+      }
+    },
+    "faq_content_HjgTpk": {
+      "type": "faq-content",
+      "blocks": {
+        "faq_item_HMLRPH": {
+          "type": "faq_item",
+          "settings": {
+            "article": "faqs/how-long-does-oddballs-uk-delivery-take",
+            "question_override": "How long does OddBalls UK delivery take?",
+            "answer_override": "<p>Standard UK delivery takes 2–4 working days after dispatch. If you need your order sooner, select Express Delivery at checkout for faster shipping.</p>"
+          }
+        },
+        "faq_item_fhPGgG": {
+          "type": "faq_item",
+          "settings": {
+            "article": "faqs/do-you-offer-next-day-delivery",
+            "question_override": "Do you offer next-day delivery?",
+            "answer_override": "<p>Yes – we offer Next Working Day Delivery on eligible orders placed before the cut-off time. Exact cut-off times and pricing are shown at checkout.</p>"
+          }
+        },
+        "faq_item_bEGjrz": {
+          "type": "faq_item",
+          "settings": {
+            "article": "faqs/do-you-ship-internationally",
+            "question_override": "Do you ship internationally?",
+            "answer_override": "<p>Absolutely – OddBalls ships across the EU and globally. International shipping options, delivery times, and costs will be displayed at checkout based on your location.</p>"
+          }
+        },
+        "faq_item_gwtAfk": {
+          "type": "faq_item",
+          "settings": {
+            "article": "faqs/will-i-have-to-pay-customs-duties-or-vat-on-international-orders",
+            "question_override": "Will I have to pay customs duties or VAT on international orders?",
+            "answer_override": "<p>If you’re in the EU, orders under €150 won’t be charged import duties or tax. For orders over €150 or outside the EU, local charges may apply depending on your country’s regulations.</p>"
+          }
+        },
+        "faq_item_V6Nkfe": {
+          "type": "faq_item",
+          "settings": {
+            "article": "faqs/my-order-hasn-t-arrived-what-should-i-do",
+            "question_override": "My order hasn’t arrived – what should I do?",
+            "answer_override": "<p>Start by checking your tracking link and allowing a few extra days (especially during peak times). If it’s still missing, drop us a message with your order number and we’ll sort it.</p>"
+          }
+        },
+        "faq_item_xffEY3": {
+          "type": "faq_item",
+          "settings": {
+            "article": "faqs/my-parcel-says-delivered-but-i-haven-t-received-it",
+            "question_override": "My parcel says ‘delivered’ but I haven’t received it",
+            "answer_override": "<p>Check safe places, ask your neighbours, or look behind bins – it happens! If you still can’t find it, get in touch with your order number and we’ll help track it down or arrange a replacement.</p>"
+          }
+        },
+        "faq_item_bReyHC": {
+          "type": "faq_item",
+          "settings": {
+            "article": "faqs/can-i-change-my-shipping-address",
+            "question_override": "Can I change my shipping address?",
+            "answer_override": "<p>Yes – but only if the order hasn’t shipped yet. Contact us as soon as possible and we’ll try our best to update it before dispatch.</p>"
+          }
+        },
+        "faq_item_GhKyJM": {
+          "type": "faq_item",
+          "settings": {
+            "article": "faqs/my-order-s-being-returned-to-oddballs-what-happens-next",
+            "question_override": "My order’s being returned to OddBalls – what happens next?",
+            "answer_override": "<p>No worries – once we receive it back at our warehouse, we’ll be in touch to offer a resend or refund, depending on your preference.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_HMLRPH",
+        "faq_item_fhPGgG",
+        "faq_item_bEGjrz",
+        "faq_item_gwtAfk",
+        "faq_item_V6Nkfe",
+        "faq_item_xffEY3",
+        "faq_item_bReyHC",
+        "faq_item_GhKyJM"
+      ],
+      "name": "FAQ Content",
+      "settings": {
+        "category_id": "shipping",
+        "category_title": "🚚Shipping & Delivery",
+        "blog_handle": "faqs",
+        "show_article_count": true,
+        "section_background_color": "#ffffff",
+        "content_background_color": "#eeeeee",
+        "answer_background_color": "#f8f9fa"
+      }
+    },
+    "faq_content_general": {
+      "type": "faq-content",
+      "blocks": {
+        "faq_1": {
+          "type": "faq_item",
+          "settings": {
+            "article": "faqs/what-is-oddballs-returns-and-exchange-policy",
+            "question_override": "What is OddBalls’ returns and exchange policy?",
+            "answer_override": "<p>You’ve got 30 days from dispatch to return an item. Just make sure it’s unoppened, unworn and in its original packaging.</p><p>We don’t accept returns on opened underwear or swimwear unless the item is faulty.</p>"
+          }
+        },
+        "faq_2": {
+          "type": "faq_item",
+          "settings": {
+            "article": "faqs/how-do-i-return-an-item-to-oddballs",
+            "question_override": "How do I return an item to OddBalls?",
+            "answer_override": "<p>Place the item(s) in their original packaging and include a note with your order number. Send your return to:</p><p>OddBalls Returns<br/> Unit L3 Intersect 19<br/> Tyne Tunnel Trading Estate<br/> North Shields<br/> NE29 7UT<br/> United Kingdom</p><p>We recommend using a tracked delivery service—just in case!</p>"
+          }
+        },
+        "faq_3": {
+          "type": "faq_item",
+          "settings": {
+            "article": "faqs/do-i-have-to-pay-for-return-postage",
+            "question_override": "Do I have to pay for return postage?",
+            "answer_override": "<p>Yes – return postage isn’t covered. You’ll need to use a tracked postal service and cover the cost yourself. We won’t be able to refund items that don’t reach us without proof of delivery.</p>"
+          }
+        },
+        "faq_item_MbFRPL": {
+          "type": "faq_item",
+          "settings": {
+            "article": "faqs/can-i-return-part-of-a-bundle",
+            "question_override": "Can I return part of a bundle?",
+            "answer_override": "<p>Yes – we’ll refund you the portion of the bundle price that applies to the item returned (not the full standalone product price).</p>"
+          }
+        },
+        "faq_item_KCfe73": {
+          "type": "faq_item",
+          "settings": {
+            "article": "faqs/what-if-i-return-an-order-that-included-a-free-gift",
+            "question_override": "What if I return an order that included a free gift?",
+            "answer_override": "<p>If returning items means your order no longer meets the free gift threshold, please include the gift in your return—or we’ll deduct its value from your refund.</p>"
+          }
+        },
+        "faq_item_NpGGri": {
+          "type": "faq_item",
+          "settings": {
+            "article": "faqs/can-i-hand-deliver-my-return",
+            "question_override": "Can I hand-deliver my return?",
+            "answer_override": "<p>Unfortunately not—our HQ isn’t open to the public, and we can't accept returns in person.</p>"
+          }
+        },
+        "faq_item_g9BmNU": {
+          "type": "faq_item",
+          "settings": {
+            "article": "faqs/i-opened-the-paper-packaging-can-i-still-return-it",
+            "question_override": "I opened the paper packaging – can I still return it?",
+            "answer_override": "<p>If the item came in our new sealed paper packaging and you’ve opened it, we can’t accept a return—even if it’s unworn. This is for hygiene and resale reasons.</p>"
+          }
+        },
+        "faq_item_mqYh3b": {
+          "type": "faq_item",
+          "settings": {
+            "article": "faqs/how-long-will-my-refund-take",
+            "question_override": "How long will my refund take?",
+            "answer_override": "<p>We process refunds within 14 working days of receiving your return. You’ll get an email confirmation once it's been issued.</p>"
+          }
+        },
+        "faq_item_b4nR3C": {
+          "type": "faq_item",
+          "settings": {
+            "article": "",
+            "question_override": "What should I do if my OddBalls order arrives damaged?",
+            "answer_override": "<p>If your order arrives damaged, please contact our customer service team as soon as possible with your order number and photos of the damage. We’ll review the<br/>issue and arrange a replacement or refund quickly if neccessary. </p>"
+          }
+        },
+        "faq_item_KpNFMM": {
+          "type": "faq_item",
+          "settings": {
+            "article": "",
+            "question_override": "Can I get a replacement for faulty underwear or socks?",
+            "answer_override": "<p>Yes. If your underwear, socks, or any other OddBalls product is faulty on arrival or<br/>develops a fault soon after purchase, we’ll replace it. Just get in touch with your order details and photos of the issue.<br/><br/></p>"
+          }
+        },
+        "faq_item_gEgjKE": {
+          "type": "faq_item",
+          "settings": {
+            "article": "",
+            "question_override": "How long do I have to report a damaged or faulty item?",
+            "answer_override": "<p>We recommend reporting any damage or faults within 3 months of receiving your order. This helps us resolve the problem quickly and ensure you get a working replacement.<br/></p>"
+          }
+        },
+        "faq_item_qHzLFL": {
+          "type": "faq_item",
+          "disabled": true,
+          "settings": {
+            "article": "",
+            "question_override": "Do you cover postage for returning faulty items?",
+            "answer_override": "<p>Yes— if your item is faulty or damaged, we’ll cover the cost of return shipping.<br/>Our team will send you a prepaid returns label or instructions on how to send<br/>it back.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_1",
+        "faq_2",
+        "faq_3",
+        "faq_item_MbFRPL",
+        "faq_item_KCfe73",
+        "faq_item_NpGGri",
+        "faq_item_g9BmNU",
+        "faq_item_mqYh3b",
+        "faq_item_b4nR3C",
+        "faq_item_KpNFMM",
+        "faq_item_gEgjKE",
+        "faq_item_qHzLFL"
+      ],
+      "settings": {
+        "category_id": "returns",
+        "category_title": "🔁Returns & Exchanges",
+        "blog_handle": "faq",
+        "show_article_count": true,
+        "section_background_color": "#eeeeee",
+        "content_background_color": "#ffffff",
+        "answer_background_color": "#f8f9fa"
+      }
+    },
+    "faq_content_dCBgki": {
+      "type": "faq-content",
+      "blocks": {
+        "faq_item_xLdRmi": {
+          "type": "faq_item",
+          "settings": {
+            "article": "faqs/how-do-i-place-an-order-with-oddballs",
+            "question_override": "How do I place an order with OddBalls?",
+            "answer_override": "<p>Found something you love? Just click \"Add to Basket\", head to the checkout, and follow the steps to enter your details and payment method. Once confirmed, you’ll get an order confirmation email straight away.</p>"
+          }
+        },
+        "faq_item_JkkbPK": {
+          "type": "faq_item",
+          "settings": {
+            "article": "faqs/do-i-need-an-account-to-order-from-oddballs",
+            "question_override": "Do I need an account to order from OddBalls?",
+            "answer_override": "<p>Nope! You can check out as a guest. But creating an account makes it easier to track orders, manage subscriptions, and save your info for next time.</p>"
+          }
+        },
+        "faq_item_gz7Kd6": {
+          "type": "faq_item",
+          "settings": {
+            "article": "faqs/why-can-t-i-log-into-my-oddballs-account",
+            "question_override": "Why can’t I log into my OddBalls account?",
+            "answer_override": "<p>Start by clicking “Forgot password” on the login page. If that doesn’t work or your email isn’t recognised, get in touch and we’ll help you log back in.</p>"
+          }
+        },
+        "faq_item_9KQCYK": {
+          "type": "faq_item",
+          "settings": {
+            "article": "faqs/what-payment-methods-does-oddballs-accept",
+            "question_override": "What payment methods does OddBalls accept?",
+            "answer_override": "<p>We accept most major cards, PayPal, Apple Pay, and Google Pay. Choose whichever works best for you at checkout.</p>"
+          }
+        },
+        "faq_item_t8iBCW": {
+          "type": "faq_item",
+          "settings": {
+            "article": "faqs/can-i-pay-by-invoice",
+            "question_override": "Can I pay by invoice?",
+            "answer_override": "<p>Not at the moment—we only offer immediate payment methods. But who knows what the future holds?</p>"
+          }
+        },
+        "faq_item_piHKUM": {
+          "type": "faq_item",
+          "settings": {
+            "article": "faqs/is-vat-included-in-oddballs-prices",
+            "question_override": "Is VAT included in OddBalls prices?",
+            "answer_override": "<p>Yes – for UK customers, all prices shown include VAT. No hidden fees or surprises at checkout.</p>"
+          }
+        },
+        "faq_item_jBWLg8": {
+          "type": "faq_item",
+          "settings": {
+            "article": "faqs/why-was-my-payment-declined",
+            "question_override": "Why was my payment declined?",
+            "answer_override": "<p>This could be down to an expired card, incorrect details, or a payment block by your bank. Double-check everything and try again. Still no luck? Your bank may be able to help.</p>"
+          }
+        },
+        "faq_item_JqzwKe": {
+          "type": "faq_item",
+          "settings": {
+            "article": "faqs/how-do-i-unsubscribe-from-oddballs-emails",
+            "question_override": "How do I unsubscribe from OddBalls emails?",
+            "answer_override": "<p>Every email from us has an “Unsubscribe” link at the bottom. One click and you’ll be off the list (though we’ll miss you!).</p>"
+          }
+        },
+        "faq_item_CDtiQf": {
+          "type": "faq_item",
+          "settings": {
+            "article": "faqs/i-haven-t-received-my-confirmation-or-tracking-email-what-should-i-do",
+            "question_override": "I haven’t received my confirmation or tracking email – what should I do?",
+            "answer_override": "<p>Check your junk or spam folder first. Still nothing? You might’ve entered your email wrong—contact us and we’ll resend it.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_xLdRmi",
+        "faq_item_JkkbPK",
+        "faq_item_gz7Kd6",
+        "faq_item_9KQCYK",
+        "faq_item_t8iBCW",
+        "faq_item_piHKUM",
+        "faq_item_jBWLg8",
+        "faq_item_JqzwKe",
+        "faq_item_CDtiQf"
+      ],
+      "settings": {
+        "category_id": "account",
+        "category_title": "👤Account & Checkout",
+        "blog_handle": "faq",
+        "show_article_count": true,
+        "section_background_color": "#ffffff",
+        "content_background_color": "#eeeeee",
+        "answer_background_color": "#f8f9fa"
+      }
+    },
+    "scroll_to_UcndHU": {
+      "type": "scroll-to",
+      "name": "Scroll To",
+      "settings": {
+        "scroll_to": "subs-faqs"
+      }
+    },
+    "faq_content_ChWJCY": {
+      "type": "faq-content",
+      "blocks": {
+        "faq_item_CYXETA": {
+          "type": "faq_item",
+          "settings": {
+            "article": "faqs/what-is-an-oddballs-underwear-subscription",
+            "question_override": "What is an OddBalls underwear subscription?",
+            "answer_override": "<p>It’s a monthly subscription that delivers a new pair of underwear or socks to your door. You’ll also get exclusive designs, early access to drops, surprise goodies, and free UK delivery every month.</p>"
+          }
+        },
+        "faq_item_dktxid": {
+          "type": "faq_item",
+          "settings": {
+            "article": "faqs/what-perks-do-subscribers-get",
+            "question_override": "What perks do subscribers get?",
+            "answer_override": "<ul><li>Free socks in every package</li><li>First access to new designs</li><li>Exclusive subscriber-only discounts</li><li>Surprise gifts and early product drops</li><li>Free UK shipping</li><li>Flexible skip, pause, or cancel options</li></ul>"
+          }
+        },
+        "faq_item_dJgzXH": {
+          "type": "faq_item",
+          "settings": {
+            "article": "faqs/how-much-does-the-oddballs-subscription-cost",
+            "question_override": "How much does the OddBalls subscription cost?",
+            "answer_override": "<p>It depends on the product and location. Prices start from around £5/month. Visit our subscription page for the most up-to-date pricing and options.</p>"
+          }
+        },
+        "faq_item_ibi4pH": {
+          "type": "faq_item",
+          "settings": {
+            "article": "faqs/what-payment-methods-does-oddballs-accept",
+            "question_override": "What payment methods does OddBalls accept?",
+            "answer_override": "<p>We accept most major cards, PayPal, Apple Pay, and Google Pay. Choose whichever works best for you at checkout.</p>"
+          }
+        },
+        "faq_item_qmTfFq": {
+          "type": "faq_item",
+          "settings": {
+            "article": "faqs/how-do-i-cancel-or-pause-my-oddballs-subscription",
+            "question_override": "How do I cancel or pause my OddBalls subscription?",
+            "answer_override": "<p>Easy. Just log in to your account, go to \"Manage Subscription\", and choose to cancel or skip a month. Make sure to do this before the 1st of the month to avoid being charged.</p>"
+          }
+        },
+        "faq_item_jTHyPd": {
+          "type": "faq_item",
+          "settings": {
+            "article": "faqs/do-i-need-an-account-to-manage-my-subscription",
+            "question_override": "Do I need an account to manage my subscription?",
+            "answer_override": "<p>Yes – you’ll need to create or log in to your account using the same email used at checkout to make any changes, pause, or cancel.</p>"
+          }
+        },
+        "faq_item_NQXa7x": {
+          "type": "faq_item",
+          "settings": {
+            "article": "faqs/can-i-use-discount-codes-on-subscriptions",
+            "question_override": "Can I use discount codes on subscriptions?",
+            "answer_override": "<p>No—subscriptions already come with built-in discounts and perks, so promo codes aren’t valid on subscription purchases.</p>"
+          }
+        },
+        "faq_item_xCHrxU": {
+          "type": "faq_item",
+          "settings": {
+            "article": "faqs/can-i-return-or-exchange-my-subscription-item",
+            "question_override": "Can I return or exchange my subscription item?",
+            "answer_override": "<p>You can only return subscription items if they’re faulty (as long as it’s unopened and in its original packaging).</p>"
+          }
+        },
+        "faq_item_HQwtFP": {
+          "type": "faq_item",
+          "settings": {
+            "article": "faqs/how-do-i-change-the-size-style-or-product-in-my-subscription",
+            "question_override": "How do I change the size, style, or product in my subscription?",
+            "answer_override": "<p>Head to “Manage Subscription” in your account and update your preferences there. Just make sure to do it before the next billing date (1st of the month).</p>"
+          }
+        },
+        "faq_item_VGhUbD": {
+          "type": "faq_item",
+          "settings": {
+            "article": "faqs/when-will-i-be-billed-for-my-subscription",
+            "question_override": "When will I be billed for my subscription?",
+            "answer_override": "<p>You’ll be charged for your first subscription when you sign up. After that, billing takes place on the 1st of each month, with retry attempts on the 2nd and 3rd. If payment still fails by the 7th, the subscription will be cancelled.</p>"
+          }
+        },
+        "faq_item_tQrnmT": {
+          "type": "faq_item",
+          "settings": {
+            "article": "faqs/when-will-my-subscription-order-arrive",
+            "question_override": "When will my subscription order arrive?",
+            "answer_override": "<p>Subscriptions are shipped on the 2nd or 3rd of each month and usually arrive within 3–5 working days.</p>"
+          }
+        },
+        "faq_item_E4CYjp": {
+          "type": "faq_item",
+          "settings": {
+            "article": "faqs/can-i-subscribe-to-more-than-one-product",
+            "question_override": "Can I subscribe to more than one product?",
+            "answer_override": "<p>Absolutely! If you want both underwear and socks, you can set up separate subscriptions for each. Just note that additional subscriptions will start from the following month.</p>"
+          }
+        },
+        "faq_item_UnMxCm": {
+          "type": "faq_item",
+          "settings": {
+            "article": "faqs/can-i-gift-a-subscription-to-someone-else",
+            "question_override": "Can I gift a subscription to someone else?",
+            "answer_override": "<p>Yes! You can buy a 3-, 6- or 12-month subscription gift card which gets sent physically to the recipient. They redeem it online and get a surprise each month—no ongoing commitment required.</p>"
+          }
+        },
+        "faq_item_6xVWHx": {
+          "type": "faq_item",
+          "settings": {
+            "article": "faqs/do-you-offer-international-subscriptions",
+            "question_override": "Do you offer international subscriptions?",
+            "answer_override": "<p>Currently, subscriptions are UK-only. But stay tuned—we’re working on making it international soon!</p>"
+          }
+        },
+        "faq_item_VMewUJ": {
+          "type": "faq_item",
+          "settings": {
+            "article": "faqs/do-you-offer-international-subscriptions",
+            "question_override": "What if I don’t like the design I received?",
+            "answer_override": "<p>If you’re not a fan of the month’s design, we unfortunately can't offer a refund or exchange.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_CYXETA",
+        "faq_item_dktxid",
+        "faq_item_dJgzXH",
+        "faq_item_ibi4pH",
+        "faq_item_qmTfFq",
+        "faq_item_jTHyPd",
+        "faq_item_NQXa7x",
+        "faq_item_xCHrxU",
+        "faq_item_HQwtFP",
+        "faq_item_VGhUbD",
+        "faq_item_tQrnmT",
+        "faq_item_E4CYjp",
+        "faq_item_UnMxCm",
+        "faq_item_6xVWHx",
+        "faq_item_VMewUJ"
+      ],
+      "settings": {
+        "category_id": "subscriptions",
+        "category_title": "📦Subscriptions",
+        "blog_handle": "faq",
+        "show_article_count": true,
+        "section_background_color": "#eeeeee",
+        "content_background_color": "#ffffff",
+        "answer_background_color": "#f8f9fa"
+      }
+    },
+    "faq_content_beF8E6": {
+      "type": "faq-content",
+      "blocks": {
+        "faq_item_YeH4Kq": {
+          "type": "faq_item",
+          "settings": {
+            "article": "faqs/what-is-an-oddballs-digital-gift-card",
+            "question_override": "What is an OddBalls digital gift card?",
+            "answer_override": "<p>An OddBalls digital gift card is the perfect last-minute present. Choose your amount, add a personalised message, and we’ll email it directly to the recipient—ready to use straight away.</p>"
+          }
+        },
+        "faq_item_qD3QhL": {
+          "type": "faq_item",
+          "settings": {
+            "article": "faqs/how-do-i-use-an-oddballs-gift-card",
+            "question_override": "How do I use an OddBalls gift card?",
+            "answer_override": "<p>Just add your items to the basket and enter the gift card code at checkout. If there's any balance left, you can use it on a future order too.</p>"
+          }
+        },
+        "faq_item_byx6Jc": {
+          "type": "faq_item",
+          "settings": {
+            "article": "faqs/what-gift-options-does-oddballs-offer",
+            "question_override": "What gift options does OddBalls offer?",
+            "answer_override": "<p>We’ve got gifting covered! Choose from:</p><ul><li>Digital gift cards (instantly emailed)</li><li>Gift subscriptions (underwear surprises each month)</li><li>Bundles and multipacks—great for wrapping or stocking fillers</li></ul>"
+          }
+        },
+        "faq_item_KYxEQ4": {
+          "type": "faq_item",
+          "settings": {
+            "article": "faqs/how-do-i-redeem-a-gift-subscription",
+            "question_override": "How do I redeem a gift subscription?",
+            "answer_override": "<p>If you’ve received a physical gift subscription card, just go to the OddBalls website, enter the unique code, and start building your subscription.</p>"
+          }
+        },
+        "faq_item_fXyYd7": {
+          "type": "faq_item",
+          "settings": {
+            "article": "faqs/can-i-return-a-gifted-item",
+            "question_override": "Can I return a gifted item?",
+            "answer_override": "<p>Yes – as long as it’s within 30 days of dispatch, unworn, and in its original packaging, we can offer a refund or exchange to the original payment method.</p>"
+          }
+        },
+        "faq_item_UEYx9T": {
+          "type": "faq_item",
+          "settings": {
+            "article": "faqs/can-gift-cards-be-used-internationally",
+            "question_override": "Can gift cards be used internationally?",
+            "answer_override": "<p>Yes – as long as you're shopping on the OddBalls website, digital gift cards work across currencies and countries.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_YeH4Kq",
+        "faq_item_qD3QhL",
+        "faq_item_byx6Jc",
+        "faq_item_KYxEQ4",
+        "faq_item_fXyYd7",
+        "faq_item_UEYx9T"
+      ],
+      "settings": {
+        "category_id": "gifting",
+        "category_title": "🎁Gifting & E-Gift Cards",
+        "blog_handle": "faq",
+        "show_article_count": true,
+        "section_background_color": "#ffffff",
+        "content_background_color": "#eeeeee",
+        "answer_background_color": "#f8f9fa"
+      }
+    },
+    "faq_content_xtdaQM": {
+      "type": "faq-content",
+      "blocks": {
+        "faq_item_FwTTQt": {
+          "type": "faq_item",
+          "settings": {
+            "article": "faqs/how-do-i-find-the-right-size-at-oddballs",
+            "question_override": "How do I find the right size at OddBalls?",
+            "answer_override": "<p>Every product page includes a handy size guide. If you're in between sizes, we usually recommend sizing up for maximum comfort.</p>"
+          }
+        },
+        "faq_item_a6fPUf": {
+          "type": "faq_item",
+          "settings": {
+            "article": "faqs/what-sizes-does-oddballs-offer",
+            "question_override": "What sizes does OddBalls offer?",
+            "answer_override": "<p>Most of our products are available from XS to 3XL, though ranges can vary. If your size isn’t listed, it may be out of stock—we’re always working to expand our size range.</p>"
+          }
+        },
+        "faq_item_a8dbWK": {
+          "type": "faq_item",
+          "settings": {
+            "article": "faqs/i-m-in-between-sizes-what-should-i-do",
+            "question_override": "I’m in between sizes—what should I do?",
+            "answer_override": "<p>We recommend going one size up for the comfiest fit. Tight underwear = no fun.</p>"
+          }
+        },
+        "faq_item_UdDJBm": {
+          "type": "faq_item",
+          "settings": {
+            "article": "faqs/can-i-return-underwear-if-it-doesn-t-fit",
+            "question_override": "Can I return underwear if it doesn’t fit?",
+            "answer_override": "<p>Yes—just make sure it’s unworn, unopened, and still has all original packaging. You’ve got 30 days from dispatch to request a return or exchange.</p>"
+          }
+        },
+        "faq_item_chKGHJ": {
+          "type": "faq_item",
+          "settings": {
+            "article": "faqs/how-do-i-care-for-oddballs-products",
+            "question_override": "How do I care for OddBalls products?",
+            "answer_override": "<p>Wash your underwear at 30°C, avoid bleach or softeners, and air dry where possible. For bamboo products, stick to a cool cycle and hang to dry—bamboo is a delicate fibre.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_FwTTQt",
+        "faq_item_a6fPUf",
+        "faq_item_a8dbWK",
+        "faq_item_UdDJBm",
+        "faq_item_chKGHJ"
+      ],
+      "settings": {
+        "category_id": "product",
+        "category_title": "📏 Product & Sizing",
+        "blog_handle": "faq",
+        "show_article_count": true,
+        "section_background_color": "#eeeeee",
+        "content_background_color": "#ffffff",
+        "answer_background_color": "#f8f9fa"
+      }
+    },
+    "faq_content_kEeXm7": {
+      "type": "faq-content",
+      "blocks": {
+        "faq_item_t7Da3T": {
+          "type": "faq_item",
+          "settings": {
+            "article": "faqs/how-was-oddballs-founded",
+            "question_override": "How was OddBalls founded?",
+            "answer_override": "<p>OddBalls launched in 2014, created to shake up the boring underwear market with bold, vibrant designs. Since day one, our mission has been to bring joy and comfort through colourful prints and top-quality products. OddBalls isn’t just about fun underwear—it’s about championing diversity and inclusion with something for everyone. Whether you're after boxers, briefs, knickers, or undies—call them what you like—we’ve got you covered.</p><p>Recognising our potential to do even more, we decided to use our bright, fun underwear to raise awareness for several charities as well as Testicular Cancer. We’re proud to have worked with amazing charities through partnerships with organisations like The OddBalls Foundation, Movember, Prostate UK, My Name’5 Doddie Foundation, Alzheimer’s Research UK and more.</p>"
+          }
+        },
+        "faq_item_HRNtGN": {
+          "type": "faq_item",
+          "settings": {
+            "article": "faqs/how-does-oddballs-support-charities",
+            "question_override": "How does OddBalls support charities?",
+            "answer_override": "<p>Recognising our potential to do even more, we decided to use our bright, fun underwear to raise awareness for several charities as well as Testicular Cancer. We’re proud to have worked with amazing charities through partnerships with organisations like The OddBalls Foundation, Movember, Prostate UK, My Name’5 Doddie Foundation, Alzheimer’s Research UK and more.</p><p>A portion of every sale from these collections is donated directly to the charity. Check the product description to see exactly how much your purchase contributes.</p>"
+          }
+        },
+        "faq_item_DbFcTp": {
+          "type": "faq_item",
+          "settings": {
+            "article": "faqs/what-is-the-oddballs-foundation",
+            "question_override": "What is the OddBalls Foundation?",
+            "answer_override": "<p>The OddBalls Foundation is our registered charity focused on raising awareness of testicular cancer. It runs university ambassador programmes, school visits, and educational campaigns—funded by profits and donations from our products.</p>"
+          }
+        },
+        "faq_item_jhAj6X": {
+          "type": "faq_item",
+          "settings": {
+            "article": "faqs/how-do-i-become-a-university-ambassador",
+            "question_override": "How do I become a university ambassador?",
+            "answer_override": "<p>If you're a student passionate about health and wellbeing, you can apply to become a University Ambassador through the OddBalls Foundation. You’ll spread awareness and join a movement of bold changemakers.</p>"
+          }
+        },
+        "faq_item_iGzLkF": {
+          "type": "faq_item",
+          "settings": {
+            "article": "faqs/can-i-collaborate-with-oddballs-as-an-influencer",
+            "question_override": "Can I collaborate with OddBalls as an influencer?",
+            "answer_override": "<p>We’re always up for creative partnerships! If you love the brand and share our values, visit our Affiliate page to sign up today.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_t7Da3T",
+        "faq_item_HRNtGN",
+        "faq_item_DbFcTp",
+        "faq_item_jhAj6X",
+        "faq_item_iGzLkF"
+      ],
+      "settings": {
+        "category_id": "mission",
+        "category_title": "💖Mission & Charity",
+        "blog_handle": "faq",
+        "show_article_count": true,
+        "section_background_color": "#ffffff",
+        "content_background_color": "#eeeeee",
+        "answer_background_color": "#f8f9fa"
+      }
+    },
+    "faq_content_d4HabX": {
+      "type": "faq-content",
+      "blocks": {
+        "faq_item_C4RPk9": {
+          "type": "faq_item",
+          "settings": {
+            "article": "faqs/does-oddballs-offer-discount-codes",
+            "question_override": "Does OddBalls offer discount codes?",
+            "answer_override": "<p>Yes! We regularly share exclusive discount codes via email, social media, and on-site pop-ups. Want first dibs? Sign up to our newsletter for subscriber-only offers.</p>"
+          }
+        },
+        "faq_item_87hqTV": {
+          "type": "faq_item",
+          "settings": {
+            "article": "faqs/why-isn-t-my-promo-code-working",
+            "question_override": "Why isn’t my promo code working?",
+            "answer_override": "<p>Check for:</p><ul><li>Spelling or case sensitivity</li><li>Expiry date</li><li>Product exclusions (e.g. sale or subscriptions)</li><li>One-code-per-order rule</li></ul><p>Still not working? Contact us and we’ll take a look.</p>"
+          }
+        },
+        "faq_item_bxqCEh": {
+          "type": "faq_item",
+          "settings": {
+            "article": "faqs/i-forgot-to-use-my-discount-code-can-i-add-it-after-checkout",
+            "question_override": "I forgot to use my discount code—can I add it after checkout?",
+            "answer_override": "<p>Unfortunately not—promo codes must be applied at checkout. If you missed it, save it for your next order!</p>"
+          }
+        },
+        "faq_item_AE3wce": {
+          "type": "faq_item",
+          "settings": {
+            "article": "faqs/what-can-i-use-my-discount-code-on",
+            "question_override": "What can I use my discount code on?",
+            "answer_override": "<p>Most codes apply to full-price items. Some exclusions may include:</p><ul><li>Licensed collections</li><li>Sale items</li><li>Gift cards</li><li>Subscriptions</li></ul><p>We'll always state any exceptions clearly.</p>"
+          }
+        },
+        "faq_item_fcWBhE": {
+          "type": "faq_item",
+          "settings": {
+            "article": "",
+            "question_override": "How do I use my OddBalls voucher or discount code?",
+            "answer_override": "<p>You can enter your voucher or discount code in the “Discount Code” box at checkout. The discount will be applied automatically to your order total.</p>"
+          }
+        },
+        "faq_item_VQ6YQc": {
+          "type": "faq_item",
+          "settings": {
+            "article": "",
+            "question_override": "Can I use more than one discount code on my order?",
+            "answer_override": "<p>No — only one voucher or discount code can be used per order. If you have multiple codes, we recommend using the one that gives you the biggest saving.</p>"
+          }
+        },
+        "faq_item_cbBiyW": {
+          "type": "faq_item",
+          "settings": {
+            "article": "",
+            "question_override": "Do OddBalls vouchers expire?",
+            "answer_override": "<p>Yes— voucher expiry dates vary depending on the promotion. You can find the expiry date in the email or message where you received your code. If you’re unsure, contact customer service before placing your order.<br/><br/><br/><br/></p>"
+          }
+        },
+        "faq_item_B8qDQG": {
+          "type": "faq_item",
+          "settings": {
+            "article": "",
+            "question_override": "What happens if my voucher code doesn’t work?",
+            "answer_override": "<p>If your voucher or discount code isn’t working, check the expiry date, terms, and<br/>that you’ve entered it exactly as shown. If it still doesn’t work, get in touch with our team and we’ll help resolve it.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_C4RPk9",
+        "faq_item_87hqTV",
+        "faq_item_bxqCEh",
+        "faq_item_AE3wce",
+        "faq_item_fcWBhE",
+        "faq_item_VQ6YQc",
+        "faq_item_cbBiyW",
+        "faq_item_B8qDQG"
+      ],
+      "settings": {
+        "category_id": "discounts",
+        "category_title": "💸Discounts & Promotions",
+        "blog_handle": "faq",
+        "show_article_count": true,
+        "section_background_color": "#eeeeee",
+        "content_background_color": "#ffffff",
+        "answer_background_color": "#f8f9fa"
+      }
+    },
+    "faq_content_LNcwTH": {
+      "type": "faq-content",
+      "blocks": {
+        "faq_item_gaKAbk": {
+          "type": "faq_item",
+          "settings": {
+            "article": "faqs/does-oddballs-ship-internationally",
+            "question_override": "Does OddBalls ship internationally?",
+            "answer_override": "<p>Yes—OddBalls ships to EU countries and worldwide. International shipping options, costs, and delivery times will appear at checkout based on your location.</p>"
+          }
+        },
+        "faq_item_G3ekkH": {
+          "type": "faq_item",
+          "settings": {
+            "article": "faqs/will-i-pay-customs-duties-or-vat-on-my-international-order",
+            "question_override": "Will I pay customs duties or VAT on my international order?",
+            "answer_override": "<ul><li>EU Customers: No import fees or VAT for orders under €150.</li><li>Over €150: Duties may apply depending on your country.</li></ul><p>We do our best to make international shopping simple and clear.</p>"
+          }
+        },
+        "faq_item_ykwyDH": {
+          "type": "faq_item",
+          "settings": {
+            "article": "faqs/can-i-track-my-international-oddballs-order",
+            "question_override": "Can I track my international OddBalls order?",
+            "answer_override": "<p>Yes! All international orders include tracking, which will be sent to you via email once your parcel leaves our HQ.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_gaKAbk",
+        "faq_item_G3ekkH",
+        "faq_item_ykwyDH"
+      ],
+      "settings": {
+        "category_id": "international",
+        "category_title": "🌍International Orders & Duties",
+        "blog_handle": "faq",
+        "show_article_count": true,
+        "section_background_color": "#ffffff",
+        "content_background_color": "#eeeeee",
+        "answer_background_color": "#f8f9fa"
+      }
+    },
+    "faq_content_nKQxyA": {
+      "type": "faq-content",
+      "blocks": {
+        "faq_item_R7qkVA": {
+          "type": "faq_item",
+          "settings": {
+            "article": "banter/how-does-oddballs-refer-a-friend-scheme-work",
+            "question_override": "How does OddBalls' Refer-a-Friend scheme work?",
+            "answer_override": "<p>Refer a friend and they’ll get 25% off their first order (excluding custom items, gift cards, sale, or subscriptions). Once they order, you’ll get your own 25% discount code via email.</p>"
+          }
+        },
+        "faq_item_FURzcT": {
+          "type": "faq_item",
+          "settings": {
+            "article": "faqs/how-do-i-refer-someone",
+            "question_override": "How do I refer someone?",
+            "answer_override": "<p>Refer a friend and they’ll get 25% off their first order (excluding custom items, gift cards, sale items, and subscriptions). Once they’ve checked out, we’ll send you a 25% off discount code via email. </p>"
+          }
+        },
+        "faq_item_TNmHiD": {
+          "type": "faq_item",
+          "settings": {
+            "article": "faqs/is-there-a-limit-to-how-many-friends-i-can-refer",
+            "question_override": "Is there a limit to how many friends I can refer?",
+            "answer_override": "<p>Nope! Refer as many friends as you like. Each time someone places their first order using your link, you’ll get another 25% off code.</p>"
+          }
+        },
+        "faq_item_Db7fiP": {
+          "type": "faq_item",
+          "settings": {
+            "article": "faqs/can-i-refer-someone-who-s-already-shopped-at-oddballs",
+            "question_override": "Can I refer someone who’s already shopped at OddBalls?",
+            "answer_override": "<p>No—this offer is for first-time customers only.</p>"
+          }
+        },
+        "faq_item_Hedf4K": {
+          "type": "faq_item",
+          "settings": {
+            "article": "faqs/how-do-i-redeem-my-25-referral-discount",
+            "question_override": "How do I redeem my 25% referral discount?",
+            "answer_override": "<p>Click the unique link sent by your friend and shop as usual. Add items to your basket and checkout, your 25% off discount code will be automatically applied to your order.</p>"
+          }
+        },
+        "faq_item_pzghxg": {
+          "type": "faq_item",
+          "settings": {
+            "article": "faqs/can-i-use-referral-codes-on-sale-or-subscriptions",
+            "question_override": "Can I use referral codes on sale or subscriptions?",
+            "answer_override": "<p>Referral codes can’t be used on:</p><ul><li>Sale items</li><li>Gift cards</li><li>Subscription products</li><li>Custom orders</li></ul><p>But they do work on full-price multipacks and bundles.</p>"
+          }
+        },
+        "faq_item_mdqwFV": {
+          "type": "faq_item",
+          "settings": {
+            "article": "faqs/how-long-is-my-referral-code-valid-for",
+            "question_override": "How long is my referral code valid for?",
+            "answer_override": "<p>Each referral voucher is valid for 90 days from the date you receive it.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_R7qkVA",
+        "faq_item_FURzcT",
+        "faq_item_TNmHiD",
+        "faq_item_Db7fiP",
+        "faq_item_Hedf4K",
+        "faq_item_pzghxg",
+        "faq_item_mdqwFV"
+      ],
+      "settings": {
+        "category_id": "refer",
+        "category_title": "👯Refer-a-Friend",
+        "blog_handle": "faq",
+        "show_article_count": true,
+        "section_background_color": "#eeeeee",
+        "content_background_color": "#ffffff",
+        "answer_background_color": "#f8f9fa"
+      }
+    },
+    "faq_content_FhUd4H": {
+      "type": "faq-content",
+      "blocks": {
+        "faq_item_NgkbJE": {
+          "type": "faq_item",
+          "settings": {
+            "article": "faqs/are-there-any-oddballs-job-vacancies",
+            "question_override": "Are there any OddBalls job vacancies?",
+            "answer_override": "<p>We’re always on the lookout for great people! Check our Careers page or LinkedIn for any open roles at our HQ in the North East.</p>"
+          }
+        },
+        "faq_item_9WXkmR": {
+          "type": "faq_item",
+          "settings": {
+            "article": "faqs/do-you-have-a-brand-ambassador-programme",
+            "question_override": "Do you have a brand ambassador programme?",
+            "answer_override": "<p>Yes—but it’s run by the OddBalls Foundation, our charity partner. Ambassadors help raise awareness for testicular cancer across UK universities and campuses.</p>"
+          }
+        },
+        "faq_item_NzdkwV": {
+          "type": "faq_item",
+          "settings": {
+            "article": "faqs/how-can-i-become-an-oddballs-influencer-or-creator",
+            "question_override": "How can I become an OddBalls influencer or creator?",
+            "answer_override": "<p>If you're a content creator who shares our love for bold designs and feel-good causes, we’d love to hear from you. Send us an email or visit our Affiliates page to find out more.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_NgkbJE",
+        "faq_item_9WXkmR",
+        "faq_item_NzdkwV"
+      ],
+      "settings": {
+        "category_id": "working",
+        "category_title": "👋Working With Us",
+        "blog_handle": "faq",
+        "show_article_count": true,
+        "section_background_color": "#ffffff",
+        "content_background_color": "#eeeeee",
+        "answer_background_color": "#f8f9fa"
+      }
+    },
+    "ob_klaviyo_forms_CaVgG7": {
+      "type": "ob-klaviyo-forms",
+      "blocks": {
+        "form_iiqtQz": {
+          "type": "form",
+          "settings": {
+            "country_iso": "*",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "uk",
+            "markets_to_exclude_on": "",
+            "slide_active": true,
+            "title": "FAQs",
+            "klaviyo_id": "VPky6p",
+            "html_id": "",
+            "wrapper_classes": "",
+            "url_handle": "faqs",
+            "not_url_handle": "",
+            "domains": "*",
+            "device": "all",
+            "customers": "all"
+          }
+        }
+      },
+      "block_order": [
+        "form_iiqtQz"
+      ],
+      "name": "Klaviyo Forms",
+      "settings": {
+        "section_width": "full",
+        "custom_width": ""
+      }
+    }
+  },
+  "order": [
+    "faq_hero_banner",
+    "faq_category_nav",
+    "faq_search",
+    "faq_content_HjgTpk",
+    "faq_content_general",
+    "faq_content_dCBgki",
+    "scroll_to_UcndHU",
+    "faq_content_ChWJCY",
+    "faq_content_beF8E6",
+    "faq_content_xtdaQM",
+    "faq_content_kEeXm7",
+    "faq_content_d4HabX",
+    "faq_content_LNcwTH",
+    "faq_content_nKQxyA",
+    "faq_content_FhUd4H",
+    "ob_klaviyo_forms_CaVgG7"
+  ]
+}

@@ -1,0 +1,142 @@
+{% include 'include-klaviyo-form-section', section:section %}
+
+{% schema %}
+  {
+    "name": "Klaviyo Forms",
+    "class": "klaviyo-forms",
+    "settings": [
+          {
+			"type": "select",
+			"id": "section_width",
+			"default": "full",
+			"options": [
+				{ "value": "full", "label": "Full width"},
+				{ "value": "page", "label": "Page width"},
+				{ "value": "custom", "label": "Custom width"}
+			],
+			"label": "section width"
+          },
+		  {
+			"type": "text",
+			"id": "custom_width",
+			"label": "Custom width to use"
+		  }
+    ],
+    "blocks": [
+        {
+          "type": "form",
+          "name": "Klaviyo Form",
+          "settings": [
+                {
+                    "type": "html",
+                    "id": "country_iso",
+                    "label": "Only display if current iso is (* for all)",
+                    "info": "Comma seperated (old use market Selector)",
+                    "default":"*"
+                },
+                {
+                  "type": "checkbox",
+                  "id": "show_on_all_markets",
+                  "default": true,
+                  "label": "Show On All Markets",
+                  "info": "on to show on all"
+                },
+                {
+                  "type": "text",
+                  "id": "markets_to_show_on",
+                  "label": "Markets to show on",
+                  "info": "Example would look like: uk, en-eu (shows on UK and EU markets)"
+                },
+                {
+                  "type": "text",
+                  "id": "markets_to_exclude_on",
+                  "label": "Markets to Exclude on",
+                  "info": "Example would look like: uk, en-eu (Would not show on UK and EU markets)"
+                },
+                {
+                  "type": "checkbox",
+                  "id": "slide_active",
+                  "label": "Slide active",
+                  "default": true
+                },
+                {
+                  "type": "text",
+                  "id": "title",
+                  "label": "block name"
+                },
+                {
+                  "type": "text",
+                  "id": "klaviyo_id",
+                  "label": "Klaviyo form id"
+                },
+                {
+                  "type": "text",
+                  "id": "html_id",
+                  "label": "HTML form id"
+                },	            
+                {
+                  "type": "text",
+                  "id": "wrapper_classes",
+                  "label": "Wrapper Classes"
+                },            
+                {
+                  "type": "header",
+                  "content": "Rules"
+                },
+                {
+                  "type": "textarea",
+                  "id": "url_handle",
+                  "label": "Only display if url contains this handle (* for all)",
+                  "info": "One per line",
+				  "default":"*"
+                },
+                {
+                  "type": "textarea",
+                  "id": "not_url_handle",
+                  "label": "Dont display if url contains this handle",
+                  "info": "One per line"
+                },
+                {
+                  "type": "textarea",
+                  "id": "domains",
+                  "label": "Only display on these domains (* for all)",
+                  "info": "One per line",
+				  "default": "*"
+                },
+                {
+                   "type": "select",
+                   "id": "device",
+                   "default": "all",
+                   "options": [
+                      { "value": "all", "label": "All"},
+                      { "value": "mobile", "label": "Mobile only"},
+                      { "value": "desktop", "label": "Desktop only"}
+                   ],
+                   "label": "Devices to show this on"
+                },
+                {
+                   "type": "select",
+                   "id": "customers",
+                   "default": "all",
+                   "options": [
+                      { "value": "all", "label": "All"},
+                      { "value": "loggedin", "label": "Only Logged in"},
+                      { "value": "loggedout", "label": "Only Logged out"}
+                   ],
+                   "label": "Which customers will see this"
+                }
+
+			]
+		}
+    ],
+    "presets": [
+       {
+         "name": "Klaviyo Forms",
+         "settings": {
+
+          }
+       }
+	]    
+
+}
+{% endschema %}

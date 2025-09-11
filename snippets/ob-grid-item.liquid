@@ -1,0 +1,59 @@
+                  {% if product.type != "Mid-Collection Banners" and product.available %}
+  
+                  <div class="product-card swiper-slide flex flex-col ">
+                    <div class="product-card__image-wrapper">
+                      <a href="{{ product.url }}" class="swiper swiper-product product-card__image group aspect-square swiper-initialized swiper-horizontal swiper-ios swiper-backface-hidden relative">
+                        <div class="label-container absolute right-0 p-2 font-bold text-sm md:text-md  uppercase">
+                            {% render 'label-generator' product:product, labelTags:labelTags %}
+                        </div>
+                        <div class="sr-only">{{ product.handle }}</div>
+                        <div  aria-live="polite">
+                          <div class="bg-gray- role="group" aria-label="1 / 1">
+                            <img class="w-full"
+                              src="{{ product.images[0] | img_url: '500x' }}"
+                              loading="lazy"
+                              alt="{{ product.title }}"
+                              width="500"
+                              height="500"
+                              srcset="
+                              {{ product.images[0] | img_url: '100x100', format: 'pjpg' }} 100w,
+                              {{ product.images[0] | img_url: '200x200', format: 'pjpg' }} 200w,
+                              {{ product.images[0] | img_url: '300x300', format: 'pjpg' }} 300w,
+                              {{ product.images[0] | img_url: '600x600', format: 'pjpg' }} 600w,
+                              {{ product.images[0] | img_url: '900x900', format: 'pjpg' }} 900w,
+                              {{ product.images[0] | img_url: '1200x1200', format: 'pjpg' }} 1200w,
+                              {{ product.images[0] | img_url: '1500x1500', format: 'pjpg' }} 1500w
+                            "
+                            sizes="(max-width: 1024px) 50vw, 
+                                   25vw">
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                    <div class="product-card__details sm:px-0 h-full pb-2">
+                      <div class="bg-gray-100 p-2 pb-3 px-4">
+                        <div class="rounded-full border border-black border-solid grid grid-cols-2 w-full bg-white">
+                          <a href="{{ product.url }}" title="Click here for more information about {{ product.title }}" class="text-xxs md:text-xs items-center text-center uppercase border-r border-solid border-gray-300 py-2 font-semibold md:font-normal">
+                            <div class="sr-only">link to {{ product.title }}</div>
+                              {{ "collection_page.see_more" | t }}  
+                          </a>
+                          <div class="text-xxs md:text-xs items-center text-center uppercase cart-bs-quick-add py-2 font-semibold md:font-normal flex justify-center" data-handle="{{ product.handle }}">
+                          <div class="quick-buy-text">{{ "collection_page.quick_buy" | t }}</div>
+                            <div class="w-4 quick-buy-loader"><svg class="loading-ele-outer" viewBox="25 25 50 50"><circle class="loading-ele-inner" cx="50" cy="50" r="20" fill="none" stroke-width="4"></circle></svg></div>
+                          </div>
+                        </div>
+                      </div>
+                      <a href="{{ product.url }}" class="h-full flex flex-col justify-between">
+                        {% assign title = product.title | split: "-" %}
+                        <div>
+                            <h3 class="product-card__details__title text-md px-2 font-bold">{{ title[0] }}</h3>
+                            <p class="product-card__details__color text-sm px-2">{{ title[1] }}</p>
+                        </div>
+                        <div>
+                          <p class="product-card__details__price px-2 text-magenta-500 text-md">{{ product.price | money }}<del class="ml-1 text-gray-400 {% if product.price == product.compare_at_price %} hidden {% endif %}">{{ product.compare_at_price | money }}</del></p>
+                        </div>
+                      </a>
+                    </div>
+                    <input type="hidden" value='{{ product | json | escape }}' class="prod-info">
+                  </div>
+                   {% endif %}

@@ -1,0 +1,208 @@
+<style type="text/css">
+  .template-404 .title + * {
+    margin-top: 1rem;
+  }
+
+  .tag-product-recommendations {
+      min-height: 0px !important;
+  }
+  @media screen and (min-width: 750px) {
+    .template-404 .title + * {
+      margin-top: 2rem;
+    }
+  }
+</style>
+{% assign collection = collections['best-sellers-homepage'] %}
+  <div class="template-404 page-width page-margin center not-country-redirect">
+    <div class="flex w-full justify-center px-4">
+    <p class="text-7xl marujo">
+      {{ 'templates.404.subtext' | t }}
+    </p>
+    </div>
+    <div class="flex w-full justify-center px-4 py-2">
+    <h1 class="title">
+      {{ 'templates.404.title' | t }}
+    </h1>
+    </div>
+    <div class="flex w-full justify-center px-4 py-2">
+      <a href="{{ routes.root_url }}" class="button">
+        {{ 'general.continue_shopping' | t }}
+      </a>
+    </div>
+      <div class="flex w-full justify-center px-4 py-2">
+       <div class="marujo text-xl capitalize"> {{ 'templates.404.shop_bestsellers' | t }} </div>
+    </div>
+  </div>
+
+  
+  <div class="template-404 page-width page-margin center country-redirect" style="display:none;">
+    <div class="flex w-full justify-center px-4">
+    <p class="text-7xl marujo">
+      {{ 'templates.404.subtext' | t }}
+    </p>
+    </div>
+    <div class="flex w-full justify-center px-4 py-2">
+    <h1 class="title">
+      {{ 'templates.404.country_not_found' | t }}
+    </h1>
+    </div>
+    <div class="flex w-full justify-center px-4 py-2">
+      <a href="{{ routes.all_products_collection_url }}" class="button">
+        {{ 'general.continue_shopping' | t }}
+      </a>
+    </div>
+      <div class="flex w-full justify-center px-4 py-2">
+       <div class="marujo text-xl capitalize"> {{ 'templates.404.shop_bestsellers' | t }} </div>
+    </div>
+  </div>
+
+{% if collection != blank or section.settings.product_list != blank %}
+  <div
+    data-target="product-tag-recommendations"
+    class="js-ptab-target2 blend-dividex "
+  >
+    {% capture url %}/collections/best-sellers-homepage?view=ob-collection-grid-test{% endcapture %}
+    {% capture title %}{% endcapture %}
+    <div
+      id="slider-title-{{ url | replace: '/',''}}"
+      class="{% if collection.products %}{% if collection.products.size == 0 %}{% if section.settings.product_list.size == 0 %}hidden{% endif %}{% endif %}{% endif %} {{ section.settings.text_class }}"
+    >
+      {{ title }}
+    </div>
+    <tag-product-recommendations2
+      id="howdyid-urlhandle -1"
+      class="{% if collection.products %}{% if collection.products.size == 0 %}{% if section.settings.product_list.size == 0 %}hidden{% endif %}{% endif %}{% endif %} m-6 tag-product-recommendations"
+      handle="{{ url }}"
+    >
+      {% assign label_sep = '' -%}
+      {%- include 'ob-include-set-current-country' -%}
+      {%- for block in section.blocks %}
+        {%- include 'ob-include-country-ok-to-proceed', thingObj: block -%}
+        {% if country_ok_to_proceed == 'yes' -%}
+          {% if block.settings.label != blank %}
+            {{ label_sep }}{{ block.settings.label }}
+            {% assign label_sep = ', ' -%}
+          {% endif %}
+        {%- endif -%}
+      {%- endfor %}
+
+      {% if collection.products.size > 0 or section.settings.product_list.size > 0 %}
+        <div class="tag-product-recommendations block m-6">
+          <css-slider
+            class="css-slider--simple-dots relative"
+            data-options='
+              {
+                "selector": ".cart-product-item",
+                "navigation": false,
+                "groupCells": true
+              }
+            '
+            style="display:flex"
+          >
+            {% if section.settings.product_list != blank %}
+              {% for product in section.settings.product_list %}
+                <div class="cart-product-item w-1/2 md:w-1/2 lg:w-1/3 xxl:w-1/4 xxxl:w-1/5 outline-gray my-1 cart-product-item-{{ product.title | replace:" ", "-" }}">
+                  {%- render 'ob-product-item', product: product, index: forloop.index0 -%}
+                </div>
+              {% endfor %}
+            {% else %}
+              {% comment %}
+              {% for product in collection.products limit: 16 %}
+                {% if product.available %}
+                  <div class="cart-product-item w-1/2 md:w-1/2 lg:w-1/3 xxl:w-1/4 xxxl:w-1/5 outline-gray my-1 cart-product-item-{{ product.title | replace:" ", "-" }}">
+                    {%- render 'ob-product-item', product: product, index: forloop.index0 -%}
+                  </div>
+                {% endif %}
+              {%- endfor -%}
+              {% endcomment %}
+            {% endif %}
+
+            <div
+              class="css-slider-navigation-container absolute bottom-0 left-1/2 temp-dots"
+              style="transform:translate(-50%, -20px)"
+            >
+              <div class="css-slider-dot-navigation" style="display: block;">
+                <button class="css-slider-dot" data-index="0"></button>
+                <button class="css-slider-dot" data-index="1"></button>
+                <button class="css-slider-dot" data-index="2"></button>
+                <button class="css-slider-dot" data-index="3"></button>
+              </div>
+            </div>
+          </css-slider>
+        </div>
+      {% endif %}
+    </tag-product-recommendations2>
+  </div>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Collection Products",
+  "settings": [
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Pick a collection"
+    },
+    {
+      "type": "product_list",
+      "id": "product_list",
+      "label": "Product List",
+      "limit": 16
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title (optional)"
+    },
+    {
+      "type": "text",
+      "id": "wrapper_class",
+      "label": "Wrapper Class (optional)"
+    },
+    {
+      "type": "text",
+      "id": "text_class",
+      "label": "Text Class (optional)",
+      "default": "justify-center border-t-0 mx-6 border-color border-solid pb-1 text-center text-lg lg:text-2xl uppercase",
+      "info": " justify-center border-t-0 mx-6 border-color border-solid pb-1 text-center text-lg lg:text-2xl uppercase"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "Label",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+
+
+<script>
+  const currentUrl = window.location.href;
+  
+  if (currentUrl.includes('/de-eu')) {
+    const newUrl = currentUrl.replace('/de-eu', '/en-eu');
+    window.location.href = newUrl;
+  }
+
+  var urlParams = new URLSearchParams(window.location.search);
+
+  try{
+      
+    var isCountryRedirect = urlParams.get('iscountryredirect') === 'true';
+  
+    if (isCountryRedirect) {
+      document.querySelector(".country-redirect").style.display = "block";
+      document.querySelector(".not-country-redirect").style.display = "none";
+    }
+  }catch(error){console.error(error)}
+</script>

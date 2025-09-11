@@ -1,0 +1,190 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "form": {
+      "type": "contact-form",
+      "disabled": true,
+      "settings": {
+        "heading": "",
+        "heading_size": "h1",
+        "color_scheme": "scheme-1",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "coppafeel_banner_WVdKtd": {
+      "type": "coppafeel-banner",
+      "name": "coppafeel-banner",
+      "settings": {
+        "collection": "bralette",
+        "desktopImage": "shopify://shop_images/LandingPage-CoppaFeel-01.png",
+        "mobileImage": "shopify://shop_images/LandingPage-CoppaFeel-02.png"
+      }
+    },
+    "ob_conditional_banner_old_4BA8Lh": {
+      "type": "ob-conditional-banner-old",
+      "blocks": {
+        "page_banner_H8jNAQ": {
+          "type": "page-banner",
+          "settings": {
+            "block_active": true,
+            "banner_background": "",
+            "wrapper_classes": "",
+            "title": "",
+            "text": "",
+            "text_wrapper_classes": "",
+            "customers": "both",
+            "url_handle": "*",
+            "not_url_handle": "",
+            "country_iso": "*",
+            "banner_link": "https://www.myoddballs.com/collections/bralette",
+            "desktop_image": "shopify://shop_images/LandingPage-CoppaFeel_-_DESKTOP_aabd6371-ee6a-4af1-ba88-72f0f71eca0d.png",
+            "mobile_image": "shopify://shop_images/LandingPage-CoppaFeel-MOBILE_bf165817-236e-4cca-9151-945fd135e7fe.png",
+            "desktop_image_classes": "mx-auto w-full hidden md:block",
+            "mobile_image_classes": "mx-auto w-full md:hidden",
+            "desktop_svg": "",
+            "mobile_svg": "",
+            "desktop_svg_classes": "absolute inset-0 w-full h-full mx-auto hidden md:block",
+            "mobile_svg_classes": "absolute inset-0 w-full h-full mx-auto md:hidden"
+          }
+        }
+      },
+      "block_order": [
+        "page_banner_H8jNAQ"
+      ],
+      "name": "Conditional Banner",
+      "settings": {
+        "banner_background": "",
+        "wrapper_classes": ""
+      }
+    },
+    "coppafeel_top_GEWgQP": {
+      "type": "coppafeel-top",
+      "name": "coppafeel-top",
+      "settings": {
+        "text": "We’re donating 20% of all bralette sales to CoppaFeel! this weekend\n\nWho is CoppaFeel!?\n\nCoppaFeel! are the UK’s only youth focused breast cancer awareness charity, and they’re on a mission to ensure all breast cancers in young people are diagnosed early and accurately. They educate people on the signs and symptoms of breast cancer and encourage them to check their chests regularly.",
+        "backgroundcolor": "",
+        "textColor": "",
+        "desktopImage": "shopify://shop_images/LandingPage-CoppaFeel-DESKTOP_CYG.png",
+        "mobileImage": "shopify://shop_images/LandingPage-CoppaFeel-MOBILE_CYG.png"
+      }
+    },
+    "ss_25_rotating_banner_jmJVfK": {
+      "type": "SS-25-rotating-banner",
+      "name": "SS 25 Rotating banner",
+      "settings": {
+        "text": "We're Dontating 20% of Bralette Sales to CoppaFeel - THIS WEEKEND ONLY -",
+        "background_color": "#ed186a",
+        "text_color": "#ffffff"
+      }
+    },
+    "ob_collection_slider_old_RNGxfW": {
+      "type": "ob-collection-slider-old",
+      "name": "Collection Products",
+      "settings": {
+        "collection": "bralette",
+        "product_list": [],
+        "title": "Bralette Favourites",
+        "wrapper_class": "",
+        "text_class": "text-2xl md:text-4xl uppercase  mx-auto text-center pt-2",
+        "slider_enabled": true,
+        "autoplay": false,
+        "loop": false,
+        "slides_mobile": 2,
+        "slides_md": 3,
+        "slides_lg": 5,
+        "slide_gap": 10,
+        "slide_by": "all",
+        "drag_scroll": true,
+        "show_dots": true,
+        "dots_container_classes": "relative ob-dots w-full justify-center items-center flex gap-2 z-10 my-4",
+        "dot_classes": "ob-dot w-2 h-2 rounded-full bg-neutral-300 transition-colors duration-300 ease-in-out",
+        "show_on_all_markets": true,
+        "markets_to_show_on": "",
+        "markets_to_exclude_on": ""
+      }
+    },
+    "copafeel_blocks_QTpQR4": {
+      "type": "copafeel-blocks",
+      "blocks": {
+        "collection_block_YY9FLP": {
+          "type": "collection_block",
+          "settings": {
+            "image": "shopify://shop_images/LandingPage-CoppaFeel-BRALETTES.png",
+            "buttontext": "shop bralettes",
+            "collection": "bralette",
+            "classes": "px-2 md:px-4 py-1 md:py-2 bg-white rounded-lg uppercase mb-4"
+          }
+        },
+        "collection_block_33yxVC": {
+          "type": "collection_block",
+          "settings": {
+            "image": "shopify://shop_images/LandingPage-CoppaFeel-_BUNDLES.png",
+            "buttontext": "Shop Bundles",
+            "collection": "ladies-bralette-bundles",
+            "classes": "px-2 md:px-4 py-1 md:py-2 bg-white rounded-lg uppercase mb-4"
+          }
+        }
+      },
+      "block_order": [
+        "collection_block_YY9FLP",
+        "collection_block_33yxVC"
+      ],
+      "name": "coppafeel-blocks",
+      "settings": {}
+    },
+    "ss_25_rotating_banner_jnqh8W": {
+      "type": "SS-25-rotating-banner",
+      "name": "SS 25 Rotating banner",
+      "settings": {
+        "text": "<span class=\"font-bold\">We're Dontating <b class=\"text-white\">20%</b> of Bralette Sales to CoppaFeel - <b class=\"text-white\">THIS WEEKEND ONLY</b> - </span>",
+        "background_color": "#ed186a",
+        "text_color": "#000000"
+      }
+    },
+    "coppafeel_reviews_KfBVYc": {
+      "type": "coppafeel-reviews",
+      "name": "coppafeel-reviews",
+      "settings": {
+        "collection": "bralette",
+        "wrapperclasses": "a",
+        "quote": "\"Soft, stretchy - My boobs have never been happier\"",
+        "name": "Alisha - Cardiff",
+        "buttontext": "SHOP BRALETTES",
+        "buttonclasses": "border border-solid border-white rounded-md py-1 px-2 text-white",
+        "backgroundcolor": "#ed186a",
+        "textcolor": "#ffffff",
+        "desktopImage": "shopify://shop_images/LandingPage-CoppaFeel-REVIEWS3.png",
+        "mobileImage": "shopify://shop_images/LandingPage-CoppaFeel-REVIEWS3.png"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "form",
+    "coppafeel_banner_WVdKtd",
+    "ob_conditional_banner_old_4BA8Lh",
+    "coppafeel_top_GEWgQP",
+    "ss_25_rotating_banner_jmJVfK",
+    "ob_collection_slider_old_RNGxfW",
+    "copafeel_blocks_QTpQR4",
+    "ss_25_rotating_banner_jnqh8W",
+    "coppafeel_reviews_KfBVYc"
+  ]
+}

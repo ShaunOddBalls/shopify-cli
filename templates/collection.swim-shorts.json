@@ -1,0 +1,401 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "ob_breadcrumbs_KabV7U": {
+      "type": "ob-breadcrumbs",
+      "settings": {}
+    },
+    "collection_title_kbw3mp": {
+      "type": "collection-title",
+      "settings": {}
+    },
+    "ob_metaobject_collection_conditional_banner_aDXcte": {
+      "type": "ob-metaobject-collection-conditional-banner",
+      "disabled": true,
+      "settings": {
+        "title": "Black Friday Collection Banners",
+        "metaobject": "black-friday-collection-conditional-banner-list"
+      }
+    },
+    "ob_metaobject_collection_conditional_banner_YJNgVX": {
+      "type": "ob-metaobject-collection-conditional-banner",
+      "disabled": true,
+      "settings": {
+        "title": "",
+        "metaobject": "black-friday-day"
+      }
+    },
+    "ob_metaobject_collection_conditional_banner_BYUGUB": {
+      "type": "ob-metaobject-collection-conditional-banner",
+      "disabled": true,
+      "settings": {
+        "title": "",
+        "metaobject": "black-friday-weekend"
+      }
+    },
+    "ob_metaobject_collection_conditional_banner_G9pjNr": {
+      "type": "ob-metaobject-collection-conditional-banner",
+      "disabled": true,
+      "settings": {
+        "title": "FREE Christmas Card",
+        "metaobject": "testing-html-banner"
+      }
+    },
+    "ob_metaobject_collection_conditional_banner_U3dije": {
+      "type": "ob-metaobject-collection-conditional-banner",
+      "settings": {
+        "title": "",
+        "metaobject": "winter-sale"
+      }
+    },
+    "collection_paragragh_qg4Cnj": {
+      "type": "Collection-paragragh",
+      "settings": {
+        "extra_class": "max-w-7xl mx-auto  p-4 text-center"
+      }
+    },
+    "ob_image_text_grid_exacwB": {
+      "type": "ob-image-text-grid",
+      "blocks": {
+        "image_and_text_F7mwXK": {
+          "type": "image-and-text",
+          "settings": {
+            "country_iso": "*",
+            "title": "",
+            "block_wrapper_classes": "col-span-12 flex justify-center  px-4 items-center text-center relative",
+            "block_title": "",
+            "title_classes": "text",
+            "description": "<p class=\"text-md lg:text-lg\">\n<a href=\"https://www.myoddballs.com/collections/him-individuals\" class=\"link\">Learn more</a> about the incredible fabric qualities of bamboo</p>",
+            "description_classes": "",
+            "svg": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_and_text_F7mwXK"
+      ],
+      "disabled": true,
+      "settings": {
+        "outer_wrapper_classes": "",
+        "inner_wrapper_classes": "max-w-7xl mx-auto py-0 px-4 sm:px-6 lg:py-0 lg:px-8",
+        "grid_wrapper_classes": "mt-6 grid grid-cols-2 gap-0.5 md:grid-cols-3 lg:mb-8 mb-6",
+        "title": "",
+        "title_classes": "text-center text-base font-semibold uppercase text-gray-600 tracking-wider",
+        "section_bg_colour": "",
+        "block_bg_colour": "",
+        "block_bg_colour_hover": "",
+        "block_text_colour": "",
+        "block_text_colour_hover": "",
+        "block_image_classes": "",
+        "block_svg_classes": "",
+        "custom_css": ""
+      }
+    },
+    "ob_trust_pilot_widget_TNt4mq": {
+      "type": "ob-trust-pilot-widget",
+      "disabled": true,
+      "settings": {
+        "outer_wrapper_classes": "border-blackblend-divide mt-3 mb-2 md:mb-1",
+        "wrapper_classes": "max-w-7xl mx-auto",
+        "widget_header": "",
+        "widget_header_classes": "",
+        "widget_subheader": "",
+        "widget_subheader_classes": "",
+        "widget_code": "<!-- TrustBox widget - Micro Combo -->\n<div class=\"hidden trustpilot-widget\" data-locale=\"en-GB\" data-template-id=\"5419b6ffb0d04a076446a9af\" data-businessunit-id=\"5c7f9459871dac0001ea0238\" data-style-height=\"40px\" data-style-width=\"100%\" data-theme=\"light\">\n  <a href=\"https://uk.trustpilot.com/review/myoddballs.com\" target=\"_blank\" rel=\"noopener\">Trustpilot</a>\n</div>\n<!-- End TrustBox widget -->",
+        "widget_wrapper_classes": "",
+        "use_microcombo": true
+      }
+    },
+    "main": {
+      "type": "ob-collection",
+      "settings": {
+        "title": "Collection",
+        "isNosto": "true",
+        "columns_desktop_sm": "3",
+        "columns_desktop_md": "4",
+        "columns_desktop_lg": "4",
+        "columns_desktop_xl": "4",
+        "columns_desktop_2xl": "4",
+        "columns_desktop_3xl": "5",
+        "columns_mobile": "2"
+      }
+    },
+    "ob_three_text_fields_RdhUcT": {
+      "type": "ob-three-text-fields",
+      "blocks": {
+        "text_lines_rGyVHz": {
+          "type": "text-lines",
+          "settings": {
+            "country_iso": "*",
+            "text-field-outer-wrapper-classes": "",
+            "text-field-inner-wrapper-classes": "",
+            "text-field-1": "",
+            "text-field-1-classes": "",
+            "text-field-2": "",
+            "text-field-2-classes": "",
+            "text-field-3": "",
+            "text-field-3-classes": "",
+            "text-field-4": "",
+            "text-field-4-classes": "",
+            "html-field": "",
+            "html-field-classes": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_lines_rGyVHz"
+      ],
+      "disabled": true,
+      "settings": {}
+    },
+    "ob_image_text_grid_8GLeKD": {
+      "type": "ob-image-text-grid",
+      "blocks": {
+        "image_and_text_TFyxRh": {
+          "type": "image-and-text",
+          "settings": {
+            "country_iso": "*",
+            "title": "",
+            "block_wrapper_classes": "col-span-12 flex justify-center  px-4 items-center text-center relative",
+            "block_title": "",
+            "title_classes": "text",
+            "description": "<p class=\"text-md lg:text-lg\">\n</p><p class=\"text-md lg:text-lg\"> \n\nDiscover our full collection of men’s swim shorts, designed with style and comfort in mind. From classic colours to bold, tropical-prints, our swim shorts feature quick-drying fabrics, breathable mesh or compression linings, adjustable drawstring waists, and practical details like side pockets-ideal for beach days, poolside lounging, or active swims. \nGetting ready to hit the gym or train before a swim? Browse our full range of men’s activewear, including <a href=\"https://www.myoddballs.com/collections/training-tops\" class=\"link text-magenta-500\">training tops</a>, <a href=\"https://www.myoddballs.com/collections/sports-shorts\" class=\"link text-magenta-500\">gym shorts</a> and <a href=\"https://www.myoddballs.com/collections/socks/style-sports\" class=\"link text-magenta-500\">sports socks</a> to support your feet whilst you work out – perfect with sliders on your way to the pool. Planning your next getaway? Explore our <a href=\"https://www.myoddballs.com/pages/summer-shop\" class=\"link text-magenta-500\">Summer Shop</a> for vacation-ready clothing and accessories. From tropical-print swim shorts to travel-friendly men’s and women’s <a href=\"https://www.myoddballs.com/collections/bamboo-underwear\" class=\"link text-magenta-500\">bamboo boxer shorts</a>– made with breathable, sweat-wicking fabric to keep you cool and comfortable wherever summer takes you. Not sure which pair’s right for you? Our easy size guide and hassle-free returns make finding your fit simple.\n\n</p>\n<br>\n<p class=\"text-md lg:text-lg\">\n</p><p class=\"text-md lg:text-lg\"> \nShop our Swim Shorts today! </p>",
+            "description_classes": "",
+            "svg": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_and_text_TFyxRh"
+      ],
+      "settings": {
+        "outer_wrapper_classes": "relative py-10",
+        "inner_wrapper_classes": "col-span-12 flex justify-center  py-3 px-4 items-center text-center",
+        "grid_wrapper_classes": "mt-6 grid grid-cols-2 gap-0.5 md:grid-cols-3 lg:mt-8",
+        "title": "",
+        "title_classes": "text-center text-base font-semibold uppercase text-gray-600 tracking-wider",
+        "section_bg_colour": "",
+        "block_bg_colour": "",
+        "block_bg_colour_hover": "",
+        "block_text_colour": "",
+        "block_text_colour_hover": "",
+        "block_image_classes": "",
+        "block_svg_classes": "",
+        "custom_css": ""
+      }
+    },
+    "tabs_and_blocks_3Pam9n": {
+      "type": "tabs-and-blocks",
+      "blocks": {
+        "content_faq_33R744": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "What’s the difference between mesh-lined and compression-lined swim shorts?",
+            "title_text": "What’s the difference between mesh-lined and compression-lined swim shorts?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "Our classic swim shorts feature a breathable mesh lining for a relaxed, lightweight feel—ideal for casual swims and beach days. Our compression-lined swim shorts offer a supportive inner layer that helps reduce chafing and provides extra comfort and performance—perfect for more active use or all-day wear.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_w84f7N": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "Are your swim shorts true to size?",
+            "title_text": "Are your swim shorts true to size?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "Yes, our swim shorts are designed to be true to size. If you're between sizes or prefer a looser fit, we recommend sizing up. You can also refer to our size guide for exact measurements.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_gTYgkP": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "Do your swim shorts have pockets?",
+            "title_text": "Do your swim shorts have pockets?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "Yes! Our swim shorts come with handy side pockets. Perfect for keeping small essentials close by.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_tn7LDX": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "Are they suitable for chlorine and salt water?",
+            "title_text": "Are they suitable for chlorine and salt water?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "Absolutely. All our swim shorts are made from durable, quick-drying fabric that’s suitable for both chlorine pools and the sea. Just remember to rinse them with fresh water after each use to keep them looking their best.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_KPqim6": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "Do they offer sun protection?",
+            "title_text": "Do they offer sun protection?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "Yes, our swim shorts offer built-in UV protection, helping to shield your skin from harmful rays while you’re out in the sun.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_AAJdK7": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "How do I care for my swim shorts?",
+            "title_text": "How do I care for my swim shorts?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "Rinse thoroughly in fresh water after each use. Do not bleach, tumble dry, iron, or dry clean. Allow to air dry away from direct heat or sunlight to preserve the colours and fabric.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_xxCgGq": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "Why do swimming shorts have netting​?",
+            "title_text": "Why do swimming shorts have netting​?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "Swimming shorts often have netting—also known as a mesh lining—to provide support, comfort, and breathability. The netting acts like built-in underwear, helping to keep everything in place while swimming or moving around. It also allows for better airflow and helps the shorts dry more quickly by preventing moisture from getting trapped against your skin. This design reduces the risk of chafing and irritation, especially when wearing the shorts for long periods at the beach or pool.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_hDhBA8": {
+          "type": "content-faq",
+          "disabled": true,
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "Are these good for sleeping or lounging?",
+            "title_text": "Are these good for sleeping or lounging?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "Yes! Their relaxed fit and breathable fabric make them perfect for sleeping, lounging, or just everyday comfort.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_WwThQ8": {
+          "type": "content-faq",
+          "disabled": true,
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "How should I wash these boxers?",
+            "title_text": "How should I wash these boxers?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "Machine wash at 30°C with similar colours. Avoid tumble drying to maintain their shape and softness.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_dyBBQK": {
+          "type": "content-faq",
+          "disabled": true,
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "Do these have an elastic waistband?",
+            "title_text": "Do these have an elastic waistband?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "Yes, they feature a soft, stretchy waistband for a secure yet comfortable fit.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_wFxFH8": {
+          "type": "content-faq",
+          "disabled": true,
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "Can I wear these under slim-fit trousers or jeans?",
+            "title_text": "Can I wear these under slim-fit trousers or jeans?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "Since these are a looser fit, they may be best suited for relaxed-fit trousers, joggers, or wearing around the house.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        }
+      },
+      "block_order": [
+        "content_faq_33R744",
+        "content_faq_w84f7N",
+        "content_faq_gTYgkP",
+        "content_faq_tn7LDX",
+        "content_faq_KPqim6",
+        "content_faq_AAJdK7",
+        "content_faq_xxCgGq",
+        "content_faq_hDhBA8",
+        "content_faq_WwThQ8",
+        "content_faq_dyBBQK",
+        "content_faq_wFxFH8"
+      ],
+      "settings": {
+        "outer_wrapper_attr": "data-attribute for linking section content",
+        "outer_wrapper_classes": "2xl:mx-auto  py-12 lg:px-20 md:px-6 px-4",
+        "inner_wrapper_classes": "grid grid-cols-12 gap-6",
+        "header_wrapper_classes": "col-span-12 flex flex-col justify-center items-center text-center space-y-4",
+        "all_tabs_wrapper_classes": "",
+        "content_wrapper_classes": "col-span-12 mt-16 grid grid-cols-12",
+        "option_menu_selected": false,
+        "title": "Swimming Shorts FAQs",
+        "title_classes": "text-3xl lg:text-4xl font-semibold  leading-9 md:leading-7 lg:leading-9 text-gray-800",
+        "description": "From sizing and fit to care tips and style advice, our Swim Shorts FAQs cover everything you need to know about your OddBalls.",
+        "description_classes": "text-base leading-6 text-center text-gray-600 w-full md:w-10/12 py-3"
+      }
+    }
+  },
+  "order": [
+    "ob_breadcrumbs_KabV7U",
+    "collection_title_kbw3mp",
+    "ob_metaobject_collection_conditional_banner_aDXcte",
+    "ob_metaobject_collection_conditional_banner_YJNgVX",
+    "ob_metaobject_collection_conditional_banner_BYUGUB",
+    "ob_metaobject_collection_conditional_banner_G9pjNr",
+    "ob_metaobject_collection_conditional_banner_U3dije",
+    "collection_paragragh_qg4Cnj",
+    "ob_image_text_grid_exacwB",
+    "ob_trust_pilot_widget_TNt4mq",
+    "main",
+    "ob_three_text_fields_RdhUcT",
+    "ob_image_text_grid_8GLeKD",
+    "tabs_and_blocks_3Pam9n"
+  ]
+}

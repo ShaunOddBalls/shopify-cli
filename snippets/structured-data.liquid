@@ -1,0 +1,147 @@
+{%capture return_policy %}
+  [
+    {
+      "@type": "MerchantReturnPolicy",
+      "name": "Damaged or defective items",
+      "applicableCountry": "GB",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+      "merchantReturnDays": 90,
+      "itemCondition": "https://schema.org/DamagedCondition",
+      "returnMethod": "https://schema.org/ReturnByMail",
+      "inStoreReturnsOffered": false,
+      "returnLabelSource": "https://schema.org/ReturnLabelCustomerResponsibility",
+      "returnFees": "https://schema.org/ReturnShippingFees",
+      "url": "https://www.myoddballs.com/pages/terms-conditions"
+    },
+    {
+      "@type": "MerchantReturnPolicy",
+      "name": "Unopened items",
+      "applicableCountry": "GB",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+      "merchantReturnDays": 30,
+      "itemCondition": "https://schema.org/NewCondition",
+      "returnMethod": "https://schema.org/ReturnByMail",
+      "inStoreReturnsOffered": false,
+      "returnLabelSource": "https://schema.org/ReturnLabelCustomerResponsibility",
+      "returnFees": "https://schema.org/ReturnShippingFees",
+      "restockingFee": 0,
+      "url": "https://www.myoddballs.com/pages/terms-conditions"
+    }
+  ]
+{%endcapture %}
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "OddBalls",
+    "url": "https://www.myoddballs.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{settings.logo | image_url }}",
+      "width": 600,
+      "height": 200
+      },
+      "hasMerchantReturnPolicy": {{ return_policy }}
+  }
+</script>
+{% if template.name == "product" %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "{{ product.title }}",
+  "image": [
+    "{{product.featured_image | image_url  }}"
+  ],
+  "description": "{{product.description |strip_html |strip_newlines | truncate: 50 }}",
+  {%if product.metafields.custom.material.value  %}
+  "material": "{{product.metafields.custom.material.value}}",
+  {% endif %}
+  "offers": {
+    "@type": "Offer",
+    "url": "{{product.url}}",
+    "priceCurrency": "GBP",
+    "price": "{{product.price | replace: ",", "."}}",
+    {% if product.price != product.compare_at_price %}
+        "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "priceCurrency": "GBP",
+            "price": "{{product.price | replace: ",", "."}}",
+            "name": "Original Price"
+        },
+    {% endif %}
+    "availability": "{%if product.available %}https://schema.org/InStock{%else %}https://schema.org/OutOfStock{% endif %}"
+  },
+  "brand": {
+    "@type": "Brand",
+    "name": "OddBalls"
+  },
+    "hasVariant": [
+        {%for variant in product.variants %}
+            {
+      "@type": "Product",
+      "name": "{{product.title}} - {{ variant.title }}",
+      "image": [
+          "{{product.featured_image | image_url  }}"
+        ],
+      "offers": {
+        "@type": "Offer",
+        "hasMerchantReturnPolicy": {{ return_policy }},
+        "url": "{{product.url}}?variant={{variant.id }}",
+        "priceCurrency": "GBP",
+        "price": "{{variant.price | replace: ",", "."}}",
+        "availability": "{%if variant.available %}https://schema.org/InStock{%else %}https://schema.org/OutOfStock{% endif %}",
+        "gtin13": "{{variant.barcode}}"
+      }
+    }{%unless forloop.last %},{% endunless %}
+        {% endfor %}
+   
+  ],
+        "hasMerchantReturnPolicy": {{ return_policy }}
+}
+</script>
+
+{%endif %}
+
+
+{% if template.name == "collection" %}
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "{{ collection.title }}",
+  "itemListOrder": "http://schema.org/ItemListOrderAscending",
+  "itemListElement": [
+{% paginate collection.products by 30 %}
+    {%- comment %}<locksmith:1195>{% endcomment -%}
+      {%- assign locksmith_ca1b_forloop__size = 0 %}{% for product in collection.products  %}{% capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product, subject_parent: collection, variable: 'transparent' %}{% endcapture %}{% if var == 'true' %}{% assign locksmith_ca1b_forloop__size = locksmith_ca1b_forloop__size | plus: 1 %}{% endif %}{% endfor %}{% assign locksmith_ca1b_forloop__index = nil -%}
+    {%- comment %}</locksmith:1195>{% endcomment -%}
+    {% for product in collection.products  %}
+    {%- comment %}<locksmith:58b4>{% endcomment -%}
+      {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product, subject_parent: collection, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% if locksmith_ca1b_forloop__index == nil %}{% assign locksmith_ca1b_forloop__index = 1 %}{% assign locksmith_ca1b_forloop__index0 = 0 %}{% else %}{% assign locksmith_ca1b_forloop__index = locksmith_ca1b_forloop__index | plus: 1 %}{% assign locksmith_ca1b_forloop__index0 = locksmith_ca1b_forloop__index0 | plus: 1 %}{% endif %}{% if locksmith_ca1b_forloop__index == 1 %}{% assign locksmith_ca1b_forloop__first = true %}{% else %}{% assign locksmith_ca1b_forloop__first = false %}{% endif %}{% if locksmith_ca1b_forloop__index == locksmith_ca1b_forloop__size %}{% assign locksmith_ca1b_forloop__last = true %}{% else %}{% assign locksmith_ca1b_forloop__last = false %}{% endif %}{% assign locksmith_ca1b_forloop__rindex = locksmith_ca1b_forloop__size | minus: locksmith_ca1b_forloop__index | minus: 1 %}{% assign locksmith_ca1b_forloop__rindex0 = locksmith_ca1b_forloop__size | minus: locksmith_ca1b_forloop__index0 | minus: 1 %}{% else %}{% continue %}{% endif -%}
+    {%- comment %}</locksmith:58b4>{% endcomment -%}
+    {
+      "@type": "ListItem",
+      "position": {{locksmith_ca1b_forloop__index}},
+      "url": "{{product.url}}",
+      "item": {
+        "@type": "Product",
+        "name": "{{ product.title }}",
+        "url": "{{ product.url  }}",
+        "image": "{{ product.featured_image | img_url: '400x400' }}",
+        "offers": {
+          "@type": "Offer",
+          "priceCurrency": "{{ shop.currency }}",
+          "price": "{{ product.price  }}",
+          "availability": "{% if product.available %}https://schema.org/InStock{% else %}https://schema.org/OutOfStock{% endif %}"
+        }
+      }
+
+    }{% unless locksmith_ca1b_forloop__last %},{% endunless %}
+    {%endfor %}
+    {%endpaginate %}
+  ]
+}
+</script>
+{% endif %}

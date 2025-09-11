@@ -1,0 +1,697 @@
+{% schema %}
+{
+  "name": "Side Navigation",
+  "class": "relative z-50",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Mobile Nav Options"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menu",
+      "default": "main-menu"
+    },
+    {
+      "type": "link_list",
+      "id": "alt-menu",
+      "label": "EU Menu",
+      "default": "main-menu"
+    },
+    {
+      "type": "textarea",
+      "id": "mobile_highlights",
+      "label": "Mobile hightlights",
+      "info": "Used for adding highlights to the nav options. Format Title|Font Colour|Background Colour. Seperate with comma."
+    },
+    {
+      "type": "header",
+      "content": "Mobile Image Url Link List"
+    },
+    {
+      "type": "checkbox",
+      "id": "link_list",
+      "default": false,
+      "label": "Turn Image link list on/off "
+    },
+    {
+      "type": "header",
+      "content": "Url Ink Slider Settings"
+    },
+    {
+      "type": "number",
+      "id": "mobile_slides",
+      "default": 4,
+      "label": "Number of slides on mobile"
+    },
+    {
+      "type": "number",
+      "id": "tablet_slides",
+      "default": 4,
+      "label": "Number of slides on tablet"
+    },
+    {
+      "type": "number",
+      "id": "desktop_slides",
+      "default": 4,
+      "label": "Number of slides on desktop"
+    },
+    {
+      "type": "number",
+      "id": "gap",
+      "default": 5,
+      "label": "Gap Between Slides"
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "default": false,
+      "label": "AutoPlay Slides"
+    },
+    {
+      "type": "checkbox",
+      "id": "loop",
+      "default": false,
+      "label": "loop Slides"
+    },
+    {
+      "type": "checkbox",
+      "id": "drags_scroll",
+      "default": true,
+      "label": "Drag Scoll"
+    },
+    {
+      "type": "header",
+      "content": "Featured Images"
+    },
+    {
+      "type": "text",
+      "id": "header-text",
+      "label": "Featured images Title",
+      "default": "Featured"
+    },
+    {
+      "type": "checkbox",
+      "id": "featured-on",
+      "default": true,
+      "label": "Turn Featured Images on/off "
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Featured Image",
+      "type": "featured-image",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Image text overlay",
+          "default": "Block Title"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Image link"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_on_all_markets",
+          "default": true,
+          "label": "Show On All Markets",
+          "info": "on to show on all"
+        },
+        {
+          "type": "text",
+          "id": "markets_to_show_on",
+          "label": "Markets to show on",
+          "info": "Example would look like: uk, en-eu (shows on UK and EU markets)"
+        },
+        {
+          "type": "text",
+          "id": "markets_to_exclude_on",
+          "label": "Markets to Exclude on",
+          "info": "Example would look like: uk, en-eu (Would not show on UK and EU markets)"
+        }
+      ]
+    },
+    {
+      "name": "top nav link image",
+      "type": "nav-img-link",
+      "settings": [
+        {
+          "type": "checkbox",
+          "default": true,
+          "id": "rounded",
+          "label": "circular images"
+        },
+        {
+          "type": "image_picker",
+          "id": "img",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "link text",
+          "default": "Title"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Url"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+
+{% comment %}
+/*-------------------------------- */
+/*  markets logic init
+/*-------------------------------- */
+{% endcomment %}
+{% assign market_code = localization.language.root_url %}
+{% if market_code == '/' %}
+  {% assign market_code = 'uk' %}
+{% else %}
+  {% assign market_code = market_code | remove: '/' %}
+{% endif %}
+{% comment %}
+/*-------------------------------- */
+/*  markets logic init END
+/*-------------------------------- */
+{% endcomment %}
+
+{% assign mobile_highlights = section.settings.mobile_highlights | split: ',' %}
+{%- capture label_arr -%}{% section 'ob-nav-label-logic' %}{%- endcapture -%}
+
+{% comment %} Determine which menu to use based on market {% endcomment %}
+{% assign current_menu = section.settings.menu %}
+{% if localization.market.handle == 'eu' and section.settings['alt-menu'] != blank %}
+  {% assign current_menu = section.settings['alt-menu'] %}
+{% endif %}
+
+<div class="side-nav hidden fixed top-0 left-0 right-0 bottom-0 z-40" style="max-width:100%; overflow:hidden;">
+  <div id="close-side-nav" class="w-full h-full bg-black/80 absolute z-[-1]" ></div>
+  <div class="side-nav-inner flex flex-col h-full sm:max-w-[498px] bg-white overflow-y-auto overflow-x-hidden transform -translate-x-full duration-300">
+    <div
+      style="border-color: #efebeb;"
+      class="flex flex sticky top-0 flex-col border-b border-gray-200 bg-white h-[var(--mobile-header-height-with-search-nav)] flex-shrink-0 z-10 h-[var(--mobile-header-height-with-search-nav)]"
+    >
+      <div class="flex items-center justify-center flex-1 px-4">
+        <div class="flex flex-1">
+          <button
+            id="close-side-nav"
+            class="button button--variant-ghost button--icon"
+            type="button"
+            aria-label="Close"
+            aria-haspopup="dialog"
+            aria-expanded="true"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon !w-4 !h-4" fill="none" viewBox="0 0 14 14">
+              <rect width="16.9705" height="1.13137" rx="0.565684" transform="matrix(0.707106 -0.707108 0.707106 0.707108 0.600586 12.6001)" fill="currentColor"></rect>
+              <rect width="16.9705" height="1.13137" rx="0.565684" transform="matrix(-0.707106 -0.707107 0.707106 -0.707108 12.6006 13.4001)" fill="currentColor"></rect>
+            </svg>
+          </button>
+        </div>
+        <a href="{{ routes.root_url }}">
+          {% if section.settings.logo %}
+            <img class="h-10 self-center" loading="lazy" src="{{ section.settings.logo | img_url: 'master' }}" alt="">
+          {% else %}
+            <span class="h-12 self-center">{{ shop.name }}</span>
+          {% endif %}
+        </a>
+        <div class="flex items-center justify-end flex-1 h-9">
+          <button
+            class="button button--variant-ghost button--icon !w-9 !h-9 [&_svg]:w-6 [&_svg]:h-6"
+            data-toggle="collapse"
+            data-target=".account-nav"
+            data-class="clicked"
+            data-overflow="true"
+            type="button"
+            aria-label="Account"
+            aria-haspopup="dialog"
+            aria-expanded="false"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="icon"
+              fill="currentColor"
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              viewBox="0 0 24 24"
+            >
+              <circle cx="12" cy="6" r="5.3" stroke="currentColor" fill="none" stroke-width="1.4"></circle>
+              <path d="M0.7 21.2778C0.7 17.3688 3.86883 14.2 7.77778 14.2H16.2222C20.1312 14.2 23.3 17.3688 23.3 21.2778C23.3 22.3946 22.3946 23.3 21.2778 23.3H2.72222C1.60538 23.3 0.7 22.3946 0.7 21.2778Z" stroke="currentColor" fill="none" stroke-width="1.4"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <!--
+        <form class="w-full">
+          <div class="js-show-search-recommendations input-group input-group--has-value color-[#111111] w-full [&_.input-group\_\_control]:px-0 [&_.input-group\_\_control]:px-2 [&_.input-group\_\_control]:!rounded-[0] [&_.input-group\_\_control]:!border-x-0 [&_.input-group\_\_control]:!border-y-1 [&_.input-group\_\_control]:!border-[#F0F0F0] [&_input]:px-0 [&_input]:py-4">
+        	<div class="input-group__control">
+        	  <div class="input-group__adornment input-group__adornment--placement-start">
+        		<svg xmlns="http://www.w3.org/2000/svg" width="16" class="icon" fill="currentColor" viewBox="0 0 24 24" height="16"><path fill-rule="evenodd" clip-rule="evenodd" d="M19.6 10.5C19.6 15.5258 15.5258 19.6 10.5 19.6C5.47421 19.6 1.4 15.5258 1.4 10.5C1.4 5.47421 5.47421 1.4 10.5 1.4C15.5258 1.4 19.6 5.47421 19.6 10.5ZM17.4222 18.3953C15.5741 20.0169 13.1519 21 10.5 21C4.70101 21 0 16.299 0 10.5C0 4.70101 4.70101 0 10.5 0C16.299 0 21 4.70101 21 10.5C21 13.1519 20.0169 15.5741 18.3953 17.4222C18.4304 17.4462 18.4638 17.4739 18.495 17.505L23.495 22.505C23.7683 22.7784 23.7683 23.2216 23.495 23.495C23.2216 23.7683 22.7784 23.7683 22.505 23.495L17.505 18.495C17.4739 18.4638 17.4462 18.4304 17.4222 18.3953Z"></path></svg>
+        	  </div>
+        	  <div class="input-group__input"><input readonly data-toggle="collapse" data-target=".search-collapse, .search-suggestions" data-overflow="true" id="side-bar-seach-input" autocomplete="off" placeholder="{{ "ob_search.search_products" | t }}" aria-label="Search products" /></div>
+        	  <div class="input-group__adornment input-group__adornment--placement-end"></div>
+        	</div>
+          </div>
+        </form>
+      -->
+    </div>
+    {% if section.settings.link_list %}
+      <div class="ob-slider-container w-full">
+        <div
+          class="ob-slider w-full nav-slider-init"
+          data-slides-mobile="{{ section.settings.mobile_slides }}"
+          data-slides-md="{{ section.settings.tablet_slides }}"
+          data-slides-lg="{{ section.settings.desktop_slides }}"
+          data-gap="{{ section.settings.gap }}"
+          data-autoplay="{{ section.settings.autoplay }}"
+          data-loop="{{ section.settings.loop }}"
+          data-drag-scroll="{{ section.settings.drags_scroll }}"
+          data-slider-enabled="false"
+          data-dots="false"
+        >
+          <div class="ob-slides-wrappers w-full pt-2 pb-2 border-b flex">
+            {% for block in section.blocks %}
+              {% case block.type %}
+                {% when 'nav-img-link' %}
+                  <div class="ob-slide">
+                    <a
+                      class="flex flex-col justify-center items-center p-2 hover:bg-gray-50 transition-colors duration-200 w-full h-full"
+                      href="{{ block.settings.url | default: "#" }}"
+                    >
+                      {% if block.settings.img != blank %}
+                        <img
+                          class="w-12 h-12 object-cover {% if block.settings.rounded %}rounded-full{% else %}rounded-lg{% endif %} mb-1"
+                          src="{{ block.settings.img | image_url: width: 200 }}"
+                          alt="{{ block.settings.text }}"
+                        >
+                      {% else %}
+                        <img
+                          class="w-12 h-12 object-cover {% if block.settings.rounded %}rounded-full{% else %}rounded-lg{% endif %} mb-1"
+                          src="https://placehold.co/48x48/dedede/000000/?text=IMG"
+                          alt="{{ block.settings.text }}"
+                        >
+                      {% endif %}
+
+                      <h3 class="text-xs font-semibold uppercase text-center leading-tight">{{ block.settings.text }}</h3>
+                    </a>
+                  </div>
+              {% endcase %}
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      <script>
+        // Fix initialization timing issue for navigation slider
+        document.addEventListener('DOMContentLoaded', function () {
+          // Wait for layout to stabilize before initializing nav slider
+          function initializeNavSlider() {
+            const navSlider = document.querySelector('.nav-slider-init');
+            if (!navSlider || !window.initializeSlider) return;
+
+            // Check if container has proper dimensions
+            const container = navSlider.closest('.ob-slider-container');
+            if (container && container.offsetWidth > 0) {
+              console.log('Initializing nav slider with container width:', container.offsetWidth);
+              // Enable and initialize the slider
+              navSlider.dataset.sliderEnabled = 'true';
+              window.initializeSlider(navSlider);
+            } else {
+              // Container not ready, try again
+              setTimeout(initializeNavSlider, 50);
+            }
+          }
+
+          // Start the initialization process after a short delay
+          setTimeout(initializeNavSlider, 100);
+        });
+      </script>
+    {% endif %}
+    <div class="menu-list justify-between h-full">
+      {{ mobile_highlighs }}
+      <nav class="py-0 relative">
+        <ul class="p-0">
+          {%- comment %}<locksmith:ea9b>{% endcomment -%}
+            {%- assign locksmith_13fd_forloop__size = 0 %}{% for link in linklists[current_menu].links %}{% capture var %}{% render 'locksmith-variables', scope: 'subject', subject: link, subject_parent: linklists[current_menu], variable: 'transparent' %}{% endcapture %}{% if var == 'true' %}{% assign locksmith_13fd_forloop__size = locksmith_13fd_forloop__size | plus: 1 %}{% endif %}{% endfor %}{% assign locksmith_13fd_forloop__index = nil -%}
+          {%- comment %}</locksmith:ea9b>{% endcomment -%}
+          {% for link in linklists[current_menu].links %}
+            {%- comment %}<locksmith:b546>{% endcomment -%}
+              {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: link, subject_parent: linklists[current_menu], variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% if locksmith_13fd_forloop__index == nil %}{% assign locksmith_13fd_forloop__index = 1 %}{% assign locksmith_13fd_forloop__index0 = 0 %}{% else %}{% assign locksmith_13fd_forloop__index = locksmith_13fd_forloop__index | plus: 1 %}{% assign locksmith_13fd_forloop__index0 = locksmith_13fd_forloop__index0 | plus: 1 %}{% endif %}{% if locksmith_13fd_forloop__index == 1 %}{% assign locksmith_13fd_forloop__first = true %}{% else %}{% assign locksmith_13fd_forloop__first = false %}{% endif %}{% if locksmith_13fd_forloop__index == locksmith_13fd_forloop__size %}{% assign locksmith_13fd_forloop__last = true %}{% else %}{% assign locksmith_13fd_forloop__last = false %}{% endif %}{% assign locksmith_13fd_forloop__rindex = locksmith_13fd_forloop__size | minus: locksmith_13fd_forloop__index | minus: 1 %}{% assign locksmith_13fd_forloop__rindex0 = locksmith_13fd_forloop__size | minus: locksmith_13fd_forloop__index0 | minus: 1 %}{% else %}{% continue %}{% endif -%}
+            {%- comment %}</locksmith:b546>{% endcomment -%}
+            {% assign index_one = locksmith_13fd_forloop__index %}
+            {% comment %} Side nav highlight logic {% endcomment %}
+            {% assign highlight = 'no' %}
+            {% assign styles = '' %}
+            {% for highlight in mobile_highlights %}
+              {% assign highlight_parts = highlight | split: '|' %}
+              {%- assign link_name = highlight_parts[0] | downcase -%}
+              {%- assign link_title = link.title | downcase -%}
+              {% if link_name == link_title %}
+                {% assign highlight = 'yes' %}
+                {% capture styles %}background-color: {{ highlight_parts[2] }}; color: {{ highlight_parts[1] }}{% endcapture %}
+              {% endif %}
+            {% endfor %}
+
+            <li
+              class="list-none px-6"
+              {% if highlight == 'yes' %}
+                style="{{ styles }}"
+              {% endif %}
+            >
+              {% if link.links != blank %}
+                <button
+                  id="mobile-nav-{{ index_one }}"
+                  name="{{ link.handle }} expand"
+                  class="menu-btn flex items-center justify-start w-full m-0 gap-3 px-0 py-3 border-0 bg-transparent typography typography--heading-six text-[14px]"
+                  data-highlight="{{ highlight }}"
+                  data-target="#submenu-{{ link.handle }}"
+                >
+                  {%- render 'ob-nav-label-logic', navtitle: link.title, label_arr: label_arr -%}
+                  <div
+                    class="[&_svg]:max-w-full [&_svg]:h-ful absolute right-3"
+                    style="right: 25px;"
+                    aria-hidden="true"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      class="icon rotate-90 w-3 h-3"
+                      fill="currentColor"
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      viewBox="0 0 8 8"
+                      color="#7D7D7D"
+                    >
+                      <path d="M0.29387 5.95502C0.235377 5.89506 0.235377 5.79783 0.29387 5.73787L3.89479 2.04617C3.95328 1.9862 4.04812 1.9862 4.10661 2.04617C4.1651 2.10614 4.1651 2.20336 4.10661 2.26333L0.505688 5.95502C0.447196 6.01499 0.352362 6.01499 0.29387 5.95502Z" fill="currentColor"></path>
+                      <path d="M3.89339 2.04498C3.95189 1.98501 4.04672 1.98501 4.10521 2.04498L7.70613 5.73667C7.76462 5.79664 7.76462 5.89387 7.70613 5.95383C7.64764 6.0138 7.5528 6.0138 7.49431 5.95383L3.89339 2.26213C3.8349 2.20217 3.8349 2.10494 3.89339 2.04498Z" fill="currentColor"></path>
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M0.505688 5.95502C0.447196 6.01499 0.352362 6.01499 0.29387 5.95502C0.235377 5.89506 0.235377 5.79783 0.29387 5.73787L3.87816 2.06322C3.8827 2.05684 3.88778 2.05073 3.89339 2.04498C3.89337 2.045 3.89342 2.04495 3.89339 2.04498C3.94885 1.98821 4.03699 1.9852 4.09581 2.03611C4.09907 2.03887 4.10213 2.04189 4.10521 2.04498C4.10564 2.04541 4.10618 2.04573 4.10661 2.04617L4.1115 2.05142L7.70613 5.73667C7.76462 5.79664 7.76462 5.89387 7.70613 5.95383C7.64764 6.0138 7.5528 6.0138 7.49431 5.95383L4.00058 2.37203L0.505688 5.95502ZM4.00058 2.73006L0.684651 6.12959C0.528049 6.29014 0.271508 6.29014 0.114906 6.12959C-0.0383019 5.97252 -0.0383019 5.72037 0.114906 5.5633L3.68877 1.89934C3.69678 1.88939 3.70534 1.87973 3.71443 1.87041C3.86258 1.71853 4.10017 1.71033 4.25797 1.84582C4.26747 1.8539 4.27668 1.86249 4.28557 1.87161C4.2883 1.8744 4.29097 1.87722 4.2936 1.88007L7.88509 5.56211C8.0383 5.71918 8.0383 5.97132 7.88509 6.12839C7.72849 6.28894 7.47195 6.28894 7.31535 6.12839L4.00058 2.73006Z" fill="currentColor"></path>
+                    </svg>
+                  </div>
+                </button>
+              {% else %}
+                <a
+                  id="mobile-nav-{{ index_one }}"
+                  class="flex items-center justify-between w-full m-0 gap-3 px-0 py-3 border-0 bg-transparent relative typography typography--heading-six text-[14px]"
+                  data-highlight="{{ highlight }}"
+                  href="{%- render 'ob-process-international-link', url: link.url -%}"
+                >
+                  <div class="[&amp;_svg]:max-w-full [&amp;_svg]:h-full absolute right-0" aria-hidden="true">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      class="icon rotate-90 w-3 h-3"
+                      fill="currentColor"
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      viewBox="0 0 8 8"
+                      color="#fff"
+                    >
+                      <path d="M0.29387 5.95502C0.235377 5.89506 0.235377 5.79783 0.29387 5.73787L3.89479 2.04617C3.95328 1.9862 4.04812 1.9862 4.10661 2.04617C4.1651 2.10614 4.1651 2.20336 4.10661 2.26333L0.505688 5.95502C0.447196 6.01499 0.352362 6.01499 0.29387 5.95502Z" fill="currentColor"></path>
+                      <path d="M3.89339 2.04498C3.95189 1.98501 4.04672 1.98501 4.10521 2.04498L7.70613 5.73667C7.76462 5.79664 7.76462 5.89387 7.70613 5.95383C7.64764 6.0138 7.5528 6.0138 7.49431 5.95383L3.89339 2.26213C3.8349 2.20217 3.8349 2.10494 3.89339 2.04498Z" fill="currentColor"></path>
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M0.505688 5.95502C0.447196 6.01499 0.352362 6.01499 0.29387 5.95502C0.235377 5.89506 0.235377 5.79783 0.29387 5.73787L3.87816 2.06322C3.8827 2.05684 3.88778 2.05073 3.89339 2.04498C3.89337 2.045 3.89342 2.04495 3.89339 2.04498C3.94885 1.98821 4.03699 1.9852 4.09581 2.03611C4.09907 2.03887 4.10213 2.04189 4.10521 2.04498C4.10564 2.04541 4.10618 2.04573 4.10661 2.04617L4.1115 2.05142L7.70613 5.73667C7.76462 5.79664 7.76462 5.89387 7.70613 5.95383C7.64764 6.0138 7.5528 6.0138 7.49431 5.95383L4.00058 2.37203L0.505688 5.95502ZM4.00058 2.73006L0.684651 6.12959C0.528049 6.29014 0.271508 6.29014 0.114906 6.12959C-0.0383019 5.97252 -0.0383019 5.72037 0.114906 5.5633L3.68877 1.89934C3.69678 1.88939 3.70534 1.87973 3.71443 1.87041C3.86258 1.71853 4.10017 1.71033 4.25797 1.84582C4.26747 1.8539 4.27668 1.86249 4.28557 1.87161C4.2883 1.8744 4.29097 1.87722 4.2936 1.88007L7.88509 5.56211C8.0383 5.71918 8.0383 5.97132 7.88509 6.12839C7.72849 6.28894 7.47195 6.28894 7.31535 6.12839L4.00058 2.73006Z" fill="currentColor"></path>
+                    </svg>
+                  </div>
+
+                  {% include 'ob-nav-label-logic', navtitle: link.title, label_arr: label_arr %}
+                </a>
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+      </nav>
+
+      {% if section.settings['featured-on'] %}
+        <div class="py-0 bg-[#F7F8F5]">
+          <!--
+            <p class="typography typography--title-six mx-6 mb-4">{{ section.settings.header-text }}</p>
+             <div class="swiper swiper-nav px-6">
+            <div class="swiper-wrapper">
+                       {% for block in section.blocks %}
+                         {% if block.type == "featured-image" %}
+             			  <div class="swiper-slide w-full relative">
+             				<a class="tile tile--aspect-ratio-1/1 tile--size-md tile--content-placement-inside tile--overlay" href="{{ block.settings.url }}">
+             				  <div class="tile__image">
+             					<picture>
+             					  <img loading="lazy" class="object-cover" src="{{ block.settings.image | img_url: "master" }}" alt="{{ block.settings.image.alt }}" />
+             					</picture>
+             				  </div>
+             				  <div class="tile__content"><p class="tile__title text-md !text-[14px]">{{ block.settings.title }}</p></div>
+             				</a>
+             			  </div>
+                         {% endif %}
+                       {% endfor %}
+            </div>
+             </div>
+          -->
+
+          {% for block in section.blocks %}
+            {% if block.type == 'featured-image' %}
+
+
+
+
+
+
+
+
+{% comment %}
+/*-------------------------------- */
+/*  markets logic 
+/*-------------------------------- */
+{% endcomment %}
+          {% assign show_block = true %}
+          {% if block.settings.show_on_all_markets == false %}
+            {% assign markets_to_show = block.settings.markets_to_show_on | split: ',' %}
+            {% assign markets_to_exclude_on = block.settings.markets_to_exclude_on | split: ',' %}
+
+            {% if markets_to_exclude_on != blank %}
+            {% for market in markets_to_exclude_on %}
+              {% assign market_strip = market | strip %}
+              {% assign market_downcase = market_strip | downcase %}
+              {% if market_code == market_downcase %}
+                {% assign show_block = false %}
+                {% break %}
+              {% endif %}
+            {% endfor %}
+            {% endif %}
+            
+            {% if markets_to_show != blank and show_block  %}
+              
+              {% assign show_block = false %}
+              {% for market in markets_to_show %}
+      
+                {% assign market_strip = market | strip %}
+                {% assign market_downcase = market_strip | downcase %}
+                {% if market_code == market_downcase %}
+                  {% assign show_block = true %}
+                  {% break %}
+                {% endif %}
+              {% endfor %}
+            {% endif %}
+          {% else %}
+            {% assign show_block = true %}
+          {% endif %}
+
+{% if show_block %}
+{% comment %}
+/*-------------------------------- */
+/*  markets logic END
+/*-------------------------------- */
+{% endcomment %}
+
+
+
+
+
+
+
+
+
+          
+              <a
+                class="tile tile--size-md tile--content-placement-inside tile--overlay"
+                href="{%- render 'ob-process-international-link', url: block.settings.url -%}"
+              >
+                <picture>
+                  <img
+                    loading="lazy"
+                    class="object-cover"
+                    src="{{ block.settings.image | img_url: "master" }}"
+                    alt="{{ block.settings.image.alt }}"
+                  >
+                </picture>
+              </a>
+
+
+
+
+
+
+{% comment %}
+/*-------------------------------- */
+/*  markets logic 
+/*-------------------------------- */
+{% endcomment %}
+{% endif %}        
+{% comment %}
+/*-------------------------------- */
+/*  markets logic END
+/*-------------------------------- */
+{% endcomment %}
+
+
+
+
+
+
+
+
+
+  
+            {% endif %}
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+
+  {%- comment %}<locksmith:54d6>{% endcomment -%}
+    {%- assign locksmith_e212_forloop__size = 0 %}{% for link in linklists[current_menu].links %}{% capture var %}{% render 'locksmith-variables', scope: 'subject', subject: link, subject_parent: linklists[current_menu], variable: 'transparent' %}{% endcapture %}{% if var == 'true' %}{% assign locksmith_e212_forloop__size = locksmith_e212_forloop__size | plus: 1 %}{% endif %}{% endfor %}{% assign locksmith_e212_forloop__index = nil -%}
+  {%- comment %}</locksmith:54d6>{% endcomment -%}
+  {% for link in linklists[current_menu].links %}
+    {%- comment %}<locksmith:0b8c>{% endcomment -%}
+      {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: link, subject_parent: linklists[current_menu], variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% if locksmith_e212_forloop__index == nil %}{% assign locksmith_e212_forloop__index = 1 %}{% assign locksmith_e212_forloop__index0 = 0 %}{% else %}{% assign locksmith_e212_forloop__index = locksmith_e212_forloop__index | plus: 1 %}{% assign locksmith_e212_forloop__index0 = locksmith_e212_forloop__index0 | plus: 1 %}{% endif %}{% if locksmith_e212_forloop__index == 1 %}{% assign locksmith_e212_forloop__first = true %}{% else %}{% assign locksmith_e212_forloop__first = false %}{% endif %}{% if locksmith_e212_forloop__index == locksmith_e212_forloop__size %}{% assign locksmith_e212_forloop__last = true %}{% else %}{% assign locksmith_e212_forloop__last = false %}{% endif %}{% assign locksmith_e212_forloop__rindex = locksmith_e212_forloop__size | minus: locksmith_e212_forloop__index | minus: 1 %}{% assign locksmith_e212_forloop__rindex0 = locksmith_e212_forloop__size | minus: locksmith_e212_forloop__index0 | minus: 1 %}{% else %}{% continue %}{% endif -%}
+    {%- comment %}</locksmith:0b8c>{% endcomment -%}
+    {% assign index_one = locksmith_e212_forloop__index %}
+    {% if link.links != blank %}
+      <div
+        id="submenu-{{ link.handle }}"
+        class="{% unless section.settings.link_list %}mt-28{% else %}mt-side-nav{% endunless %} menu-accordion hs-accordion-group flex flex-col absolute top-0 bottom-0 left-full w-full bg-white z-50 overflow-y-auto px-6 transform duration-300"
+      >
+        <button
+          id="mobile-nav-back-{{ index_one }}"
+          class="menu-back sticky top-0 bg-white z-10 flex gap-4 -mx-6 px-6 py-2 mb-6 border-b border-[#f3f4f6]"
+        >
+          <div style="height: 18px; position: absolute; left: 0px; transform: translateY(-50%); top: 50%; right: 20px; color: inherit; opacity: 0.5;">
+            <svg
+              class=""
+              style="height:100%"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </div>
+          <span class="font-semibold">{{ 'ob_search.back_to_menu' | t }}</span>
+        </button>
+        <p class="typography typography--heading-six text-[14px] text-gray-400 mb-3">{{ link.title }}</p>
+        {%- comment %}<locksmith:f26f>{% endcomment -%}
+          {%- assign locksmith_cb3b_forloop__size = 0 %}{% for child_link in link.links %}{% capture var %}{% render 'locksmith-variables', scope: 'subject', subject: child_link, subject_parent: link, variable: 'transparent' %}{% endcapture %}{% if var == 'true' %}{% assign locksmith_cb3b_forloop__size = locksmith_cb3b_forloop__size | plus: 1 %}{% endif %}{% endfor %}{% assign locksmith_cb3b_forloop__index = nil -%}
+        {%- comment %}</locksmith:f26f>{% endcomment -%}
+        {% for child_link in link.links %}
+          {%- comment %}<locksmith:919c>{% endcomment -%}
+            {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: child_link, subject_parent: link, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% if locksmith_cb3b_forloop__index == nil %}{% assign locksmith_cb3b_forloop__index = 1 %}{% assign locksmith_cb3b_forloop__index0 = 0 %}{% else %}{% assign locksmith_cb3b_forloop__index = locksmith_cb3b_forloop__index | plus: 1 %}{% assign locksmith_cb3b_forloop__index0 = locksmith_cb3b_forloop__index0 | plus: 1 %}{% endif %}{% if locksmith_cb3b_forloop__index == 1 %}{% assign locksmith_cb3b_forloop__first = true %}{% else %}{% assign locksmith_cb3b_forloop__first = false %}{% endif %}{% if locksmith_cb3b_forloop__index == locksmith_cb3b_forloop__size %}{% assign locksmith_cb3b_forloop__last = true %}{% else %}{% assign locksmith_cb3b_forloop__last = false %}{% endif %}{% assign locksmith_cb3b_forloop__rindex = locksmith_cb3b_forloop__size | minus: locksmith_cb3b_forloop__index | minus: 1 %}{% assign locksmith_cb3b_forloop__rindex0 = locksmith_cb3b_forloop__size | minus: locksmith_cb3b_forloop__index0 | minus: 1 %}{% else %}{% continue %}{% endif -%}
+          {%- comment %}</locksmith:919c>{% endcomment -%}
+          {% assign index_two = locksmith_cb3b_forloop__index %}
+          <div class="flex flex-col hs-accordion" id="hs-heading-{{ child_link.handle }}">
+            {% if child_link.links != blank %}
+              <button
+                id="mobile-nav-{{ index_one }}-{{ index_two }}"
+                type="button"
+                class="hs-accordion-toggle flex items-center justify-start m-0 gap-3 px-0 py-3 border-0 bg-transparent typography typography--heading-six text-[14px]"
+                aria-expanded="true"
+                aria-controls="hs-collapse-{{ child_link.handle }}"
+              >
+                {%- include 'ob-nav-label-logic', navtitle: child_link.title, label_arr: label_arr -%}
+                <div
+                  class="[&_svg]:max-w-full [&_svg]:h-full [&_svg]:transition-transform right-3 absolute"
+                  style="right: 25px;"
+                  aria-hidden="true"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    class="hs-accordion-active:rotate-0 icon -rotate-180 w-3 h-3"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    viewBox="0 0 8 8"
+                    color="#7D7D7D"
+                  >
+                    <path d="M0.29387 5.95502C0.235377 5.89506 0.235377 5.79783 0.29387 5.73787L3.89479 2.04617C3.95328 1.9862 4.04812 1.9862 4.10661 2.04617C4.1651 2.10614 4.1651 2.20336 4.10661 2.26333L0.505688 5.95502C0.447196 6.01499 0.352362 6.01499 0.29387 5.95502Z" fill="currentColor"></path>
+                    <path d="M3.89339 2.04498C3.95189 1.98501 4.04672 1.98501 4.10521 2.04498L7.70613 5.73667C7.76462 5.79664 7.76462 5.89387 7.70613 5.95383C7.64764 6.0138 7.5528 6.0138 7.49431 5.95383L3.89339 2.26213C3.8349 2.20217 3.8349 2.10494 3.89339 2.04498Z" fill="currentColor"></path>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M0.505688 5.95502C0.447196 6.01499 0.352362 6.01499 0.29387 5.95502C0.235377 5.89506 0.235377 5.79783 0.29387 5.73787L3.87816 2.06322C3.8827 2.05684 3.88778 2.05073 3.89339 2.04498C3.89337 2.045 3.89342 2.04495 3.89339 2.04498C3.94885 1.98821 4.03699 1.9852 4.09581 2.03611C4.09907 2.03887 4.10213 2.04189 4.10521 2.04498C4.10564 2.04541 4.10618 2.04573 4.10661 2.04617L4.1115 2.05142L7.70613 5.73667C7.76462 5.79664 7.76462 5.89387 7.70613 5.95383C7.64764 6.0138 7.5528 6.0138 7.49431 5.95383L4.00058 2.37203L0.505688 5.95502ZM4.00058 2.73006L0.684651 6.12959C0.528049 6.29014 0.271508 6.29014 0.114906 6.12959C-0.0383019 5.97252 -0.0383019 5.72037 0.114906 5.5633L3.68877 1.89934C3.69678 1.88939 3.70534 1.87973 3.71443 1.87041C3.86258 1.71853 4.10017 1.71033 4.25797 1.84582C4.26747 1.8539 4.27668 1.86249 4.28557 1.87161C4.2883 1.8744 4.29097 1.87722 4.2936 1.88007L7.88509 5.56211C8.0383 5.71918 8.0383 5.97132 7.88509 6.12839C7.72849 6.28894 7.47195 6.28894 7.31535 6.12839L4.00058 2.73006Z" fill="currentColor"></path>
+                  </svg>
+                </div>
+              </button>
+              <div
+                id="hs-collapse-{{ child_link.handle }}"
+                class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300"
+                role="region"
+                aria-labelledby="hs-heading-{{ child_link.handle }}"
+              >
+                <div class="flex flex-col gap-4 mb-4">
+                  <div role="group">
+                    <ul class="flex flex-col p-0 m-0 list-none">
+                      {%- comment %}<locksmith:3d46>{% endcomment -%}
+                        {%- assign locksmith_0759_forloop__size = 0 %}{% for grandchild_link in child_link.links %}{% capture var %}{% render 'locksmith-variables', scope: 'subject', subject: grandchild_link, subject_parent: child_link, variable: 'transparent' %}{% endcapture %}{% if var == 'true' %}{% assign locksmith_0759_forloop__size = locksmith_0759_forloop__size | plus: 1 %}{% endif %}{% endfor %}{% assign locksmith_0759_forloop__index = nil -%}
+                      {%- comment %}</locksmith:3d46>{% endcomment -%}
+                      {% for grandchild_link in child_link.links %}
+                        {%- comment %}<locksmith:73db>{% endcomment -%}
+                          {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: grandchild_link, subject_parent: child_link, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% if locksmith_0759_forloop__index == nil %}{% assign locksmith_0759_forloop__index = 1 %}{% assign locksmith_0759_forloop__index0 = 0 %}{% else %}{% assign locksmith_0759_forloop__index = locksmith_0759_forloop__index | plus: 1 %}{% assign locksmith_0759_forloop__index0 = locksmith_0759_forloop__index0 | plus: 1 %}{% endif %}{% if locksmith_0759_forloop__index == 1 %}{% assign locksmith_0759_forloop__first = true %}{% else %}{% assign locksmith_0759_forloop__first = false %}{% endif %}{% if locksmith_0759_forloop__index == locksmith_0759_forloop__size %}{% assign locksmith_0759_forloop__last = true %}{% else %}{% assign locksmith_0759_forloop__last = false %}{% endif %}{% assign locksmith_0759_forloop__rindex = locksmith_0759_forloop__size | minus: locksmith_0759_forloop__index | minus: 1 %}{% assign locksmith_0759_forloop__rindex0 = locksmith_0759_forloop__size | minus: locksmith_0759_forloop__index0 | minus: 1 %}{% else %}{% continue %}{% endif -%}
+                        {%- comment %}</locksmith:73db>{% endcomment -%}
+                        {% assign index_three = locksmith_0759_forloop__index %}
+                        <li class="py-1">
+                          <a
+                            id="mobile-nav-{{ index_one }}-{{ index_two }}-{{ index_three }}"
+                            class="typography typography--body-md font-semibold w-full text-[#282828] no-underline"
+                            href="{%- render 'ob-process-international-link', url: grandchild_link.url -%}"
+                          >
+                            <p class="typography typography--body-md">
+                              {% include 'ob-nav-label-logic', navtitle: grandchild_link.title, label_arr: label_arr %}
+                            </p>
+                          </a>
+                        </li>
+                      {% endfor %}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            {% else %}
+              <a
+                id="mobile-nav-{{ index_one }}-{{ index_two }}"
+                class="flex items-center justify-start w-full m-0 gap-3 px-0 py-3 border-0 bg-transparent typography typography--heading-six text-[14px]"
+                href="{%- render 'ob-process-international-link', url: link.url -%}"
+              >
+                {% include 'ob-nav-label-logic', navtitle: child_link.title, label_arr: label_arr %}
+              </a>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  {% endfor %}
+</div>

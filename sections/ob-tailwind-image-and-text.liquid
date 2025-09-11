@@ -1,0 +1,346 @@
+{% comment %}
+
+This is the charity template being used.
+
+{% endcomment %}
+
+{% assign prefix = "" %}
+
+<style>
+
+  .bg-cover {
+  
+    background: url({{"2-FREE-GIFTS-DESKTOP.jpg" | file_url}});
+    background-color: rgba(255, 255, 255, 0.7);
+    
+  }
+</style>
+<div class="py-8 md:py-16 pt-0 md:pt-16 {{ section.settings.section-class }}">
+    <div class="max-w-7xl mx-auto px-4 space-y-8 sm:px-6 lg:px-8">
+        <div class="lg:grid lg:grid-cols-2 lg:gap-8 items-center">
+             <div class="items-center {{ section.settings.text-block-class }}"> 
+                {% if section.settings.title != blank %}
+                <div class="text-base max-w-prose mx-auto lg:max-w-none">
+                    <h2 class="{{ section.settings.title-classes }}">{{ section.settings.title }}</h2>
+                </div>
+                {% endif %}
+              
+                {% if section.settings.intro != blank %}
+                <div class="relative z-10 text-base max-w-prose mx-auto lg:max-w-5xl lg:mx-0">
+                    <p class="text-lg pb-2">{{ section.settings.intro }}</p>
+                </div>
+                {% endif %}
+                <div class="relative z-10">
+                    <div class="mx-auto lg:max-w-none intro">
+                      {% if section.settings.content != blank %}
+                          {{ section.settings.content }}
+                      {% endif %}
+                    </div>
+                </div>
+                {% if section.settings.button_text != blank %}
+                <div class="flex justify-start mt-3">
+                    <a href="{{ section.settings.hero_url }}" class="{{ section.settings.button_class }}">
+                        {{ section.settings.button_text }}
+                    </a>
+                </div>
+                {% endif %}
+            </div>
+            <div class="mt-12 relative text-base max-w-prose mx-auto lg:mt-0 w-full lg:max-w-none  {{ section.settings.image-block-class }}">
+  <blockquote class="relative bg-white rounded-md border-2 border-solid bg-magenta">
+    <div
+      id="tiat_{{ section.id }}"
+      class="rounded-t-lg justified-minigallery swiper-container"
+      data-images-per-slide="{{ section.settings.images_per_slide }}"
+      data-row_height="{{ section.settings.row_height }}"
+      data-row_height_mobile="{{ section.settings.row_height_mobile }}"
+    >
+      <div class="swiper-wrapper overflow-hidden">
+        {% for block in section.blocks %}
+          {% if block.type == 'image' %}
+            <div class="swiper-slide rounded-md">
+              <a class="colorbox" href="{{ block.settings.image | img_url: 'master' }}">
+                <img src="{{ block.settings.image | img_url: '560x' }}" alt="{{ block.settings.image.alt }}" class="rounded-lg">
+              </a>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </blockquote>
+</div>            
+        </div>
+    </div>
+        {%  assign has_stats = 'no' %}
+        {% capture block_stats %}
+        <div class="mt-8 max-w-full  mx-auto md:pb-12">
+            <div class="mt-1 grid grid-cols-{{ section.settings.stats_per_row_mobile }} md:grid-cols-{{ section.settings.stats_per_row }} rounded-md border-2 border-solid overflow-hidden bg-white">
+              {% for i in (1..6) -%}
+                  {% assign stats_title_setting =  'stats_title_' | append: i %}
+                  {% assign stats_caption_setting =  'stats_caption_' | append: i %}
+                  {% if section.settings[stats_title_setting] != blank  %}
+                     {%  assign has_stats = 'yes' %}
+                    <div class="relative px-6 py-5 flex items-center border-b md:border-b-0 md:border-r border-solid">
+                        <div class="flex-1 min-w-0">
+                            <div href="#" class="focus:outline-none">
+                                <span class="absolute inset-0" aria-hidden="true"></span>
+                                {% if section.settings[stats_title_setting] != blank  %}
+                                <span class="font-medium text-2xl text-magenta block">
+                                 {{ section.settings[stats_title_setting] }}
+                                </span>
+                                {% endif %}
+                                {% if section.settings[stats_caption_setting] != blank  %}
+                                <span class="text-base md:text-lg">
+                                  {{ section.settings[stats_caption_setting] }}
+                                </span>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                  {%  endif %}
+              {% endfor %}
+            </div>
+        </div>    
+          {% endcapture %}
+          {%  if has_stats == 'yes' %}
+              {{ block_stats }}
+          {% endif %}
+    </div>
+</div>
+
+{% schema %}
+  {
+    "name": "tailwind image and text",
+    "settings": [
+        {
+          "type": "text",
+          "id": "section-class",
+          "label": "section-class"
+        },
+        {
+          "type": "text",
+          "id": "hero-frame-class",
+          "label": "hero-frame-class"
+        },
+        {
+          "type": "text",
+          "id": "image-block-class",
+          "label": "image-block-class"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "title-classes",
+          "label": "Title Classes",
+          "default": "marujo mt-2 text-3xl leading-8 font-extrabold tracking-tight sm:text-4xl text-magenta"
+        },
+        {
+          "type": "text",
+          "id": "text-block-class",
+          "label": "text-block-class"
+        },
+        {
+          "type": "text",
+          "id": "intro",
+          "label": "content intro"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "content"
+        },
+        {
+          "type": "header",
+          "content": "Images"
+        },
+        {
+          "type": "range",
+          "id": "images_per_slide",
+          "min": 1,
+          "max": 4,
+          "step": 1,
+          "label": "Images per slide",
+          "default": 1
+        },
+        {
+          "type": "range",
+          "id": "row_height",
+          "min": 50,
+          "max": 1000,
+          "step": 10,
+          "label": "px",
+          "default": 300
+        },
+        {
+          "type": "range",
+          "id": "row_height_mobile",
+          "min": 50,
+          "max": 1000,
+          "step": 10,
+          "label": "px",
+          "default": 300
+        },
+        {
+          "type": "text",
+          "id": "caption",
+          "label": "Image caption"
+        },
+        {
+          "type": "header",
+          "content": "Button"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button text"
+        },
+        {
+          "type": "text",
+          "id": "button_class",
+          "label": "button class",
+          "info": "px-8 rounded-md uppercase btn-shadow-lg block bg-magenta border-solid border-2 border-md border-black relative font-semibold text-center p-4 text-white hover:bg-magenta-700 transition-colors duration-200"
+        },
+        {
+          "type": "text",
+          "id": "hero_url",
+          "label": "Hero URL"
+        }
+    ],
+    "blocks": [
+      {
+        "type": "stats",
+        "name": "stats",
+        "settings": [
+          {
+            "type": "range",
+            "id": "stats_per_row",
+            "min": 1,
+            "max": 3,
+            "step": 1,
+            "unit": "col",
+            "label": "Items per row (desktop",
+            "default": 2
+          },
+          {
+            "type": "range",
+            "id": "stats_per_row_mobile",
+            "min": 1,
+            "max": 3,
+            "step": 1,
+            "unit": "col",
+            "label": "Items per row (mobile",
+            "default": 2
+          },
+          {
+            "type": "text",
+            "id": "stats_title_1",
+            "label": "Stats title #1"
+          },
+          {
+            "type": "text",
+            "id": "stats_caption_1",
+            "label": "Stats caption #1"
+          },
+          {
+            "type": "text",
+            "id": "stats_title_2",
+            "label": "Stats title #2"
+          },
+          {
+            "type": "text",
+            "id": "stats_caption_2",
+            "label": "Stats caption #2"
+          },
+          {
+            "type": "text",
+            "id": "stats_title_3",
+            "label": "Stats title #3"
+          },
+          {
+            "type": "text",
+            "id": "stats_caption_3",
+            "label": "Stats caption #3"
+          },
+          {
+            "type": "text",
+            "id": "stats_title_4",
+            "label": "Stats title #4"
+          },
+          {
+            "type": "text",
+            "id": "stats_caption_4",
+            "label": "Stats caption #4"
+          },
+          {
+            "type": "text",
+            "id": "stats_title_5",
+            "label": "Stats title #5"
+          },
+          {
+            "type": "text",
+            "id": "stats_caption_5",
+            "label": "Stats caption #5"
+          },
+          {
+            "type": "text",
+            "id": "stats_title_6",
+            "label": "Stats title #6"
+          },
+          {
+            "type": "text",
+            "id": "stats_caption_6",
+            "label": "Stats caption #6"
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "name": "image",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          }
+        ]
+      }
+    ],
+      "presets": [{
+      "name": "tailwind image and text"
+    }]
+  }
+{% endschema %}
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    new Swiper('#tiat_{{ section.id }}', {
+      slidesPerView: {{ section.settings.images_per_slide }},
+      spaceBetween: 10,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      breakpoints: {
+        320: {
+          slidesPerView: 1,
+        },
+        640: {
+          slidesPerView: {{ section.settings.images_per_slide }},
+        }
+      }
+    });
+  });
+</script>

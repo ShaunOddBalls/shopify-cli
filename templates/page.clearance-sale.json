@@ -1,0 +1,794 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "ob_text_video_slider_VhmdNa": {
+      "type": "ob-text-video-slider",
+      "settings": {
+        "handle": "clearance-landing-page",
+        "section_wrapper_classes": "relative",
+        "cta-setting": false,
+        "position": "start",
+        "title": "Title",
+        "title-text-classes": "text-3xl md:text-6xl capitalize dbl-cta-title pb-1 font-bebas",
+        "title-text-postion": "left",
+        "title-text-size": 18,
+        "title-color": "",
+        "desktop-title-text-size": 32,
+        "paragragh": "My Paragraph",
+        "p-classes": "",
+        "paragraph-text-postion": "left",
+        "paragragh-font-size": 12,
+        "paragraph-color": "",
+        "desktop-paragraph-text-size": 18,
+        "btn-one-text": "button one",
+        "btn-one-classes": "px-8 relative p-2 rounded-md uppercase btn-shadow-lg block border-solid border-2 border-md border-black text-black font-semibold text-center  transition-colors duration-200",
+        "btn-1-url": "",
+        "btn-one-color": "#ffffff",
+        "btn-one-bg-color": "#000000",
+        "btn-two-text": "button two",
+        "btn-two-classes": "px-8 relative p-2 rounded-md uppercase btn-shadow-lg block border-solid border-2 border-md border-black text-black font-semibold text-center  transition-colors duration-200",
+        "btn-2-url": "",
+        "btn-two-color": "#000000",
+        "btn-two-bg-color": "#ffffff",
+        "button-postion": "start"
+      }
+    },
+    "f7b8470c-5dfc-4a80-84f9-a574d9391aa9": {
+      "type": "ob-conditional-banner",
+      "blocks": {
+        "collection_banner_fQCjnW": {
+          "type": "collection-banner",
+          "settings": {
+            "block_active": true,
+            "banner_background": "",
+            "wrapper_classes": "",
+            "title": "",
+            "text": "",
+            "customers": "both",
+            "url_handle": "sale-2024, clearance",
+            "not_url_handle": "",
+            "country_iso": "*",
+            "banner_link": "",
+            "desktop_image": "shopify://shop_images/Banners-DESKTOP_42152032-8794-485f-a3c4-fe63e20ddbeb.jpg",
+            "mobile_image": "shopify://shop_images/Banners-MOBILE_5637b953-90f2-4ae0-8108-79572919b242.jpg",
+            "desktop_image_classes": "mx-auto w-full hidden md:block",
+            "mobile_image_classes": "mx-auto w-full md:hidden",
+            "desktop_svg": "",
+            "mobile_svg": "",
+            "desktop_svg_classes": "absolute inset-0 w-full h-full mx-auto hidden md:block",
+            "mobile_svg_classes": "absolute inset-0 w-full h-full mx-auto md:hidden"
+          }
+        }
+      },
+      "block_order": [
+        "collection_banner_fQCjnW"
+      ],
+      "disabled": true,
+      "settings": {
+        "banner_background": "",
+        "wrapper_classes": ""
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "ob_three_text_fields_hipgga": {
+      "type": "ob-three-text-fields",
+      "blocks": {
+        "text_lines_TDAM93": {
+          "type": "text-lines",
+          "settings": {
+            "country_iso": "*",
+            "text-field-outer-wrapper-classes": "",
+            "text-field-inner-wrapper-classes": "text-center text-black relative max-w-4xl mx-auto py-2",
+            "text-field-1": "LOOKING TO SAVE BIG ON YOUR FAVOURITE ODDBALLS PRODUCTS?",
+            "text-field-1-classes": "font-bebas md:text-2xl  text-xl",
+            "text-field-2": "",
+            "text-field-2-classes": "",
+            "text-field-3": "",
+            "text-field-3-classes": "",
+            "text-field-4": "",
+            "text-field-4-classes": "",
+            "html-field": "",
+            "html-field-classes": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_lines_TDAM93"
+      ],
+      "settings": {}
+    },
+    "image_text_grid_raN4Fn": {
+      "type": "ob-image-text-grid",
+      "blocks": {
+        "image_and_text_ANqDMQ": {
+          "type": "image-and-text",
+          "settings": {
+            "country_iso": "*",
+            "title": "",
+            "block_wrapper_classes": "col-span-12 flex justify-center  px-4 items-center text-center relative",
+            "block_title": "",
+            "title_classes": "text",
+            "description": "<br>Looking to save big on your favourite products? Look no further than the Oddballs Clearance sale, act fast to secure your favourites before they’re gone!",
+            "description_classes": "",
+            "svg": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_and_text_ANqDMQ"
+      ],
+      "disabled": true,
+      "settings": {
+        "outer_wrapper_classes": "relative",
+        "inner_wrapper_classes": "col-span-12 flex justify-center  py-1 px-4 items-center text-center",
+        "grid_wrapper_classes": "",
+        "title": "",
+        "title_classes": "text-center text-base font-semibold uppercase text-gray-600 tracking-wider",
+        "section_bg_colour": "",
+        "block_bg_colour": "",
+        "block_bg_colour_hover": "",
+        "block_text_colour": "",
+        "block_text_colour_hover": "",
+        "block_image_classes": "",
+        "block_svg_classes": "",
+        "custom_css": ""
+      }
+    },
+    "289ab40a-57e7-4538-a246-879f383aad57": {
+      "type": "ob-trust-pilot-widget",
+      "settings": {
+        "outer_wrapper_classes": "border-blackblend-divide mt-3 mb-2 md:mb-1",
+        "wrapper_classes": "max-w-7xl mx-auto",
+        "widget_header": "",
+        "widget_header_classes": "",
+        "widget_subheader": "",
+        "widget_subheader_classes": "",
+        "widget_code": "<!-- TrustBox widget - Micro Combo -->\n<div class=\"hidden trustpilot-widget\" data-locale=\"en-GB\" data-template-id=\"5419b6ffb0d04a076446a9af\" data-businessunit-id=\"5c7f9459871dac0001ea0238\" data-style-height=\"40px\" data-style-width=\"100%\" data-theme=\"light\">\n  <a href=\"https://uk.trustpilot.com/review/myoddballs.com\" target=\"_blank\" rel=\"noopener\">Trustpilot</a>\n</div>\n<!-- End TrustBox widget -->",
+        "widget_wrapper_classes": "",
+        "use_microcombo": true
+      }
+    },
+    "f85b1591-1483-46e4-9144-69aa89476845": {
+      "type": "custom-liquid",
+      "disabled": true,
+      "settings": {
+        "custom_liquid": "<div class=\" flex justify-center\"><a style=\"width:50%; min-width: 200px;\" href=\"/pages/black-friday-sale-2023\"><button  type=\"submit\" name=\"add\" data-atc=\"fat-cow-mens-boxer-shorts\" class=\"mb-12 ga-atc-button product__add-to-cart product--add-to-cart-button justify-between w-full tracking-normal rounded-md uppercase btn-shadow-lg block bg-magenta border-solid border-2 border-md border-black relative font-semibold text-center p-4 text-white hover:bg-magenta-700 transition-colors duration-200\" gaevent=\"\" data-type=\"event\" data-category=\"button\" data-action=\"click\" data-label=\"Product Form ATC Button\">\n                                  <span class=\"button-scroll-in add-to-cart__text add-to-cart__text\">Shop Cyber Sale</span></button></a><div>",
+        "color_scheme": "",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "1b716c4e-2777-4dce-9fde-909f14717745": {
+      "type": "ob-mosaic-hero",
+      "blocks": {
+        "338cb97d-a620-4e1f-8352-1286cfc2d41b": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/NEW_-__MensBoxers.jpg",
+            "img-overlay": "",
+            "img-class-list": "cover",
+            "button-text": "MENS BOXERs",
+            "button_link": "shopify://collections/underwear-clearance-mens-boxer-shorts",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "collection_block_kyTUXC": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/NEW_-__Blankets.jpg",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "Fleece Blankets",
+            "button_link": "https://www.myoddballs.com/collections/fleece-blanket/collection-sale-all",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "collection_block_4Lt3CY": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/NEW_-__WOmenBoxers-02.jpg",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "WOMENS BOXERs",
+            "button_link": "shopify://collections/underwear-clearance-ladies-boxers",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "dff9b96c-6826-48aa-90a7-5f34fe388cb0": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/NEW_-__Towels.jpg",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "towels",
+            "button_link": "shopify://collections/all-towels",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "602c4634-18e8-4db8-b3e5-b4c0dec1110a": {
+          "type": "collection_block",
+          "disabled": true,
+          "settings": {
+            "class-list": "",
+            "image": "shopify://shop_images/Towels_81e54a1e-4264-4267-a428-237440fdd0b3.jpg",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "Towels",
+            "button_link": "shopify://collections/towel-bundles",
+            "button-class-list": "",
+            "background-color": "#cb2147"
+          }
+        },
+        "6844e7ed-eaea-4ead-9173-0b109212a782": {
+          "type": "collection_block",
+          "disabled": true,
+          "settings": {
+            "class-list": "",
+            "image": "shopify://shop_images/WashBags.jpg",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "Washbags",
+            "button_link": "shopify://collections/wash-bags",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        }
+      },
+      "block_order": [
+        "338cb97d-a620-4e1f-8352-1286cfc2d41b",
+        "collection_block_kyTUXC",
+        "collection_block_4Lt3CY",
+        "dff9b96c-6826-48aa-90a7-5f34fe388cb0",
+        "602c4634-18e8-4db8-b3e5-b4c0dec1110a",
+        "6844e7ed-eaea-4ead-9173-0b109212a782"
+      ],
+      "custom_css": [
+        ".cover {object-fit: cover; width: 100%; height: 100%;}",
+        ".btn-max-width {max-width: 500px;}",
+        ".z-index-1 {z-index: 1;}",
+        ".z-index-2 {z-index: 2;}",
+        ".gradient {background: linear-gradient( 0deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0) 100% );}",
+        ".grid-item {min-width: 45vw;}",
+        "@media (min-width: 1080px) {.grid-item {min-width: 24vw; }}",
+        ".gradient {display: none;}"
+      ],
+      "settings": {
+        "mosaic-container": "grid grid-cols-2 md:grid-cols-4 justify-items-center   overflow-y-hidden  md:gap-2 gap-2",
+        "all-block-outer-class": "relative inline-block w-  lg:w-60 lg:h-60 xl:w-full xl:h-full md:w-full md:h-full",
+        "all-image-class": "cover",
+        "img-overlay": "h-1/2 w-full gradient absolute bottom-0 left-0 z-index-1",
+        "all-button-class": "text-center absolute  bg-button-red block p-3  backdrop-blur-xl  drop-shadow-lg font-bold  border-black border-2 md:text-md xl:text-lg bottom-2 left-1/2 rounded-3xl w-11/12 transform left-1/2 -translate-x-1/2  text-xl uppercase btn-max-width z-index-2 marujo leading-none tracking-wide shadow-sm text-white block border-solid border-2 border-md border-black mb-2"
+      }
+    },
+    "ob_collection_slider_old_btaJ9a": {
+      "type": "ob-collection-slider-old",
+      "settings": {
+        "collection": "underwear-clearance",
+        "product_list": [],
+        "title": "Best of clearance",
+        "wrapper_class": "mt-6",
+        "text_class": "marujo  text-3xl md:text-5xl text-center col-span-2 md:col-span-3"
+      }
+    },
+    "23dddb08-6703-4d0d-a048-d0052e8a9c1d": {
+      "type": "ob-mosaic-hero",
+      "blocks": {
+        "collection_block_93LDNY": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative row-span-6 col-span-2 md:row-span-2",
+            "image": "shopify://shop_images/NEW_-__Bralette.jpg",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "bralettes",
+            "button_link": "shopify://collections/underwear-clearance-ladies-bralette",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "collection_block_gGpXQb": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "",
+            "image": "shopify://shop_images/NEW_-__WomenBrief.jpg",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "Womens briefs",
+            "button_link": "shopify://collections/underwear-clearance-ladies-briefs",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "collection_block_6xeg4N": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "",
+            "image": "shopify://shop_images/NEW_-__MenBrief.jpg",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "Mens briefs",
+            "button_link": "shopify://collections/underwear-clearance-mens-briefs",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "6538bea0-7610-4087-8b56-b2952a8b6f85": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/8-FPS-Single.gif",
+            "img-overlay": "",
+            "img-class-list": "font-babes",
+            "button-text": "SUBSCRIPTIONS",
+            "button_link": "shopify://collections/subscription",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "collection_block_WBFzJA": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "",
+            "image": "shopify://shop_images/NEW_-__Men_Tshirt.jpg",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "mens t-shirts",
+            "button_link": "https://www.myoddballs.com/collections/training-tops/collection-sale-all",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "collection_block_iFR3M9": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "",
+            "image": "shopify://shop_images/NEW_-__WOmenBoxers-10.jpg",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "Kids boxers",
+            "button_link": "shopify://collections/underwear-clearance-goolies",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "c4360464-13ae-4a1a-a4e9-70d7893cb2e1": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/NEW_-__GymShorts.jpg",
+            "img-overlay": "",
+            "img-class-list": "font-babes",
+            "button-text": "gym shorts",
+            "button_link": "shopify://collections/womens-gym-shorts",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "collection_block_MCJRGE": {
+          "type": "collection_block",
+          "disabled": true,
+          "settings": {
+            "class-list": "",
+            "image": "shopify://shop_images/NEW_-__Women_Tshirt.jpg",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "womens t-shirts",
+            "button_link": "shopify://collections/womens-tech-fit-t-shirt",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "collection_block_ahP8xk": {
+          "type": "collection_block",
+          "disabled": true,
+          "settings": {
+            "class-list": "",
+            "image": "shopify://shop_images/NEW_-__Water_Bottles.jpg",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "Water Bottles",
+            "button_link": "https://www.myoddballs.com/collections/reusable-drinks-bottles",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "collection_block_rhVLXw": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative row-span-6 col-span-2 md:row-span-2",
+            "image": "shopify://shop_images/NEW_-__Thongs.jpg",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "Thongs",
+            "button_link": "shopify://collections/underwear-clearance-ladies-thongs",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "f2aa6a61-3d15-43d9-a617-47bb5410aa58": {
+          "type": "collection_block",
+          "disabled": true,
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/NEW_-__Rugby_Tops.jpg",
+            "img-overlay": "",
+            "img-class-list": "font-babes",
+            "button-text": "Rugby Tops",
+            "button_link": "https://www.myoddballs.com/collections/rugby-training-tops",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "a5ae176a-2a44-43c8-924d-d6ba2f7b60dd": {
+          "type": "collection_block",
+          "disabled": true,
+          "settings": {
+            "class-list": "relative row-span-6 col-span-2 md:row-span-2",
+            "image": "shopify://shop_images/Bamboo_b5e8fb21-7017-45ee-b63f-88c3ee004df0.jpg",
+            "img-overlay": "",
+            "img-class-list": "font-babes",
+            "button-text": "",
+            "button_link": "shopify://collections/bamboo-underwear",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "collection_block_PjfahT": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/NEW_-__Swim_Brief.jpg",
+            "img-overlay": "",
+            "img-class-list": "font-babes",
+            "button-text": "Swim Briefs",
+            "button_link": "https://www.myoddballs.com/collections/swimmers",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "collection_block_JzqzPk": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/NEW_-__Vests.jpg",
+            "img-overlay": "",
+            "img-class-list": "font-babes",
+            "button-text": "Running Vests",
+            "button_link": "https://www.myoddballs.com/collections/sports-vests",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "collection_block_gEaXCV": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/Hats-Clearance.jpg",
+            "img-overlay": "",
+            "img-class-list": "font-babes",
+            "button-text": "Caps",
+            "button_link": "shopify://collections/hats",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "collection_block_B9eaAH": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/NEW_-__Cycling_Jersey.jpg",
+            "img-overlay": "",
+            "img-class-list": "font-babes",
+            "button-text": "Cycling Jerseys",
+            "button_link": "https://www.myoddballs.com/collections/cycling-jerseys",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "collection_block_q4C6CG": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/NEW_-__Mystery.jpg",
+            "img-overlay": "",
+            "img-class-list": "font-babes",
+            "button-text": "mystery boxes",
+            "button_link": "shopify://collections/mystery-bundles",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "0d193e51-28ff-4c09-8047-7b02b25e716c": {
+          "type": "collection_block",
+          "disabled": true,
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/LICENSED_PRODUCT.png",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "Ball Deodorant",
+            "button_link": "shopify://collections/collaboration-underwear",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "fb0a193f-6ab9-4fac-bd81-cded0977694a": {
+          "type": "collection_block",
+          "disabled": true,
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/Socks_image_2.png",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "matching Sets",
+            "button_link": "shopify://collections/socks",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "collection_block_FTwDLR": {
+          "type": "collection_block",
+          "disabled": true,
+          "settings": {
+            "class-list": "",
+            "image": "shopify://shop_images/Blankets_4ad8a5bb-110e-447e-9ad0-cb5dace5f06d.jpg",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "",
+            "button_link": "shopify://collections/fleece-blanket",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "collection_block_PF6bCq": {
+          "type": "collection_block",
+          "disabled": true,
+          "settings": {
+            "class-list": "",
+            "image": "shopify://shop_images/MatchingSets.jpg",
+            "img-overlay": "",
+            "img-class-list": "cover",
+            "button-text": "shop matching sets",
+            "button_link": "shopify://collections/womens-matching-sets",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "114be47e-cd75-41a6-9870-397b68e58d99": {
+          "type": "collection_block",
+          "disabled": true,
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/SEAMLESS_6aa6e1d7-a207-4ece-908e-708d99b554d4.png",
+            "img-overlay": "",
+            "img-class-list": "font-babes",
+            "button-text": "SHOP SEAMLESS",
+            "button_link": "shopify://collections/seamless-underwear",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "ec8e563c-8212-4a57-a041-6de43251197e": {
+          "type": "collection_block",
+          "disabled": true,
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/LADIES_BRIEFS_4e67464e-8959-45ef-9173-de2a2d7bff58.png",
+            "img-overlay": "",
+            "img-class-list": "font-babes",
+            "button-text": "WOMENS BRIEFS",
+            "button_link": "shopify://collections/her-individuals",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "14ebc408-3a7f-4921-bb51-e9119a0bcd90": {
+          "type": "collection_block",
+          "disabled": true,
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/scarves_xmas_gift_guide.png",
+            "img-overlay": "",
+            "img-class-list": "font-babes",
+            "button-text": "SHOP SCARVES",
+            "button_link": "shopify://collections/scarves",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "b952293a-b89e-4213-a45c-df61de179053": {
+          "type": "collection_block",
+          "disabled": true,
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/XMAS_UNDERWEAR.png",
+            "img-overlay": "",
+            "img-class-list": "font-babes",
+            "button-text": "XMAS UNDERWEAR",
+            "button_link": "shopify://collections/christmas-underwear",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "e6eb4e18-94d6-4da2-a284-25c419d88037": {
+          "type": "collection_block",
+          "disabled": true,
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/knitted_hats_xmas_guide.png",
+            "img-overlay": "",
+            "img-class-list": "font-babes",
+            "button-text": "SHOP KNITTED HATS",
+            "button_link": "shopify://collections/knitted-bobble-hats",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "1cfdf802-d1c0-4f3b-b634-26f7232ef212": {
+          "type": "collection_block",
+          "disabled": true,
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/knitted_hats_2_sbd_32e109ee-b79b-4f74-b378-c02822fbef14.png",
+            "img-overlay": "",
+            "img-class-list": "font-babes",
+            "button-text": "SHOP BEANIES",
+            "button_link": "shopify://collections/beanies",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "collection_block_QbWC6d": {
+          "type": "collection_block",
+          "disabled": true,
+          "settings": {
+            "class-list": "",
+            "image": "shopify://shop_images/Caps.jpg",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "",
+            "button_link": "shopify://collections/flex-fit-caps",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "collection_block_bF3pwC": {
+          "type": "collection_block",
+          "disabled": true,
+          "settings": {
+            "class-list": "",
+            "image": "shopify://shop_images/Sportswear_2af2fdc5-74b4-4019-a2d3-8067bd40fbba.jpg",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "",
+            "button_link": "https://www.myoddballs.com/collections/all-sportswear",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_block_93LDNY",
+        "collection_block_gGpXQb",
+        "collection_block_6xeg4N",
+        "6538bea0-7610-4087-8b56-b2952a8b6f85",
+        "collection_block_WBFzJA",
+        "collection_block_iFR3M9",
+        "c4360464-13ae-4a1a-a4e9-70d7893cb2e1",
+        "collection_block_MCJRGE",
+        "collection_block_ahP8xk",
+        "collection_block_rhVLXw",
+        "f2aa6a61-3d15-43d9-a617-47bb5410aa58",
+        "a5ae176a-2a44-43c8-924d-d6ba2f7b60dd",
+        "collection_block_PjfahT",
+        "collection_block_JzqzPk",
+        "collection_block_gEaXCV",
+        "collection_block_B9eaAH",
+        "collection_block_q4C6CG",
+        "0d193e51-28ff-4c09-8047-7b02b25e716c",
+        "fb0a193f-6ab9-4fac-bd81-cded0977694a",
+        "collection_block_FTwDLR",
+        "collection_block_PF6bCq",
+        "114be47e-cd75-41a6-9870-397b68e58d99",
+        "ec8e563c-8212-4a57-a041-6de43251197e",
+        "14ebc408-3a7f-4921-bb51-e9119a0bcd90",
+        "b952293a-b89e-4213-a45c-df61de179053",
+        "e6eb4e18-94d6-4da2-a284-25c419d88037",
+        "1cfdf802-d1c0-4f3b-b634-26f7232ef212",
+        "collection_block_QbWC6d",
+        "collection_block_bF3pwC"
+      ],
+      "custom_css": [
+        ".cover {object-fit: cover; width: 100%; height: 100%;}",
+        ".btn-max-width {max-width: 500px;}",
+        ".z-index-1 {z-index: 1;}",
+        ".z-index-2 {z-index: 2;}",
+        ".gradient {background: linear-gradient( 0deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0) 100% );}",
+        ".grid-item {position: relative;}",
+        ".gradient {display: none;}"
+      ],
+      "settings": {
+        "mosaic-container": "grid md:grid-cols-4 md:grid-rows-2 gap-1  grid-cols-2",
+        "all-block-outer-class": "",
+        "all-image-class": "cover",
+        "img-overlay": "h-1/2 w-full gradient absolute bottom-0 left-0 z-index-1",
+        "all-button-class": "text-center absolute  bg-button-red block p-3  backdrop-blur-xl  drop-shadow-lg font-bold  border-black border-2 md:text-md xl:text-lg bottom-2 left-1/2 rounded-3xl w-11/12 transform left-1/2 -translate-x-1/2  text-xl uppercase btn-max-width z-index-2 marujo leading-none tracking-wide shadow-sm text-white block border-solid border-2 border-md border-black mb-2"
+      }
+    },
+    "image_text_grid_pb4Lww": {
+      "type": "ob-image-text-grid",
+      "blocks": {
+        "image_and_text_U9q7CJ": {
+          "type": "image-and-text",
+          "settings": {
+            "country_iso": "*",
+            "title": "",
+            "block_wrapper_classes": "col-span-12 flex justify-center  px-4 items-center text-center relative",
+            "block_title": "",
+            "title_classes": "text",
+            "description": "<h2 class=\"text-center font-bebas text-2xl lg:text-4xl\">Dive Into Clearance Deals! </h2>\n\n<br>\n\n<p class=\"text-md lg:text-2x\">\n\nFind fantastic deals on a wide range of high-quality underwear and apparel for you, your friends and family. Whether you’re shopping for <a href=\"https://www.myoddballs.com/collections/pyjamas\" class=\"link\">pyjamas</a>, <a href=\"https://www.myoddballs.com/collections/womens-gym-shorts\" class=\"link\">ladies' gym shorts</a>, <a href=\"https://www.myoddballs.com/collections/fleece-blanket\" class=\"link\">fleece blankets</a> or <a href=\"https://www.myoddballs.com/collections/oversized-hoodie\" class=\"link\">oversized hoodies</a> we have something for everyone at unbeatable prices. Don’t miss out on our unbeatable limited time only offers! \n\n</p>\n<br>\n<p class=\"text-md lg:text-lg\"> \n</p><div>\n\nEnjoy significant discounts on a wide range of products, where all items are made and designed for comfort and durability. Whether you’re looking for something to work or play, the Oddballs Clearance has got you covered with a range of discounted <a href=\"https://www.myoddballs.com/pages/womens-underwear\" class=\"link\">women's underwear</a>, including <a href=\"https://www.myoddballs.com/collections/ladies-boxer-shorts\" class=\"link\">women's boxers</a>, <a href=\"https://www.myoddballs.com/collections/her-individuals\" class=\"link\">briefs</a>, <a href=\"https://www.myoddballs.com/collections/ladies-thongs\" class=\"link\">thongs</a> and <a href=\"https://www.myoddballs.com/collections/bralette\" class=\"link\">bralettes</a> perfect for lounging or wearing under your favourite outfits. \n</div>\n\n<br>\n<p class=\"text-md lg:text-lg\"> \n</p>\n\n<div>\n\nShop our clearance section today, with selected lines of our <a href=\"https://www.myoddballs.com/pages/mens-underwear\" class=\"link\">men’s underwear</a> including <a href=\"https://www.myoddballs.com/collections/him-individuals\" class=\"link\">men’s boxer shorts</a> and <a href=\"https://www.myoddballs.com/collections/his-briefs\" class=\"link\">briefs</a>, available in a variety of colours and designs. And for the little ones, we’ve got a range of fun and colourful <a href=\"https://www.myoddballs.com/collections/goolies\" class=\"link\">boys' boxer shorts</a> perfect for everyday wear and bedtime. Or discover the thrill of our <a href=\"https://www.myoddballs.com/collections/mystery-bundles\" class=\"link\">Mystery Boxes</a> – packed with surprise items at unbeatable prices. \n</div>\n\n<br>\n<p class=\"text-md lg:text-lg\"> \n</p><div>\n\nShop our exclusive clearance products, only available in limited quantities. Act fast to secure your favourites before they’re gone!\n</div>",
+            "description_classes": "",
+            "svg": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_and_text_U9q7CJ"
+      ],
+      "custom_css": [
+        ".link {color: #f00f83;}"
+      ],
+      "settings": {
+        "outer_wrapper_classes": "relative pb-6",
+        "inner_wrapper_classes": "col-span-12 flex justify-center  py-3 px-4 items-center text-center",
+        "grid_wrapper_classes": "",
+        "title": "",
+        "title_classes": "text-center text-base font-semibold uppercase text-gray-600 tracking-wider",
+        "section_bg_colour": "",
+        "block_bg_colour": "",
+        "block_bg_colour_hover": "",
+        "block_text_colour": "",
+        "block_text_colour_hover": "",
+        "block_image_classes": "",
+        "block_svg_classes": "",
+        "custom_css": ""
+      }
+    }
+  },
+  "order": [
+    "ob_text_video_slider_VhmdNa",
+    "f7b8470c-5dfc-4a80-84f9-a574d9391aa9",
+    "main",
+    "ob_three_text_fields_hipgga",
+    "image_text_grid_raN4Fn",
+    "289ab40a-57e7-4538-a246-879f383aad57",
+    "f85b1591-1483-46e4-9144-69aa89476845",
+    "1b716c4e-2777-4dce-9fde-909f14717745",
+    "ob_collection_slider_old_btaJ9a",
+    "23dddb08-6703-4d0d-a048-d0052e8a9c1d",
+    "image_text_grid_pb4Lww"
+  ]
+}

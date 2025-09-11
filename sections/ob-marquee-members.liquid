@@ -1,0 +1,38 @@
+{{ 'ob-marquee-members.css'  | asset_url | stylesheet_tag }}
+
+{% if section.blocks.size > 0 %}
+<div class="marquee js-sub-landing tw-font-semibold tw-text-lg tw-uppercase tw-border-t-2 tw-border-b-2 tw-border-cyan-500 tw-border-solid tw-py-2 tw-overflow-hidden">
+    <div class="items tw-relative tw-flex whitespace-nowrap">
+        {% for block in section.blocks %}
+        <span class="item tw-px-10 tw-border-r border-gray border-solid">{{ block.settings.text }}</span>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+
+
+
+{% schema %}
+  {
+    "name": "marquee-members",
+    "blocks": [
+      {
+        "type": "text",
+        "name": "Text",
+        "settings": [
+          {
+            "type": "text",
+            "id": "text",
+            "label": "Text"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

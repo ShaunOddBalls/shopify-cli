@@ -1,0 +1,155 @@
+<div class="full">
+  <div class="mx-auto w-full max-w-7xl md:flex p-5">
+    {% for block in section.blocks %}
+      {% if block.type == 'linklist' %}
+      
+        <div x-data="{ open: false }" class="w-full py-2 border-b border-gray-200 md:border-0 ">
+          <!-- Display the first link with a dropdown toggle -->
+          <div class="flex items-center justify-between cursor-pointer" @click="open = !open">
+            <span class="font-bold uppercase text-md">{{ block.settings.title }}</span>
+            <svg class="md:hidden" x-bind:class="{ 
+                  'transform rotate-180 transition-transform duration-300': open,
+                  'transform rotate-0 transition-transform duration-300': !open,
+                  'w-6 h-6': true 
+                }" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </div>
+          <!-- Dropdown links -->
+          <div x-show="open" class="mt-2 md:hidden">
+            <ul class="space-y-2 py-1">
+              {% for link in linklists[block.settings.menu_linklist].links %}
+                {%- comment %}<locksmith:ce41>{% endcomment -%}
+                  {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: link, subject_parent: linklists[block.settings.menu_linklist], variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+                {%- comment %}</locksmith:ce41>{% endcomment -%}
+                <li class="text-sm">
+                  <a href="{{ link.url }}">{{ link.title }}</a>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+          <div class="mt-2 hidden md:inline-block">
+            <ul class="space-y-2 py-1">
+              {% for link in linklists[block.settings.menu_linklist].links %}
+                {%- comment %}<locksmith:b04c>{% endcomment -%}
+                  {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: link, subject_parent: linklists[block.settings.menu_linklist], variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+                {%- comment %}</locksmith:b04c>{% endcomment -%}
+                <li class="text-sm">
+                  <a href="{{ link.url }}">{{ link.title }}</a>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      {% endif %}
+
+      {% if block.type == 'currency' %}
+    <div class="w-full">
+        {% if current_country != 'CA' %}
+         <div class="uppercase font-bold py-2">{{ block.settings.title }}</div>
+          <div x-data="{modalIsOpen: false}">
+          <button @click="modalIsOpen = true" type="button" class="js-toggle-iso-selector flex items-center flex-start cursor-pointer shadow-md border-gray-200 border w-full p-2 rounded-md">
+            {% assign country_iso = localization.country.iso_code | downcase %}
+            {% render 'ob-flag-icons', icon:country_iso, class:'tw-flex mr-1' %}
+            <div class="grow flex flex-end" >
+              {% for currency in shop.enabled_currencies %}
+                {% if currency == cart.currency %}
+                <span class="{{ block.settings.classes }}">{{currency.iso_code}} {{currency.symbol}}</span>
+                {% endif %}
+              {% endfor %}
+            </div>
+             <svg class="w-6 h-6 justify-self-end" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">  
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+             </svg>             
+        </button>
+        {% render 'ob-country-popover' %}
+        </div>
+          <fieldset class="w-full mt-4">
+            <div class="tw-relative">
+              <div class="pointer-events-none flex items-center">
+              {% render 'payment-icons' %}
+              </div>
+            </div>
+          </fieldset>  
+      {% endif %}
+    </div> 
+
+    {% if block.type == "newsletter" %}
+        <div class="w-full p-4 border-gray-800 border-b border-solid border-t">
+          <h4 class="font-bold text-md ">{{ block.settings.title }}</h4>
+          <p class="text-sm">{{ block.settings.text }}</p>
+        </div>
+    {% endif %}
+
+
+
+        
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+
+
+
+{% schema %}
+{
+  "name": "Footer Nav",
+  "enabled_on": {
+    "groups": ["footer"]
+  },
+  "settings": [],
+  "blocks": [
+    {
+      "type": "linklist",
+      "name": "Link List",
+      "settings": [
+        {
+          "id": "title",
+          "type": "text",
+          "label": "Menu Heading"
+        },
+        {
+          "id": "menu_linklist",
+          "type": "link_list",
+          "label": "Menu Link List"
+        }
+      ]
+    },
+    {
+      "type": "currency",
+      "name": "Currency Selector",
+      "settings": [
+        {
+          "id": "title",
+          "type": "text",
+          "label": "Menu Heading"
+        }
+      ]
+    },
+    {
+      "type": "newsletter",
+      "name": "Newsletter Sign up",
+      "settings": [
+        {
+          "id": "title",
+          "type": "text",
+          "label": "Heading",
+          "default": "Subscribe to our newsletter",
+        },
+        {
+          "id": "text",
+          "type":"text",
+          "label": "Paragraph",
+          "default": "Sign up to our newsletter for exclusive offers and discounts!"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Footer Nav Section"
+    }
+  ]
+}
+{% endschema %}

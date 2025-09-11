@@ -1,0 +1,689 @@
+{% assign market_code = localization.language.root_url %}
+{% if market_code == '/' %}
+  {% assign market_code = 'uk' %}
+{% else %}
+  {% assign market_code = market_code | remove: '/' %}
+{% endif %}
+
+{% comment %} Split desktop highlights into an array {% endcomment %}
+{% assign desktop_highlights = section.settings.desktop_highlights | split: "," %}
+
+{% comment %} Determine which menu to use based on market {% endcomment %}
+{% assign current_menu = section.settings.menu %}
+
+{% if localization.market.handle == 'eu' and section.settings.alt-menu != blank %}  
+  {% assign current_menu = section.settings.alt-menu %}
+{% endif %}
+
+{% assign show_timer = false %}
+{% if section.settings.is-timer %}
+  {% assign now = "now" | date: "%Y-%m-%d %H:%M" %}
+  {% assign time = section.settings.time %}
+  {% assign datetime_string = section.settings.date | append: ' ' | append: time %}
+  {% assign datetime = datetime_string | date: "%Y-%m-%d %H:%M" %}
+
+  {% if now < datetime %}
+    {% assign show_timer = true %}
+  {% endif %}
+{% endif %}
+
+
+
+{% capture loading_skeleton %}<div class="loading-prod nosto-category-item append-element box-outline-gray site-box float-unset box--smalll box--typo-small box--center-align box--no-padding box--column-flow box__collection2" data-id="7475443204157" style=" pointer-events: none; "> <div class="site-box-content product-holder h-full"> <div class="product-item-collection product-item relative h-full flex-col flexx justify-between style--one alt color--light with-secondary-image"> <div class="-translate-y-1/2 relative self-center h-full top-1/2 transform"> <div class="collection-product-link animate-mt"> <div class="js-product-item-img animate-mt aspect-square  primary relative image-wrapper-position" style=" "></div> </div> <div class="caption collection-item flex flex-col"> <div class="flex w-full justify-between gap-3  text-center my-3" style=" gap: 5px; "> <div class="see-more border-2 border-r-0 border-solid leading-9 px-2 rounded-bl-md rounded-tl-md text-xxs animate-mt uppercase w-full max-w-50">Loading</div> <div data-prod-id="" class="quick-add-to-cart animate-mt qatc-button border-2 border-l-2 border-black border-solid leading-9 rounded-br-md rounded-tr-md text-xxs uppercase w-full"> <div class="quick-add-to-cart-button" style="pointer-events: auto;"> <a class="product__add-to-cart px-2" href="https://www.myoddballs.com/products/jungle-bundle-mens-boxer-shorts-3-pack" view="simple"> <span class="visually-hidden">Loading</span> </a> </div> </div> </div> <div class="flex-col flex justify-between w-full "> <div class="title"> <div class="flex justify-between flex-col relative"> <div class="uppercase text-sm leading-tight tracking-wide pbb-5 clean-title text-black sm:text-base md:text-md font-semibold pb-1 md:pb-0" style=" /* visibility: hidden; */ "> <span class="animate-mt">Loading</span> </div> <div class="sentence capitalize absolutee whitespace-nowrapp tracking-wide leading-4 bottom-0 t-2 text-gray-300 font-normal text-sm sm:text-sm md:text-md clean-subtitle" style=" /* visibility: hidden; */ "> <span class="animate-mt">Product Is Loading...</span> </div> </div> </div> <div class="price  text-base font-semibold items-center flex text-magenta-500"> <span class="animate-mt">£30.00</span> </div> </div> </div> </div> </div> </div> </div>{% endcapture %}
+{% comment %} Header start {% endcomment %}
+<header id="header" class="z-50">
+  <div class="shopify-section shopify-section-group-ob-header-group  w-full top-0 ">
+    <div class="w-full py-1 bg-base-primary {% if show_timerr %} min-h-[49px] {% else %} min-h-7 {% endif %} typography typography--body-hidden z-10 typography flex items-center ">
+        <div class="flex justify-between w-full items-center md:wrapper wrapper sm:wrapper">
+          
+              <div class="w-full flex justify-between w-full gap-3 h-full items-center">
+
+             
+                <div class="black-bar-swiper overflow-hidden text-xs max-w-1/2 flex-1">
+                  <div class="swiper-wrapper">
+                    {% for block in section.blocks %}
+                    {% case block.type %}
+                    {% when "text-slider" %}
+                      
+                    {% assign show_block = true %}
+                      {% if block.settings.show_on_all_markets == false %}
+                            {% assign markets_to_show = block.settings.markets_to_show_on | split: ',' %}
+                            {% assign markets_to_exclude_on = block.settings.markets_to_exclude_on | split: ',' %}
+                
+                            {% if markets_to_exclude_on != blank %}
+                            {% for market in markets_to_exclude_on %}
+                              {% assign market_strip = market | strip %}
+                              {% assign market_downcase = market_strip | downcase %}
+                              {% if market_code == market_downcase %}
+                                {% assign show_block = false %}
+                                {% break %}
+                              {% endif %}
+                            {% endfor %}
+                            {% endif %}
+                            
+                            {% if markets_to_show != blank and show_block  %}
+                              {% assign show_block = false %}
+                              {% for market in markets_to_show %}
+                                {% assign market_strip = market | strip %}
+                                {% assign market_downcase = market_strip | downcase %}
+                                {% if market_code == market_downcase %}
+                                  {% assign show_block = true %}
+                                  {% break %}
+                                {% endif %}
+                              {% endfor %}
+                            {% endif %}
+                          {% endif %}
+
+                      {% if show_block %}
+                         <h4 class="text-white swiper-slide xl:whitespace-nowrap {% if block.settings.mobile %}block md:hidden {% endif %}{% if block.settings.desktop %}hidden md:block{% endif %}">{{ block.settings.text }}</h4>
+                      {% endif %}
+                    {% endcase %}
+                    {% endfor %}
+                  </div> 
+                </div>
+                
+              
+          
+          {% if show_timer %}
+            <div style="height:40px" class="w-1/2 max-w-[200px] md:max-w-[200px]">
+          <div
+            
+            class="count-down text-white text-lg hidden "
+            id="event_datetime"
+            date-value="{{ section.settings.date }}"
+            time-value="{{ section.settings.time }}"
+            >
+                  <div class="grid grid-cols-7 gap-x-2 md:gap-x-3">
+                    <div class="days-input text-center font-bold text-md">
+                      00
+                    </div>
+                    <div class="time-sep text-center font-bold text-md">
+                      :
+                    </div>
+                    <div class="hours-input text-center font-bold text-md">
+                      00
+                    </div>
+                    <div class="time-sep text-center font-bold text-md">
+                      :
+                    </div>
+                    <div class="minutes-input text-center font-bold text-md">
+                      00
+                    </div>
+                    <div class="time-sep text-center font-bold text-md">
+                      :
+                    </div>
+                    
+                    <div class="seconds-input text-center font-bold text-md">
+                      00
+                    </div>
+                    <div class="text-gray-300 h-3 text-center text-xs relative">
+                      <div class="absolute transform left-1/2 -top-2 -translate-x-3">
+                      Days
+                      </div>
+                    </div>
+                    <div></div>
+                    <div class="text-gray-300 h-3 text-center text-xs relative">
+                        <div class="absolute transform left-1/2 -top-2 -translate-x-2">
+                          Hrs
+                        </div>
+                    </div>
+                    <div></div>
+                    <div class="text-gray-300 h-3 text-center text-xs relative">
+                      <div class="absolute transform left-1/2 -top-2 -translate-x-3">
+                      Mins
+                      </div>
+                    </div>
+                    <div></div>
+                    <div class="text-gray-300 h-3 text-center text-xs relative">
+                       <div class="absolute transform left-1/2 -top-2 -translate-x-3">
+                      Secs
+                      </div>
+                    </div>
+                    
+                    
+                  </div>
+            </div>
+            </div>
+        {% endif %}
+              </div>
+        </div>
+    </div>
+</div>
+  {% comment %} Desktop navigation {% endcomment %}
+  <div class="desktop-navigation max-xl:hidden bg-base-secondary dark:bg-base-primary  z-40 left-0 right-0 w-screen ">
+    <div class="md:wrapper wrapper sm:wrapper pt-3">
+      <div class="flex justify-center h-full">
+        {% comment %} Logo {% endcomment %}
+        <div class="flex align-center w-1/4" style="flex-grow:1">
+              <a class="flex align-center" href="{%- render 'ob-process-international-link', url: routes.root_url -%}">
+              {% if section.settings.logo %}
+                <!-- {{ section.settings.logo | image_url: width: 170 | image_tag: class: 'h-12 self-center min-w-16', alt: shop.name }} -->
+               {% comment %}
+               <!-- christmas logo -->
+               {% render 'ob-oddballs-christmas-logo-svg' %}
+               <!-- christmas logo END -->
+               {% endcomment %}
+               {% render 'ob-oddballs-logo-svg' %}
+
+              {% else %}
+                <span class="h-12 self-center">{{ shop.name }}</span>
+              {% endif %}
+              </a>
+
+        </div>
+        <div class="flex w-full items-stretch" style="flex-grow:1;" >
+          <div nick class="search-collapse w-full flex relative items-center justify-end desktop-navigation__actions w-full">
+            <div data-toggle="collapse" data-target=".search-collapse, .search-suggestions" data-overflow="true" aria-expanded="true" aria-haspopup="dialog" aria-label="Open" class="js-show-search-recommendations w-full input-group input-group--has-value  [&amp;_.input-group\_\_control]:rounded-full [&amp;_input]:py-1 [&amp;_input]:px-2 [&amp;_input]:text-sm">
+                <div class="input-group input-group--has-value w-full [&_.input-group\_\_control]:rounded-full [&_input]:py-1 [&_input]:px-2 [&_input]:text-sm">
+                  <div class="input-group__control overflow-hidden border-gray-400">
+                    <div class="input-group__adornment input-group__adornment--placement-start">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" class="icon" fill="currentColor" viewBox="0 0 24 24" height="16"><path fill-rule="evenodd" clip-rule="evenodd" d="M19.6 10.5C19.6 15.5258 15.5258 19.6 10.5 19.6C5.47421 19.6 1.4 15.5258 1.4 10.5C1.4 5.47421 5.47421 1.4 10.5 1.4C15.5258 1.4 19.6 5.47421 19.6 10.5ZM17.4222 18.3953C15.5741 20.0169 13.1519 21 10.5 21C4.70101 21 0 16.299 0 10.5C0 4.70101 4.70101 0 10.5 0C16.299 0 21 4.70101 21 10.5C21 13.1519 20.0169 15.5741 18.3953 17.4222C18.4304 17.4462 18.4638 17.4739 18.495 17.505L23.495 22.505C23.7683 22.7784 23.7683 23.2216 23.495 23.495C23.2216 23.7683 22.7784 23.7683 22.505 23.495L17.505 18.495C17.4739 18.4638 17.4462 18.4304 17.4222 18.3953Z"></path></svg>
+                    </div>
+                    <div class="input-group__input">
+                      <input class="search-collapse-input" id="searchInput_1" autocomplete="off" placeholder="" aria-label="Search" name="q" />
+                    </div>
+                  </div>
+                </div>
+              
+            </div>
+          </div>
+
+          <div class="search-collapse hidden flex items-center justify-center w-full h-full flex-[2_1_auto]">
+            <form action="{% render 'ob-process-international-link', url: '/search' %}" class="flex items-center w-full gap-4">
+              <div class="input-group input-group--has-value w-full [&_.input-group\_\_control]:rounded-full [&_input]:py-1 [&_input]:px-2 [&_input]:text-sm">
+                <div class="input-group__control overflow-hidden border-gray-400n">
+                  <div class="input-group__adornment input-group__adornment--placement-start">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" class="icon" fill="currentColor" viewBox="0 0 24 24" height="16"><path fill-rule="evenodd" clip-rule="evenodd" d="M19.6 10.5C19.6 15.5258 15.5258 19.6 10.5 19.6C5.47421 19.6 1.4 15.5258 1.4 10.5C1.4 5.47421 5.47421 1.4 10.5 1.4C15.5258 1.4 19.6 5.47421 19.6 10.5ZM17.4222 18.3953C15.5741 20.0169 13.1519 21 10.5 21C4.70101 21 0 16.299 0 10.5C0 4.70101 4.70101 0 10.5 0C16.299 0 21 4.70101 21 10.5C21 13.1519 20.0169 15.5741 18.3953 17.4222C18.4304 17.4462 18.4638 17.4739 18.495 17.505L23.495 22.505C23.7683 22.7784 23.7683 23.2216 23.495 23.495C23.2216 23.7683 22.7784 23.7683 22.505 23.495L17.505 18.495C17.4739 18.4638 17.4462 18.4304 17.4222 18.3953Z"></path></svg>
+                  </div>
+                  <div class="input-group__input">
+                    <input class="search-collapse-input" id="searchInput_2" autocomplete="off" placeholder="" aria-label="Search" name="q" />
+                  </div>
+                </div>
+              </div>
+              <button class="button button--variant-ghost button--icon bg-[#F5F5F5] !w-6 !h-6" data-toggle="collapse" data-target=".search-collapse" data-reset="true" type="reset" aria-label="Clear">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 14 14">
+                  <rect width="16.9705" height="1.13137" rx="0.565684" transform="matrix(0.707106 -0.707108 0.707106 0.707108 0.600586 12.6001)" fill="currentColor"></rect>
+                  <rect width="16.9705" height="1.13137" rx="0.565684" transform="matrix(-0.707106 -0.707107 0.707106 -0.707108 12.6006 13.4001)" fill="currentColor"></rect>
+                </svg>
+              </button>
+            </form>
+          </div>
+
+          
+        </div>
+        <div class="flex gap-2  items-center justify-end w-1/4" style="flex-grow:1;" >
+            <button {% unless customer %}aria-expanded="false" aria-haspopup="dialog" aria-label="Account" data-toggle="collapse" data-target=".account-nav" data-class="clicked" {% endunless %}class="button button--variant-ghost button--size-lg button--icon" type="button">
+                {% if customer  %}
+                  <a href="{%- render 'ob-process-international-link', url: '/account' -%}" class=" button button--variant-ghost button--size-lg button--icon"><img class="w-full h-full" src="{{ 'ob_header.icons.account' | t }}"  alt="account"/></a>
+                {% else %}
+                <img class="w-full h-full" src="{{ 'ob_header.icons.account' | t }}"  alt="account"/>
+                {% endif %}
+            </button>
+                 <a href="#" class=" button button--variant-ghost button--size-lg button--icon">
+              {%  comment %}
+                    <svg class="tw-h-10 bell-icon-static"  id="uuid-74a6c4e0-687e-4b01-838c-8b0d943c7fb9" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 221.45 255.21">
+                <g><path d="M11.42,245.61l16.41-36.84h4.65l16.67,36.84h-5.59l-4.55-10.45,2.3,1.46H19l2.46-1.46-4.55,10.45h-5.49Zm18.66-30.89l-7.94,18.76-1.25-1.2h18.55l-1.04,1.2-8.1-18.76h-.21Z"/><path d="M54.02,245.61v-36.84h5.44v32.19h18.08v4.65h-23.52Z"/><path d="M82.86,245.61v-36.84h24.14v4.34h-18.87v11.6h17.67v4.39h-17.67v12.12h18.87v4.39h-24.14Z"/><path d="M113.75,245.61v-36.84h15.57c3.94,0,6.99,.93,9.15,2.8,2.16,1.86,3.24,4.47,3.24,7.81,0,2.19-.49,4.08-1.46,5.64-.98,1.57-2.35,2.76-4.13,3.58-1.78,.82-3.87,1.23-6.27,1.23l.84-.84h1.41c1.43,0,2.71,.37,3.84,1.1,1.13,.73,2.06,1.9,2.8,3.5l5.28,12.02h-5.96l-5.23-12.07c-.52-1.43-1.33-2.35-2.43-2.77-1.1-.42-2.45-.63-4.05-.63h-7.16v15.47h-5.44Zm5.44-19.6h9.25c2.61,0,4.59-.56,5.93-1.67,1.34-1.11,2.01-2.72,2.01-4.81s-.67-3.73-2.01-4.81c-1.34-1.08-3.32-1.62-5.93-1.62h-9.25v12.91Z"/><path d="M157.96,245.61v-32.3h-12.59v-4.55h30.62v4.55h-12.59v32.3h-5.44Z"/><path d="M192.25,246.08c-2.96,0-5.64-.37-8.05-1.12-2.4-.75-4.49-1.82-6.27-3.21l1.83-4.29c1.18,.91,2.41,1.66,3.68,2.25,1.27,.59,2.63,1.04,4.08,1.33,1.45,.3,3.02,.44,4.73,.44,2.93,0,5.08-.52,6.45-1.57,1.38-1.04,2.06-2.42,2.06-4.13,0-1.46-.48-2.6-1.44-3.4-.96-.8-2.64-1.45-5.04-1.93l-5.7-1.15c-3.38-.7-5.9-1.84-7.55-3.42-1.65-1.58-2.48-3.75-2.48-6.51,0-2.23,.59-4.18,1.78-5.85s2.83-2.96,4.94-3.87c2.11-.91,4.57-1.36,7.4-1.36,2.61,0,5.02,.37,7.21,1.12,2.2,.75,4.04,1.85,5.54,3.32l-1.78,4.13c-1.57-1.36-3.24-2.36-5.02-3-1.78-.64-3.8-.97-6.06-.97-2.68,0-4.78,.56-6.3,1.67-1.52,1.12-2.27,2.63-2.27,4.55,0,1.53,.48,2.74,1.44,3.61,.96,.87,2.55,1.53,4.78,1.99l5.7,1.1c3.52,.73,6.11,1.85,7.79,3.37,1.67,1.52,2.51,3.6,2.51,6.25,0,2.13-.57,3.99-1.7,5.59-1.13,1.6-2.74,2.85-4.83,3.74s-4.56,1.33-7.42,1.33Z"/></g><g><path d="M161.48,117.5c-1.15-5.55-1.91-11.3-2.64-16.86-.26-1.95-.39-9.54-.37-10.95,.05-3.05,.11-6.2-.1-9.3-1.42-21.41-10.82-35.65-28.74-43.53-.77-.34-1.68-1.51-2.03-2.61-1.25-3.95-3.11-8.37-7.41-11.25-5.2-3.47-11.39-4.3-16.98-2.27-5.55,2.01-9.74,6.57-11.49,12.51-.66,2.25-1.8,3.52-4.06,4.51-15.35,6.76-24.32,19.42-26.66,37.61-.83,6.51-.91,13.2-.98,19.67-.02,2.32-.05,4.64-.11,6.95-.21,8.2-1.42,17.66-8.8,25.68-5.4,5.87-8.43,13.72-9.01,23.32-.24,3.92,.62,6.95,2.55,9,1.98,2.11,5.09,3.18,9.25,3.19h6.01c6.64,.03,13.5,.05,20.25-.05,2.07-.06,3.02,.52,4.26,2.58,2.37,3.93,5.62,8.92,9.82,12.69,4.22,3.79,9.12,5.72,14.41,5.72,1.83,0,3.7-.23,5.6-.7,8.81-2.15,15.35-7.98,20-17.81,.93-1.98,1.82-2.54,3.87-2.51,8.37,.13,17.55,.14,28.05,.02,3.23-.04,5.91-1.08,7.77-3.01,1.91-1.99,2.86-4.85,2.75-8.25-.31-9.61-3.8-18.34-10.67-26.68-1.89-2.3-3.96-4.97-4.52-7.69Zm-91.71-15.22c0-1.08-.02-2.16-.04-3.23-.11-9.18-.23-18.67,2.21-27.81,3.53-13.21,11.55-21.9,23.85-25.83,3.71-1.19,5.04-2.95,5.07-6.75,.02-3.25,1.5-6.02,4.05-7.61,2.52-1.57,5.6-1.68,8.43-.31,3.14,1.52,4.68,4.36,4.58,8.45-.09,3.72,1.65,5.02,4.69,6.01,14.15,4.62,22.52,14.59,24.89,29.63,.51,3.24,.66,6.62,.8,9.89,.07,1.61,.14,3.21,.25,4.81,.17,2.5,.33,4.99,.48,7.49,.37,6,.76,12.19,1.37,18.28,.76,7.6,5.07,13.45,8.74,17.7,4.39,5.09,6.86,11.04,7.32,17.68,.07,1.02-.03,1.67-.29,1.96-.27,.28-.91,.42-1.96,.42h-.06c-9.35-.05-18.81-.06-28.16-.06-4.48,0-8.94,0-13.35,0h-13.45s-19.02,0-19.02,0c-11.62,0-23.25,0-34.87,0-.89,0-2.73,0-3.04-.36-.31-.36-.03-2.14,.13-3.2,1.02-6.65,3.9-12.65,8.8-18.34,7.77-9.03,8.68-20.14,8.61-28.81Zm54.01,61.12c-1.62,4.89-8.13,10.5-14.33,10.55-5.25,0-11.91-3.86-14.65-10.55h28.98Z" style="fill:#1d1d1b;"/><path d="M55.1,10.91C33.32,27.73,21.89,50.45,21.13,78.46v.06s.34,3.96,.34,3.96c.23,2.73,.45,5.22,.69,7.71l10.46-1.41c-1.54-11.7-.21-23.59,3.97-35.34,4.74-13.34,13.13-24.72,24.92-33.8l-6.41-8.72Z" style="fill:#1d1d1b;"/><path d="M73.85,35.43l-6.31-8.04-1.41,1.3c-3.58,3.31-7.28,6.73-10.38,10.57-9.01,11.15-14.01,24.87-14.47,39.65v.05s0,.05,0,.05c.09,1.4,.17,2.68,.26,3.87,.17,2.5,.32,4.66,.39,6.8l10.1-.4-.08-2.21c-.14-3.85-.28-7.84,.04-11.69,1.3-15.93,8.65-29.38,21.86-39.95Z" style="fill:#1d1d1b;"/><path d="M164.35,10.91c21.78,16.81,33.21,39.54,33.97,67.55v.06s-.34,3.96-.34,3.96c-.23,2.73-.45,5.22-.69,7.71l-10.46-1.41c1.54-11.7,.21-23.59-3.97-35.34-4.74-13.34-13.13-24.72-24.92-33.8l6.41-8.72Z" style="fill:#1d1d1b;"/><path d="M145.61,35.43l6.31-8.04,1.41,1.3c3.58,3.31,7.28,6.73,10.38,10.57,9.01,11.15,14.01,24.87,14.47,39.65v.05s0,.05,0,.05c-.09,1.4-.17,2.68-.26,3.87-.17,2.5-.32,4.66-.39,6.8l-10.1-.4,.08-2.21c.14-3.85,.28-7.84-.04-11.69-1.3-15.93-8.65-29.38-21.86-39.95Z" style="fill:#1d1d1b;"/></g></svg>  
+                  {%  endcomment %}
+        
+        
+                <div class="flex align-center  wisp  w-full h-full">
+                  <img alt="alerts" class="w-full h-full" src="{{ 'ob_header.icons.alert' | t }}" />
+                </div>
+              </a>
+
+
+            
+            <div class="button button--variant-ghost button--size-lg button--icon js-show-cart relative">
+                <div class="cart-items-number-wrap">
+                    <div class="cart-items-number">{{ cart.item_count }}</div>
+                </div>
+                <img src="{{ 'ob_header.icons.basket' | t }}" class="h-full w-full" />
+              <!-- <button class="button w-6 h-6 p-0" data-toggle="collapse" data-target=".cart-nav" data-class="clicked" data-overflow="true" aria-expanded="false" aria-haspopup="dialog" aria-label="Cart">2</button> -->
+            </div>
+        </div>
+      </div>
+    </div>
+
+    {% assign link_count = 0 %}
+    {%- for link in linklists[current_menu].links -%}{%- comment %}<locksmith:ebd6>{% endcomment -%}{%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: link, subject_parent: linklists[current_menu], variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}{%- comment %}</locksmith:ebd6>{% endcomment -%}{%assign link_count = link_count | plus : 1 %}{% endfor %}
+
+    <div class="wrapper h-full bg-base-secondary dark:bg-base-primary">
+        <div class="grid items-center grid-cols-1 [&_>_*]:row-start-1 [&_>_*]:col-start-1">
+          <div class="search-collapse1 flex items-center justify-center w-full h-full">
+            <nav class="flex w-full justify-center h-full relative">
+            <ul class="flex  justify-between   relative w-full {% if link_count > 4 %} max-w-7xl {% else %}  max-w-lg {%endif%} p-0 m-0 z-40 link-count-{{ link_count }}" role="menubar">
+                {%- comment %}<locksmith:f6a2>{% endcomment -%}
+                  {%- assign locksmith_c669_forloop__size = 0 %}{%- for link in linklists[current_menu].links -%}{% capture var %}{% render 'locksmith-variables', scope: 'subject', subject: link, subject_parent: linklists[current_menu], variable: 'transparent' %}{% endcapture %}{% if var == 'true' %}{% assign locksmith_c669_forloop__size = locksmith_c669_forloop__size | plus: 1 %}{% endif %}{% endfor %}{% assign locksmith_c669_forloop__index = nil -%}
+                {%- comment %}</locksmith:f6a2>{% endcomment -%}
+                {%- for link in linklists[current_menu].links -%}
+                  {%- comment %}<locksmith:f35b>{% endcomment -%}
+                    {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: link, subject_parent: linklists[current_menu], variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% if locksmith_c669_forloop__index == nil %}{% assign locksmith_c669_forloop__index = 1 %}{% assign locksmith_c669_forloop__index0 = 0 %}{% else %}{% assign locksmith_c669_forloop__index = locksmith_c669_forloop__index | plus: 1 %}{% assign locksmith_c669_forloop__index0 = locksmith_c669_forloop__index0 | plus: 1 %}{% endif %}{% if locksmith_c669_forloop__index == 1 %}{% assign locksmith_c669_forloop__first = true %}{% else %}{% assign locksmith_c669_forloop__first = false %}{% endif %}{% if locksmith_c669_forloop__index == locksmith_c669_forloop__size %}{% assign locksmith_c669_forloop__last = true %}{% else %}{% assign locksmith_c669_forloop__last = false %}{% endif %}{% assign locksmith_c669_forloop__rindex = locksmith_c669_forloop__size | minus: locksmith_c669_forloop__index | minus: 1 %}{% assign locksmith_c669_forloop__rindex0 = locksmith_c669_forloop__size | minus: locksmith_c669_forloop__index0 | minus: 1 %}{% else %}{% continue %}{% endif -%}
+                  {%- comment %}</locksmith:f35b>{% endcomment -%}
+                  {% assign index_one = locksmith_c669_forloop__first %}
+                    {% assign first_index = locksmith_c669_forloop__index %}
+                  {% assign highlight = 'no' %}
+                  {% assign styles = '' %}
+                  
+                  {% for highlight in desktop_highlights %}
+                    {% assign highlight_parts = highlight | split: '|' %}
+                    {%- assign link_name = highlight_parts[0] | downcase -%}
+                    {%- assign link_title = link.title | downcase -%}
+                    {% if link_name == link_title %}
+                      {% assign highlight = 'yes' %}
+                      {% capture styles %}background-color: {{ highlight_parts[2] }}; color: {{ highlight_parts[1] }}{% endcapture %}
+                    {% endif %}
+                  {%- endfor -%}
+                
+                  <li class="list-none{% if link.links.size > 0 %} has-submenu{% endif %} desktop-nav-{{ first_index }}" role="menuitem">
+                    <button id="mobile-nav-{{ index_one }}" class="h-full m-0 bg-transparent border-0" aria-expanded="false">
+                      <div class="flex relative items-center justify-center h-full py-0.5 lg:mx-1 xl:mx-1 ">
+                        <a class="typography typography--title-six py-2 sm:px-3 xl:px-3 uppercase !text-[10px] 2xl:!text-[12px] whitespace-nowrap" href="{%- render 'ob-process-international-link', url: link.url -%}" {% if highlight == "yes" %} style="{{ styles }}{% endif %}">{% include 'ob-desktop-nav-label-logic',navtitle:link.title, label_arr:label_arr, level: 1 %}</a>
+                      </div>
+                    </button>
+                    {% comment %} Submenu {% endcomment %}
+                    {% if link.links.size > 0 %}
+                      {% assign grandchildlinks = link.links[0].links %}
+                      <div class="fixed {% if grandchildlinks.size  > 0 %} left-0 right-0 {% endif %} hidden" aria-hidden="true" role="menu">
+                        <div class="relative">
+                          <div class="absolute inset-0 bg-white -z-10"></div>
+                          <div class="wrapper wrapper-sm z-10 py-12">
+                            <div class="{% if grandchildlinks.size  > 0 %}flex {% endif %} items-start justify-between gap-20">
+                              {%- comment %}<locksmith:b037>{% endcomment -%}
+                                {%- assign locksmith_2eaa_forloop__size = 0 %}{%- for childlink in link.links -%}{% capture var %}{% render 'locksmith-variables', scope: 'subject', subject: childlink, subject_parent: link, variable: 'transparent' %}{% endcapture %}{% if var == 'true' %}{% assign locksmith_2eaa_forloop__size = locksmith_2eaa_forloop__size | plus: 1 %}{% endif %}{% endfor %}{% assign locksmith_2eaa_forloop__index = nil -%}
+                              {%- comment %}</locksmith:b037>{% endcomment -%}
+                              {%- for childlink in link.links -%}
+                                {%- comment %}<locksmith:54c2>{% endcomment -%}
+                                  {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: childlink, subject_parent: link, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% if locksmith_2eaa_forloop__index == nil %}{% assign locksmith_2eaa_forloop__index = 1 %}{% assign locksmith_2eaa_forloop__index0 = 0 %}{% else %}{% assign locksmith_2eaa_forloop__index = locksmith_2eaa_forloop__index | plus: 1 %}{% assign locksmith_2eaa_forloop__index0 = locksmith_2eaa_forloop__index0 | plus: 1 %}{% endif %}{% if locksmith_2eaa_forloop__index == 1 %}{% assign locksmith_2eaa_forloop__first = true %}{% else %}{% assign locksmith_2eaa_forloop__first = false %}{% endif %}{% if locksmith_2eaa_forloop__index == locksmith_2eaa_forloop__size %}{% assign locksmith_2eaa_forloop__last = true %}{% else %}{% assign locksmith_2eaa_forloop__last = false %}{% endif %}{% assign locksmith_2eaa_forloop__rindex = locksmith_2eaa_forloop__size | minus: locksmith_2eaa_forloop__index | minus: 1 %}{% assign locksmith_2eaa_forloop__rindex0 = locksmith_2eaa_forloop__size | minus: locksmith_2eaa_forloop__index0 | minus: 1 %}{% else %}{% continue %}{% endif -%}
+                                {%- comment %}</locksmith:54c2>{% endcomment -%}
+                                {% assign second_index = locksmith_2eaa_forloop__index %}
+                                <div class="flex  gap-20">
+                                  <div role="group">
+                                    {% if childlink.links.size > 0 %}
+                                    <p class="typography typography--body-md mb-1 uppercase font-semibold">{%- include 'ob-desktop-nav-label-logic',navtitle:childlink.title, label_arr:label_arr, level: 2 -%}</p>
+                                      <ul id="desktop-nav-{{ first_index }}-{{ second_index }}" class="flex flex-col p-0 m-0 list-none">
+                                        {%- comment %}<locksmith:f6ee>{% endcomment -%}
+                                          {%- assign locksmith_6319_forloop__size = 0 %}{%- for grandchildlink in childlink.links -%}{% capture var %}{% render 'locksmith-variables', scope: 'subject', subject: grandchildlink, subject_parent: childlink, variable: 'transparent' %}{% endcapture %}{% if var == 'true' %}{% assign locksmith_6319_forloop__size = locksmith_6319_forloop__size | plus: 1 %}{% endif %}{% endfor %}{% assign locksmith_6319_forloop__index = nil -%}
+                                        {%- comment %}</locksmith:f6ee>{% endcomment -%}
+                                        {%- for grandchildlink in childlink.links -%}
+                                          {%- comment %}<locksmith:4b02>{% endcomment -%}
+                                            {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: grandchildlink, subject_parent: childlink, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% if locksmith_6319_forloop__index == nil %}{% assign locksmith_6319_forloop__index = 1 %}{% assign locksmith_6319_forloop__index0 = 0 %}{% else %}{% assign locksmith_6319_forloop__index = locksmith_6319_forloop__index | plus: 1 %}{% assign locksmith_6319_forloop__index0 = locksmith_6319_forloop__index0 | plus: 1 %}{% endif %}{% if locksmith_6319_forloop__index == 1 %}{% assign locksmith_6319_forloop__first = true %}{% else %}{% assign locksmith_6319_forloop__first = false %}{% endif %}{% if locksmith_6319_forloop__index == locksmith_6319_forloop__size %}{% assign locksmith_6319_forloop__last = true %}{% else %}{% assign locksmith_6319_forloop__last = false %}{% endif %}{% assign locksmith_6319_forloop__rindex = locksmith_6319_forloop__size | minus: locksmith_6319_forloop__index | minus: 1 %}{% assign locksmith_6319_forloop__rindex0 = locksmith_6319_forloop__size | minus: locksmith_6319_forloop__index0 | minus: 1 %}{% else %}{% continue %}{% endif -%}
+                                          {%- comment %}</locksmith:4b02>{% endcomment -%}
+                                          {% assign third_index = locksmith_6319_forloop__index %}
+                                          <li >
+                                            <a id="desktop-nav-{{ first_index }}-{{ second_index }}-{{ third_index }}" class="nav-{{ childlink.title }}-{{ locksmith_6319_forloop__index }} nav-{{ locksmith_6319_forloop__index }} py-1 block typography typography--body-md text-nowrap w-full text-[#282828] no-underline" href="{%- render 'ob-process-international-link', url: grandchildlink.url -%}">
+                                              {% include 'ob-desktop-nav-label-logic',navtitle:grandchildlink.title, label_arr:label_arr, level: 3 %}
+                                            </a>
+                                          </li>
+                                        {%- endfor -%}
+                                      </ul>
+                                    {% else %}
+                                      <a href="{%- render 'ob-process-international-link', url: childlink.url -%}" >
+                                        <p class="typography typography--body-md mb-1 ">{% include 'ob-desktop-nav-label-logic',navtitle:childlink.title, label_arr:label_arr, level: 2 %}</p>
+                                      </a>
+                                    {% endif %}
+                                  </div>
+                                </div>
+                              {%- endfor -%}
+                              {% comment %} Navigation images {% endcomment %}
+                              {% for block in section.blocks %}
+                                {% if block.type == 'nav_image' and block.settings.menu_item == link.title %}
+                                  <div class="flex  gap-20">
+                                    <div role="group">
+                                      <p class="typography typography--body-md mb-4 uppercase font-semibold">{{ block.settings.heading }}</p>
+                                      <a href="{%- render 'ob-process-international-link', url: block.settings.link -%}">
+                                        {{ block.settings.image | image_url: width: 300 | image_tag: width: 300, height: 300, alt: block.settings.heading }}
+                                      </a>
+                                    </div>
+                                  </div>
+                                {% endif %}
+                              {% endfor %}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    {% endif %}
+                  </li>
+                {% endfor %}
+                <div class="underline hidden bg-black h-1 absolute bottom-[-1px] left-0 w-0 z-50 duration-300 pointer-events-none"></div>
+              </ul>
+            </nav>
+            <div class="menu-backdrop fixed inset-0 bg-black/80 z-[-1] hidden top-[calc(30px+var(--header-height))]"></div>
+          </div>
+        </div>
+    </div>
+
+                  
+  </div>
+  {% comment %} Mobile header h-[var(--mobile-header-height-with-search)] {% endcomment %}
+  <div class="mobile-navigation  {% if show_timer %} top-[48px]  {% else %}top-7{% endif %} left-0 right-0 z-50 xl:hidden">
+    <div class="flex  sticky top-0 flex-col bg-white flex-shrink-0 z-10">
+      <div class="flex items-center justify-around px-4 py-2">
+        <div class="flex w-full flex-1 items-center">
+          <div class="flex button border-0 button--variant-ghost button--size-lg button--icon">
+            <button id="open-side-nav" class="button button--variant-ghost button--icon border-0 h-full w-full" type="button"  data-target=".side-nav" data-class="clicked" data-overflow="true" aria-expanded="false" aria-haspopup="dialog" aria-label="Open">
+                <img class="w-full h-full" src="{{ 'ob_header.icons.menu' | t }}" />
+            </button>
+          </div>
+          <a href="#" class="wisp button button--variant-ghost border-0 button--size-lg button--icon">
+       
+              <img alt="alerts" class="w-full h-full" src="{{ 'ob_header.icons.alert' | t }}" />
+          </a>
+        </div>
+        <div class="flex" style="max-width:40%;">
+          <div>
+                <a href="{%- render 'ob-process-international-link', url: routes.root_url -%}">
+                  {% if section.settings.logo %}
+                    <!-- {{ section.settings.logo | image_url: width: 170 | image_tag: class: 'h-12 self-center min-w-16', alt: shop.name }} -->
+                   {% render 'ob-oddballs-logo-svg' %}
+                  {% else %}
+                    <span class="h-12 self-center">{{ shop.name }}</span>
+                  {% endif %}
+                </a>
+          </div>
+        </div>
+        <div class="flex flex-1 justify-end">
+              <!-- https://cdn.shopify.com/s/files/1/0353/7249/files/MENU.png?v=1730969953
+            https://cdn.shopify.com/s/files/1/0353/7249/files/BASKET.png?v=1730969953
+              https://cdn.shopify.com/s/files/1/0353/7249/files/ACCOUNT.png?v=1730969953
+              https://cdn.shopify.com/s/files/1/0353/7249/files/ALERT.png?v=1730969953 -->
+              <button aria-expanded="false" aria-haspopup="dialog" aria-label="Account" class="button button--variant-ghost border-0 button--size-lg button--icon" data-toggle="collapse" data-target=".account-nav" data-class="clicked" type="button">
+                  <img src="{{ 'ob_header.icons.account' | t }}"    class="h-full w-full" />      
+              </button>
+        
+                
+              <div class="button border-0 button--variant-ghost button--size-lg button--icon js-show-cart relative">
+              <div class="cart-items-number-wrap">
+              <div class="cart-items-number">{{ cart.item_count }}</div>
+              </div>
+              <img src="{{ 'ob_header.icons.basket' | t }}" class="h-full w-full" />
+              <!-- <button class="button w-6 h-6 p-0" data-toggle="collapse" data-target=".cart-nav" data-class="clicked" data-overflow="true" aria-expanded="false" aria-haspopup="dialog" aria-label="Cart">2</button> -->
+              </div>
+        </div>
+      </div>
+      {% comment %} Mobile search form {% endcomment %}
+      <form class="w-full">
+        <div class="js-show-search-recommendations input-group input-group--has-value color-[#111111] w-full [&_.input-group\_\_control]:px-0 [&_.input-group\_\_control]:px-2 [&_.input-group\_\_control]:!rounded-[0] [&_.input-group\_\_control]:!border-x-0 [&_.input-group\_\_control]:!border-y-1 [&_.input-group\_\_control]:!border-[#F0F0F0] [&_input]:px-0 [&_input]:py-4">
+          <div class="input-group__control overflow-hidden">
+            <div class="input-group__adornment input-group__adornment--placement-start">
+              <svg class="icon" height="16" viewbox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg">
+                <path clip-rule="evenodd" d="M19.6 10.5C19.6 15.5258 15.5258 19.6 10.5 19.6C5.47421 19.6 1.4 15.5258 1.4 10.5C1.4 5.47421 5.47421 1.4 10.5 1.4C15.5258 1.4 19.6 5.47421 19.6 10.5ZM17.4222 18.3953C15.5741 20.0169 13.1519 21 10.5 21C4.70101 21 0 16.299 0 10.5C0 4.70101 4.70101 0 10.5 0C16.299 0 21 4.70101 21 10.5C21 13.1519 20.0169 15.5741 18.3953 17.4222C18.4304 17.4462 18.4638 17.4739 18.495 17.505L23.495 22.505C23.7683 22.7784 23.7683 23.2216 23.495 23.495C23.2216 23.7683 22.7784 23.7683 22.505 23.495L17.505 18.495C17.4739 18.4638 17.4462 18.4304 17.4222 18.3953Z" fill-rule="evenodd"></path>
+              </svg>
+            </div>
+            <div class="input-group__input">
+              <input readonly data-toggle="collapse" data-target=".search-collapse, .search-suggestions" data-overflow="true" aria-describedby="search-products-helper-text" aria-invalid="false" aria-label="Search products" autocomplete="off" id="search-products" placeholder="" />
+            </div>
+            <div class="input-group__adornment input-group__adornment--placement-end"></div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</header>
+{% comment %} Account navigation {% endcomment %}
+<div style="z-index: 60;" class="account-nav hidden fixed overflow-hidden bg-white max-xl:inset-0 max-xl:z-50 sm:max-w-[498px] xl:right-0 xl:top-[0px] xl:px-6 xl:pb-6 xl:z-10">
+  <div class="xl:p-6 xl:w-[322px] xl:rounded-b-2xl xl:bg-white shadow-3 max-xl:shadow-none">
+    <div class="relative">
+      <div class="flex justify-center items-center max-xl:bg-[#F7F8F5] max-xl:h-[132px]">
+        <div class="flex justify-center ">
+          <h6 class="typography typography--title-six max-xl:uppercase">{{ "customer.register.my_account" | t }}</h6>
+        </div>
+        <div class="max-xl:absolute max-xl:top-6 max-xl:right-4">
+          <button class="button button--variant-ghost border-0 button--icon bg-[#F5F5F5] !w-6 !h-6" data-toggle="collapse" data-target=".account-nav" aria-label="Close">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 14 14">
+              <rect width="16.9705" height="1.13137" rx="0.565684" transform="matrix(0.707106 -0.707108 0.707106 0.707108 0.600586 12.6001)" fill="currentColor"></rect>
+              <rect width="16.9705" height="1.13137" rx="0.565684" transform="matrix(-0.707106 -0.707107 0.707106 -0.707108 12.6006 13.4001)" fill="currentColor"></rect>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="max-xl:px-6">
+        <p class="typography typography--body-md text-center mt-3">{{ "customer.register.sign_in_message" | t }}</p>
+        <div class="flex pt-4 gap-x-8 justify-center">
+          <a href="{%- render 'ob-process-international-link', url: '/account/register' -%}" class="button button--variant-outline ">{{ "customer.register.sign_up" | t }}</a>
+          <a href="{%- render 'ob-process-international-link', url: '/account/login' -%}" class="button ">{{ "customer.register.sign_in" | t }}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% comment %} Search results xl:top-[var(--header-height)] {% endcomment %}
+<div style="z-index: 60;" class="search-collapse w-screen h-full overflow-y-auto z-50 hidden fixed left-0 right-0 max-xl:top-0 max-xl:bottom:0 max-xl:max-h-screen max-xl:bg-white xl:max-h-[calc(100vh-var(--header-height))]">
+  <div class="absolute top-0 left-0 w-full h-full bg-black/80 z-[-1] max-xl:hidden" data-toggle="collapse" data-target=".search-collapse" data-reset="true"></div>
+  {% comment %} Mobile search form {% endcomment %}
+  <form action="{% render 'ob-process-international-link', url: '/search' %}" class="w-full xl:hidden">
+    <div class="js-show-search-recommendations input-group input-group--has-value color-[#111111] w-full [&_.input-group\_\_control]:px-0 [&_.input-group\_\_control]:px-2 [&_.input-group\_\_control]:!rounded-[0] [&_.input-group\_\_control]:!border-x-0 [&_.input-group\_\_control]:!border-y-1 [&_.input-group\_\_control]:!border-[#F0F0F0] [&_input]:px-0 [&_input]:py-4 sticky top-0">
+      <div class="input-group__control overflow-hidden">
+        <div class="input-group__adornment input-group__adornment--placement-start">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" class="icon" fill="currentColor" viewBox="0 0 24 24" height="16">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M19.6 10.5C19.6 15.5258 15.5258 19.6 10.5 19.6C5.47421 19.6 1.4 15.5258 1.4 10.5C1.4 5.47421 5.47421 1.4 10.5 1.4C15.5258 1.4 19.6 5.47421 19.6 10.5ZM17.4222 18.3953C15.5741 20.0169 13.1519 21 10.5 21C4.70101 21 0 16.299 0 10.5C0 4.70101 4.70101 0 10.5 0C16.299 0 21 4.70101 21 10.5C21 13.1519 20.0169 15.5741 18.3953 17.4222C18.4304 17.4462 18.4638 17.4739 18.495 17.505L23.495 22.505C23.7683 22.7784 23.7683 23.2216 23.495 23.495C23.2216 23.7683 22.7784 23.7683 22.505 23.495L17.505 18.495C17.4739 18.4638 17.4462 18.4304 17.4222 18.3953Z"></path>
+          </svg>
+        </div>
+        <div class="input-group__input">
+          <input class="search-collapse-input" id="searchInput_3" autocomplete="off" placeholder="Search products" aria-label="Search" name="q" />
+        </div>
+        <div class="input-group__adornment input-group__adornment--placement-end">
+          <button class="button button--variant-ghost button--icon bg-[#F5F5F5] !w-6 !h-6" data-toggle="collapse" data-target=".search-collapse" data-reset="true" type="reset" aria-label="Clear">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 14 14">
+              <rect width="16.9705" height="1.13137" rx="0.565684" transform="matrix(0.707106 -0.707108 0.707106 0.707108 0.600586 12.6001)" fill="currentColor"></rect>
+              <rect width="16.9705" height="1.13137" rx="0.565684" transform="matrix(-0.707106 -0.707107 0.707106 -0.707108 12.6006 13.4001)" fill="currentColor"></rect>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+  {% comment %} Search suggestions {% endcomment %}
+  <div style="z-index: 12" class="search-suggestions relative hidden">
+    <div class="w-full h-full bg-white py-8 2xl:py-10">
+      <div class="wrapper">
+        <div class="grid items-start justify-between grid-cols-1 gap-4 md:grid-cols-4">
+          <div>
+            <h2 class="typography typography--body-md font-semibold mb-2">{{ "ob_search.search_suggestions"  | t}}</h2>
+            <div id="pre-search-text-suggestions" class="flex flex-col">
+                <p class="typography typography--body-md mb-1 capitalize cursor-pointer">sports bra</p>
+                <p class="typography typography--body-md mb-1 capitalize cursor-pointer">pyjamas</p>
+                <p class="typography typography--body-md mb-1 capitalize cursor-pointer">pringles</p>
+                <p class="typography typography--body-md mb-1 capitalize cursor-pointer">socks</p>
+                <p class="typography typography--body-md mb-1 capitalize cursor-pointer">cow</p>
+                <p class="typography typography--body-md mb-1 capitalize cursor-pointer">elmer</p>
+                <p class="typography typography--body-md mb-1 capitalize cursor-pointer">team gb</p>
+                <p class="typography typography--body-md mb-1 capitalize cursor-pointer">bucket hat</p>
+                <p class="typography typography--body-md mb-1 capitalize cursor-pointer">towel</p>
+                <p class="typography typography--body-md mb-1 capitalize cursor-pointer">bralette</p>
+            </div>
+          </div>
+          <div id="pre-search-product-suggestions" class="grid grid-cols-2 col-span-3 gap-4 lg:grid-cols-4">
+              {{ loading_skeleton }}
+              {{ loading_skeleton }}
+              {{ loading_skeleton }}
+              {{ loading_skeleton }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% comment %} Search results {% endcomment %}
+  <div class="search-result relative hidden">
+    <div class="w-full h-full bg-white py-8 2xl:py-10">
+      <div class="wrapper mb-8 flex justify-between">
+        <div class="typography typography--body-md flex justify-between w-full md:px-4 pb-2" style="max-width:1900px;">
+          <span class="search-result-title">
+            <span class="desktop-search-count">20</span> {{ "ob_search.products_found_for" | t }}
+            <b class="desktop-search-term">"pyjama"</b>
+          </span>
+          <a id="see-all-results" class="underline">{{ "ob_search.see_all_results" | t }}</a>
+        </div>
+      </div>
+      <div id="search-rsults" class="grid grid-cols-2 grid-flow-dense auto-rows-[1fr] gap-x-2.5 gap-y-6 my-8 xl:grid-cols-4 w-full overflow-hidden sm:grid-cols-3 md:wrapper">
+        {% comment %} Product cards {% endcomment %}
+        {{ loading_skeleton }}
+        {{ loading_skeleton }}
+        {{ loading_skeleton }}
+        {{ loading_skeleton }}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% if show_timer %}
+<style>
+
+:root {
+    --mobile-header-height-with-search: 155px;
+}
+
+@media (min-width: 1200px) {
+    :root {
+      --header-height: 153px ;
+    }
+}
+</style>
+{% endif %}     
+          
+<script></script>
+                  
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo"
+    },
+    {
+      "type": "header",
+      "content": "Naviagtion menus"
+    },
+    {
+      "type": "paragraph",
+      "content": "Select Link lists for different markets"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Default Menu",
+      "default": "main-menu"
+    },
+    {
+      "type": "link_list",
+      "id": "alt-menu",
+      "label": "EU Menu",
+      "default": "main-menu"
+    },
+    {
+      "type": "textarea",
+      "id": "desktop_highlights",
+      "label": "Desktop highlights",
+      "info": "Used for adding highlights to the nav options. Format Title|Font Colour|Background Colour. Separate with commas."
+    },
+    {
+      "type": "text",
+      "id": "simple_top_bar",
+      "label": "Simple top bar",
+      "info": "Simple top bar used for when we want a black bar to move with the normal nav."
+    },
+    {
+      "type": "text",
+      "id": "sub-title",
+      "label": "Sub Heading Text"
+    },
+    {
+      "type": "checkbox",
+      "id": "is-timer",
+      "label": "Check this if to add a timer block"
+    },
+    {
+      "type": "text",
+      "label": "Event Date",
+      "id": "date",
+      "default": "2029-11-21"
+    },
+    {
+      "type": "text",
+      "label": "Time",
+      "id": "time",
+      "default": "12:00"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "nav_image",
+      "name": "Navigation Image",
+      "settings": [
+        {
+          "type": "text",
+          "id": "menu_item",
+          "label": "Menu Item Text",
+          "info": "Enter the exact text of the menu item this image should appear under"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading"
+        }
+      ]
+    },
+    {
+      "name": "Text Slider Block",
+      "type": "text-slider",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Slide Text"
+        },
+        {
+          "type": "checkbox",
+          "id": "mobile",
+          "label": "Mobile Only",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "desktop",
+          "label": "Desktop Only",
+          "default": false
+        },
+         {
+          "type": "header",
+          "content": "Display Blocks Based on Markets"
+        },
+        {
+          "type": "paragraph",
+          "content": "Enter markets one line and seperate with a , 'uk' (default), 'de-en' (German market), 'en-eu' (European market). Example would look like uk, en-eu"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_on_all_markets",
+          "default": true,
+          "label": "Show On All Markets",
+          "info": "on to show on all"
+        },
+        {
+          "type": "text",
+          "id": "markets_to_show_on",
+          "label": "Markets to show on",
+          "info": "Example would look like: uk, en-eu (shows on UK and EU markets)"
+        },
+        {
+          "type": "text",
+          "id": "markets_to_exclude_on",
+          "label": "Markets to Exclude on",
+          "info": "Example would look like: uk, en-eu (Would not show on UK and EU markets)"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

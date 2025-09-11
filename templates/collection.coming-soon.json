@@ -1,0 +1,30 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "ob_breadcrumbs_KabV7U": {
+      "type": "ob-breadcrumbs",
+      "settings": {}
+    },
+    "collection_title_kbw3mp": {
+      "type": "collection-title",
+      "settings": {}
+    },
+    "ob-collection-description-raw-fdgd": {
+      "type": "ob-collection-description-raw",
+      "settings": {}
+    }
+  },
+  "order": [
+    "ob_breadcrumbs_KabV7U",
+    "collection_title_kbw3mp",
+    "ob-collection-description-raw-fdgd"
+  ]
+}

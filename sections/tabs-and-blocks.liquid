@@ -1,0 +1,1027 @@
+<style>
+  
+  .default-tab {
+    
+   background-color: rgba(243, 244, 246, 1); 
+   color: black;
+    
+  }  
+  
+  .default-tab:hover {
+    
+  	background-color: rgba(209, 213, 219, 1) !important;
+    color: black !important;
+    
+  }
+  
+  a.selected-tab.default-tab:hover,
+  a.selected-tab {
+    
+  	background-color: #F00F83 !important;
+    color: white !important;
+    
+  }
+  
+  
+  
+  
+  
+</style>
+
+
+{% include 'ob-include-set-current-country' %}	
+<div class="js-tabs-and-blocks-wrapper {{ section.settings.outer_wrapper_classes }}" {% if section.settings.outer_wrapper_attr != blank %} {{ section.settings.outer_wrapper_attr }} {% endif %}>
+	<div class="{{ section.settings.inner_wrapper_classes }}">
+      	{% if section.settings.title != blank or section.settings.description != blank %}
+		<div class="{{ section.settings.header_wrapper_classes }}">
+          	{% if section.settings.title != blank %}
+			<h1 class="{{ section.settings.title_classes }}">{{ section.settings.title }}</h1>
+          	{% endif %}
+          	{% if section.settings.description != blank %}
+			<p class="{{ section.settings.description_classes }}">
+				{{ section.settings.description }}
+			</p>
+            {% endif %}
+		</div>
+      	{% endif %}
+
+ 
+          {% assign all_tab_dropdown = '' %}
+          {% assign all_tab = '' %}
+          {% assign all_tab_content = '' %}
+		  {% assign tab_count = 0 %}
+      	  {% assign active_tab_id = '' %}
+      	  {% assign section_handle = 'tailwind-tabs-and-blocks' %}
+
+          {% for block in section.blocks %}
+            
+            {% assign country_ok_to_proceed = 'no' %}
+             
+		  	{% assign tab_content_hidden = 'hidden' %} {% comment %} have tab content hidden by default {% endcomment %}
+      		{% assign active_tab = '' %} {% comment %} have active tab blank by default {% endcomment %}
+      		{% assign active_state = '' %}
+      
+            {% if block.type == 'tab' %}
+              {% include 'ob-include-country-ok-to-proceed', thingObj:block %}
+              {% if country_ok_to_proceed == 'yes' %}
+      			{% if block.settings.default_tab  %} {% comment %} Check if the tab block 'default tab' box is ticked {% endcomment %}   
+      				{% assign active_tab = 'selected' %} {% comment %} Assign active tab as active instead of blank {% endcomment %}
+            		{% assign active_tab_id =  block.settings.tab_id %} {% comment %} Assign active_tab_id to the tab_id of the tab block, which will match the content block identifier {% endcomment %}
+     			{% endif %}
+          
+              {% capture tab_dropdown %}
+    			{% assign tab_count = tab_count | plus: 1 %}
+				{% if block.settings.title != blank %}
+          			<option id="{{ block.settings.tab_id }}" {{ active_tab }} data-block-class="tab_{{ section_handle }}{{ block.settings.tab_id }}" class="js-tab {{ active_tab }}-tab">{{ block.settings.title }}</option>
+          		{% endif %}
+              {% endcapture %}
+
+              {% assign all_tab_dropdown = all_tab_dropdown | append: tab_dropdown %}
+              {% capture the_tab %}
+
+          		<a href="javascript://" id="{{ block.settings.tab_id }}" data-block-class="tab_{{ section_handle }}{{ block.settings.tab_id }}" class="js-tab {{ block.settings.tab_id }}-tab {{ active_tab }}-tab default-tab {{ block.settings.block_wrapper_classes }}">
+                  {% if block.settings.block_extra_field != blank %}
+                  <span class="{{ block.settings.block_extra_field_classes }}">{{ block.settings.block_extra_field }}</span>
+                  {% endif %}
+                  <span class="{{ block.settings.block_title_classes }}">{{ block.settings.title }}</span>
+          		</a>
+      			
+              {% endcapture %}
+              {% assign all_tabs = all_tabs | append: the_tab %}
+              {% endif %}
+            {% else %}
+              {% assign tab_content = '' %}
+
+              {% include 'ob-include-country-ok-to-proceed', thingObj:block %}  
+              {% if country_ok_to_proceed == 'yes' %}
+
+                {% capture tab_content %}   
+  
+        			{% if block.settings.tab_identifier == active_tab_id %}
+        				{% assign tab_content_hidden = "" %} {% comment %} Clear tab_content_hidden to remove hidden class from the content wrapper {% endcomment %}
+        			{% endif %}
+                  {% if block.type == 'content-faq' %}
+                    <div {% if block.settings.id != blank %}id="{{ block.settings.id }}" {% endif %}class="js-content tab_{{ section_handle }}{{ block.settings.tab_identifier }} {{ tab_content_hidden }} {{ block.settings.block_wrapper_classes }}" data-type="{{ block.type }}" {{ block.shopify_attributes }}>
+                      <h3 class="js-faq-toggle relative {{ block.settings.block_title_classes }}">
+                      <span class="faq-title">{{ block.settings.title_text }}</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="js-faq-arrow -translate-y-1/2 absolute right-4 top-1/2 transform w-4 rotate-180"><!-- Font Awesome Pro 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) --><path d="M168.5 164.2l148 146.8c4.7 4.7 4.7 12.3 0 17l-19.8 19.8c-4.7 4.7-12.3 4.7-17 0L160 229.3 40.3 347.8c-4.7 4.7-12.3 4.7-17 0L3.5 328c-4.7-4.7-4.7-12.3 0-17l148-146.8c4.7-4.7 12.3-4.7 17 0z"/></svg>
+                      </h3>
+                      <div class="js-faq-answer hidden {{ block.settings.block_description_classes }}">
+                        <div class="faq-answer-content">
+                          {{ block.settings.description }}
+                        </div>
+                      </div>
+                    </div>
+  
+                  {% elsif block.type == 'content-image-faq' %}
+                    here3
+                    
+                    <div {% if block.settings.id != blank %}id="{{ block.settings.id }}" {% endif %}class="js-content tab_{{ section_handle }}{{ block.settings.tab_identifier }} {{ tab_content_hidden }} {{ block.settings.block_wrapper_classes }}" data-type="{{ block.type }}" {{ block.shopify_attributes }}>
+                      <h3 class="js-faq-toggle relative {{ block.settings.block_title_classes }}">
+                      <span class="faq-title">{{ block.settings.title }}</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="js-faq-arrow -translate-y-1/2 absolute right-4 top-1/2 transform w-4 rotate-180"><!-- Font Awesome Pro 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) --><path d="M168.5 164.2l148 146.8c4.7 4.7 4.7 12.3 0 17l-19.8 19.8c-4.7 4.7-12.3 4.7-17 0L160 229.3 40.3 347.8c-4.7 4.7-12.3 4.7-17 0L3.5 328c-4.7-4.7-4.7-12.3 0-17l148-146.8c4.7-4.7 12.3-4.7 17 0z"/></svg>
+                      </h3>
+                      <div class="js-faq-answer hidden {{ block.settings.block_description_classes }}">
+                        <div class="faq-answer-content flex popup-flex gap-x-2 md:gap-y-2">
+                          <img class="{{ block.settings.image_classes }}" src="{{ block.settings.faq_image | img_url: '500x' }}">
+                          <div >
+                            {{ block.settings.description }}
+                          </div>
+                        </div>
+                      </div>
+                    </div>                  
+  
+                  {% elsif block.type == 'content-multi-use-block' %}
+                    <div id="block_{{ section_handle }}_{{block.id}}" class="js-content tab_{{ section_handle }}{{ block.settings.tab_identifier }} {{ tab_content_hidden }} {{ block.settings.block_wrapper_classes }}" data-type="{{ block.type }}" {{ block.shopify_attributes }}>
+  
+                      {% if block.settings.block_link != blank %}
+                        <a class="h-full w-full inset-0 absolute z-10 test-class" href="{{ block.settings.block_link }}"></a>
+                      {% endif %}
+                      {% if block.settings.block_image_desktop != blank %}              
+                        <img class="{{ block.settings.block_image_desktop_classes }}" src="{{ block.settings.block_image_desktop | image_url }}">
+                      {% endif %}
+                      {% if block.settings.block_image_mobile != blank %}
+                         <img class="{{ block.settings.block_image_mobile_classes }}" src="{{ block.settings.block_image_mobile  | image_url}}">
+                      {% elsif block.settings.block_image_desktop != blank %}
+                         <img class="{{ block.settings.block_image_mobile_classes }}" src="{{ block.settings.block_image_desktop  | image_url}}">                    
+                      {% endif %}
+                      <div class="{{ block.settings.text_wrapper_classes }}">
+                        {% if block.settings.title != blank %}
+                            <h3 class="{{ block.settings.block_title_classes }}">{{ block.settings.title }}</h3>
+                        {% endif %}
+                        {% if block.settings.description != blank %}               
+                            <p class="{% if block.settings.description_as_label != blank %} {{ block.settings.description_as_label }} {% else %} {{ block.settings.block_description_classes }} {% endif %}">{{ block.settings.description }}</p>
+                        {% endif %}
+                        {% if block.settings.additional_info_field != blank or block.settings.show_product_number %}
+                        	  <div class="{{ block.settings.additional_info_field_classes }}">
+                              {% if block.settings.show_product_number %}
+                                {% assign collection_handle = block.settings.block_link | replace: '/collections/','' %}
+                                {% if collections[collection_handle].products != blank %}
+                                	{{ collections[collection_handle].all_products_count }} Products
+                                {% endif %}
+                              {% else %}
+                              	{{ block.settings.additional_info_field }}
+                              {% endif %}
+                        	  </div>
+                        {% endif %}
+                        {% if block.settings.button_text != blank %}
+                        <div class="{{ block.settings.text_button }}">
+                          <a class="{{ block.settings.link_classes }}" href="{{ block.settings.button_link }}">{{ block.settings.button_text }}</a>
+                        </div>
+                        {% endif %}
+                      </div>
+                    </div>       
+  
+                  {% elsif block.type == 'content-multi-use-img-blk' %}
+  
+                    <div id="block_{{ section_handle }}_{{block.id}}" class="js-content tab_{{ section_handle }}{{ block.settings.tab_identifier }} {{ tab_content_hidden }} {{ block.settings.block_wrapper_classes }}" data-type="{{ block.type }}" {{ block.shopify_attributes }}>
+                        {% if block.settings.block_link != blank %}
+                            <a class="h-full w-full {{ block.settings.link_classes }}" href="{{ block.settings.block_link }}"></a>
+                        {% endif %}
+                        {% if block.settings.block_image_desktop != blank %}
+                            <img class="{{ block.settings.block_image_desktop_classes }}" src="{{ block.settings.block_image_desktop | image_url }}">
+                        {% endif %}
+                        {% if block.settings.block_image_mobile != blank %}
+                            <img class="{{ block.settings.block_image_mobile_classes }}" src="{{ block.settings.block_image_mobile | image_url }}">
+                        {% endif %}
+                        {% if block.settings.block_video_desktop != blank and block.settings.block_video_mobile != blank %}
+                            <div class="video-replace-me {{ block.settings.video_wrap_classes }}" data-src-mobile="{{ block.settings.block_video_mobile | file_url }}" data-src="{{ block.settings.block_video_desktop | file_url }}">                    
+                                <video class="object-cover h-full w-full" src=""><source src="" type="video/mp4"></video>             	     	
+                            </div>
+                        {% endif %}
+                            <div class="{{ block.settings.svg_wrap }}"> <!-- svg -->
+                        {% if block.settings.block_svg_desktop != blank %}
+                            <img class="{{ block.settings.block_svg_desktop_classes }}" src="{{ block.settings.block_svg_desktop | file_url }}">
+                        {% endif %}
+                        {% if block.settings.block_svg_mobile != blank %}
+                            <img class="{{ block.settings.block_svg_mobile_classes }}" src="{{ block.settings.block_svg_mobile | file_url }}">                       
+                        {% endif %}         
+                            </div>
+                    </div>      
+  				
+        			{% elsif block.type == 'content-html-block' %}
+        
+                    	<div id="block_{{ section_handle }}_{{block.id}}" class="js-content tab_{{ section_handle }}{{ block.settings.tab_identifier }} {{ tab_content_hidden }} {{ block.settings.block_wrap }}" data-type="{{ block.type }}" {{ block.shopify_attributes }}>
+        					{{ block.settings.block_html_content }}
+        				</div>
+        
+        			{% elsif block.type == 'content-size-guide' %}
+        				
+                    	<div id="block_{{ section_handle }}_{{block.id}}" class="col-span-12 js-content tab_{{ section_handle }}{{ block.settings.tab_identifier }} {{ tab_content_hidden }} {{ block.settings.block_wrap }}" data-type="{{ block.type }}" {{ block.shopify_attributes }}>
+   
+                        
+                    
+                        
+                        
+                        {% assign category_counter = 0 %}
+                        {% assign size_guide_content_all = '' %}
+                        {% assign hidden_class = '' %}
+                        {% assign size_guide_departments_all = '' %}
+                        	{% for i in (1..4) %}
+                        		{% assign thetitle = 'cat_title_' | append: i %}
+                        		{% assign thesvg = 'cat_svg_' | append: i %}
+  
+                        		{% if i > 1 %}
+                       			{% assign hidden_class = 'hidden' %}
+                        		{% endif %}
+                                              
+                        		{% if block.settings[thetitle] != blank  %}
+                        
+                                {% if thetitle != blank %}
+                                    {% assign category_counter = category_counter | plus: 1 %}
+                                {% endif %}     
+                        
+                                {% capture size_guide_content %}
+  
+                                <div data-block-class="tab_{{ section_handle }}_{{ block.settings.title }}_{{ thetitle }}" class="block-category-tab border-2 border-solid text-center px-5 py-2 font-bebas text-xl">{{ block.settings[thetitle] }}</div>
+                                {% endcapture %}
+                                {% capture size_guide_departments %}
+  							  <div data-tab-pair="{{ block.settings.title }}_{{ thetitle }}" class="block-category-table {{ hidden_class }}">
+                                	<img src="{{ block.settings[thesvg] | file_url }}">                                
+                        		  </div>
+                                {% endcapture %}
+  
+                                {% assign  size_guide_content_all = size_guide_content_all | append:size_guide_content %}
+                                {% assign size_guide_departments_all = size_guide_departments_all | append:size_guide_departments %}
+  
+                        		{% endif %}
+                        
+                        	{% endfor %}
+        				</div>     
+        
+                      <div class="grid grid-cols-{{ category_counter }} col-span-12">{{ size_guide_content_all }}</div>
+                      <div class="col-span-12">{{ size_guide_departments_all }}</div>
+        
+                  {% endif %}
+                {% endcapture %}
+              {% endif %}
+              {% assign all_tab_content = all_tab_content | append: tab_content %}
+            {% endif %}
+
+          {% endfor %}
+
+      	{% if section.settings.option_menu_selected %}
+     	<div class="col-span-12 md:hidden w-full">
+          <select id="location" name="location" class="mt-6 block w-full pl-3 pr-10 py-2 text-base btn-shadow-lg border-2 border-black border-solid focus:ring-magenta-200 focus:border-black sm:text-sm rounded-md">
+			{{ all_tab_dropdown }}
+          </select>
+        </div>
+       {% endif %}
+
+      
+        {% unless tab_count == 0 %}
+		<div class="js-all-tabs {{ section.settings.all_tabs_wrapper_classes}} ">
+        	{{ all_tabs }}
+      	</div>
+        {% endunless %}
+
+		<div class="js-all-content {{ section.settings.content_wrapper_classes }}">
+        	{{ all_tab_content }}
+      	</div>
+     
+
+          
+    </div>
+</div>
+        
+
+<script>
+document.body.addEventListener('click', function(e) {
+  if (e.target.classList.contains('js-faq-toggle')) {
+    const toggle = e.target;
+    const content = toggle.closest('.js-content');
+    
+    // Toggle visibility of the FAQ answer
+    const faqAnswer = content.querySelector('.js-faq-answer');
+    if (faqAnswer) {
+      faqAnswer.classList.toggle('hidden');
+    }
+    
+    // Toggle border classes on the clicked element
+    toggle.classList.toggle('border-b');
+    toggle.classList.toggle('border-solid');
+    toggle.classList.toggle('border-color');
+    
+    // Toggle rotation of the FAQ arrow
+    const faqArrow = content.querySelector('.js-faq-arrow');
+    if (faqArrow) {
+      faqArrow.classList.toggle('rotate-180');
+    }
+  }
+});
+
+</script>                     
+    
+          
+          
+          
+          
+         
+		{% comment %}
+		{% assign first_tab = '' %}
+		{% assign tab_count = 0 %}
+        {% for block in section.blocks %}
+        {% if block.type == 'tab' %}
+          	{% capture the_tab_dropdown %}
+
+					{% if block.settings.title != blank %}
+
+                        {% if block.settings.default_tab %}
+                        {% assign default_first_tab = block.settings.title | handle %}
+                        {% endif %}
+						
+						{% assign first_tab = block.settings.title | handle %}
+          				<option selected>{{ block.settings.title }}</option>
+						{% if tab_count == 0 %}
+							{% assign first_tab = block.settings.title | handle %}
+						{% endif %}
+						{% assign tab_count = tab_count | plus: 1 %}
+					{% endif %}	
+ 
+          	{% endcapture %}
+          	{% assign all_tab_dropdown = all_tab_dropdown | append: the_tab_dropdown %}
+            {% capture the_tab %}
+      	    	{% if block.settings.tab_active %}
+				<!-- block html goes here -->
+      	    	{% endif %}
+          	{% endcapture %}
+          	{% assign all_tab = all_tab | append: the_tab %}
+
+
+    	{% else %}
+			{% capture the_tab_content %}
+          	{% if block.settings.block_active %}
+			{% capture li_classes %}my-3 px-3 w-1/2 overflow-hidden sm:my-3 sm:px-3 sm:w-1/4{% endcapture %}
+          	<li {% if block.settings.tab_group != blank %}x-show="tab === '{{ block.settings.tab_group | handle }}'"{% endif %} id="collection_{{ block.id }}" class="{{ li_classes }}">
+                <a href="{{ block.settings.link }}">
+                    <div class="space-y-4 group">
+                        <div class="image_wrap aspect-w-3 aspect-h-3">
+                            <img class="object-cover shadow-md rounded-lg" src="{{ block.settings.image | img_url: 'master' }}" lt="">
+                            {% if block.settings.block_video_desktop != blank and block.settings.block_video_mobile != blank %}
+                            <div class="video-block fluid-width-video-wrapper {{ block.settings.video_wrap }}" data-src-mobile="{{ block.settings.block_video_mobile | file_url }}" data-src="{{ block.settings.block_video_desktop | file_url }}">                    
+                            	<div class="fluid-width-video-wrapper h-full w-full">
+                              		<video class="object-cover h-full w-full" src=""><source src="" type="video/mp4"></video>  
+                              	</div>
+                            </div>
+                            {% endif %}
+                            <div class="{{ block.settings.svg_wrap }}"> <!-- svg -->
+                                {% if block.settings.block_svg_desktop != blank %}
+                                <img class="{{ block.settings.block_svg_desktop_class }}" src="{{ block.settings.block_svg_desktop | file_url }}">
+                                {% endif %}
+                                {% if block.settings.block_svg_mobile != blank %}
+                                <img class="{{ block.settings.block_svg_mobile_class }}" src="{{ block.settings.block_svg_mobile | file_url }}">                       
+                                {% endif %}         
+                            </div>
+                        </div>
+                        <div class="space-y-2">
+                            <div class="text-lg leading-6 font-medium space-y-1">
+								<figcaption class="mt-3">
+                                    <div class="flex flex-col justify-center  flex-wrap  sm:flex-nowrap items-baseline text-md font-medium text-gray-900">
+                                    	<h3 class="text-center w-full">{{ block.settings.title }}</h3>
+                                      	{% if block.settings.label != blank %}
+                                        <span class="w-full flex justify-center">
+                                        	<span class="text-white {% if block.settings.label == '20% Off' or block.settings.label contains ' Off' or block.settings.label contains ' OFF'  or block.settings.label contains ' off' %}black-and-gold {%endif %} collection-label inline mt-1 mb-2  bg-black rounded-full px-2 py-0.5 text-xxs tracking-wide uppercase font-semibold flex-shrink-0">{{ block.settings.label }}</span><!-- yellow-700 yellow-100 -->
+                                      	</span>
+                                      	{% endif %}
+                                    </div>
+                                  	{% assign collection_handle = block.settings.link | replace: '/collections/','' %}
+                                  	{% if collections[collection_handle].products != blank %}
+                                    <p class="text-xs text-center text-gray-500">{{ collections[collection_handle].all_products_count }} Products</p>
+                                 	{% endif %}
+              					</figcaption>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+              	<style>
+                  	/**
+                  .black-and-gold {
+                        background: #000000;
+                        border: 1px solid #c6ad03;
+                        color: #c6ad03;
+                  }
+                  .black-and-gold span {
+                        color: #c6ad03;
+                  }**/
+                  {% if block.settings.label_background != blank %}
+                  	#collection_{{ block.id }} .collection-label {
+                    	background:	{{ block.settings.label_background }};
+                      	color: {{ block.settings.label_color }};
+                        top: -2px;
+                        position: relative;
+                    }
+                  {% endif %}
+                  	{% if block.settings.background_color_mobile != blank %}
+					#collection_{{ block.id }} .image_wrap {
+                    	background:	{{ block.settings.background_color_mobile }};
+                    }
+                  	@media (min-width: 1024px) {
+                        #collection_{{ block.id }} .image_wrap {
+                            background:	{{ block.settings.background_color }};
+                        }
+                    }
+                    {% endif %}
+              	</style>
+			</li>
+          	{% endif %}
+      	{% endcapture %}
+        {% assign all_tab_content = all_tab_content | append: the_tab_content %}
+    	{% endif %}
+		{% endfor %}  
+
+
+{% if default_first_tab == '' %}
+	{% assign default_first_tab = first_tab %}
+
+{% endif %}
+{% assign theObj = page %}
+{% if collection %}
+	{% assign theObj = collection %}
+{% endif %}  
+          
+          
+          {% endcomment %}
+          
+        </div> 
+          {% comment %}
+          {% for block in section.blocks %}
+          	{% if block.type == "tab" %}
+              <a class="dark:focus:border-white w-full focus:outline-none border dark:bg-gray-800 focus:border-gray-800 border-transparent bg-gray-50 flex justify-center items-center flex-col text-center py-10 px-12 space-y-6">
+              <svg class="text-gray-600 dark:text-white" width="64" height="64" viewbox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M13.3333 50.6667C16.2789 50.6667 18.6667 48.2789 18.6667 45.3333C18.6667 42.3878 16.2789 40 13.3333 40C10.3878 40 8 42.3878 8 45.3333C8 48.2789 10.3878 50.6667 13.3333 50.6667Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M45.3333 50.6667C48.2789 50.6667 50.6667 48.2789 50.6667 45.3333C50.6667 42.3878 48.2789 40 45.3333 40C42.3878 40 40 42.3878 40 45.3333C40 48.2789 42.3878 50.6667 45.3333 50.6667Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M50.668 47.9997H56.0013V31.9997C56.0013 27.049 54.5965 22.301 52.0961 18.8003C49.5956 15.2997 46.2042 13.333 42.668 13.333H40.0013L44.0013 31.9997H56.0013M18.668 47.9997H40.0013H18.668Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M32 47.9997V13.333H40" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M8 45.3333V32H32" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <p class="text-xl font-medium leading-5 dark:text-white text-gray-800">
+                  {{ block.settings.title }}
+              </p>              
+              </a>
+          	{% endif %}          
+          {% endfor %}          
+		</div>
+		<div class="mt-16 flex justify-start flex-col items-start w-full text-left space-y-8">
+          	{% for block in section.blocks %}
+              {% if block.type == "block" %}          
+                <div class="flex justify-start items-start flex-col text-left w-full xl:w-8/12">
+                    <h3 class="text-xl font-medium leading-7 dark:text-white md:leading-5 text-left text-gray-800">{{ block.settings.title }}</h3>
+                    <div class="mt-6 text-base leading-6 dark:text-gray-400 text-gray-600">
+                        {{ block.settings.block_description }}
+                    </div>
+                </div>
+              {% endif %}
+			{% endfor %}          
+          
+		</div>
+       	{% endcomment %}
+	</div>
+
+{% comment %}
+<script>
+  
+  $(document).ready(function() {
+  
+    if($('[data-swapme="[data-swapme-target]"]').length) {
+      	
+      console.log('inside first if');
+    
+       if($('[data-swapme-target]').length) {
+         
+         console.log('inside second if');
+      
+         $( '[data-swapme="[data-swapme-target]"] [data-type="content-multi-use-block"]' ).each(function( index ) {
+
+           console.log('inside for loop');
+           
+           $(this).appendTo('[data-swapme-target] .js-all-content');
+                   
+          });         
+         
+    	}
+       
+    }
+  
+  
+  });
+  
+</script>
+{% endcomment %}
+
+
+{% schema %}
+  {
+    "name": "Tabs and Blocks",
+	"presets": [
+      {
+        "name": "Tabs and Blocks"
+      }
+  	],
+	"settings": [
+      {
+        "id": "outer_wrapper_attr",
+        "type": "text",
+        "label": "Outer wrapper attribute",
+      	"default": "data-attribute for linking section content"
+      },      
+	  {
+         "type": "header",
+      	 "content": "Wrappers"
+      },
+      {
+        "id": "outer_wrapper_classes",
+        "type": "text",
+        "label": "Outer wrapper classes",
+      	"default": "2xl:mx-auto 2xl:container py-12 lg:px-20 md:px-6 px-4"
+      },      
+      {
+        "id": "inner_wrapper_classes",
+        "type": "text",
+        "label": "Inner wrapper classes",
+      	"default": "grid grid-cols-12 gap-6"
+      },
+	  {
+      	"id": "header_wrapper_classes",
+      	"type": "text",
+      	"label": "Header wrapper classes",
+        "default": "col-span-12 flex flex-col justify-center items-center text-center space-y-4"
+      },
+	  {
+		"id": "all_tabs_wrapper_classes",
+		"type": "text",
+		"label": "Tabs bar wrapper classes",
+		"default": "hidden col-span-12 md:block md:grid grid-cols-2 sm:grid-cols-3 w-full lg:grid-cols-4 xl:grid-cols-5 justify-items-around gap-x-6 gap-y-6 xl:gap-y-0 xl:gap-x-8 mt-10"
+	  },
+	  {
+      	"id": "content_wrapper_classes",
+      	"type": "text",
+      	"label": "Content wrapper classes",
+        "default": "col-span-12 mt-16 grid grid-cols-12 gap-y-8",
+		"info": "Default grid - change grid cols and gap here, or display type."
+      },
+	  {
+		"type": "checkbox",
+		"id": "option_menu_selected",
+		"label": "Mobile dropdown menu needed?",
+		"info": "Check this if mobile dropdown menu is required"
+	  },
+      {
+      	"type": "header",
+      	"content": "Title"
+      },
+      {
+        "id": "title",
+        "type": "text",
+        "label": "Title"		
+      },
+      {
+      	"id": "title_classes",
+      	"type": "text",
+      	"label": "Title classes",
+      	"default": "text-3xl lg:text-4xl font-semibold  leading-9 md:leading-7 lg:leading-9 text-gray-800"
+      },
+      {
+      	"type": "header",
+      	"content": "Description"
+      },      
+      {
+        "id": "description",
+        "type": "text",
+        "label": "Description"
+      },
+      {
+      	"id": "description_classes",
+      	"type": "text",
+      	"label": "Description classes",
+      	"default": "text-base leading-6 text-center text-gray-600 w-full md:w-10/12"
+      }      
+	],
+	"blocks": [
+      {
+        "type": "tab",
+        "name": "Tab",
+        "settings": [
+         	{
+				"id": "tab_id",
+				"type": "text",
+				"label": "Tab id"
+			},
+            {
+                "type": "html",
+                "id": "country_iso",
+                "label": "Only display if current iso is (* for all)",
+                "info": "Comma seperated",
+                "default":"*"
+            },             
+			{
+				"id": "default_tab",
+				"type": "checkbox",
+				"label": "Check if default tab"
+			},
+			{
+				"type": "header",
+				"content": "Title"
+			},
+         	{
+				"id": "title",
+				"type": "text",
+				"label": "Tab title"
+			},
+			{
+				"id": "block_title_classes",
+				"type": "text",	
+				"label": "Title classes"
+			},		
+			{
+				"type": "header",
+				"content": "Additional Field"
+			},
+         	{
+				"id": "block_extra_field",
+				"type": "html",
+				"label": "Extra field",
+				"info": "Use this for any content additional to the title"
+			},
+			{
+				"id": "block_extra_field_classes",
+				"type": "text",	
+				"label": "Extra field classes"
+			},
+			{
+				"id": "block_wrapper_classes",
+				"type": "text",	
+				"label": "Block wrapper classes",
+				"default": "flex justify-center items-center flex-col text-center py-5 px-2 flex justify-center items-center flex-col text-center py-5 px-2 btn-shadow-lg border-2 border-solid border-black rounded-md hover:bg-magenta-200 transition-colors duration-200"
+			}
+		]
+	  },
+      {
+        "type": "content-faq",
+        "name": "Content FAQ",
+        "settings": [
+         	{
+				"id": "tab_identifier",
+				"type": "text",
+				"label": "Linked to tab",
+				"info": "Enter the id of the tab it links with"
+			},
+            {
+                "type": "html",
+                "id": "country_iso",
+                "label": "Only display if current iso is (* for all)",
+                "info": "Comma seperated",
+                "default":"*"
+            },             
+			{
+				"id": "block_wrapper_classes",
+				"type": "text",
+				"label": "Block wrapper classes",
+				"default": "my-4 col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-black overflow-hidden"
+			},
+         	{
+				"id": "id",
+				"type": "text",
+				"label": "Block ID"
+			},          
+			{
+				"type": "header",
+				"content": "Title"
+			},
+         	{
+				"id": "title",
+				"type": "text",
+				"label": "Block Identifier",
+                "info": "Used to identify the block in the section only."
+			},          
+         	{
+				"id": "title_text",
+				"type": "text",
+				"label": "Block title"
+			},
+         	{
+				"id": "block_title_classes",
+				"type": "text",
+				"label": "Title Classes",
+				"default": "w-full bg-gray-100 px-8 pt-5 pb-3 text-xl md:text-2xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas"
+			},
+			{
+				"type": "header",
+				"content": "Description"
+			},
+         	{
+				"id": "description",
+				"type": "textarea",
+				"label": "Description"
+			},
+         	{
+				"id": "block_description_classes",
+				"type": "text",
+				"label": "Description classes",
+				"default": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+			}
+		]
+	  },
+      {
+        "type": "content-image-faq",
+        "name": "Content Image FAQ",
+        "settings": [
+         	{
+				"id": "tab_identifier",
+				"type": "text",
+				"label": "Linked to tab",
+				"info": "Enter the id of the tab it links with"
+			},
+			{
+				"id": "block_wrapper_classes",
+				"type": "text",
+				"label": "Block wrapper classes",
+				"default": "my-4 col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full box-shadow-pink border-2 border-solid border-black overflow-hidden"
+			},
+         	{
+				"id": "id",
+				"type": "text",
+				"label": "Block ID"
+			},          
+			{
+				"type": "header",
+				"content": "Title"
+			},
+         	{
+				"id": "title",
+				"type": "text",
+				"label": "Block title"
+			},
+         	{
+				"id": "block_title_classes",
+				"type": "text",
+				"label": "Title",
+				"default": "w-full bg-gray-100 px-8 pt-5 pb-3 mb-2 text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 border-b-2 border-solid border-black"
+			},
+			{
+				"type": "header",
+				"content": "Description"
+			},
+         	{
+				"id": "description",
+				"type": "textarea",
+				"label": "Description"
+			},
+         	{
+				"id": "block_description_classes",
+				"type": "text",
+				"label": "Description classes",
+				"default": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+			},
+         	{
+				"id": "faq_image",
+				"type": "image_picker",
+				"label": "FAQ Image"
+			},
+         	{
+				"id": "image_classes",
+				"type": "text",
+				"label": "Image classes"
+			}          
+		]
+	  },      
+      {
+        "type": "content-multi-use-block",
+        "name": "Content Multi Use",
+        "settings": [
+         	{
+				"id": "tab_identifier",
+				"type": "text",
+				"label": "Linked to tab",
+				"info": "Enter the id of the tab it links with"
+			},
+			{
+				"id": "block_wrapper_classes",
+				"type": "text",
+				"label": "Block wrapper classes",
+				"default": "col-span-6 sm:col-span-4 md:col-span-3 flex justify-start items-start flex-col text-left w-full"
+			},
+            {
+                "type": "url",
+                "id": "block_link",
+                "label": "Block link"
+            },
+            {
+              "type": "header",
+              "content": "Images"
+            },
+            {
+              "id": "block_image_desktop",
+              "type": "image_picker",
+              "label": "desktop image (optional)"
+            },
+            {
+              "id": "block_image_desktop_classes",
+              "type": "text",
+              "label": "Desktop image classes",
+              "default": "object-cover h-full w-full hidden sm:block",
+              "info": "eg. object-cover h-full w-full hidden sm:block"
+            },
+            {
+              "id": "block_image_mobile",
+              "type": "image_picker",
+              "label": "mobile image (optional)"
+            },
+            {
+              "id": "block_image_mobile_classes",
+              "type": "text",
+              "label": "Mobile image classes",
+              "default": "object-cover h-full w-full block sm:hidden",
+              "info": "eg. object-cover h-full w-full block sm:hidden"
+            },
+			{
+				"id": "text_wrapper_classes",
+			 	"type": "text",
+				"label": "Text wrapper classes",
+				"info": "Wrapper of the title and description"
+			},
+			{
+				"type": "header",
+				"content": "Title"
+			},
+         	{
+				"id": "title",
+				"type": "text",
+				"label": "Block title"
+			},
+         	{
+				"id": "block_title_classes",
+				"type": "text",
+				"label": "Block title classes"
+			},
+			{
+				"type": "header",
+				"content": "Description"
+			},
+         	{
+				"id": "description",
+				"type": "text",
+				"label": "Block description"
+			},
+         	{
+				"id": "block_description_classes",
+				"type": "text",
+				"label": "Block description classes"
+			},
+			{
+				"id": "description_as_label",
+				"type": "text",
+				"label": "Classes for label use",
+				"info": "Enter classes here only if a label is required in the block"
+			},
+			{
+				"type": "header",
+				"content": "Addtional info field"
+			},
+			{
+				"id": "show_product_number",
+				"type": "checkbox",
+				"label": "Show number of products in the linked collection"
+			},
+			{
+				"id": "additional_info_field",
+				"type": "text",
+				"label": "Content",
+				"info": "Enter anything required other than options above "
+			},
+			{
+				"id": "additional_info_field_classes",
+				"type": "text",
+				"label": "Field classes"
+			},
+			{
+				"type": "header",
+				"content": "Button"
+			},
+         	{
+				"id": "button_link",
+				"type": "url",
+				"label": "Button link"
+			},
+         	{
+				"id": "button_text",
+				"type": "text",
+				"label": "Button text"
+			},
+         	{
+				"id": "button_classes",
+				"type": "text",
+				"label": "Button classes"
+			}
+			
+		]
+	  },
+      {
+        "type": "content-multi-use-img-blk",
+        "name": "Content Multi Use Image",
+        "settings": [
+         	{
+				"id": "tab_identifier",
+				"type": "text",
+				"label": "Linked to tab",
+				"info": "Enter the id of the tab it links with"
+			},
+         	{
+				"id": "title",
+				"type": "text",
+				"label": "Block title"
+			},
+         	{
+				"id": "description",
+				"type": "text",
+				"label": "Block description"
+			}			
+		]
+	  },
+      {
+        "type": "content-html-block",
+        "name": "Content HTML",
+        "settings": [
+         	{
+				"id": "tab_identifier",
+				"type": "text",
+				"label": "Linked to tab",
+				"info": "Enter the id of the tab it links with"
+			},
+			{
+				"id": "block_wrapper_classes",
+				"type": "text",
+				"label": "Block wrapper classes",
+				"default": "col-span-6 sm:col-span-4 md:col-span-3 flex justify-start items-start flex-col text-left w-full"
+			}
+		]
+	  },
+      {
+        "type": "content-size-guide",
+        "name": "Content Size Guide",
+        "settings": [
+         	{
+				"id": "tab_identifier",
+				"type": "text",
+				"label": "Linked to tab",
+				"info": "Enter the id of the tab it links with"
+			},
+			{
+				"id": "block_wrapper_classes",
+				"type": "text",
+				"label": "Block wrapper classes",
+				"default": "col-span-6 sm:col-span-4 md:col-span-3 flex justify-start items-start flex-col text-left w-full"
+			},
+         	{
+				"id": "title",
+				"type": "text",
+				"label": "Category Title"
+			},
+			{
+				"type": "header",
+				"content": "Category Guides"
+			},
+         	{
+				"id": "cat_title_1",
+				"type": "text",
+				"label": "Category Title 1"
+			},
+         	{
+				"id": "cat_svg_1",
+				"type": "text",
+				"label": "Category SVG 1"
+			},
+         	{
+				"id": "cat_title_2",
+				"type": "text",
+				"label": "Category Title 2"
+			},
+         	{
+				"id": "cat_svg_2",
+				"type": "text",
+				"label": "Category SVG 2"
+			},
+         	{
+				"id": "cat_title_3",
+				"type": "text",
+				"label": "Category Title 3"
+			},
+         	{
+				"id": "cat_svg_3",
+				"type": "text",
+				"label": "Category SVG 3"
+			},
+         	{
+				"id": "cat_title_4",
+				"type": "text",
+				"label": "Category Title 4"
+			},
+         	{
+				"id": "cat_svg_4",
+				"type": "text",
+				"label": "Category SVG 4"
+			}
+		]
+	  }
+	]
+  }
+{% endschema %}

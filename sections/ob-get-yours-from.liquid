@@ -1,0 +1,156 @@
+{% include 'ob-include-set-current-country' %}
+{% assign partership_product = 'no' %}
+
+
+
+<div>
+ {% if template.name == 'product' %}
+  
+  {% if product.tags contains 'style-partnerships' %}
+     {% assign partership_product = "yes"  %}
+  {% endif %}
+  
+  {% unless product.vendor == 'OddBalls Subscriptions' or partership_product == "yes" %}
+      {% if product.tags contains 'feature-multi-buy' %}
+        {% if product.price >= product.compare_at_price %}
+        {% for block in section.blocks %}
+
+          {% assign product_type_ok_to_proceed = 'no' %}
+          {% assign product_types_arr = block.settings.product_types_arr | split: ',' %}
+          {% assign product_type = product.type %}
+          {% for type in product_types_arr %}
+            {% assign product_type_arr_downcase =  type | downcase %}
+            {% assign product_type_arr_downcase =  product_type_arr_downcase | trim %}
+            {% assign product_type_downcase = product_type | downcase %}
+            {% assign product_type_downcase = product_type_downcase | trim %}
+            {% if product_type_arr_downcase == product_type_downcase %}
+              {% assign product_type_ok_to_proceed = 'yes' %}
+            {% endif %}
+          {% endfor %}
+  
+          {% if product_type_ok_to_proceed == 'yes' %}
+            {% include 'ob-include-country-ok-to-proceed', thingObj:block %}
+               
+            <div class="get-yours-style-outer ga-button-get-yours-from js-get-yours-from-start border border-color border-solid rounded-md overflow-hidden hidden">
+              <div id="" class="js-get-yours-from-safety-screen w-full h-full absolute"></div>
+              <div class="get-yours-style-wrap">
+                  <div class="js-get-yours-from-close -top-12 absolute bg-white border-2 border-black border-solid flex h-8 items-center justify-center right-0 rounded-md w-8" style=""><svg aria-hidden="true" focusable="false" role="presentation" width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.41418 0L16.9705 15.5563L15.5563 16.9706L-2.89679e-05 1.41421L1.41418 0Z" fill="#111111"></path><path d="M16.9706 1.41431L1.41423 16.9707L1.85966e-05 15.5564L15.5564 9.31025e-05L16.9706 1.41431Z" fill="#111111"></path></svg></div>
+                  <div class="ga-button-get-yours-from get-yours-style-inner get-yours-title py-3 px-5 flex justify-between bg-white" {% render 'ob-ga-event-attributes', ga-type:"event", ga-category:"button",ga-action:"click",ga-label:"Get Yours From Open" %}>
+                    <div class="ga-button-get-yours-from">
+                        <span class="uppercase text-sm md:text-base font-semibold ga-button-get-yours-from">{{ block.settings.title }}<small class="block font-medium normal-case">Buy the same in bulk & save! (Same underwear type)</small></span><span class="find-out-more text-xs text-magenta get-yours-style-subtitle" style="display: block;font-weight: 300;">Find out more</span>
+                    </div>
+                    <div rotateme class="flex rotateme rotate-90 transform">
+                        <svg class="opacity-30 w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M96 480c-8.188 0-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L242.8 256L73.38 86.63c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l192 192c12.5 12.5 12.5 32.75 0 45.25l-192 192C112.4 476.9 104.2 480 96 480z"/></svg>
+                    </div>
+                  </div>
+                  <div class="js-multibuy-table-end-top">
+                    {% for block in section.blocks %}
+                      {% render 'ob-include-multibuy-table' %}
+                    {% endfor %}
+                  </div>
+              </div>
+            </div>
+            {% endif %}          
+     
+        {% endfor %}
+        {% endif %}
+      {% endif %}
+  {% endunless %}
+{% endif %}
+</div> 
+<style>
+.sget-yours-style-outer {
+    border-color:#cc9fb7;
+}
+.sget-yours-style-inner {
+    background: #fee6f3a3;
+    color: #d3006d;
+}
+.sget-yours-style-subtitle {
+    color: #6f1a47;
+}
+  
+</style>
+
+{% schema %}
+  {
+    "name": "Get Yours From",
+    "settings": [
+		{
+			"type": "checkbox",
+			"id": "active",
+			"label": "Is Active"
+		},
+		{
+			"type": "text",
+			"id": "outer_wrapper_classes",
+			"label": "Outer Wrapper Classes"
+		},
+		{
+			"type": "text",
+			"id": "inner_wrapper_classes",
+			"label": "Inner Wrapper Classes"
+		},
+		{
+			"type": "html",
+			"id": "widget_code",
+			"label": "Widget Code"
+		},
+		{
+			"type": "text",
+			"id": "header",
+			"label": "Header"
+		},		
+		{
+			"type": "text",
+			"id": "header_classes",
+			"label": "Header Classes"
+		},
+		{
+			"type": "text",
+			"id": "list_classes",
+			"label": "List Classes"
+		}
+	],
+	"blocks": [
+       {
+         "name": "Price Break",
+         "type": "price-break",
+         "settings": [
+            {
+                "type": "html",
+                "id": "country_iso",
+                "label": "Only display if current iso is (* for all)",
+                "info": "Comma seperated",
+                "default":"*"
+            },         
+            {
+              "type": "text",
+              "id": "product_types_arr",
+              "label": "Product Types Array",
+              "info": "List product types to display on, comma separated without spaces."
+            },            
+            {
+              "type": "text",
+              "id": "title",
+              "label": "Title"
+            }           
+         ]
+       }
+	],
+    "presets": [
+       {
+         "name": "Get Yours From",
+         "settings": {
+
+		 }
+       }
+     ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

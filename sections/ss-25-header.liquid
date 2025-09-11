@@ -1,0 +1,55 @@
+{% schema %}
+{
+  "name": "SS-25-header",
+  "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "mobile_image",
+        "label": "Mobile Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "mobile_svg",
+        "label": "Mobile Svg"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "text",
+        "id": "subtitle",
+        "label": "Subtitle"
+      }
+],
+  "presets": [
+    {
+      "name": "SS-25-header",
+    }
+  ]
+}
+{% endschema %}
+<div class="relative">
+  
+  <div class="w-full h-full mb-4 flex flex-col items-center absolute">
+    <div class="h-full z-1 flex flex-col items-center justify-center" >
+      <div class="max-md:hidden text-center max-md:text-4xl md:text-7xl md:pb-4 text-white w-min flex justify-center flex-col items-center">
+        <div class="whitespace-nowrap font-bold px-2 md:py-1 w-min md:text-3xl text-lg" style="background:#fff200; color:#0082c4; transform: rotate(-3deg) translateY(20%)">{{ section.settings.title }}</div>
+        <div class="whitespace-nowrap font-bold px-3 py-1" style="background:#0082c4; color:white">{{ section.settings.subtitle }}</div>
+      </div>
+      <div class="md:hidden flex justify-center flex-col items-center">
+        <img class="w-full md:hidden" height="150px" width="500px" src="{{ section.settings.mobile_svg | img_url: 'master' }}" />
+      </div>
+    </div>
+    
+  </div>
+  
+  <img class="w-full md:hidden" height="150px" width="500px" src="{{ section.settings.mobile_image | img_url: 'master' }}" />
+  <img class="w-full max-md:hidden" height="100px" width="500px" src="{{ section.settings.image | img_url: 'master' }}" />
+</div>

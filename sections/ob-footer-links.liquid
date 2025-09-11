@@ -1,0 +1,359 @@
+<div id="footer" style="background-color:#f5f5f5;">
+  <div class="wrapper wrapper--size-md py-10 lg:py-14 lg:px-20">
+    <div class="flex flex-col gap-x-4 gap-y-6 lg:flex-row lg:justify-between">
+      <div class="lg:order-1 lg:basis-[432px]">
+        <p class="typography typography--heading-four  mb-2">
+          {{ 'ob_footer.newletter_heading' | t }}
+        </p>
+        <p class="typography typography--body-md text-[#454545]">{{ 'ob_footer.newletter_subheading' | t }}</p>
+        {% assign market_code = localization.language.root_url %}
+          {% if market_code == '/' %}{% assign market_code = 'uk' %}{% else %}{% assign market_code = market_code | remove: '/' %}{% endif %}
+        <div>
+          {% case market_code %}{% when 'en-eu' %}<div class="klaviyo-form-Vv5Q7N"></div>{% else %}<div class="klaviyo-form-ShEenp"></div>{% endcase %}
+      </div>
+      </div>
+      <div class="flex flex-col lg:flex-row lg:gap-20 hs-accordion-group">
+        {%- comment %}<locksmith:8edb>{% endcomment -%}
+          {%- assign locksmith_23c0_forloop__size = 0 %}{% for link_list in linklists[section.settings.footer_link_lists].links %}{% capture var %}{% render 'locksmith-variables', scope: 'subject', subject: link_list, subject_parent: linklists[section.settings.footer_link_lists], variable: 'transparent' %}{% endcapture %}{% if var == 'true' %}{% assign locksmith_23c0_forloop__size = locksmith_23c0_forloop__size | plus: 1 %}{% endif %}{% endfor %}{% assign locksmith_23c0_forloop__index = nil -%}
+        {%- comment %}</locksmith:8edb>{% endcomment -%}
+        {% for link_list in linklists[section.settings.footer_link_lists].links %}
+          {%- comment %}<locksmith:aaa3>{% endcomment -%}
+            {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: link_list, subject_parent: linklists[section.settings.footer_link_lists], variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% if locksmith_23c0_forloop__index == nil %}{% assign locksmith_23c0_forloop__index = 1 %}{% assign locksmith_23c0_forloop__index0 = 0 %}{% else %}{% assign locksmith_23c0_forloop__index = locksmith_23c0_forloop__index | plus: 1 %}{% assign locksmith_23c0_forloop__index0 = locksmith_23c0_forloop__index0 | plus: 1 %}{% endif %}{% if locksmith_23c0_forloop__index == 1 %}{% assign locksmith_23c0_forloop__first = true %}{% else %}{% assign locksmith_23c0_forloop__first = false %}{% endif %}{% if locksmith_23c0_forloop__index == locksmith_23c0_forloop__size %}{% assign locksmith_23c0_forloop__last = true %}{% else %}{% assign locksmith_23c0_forloop__last = false %}{% endif %}{% assign locksmith_23c0_forloop__rindex = locksmith_23c0_forloop__size | minus: locksmith_23c0_forloop__index | minus: 1 %}{% assign locksmith_23c0_forloop__rindex0 = locksmith_23c0_forloop__size | minus: locksmith_23c0_forloop__index0 | minus: 1 %}{% else %}{% continue %}{% endif -%}
+          {%- comment %}</locksmith:aaa3>{% endcomment -%}
+          <div
+            class="flex flex-col items-start hs-accordion"
+            id="hs-footer-heading-{{ locksmith_23c0_forloop__index }}"
+          >
+            <div class="flex items-center justify-between w-full hs-accordion-toggle mb-4 lg:pointer-events-none">
+              <h3 class="typography typography--body-md  font-semibold uppercase">{{ link_list.title }}</h3>
+              <div class="lg:hidden [&_svg]:max-w-full [&_svg]:h-full [&_svg]:transition-transform" aria-hidden="true">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  class="hs-accordion-active:rotate-0 icon -rotate-180 w-3 h-3"
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  viewBox="0 0 8 8"
+                  color="#7D7D7D"
+                >
+                  <path d="M0.29387 5.95502C0.235377 5.89506 0.235377 5.79783 0.29387 5.73787L3.89479 2.04617C3.95328 1.9862 4.04812 1.9862 4.10661 2.04617C4.1651 2.10614 4.1651 2.20336 4.10661 2.26333L0.505688 5.95502C0.447196 6.01499 0.352362 6.01499 0.29387 5.95502Z" fill="currentColor"></path>
+                  <path d="M3.89339 2.04498C3.95189 1.98501 4.04672 1.98501 4.10521 2.04498L7.70613 5.73667C7.76462 5.79664 7.76462 5.89387 7.70613 5.95383C7.64764 6.0138 7.5528 6.0138 7.49431 5.95383L3.89339 2.26213C3.8349 2.20217 3.8349 2.10494 3.89339 2.04498Z" fill="currentColor"></path>
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M0.505688 5.95502C0.447196 6.01499 0.352362 6.01499 0.29387 5.95502C0.235377 5.89506 0.235377 5.79783 0.29387 5.73787L3.87816 2.06322C3.8827 2.05684 3.88778 2.05073 3.89339 2.04498C3.89337 2.045 3.89342 2.04495 3.89339 2.04498C3.94885 1.98821 4.03699 1.9852 4.09581 2.03611C4.09907 2.03887 4.10213 2.04189 4.10521 2.04498C4.10564 2.04541 4.10618 2.04573 4.10661 2.04617L4.1115 2.05142L7.70613 5.73667C7.76462 5.79664 7.76462 5.89387 7.70613 5.95383C7.64764 6.0138 7.5528 6.0138 7.49431 5.95383L4.00058 2.37203L0.505688 5.95502ZM4.00058 2.73006L0.684651 6.12959C0.528049 6.29014 0.271508 6.29014 0.114906 6.12959C-0.0383019 5.97252 -0.0383019 5.72037 0.114906 5.5633L3.68877 1.89934C3.69678 1.88939 3.70534 1.87973 3.71443 1.87041C3.86258 1.71853 4.10017 1.71033 4.25797 1.84582C4.26747 1.8539 4.27668 1.86249 4.28557 1.87161C4.2883 1.8744 4.29097 1.87722 4.2936 1.88007L7.88509 5.56211C8.0383 5.71918 8.0383 5.97132 7.88509 6.12839C7.72849 6.28894 7.47195 6.28894 7.31535 6.12839L4.00058 2.73006Z" fill="currentColor"></path>
+                </svg>
+              </div>
+            </div>
+            <nav
+              id="hs-footer-collapse-{{ locksmith_23c0_forloop__index }}"
+              class="hs-accordion-content max-lg:hidden max-lg:pb-5 lg:!h-auto w-full overflow-hidden transition-[height] duration-300"
+            >
+              <ul class="flex flex-col">
+                {%- for link in link_list.links -%}
+                  {%- comment %}<locksmith:4388>{% endcomment -%}
+                    {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: link, subject_parent: link_list, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+                  {%- comment %}</locksmith:4388>{% endcomment -%}
+                  <li>
+                    <a
+                      class="typography typography--body-sm text-[#454545] hover:"
+                      href="{% unless routes.root_url == "/" %}{{ routes.root_url }}{% endunless %}{{ link.url | remove: shop.url }}"
+                    >
+                      {{- link.title -}}
+                    </a>
+                  </li>
+                {%- endfor -%}
+              </ul>
+            </nav>
+          </div>
+          {%- unless locksmith_23c0_forloop__last -%}
+            <hr class="divider mb-4 lg:hidden" aria-orientation="horizontal">
+          {%- endunless -%}
+        {%- endfor -%}
+      </div>
+    </div>
+    <div class="flex flex-col-reverse gap-y-2 lg:gap-y-6 lg:flex-row lg:justify-between lg:items-center flex flex-col lg:flex-row">
+      <div class="flex flex-wrap gap-1 lg:gap-2 text-[#454545]">
+        <fieldset class="w-full mt-4">
+          <div class="relative">
+            <div class="pointer-events-none flex items-center">
+              <div class="grid grid-cols-6 md:flex flex-wrap gap-x-4 gap-y-2 flex-1 ">
+                <img
+                  loading="lazy"
+                  class="w-full xs:w-9/12 md:w-auto mx-auto my-auto"
+                  src="//www.myoddballs.com/cdn/shopifycloud/shopify/assets/payment_icons/shopify_pay-957a48d1202dc65a7890b292de764ee886f7e64cea486ae82e291e9dc824c914.svg"
+                  alt="shopify_pay"
+                >
+
+                <img
+                  loading="lazy"
+                  class="w-full xs:w-9/12 md:w-auto mx-auto my-auto"
+                  src="//www.myoddballs.com/cdn/shopifycloud/shopify/assets/payment_icons/visa-319d545c6fd255c9aad5eeaad21fd6f7f7b4fdbdb1a35ce83b89cca12a187f00.svg"
+                  alt="visa"
+                >
+
+                <img
+                  loading="lazy"
+                  class="w-full xs:w-9/12 md:w-auto mx-auto my-auto"
+                  src="//www.myoddballs.com/cdn/shopifycloud/shopify/assets/payment_icons/maestro-d2055c6b416c46cf134f393e1df6e0ba31722b623870f954afd392092207889c.svg"
+                  alt="maestro"
+                >
+
+                <img
+                  loading="lazy"
+                  class="w-full xs:w-9/12 md:w-auto mx-auto my-auto"
+                  src="//www.myoddballs.com/cdn/shopifycloud/shopify/assets/payment_icons/master-173035bc8124581983d4efa50cf8626e8553c2b311353fbf67485f9c1a2b88d1.svg"
+                  alt="master"
+                >
+
+                <img
+                  loading="lazy"
+                  class="w-full xs:w-9/12 md:w-auto mx-auto my-auto"
+                  src="//www.myoddballs.com/cdn/shopifycloud/shopify/assets/payment_icons/paypal-49e4c1e03244b6d2de0d270ca0d22dd15da6e92cc7266e93eb43762df5aa355d.svg"
+                  alt="paypal"
+                >
+
+                <img
+                  loading="lazy"
+                  class="w-full xs:w-9/12 md:w-auto mx-auto my-auto"
+                  src="//www.myoddballs.com/cdn/shopifycloud/shopify/assets/payment_icons/apple_pay-f6db0077dc7c325b436ecbdcf254239100b35b70b1663bc7523d7c424901fa09.svg"
+                  alt="apple_pay"
+                >
+
+                <img
+                  loading="lazy"
+                  class="w-full xs:w-9/12 md:w-auto mx-auto my-auto"
+                  src="//www.myoddballs.com/cdn/shopifycloud/shopify/assets/payment_icons/google_pay-c66a29c63facf2053bf69352982c958e9675cabea4f2f7ccec08d169d1856b31.svg"
+                  alt="google_pay"
+                >
+
+                <img
+                  loading="lazy"
+                  class="w-full xs:w-9/12 md:w-auto mx-auto my-auto"
+                  src="//www.myoddballs.com/cdn/shopifycloud/shopify/assets/payment_icons/klarna-389801c6056cb5600b4f05f72ebc2c58e4947688c6c4f5e6ccea41f7973d3a28.svg"
+                  alt="klarna"
+                >
+
+                <img
+                  loading="lazy"
+                  class="w-full xs:w-9/12 md:w-auto mx-auto my-auto"
+                  src="//www.myoddballs.com/cdn/shopifycloud/shopify/assets/payment_icons/afterpay-c814f73b45b605f4c618ce52eb8c67427d3ae3cb8addb872e621dfbabae0b5f0.svg"
+                  alt="afterpay"
+                >
+
+                <img
+                  loading="lazy"
+                  class="w-full xs:w-9/12 md:w-auto mx-auto my-auto"
+                  src="//www.myoddballs.com/cdn/shopifycloud/shopify/assets/payment_icons/american_express-12858714bc10cdf384b62b8f41d20f56d8c32c1b8fed98b662f2bfc158dcbcf0.svg"
+                  alt="american_express"
+                >
+
+                <img
+                  loading="lazy"
+                  class="w-full xs:w-9/12 md:w-auto mx-auto my-auto"
+                  src="//www.myoddballs.com/cdn/shopifycloud/shopify/assets/payment_icons/discover-cc9808e50193c7496e7a5245eb86d5e06f02e2476c0fe70f2c40016707d35461.svg"
+                  alt="discover"
+                >
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      <!--
+        <button id="currency" name="currency" class="js-toggle-iso-selector flex gap-x-1 items-center w-full appearance-none rounded-md bg-white bg-none py-2 pl-3 pr-10 text-base text-gray-900 sm:text-sm rounded-md uppercase btn-shadow-lg block bg-white border-solid border-2 border-black relative text-center p-2 md:p-4 text-black hover:bg-gray-200 transition-colors duration-200 mb-4">
+
+          <div >
+            {% for currency in shop.enabled_currencies %}
+              {% if currency == cart.currency %}
+              <span class="text-base">{{currency.iso_code}} {{currency.symbol}}</span>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </button>
+      -->
+      <div class="relative">
+        <div
+          class="absolute bg-white bottom-8 flex flex-col rounded-md shadow-md js-country-popup"
+          style="display:none;"
+        >
+          <a
+            class="block pt-2 pb-1 px-4 border-b border-solid border-gray-200"
+            href="{{ request.path }}?currency=eur&iscountryredirect=true"
+          >
+            EU
+          </a>
+          <a class="block pb-2 pt-1 px-4" href="{{ request.path }}?iscountryredirect=true"> England </a>
+        </div>
+        {% comment %}
+                <button class="flex border border-solid border-gray-500 rounded-md py-1 px-4 js-show-country-popup">
+                  {% assign country_iso = localization.country.iso_code | downcase %}
+                  {% render 'flag-icons', icon:country_iso, class:'flex mr-1' %}
+                  <div>
+                    {{ localization.market.handle }}
+                  </div>
+                </button>
+              </div>
+          <!--
+            <div style="max-width:300px;display:none; z-index:999999999" class="js-iso-dropdown iso-dropdown animate pop absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white pb-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"  aria-orientation="vertical" id="headlessui-listbox-options-2">
+              {% capture top_currencies %}
+              {% for currency in shop.enabled_currencies %}
+                  {%  if currency.iso_code == 'GBP' or  currency.iso_code == 'EUR' or currency.iso_code == 'AUD' or currency.iso_code == 'JPY'  or currency.iso_code == 'USD' %}
+                      <li class="iso-{{ currency.iso_code | downcase }} relative  {% if currency == cart.currency %} bg-magenta-500 text-white {%  else %}hover:bg-magenta-100 hover:text-magenta-900{% endif %} cursor-default select-none py-2 pl-10 pr-4 text-gray-900" id="headlessui-listbox-option-3" role="option" tabindex="-1" aria-selected="true" data-headlessui-state="selected">
+                          <a href="?currency={{currency.iso_code}}">
+                          <span class="block truncate font-medium {% if currency == cart.currency %} text-white {%  else %} hover:text-magenta-900{% endif %}">{{currency.iso_code}} {{currency.symbol}}</span>
+                          {% if currency == cart.currency %}
+                          <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-white">
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class="h-5 w-5">
+                                  <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd"></path>
+                              </svg>
+                          </span>
+                          {% endif %}
+                           </a>
+                      </li>
+                  {% endif %}
+              {% endfor %}
+              {% endcapture %}
+              <ul class="flex flex-col">
+              {{ top_currencies }}
+              </ul>
+
+
+              <h5 class="text-gray-900 bg-gray-100 text-xxs p-2  pl-10 border-t border-b border-solid border-gray-100">Other currencies</h5>
+              <ul class="flex flex-col">
+              {% for currency in shop.enabled_currencies %}
+                  {% unless currency.iso_code == 'GBP' or  currency.iso_code == 'EUR' or currency.iso_code == 'AUD' or currency.iso_code == 'JPY' %}
+                      <li class="relative  {% if currency == cart.currency %} bg-magenta-500 text-white {%  else %}hover:bg-magenta-100 hover:text-magenta-900{% endif %} cursor-default select-none py-2 pl-10 pr-4 text-gray-900" id="headlessui-listbox-option-3" role="option" tabindex="-1" aria-selected="true" data-headlessui-state="selected">
+                          <a href="?currency={{currency.iso_code}}">
+                          <span class="block truncate font-medium {% if currency == cart.currency %} text-white {%  else %} hover:text-magenta-900{% endif %}">{{currency.iso_code}} {{currency.symbol}}</span>
+                          {% if currency == cart.currency %}
+                          <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-white">
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class="h-5 w-5">
+                                  <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd"></path>
+                              </svg>
+                          </span>
+                          {% endif %}
+                          </a>
+                      </li>
+                  {% endunless %}
+              {% endfor %}
+              </ul>
+        {% endcomment %}
+      </div>
+      <div class="footer__column footer__localization isolate flex gap-4 md:flex-row">
+        {%- if section.settings.enable_country_selector and localization.available_countries.size > 1 -%}
+          <localization-form>
+            {%- form 'localization', id: 'FooterCountryForm', class: 'localization-form' -%}
+              <div>
+                {%- render 'country-localization',
+                  localPosition: 'FooterCountry',
+                  countrys_to_add: section.settings.countries_to_add
+                -%}
+              </div>
+            {%- endform -%}
+          </localization-form>
+        {%- endif -%}
+
+        {%- if section.settings.enable_language_selector and localization.available_languages.size > 1 -%}
+          <localization-form>
+            {%- form 'localization', id: 'FooterLanguageForm', class: 'localization-form' -%}
+              <div>
+                {%- render 'language-localization', localPosition: 'FooterLanguage' -%}
+              </div>
+            {%- endform -%}
+          </localization-form>
+        {%- endif -%}
+      </div>
+      <div class="footer__column footer__column--info">
+        {%- if section.settings.payment_enable -%}
+          <div class="footer__payment">
+            <span class="visually-hidden">{{ 'sections.footer.payment' | t }}</span>
+            <ul class="list list-payment" role="list">
+              {%- for type in shop.enabled_payment_types -%}
+                <li class="list-payment__item">
+                  {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}
+                </li>
+              {%- endfor -%}
+            </ul>
+          </div>
+        {%- endif -%}
+      </div>
+
+      <div class="flex space-x-6 md:order-2">
+        <a href="https://www.instagram.com/myoddballs" target="_blank" class="text-gray-600 hover:text-gray-800">
+          <div class="sr-only">Instagram link</div>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="w-5 h-5 fill-current">
+            <path d="M14.48,0h-9A5.53,5.53,0,0,0,0,5.52v9A5.53,5.53,0,0,0,5.52,20h9A5.53,5.53,0,0,0,20,14.48v-9A5.53,5.53,0,0,0,14.48,0Zm0,1.77a3.75,3.75,0,0,1,3.75,3.75v9a3.75,3.75,0,0,1-3.75,3.75h-9a3.75,3.75,0,0,1-3.75-3.75v-9A3.75,3.75,0,0,1,5.52,1.77ZM10,4.76A5.24,5.24,0,1,0,15.24,10,5.25,5.25,0,0,0,10,4.76Zm0,1.81A3.43,3.43,0,1,1,6.57,10,3.44,3.44,0,0,1,10,6.57Zm5.71-3.71a1.43,1.43,0,0,0-1.42,1.43,1.43,1.43,0,0,0,2.85,0,1.43,1.43,0,0,0-1.43-1.43Z"></path>
+          </svg>
+        </a>
+        <a href="https://www.facebook.com/myoddballs" target="_blank" class="text-gray-600 hover:text-gray-800">
+          <div class="sr-only">Facebook link</div>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11 20" class="w-5 h-5 fill-current">
+            <path d="M7.08,20V10.88H10.2l.47-3.56H7.08V5.05c0-1,.29-1.73,1.8-1.73h1.91V.14A27,27,0,0,0,8,0,4.32,4.32,0,0,0,3.34,4.7V7.32H.21v3.56H3.34V20Z"></path>
+          </svg>
+        </a>
+        <a href="https://www.twitter.com/myoddballs" target="_blank" class="text-gray-600 hover:text-gray-800">
+          <div class="sr-only">Twitter link</div>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="w-5 h-5 fill-current">
+            <path d="M20,3.92a8.18,8.18,0,0,1-2.36.65A4.13,4.13,0,0,0,19.45,2.3a8.42,8.42,0,0,1-2.61,1,4.1,4.1,0,0,0-7.1,2.8A4.17,4.17,0,0,0,9.85,7,11.67,11.67,0,0,1,1.39,2.75,4.13,4.13,0,0,0,2.66,8.23,4.21,4.21,0,0,1,.8,7.71v0a4.12,4.12,0,0,0,3.3,4A4.34,4.34,0,0,1,3,11.93a3.94,3.94,0,0,1-.77-.08A4.1,4.1,0,0,0,6.07,14.7,8.22,8.22,0,0,1,1,16.46a7.93,7.93,0,0,1-1-.06,11.57,11.57,0,0,0,6.29,1.85A11.59,11.59,0,0,0,18,6.57V6A8.27,8.27,0,0,0,20,3.92Z"></path>
+          </svg>
+        </a>
+        <a href="https://www.tiktok.com/@myoddballs" target="_blank" class="text-gray-600 hover:text-gray-800">
+          <div class="sr-only">tiktok link</div>
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 fill-current" viewBox="3.2 2 17.43 19.99">
+            <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"></path>
+          </svg>
+        </a>
+        <a
+          href="https://www.youtube.com/channel/UCWcbICw9wOhOXdGvyeO_gUA"
+          target="_blank"
+          class="text-gray-600 hover:text-gray-800"
+        >
+          <div class="sr-only">Youtube link</div>
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 fill-current" data-name="Layer 1" viewBox="0 0 24 24">
+            <path d="M23,9.71a8.5,8.5,0,0,0-.91-4.13,2.92,2.92,0,0,0-1.72-1A78.36,78.36,0,0,0,12,4.27a78.45,78.45,0,0,0-8.34.3,2.87,2.87,0,0,0-1.46.74c-.9.83-1,2.25-1.1,3.45a48.29,48.29,0,0,0,0,6.48,9.55,9.55,0,0,0,.3,2,3.14,3.14,0,0,0,.71,1.36,2.86,2.86,0,0,0,1.49.78,45.18,45.18,0,0,0,6.5.33c3.5.05,6.57,0,10.2-.28a2.88,2.88,0,0,0,1.53-.78,2.49,2.49,0,0,0,.61-1,10.58,10.58,0,0,0,.52-3.4C23,13.69,23,10.31,23,9.71ZM9.74,14.85V8.66l5.92,3.11C14,12.69,11.81,13.73,9.74,14.85Z"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "footer_link_lists",
+      "label": "Footer Link Lists",
+      "info": "Select the link lists to display in the footer"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.footer.settings.header__3.content",
+      "info": "t:sections.footer.settings.header__4.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_country_selector",
+      "default": true,
+      "label": "t:sections.footer.settings.enable_country_selector.label"
+    },
+    {
+      "type": "text",
+      "id": "countries_to_add",
+      "label": "Extra countrys to be added to the top section of the selector",
+      "info": "iso codes seperated by a ,"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.footer.settings.header__5.content",
+      "info": "t:sections.footer.settings.header__6.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_language_selector",
+      "default": true,
+      "label": "t:sections.footer.settings.enable_language_selector.label"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,848 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "wrapper": "div#quiz_page.js-sub-quiz",
+  "sections": {
+    "164362524100194ba8": {
+      "type": "ob-snippet-holder",
+      "settings": {
+        "outer_wrapper_classes": "js-quiz-progress tw-w-full tw-hidden",
+        "inner_wrapper_classes": "",
+        "snippet_name": "quiz-progress-bar"
+      }
+    },
+    "quiz-q-slide": {
+      "type": "ob-quiz-q-slide",
+      "blocks": {
+        "fd27e95a-b6c9-4ea9-a959-be3bcde4b8d8": {
+          "type": "answer",
+          "settings": {
+            "wrapper_classes": "tw-cursor-pointer tw-bg-white tw-px-5 md:tw-py-3 tw-flex md:tw-flex-col-reverse focus:tw-ring-cyan-500 focus:tw-ring tw-items-center md:tw-flex-1 tw-border-2 tw-border-solid tw-rounded-md tw-overflow-hidden",
+            "text_wrapper_classes": "tw-flex tw-flex-col tw-justify-center tw-flex-none min-w-50 tw-text-left md:tw-pt-2",
+            "next_slide": 1,
+            "quiz_progress": 40,
+            "title": "Mens",
+            "title_classes": "tw-text-4xl md:tw-text-3xl tw-text-black tw-w-full md:tw-text-center tw-font-bebas",
+            "subtitle": "",
+            "subtitle_classes": "tw-text-sm tw-text-gray-500",
+            "additional_subtitle": "",
+            "additional_subtitle_classes": "tw-text-sm",
+            "image_link": "shopify://shop_images/ICONS_MENS.png",
+            "image_classes": "tw-h-20 md:tw-h-32 tw-object-contain",
+            "image_classes_mobile": "",
+            "image_wrapper_classes": "tw-justify-end md:tw-justify-center tw-flex tw-w-full tw-h-full",
+            "link_1": "subscription-group-all-mens-prepaid",
+            "link_2": "",
+            "link_3": ""
+          }
+        },
+        "17463b78-8f3a-4be8-bfd6-911886d76a62": {
+          "type": "answer",
+          "settings": {
+            "wrapper_classes": "tw-cursor-pointer tw-bg-white tw-px-5 md:tw-py-3 tw-flex md:tw-flex-col-reverse focus:tw-ring-cyan-500 focus:tw-ring tw-items-center md:tw-flex-1 tw-border-2 tw-border-solid tw-rounded-md tw-overflow-hidden",
+            "text_wrapper_classes": "tw-flex tw-flex-col tw-justify-center tw-flex-none min-w-50 tw-text-left md:tw-pt-2",
+            "next_slide": 2,
+            "quiz_progress": 40,
+            "title": "Womens",
+            "title_classes": "tw-text-4xl md:tw-text-3xl tw-text-black tw-w-full md:tw-text-center tw-font-bebas",
+            "subtitle": "",
+            "subtitle_classes": "tw-text-sm tw-text-gray-500",
+            "additional_subtitle": "",
+            "additional_subtitle_classes": "tw-text-sm",
+            "image_link": "shopify://shop_images/ICONS_WOMENS.png",
+            "image_classes": "tw-h-20 md:tw-h-32 tw-object-contain",
+            "image_classes_mobile": "",
+            "image_wrapper_classes": "tw-justify-end md:tw-justify-center tw-flex tw-w-full tw-h-full",
+            "link_1": "subscription-group-all-womens-prepaid",
+            "link_2": "",
+            "link_3": ""
+          }
+        },
+        "0e152596-4994-4ddf-947d-c407e7b61c59": {
+          "type": "answer",
+          "settings": {
+            "wrapper_classes": "tw-cursor-pointer tw-bg-white tw-px-5 md:tw-py-3 tw-flex md:tw-flex-col-reverse focus:tw-ring-cyan-500 focus:tw-ring tw-items-center md:tw-flex-1 tw-border-2 tw-border-solid tw-rounded-md tw-overflow-hidden",
+            "text_wrapper_classes": "tw-flex tw-flex-col tw-justify-center tw-flex-none min-w-50 tw-text-left md:tw-pt-2",
+            "next_slide": 3,
+            "quiz_progress": 50,
+            "title": "Kids",
+            "title_classes": "tw-text-4xl md:tw-text-3xl tw-text-black tw-w-full md:tw-text-center tw-font-bebas",
+            "subtitle": "",
+            "subtitle_classes": "tw-text-sm tw-text-gray-500",
+            "additional_subtitle": "",
+            "additional_subtitle_classes": "tw-text-sm",
+            "image_link": "shopify://shop_images/ICONS_KIDS.png",
+            "image_classes": "tw-h-20 md:tw-h-32 tw-object-contain",
+            "image_classes_mobile": "",
+            "image_wrapper_classes": "tw-justify-end md:tw-justify-center tw-flex tw-w-full tw-h-full",
+            "link_1": "subscription-group-all-kids-prepaid",
+            "link_2": "",
+            "link_3": ""
+          }
+        }
+      },
+      "block_order": [
+        "fd27e95a-b6c9-4ea9-a959-be3bcde4b8d8",
+        "17463b78-8f3a-4be8-bfd6-911886d76a62",
+        "0e152596-4994-4ddf-947d-c407e7b61c59"
+      ],
+      "settings": {
+        "outer_wrapper_classes": "tw-relative tw-flex tw-min-h-screen tw-bg-gray-200",
+        "inner_wrapper_classes": "tw-grid tw-mx-auto tw-w-full",
+        "background_image_wrapper_classes": "tw-absolute tw-object-cover tw-z-50",
+        "q_side_wrapper_classes": "tw-pb-10 tw-z-100 tw-relative",
+        "questions_wrapper_classes": "tw-max-w-5xl tw-flex tw-flex-col md:tw-flex-row md:tw-mx-auto md:tw-justify-center md:tw-gap-x-6 tw-px-5 md:tw-px-1 lg:tw-px-5 tw-gap-y-4 tw-mt-10",
+        "title": "Choose your membership",
+        "title_classes": "tw-border-b-2 tw-border-solid tw-border-black tw-pb-3 tw-pt-5 tw-text-white tw-text-3xl md:tw-text-4xl tw-text-center tw-bg-magenta-500 tw-font-bebas",
+        "subtitle": "",
+        "subtitle_classes": "tw-text-white tw-text-2xl tw-text-center",
+        "image_side_wrapper_classes": "",
+        "image_side_image_mobile": "",
+        "image_side_image_mobile_classes": "",
+        "image_side_image_desktop": "",
+        "image_side_image_desktop_classes": "",
+        "quiz_dev": ""
+      }
+    },
+    "3c78f787-cd60-4294-b5db-bd2ad2c62641": {
+      "type": "ob-quiz-q-slide",
+      "blocks": {
+        "df3dfc7e-23ff-4a92-946c-31872300a387": {
+          "type": "answer",
+          "settings": {
+            "wrapper_classes": "tw-cursor-pointer md:tw-bg-white tw-flex-col focus:tw-ring-cyan-500 focus:tw-ring tw-items-center tw-border-2 tw-border-solid tw-border-black tw-rounded-md tw-flex tw-flex-col-reverse tw-overflow-hidden",
+            "text_wrapper_classes": "tw-flex tw-flex-col tw-justify-center tw-text-right tw-col-span-2 tw-bg-white tw-py-3 tw-w-full tw-h-full",
+            "next_slide": 4,
+            "quiz_progress": 60,
+            "title": "6 Month",
+            "title_classes": "tw-text-xl tw-text-black tw-w-full tw-text-center tw-py-2.5 md:tw-py-0 tw-font-bebas",
+            "subtitle": "",
+            "subtitle_classes": "",
+            "additional_subtitle": "",
+            "additional_subtitle_classes": "tw-text-sm",
+            "image_link": "shopify://shop_images/NEWSOCKS-6-12_670x_500x500_crop_center_e0ab5493-02be-42eb-abd2-8bdc3ccf3673.jpg",
+            "image_classes": "tw-object-cover tw-w-full tw-order-first tw-border-b-2 tw-boder-solid",
+            "image_classes_mobile": "",
+            "image_wrapper_classes": "tw-flex tw-w-full tw-justify-center",
+            "link_1": "subscription-group-all-06-month-prepaid",
+            "link_2": "",
+            "link_3": ""
+          }
+        },
+        "5c835e0b-9ddb-49ca-86d0-98ae023c82dd": {
+          "type": "answer",
+          "settings": {
+            "wrapper_classes": "tw-cursor-pointer md:tw-bg-white tw-flex-col focus:tw-ring-cyan-500 focus:tw-ring tw-items-center tw-border-2 tw-border-solid tw-border-black tw-rounded-md tw-flex tw-flex-col-reverse tw-overflow-hidden",
+            "text_wrapper_classes": "tw-flex tw-flex-col tw-justify-center tw-text-right tw-col-span-2 tw-bg-white tw-py-3 tw-w-full tw-h-full",
+            "next_slide": 4,
+            "quiz_progress": 60,
+            "title": "12 Month",
+            "title_classes": "tw-text-xl tw-text-black tw-w-full tw-text-center tw-py-2.5 md:tw-py-0 tw-font-bebas",
+            "subtitle": "",
+            "subtitle_classes": "",
+            "additional_subtitle": "",
+            "additional_subtitle_classes": "tw-text-sm",
+            "image_link": "shopify://shop_images/NEWSOCKS-6-12_670x_500x500_crop_center_e0ab5493-02be-42eb-abd2-8bdc3ccf3673.jpg",
+            "image_classes": "tw-object-cover tw-w-full tw-order-first tw-border-b-2 tw-boder-solid",
+            "image_classes_mobile": "",
+            "image_wrapper_classes": "tw-flex tw-w-full tw-justify-center",
+            "link_1": "subscription-group-all-12-month-prepaid",
+            "link_2": "",
+            "link_3": ""
+          }
+        }
+      },
+      "block_order": [
+        "df3dfc7e-23ff-4a92-946c-31872300a387",
+        "5c835e0b-9ddb-49ca-86d0-98ae023c82dd"
+      ],
+      "settings": {
+        "outer_wrapper_classes": "tw-relative tw-flex tw-min-h-screen tw-bg-gray-200",
+        "inner_wrapper_classes": "tw-grid tw-mx-auto tw-w-full",
+        "background_image_wrapper_classes": "tw-absolute tw-object-cover tw-z-50",
+        "q_side_wrapper_classes": "tw-pb-10 tw-z-100 tw-relative",
+        "questions_wrapper_classes": "tw-max-w-3xl tw-flex tw-flex-col md:tw-flex-row md:tw-mx-auto md:tw-justify-center md:tw-gap-x-6 tw-px-5 md:tw-px-1 lg:tw-px-5 tw-gap-y-4 tw-mt-10",
+        "title": "What card do you have?",
+        "title_classes": "tw-border-b-2 tw-border-solid tw-border-black tw-pb-3 tw-pt-5 tw-text-white tw-text-3xl md:tw-text-4xl tw-text-center tw-bg-magenta-500 tw-font-bebas",
+        "subtitle": "",
+        "subtitle_classes": "tw-text-white tw-text-2xl tw-text-center",
+        "image_side_wrapper_classes": "",
+        "image_side_image_mobile": "",
+        "image_side_image_mobile_classes": "",
+        "image_side_image_desktop": "",
+        "image_side_image_desktop_classes": "",
+        "quiz_dev": ""
+      }
+    },
+    "8bd5b066-b87c-4f75-95f9-e6f698e9cc86": {
+      "type": "ob-quiz-q-slide",
+      "blocks": {
+        "a62ed1be-469c-4bdd-bb77-5639bf8d2e7d": {
+          "type": "answer",
+          "settings": {
+            "wrapper_classes": "tw-cursor-pointer md:tw-bg-white tw-flex-col focus:tw-ring-cyan-500 focus:tw-ring tw-items-center tw-border-2 tw-border-solid tw-border-black tw-rounded-md tw-flex tw-flex-col-reverse tw-overflow-hidden",
+            "text_wrapper_classes": "tw-flex tw-flex-col tw-justify-center tw-text-right tw-col-span-2 tw-bg-white tw-py-3 tw-w-full tw-h-full",
+            "next_slide": 5,
+            "quiz_progress": 60,
+            "title": "6 Month",
+            "title_classes": "tw-text-xl tw-text-black tw-w-full tw-text-center tw-py-2.5 md:tw-py-0 tw-font-bebas",
+            "subtitle": "",
+            "subtitle_classes": "",
+            "additional_subtitle": "",
+            "additional_subtitle_classes": "tw-text-sm",
+            "image_link": "shopify://shop_images/NEWSOCKS-6-12_670x_500x500_crop_center_e0ab5493-02be-42eb-abd2-8bdc3ccf3673.jpg",
+            "image_classes": "tw-object-cover tw-w-full tw-order-first tw-border-b-2 tw-boder-solid",
+            "image_classes_mobile": "",
+            "image_wrapper_classes": "tw-flex tw-w-full tw-justify-center",
+            "link_1": "subscription-group-all-06-month-prepaid",
+            "link_2": "",
+            "link_3": ""
+          }
+        },
+        "f80f79b1-3c78-4934-896f-0229f62604b9": {
+          "type": "answer",
+          "settings": {
+            "wrapper_classes": "tw-cursor-pointer md:tw-bg-white tw-flex-col focus:tw-ring-cyan-500 focus:tw-ring tw-items-center tw-border-2 tw-border-solid tw-border-black tw-rounded-md tw-flex tw-flex-col-reverse tw-overflow-hidden",
+            "text_wrapper_classes": "tw-flex tw-flex-col tw-justify-center tw-text-right tw-col-span-2 tw-bg-white tw-py-3 tw-w-full tw-h-full",
+            "next_slide": 5,
+            "quiz_progress": 60,
+            "title": "12 Month",
+            "title_classes": "tw-text-xl tw-text-black tw-w-full tw-text-center tw-py-2.5 md:tw-py-0 tw-font-bebas",
+            "subtitle": "",
+            "subtitle_classes": "",
+            "additional_subtitle": "",
+            "additional_subtitle_classes": "tw-text-sm",
+            "image_link": "shopify://shop_images/NEWSOCKS-6-12_670x_500x500_crop_center_e0ab5493-02be-42eb-abd2-8bdc3ccf3673.jpg",
+            "image_classes": "tw-object-cover tw-w-full tw-order-first tw-border-b-2 tw-boder-solid",
+            "image_classes_mobile": "",
+            "image_wrapper_classes": "tw-flex tw-w-full tw-justify-center",
+            "link_1": "subscription-group-all-12-month-prepaid",
+            "link_2": "",
+            "link_3": ""
+          }
+        }
+      },
+      "block_order": [
+        "a62ed1be-469c-4bdd-bb77-5639bf8d2e7d",
+        "f80f79b1-3c78-4934-896f-0229f62604b9"
+      ],
+      "settings": {
+        "outer_wrapper_classes": "tw-relative tw-flex tw-min-h-screen tw-bg-gray-200",
+        "inner_wrapper_classes": "tw-grid tw-mx-auto tw-w-full",
+        "background_image_wrapper_classes": "tw-absolute tw-object-cover tw-z-50",
+        "q_side_wrapper_classes": "tw-pb-10 tw-z-100 tw-relative",
+        "questions_wrapper_classes": "tw-max-w-3xl tw-flex tw-flex-col md:tw-flex-row md:tw-mx-auto md:tw-justify-center md:tw-gap-x-6 tw-px-5 md:tw-px-1 lg:tw-px-5 tw-gap-y-4 tw-mt-10",
+        "title": "What card do you have?",
+        "title_classes": "tw-border-b-2 tw-border-solid tw-border-black tw-pb-3 tw-pt-5 tw-text-white tw-text-3xl md:tw-text-4xl tw-text-center tw-bg-magenta-500 tw-font-bebas",
+        "subtitle": "",
+        "subtitle_classes": "tw-text-white tw-text-2xl tw-text-center",
+        "image_side_wrapper_classes": "",
+        "image_side_image_mobile": "",
+        "image_side_image_mobile_classes": "",
+        "image_side_image_desktop": "",
+        "image_side_image_desktop_classes": "",
+        "quiz_dev": ""
+      }
+    },
+    "d32c0f43-b0b5-4a27-a56e-c646795e4e54": {
+      "type": "ob-quiz-q-slide",
+      "blocks": {
+        "e3ef13d6-a23c-4212-a138-75583c84de8b": {
+          "type": "answer",
+          "settings": {
+            "wrapper_classes": "tw-cursor-pointer md:tw-bg-white tw-flex-col focus:tw-ring-cyan-500 focus:tw-ring tw-items-center tw-border-2 tw-border-solid tw-border-black tw-rounded-md tw-flex tw-flex-col-reverse tw-overflow-hidden",
+            "text_wrapper_classes": "tw-flex tw-flex-col tw-justify-center tw-text-right tw-col-span-2 tw-bg-white tw-py-3 tw-w-full tw-h-full",
+            "next_slide": 6,
+            "quiz_progress": 80,
+            "title": "6 Month",
+            "title_classes": "tw-text-xl tw-text-black tw-w-full tw-text-center tw-py-2.5 md:tw-py-0 tw-font-bebas",
+            "subtitle": "",
+            "subtitle_classes": "",
+            "additional_subtitle": "",
+            "additional_subtitle_classes": "tw-text-sm",
+            "image_link": "shopify://shop_images/NEWSOCKS-6-12_670x_500x500_crop_center_e0ab5493-02be-42eb-abd2-8bdc3ccf3673.jpg",
+            "image_classes": "tw-object-cover tw-w-full tw-order-first tw-border-b-2 tw-boder-solid",
+            "image_classes_mobile": "",
+            "image_wrapper_classes": "tw-flex tw-w-full tw-justify-center",
+            "link_1": "subscription-group-all-06-month-prepaid",
+            "link_2": "",
+            "link_3": ""
+          }
+        },
+        "2f910533-83e3-4103-ab12-8d9c65b3aac0": {
+          "type": "answer",
+          "settings": {
+            "wrapper_classes": "tw-cursor-pointer md:tw-bg-white tw-flex-col focus:tw-ring-cyan-500 focus:tw-ring tw-items-center tw-border-2 tw-border-solid tw-border-black tw-rounded-md tw-flex tw-flex-col-reverse tw-overflow-hidden",
+            "text_wrapper_classes": "tw-flex tw-flex-col tw-justify-center tw-text-right tw-col-span-2 tw-bg-white tw-py-3 tw-w-full tw-h-full",
+            "next_slide": 6,
+            "quiz_progress": 80,
+            "title": "12 Month",
+            "title_classes": "tw-text-xl tw-text-black tw-w-full tw-text-center tw-py-2.5 md:tw-py-0 tw-font-bebas",
+            "subtitle": "",
+            "subtitle_classes": "",
+            "additional_subtitle": "",
+            "additional_subtitle_classes": "tw-text-sm",
+            "image_link": "shopify://shop_images/NEWSOCKS-6-12_670x_500x500_crop_center_e0ab5493-02be-42eb-abd2-8bdc3ccf3673.jpg",
+            "image_classes": "tw-object-cover tw-w-full tw-order-first tw-border-b-2 tw-boder-solid",
+            "image_classes_mobile": "",
+            "image_wrapper_classes": "tw-flex tw-w-full tw-justify-center",
+            "link_1": "subscription-group-all-12-month-prepaid",
+            "link_2": "",
+            "link_3": ""
+          }
+        }
+      },
+      "block_order": [
+        "e3ef13d6-a23c-4212-a138-75583c84de8b",
+        "2f910533-83e3-4103-ab12-8d9c65b3aac0"
+      ],
+      "settings": {
+        "outer_wrapper_classes": "tw-relative tw-flex tw-min-h-screen tw-bg-gray-200",
+        "inner_wrapper_classes": "tw-grid tw-mx-auto tw-w-full",
+        "background_image_wrapper_classes": "tw-absolute tw-object-cover tw-z-50",
+        "q_side_wrapper_classes": "tw-pb-10 tw-z-100 tw-relative",
+        "questions_wrapper_classes": "tw-max-w-3xl tw-flex tw-flex-col md:tw-flex-row md:tw-mx-auto md:tw-justify-center md:tw-gap-x-6 tw-px-5 md:tw-px-1 lg:tw-px-5 tw-gap-y-4 tw-mt-10",
+        "title": "What card do you have?",
+        "title_classes": "tw-border-b-2 tw-border-solid tw-border-black tw-pb-3 tw-pt-5 tw-text-white tw-text-3xl md:tw-text-4xl tw-text-center tw-bg-magenta-500 tw-font-bebas",
+        "subtitle": "",
+        "subtitle_classes": "tw-text-white tw-text-2xl tw-text-center",
+        "image_side_wrapper_classes": "tw-relative tw-order-first md:tw-order-last",
+        "image_side_image_mobile": "",
+        "image_side_image_mobile_classes": "tw-inset-0 tw-h-full tw-w-full tw-absolute tw-z-100",
+        "image_side_image_desktop": "",
+        "image_side_image_desktop_classes": "tw-inset-0 tw-h-full tw-w-full tw-absolute tw-z-100",
+        "quiz_dev": ""
+      }
+    },
+    "1643366252de09f39d": {
+      "type": "ob-quiz-q-slide",
+      "blocks": {
+        "c774b0c0-d030-4ec0-af49-c32f115d5a4d": {
+          "type": "answer",
+          "settings": {
+            "wrapper_classes": "tw-cursor-pointer tw-bg-white tw-px-5 md:tw-py-3 tw-flex md:tw-flex-col-reverse focus:tw-ring-cyan-500 focus:tw-ring tw-items-center md:tw-flex-1 tw-flex-row-reverse tw-border-2 tw-border-solid tw-rounded-md tw-overflow-hidden",
+            "text_wrapper_classes": "md:tw-pt-2 md:tw-text-left min-w-50 tw-flex tw-flex-col tw-flex-none tw-justify-center tw-text-right",
+            "next_slide": 7,
+            "quiz_progress": 80,
+            "title": "Boxer Shorts",
+            "title_classes": "tw-text-4xl tw-text-black tw-w-full md:tw-text-center tw-font-bebas",
+            "subtitle": "+ Free Socks",
+            "subtitle_classes": "tw-text-right md:tw-text-center tw-w-full tw-text-base md:tw-text-lg",
+            "additional_subtitle": "",
+            "additional_subtitle_classes": "tw-text-sm",
+            "image_link": "shopify://shop_images/ICONS-10.png",
+            "image_classes": "tw-h-20 md:tw-h-32 tw-object-contain",
+            "image_classes_mobile": "",
+            "image_wrapper_classes": "tw-justify-end md:tw-justify-center tw-flex tw-w-full tw-h-full",
+            "link_1": "subscription-group-prepaid-mens-boxers",
+            "link_2": "",
+            "link_3": ""
+          }
+        },
+        "4057a655-cb6a-43d6-b095-16d5a6f401b2": {
+          "type": "answer",
+          "settings": {
+            "wrapper_classes": "tw-cursor-pointer tw-bg-white tw-px-5 md:tw-py-3 tw-flex md:tw-flex-col-reverse focus:tw-ring-cyan-500 focus:tw-ring tw-items-center md:tw-flex-1 tw-flex-row-reverse tw-border-2 tw-border-solid tw-rounded-md tw-overflow-hidden",
+            "text_wrapper_classes": "md:tw-pt-2 md:tw-text-left min-w-50 tw-flex tw-flex-col tw-flex-none tw-justify-center tw-text-right",
+            "next_slide": 7,
+            "quiz_progress": 80,
+            "title": "Briefs",
+            "title_classes": "tw-text-4xl tw-text-black tw-w-full md:tw-text-center tw-font-bebas",
+            "subtitle": "+ Free Socks",
+            "subtitle_classes": "tw-text-right md:tw-text-center tw-w-full tw-text-base md:tw-text-lg",
+            "additional_subtitle": "",
+            "additional_subtitle_classes": "tw-text-sm",
+            "image_link": "shopify://shop_images/ICONS_MENS_-_BRIEFS_FREE_SOCKS.png",
+            "image_classes": "tw-h-20 md:tw-h-32 tw-object-contain",
+            "image_classes_mobile": "",
+            "image_wrapper_classes": "tw-justify-end md:tw-justify-center tw-flex tw-w-full tw-h-full",
+            "link_1": "subscription-group-prepaid-mens-briefs",
+            "link_2": "",
+            "link_3": ""
+          }
+        },
+        "bf71abd7-b1e2-4db2-8f77-67f0c3b6c606": {
+          "type": "answer",
+          "settings": {
+            "wrapper_classes": "tw-cursor-pointer tw-bg-white tw-px-5 md:tw-py-3 tw-flex md:tw-flex-col-reverse focus:tw-ring-cyan-500 focus:tw-ring tw-items-center md:tw-flex-1 tw-flex-row-reverse tw-border-2 tw-border-solid tw-rounded-md tw-overflow-hidden",
+            "text_wrapper_classes": "md:tw-pt-2 md:tw-text-left min-w-50 tw-flex tw-flex-col tw-flex-none tw-justify-center tw-text-right",
+            "next_slide": 9,
+            "quiz_progress": 100,
+            "title": "Socks",
+            "title_classes": "tw-text-4xl tw-text-black tw-w-full md:tw-text-center tw-font-bebas",
+            "subtitle": "",
+            "subtitle_classes": "tw-text-sm",
+            "additional_subtitle": "",
+            "additional_subtitle_classes": "tw-text-sm",
+            "image_link": "shopify://shop_images/ICONS_SOCKS.png",
+            "image_classes": "tw-h-20 md:tw-h-32 tw-object-contain",
+            "image_classes_mobile": "",
+            "image_wrapper_classes": "tw-justify-end md:tw-justify-center tw-flex tw-w-full tw-h-full",
+            "link_1": "subscription-group-prepaid-socks",
+            "link_2": "",
+            "link_3": ""
+          }
+        }
+      },
+      "block_order": [
+        "c774b0c0-d030-4ec0-af49-c32f115d5a4d",
+        "4057a655-cb6a-43d6-b095-16d5a6f401b2",
+        "bf71abd7-b1e2-4db2-8f77-67f0c3b6c606"
+      ],
+      "settings": {
+        "outer_wrapper_classes": "tw-relative tw-flex tw-min-h-screen tw-bg-gray-200",
+        "inner_wrapper_classes": "tw-grid tw-mx-auto tw-w-full",
+        "background_image_wrapper_classes": "tw-absolute tw-object-cover tw-z-50",
+        "q_side_wrapper_classes": "tw-pb-10 tw-z-100 tw-relative",
+        "questions_wrapper_classes": "tw-max-w-5xl tw-flex tw-flex-col md:tw-flex-row md:tw-mx-auto md:tw-justify-center md:tw-gap-x-6 tw-px-5 md:tw-px-1 lg:tw-px-5 tw-gap-y-4 tw-mt-10",
+        "title": "Choose your subscription type",
+        "title_classes": "tw-border-b-2 tw-border-solid tw-border-black tw-pb-3 tw-pt-5 tw-text-white tw-text-3xl md:tw-text-4xl tw-text-center tw-bg-magenta-500 tw-font-bebas",
+        "subtitle": "",
+        "subtitle_classes": "tw-text-white tw-text-2xl tw-text-center",
+        "image_side_wrapper_classes": "",
+        "image_side_image_mobile": "",
+        "image_side_image_mobile_classes": "",
+        "image_side_image_desktop": "",
+        "image_side_image_desktop_classes": "",
+        "quiz_dev": ""
+      }
+    },
+    "164337318837ee35eb": {
+      "type": "ob-quiz-q-slide",
+      "blocks": {
+        "79a384eb-242b-453f-be75-e94ccab24437": {
+          "type": "answer",
+          "settings": {
+            "wrapper_classes": "tw-cursor-pointer tw-bg-white tw-px-5 md:tw-py-3 tw-flex md:tw-flex-col-reverse focus:tw-ring-cyan-500 focus:tw-ring tw-items-center md:tw-flex-1 tw-flex-row-reverse tw-border-2 tw-border-solid tw-rounded-md tw-overflow-hidden",
+            "text_wrapper_classes": "md:tw-pt-2 md:tw-text-left min-w-50 tw-flex tw-flex-col tw-flex-none tw-justify-center tw-text-right",
+            "next_slide": 8,
+            "quiz_progress": 80,
+            "title": "Briefs",
+            "title_classes": "tw-text-4xl tw-text-black tw-w-full md:tw-text-center tw-font-bebas",
+            "subtitle": "+ Free Socks",
+            "subtitle_classes": "tw-text-right md:tw-text-center tw-w-full tw-text-base md:tw-text-lg",
+            "additional_subtitle": "",
+            "additional_subtitle_classes": "tw-text-sm",
+            "image_link": "shopify://shop_images/ICONS_WOMENS_-_BRIEFS_FREE_SOCKS_d2f8010c-6097-4ec4-aac5-e7c3db9649c7.png",
+            "image_classes": "tw-h-20 md:tw-h-32 tw-object-contain",
+            "image_classes_mobile": "",
+            "image_wrapper_classes": "tw-justify-end md:tw-justify-center tw-flex tw-w-full tw-h-full",
+            "link_1": "subscription-group-prepaid-ladies-briefs",
+            "link_2": "",
+            "link_3": ""
+          }
+        },
+        "d92ee0cc-aeef-41bf-9986-954a8f059b67": {
+          "type": "answer",
+          "settings": {
+            "wrapper_classes": "tw-cursor-pointer tw-bg-white tw-px-5 md:tw-py-3 tw-flex md:tw-flex-col-reverse focus:tw-ring-cyan-500 focus:tw-ring tw-items-center md:tw-flex-1 tw-flex-row-reverse tw-border-2 tw-border-solid tw-rounded-md tw-overflow-hidden",
+            "text_wrapper_classes": "md:tw-pt-2 md:tw-text-left min-w-50 tw-flex tw-flex-col tw-flex-none tw-justify-center tw-text-right",
+            "next_slide": 8,
+            "quiz_progress": 80,
+            "title": "Boxer Shorts",
+            "title_classes": "tw-text-4xl tw-text-black tw-w-full md:tw-text-center tw-font-bebas",
+            "subtitle": "+ Free Socks",
+            "subtitle_classes": "tw-text-right md:tw-text-center tw-w-full tw-text-base md:tw-text-lg",
+            "additional_subtitle": "",
+            "additional_subtitle_classes": "tw-text-sm",
+            "image_link": "shopify://shop_images/ICONS_WOMENS_-_BOXERS_FREE_SOCKS_c47fd188-ecb8-495e-8386-b21b550b066f.png",
+            "image_classes": "tw-h-20 md:tw-h-32 tw-object-contain",
+            "image_classes_mobile": "",
+            "image_wrapper_classes": "tw-justify-end md:tw-justify-center tw-flex tw-w-full tw-h-full",
+            "link_1": "subscription-group-prepaid-ladies-boxers",
+            "link_2": "",
+            "link_3": ""
+          }
+        },
+        "7ce7092d-c10b-46d5-9a17-44de57a0a819": {
+          "type": "answer",
+          "settings": {
+            "wrapper_classes": "tw-cursor-pointer tw-bg-white tw-px-5 md:tw-py-3 tw-flex md:tw-flex-col-reverse focus:tw-ring-cyan-500 focus:tw-ring tw-items-center md:tw-flex-1 tw-flex-row-reverse tw-border-2 tw-border-solid tw-rounded-md tw-overflow-hidden",
+            "text_wrapper_classes": "md:tw-pt-2 md:tw-text-left min-w-50 tw-flex tw-flex-col tw-flex-none tw-justify-center tw-text-right",
+            "next_slide": 9,
+            "quiz_progress": 100,
+            "title": "Seamless",
+            "title_classes": "tw-text-4xl tw-text-black tw-w-full md:tw-text-center tw-font-bebas",
+            "subtitle": "+ Free Socks",
+            "subtitle_classes": "tw-text-right md:tw-text-center tw-w-full tw-text-base md:tw-text-lg",
+            "additional_subtitle": "",
+            "additional_subtitle_classes": "tw-text-sm",
+            "image_link": "shopify://shop_images/ICONS_WOMENS_-_SEAMLESS_FREE_SOCKS.png",
+            "image_classes": "tw-h-20 md:tw-h-32 tw-object-contain",
+            "image_classes_mobile": "",
+            "image_wrapper_classes": "tw-justify-end md:tw-justify-center tw-flex tw-w-full tw-h-full",
+            "link_1": "subscription-group-prepaid-ladies-seamless",
+            "link_2": "",
+            "link_3": ""
+          }
+        },
+        "f66f2eea-9e12-45f7-9d05-3a77aa9ecaba": {
+          "type": "answer",
+          "settings": {
+            "wrapper_classes": "tw-cursor-pointer tw-bg-white tw-px-5 md:tw-py-3 tw-flex md:tw-flex-col-reverse focus:tw-ring-cyan-500 focus:tw-ring tw-items-center md:tw-flex-1 tw-flex-row-reverse tw-border-2 tw-border-solid tw-rounded-md tw-overflow-hidden",
+            "text_wrapper_classes": "md:tw-pt-2 md:tw-text-left min-w-50 tw-flex tw-flex-col tw-flex-none tw-justify-center tw-text-right",
+            "next_slide": 8,
+            "quiz_progress": 80,
+            "title": "Bralette",
+            "title_classes": "tw-text-4xl tw-text-black tw-w-full md:tw-text-center tw-font-bebas",
+            "subtitle": "+ Free Socks",
+            "subtitle_classes": "tw-text-right md:tw-text-center tw-w-full tw-text-base md:tw-text-lg",
+            "additional_subtitle": "",
+            "additional_subtitle_classes": "tw-text-sm",
+            "image_link": "shopify://shop_images/ICONS_WOMENS_-_BRALETTE_FREE_SOCKS.png",
+            "image_classes": "tw-h-20 md:tw-h-32 tw-object-contain",
+            "image_classes_mobile": "",
+            "image_wrapper_classes": "tw-justify-end md:tw-justify-center tw-flex tw-w-full tw-h-full",
+            "link_1": "subscription-group-prepaid-ladies-bralette",
+            "link_2": "",
+            "link_3": ""
+          }
+        },
+        "e8f6880b-2d37-40a2-9933-cef8b4e9f771": {
+          "type": "answer",
+          "settings": {
+            "wrapper_classes": "tw-cursor-pointer tw-bg-white tw-px-5 md:tw-py-3 tw-flex md:tw-flex-col-reverse focus:tw-ring-cyan-500 focus:tw-ring tw-items-center md:tw-flex-1 tw-flex-row-reverse tw-border-2 tw-border-solid tw-rounded-md tw-overflow-hidden",
+            "text_wrapper_classes": "md:tw-pt-2 md:tw-text-left min-w-50 tw-flex tw-flex-col tw-flex-none tw-justify-center tw-text-right",
+            "next_slide": 8,
+            "quiz_progress": 80,
+            "title": "Thong",
+            "title_classes": "tw-text-4xl tw-text-black tw-w-full md:tw-text-center tw-font-bebas",
+            "subtitle": "+ Free Socks",
+            "subtitle_classes": "tw-text-right md:tw-text-center tw-w-full tw-text-base md:tw-text-lg",
+            "additional_subtitle": "",
+            "additional_subtitle_classes": "tw-text-sm",
+            "image_link": "shopify://shop_images/ICONS_WOMENS_-_THONG_-_FREE_SOCKS.png",
+            "image_classes": "tw-h-20 md:tw-h-32 tw-object-contain",
+            "image_classes_mobile": "",
+            "image_wrapper_classes": "tw-justify-end md:tw-justify-center tw-flex tw-w-full tw-h-full",
+            "link_1": "subscription-group-prepaid-ladies-thong",
+            "link_2": "",
+            "link_3": ""
+          }
+        },
+        "3a03c795-236b-4662-842f-5422e433ee89": {
+          "type": "answer",
+          "settings": {
+            "wrapper_classes": "tw-cursor-pointer tw-bg-white tw-px-5 md:tw-py-3 tw-flex md:tw-flex-col-reverse focus:tw-ring-cyan-500 focus:tw-ring tw-items-center md:tw-flex-1 tw-flex-row-reverse tw-border-2 tw-border-solid tw-rounded-md tw-overflow-hidden",
+            "text_wrapper_classes": "md:tw-pt-2 md:tw-text-left min-w-50 tw-flex tw-flex-col tw-flex-none tw-justify-center tw-text-right",
+            "next_slide": 9,
+            "quiz_progress": 100,
+            "title": "Socks",
+            "title_classes": "tw-text-4xl tw-text-black tw-w-full md:tw-text-center tw-font-bebas",
+            "subtitle": "",
+            "subtitle_classes": "tw-text-2xl md:tw-text-3xl tw-text-magenta",
+            "additional_subtitle": "",
+            "additional_subtitle_classes": "tw-text-sm",
+            "image_link": "shopify://shop_images/ICONS_SOCKS.png",
+            "image_classes": "tw-h-20 md:tw-h-32 tw-object-contain",
+            "image_classes_mobile": "",
+            "image_wrapper_classes": "tw-justify-end md:tw-justify-center tw-flex tw-w-full tw-h-full",
+            "link_1": "subscription-group-prepaid-socks",
+            "link_2": "",
+            "link_3": ""
+          }
+        }
+      },
+      "block_order": [
+        "79a384eb-242b-453f-be75-e94ccab24437",
+        "d92ee0cc-aeef-41bf-9986-954a8f059b67",
+        "7ce7092d-c10b-46d5-9a17-44de57a0a819",
+        "f66f2eea-9e12-45f7-9d05-3a77aa9ecaba",
+        "e8f6880b-2d37-40a2-9933-cef8b4e9f771",
+        "3a03c795-236b-4662-842f-5422e433ee89"
+      ],
+      "settings": {
+        "outer_wrapper_classes": "tw-relative tw-flex tw-min-h-screen tw-bg-gray-200",
+        "inner_wrapper_classes": "tw-grid tw-mx-auto tw-w-full",
+        "background_image_wrapper_classes": "tw-absolute tw-object-cover tw-z-50",
+        "q_side_wrapper_classes": "tw-pb-32 md:tw-pb-10 tw-z-100 tw-relative",
+        "questions_wrapper_classes": "tw-max-w-5xl tw-grid md:tw-grid-cols-3 md:tw-mx-auto md:tw-justify-center md:tw-gap-x-6 tw-px-5 md:tw-px-1  lg:tw-px-5 tw-gap-y-4 tw-mt-10",
+        "title": "Choose your subscription type",
+        "title_classes": "tw-border-b-2 tw-border-solid tw-border-black tw-pb-3 tw-pt-5 tw-text-white tw-text-3xl md:tw-text-4xl tw-text-center tw-bg-magenta-500 tw-font-bebas",
+        "subtitle": "",
+        "subtitle_classes": "tw-text-white tw-text-2xl tw-text-center",
+        "image_side_wrapper_classes": "",
+        "image_side_image_mobile": "",
+        "image_side_image_mobile_classes": "",
+        "image_side_image_desktop": "",
+        "image_side_image_desktop_classes": "",
+        "quiz_dev": ""
+      }
+    },
+    "16433740745e95ea83": {
+      "type": "ob-quiz-q-slide",
+      "blocks": {
+        "15b65d39-3ee9-472c-b3da-d8f55deb30cf": {
+          "type": "answer",
+          "settings": {
+            "wrapper_classes": "tw-cursor-pointer tw-bg-white tw-px-5 md:tw-py-3 tw-flex md:tw-flex-col-reverse focus:tw-ring-cyan-500 focus:tw-ring tw-items-center md:tw-flex-1 tw-flex-row-reverse tw-border-2 tw-border-solid tw-rounded-md tw-overflow-hidden",
+            "text_wrapper_classes": "md:tw-pt-2 md:tw-text-left min-w-50 tw-flex tw-flex-col tw-flex-none tw-justify-center tw-text-right",
+            "next_slide": 9,
+            "quiz_progress": 100,
+            "title": "Goolies",
+            "title_classes": "tw-text-4xl tw-text-black tw-w-full md:tw-text-center tw-font-bebas",
+            "subtitle": "+ Free Socks",
+            "subtitle_classes": "tw-text-sm",
+            "additional_subtitle": "",
+            "additional_subtitle_classes": "tw-text-sm",
+            "image_link": "shopify://shop_images/ICONS_GOOLIES_FREE_SOCKS.png",
+            "image_classes": "tw-h-20 md:tw-h-32 tw-object-contain",
+            "image_classes_mobile": "",
+            "image_wrapper_classes": "tw-justify-end md:tw-justify-center tw-flex tw-w-full tw-h-full",
+            "link_1": "subscription-group-goolies-prepaid",
+            "link_2": "",
+            "link_3": ""
+          }
+        },
+        "6869e52b-cce0-4239-b110-655bdc009449": {
+          "type": "answer",
+          "settings": {
+            "wrapper_classes": "tw-cursor-pointer tw-bg-white tw-px-5 md:tw-py-3 tw-flex md:tw-flex-col-reverse focus:tw-ring-cyan-500 focus:tw-ring tw-items-center md:tw-flex-1 tw-flex-row-reverse tw-border-2 tw-border-solid tw-rounded-md tw-overflow-hidden",
+            "text_wrapper_classes": "md:tw-pt-2 md:tw-text-left min-w-50 tw-flex tw-flex-col tw-flex-none tw-justify-center tw-text-right",
+            "next_slide": 9,
+            "quiz_progress": 100,
+            "title": "Socks",
+            "title_classes": "tw-text-4xl tw-text-black tw-w-full md:tw-text-center tw-font-bebas",
+            "subtitle": "",
+            "subtitle_classes": "tw-text-lg md:tw-text-xl tw-text-magenta",
+            "additional_subtitle": "",
+            "additional_subtitle_classes": "tw-text-sm",
+            "image_link": "shopify://shop_images/ICONS_SOCKS.png",
+            "image_classes": "tw-h-20 md:tw-h-32 tw-object-contain",
+            "image_classes_mobile": "",
+            "image_wrapper_classes": "tw-justify-end md:tw-justify-center tw-flex tw-w-full tw-h-full",
+            "link_1": "subscription-group-prepaid-socks",
+            "link_2": "",
+            "link_3": ""
+          }
+        }
+      },
+      "block_order": [
+        "15b65d39-3ee9-472c-b3da-d8f55deb30cf",
+        "6869e52b-cce0-4239-b110-655bdc009449"
+      ],
+      "settings": {
+        "outer_wrapper_classes": "tw-relative tw-flex tw-min-h-screen tw-bg-gray-200",
+        "inner_wrapper_classes": "tw-grid tw-mx-auto tw-w-full",
+        "background_image_wrapper_classes": "tw-absolute tw-object-cover tw-z-50",
+        "q_side_wrapper_classes": "tw-pb-10 tw-z-100 tw-relative",
+        "questions_wrapper_classes": "tw-max-w-5xl tw-flex tw-flex-col md:tw-flex-row md:tw-mx-auto md:tw-justify-center md:tw-gap-x-6 tw-px-5 md:tw-px-1 lg:tw-px-5 tw-gap-y-4 tw-mt-10",
+        "title": "Choose your subscription type",
+        "title_classes": "tw-border-b-2 tw-border-solid tw-border-black tw-pb-3 tw-pt-5 tw-text-white tw-text-3xl md:tw-text-4xl tw-text-center tw-bg-magenta-500 tw-font-bebas",
+        "subtitle": "",
+        "subtitle_classes": "tw-text-white tw-text-2xl tw-text-center",
+        "image_side_wrapper_classes": "",
+        "image_side_image_mobile": "",
+        "image_side_image_mobile_classes": "",
+        "image_side_image_desktop": "",
+        "image_side_image_desktop_classes": "",
+        "quiz_dev": ""
+      }
+    },
+    "16433683524dd8cedd": {
+      "type": "ob-quiz-q-slide",
+      "blocks": {
+        "db9cecf6-4c7b-4d99-b940-5c6dd3dba4ed": {
+          "type": "answer",
+          "settings": {
+            "wrapper_classes": "tw-cursor-pointer md:tw-bg-white tw-flex-col focus:tw-ring-cyan-500 focus:tw-ring tw-items-center tw-border-2 tw-border-solid tw-border-black tw-rounded-md tw-flex tw-flex-col-reverse tw-overflow-hidden",
+            "text_wrapper_classes": "tw-flex tw-flex-col tw-justify-center tw-text-right tw-col-span-2 tw-bg-white tw-py-3 tw-w-full tw-h-full",
+            "next_slide": 9,
+            "quiz_progress": 100,
+            "title": "Adventurous",
+            "title_classes": "tw-text-xl tw-text-black tw-w-full tw-text-center tw-py-2.5 md:tw-py-0 tw-font-bebas",
+            "subtitle": "Our latest BRIGHT PATTERN hot off the press",
+            "subtitle_classes": "tw-font-bebas tw-text-center tw-text-magenta-500 tw-text-xl",
+            "additional_subtitle": "",
+            "additional_subtitle_classes": "tw-text-sm",
+            "image_link": "shopify://shop_images/kim_peregrine_marmalade-min_6474d85f-c1e2-4140-a9a3-139088616041.png",
+            "image_classes": "tw-object-cover tw-w-full tw-order-first tw-border-b-2 tw-boder-solid",
+            "image_classes_mobile": "",
+            "image_wrapper_classes": "tw-flex tw-w-full tw-justify-center",
+            "link_1": "subscription-group-all-adventurous-prepaid",
+            "link_2": "",
+            "link_3": ""
+          }
+        },
+        "84654adc-f3e3-4954-938c-384dc5d7688e": {
+          "type": "custom_html",
+          "disabled": true,
+          "settings": {
+            "wrapper_classes": "font-bebas tw-text-white md:tw-text-black tw-py-3 md:tw-pt-10 tw-text-3xl md:tw-text-5xl tw-text-center tw-text-white tw-text-3xl tw-w-full md:tw-w-auto tw-bg-magenta-500 md:tw-bg-transparent md:tw-top-1/3 md:tw-transform md:tw--translate-y-1/2 md:tw--translate-x-1/2 md:tw-left-1/2 md:tw-absolute tw-font-bebas tw-border-t-2 tw-border-b-2 tw-border-solid tw-border-black md:tw-border-0",
+            "custom_html": "<div>OR</div>",
+            "next_slide": 1,
+            "quiz_progress": 10,
+            "link_1": "",
+            "link_2": "",
+            "link_3": ""
+          }
+        },
+        "7024350a-7ed5-45ed-b8a6-99fd43a9e467": {
+          "type": "answer",
+          "settings": {
+            "wrapper_classes": "tw-cursor-pointer md:tw-bg-white tw-flex-col focus:tw-ring-cyan-500 focus:tw-ring tw-items-center tw-border-2 tw-border-solid tw-border-black tw-rounded-md tw-flex tw-flex-col-reverse tw-overflow-hidden",
+            "text_wrapper_classes": "tw-flex tw-flex-col tw-justify-center tw-text-right tw-col-span-2 tw-bg-white tw-py-3 tw-w-full tw-h-full",
+            "next_slide": 9,
+            "quiz_progress": 100,
+            "title": "Classic",
+            "title_classes": "tw-text-xl tw-text-black tw-w-full tw-text-center tw-py-2.5 md:tw-py-0 tw-font-bebas",
+            "subtitle": "Plain underwear - sometimes in BOLD block colours.",
+            "subtitle_classes": "tw-font-bebas tw-text-center tw-text-magenta-500 tw-text-xl",
+            "additional_subtitle": "",
+            "additional_subtitle_classes": "tw-text-sm",
+            "image_link": "shopify://shop_images/D0B06BEA-BE1A-425E-8822-39CBAE5ED28D-min_54f5d879-6c87-482c-aef1-a00abdc01375.png",
+            "image_classes": "tw-object-cover tw-w-full tw-order-first tw-border-b-2 tw-boder-solid",
+            "image_classes_mobile": "",
+            "image_wrapper_classes": "tw-flex tw-w-full tw-justify-center",
+            "link_1": "subscription-group-all-classic-prepaid",
+            "link_2": "",
+            "link_3": ""
+          }
+        }
+      },
+      "block_order": [
+        "db9cecf6-4c7b-4d99-b940-5c6dd3dba4ed",
+        "84654adc-f3e3-4954-938c-384dc5d7688e",
+        "7024350a-7ed5-45ed-b8a6-99fd43a9e467"
+      ],
+      "settings": {
+        "outer_wrapper_classes": "tw-relative tw-flex tw-min-h-screen tw-bg-gray-200",
+        "inner_wrapper_classes": "tw-grid tw-mx-auto tw-w-full",
+        "background_image_wrapper_classes": "tw-absolute tw-object-cover tw-z-50",
+        "q_side_wrapper_classes": "tw-pb-10 tw-z-100 tw-relative",
+        "questions_wrapper_classes": "tw-max-w-5xl tw-flex tw-flex-col md:tw-grid md:tw-gap-x-20 tw-grid-cols-2 md:tw-mx-auto md:tw-justify-center md:tw-gap-x-6  md:tw-px-1 lg:tw-px-5 tw-gap-y-4 tw-mt-10",
+        "title": "Choose a design type",
+        "title_classes": "tw-border-b-2 tw-border-solid tw-border-black tw-pb-3 tw-pt-5 tw-text-white tw-text-3xl md:tw-text-4xl tw-text-center tw-bg-magenta-500 tw-font-bebas",
+        "subtitle": "",
+        "subtitle_classes": "tw-text-white tw-text-2xl tw-text-center",
+        "image_side_wrapper_classes": "",
+        "image_side_image_mobile": "",
+        "image_side_image_mobile_classes": "",
+        "image_side_image_desktop": "",
+        "image_side_image_desktop_classes": "",
+        "quiz_dev": ""
+      }
+    },
+    "1643377607440c50ae": {
+      "type": "ob-quiz-q-slide",
+      "blocks": {
+        "9666eeb3-9023-4679-9d27-a70622799e00": {
+          "type": "answer",
+          "settings": {
+            "wrapper_classes": "tw-cursor-pointer md:tw-bg-white tw-flex-col focus:tw-ring-cyan-500 focus:tw-ring tw-items-center tw-border-2 tw-border-solid tw-border-black tw-rounded-md tw-flex tw-flex-col-reverse tw-overflow-hidden",
+            "text_wrapper_classes": "tw-flex tw-flex-col tw-justify-center tw-text-right tw-col-span-2 tw-bg-white tw-py-3 tw-w-full tw-h-full",
+            "next_slide": 9,
+            "quiz_progress": 100,
+            "title": "Adventurous",
+            "title_classes": "tw-text-xl tw-text-black tw-w-full tw-text-center tw-py-2.5 md:tw-py-0 tw-font-bebas",
+            "subtitle": "Our latest BRIGHT PATTERN hot off the press",
+            "subtitle_classes": "tw-font-bebas tw-text-center tw-text-magenta-500 tw-text-xl",
+            "additional_subtitle": "",
+            "additional_subtitle_classes": "tw-text-sm",
+            "image_link": "shopify://shop_images/kim_peregrine_marmalade-min_6474d85f-c1e2-4140-a9a3-139088616041.png",
+            "image_classes": "tw-object-cover tw-w-full tw-order-first tw-border-b-2 tw-boder-solid",
+            "image_classes_mobile": "",
+            "image_wrapper_classes": "tw-flex tw-w-full tw-justify-center",
+            "link_1": "subscription-group-all-adventurous-prepaid",
+            "link_2": "",
+            "link_3": ""
+          }
+        },
+        "38aae1d1-babf-409b-989a-55ee9496737b": {
+          "type": "custom_html",
+          "disabled": true,
+          "settings": {
+            "wrapper_classes": "font-bebas tw-text-white md:tw-text-black tw-py-3 md:tw-pt-10 tw-text-3xl md:tw-text-5xl tw-text-center tw-text-white tw-text-3xl tw-w-full md:tw-w-auto tw-bg-magenta-500 md:tw-bg-transparent md:tw-top-1/3 md:tw-transform md:tw--translate-y-1/2 md:tw--translate-x-1/2 md:tw-left-1/2 md:tw-absolute tw-font-bebas tw-border-t-2 tw-border-b-2 tw-border-solid tw-border-black md:tw-border-0",
+            "custom_html": "<div>OR</div>",
+            "next_slide": 1,
+            "quiz_progress": 10,
+            "link_1": "",
+            "link_2": "",
+            "link_3": ""
+          }
+        },
+        "ffb96402-9e08-4770-aaa6-fc2fb525f8d3": {
+          "type": "answer",
+          "settings": {
+            "wrapper_classes": "tw-cursor-pointer md:tw-bg-white tw-flex-col focus:tw-ring-cyan-500 focus:tw-ring tw-items-center tw-border-2 tw-border-solid tw-border-black tw-rounded-md tw-flex tw-flex-col-reverse tw-overflow-hidden",
+            "text_wrapper_classes": "tw-flex tw-flex-col tw-justify-center tw-text-right tw-col-span-2 tw-bg-white tw-py-3 tw-w-full tw-h-full",
+            "next_slide": 9,
+            "quiz_progress": 100,
+            "title": "Classic",
+            "title_classes": "tw-text-xl tw-text-black tw-w-full tw-text-center tw-py-2.5 md:tw-py-0 tw-font-bebas",
+            "subtitle": "Plain underwear - sometimes in BOLD block colours.",
+            "subtitle_classes": "tw-font-bebas tw-text-center tw-text-magenta-500 tw-text-xl",
+            "additional_subtitle": "",
+            "additional_subtitle_classes": "tw-text-sm",
+            "image_link": "shopify://shop_images/D0B06BEA-BE1A-425E-8822-39CBAE5ED28D-min_54f5d879-6c87-482c-aef1-a00abdc01375.png",
+            "image_classes": "tw-object-cover tw-w-full tw-order-first tw-border-b-2 tw-boder-solid",
+            "image_classes_mobile": "",
+            "image_wrapper_classes": "tw-flex tw-w-full tw-justify-center",
+            "link_1": "subscription-group-all-classic-prepaid",
+            "link_2": "",
+            "link_3": ""
+          }
+        }
+      },
+      "block_order": [
+        "9666eeb3-9023-4679-9d27-a70622799e00",
+        "38aae1d1-babf-409b-989a-55ee9496737b",
+        "ffb96402-9e08-4770-aaa6-fc2fb525f8d3"
+      ],
+      "settings": {
+        "outer_wrapper_classes": "tw-relative tw-flex tw-min-h-screen tw-bg-gray-200",
+        "inner_wrapper_classes": "tw-grid tw-mx-auto tw-w-full",
+        "background_image_wrapper_classes": "tw-absolute tw-object-cover tw-z-50",
+        "q_side_wrapper_classes": "tw-pb-10 tw-z-100 tw-relative",
+        "questions_wrapper_classes": "tw-max-w-5xl tw-flex tw-flex-col md:tw-flex-row md:tw-mx-auto md:tw-justify-center md:tw-gap-x-6 tw-px-5 md:tw-px-1 lg:tw-px-5 tw-gap-y-4 tw-mt-10",
+        "title": "Choose your membership",
+        "title_classes": "tw-border-b-2 tw-border-solid tw-border-black tw-pb-3 tw-pt-5 tw-text-white tw-text-3xl md:tw-text-4xl tw-text-center tw-bg-magenta-500 tw-font-bebas",
+        "subtitle": "",
+        "subtitle_classes": "tw-text-white tw-text-2xl tw-text-center",
+        "image_side_wrapper_classes": "",
+        "image_side_image_mobile": "",
+        "image_side_image_mobile_classes": "",
+        "image_side_image_desktop": "",
+        "image_side_image_desktop_classes": "",
+        "quiz_dev": ""
+      }
+    },
+    "164379901115cf8a74": {
+      "type": "ob-quiz-results-slide",
+      "settings": {
+        "outer_wrapper_classes": "tw-relative tw-flex tw-min-h-screen tw-bg-gray-200",
+        "inner_wrapper_classes": "tw-max-w-7xl tw-mx-auto tw-pt-10",
+        "background_image_wrapper_classes": "tw-absolute tw-object-cover tw-z-50",
+        "q_side_wrapper_classes": "tw-z-100 tw-relative",
+        "questions_wrapper_classes": "tw-flex tw-flex-col tw-px-5 md:tw-px-10",
+        "title": "Finding your perfect subscription",
+        "title_classes": "tw-font-bebas tw-text-black tw-text-4xl tw-text-center",
+        "subtitle": "",
+        "subtitle_classes": "tw-text-white tw-text-2xl tw-text-center",
+        "image_wrapper_classes": "",
+        "image_classes": "tw-h-1/2 tw-mx-auto tw-w-1/2",
+        "image_link": "shopify://shop_images/Spinner-1s-197px_1.gif"
+      }
+    }
+  },
+  "order": [
+    "164362524100194ba8",
+    "quiz-q-slide",
+    "3c78f787-cd60-4294-b5db-bd2ad2c62641",
+    "8bd5b066-b87c-4f75-95f9-e6f698e9cc86",
+    "d32c0f43-b0b5-4a27-a56e-c646795e4e54",
+    "1643366252de09f39d",
+    "164337318837ee35eb",
+    "16433740745e95ea83",
+    "16433683524dd8cedd",
+    "1643377607440c50ae",
+    "164379901115cf8a74"
+  ]
+}

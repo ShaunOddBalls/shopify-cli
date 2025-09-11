@@ -1,0 +1,47 @@
+{% layout none %}<h1 class="text-3xl text-center">Back in stock notification</h1><div class="p-8 pb-12" id="container">
+  <h3 class="font-bebas  text-xl lg:text-xl leading-8  tracking-wider mb-1 leading-6 px-4">{{ product.title }}</h3>
+  <p class="text-gray-500 text-sm">Register to receive a notification when this item comes back in stock.</p>
+  <form action="javascript://" class="form-horizontal clearfix custom-bis-form">
+      <div class="form-group">
+          <div class="relative mt-5">
+              <span class="absolute top-1.5 left-3 text-xs text-gray">Size</span>
+              <input type="hidden" id="product" value="{{ product.id }}">
+              <select id="variants" required class="w-full h-12 px-3 pt-5 text-sm border-2 border-black rounded-md focus:border-magenta-500 focus:outline-none hover:magenta-500 focus:ring-magenta-500 focus:border-magenta-500 focus:outline-none appearance-none" autocorrect="off" autocapitalize="off" autofocus="">
+                  {%  assign bis_count = 0 %}
+                  {%  assign bis_variants = product.variants | where: 'available', false  %}
+                    <option selected="selected" value="-" >
+                      Please select a size
+                    </option>
+                
+                  {%- for variant in bis_variants -%}
+                    {% assign bis_count = bis_count | plus: 1 %}
+                    <option value="{{ variant.id }}">
+                      {{ variant.title }} - {{ variant.price | money | strip_html }}
+                    </option>
+                  {%- endfor -%}
+              </select>
+          </div>
+          <div class="relative mt-5">
+              <span class="absolute top-1.5 left-3 text-xs text-gray">Email</span>
+              <input type="email" required name="customer[email]" id="CustomerEmail" class="w-full h-12 px-3 pt-5 text-sm border-2 border-black rounded-md focus:border-magenta-500 focus:outline-none hover:magenta-500 focus:ring-magenta-500 focus:border-magenta-500 focus:outline-none" autocorrect="off" autocapitalize="off" autofocus="">
+          </div>
+          <div id="newsletter_subscription" class="flex items-center mt-2">
+            
+              <input type="checkbox" id="subscribe_for_newsletter" checked="" class="focus:ring-magenta-500 border-gray-500 h-4 rounded text-magenta-500 top-1 w-4">
+              <label for="subscribe_for_newsletter" class="gray-100 relative text-gray-500 text-sm top-1">Add me to your email list.</label>
+
+          </div>
+      </div>
+      <div class="control-group clearfix submit-container">
+          <button type="submit" class="custom-bis-submit w-full p-4  mt-5 rounded-md uppercase btn-shadow-lg block bg-magenta border-solid border-2 border-md border-black relative font-semibold text-center p-4 text-white hover:bg-magenta-700 transition-colors duration-200">
+               <span class="button-scroll-in custom-bis-text">Notify me when available</span><span class="lazy-preloader custom-bis-preloader hidden" aria-hidden="true"><svg class="circular-loader" viewBox="25 25 50 50"><circle class="loader-path" cx="50" cy="50" r="20" fill="none" stroke-width="4"></circle></svg></span>
+          </button>
+      </div>
+      <div id="error_message" class="error_message alert alert-danger hidden">
+      </div>
+      <div id="completed_message" class="completed_message alert alert-success hidden -mb-3 bg-green-100 mt-6 rounded-md">
+          You're in! We'll let you know when it's back.
+      </div>
+  </form>
+  <p class="small-print"></p>
+</div>

@@ -1,0 +1,242 @@
+{%- assign blog = blogs[section.settings.blog_handle] -%}
+
+<div style="z-index: 1" class="relative -mt-12 mb-3 px-4" 
+     style="background-color: {{ section.settings.section_background_color | default: 'transparent' }};">
+  <div class="max-w-2xl mx-auto">
+    
+    
+    {%- if section.blocks.size > 0 -%}
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4">
+        {%- for block in section.blocks -%}
+          <div class="group" {{ block.shopify_attributes }}>
+              <button onclick="scrollToCategory('{{ block.settings.category_id }}')" 
+                      class="w-full hover:bg-blue-50 border-2 border-gray-200 hover:border-blue-300 rounded-xl p-6 transition-all duration-300 shadow-sm hover:shadow-lg transform hover:-translate-y-1"
+                      style="background-color: {{ section.settings.card_background_color | default: '#ffffff' }};">
+              
+              {%- comment -%} Icon {%- endcomment -%}
+              <div class="flex justify-center mb-4">
+                {%- case block.settings.icon -%}
+                  {%- when 'truck' -%}
+                    <svg class="w-8 h-8 text-blue-600 group-hover:text-blue-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h10l2 4h6v10H3V3z"/>
+                      <circle cx="7" cy="17" r="2"/>
+                      <circle cx="17" cy="17" r="2"/>
+                    </svg>
+                  {%- when 'refresh' -%}
+                    <svg class="w-8 h-8 text-green-600 group-hover:text-green-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                    </svg>
+                  {%- when 'credit-card' -%}
+                    <svg class="w-8 h-8 text-purple-600 group-hover:text-purple-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
+                    </svg>
+                  {%- when 'user' -%}
+                    <svg class="w-8 h-8 text-orange-600 group-hover:text-orange-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                    </svg>
+                  {%- when 'help' -%}
+                    <svg class="w-8 h-8 text-red-600 group-hover:text-red-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                  {%- when 'settings' -%}
+                    <svg class="w-8 h-8 text-gray-600 group-hover:text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                    </svg>
+                  {%- else -%}
+                    <svg class="w-8 h-8 text-blue-600 group-hover:text-blue-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                    </svg>
+                {%- endcase -%}
+              </div>
+              
+                {%- comment -%} Category Name {%- endcomment -%}
+                <h3 class="text-lg font-semibold text-gray-900 group-hover:text-blue-700 transition-colors duration-200 mb-1">
+                  {{ block.settings.category_name }}
+                </h3>
+                
+                {%- comment -%} Description {%- endcomment -%}
+                {%- if block.settings.description != blank -%}
+                  <p class="text-sm text-gray-500 mb-3">{{ block.settings.description }}</p>
+                {%- endif -%}
+                
+              </button>
+            </div>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+<script>
+function scrollToCategory(categoryId) {
+  // Find the FAQ section by its ID
+  const categoryElement = document.querySelector(`#faq-section-${categoryId}`);
+  
+  if (categoryElement) {
+    const headerOffset = 100; // Account for any fixed headers
+    const elementPosition = categoryElement.getBoundingClientRect().top;
+    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: 'smooth'
+    });
+    
+    // Briefly highlight the section
+    categoryElement.classList.add('bg-blue-50');
+    setTimeout(() => {
+      categoryElement.classList.remove('bg-blue-50');
+    }, 2000);
+  }
+}
+</script>
+
+{% schema %}
+{
+  "name": "FAQ Category Navigation",
+  "class": "faq-category-nav-section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_title",
+      "label": "Show section title",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section title",
+      "default": "Browse by Category"
+    },
+    {
+      "type": "blog",
+      "id": "blog_handle",
+      "label": "FAQ Blog",
+      "info": "Select the blog containing your FAQ articles"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_article_count",
+      "label": "Show article count per category",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "section_background_color",
+      "label": "Section Background Color",
+      "default": "transparent"
+    },
+    {
+      "type": "color",
+      "id": "card_background_color",
+      "label": "Navigation Card Background Color",
+      "default": "#ffffff"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "category_link",
+      "name": "Category Link",
+      "settings": [
+        {
+          "type": "text",
+          "id": "category_id",
+          "label": "Category ID",
+          "info": "Must match the Category ID in the corresponding FAQ Content section (e.g. 'shipping', 'returns')",
+          "default": "general"
+        },
+        {
+          "type": "text",
+          "id": "category_name",
+          "label": "Category Display Name",
+          "info": "The name shown on the navigation card",
+          "default": "General Questions"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "Description (Optional)",
+          "info": "Short description shown under the category name"
+        },
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "default": "help",
+          "options": [
+            {
+              "value": "truck",
+              "label": "Shipping/Delivery"
+            },
+            {
+              "value": "refresh",
+              "label": "Returns/Exchanges"
+            },
+            {
+              "value": "credit-card",
+              "label": "Payment/Billing"
+            },
+            {
+              "value": "user",
+              "label": "Account/User"
+            },
+            {
+              "value": "help",
+              "label": "Help/Support"
+            },
+            {
+              "value": "settings",
+              "label": "Settings/General"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ Category Navigation",
+      "category": "FAQ",
+      "blocks": [
+        {
+          "type": "category_link",
+          "settings": {
+            "category_id": "shipping",
+            "category_name": "Shipping & Delivery",
+            "description": "Delivery times and shipping info",
+            "icon": "truck"
+          }
+        },
+        {
+          "type": "category_link",
+          "settings": {
+            "category_id": "returns",
+            "category_name": "Returns & Exchanges",
+            "description": "Return policy and exchanges",
+            "icon": "refresh"
+          }
+        },
+        {
+          "type": "category_link",
+          "settings": {
+            "category_id": "payment",
+            "category_name": "Payment & Billing",
+            "description": "Payment methods and billing",
+            "icon": "credit-card"
+          }
+        },
+        {
+          "type": "category_link",
+          "settings": {
+            "category_id": "account",
+            "category_name": "Account & Orders",
+            "description": "Managing your account",
+            "icon": "user"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

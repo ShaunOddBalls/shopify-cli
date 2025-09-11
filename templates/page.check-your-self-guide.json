@@ -1,0 +1,165 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "sections": {
+    "check-yourself-content": {
+      "type": "ob-check-yourself-content",
+      "blocks": {
+        "be2fd86d-3290-4f9a-b066-c3c8a837675f": {
+          "type": "fact-content",
+          "settings": {
+            "content": "The earlier testicular cancer is diagnosed the better the chance of cure."
+          }
+        },
+        "d3c8c6ee-2497-47a7-bf31-244314c2c588": {
+          "type": "fact-content",
+          "settings": {
+            "content": "It is important to get to know your testicles and what they feel like."
+          }
+        },
+        "3ecf5d8d-2f6a-4a19-9249-bf3467bd30d7": {
+          "type": "fact-content",
+          "settings": {
+            "content": "A testicular cancer lump is not usually sore."
+          }
+        },
+        "6223acf9-131e-4b51-ad8c-e1d3b24334a9": {
+          "type": "fact-content",
+          "settings": {
+            "content": "Testicular cancer lumps usually feel hard and craggy."
+          }
+        },
+        "6f08adb4-b1e9-4081-947c-95b6148a7e95": {
+          "type": "fact-content",
+          "settings": {
+            "content": "Testicular cancer is the commonest cancer amongst males aged between 15 and 45."
+          }
+        },
+        "8cc62975-808d-456c-af4a-3b994f6eb15d": {
+          "type": "fact-content",
+          "settings": {
+            "content": "The earlier testicular cancer is diagnosed the better the chance of cure."
+          }
+        },
+        "9344b7b7-20c8-499f-94ea-2d4f1b928510": {
+          "type": "fact-content",
+          "settings": {
+            "content": "All males over 15 should check their testicles once a month."
+          }
+        },
+        "24eb59ca-efc8-412c-b6b3-db828b916481": {
+          "type": "fact-content",
+          "settings": {
+            "content": "Don't ever be embarrassed to check your testicles."
+          }
+        },
+        "bbef2ce8-4d03-49ac-a9eb-293df079e1b9": {
+          "type": "fact-content",
+          "settings": {
+            "content": "Although testicular cancer is commoner in younger men it can occur, rarely, over age 45."
+          }
+        },
+        "c9069e01-506d-4674-bce5-a24a313b9caa": {
+          "type": "fact-content",
+          "settings": {
+            "content": "95 % of testicular cancers are curable."
+          }
+        },
+        "8f9f51d9-713e-4558-a59f-ac3911de3c15": {
+          "type": "fact-content",
+          "settings": {
+            "content": "Collection and storage of sperm prior to treatment allows for future fertility."
+          }
+        },
+        "14dfff53-b2e3-4118-98ff-cce1cb58a30f": {
+          "type": "fact-content",
+          "settings": {
+            "content": "It is quite normal for one testicle to be bigger than the other."
+          }
+        },
+        "460f19d6-0656-4efb-a262-78a28d69d8e5": {
+          "type": "fact-content",
+          "settings": {
+            "content": "Chemotherapy is a very successful treatment of testicular cancer."
+          }
+        },
+        "e2a01aea-31c2-4293-a58d-bf39d646a6db": {
+          "type": "fact-content",
+          "settings": {
+            "content": "If a testicle has to be removed a prosthetic one can be inserted in its place."
+          }
+        },
+        "2dcc1d38-6d46-4a48-b3c1-f2e6d121b30d": {
+          "type": "fact-content",
+          "settings": {
+            "content": "A lump in the scrotum does not automatically mean testicular cancer, there are several other causes of testicular swelling."
+          }
+        },
+        "9b69077f-3ec4-43f5-8948-9fe9e2ed40ab": {
+          "type": "fact-content",
+          "settings": {
+            "content": "If you find a lump in your testicle contact your GP straight away."
+          }
+        },
+        "d2cedf62-f90a-48e2-b351-3f0ba764fe90": {
+          "type": "fact-content",
+          "settings": {
+            "content": "A painful testicle is usually due to another cause than testicular cancer, but still needs checked by your doctor."
+          }
+        },
+        "7c2a33e4-36b1-4c12-aa7c-a110937feec7": {
+          "type": "fact-content",
+          "settings": {
+            "content": "A very acute severe pain in the testicle needs an emergency referral to hospital because it could be a twisted testicle."
+          }
+        },
+        "64381cb1-7596-46db-b3f2-b3da85293843": {
+          "type": "fact-content",
+          "settings": {
+            "content": "Over 90 % of testicular swellings are caused by other conditions such as a hyrdocele or epididymitis."
+          }
+        },
+        "8c1c8fb4-8080-46a5-b329-bf052edd37b0": {
+          "type": "fact-content",
+          "settings": {
+            "content": "As testicular cancer is around 95 % curable early diagnosis and regular checking is important."
+          }
+        }
+      },
+      "block_order": [
+        "be2fd86d-3290-4f9a-b066-c3c8a837675f",
+        "d3c8c6ee-2497-47a7-bf31-244314c2c588",
+        "3ecf5d8d-2f6a-4a19-9249-bf3467bd30d7",
+        "6223acf9-131e-4b51-ad8c-e1d3b24334a9",
+        "6f08adb4-b1e9-4081-947c-95b6148a7e95",
+        "8cc62975-808d-456c-af4a-3b994f6eb15d",
+        "9344b7b7-20c8-499f-94ea-2d4f1b928510",
+        "24eb59ca-efc8-412c-b6b3-db828b916481",
+        "bbef2ce8-4d03-49ac-a9eb-293df079e1b9",
+        "c9069e01-506d-4674-bce5-a24a313b9caa",
+        "8f9f51d9-713e-4558-a59f-ac3911de3c15",
+        "14dfff53-b2e3-4118-98ff-cce1cb58a30f",
+        "460f19d6-0656-4efb-a262-78a28d69d8e5",
+        "e2a01aea-31c2-4293-a58d-bf39d646a6db",
+        "2dcc1d38-6d46-4a48-b3c1-f2e6d121b30d",
+        "9b69077f-3ec4-43f5-8948-9fe9e2ed40ab",
+        "d2cedf62-f90a-48e2-b351-3f0ba764fe90",
+        "7c2a33e4-36b1-4c12-aa7c-a110937feec7",
+        "64381cb1-7596-46db-b3f2-b3da85293843",
+        "8c1c8fb4-8080-46a5-b329-bf052edd37b0"
+      ],
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "check-yourself-content"
+  ]
+}

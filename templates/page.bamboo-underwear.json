@@ -1,0 +1,437 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "ob_text_video_slider_3kxTVp": {
+      "type": "ob-text-video-slider",
+      "settings": {
+        "handle": "bamboo-page-hero",
+        "section_wrapper_classes": "relative",
+        "cta-setting": true,
+        "position": "start",
+        "title": "Why Bamboo",
+        "title-text-classes": "text-3xl md:text-6xl capitalize dbl-cta-title pb-3 marujo text-black",
+        "title-text-postion": "left",
+        "title-text-size": 30,
+        "title-color": "",
+        "desktop-title-text-size": 37,
+        "paragragh": "Soft on your skin and kinder  to the planet embrace conscious  comfort with  our bamboo basics",
+        "p-classes": "",
+        "paragraph-text-postion": "left",
+        "paragragh-font-size": 12,
+        "paragraph-color": "",
+        "desktop-paragraph-text-size": 16,
+        "btn-one-text": "Shop Bamboo",
+        "btn-one-classes": "8 relative p-2 rounded-full uppercase btn-shadow-lg block border-solid border-2 border-md border-black text-black font-semibold text-center  transition-colors duration-200",
+        "btn-1-url": "https://www.myoddballs.com/collections/bamboo-underwear",
+        "btn-one-color": "#f6ebe3",
+        "btn-one-bg-color": "#000000",
+        "btn-two-text": "",
+        "btn-two-classes": "px-8 relative p-2 rounded-md uppercase btn-shadow-lg block border-solid border-2 border-md border-black text-black font-semibold text-center  transition-colors duration-200",
+        "btn-2-url": "",
+        "btn-two-color": "#000000",
+        "btn-two-bg-color": "#ffffff",
+        "button-postion": "start"
+      }
+    },
+    "klaviyo_forms_eGaQYL": {
+      "type": "ob-klaviyo-forms",
+      "blocks": {
+        "form_GCiDWU": {
+          "type": "form",
+          "settings": {
+            "country_iso": "*",
+            "slide_active": true,
+            "title": "Black Friday Sign Up",
+            "klaviyo_id": "SJGfXA",
+            "html_id": "",
+            "wrapper_classes": "",
+            "url_handle": "black-friday",
+            "not_url_handle": "",
+            "domains": "*",
+            "device": "all",
+            "customers": "all"
+          }
+        }
+      },
+      "block_order": [
+        "form_GCiDWU"
+      ],
+      "settings": {
+        "section_width": "full",
+        "custom_width": ""
+      }
+    },
+    "1b716c4e-2777-4dce-9fde-909f14717745": {
+      "type": "ob-mosaic-hero",
+      "blocks": {
+        "338cb97d-a620-4e1f-8352-1286cfc2d41b": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/EcoFriendly.png",
+            "img-overlay": "",
+            "img-class-list": "cover",
+            "button-text": "",
+            "button_link": "",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "collection_block_HEkifX": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/Comfort.png",
+            "img-overlay": "",
+            "img-class-list": "cover",
+            "button-text": "",
+            "button_link": "",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "collection_block_4Lt3CY": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/Moisture.png",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "",
+            "button_link": "",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "collection_block_DFttRV": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/Hypoallergenic.png",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "",
+            "button_link": "",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        }
+      },
+      "block_order": [
+        "338cb97d-a620-4e1f-8352-1286cfc2d41b",
+        "collection_block_HEkifX",
+        "collection_block_4Lt3CY",
+        "collection_block_DFttRV"
+      ],
+      "custom_css": [
+        ".cover {object-fit: cover; width: 100%; height: 100%;}",
+        ".btn-max-width {max-width: 500px;}",
+        ".z-index-1 {z-index: 1;}",
+        ".z-index-2 {z-index: 2;}",
+        ".gradient {background: linear-gradient( 0deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0) 100% );}",
+        ".grid-item {min-width: 45vw;}",
+        "@media (min-width: 1080px) {.grid-item {min-width: 24vw; }}",
+        ".gradient {display: none;}"
+      ],
+      "settings": {
+        "mosaic-container": "grid grid-cols-2 md:grid-cols-4 justify-items-center   overflow-y-hidden  md:gap-2 gap-2 mt-3",
+        "all-block-outer-class": "relative inline-block w-  lg:w-60 lg:h-60 xl:w-full xl:h-full md:w-full md:h-full",
+        "all-image-class": "cover",
+        "img-overlay": "h-1/2 w-full gradient absolute bottom-0 left-0 z-index-1",
+        "all-button-class": "hidden"
+      }
+    },
+    "trustpilot_product_reviews_carousel_gAmkqD": {
+      "type": "ob-trustpilot-product-reviews-carousel",
+      "settings": {
+        "widget_active": true,
+        "wrapper_classes": "border-b-2  montserrat text-lunar-green-700",
+        "inner_classes": "max-w-7xl mx-auto py-10 px-2",
+        "title_classes": "",
+        "title_text": "",
+        "sku": [
+          "black-ladies-bamboo-boxers",
+          "black-white-mens-bamboo-boxer-shorts",
+          "chilled-bundle-mens-bamboo-boxer-shorts-3-pack-bundle",
+          "classic-black-bundle-mens-bamboo-boxer-shorts-6-pack-bundle",
+          "enchanted-mens-bamboo-boxer-shorts",
+          "fat-cow-ladies-bamboo-boxers",
+          "fat-cow-mens-bamboo-boxer-shorts",
+          "filthy-animal-ladies-bamboo-boxers",
+          "filthy-animal-mens-bamboo-boxer-shorts",
+          "floral-bundle-ladies-bamboo-boxer-shorts-3-pack-bundle",
+          "galaxy-bundle-mens-bamboo-boxer-shorts-3-pack-bundle",
+          "hibiscus-ladies-bamboo-boxers",
+          "jurassic-mens-bamboo-boxer-shorts",
+          "womens-bamboo-boxer-shorts-free-socks-monthly-subscription-g2",
+          "magic-garden-ladies-bamboo-boxers",
+          "bamboo-classic-bundle-mens-bamboo-boxer-shorts-3-pack-bundle",
+          "hibiscus-mens-bamboo-boxer-shorts",
+          "magic-garden-mens-bamboo-boxer-shorts",
+          "marmalade-ladies-bamboo-boxers",
+          "marmalade-mens-bamboo-boxer-shorts",
+          "mens-bamboo-boxer-shorts-free-socks-monthly-subscription",
+          "mystic-bundle-mens-bamboo-boxer-shorts-3-pack-bundle",
+          "ripple-ladies-bamboo-boxers",
+          "ripple-mens-bamboo-boxer-shorts",
+          "space-balls-ladies-bamboo-boxers",
+          "space-balls-mens-bamboo-boxer-shorts"
+        ]
+      }
+    },
+    "collection_product_slider_zNbgMT": {
+      "type": "ob-collection-product-slider",
+      "disabled": true,
+      "custom_css": [],
+      "settings": {
+        "collection": "bamboo-underwear",
+        "product_list": [],
+        "title": "Shop our Bamboo Best Sellers",
+        "wrapper_class": "bamboo-best-sellers",
+        "text_class": "text-3xl md:text-4xl text-center col-span-2 md:col-span-3  montserrat-black text-lunar-green-700"
+      }
+    },
+    "ob_collection_slider_old_qkw6jr": {
+      "type": "ob-collection-slider-old",
+      "settings": {
+        "collection": "bamboo-underwear",
+        "product_list": [],
+        "title": "",
+        "wrapper_class": "",
+        "text_class": "typography--title-five uppercase mb-8 mx-auto text-center"
+      }
+    },
+    "ob_text_video_slider_U4azVG": {
+      "type": "ob-text-video-slider",
+      "settings": {
+        "handle": "bamboo-mid-page-hero",
+        "section_wrapper_classes": "relative",
+        "cta-setting": true,
+        "position": "start",
+        "title": "Ready To Switch",
+        "title-text-classes": "text-3xl md:text-6xl capitalize dbl-cta-title pb-3 marujo",
+        "title-text-postion": "left",
+        "title-text-size": 28,
+        "title-color": "",
+        "desktop-title-text-size": 45,
+        "paragragh": "",
+        "p-classes": "",
+        "paragraph-text-postion": "left",
+        "paragragh-font-size": 13,
+        "paragraph-color": "",
+        "desktop-paragraph-text-size": 21,
+        "btn-one-text": "Men's Bamboo",
+        "btn-one-classes": "px-8 relative p-2 rounded-full uppercase btn-shadow-lg block border-solid border-2 border-md border-black text-black font-semibold text-center  transition-colors duration-200 text-nowrap",
+        "btn-1-url": "https://www.myoddballs.com/collections/bamboo-boxer-shorts",
+        "btn-one-color": "#121212",
+        "btn-one-bg-color": "",
+        "btn-two-text": "Women's Bamboo",
+        "btn-two-classes": "px-6 relative p-2 rounded-full uppercase btn-shadow-lg block border-solid border-2 border-md border-black text-black font-semibold text-center  transition-colors duration-200 text-nowrap",
+        "btn-2-url": "https://www.myoddballs.com/collections/womens-bamboo",
+        "btn-two-color": "#f6ebe3",
+        "btn-two-bg-color": "#000",
+        "button-postion": "start"
+      }
+    },
+    "tabs_and_blocks_EqDnP4": {
+      "type": "tabs-and-blocks",
+      "blocks": {
+        "content_faq_Y3zKQX": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "my-4 col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-white overflow-hidden bg-white",
+            "id": "",
+            "title": "Bamboo vs Cotton Underwear",
+            "title_text": "Bamboo vs Cotton Underwear",
+            "block_title_classes": "w-full  bg-white px-8 pt-5 pb-3 text-l md:text-2xl font-medium leading-7 md:leading-5 text-left text-lunar-green-700 montserrat-black",
+            "description": "<br>Choosing between bamboo and cotton underwear depends on your preferences and needs. Bamboo underwear is best for its softness, breathability, and moisture-wicking properties, making it ideal for sensitive skin and active lifestyles. It also has natural antibacterial qualities and is environmentally sustainable. On the other hand, cotton underwear is known for its durability, availability, and comfort.",
+            "block_description_classes": "px-8 pb-5 text-l leading-6 text-lunar-green-700 montserrat bg-white"
+          }
+        },
+        "content_faq_6PK76U": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "my-4 col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-white overflow-hidden bg-white",
+            "id": "",
+            "title": "How do you wash bamboo underwear?",
+            "title_text": "How do you wash bamboo underwear?",
+            "block_title_classes": "w-full  bg-white px-8 pt-5 pb-3 text-l md:text-2xl font-medium leading-7 md:leading-5 text-left text-lunar-green-700 montserrat-black",
+            "description": "<br>Bamboo is very easy to care for in the washing machine as it stays fresher for longer so you may not need to wash it as often. If you are looking to make an impact on your garments carbon footprint you could wash and recycle your clothes by: \n\n•\tWash them at lower temperatures – wash at 30\n•\tDry on the line – by drying your garments on the line you can reduce your carbon footprint by 75%",
+            "block_description_classes": "px-8 pb-5 text-l leading-6 text-lunar-green-700 montserrat bg-white"
+          }
+        },
+        "content_faq_YQXyzj": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "my-4 col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-white overflow-hidden bg-white",
+            "id": "",
+            "title": "How durable is bamboo underwear?",
+            "title_text": "How durable is bamboo underwear?",
+            "block_title_classes": "w-full  bg-white px-8 pt-5 pb-3 text-l md:text-2xl font-medium leading-7 md:leading-5 text-left text-lunar-green-700 montserrat-black",
+            "description": "<br>Bamboo underwear is known for its durability due to the strong fibres from bamboo plants. It holds up well to regular wear and washing, maintaining its shape and softness over time.",
+            "block_description_classes": "px-8 pb-5 text-l leading-6 text-lunar-green-700 montserrat bg-white"
+          }
+        },
+        "content_faq_PDL8AH": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "my-4 col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-white overflow-hidden bg-white",
+            "id": "",
+            "title": "Are chemicals used in the growing of bamboo?",
+            "title_text": "Are chemicals used in the growing of bamboo?",
+            "block_title_classes": "w-full  bg-white px-8 pt-5 pb-3 text-l md:text-2xl font-medium leading-7 md:leading-5 text-left text-lunar-green-700 montserrat-black",
+            "description": "<br>One of the main benefits of bamboo is that is that chemicals such as pesticides and fertilisers, aren’t needed for it to grow, it only needs rainfall.",
+            "block_description_classes": "px-8 pb-5 text-l leading-6 text-lunar-green-700 montserrat bg-white"
+          }
+        },
+        "content_faq_qm6biD": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "my-4 col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-white overflow-hidden bg-white",
+            "id": "",
+            "title": "How does bamboo become fabric?",
+            "title_text": "How does bamboo become fabric?",
+            "block_title_classes": "w-full  bg-white px-8 pt-5 pb-3 text-l md:text-2xl font-medium leading-7 md:leading-5 text-left text-lunar-green-700 montserrat-black",
+            "description": "<br>The bamboo stalks are first cut and harvested, ready to be broken down where the bamboo get crushed mechanically to be broken down into cellulose. The cellulose is then dissolved into a solvent to create a liquid. The liquid is then extruded through the spinnerets to form fibres, whereby the fibres are then spun into yarn. Finally, the yarn is then woven or knitted into fabric.",
+            "block_description_classes": "px-8 pb-5 text-l leading-6 text-lunar-green-700 montserrat bg-white"
+          }
+        },
+        "content_faq_9qBeVh": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "my-4 col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-white overflow-hidden bg-white",
+            "id": "",
+            "title": "Is bamboo underwear good for sensitive skin?",
+            "title_text": "Is bamboo underwear good for sensitive skin?",
+            "block_title_classes": "w-full  bg-white px-8 pt-5 pb-3 text-l md:text-2xl font-medium leading-7 md:leading-5 text-left text-lunar-green-700 montserrat-black",
+            "description": "<br>Yes, bamboo underwear is generally considered good for sensitive skin. Bamboo fabric is naturally hypoallergenic, which means it is less likely to cause allergic reactions or irritation. It is also very soft and smooth, making it gentle on the skin.",
+            "block_description_classes": "px-8 pb-5 text-l leading-6 text-lunar-green-700 montserrat bg-white"
+          }
+        },
+        "content_faq_pCTzBG": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "my-4 col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-white overflow-hidden bg-white",
+            "id": "",
+            "title": "Is bamboo underwear good for hot weather?",
+            "title_text": "Is bamboo underwear good for hot weather?",
+            "block_title_classes": "w-full  bg-white px-8 pt-5 pb-3 text-l md:text-2xl font-medium leading-7 md:leading-5 text-left text-lunar-green-700 montserrat-black",
+            "description": "<br>Bamboo fabric is breathable and has excellent moisture-wicking properties, which means it helps to keep you cool and dry by wicking away sweat and allowing for better air circulation.",
+            "block_description_classes": "px-8 pb-5 text-l leading-6 text-lunar-green-700 montserrat bg-white"
+          }
+        },
+        "content_faq_yVqNNV": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "my-4 col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-white overflow-hidden bg-white",
+            "id": "",
+            "title": "Does bamboo underwear absorb sweat?",
+            "title_text": "Does bamboo underwear absorb sweat?",
+            "block_title_classes": "w-full  bg-white px-8 pt-5 pb-3 text-l md:text-2xl font-medium leading-7 md:leading-5 text-left text-lunar-green-700 montserrat-black",
+            "description": "<br>Yes, bamboo underwear is known for its moisture-wicking properties, which means it effectively absorbs and draws moisture (like sweat) away from the skin. Bamboo fabric has micro-gaps that allow for better ventilation and moisture absorption. This helps to keep you feeling dry and comfortable throughout the day.",
+            "block_description_classes": "px-8 pb-5 text-l leading-6 text-lunar-green-700 montserrat bg-white"
+          }
+        },
+        "content_faq_CxYaDL": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "my-4 col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-white overflow-hidden bg-white",
+            "id": "",
+            "title": "Is bamboo underwear antibacterial?",
+            "title_text": "Is bamboo underwear antibacterial?",
+            "block_title_classes": "w-full  bg-white px-8 pt-5 pb-3 text-l md:text-2xl font-medium leading-7 md:leading-5 text-left text-lunar-green-700 montserrat-black",
+            "description": "<br>Bamboo fabric contains an antimicrobial bio-agent which stops the growth of bacteria on the fabric. This reduces odour-causing bacteria so you tend to stay fresher and more odor-free. The antibacterial nature of bamboo fabric makes it a popular choice for those seeking underwear that promotes freshness and hygiene.",
+            "block_description_classes": "px-8 pb-5 text-l leading-6 text-lunar-green-700 montserrat bg-white"
+          }
+        },
+        "content_faq_3jnb7Q": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "my-4 col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-white overflow-hidden bg-white",
+            "id": "",
+            "title": "What are the main benefits of bamboo underwear?",
+            "title_text": "What are the main benefits of bamboo underwear?",
+            "block_title_classes": "w-full  bg-white px-8 pt-5 pb-3 text-l md:text-2xl font-medium leading-7 md:leading-5 text-left text-lunar-green-700 montserrat-black",
+            "description": "<br> 1. Eco-friendly - bamboo is sustainably sourced without the need for pesticides \n\n2. Moisture Wicking - bamboo fabric pulls moisture away from the skin, keeping you dry and comfortable\n\n3. Breathable - it's natural properties allow for great airflow, reducing sweat and overheating\n\n4. Ultra Soft - bamboo fabric is incredibly smooth on gentle on the skin \n\n5. Antibacterial - bamboo contains a natural antimicrobial agent that slows down the growth of bacteria and odours",
+            "block_description_classes": "px-8 pb-5 text-l leading-6 text-lunar-green-700 montserrat bg-white"
+          }
+        }
+      },
+      "block_order": [
+        "content_faq_Y3zKQX",
+        "content_faq_6PK76U",
+        "content_faq_YQXyzj",
+        "content_faq_PDL8AH",
+        "content_faq_qm6biD",
+        "content_faq_9qBeVh",
+        "content_faq_pCTzBG",
+        "content_faq_yVqNNV",
+        "content_faq_CxYaDL",
+        "content_faq_3jnb7Q"
+      ],
+      "custom_css": [
+        ".bg-linen-100,.tw-bg-linen-100 {background-color: #f6ebe3;}"
+      ],
+      "settings": {
+        "outer_wrapper_attr": "data-attribute for linking section content",
+        "outer_wrapper_classes": "2xl:mx-auto py-12 lg:px-20 md:px-6 px-4 bg-linen-100 mt-10",
+        "inner_wrapper_classes": "grid grid-cols-12 gap-6",
+        "header_wrapper_classes": "col-span-12 flex flex-col justify-center items-center text-center space-y-4 text-lunar-green-700",
+        "all_tabs_wrapper_classes": "",
+        "content_wrapper_classes": "col-span-12 mt-16 grid grid-cols-12 gap-y-8",
+        "option_menu_selected": false,
+        "title": "BAMBOO FAQs",
+        "title_classes": "text-3xl lg:text-4xl leading-9 md:leading-7 lg:leading-9 text-lunar-green-700  montserrat-black",
+        "description": "",
+        "description_classes": "text-base leading-6 text-centertext-lunar-green-700  w-full md:w-10/12"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "ob_text_video_slider_3kxTVp",
+    "klaviyo_forms_eGaQYL",
+    "1b716c4e-2777-4dce-9fde-909f14717745",
+    "trustpilot_product_reviews_carousel_gAmkqD",
+    "collection_product_slider_zNbgMT",
+    "ob_collection_slider_old_qkw6jr",
+    "ob_text_video_slider_U4azVG",
+    "tabs_and_blocks_EqDnP4"
+  ]
+}

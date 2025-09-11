@@ -1,0 +1,85 @@
+{% schema %}
+{
+  "name": "Autoplay UGC Video",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Autoplay UGC Video Section"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "video_block",
+      "name": "Video Block",
+      "settings": [
+        {
+          "type": "video",
+          "id": "video_file",
+          "label": "Video File"
+        },
+        
+      ]
+    },
+    {
+      "type": "image_picker",
+      "name": "Image Block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image_file",
+          "label": "image"
+        },
+        
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Autoplay UGC Video",
+      "settings": {
+        "title": "Autoplay UGC Video Section"
+      }
+    }
+  ]
+}
+{% endschema %}
+<script type="text/javascript" src="{{'ugc-autoplay.js'| asset_url}}" defer></script>
+{% assign counter = 0 %}
+{% capture stuff %}
+  {% for block in section.blocks %}
+    {% assign counter = counter | plus: 1 %}
+    {% if block.type == "video_block" %}
+    <div class="ugc-slider-section" >
+          {{ block.settings.video_file | video_tag: autoplay:false, controls: false, muted:true, class:"object-cover w-full h-full" }}
+    </div>
+    {% endif %}
+    {% if block.type == "image_picker" %}
+      <div class="ugc-slider-section" style="">
+        {{ block.settings.image_file | media_tag: class:"object-cover w-full h-full", image_size: '200x' }}
+      </div>
+    {% endif %}
+  {% endfor %}
+{% endcapture %}
+<div id="ugc-wrapper" class="flex md:grid md:grid-cols-{{ counter }} " style="max-width:100vw; overflow:auto;">
+  {{ stuff }}
+</div>
+
+<style>
+  .ugc-slider-section{
+    height:340px;
+    max-width:50vw;
+    width:50vw;
+    min-width:50vw;
+  }
+
+  @media(min-width:1024px){
+    .ugc-slider-section{
+      height:100%;
+      max-width:100%;
+      width:100%;
+      min-width:100%;
+    }
+  }
+</style>

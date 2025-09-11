@@ -1,0 +1,347 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "5d5f3373-9d53-4f8f-92f8-8c045d8301d1": {
+      "type": "ob-image-text-grid",
+      "blocks": {
+        "74e7acfa-b82d-4f31-9e04-2ae2c5f93c22": {
+          "type": "image-and-text",
+          "settings": {
+            "country_iso": "*",
+            "title": "",
+            "block_wrapper_classes": "col-span-12 flex justify-center  px-4 items-center text-center relative",
+            "block_title": "",
+            "title_classes": "text",
+            "description": "<h2 class=\"marujo text-4xl max-w-5xl\">Men's Underwear</h2>\n\n<br>\n\n<p class=\"text-md lg:text-lg max-w-5xl mx-aut\">\nFind the perfect pair for everyone! Choose from our bright patterns, official licensed and sports underwear and charity partnership underwear. All made in our SUPER comfy premium cotton.\n</p>",
+            "description_classes": "",
+            "svg": ""
+          }
+        }
+      },
+      "block_order": [
+        "74e7acfa-b82d-4f31-9e04-2ae2c5f93c22"
+      ],
+      "settings": {
+        "outer_wrapper_classes": "relative pb-6",
+        "inner_wrapper_classes": "col-span-12 flex justify-center  py-3 px-4 items-center text-center",
+        "grid_wrapper_classes": "",
+        "title": "",
+        "title_classes": "text-center text-base font-semibold uppercase text-gray-600 tracking-wider",
+        "section_bg_colour": "",
+        "block_bg_colour": "",
+        "block_bg_colour_hover": "",
+        "block_text_colour": "",
+        "block_text_colour_hover": "",
+        "block_image_classes": "",
+        "block_svg_classes": "",
+        "custom_css": ""
+      }
+    },
+    "289ab40a-57e7-4538-a246-879f383aad57": {
+      "type": "ob-trust-pilot-widget",
+      "settings": {
+        "outer_wrapper_classes": "border-blackblend-divide mt-3 mb-2 md:mb-1",
+        "wrapper_classes": "max-w-7xl mx-auto",
+        "widget_header": "",
+        "widget_header_classes": "",
+        "widget_subheader": "",
+        "widget_subheader_classes": "",
+        "widget_code": "<!-- TrustBox widget - Micro Combo -->\n<div class=\"trustpilot-widget\" data-locale=\"en-GB\" data-template-id=\"5419b6ffb0d04a076446a9af\" data-businessunit-id=\"5c7f9459871dac0001ea0238\" data-style-height=\"40px\" data-style-width=\"100%\" data-theme=\"light\">\n  <a href=\"https://uk.trustpilot.com/review/myoddballs.com\" target=\"_blank\" rel=\"noopener\">Trustpilot</a>\n</div>\n<!-- End TrustBox widget -->",
+        "widget_wrapper_classes": "",
+        "use_microcombo": false
+      }
+    },
+    "1b716c4e-2777-4dce-9fde-909f14717745": {
+      "type": "ob-mosaic-hero",
+      "blocks": {
+        "338cb97d-a620-4e1f-8352-1286cfc2d41b": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "",
+            "image": "shopify://shop_images/mens_boxers_bd3aeb50-ada7-4dd6-84fd-d061a2878000.png",
+            "img-overlay": "",
+            "img-class-list": "cover",
+            "button-text": "Boxer Shorts",
+            "button_link": "shopify://collections/him-individuals",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "dff9b96c-6826-48aa-90a7-5f34fe388cb0": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "",
+            "image": "shopify://shop_images/mens_bamboo_fcc1596a-5ca3-4603-b404-afc7e81c77f3.png",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "Bamboo",
+            "button_link": "shopify://collections/bamboo-boxer-shorts",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "6844e7ed-eaea-4ead-9173-0b109212a782": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "",
+            "image": "shopify://shop_images/classic_boxers.png",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "Classic Boxer Shorts",
+            "button_link": "https://www.myoddballs.com/collections/him-individuals/style-classic",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "602c4634-18e8-4db8-b3e5-b4c0dec1110a": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "",
+            "image": "shopify://shop_images/mens_briefs_1e8db531-9e58-4624-8568-d83d082f0f1e.png",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "Briefs",
+            "button_link": "shopify://collections/his-briefs",
+            "button-class-list": "",
+            "background-color": "#cb2147"
+          }
+        }
+      },
+      "block_order": [
+        "338cb97d-a620-4e1f-8352-1286cfc2d41b",
+        "dff9b96c-6826-48aa-90a7-5f34fe388cb0",
+        "6844e7ed-eaea-4ead-9173-0b109212a782",
+        "602c4634-18e8-4db8-b3e5-b4c0dec1110a"
+      ],
+      "custom_css": [
+        ".cover {object-fit: cover; width: 100%; height: 100%;}",
+        ".btn-max-width {max-width: 500px;}",
+        ".z-index-1 {z-index: 1;}",
+        ".z-index-2 {z-index: 2;}",
+        ".gradient {background: linear-gradient( 0deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0) 100% );}"
+      ],
+      "settings": {
+        "mosaic-container": "grid grid-cols-2 md:grid-cols-4 justify-items-center   overflow-y-hidden  md:gap-2 gap-2 pb-2 md:pb-8",
+        "all-block-outer-class": "relative inline-block w-  lg:w-60 lg:h-60 xl:w-full xl:h-full md:w-full md:h-full",
+        "all-image-class": "cover",
+        "img-overlay": "h-1/2 w-full gradient absolute bottom-0 left-0 z-index-1",
+        "all-button-class": "text-center absolute  bg-white block p-3  backdrop-blur-xl  drop-shadow-lg font-bold    border-2  tracking-wider md:text-md text-xs xl:text-lg bottom-3 left-1/2 rounded-full w-11/12 transform left-1/2 -translate-x-1/2  uppercase btn-max-width z-index-2 btn-shadow-lg border-solid border"
+      }
+    },
+    "ob_text_video_slider_enbLWW": {
+      "type": "ob-text-video-slider",
+      "settings": {
+        "handle": "mens-landing",
+        "section_wrapper_classes": "relative",
+        "cta-setting": false,
+        "position": "start",
+        "title": "Title",
+        "title-text-classes": "text-3xl md:text-6xl capitalize dbl-cta-title pb-1 font-bebas",
+        "title-text-postion": "left",
+        "title-text-size": 18,
+        "title-color": "",
+        "desktop-title-text-size": 32,
+        "paragragh": "My Paragraph",
+        "p-classes": "",
+        "paragraph-text-postion": "left",
+        "paragragh-font-size": 12,
+        "paragraph-color": "",
+        "desktop-paragraph-text-size": 18,
+        "btn-one-text": "button one",
+        "btn-one-classes": "px-8 relative p-2 rounded-md uppercase btn-shadow-lg block border-solid border-2 border-md border-black text-black font-semibold text-center  transition-colors duration-200",
+        "btn-1-url": "",
+        "btn-one-color": "#ffffff",
+        "btn-one-bg-color": "#000000",
+        "btn-two-text": "button two",
+        "btn-two-classes": "px-8 relative p-2 rounded-md uppercase btn-shadow-lg block border-solid border-2 border-md border-black text-black font-semibold text-center  transition-colors duration-200",
+        "btn-2-url": "",
+        "btn-two-color": "#000000",
+        "btn-two-bg-color": "#ffffff",
+        "button-postion": "start"
+      }
+    },
+    "71645e1c-7ee0-4a99-8ab8-e24a0a7ce6fb": {
+      "type": "ob-image-text-grid",
+      "blocks": {
+        "image_and_text_w6wWU9": {
+          "type": "image-and-text",
+          "settings": {
+            "country_iso": "*",
+            "title": "",
+            "block_wrapper_classes": "col-span-1 flex justify-center py-8 px-8 gap-x-5 items-center cursor-pointer",
+            "block_title": "",
+            "title_classes": "text",
+            "description": "",
+            "description_classes": "",
+            "svg": ""
+          }
+        },
+        "7c99cdc2-88bb-4db5-b5c3-bec893bb9eb4": {
+          "type": "image-and-text",
+          "settings": {
+            "country_iso": "*",
+            "title": "",
+            "block_wrapper_classes": "col-span-12 flex justify-center  px-4 items-center text-center relative",
+            "block_title": "",
+            "title_classes": "text",
+            "description": "<h2 class=\"text-center marujo text-2xl lg:text-4xl\">A UK Underwear Brand that stands for more than just pants. </h2>\n\n<br>\n\n<p class=\"text-md lg:text-lg\">\nYou’re guaranteed to find the perfect pair for everyone! Choose from our <a href=\"https://www.myoddballs.com/pages/shop-by-design#patterned\" class=\"link\">bright patterns</a>, <a href=\"https://www.myoddballs.com/pages/shop-by-design#licensed\" class=\"link\">official licensed</a> and <a href=\"https://www.myoddballs.com/pages/shop-by-design#sport\" class=\"link\">sports underwear</a> and <a href=\"https://www.myoddballs.com/pages/shop-by-design#charity\" class=\"link\">charity partnership underwear</a>. All made in our SUPER comfy premium cotton. \n</p>\n<br>\n<p class=\"text-md lg:text-lg\">\nBeyond pants, we've got <a href=\"https://www.myoddballs.com/collections/socks-1\" class=\"link\">colourful socks</a>, <a href=\"https://www.myoddballs.com/collections/pyjamas\" class=\"link\">pyjamas</a>, <a href=\"https://www.myoddballs.com/collections/fleece-blanket\" class=\"link\">fleece blankets</a> and MORE!\n</p>\n<br><p class=\"text-md lg:text-lg\">\nOddBalls was founded in 2014, as part of an initiative to raise awareness of testicular cancer. Now we stand for more than just ‘balls’; we've raised more than £850,000 for charities, and will donate £1,000,000 by the end of 2024.\n</p>",
+            "description_classes": "",
+            "svg": ""
+          }
+        },
+        "9bdd1c06-b202-48da-b632-918a3521f478": {
+          "type": "image-and-text",
+          "settings": {
+            "country_iso": "*",
+            "title": "",
+            "block_wrapper_classes": "",
+            "block_title": "",
+            "title_classes": "text",
+            "description": "",
+            "description_classes": "",
+            "svg": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_and_text_w6wWU9",
+        "7c99cdc2-88bb-4db5-b5c3-bec893bb9eb4",
+        "9bdd1c06-b202-48da-b632-918a3521f478"
+      ],
+      "custom_css": [
+        ".link {color: #f00f83; font-weight: 400;}"
+      ],
+      "settings": {
+        "outer_wrapper_classes": "relative pb-6",
+        "inner_wrapper_classes": "col-span-12 flex justify-center  py-3 px-4 items-center text-center",
+        "grid_wrapper_classes": "",
+        "title": "",
+        "title_classes": "text-center text-base font-semibold uppercase text-gray-600 tracking-wider",
+        "section_bg_colour": "",
+        "block_bg_colour": "",
+        "block_bg_colour_hover": "",
+        "block_text_colour": "",
+        "block_text_colour_hover": "",
+        "block_image_classes": "",
+        "block_svg_classes": "",
+        "custom_css": ""
+      }
+    },
+    "23dddb08-6703-4d0d-a048-d0052e8a9c1d": {
+      "type": "ob-mosaic-hero",
+      "blocks": {
+        "89d8e02b-ef40-43d4-b96c-04d9285923b2": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative row-span-6 col-span-2 md:row-span-2",
+            "image": "shopify://shop_images/mens_patterned_main.png",
+            "img-overlay": "",
+            "img-class-list": "cover",
+            "button-text": "SHOP MENS PATTERNED",
+            "button_link": "https://www.myoddballs.com/collections/him-individuals/style-adventurous",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "fb0a193f-6ab9-4fac-bd81-cded0977694a": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/bundle_image_1.png",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "SHOP BUNDLES",
+            "button_link": "shopify://collections/mens-all-bundles",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "0d193e51-28ff-4c09-8047-7b02b25e716c": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/licensed_image_3.png",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "Partnerships",
+            "button_link": "https://www.myoddballs.com/pages/shop-by-design#partnerships",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "1081d377-0d9d-44da-abb6-1c5e07708dcc": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/8-FPS-Single.gif",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "SUBSCRIPTIONS",
+            "button_link": "shopify://collections/subscription",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "df51a41f-efdf-48cd-99a4-30b05039a74d": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/ankle_socks_de966540-b947-49d7-a3d0-21401919dd26.png",
+            "img-overlay": "",
+            "img-class-list": "font-babes",
+            "button-text": "Shop ANKLE Socks",
+            "button_link": "shopify://collections/ankle-trainer-socks",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        }
+      },
+      "block_order": [
+        "89d8e02b-ef40-43d4-b96c-04d9285923b2",
+        "fb0a193f-6ab9-4fac-bd81-cded0977694a",
+        "0d193e51-28ff-4c09-8047-7b02b25e716c",
+        "1081d377-0d9d-44da-abb6-1c5e07708dcc",
+        "df51a41f-efdf-48cd-99a4-30b05039a74d"
+      ],
+      "custom_css": [
+        ".cover {object-fit: cover; width: 100%; height: 100%;}",
+        ".btn-max-width {max-width: 500px;}",
+        ".z-index-1 {z-index: 1;}",
+        ".z-index-2 {z-index: 2;}",
+        ".gradient {background: linear-gradient( 0deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0) 100% );}"
+      ],
+      "settings": {
+        "mosaic-container": "grid md:grid-cols-4 md:grid-rows-2 gap-1  grid-cols-2",
+        "all-block-outer-class": "",
+        "all-image-class": "cover",
+        "img-overlay": "h-1/2 w-full gradient absolute bottom-0 left-0 z-index-1",
+        "all-button-class": "text-center absolute  bg-white block p-3  backdrop-blur-xl  drop-shadow-lg font-bold    border-2  tracking-wider md:text-md text-xs xl:text-lg bottom-3 left-1/2 rounded-full w-11/12 transform left-1/2 -translate-x-1/2  uppercase btn-max-width z-index-2 btn-shadow-lg border-solid border"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "5d5f3373-9d53-4f8f-92f8-8c045d8301d1",
+    "289ab40a-57e7-4538-a246-879f383aad57",
+    "1b716c4e-2777-4dce-9fde-909f14717745",
+    "ob_text_video_slider_enbLWW",
+    "71645e1c-7ee0-4a99-8ab8-e24a0a7ce6fb",
+    "23dddb08-6703-4d0d-a048-d0052e8a9c1d"
+  ]
+}

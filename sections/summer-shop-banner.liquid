@@ -1,0 +1,41 @@
+{% schema %}
+{
+  "name": "Summer shop Banner",
+  "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "mobile_image",
+        "label": "Mobile Image"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      }
+],
+  "presets": [
+    {
+      "name": "Summer shop Banner",
+    }
+  ]
+}
+{% endschema %}
+<div class="relative">
+  
+  <div class="w-full h-full mb-4 flex flex-col items-center absolute">
+    <div class="h-full z-1 flex flex-col items-center justify-center" >
+      <div class="text-center max-md:text-2xl md:text-7xl md:pb-4 text-white w-min">
+        <div class="whitespace-nowrap font-bold">{{ section.settings.title }}</div>
+      </div>
+    </div>
+    
+  </div>
+  
+  <img class="w-full md:hidden" height="150px" width="500px" src="{{ section.settings.mobile_image | img_url: 'master' }}" />
+  <img class="w-full max-md:hidden" height="100px" width="500px" src="{{ section.settings.image | img_url: 'master' }}" />
+</div>

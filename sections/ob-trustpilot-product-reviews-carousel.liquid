@@ -1,0 +1,102 @@
+{% schema %}
+  {
+    "name": "TP product rev carousel",
+    "class": "tp-product-reviews-carousel",
+  	"presets": [
+     	{
+       		"name": "Trustpilot product rev carousel"
+		}
+	],
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "widget_active",
+        "label": "Widget active?",
+        "default": false
+      },
+      {
+        "type": "text",
+        "id": "wrapper_classes",
+        "label": "eg. tw-border-b-2 tw-border-solid tw-border-black"
+      },
+      {
+        "type": "text",
+        "id": "inner_classes",
+        "label": "eg. tw-max-w-7xl tw-mx-auto tw-py-10 tw-px-2"
+      },
+      {
+        "type": "url",
+        "id": "title_classes",
+        "label": "eg. tw-font-bebas tw-text-center tw-text-4xl md:tw-text-5xl"
+      },
+      {
+        "type": "url",
+        "id": "title_text",
+        "label": "Title text to use"
+      },
+      {
+        "type": "product_list",
+        "id": "sku",
+        "label": "Select product to feature reviewss from",
+        "limit": 30
+      }
+    ]
+  }
+{% endschema %}
+<div class="{{ section.settings.wrapper_classes }}">
+    <div class="{{ section.settings.inner_classes }}">
+        <div class="{{ section.settings.title_classes }}">
+            {{ section.settings.title_text }}
+        </div>
+        <div class="">
+              {% if section.settings.sku != blank %}
+                  {% assign skus = "" %}
+                  
+                  {% assign counter = 0 %}
+                  {% for product in section.settings.sku %}
+                    {% if counter < 70 %}
+                      {% for variant in product.variants %}
+                        {% assign the_sku = variant.sku | escape %}
+                        {% assign skus = skus | append: the_sku | append: "," %}
+                        {% assign counter = counter | plus: 1 %}
+                      {% endfor %}
+                    {% endif %}
+                  {% endfor %}
+                  
+                  {% assign sku_array = skus %}
+<!-- TrustBox script -->
+<script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
+<!-- End TrustBox script -->
+              <!-- TrustBox widget - Product Reviews Carousel -->
+              <div class="trustpilot-widget" data-locale="en-GB" data-template-id="60f537b5b0f1639de1fe048c" data-businessunit-id="5c7f9459871dac0001ea0238" data-style-height="140px" data-style-width="100%" data-theme="light" data-schema-type="Product" data-sku="{{ sku_array }}" data-review-languages="en" data-no-reviews="hide">
+                <a href="https://uk.trustpilot.com/review/myoddballs.com" target="_blank" rel="noopener">Trustpilot</a>
+              </div>
+              <!-- End TrustBox widget -->
+              {% endif %}
+        </div>
+    </div>
+</div>
+<script>
+  function detectElementEnteringDOM() {
+  const observer = new MutationObserver((mutationsList, observer) => {
+    for (let mutation of mutationsList) {
+      if (mutation.type === 'childList') {
+        mutation.addedNodes.forEach((node) => {
+          if (node.nodeType === 1 && node.classList.contains('tp-stars--1')) {
+            console.log("##############################################")
+            console.log('Element with class tp-stars--1 added to the DOM');
+            observer.disconnect();
+          }
+        });
+      }
+    }
+  });
+
+  observer.observe(document.body, {
+    childList: true,  
+    subtree: true,   
+  });
+}
+
+detectElementEnteringDOM();
+</script>

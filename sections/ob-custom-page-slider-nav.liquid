@@ -1,0 +1,305 @@
+{% assign nav_links_lists = shop.metaobjects.nav_list[section.settings.handle] %}
+{% assign nav_links = nav_links_lists.nav_list %}
+
+{% if section.settings['background-image'] != blank %}
+  <style>
+    .{{ section.id }}-backgound-image{
+      background-image: url('{{ section.settings.background-image }}')
+    }
+
+    .scrollable-nav {
+      max-width: 1280px; /* Added max-width constraint */
+    }
+
+    .scrollable-nav .swiper-slide {
+      height: auto; /* Ensure slide height is based on content */
+      max-height: 100px; /* Add max-height to slides */
+      display: flex;
+      align-items: center;
+    }
+
+    .scrollable-nav img{
+      max-width: 250px;
+      max-height: 250px;
+      width: auto; /* Ensure proper scaling */
+      height: auto;
+      object-fit: contain; /* Maintain aspect ratio */
+    }
+  </style>
+{% endif %}
+
+<div
+  class="w-full load-animate{% if section.settings.background-image != blank %}{{ section.id }}-backgound-image {% endif %} {{ section.settings.wrapper-classes }}"
+  data-section-id="{{ section.id }}"
+>
+  {% if section.settings.title != blank %}
+    <h2 class="{{ section.settings.title-classes }}">{{ section.settings.title }}</h2>
+  {% endif %}
+  <div class="swiper scrollable-nav {{ section.settings.swiper_class_list }}">
+    <div class="swiper-wrapper ">
+      {% for nav_link in nav_links.value %}
+        {% assign link = nav_link.url %}
+        {% assign text = nav_link.text %}
+        {% assign image = nav_link.image %}
+        <div class="swiper-slide w-1/4 lg:w-auto {{ section.settings.slide_classes }}">
+          <a href="{{ link }}" class="block text-center rounded-full oberflow-hidden">
+            <img class="mx-auto {{ section.settings.image-classes }} nav-img" src="{{ image | image_url }}">
+            <p class="{{ section.settings.text }}">{{ text }}</p>
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    new Swiper('.scrollable-nav', {
+      slidesPerView: '{{ section.settings.slides_per_view }}',
+      spaceBetween: {{ section.settings.space_between }},
+      grabCursor: {{ section.settings.grab_cursor }},
+      mousewheel: {{ section.settings.mousewheel }},
+      allowTouchMove: {{ section.settings.allow_touch_move }},
+      keyboard: {
+        enabled: {{ section.settings.keyboard_enabled }},
+      },
+      autoplay: {
+        delay: {{ section.settings.autoplay_delay }},
+        disableOnInteraction: {{ section.settings.disable_autoplay_on_interaction }},
+      },
+      loop: {{ section.settings.loop }},
+      loopedSlides: {{ section.settings.looped_slides }},
+      speed: {{ section.settings.transition_speed }},
+      breakpoints: {
+        1024: {
+          slidesPerView: {{ section.settings.desktop_slides_per_view }},
+          allowTouchMove: {{ section.settings.desktop_allow_touch_move }},
+          autoplay: {{ section.settings.desktop_autoplay }},
+          gap: {{ section.settings.desktop_gap }}
+        },
+      },
+      on: {
+        init: function () {
+          try {
+            const sectionWrapper = document.querySelector(`[data-section-id="{{ section.id }}"]`);
+            console.log('Section wrapper found:', sectionWrapper);
+            if (sectionWrapper) {
+              sectionWrapper.classList.remove('load-animate');
+              console.log('load-animate class removed');
+            } else {
+              console.warn('Section wrapper not found for ID: {{ section.id }}');
+            }
+          } catch (error) {
+            console.error('Error removing load-animate class:', error);
+          }
+        }
+      }
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Nav Image scroll",
+  "settings": [
+    {
+      "type": "text",
+      "id": "handle",
+      "label": "handle for scrollable link list Meta object",
+      "default": "custom-product-nav"
+    },
+    {
+      "type": "header",
+      "content": "Slider Settings"
+    },
+    {
+      "type": "select",
+      "id": "slides_per_view",
+      "label": "Mobile Slides Per View",
+      "options": [
+        {
+          "value": "auto",
+          "label": "Auto"
+        },
+        {
+          "value": "1",
+          "label": "1"
+        },
+        {
+          "value": "2",
+          "label": "2"
+        },
+        {
+          "value": "3",
+          "label": "3"
+        },
+        {
+          "value": "4",
+          "label": "4"
+        }
+      ],
+      "default": "auto"
+    },
+    {
+      "type": "range",
+      "id": "space_between",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Space Between Slides",
+      "default": 0
+    },
+    {
+      "type": "checkbox",
+      "id": "grab_cursor",
+      "label": "Show Grab Cursor",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "mousewheel",
+      "label": "Enable Mousewheel Scrolling",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "allow_touch_move",
+      "label": "Enable Touch Scrolling",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "keyboard_enabled",
+      "label": "Enable Keyboard Navigation",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "autoplay_delay",
+      "min": 2000,
+      "max": 9000,
+      "step": 500,
+      "unit": "ms",
+      "label": "Autoplay Delay",
+      "default": 5000
+    },
+    {
+      "type": "checkbox",
+      "id": "disable_autoplay_on_interaction",
+      "label": "Disable Autoplay on Interaction",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "loop",
+      "label": "Enable Loop",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "looped_slides",
+      "min": 10,
+      "max": 100,
+      "step": 10,
+      "label": "Looped Slides",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "transition_speed",
+      "min": 300,
+      "max": 2000,
+      "step": 100,
+      "unit": "ms",
+      "label": "Transition Speed",
+      "default": 1000
+    },
+    {
+      "type": "header",
+      "content": "Desktop Settings"
+    },
+    {
+      "type": "range",
+      "id": "desktop_slides_per_view",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "label": "Desktop Slides Per View",
+      "default": 5
+    },
+    {
+      "type": "checkbox",
+      "id": "desktop_allow_touch_move",
+      "label": "Enable Touch Scrolling on Desktop",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "desktop_autoplay",
+      "label": "Enable Autoplay on Desktop",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "desktop_gap",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Desktop Gap Between Slides",
+      "default": 30
+    },
+    {
+      "type": "text",
+      "id": "wrapper-classes",
+      "label": "section wrapper classes"
+    },
+    {
+      "type": "text",
+      "id": "swiper_class_list",
+      "label": "swiper wrapper classes",
+      "default": "mx-auto max-w-7xl"
+    },
+    {
+      "type": "text",
+      "id": "slide_classes",
+      "label": "slide wrapper classes",
+      "default": "w-1/4 lg:w-auto"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "title text"
+    },
+    {
+      "type": "text",
+      "id": "title-classes",
+      "label": "title text classes",
+      "default": "text-2xl md:text-4xl uppercase  mx-auto text-center marujo"
+    },
+    {
+      "type": "text",
+      "id": "image-classes",
+      "label": "image classes",
+      "default": "rounded-full"
+    },
+    {
+      "type": "text",
+      "id": "text",
+      "label": "text classes",
+      "default": "text-xs md:text-sm lg:text-base text-black text-wrap text-center py-2 uppercase marujo"
+    },
+    {
+      "type": "text",
+      "id": "background-image",
+      "label": "Background image url"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Nav Image scroll"
+    }
+  ]
+}
+{% endschema %}

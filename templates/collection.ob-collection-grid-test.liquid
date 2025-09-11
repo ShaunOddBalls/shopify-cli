@@ -1,0 +1,66 @@
+{% layout none %}
+{% assign product_count = 0 %}
+<!-- test -->
+{% capture country_tag = %}country-{{ localization.market.handle }}{% endcapture %}
+{% unless country_tag == 'country-eu' %}
+  {% assign country_tag = 'country-uk' %}
+{% endunless %}
+
+<div
+  data-target="product-tag-recommendations"
+  class="js-ptab-target2 gyorp blend-dividex ob-collection-product-slider {{ country_tag }}"
+>
+  <div class="tag-product-recommendations block relative pb-10 {{ country_tag }}">
+    <div class="ob-slider-container w-full overflow-hidden product-recommendation-ob-slider">
+      <div
+        class="ob-slider"
+        data-autoplay="false"
+        data-slides-mobile="2"
+        data-slides-md="3"
+        data-slides-lg="5"
+        data-gap="5"
+        data-loop="false"
+        data-slide-by="all"
+        data-drag-scroll="true"
+        data-slider-enabled="true"
+        data-touchpad="true"
+      >
+        <div class="ob-slides-wrappers flex">
+          {% for product in collection.products %}
+            {%- comment %}<locksmith:0172>{% endcomment -%}
+              {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product, subject_parent: collection, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+            {%- comment %}</locksmith:0172>{% endcomment -%}
+            {% assign country_continue = 'true' %}
+            {% assign country_match = 'false' %}
+            {% for tag in product.tags %}
+              {% if tag contains 'country-' and country_match == 'false' %}
+                {% assign country_continue = 'false' %}
+                {% if tag == country_tag %}
+                  {% assign country_match = 'true' %}
+                  {% assign country_continue = 'true' %}
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+
+            {% if product_count < 15 %}
+              {% if product.type != 'Mid-Collection Banners' and product.available and country_continue == 'true' %}
+                <div class="ob-slide flex-shrink-0">
+                 {% render 'ob-product-card', product: product, labelTags: labelTags %}
+                  {% assign product_count = product_count | plus: 1 %}
+                </div>
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+      {% render "ob-slider-pagnation-dots", 
+         dots_container_classes: "relative ob-dots w-full justify-center items-center flex gap-2 z-10 my-4", 
+         dot_classes: "ob-dot w-2 h-2 rounded-full bg-neutral-300 transition-colors duration-300 ease-in-out", 
+         product_count: product_count,
+         slides_mobile: "2",
+        `slides_md: "3",
+         slides_lg: "5",
+         slide_by: "all" %}
+    </div>
+  </div>
+</div>

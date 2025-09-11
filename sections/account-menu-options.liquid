@@ -1,0 +1,170 @@
+{% capture check_if_can_refer %}
+    {%- include 'ob-customer-sub-check' -%}
+{% endcapture %}
+
+<style>
+  .underline-hover {
+  position: relative;
+  display: inline-block;
+}
+
+.underline-hover::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: currentColor;
+  visibility: hidden;
+  transition: width 0.3s ease-in-out;
+}
+
+.group:hover .underline-hover::before {
+  visibility: visible;
+  width: 100%;
+}
+</style>
+
+{% assign customer_sub_string = customer.metafields.subscriptions.customer_string %}
+{% if customer_sub_string != blank %}
+  {% assign check_if_has_sub = 'yes' %}
+{% else %}
+  {% assign check_if_has_sub = 'no' %}
+{% endif %}
+{% comment %}
+{% assign check_if_has_sub = customer.metafields.subscriptions.customer_string %}
+{% endcomment %}
+{% assign option_background = section.settings.option_background %}
+{% assign option_text = section.settings.option_text %}
+{% assign option_background_hover = section.settings.option_background_hover %}
+{% assign option_text_hover = section.settings.option_text_hover %}
+
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-10 max-w-3xl mx-auto pb-14">
+              {% for block in section.blocks %}
+                {% assign hide_block = '' %}
+                {% if block.settings.option_type == 'Manage Subscription' %}
+                  {% assign href = '/tools/recurring/portal/' | append: customer.metafields.subscriptions.customer_string | append: '/subscriptions/' %}
+                {% else %}
+                  {% assign href = block.settings.option_link %}
+                {% endif %}
+
+                {% if block.settings.option_type != blank %}
+                  {% if check_if_has_sub != 'yes' %}
+                    {% if block.settings.option_type == 'Manage Subscription' or block.settings.option_type == 'Subscription Referral' %}
+                        {% assign hide_block = 'hidden' %}
+                    {% endif %}
+                  {% endif %}
+                {% endif %}
+  
+                {% assign ga_tracking = '' %}
+                {% assign platform = block.settings.platform %}
+                  
+                {% if block.settings.platform != blank %}  
+                {% capture ga_tracking %} gaevent data-type="event" data-category="{{platform}}" data-action="Click account link" data-label="{{platform}} link click" {% endcapture %}
+                {% endif %}
+                
+                <a {{ ga_tracking }} href="{{ href }}" class="{{ hide_block }} group {{ option_background }} {{ option_text }} hover:{{ option_background_hover }} hover:{{ option_text_hover }} transition ease-in-out {{ block.settings.wrapper_classes }}">
+                	<div class="flex flex-col justify-center text-center text-current hover:text-white ">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="group-hover:{{ option_text_hover }} fill-current {{ option_text }} h-8">
+  				  	{{ block.settings.svg_path }}
+                    </svg>                  
+                    <h4 class="pt-3 text-lg text-current underline-hover group-hover:{{ option_text_hover }}">{{ block.settings.title }}</h4>
+                    {% if block.settings.subtitle != blank %}
+                    <div class="mb-0 pt-3 text-xs text-current group-hover:{{ option_text_hover }}">{{ block.settings.subtitle}}</div>
+                    {% endif %}
+                  </div>
+                </a>
+              {% endfor %}
+          	</div>
+
+{% schema %}
+  {
+    "name": "Account Menu Options",
+    "settings": [
+		{
+			"type": "text",
+			"id": "options_wrapper_classes",
+			"label": "Options wrapper classes",
+			"default": "grid grid-cols-1 lg:grid-cols-2 gap-5 sm:gap-10 max-w-3xl mx-auto"
+		},
+		{
+			"type": "text",
+			"id": "option_background",
+			"label": "Options Background",
+			"info": "bg- colour"
+		},
+		{
+			"type": "text",
+			"id": "option_text",
+			"label": "Options Text",
+			"info": "text- colour"
+		},
+		{
+			"type": "text",
+			"id": "option_background_hover",
+			"label": "Options Hover Background",
+			"info": "bg- colour"
+		},
+		{
+			"type": "text",
+			"id": "option_text_hover",
+			"label": "Options Hover Text",
+			"info": "text- colour"
+		}
+	],
+	"blocks": [
+      {
+        "type": "option",
+        "name": "Option",
+        "settings": [
+          {
+            "id": "option_type",
+            "type": "text",
+            "label": "Option Type",
+            "info": "Used to link to proxy page etc. Leave blank unless necessary."
+          },
+          {
+            "id": "platform",
+            "type": "text",
+            "label": "Platform",
+            "info": "Used for GA tracking"
+          },           
+          {
+            "id": "wrapper_classes",
+            "type": "text",
+            "label": "Wrapper Classes",
+            "default": "justify-center px-10 py-5 rounded-lg btn-shadow-lg border-2  border-solid cursor-pointer flex"
+          },          
+          {
+            "id": "option_link",
+            "type": "url",
+            "label": "Option Link"
+          },
+          {
+            "id": "title",
+            "type": "text",
+            "label": "Option Title"
+          },
+          {
+            "id": "subtitle",
+            "type": "text",
+            "label": "Option Subtitle"
+          },
+          {
+            "id": "svg_path",
+            "type": "html",
+            "label": "SVG Path",
+			"info": "Enter only the path part of the SVG, including the <path> tags"
+          }
+		]
+	  }
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

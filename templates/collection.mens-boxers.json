@@ -1,0 +1,770 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "ob_breadcrumbs_KabV7U": {
+      "type": "ob-breadcrumbs",
+      "settings": {}
+    },
+    "collection_title_kbw3mp": {
+      "type": "collection-title",
+      "settings": {}
+    },
+    "ob_metaobject_collection_conditional_banner_aDXcte": {
+      "type": "ob-metaobject-collection-conditional-banner",
+      "disabled": true,
+      "settings": {
+        "title": "Black Friday Collection Banners",
+        "metaobject": "black-friday-collection-conditional-banner-list"
+      }
+    },
+    "ob_metaobject_collection_conditional_banner_YJNgVX": {
+      "type": "ob-metaobject-collection-conditional-banner",
+      "disabled": true,
+      "settings": {
+        "title": "",
+        "metaobject": "black-friday-day"
+      }
+    },
+    "ob_metaobject_collection_conditional_banner_BYUGUB": {
+      "type": "ob-metaobject-collection-conditional-banner",
+      "disabled": true,
+      "settings": {
+        "title": "",
+        "metaobject": "black-friday-weekend"
+      }
+    },
+    "ob_metaobject_collection_conditional_banner_G9pjNr": {
+      "type": "ob-metaobject-collection-conditional-banner",
+      "disabled": true,
+      "settings": {
+        "title": "FREE Christmas Card",
+        "metaobject": "testing-html-banner"
+      }
+    },
+    "ob_metaobject_collection_conditional_banner_U3dije": {
+      "type": "ob-metaobject-collection-conditional-banner",
+      "settings": {
+        "title": "",
+        "metaobject": "winter-sale"
+      }
+    },
+    "collection_paragragh_qg4Cnj": {
+      "type": "Collection-paragragh",
+      "settings": {
+        "extra_class": "max-w-7xl mx-auto  p-4 text-center"
+      }
+    },
+    "ob_image_text_grid_exacwB": {
+      "type": "ob-image-text-grid",
+      "blocks": {
+        "image_and_text_F7mwXK": {
+          "type": "image-and-text",
+          "settings": {
+            "country_iso": "*",
+            "title": "",
+            "block_wrapper_classes": "col-span-12 flex justify-center  px-4 items-center text-center relative",
+            "block_title": "",
+            "title_classes": "text",
+            "description": "<p class=\"text-md lg:text-lg\">\n<a href=\"https://www.myoddballs.com/collections/him-individuals\" class=\"link\">Learn more</a> about the incredible fabric qualities of bamboo</p>",
+            "description_classes": "",
+            "svg": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_and_text_F7mwXK"
+      ],
+      "disabled": true,
+      "settings": {
+        "outer_wrapper_classes": "",
+        "inner_wrapper_classes": "max-w-7xl mx-auto py-0 px-4 sm:px-6 lg:py-0 lg:px-8",
+        "grid_wrapper_classes": "mt-6 grid grid-cols-2 gap-0.5 md:grid-cols-3 lg:mb-8 mb-6",
+        "title": "",
+        "title_classes": "text-center text-base font-semibold uppercase text-gray-600 tracking-wider",
+        "section_bg_colour": "",
+        "block_bg_colour": "",
+        "block_bg_colour_hover": "",
+        "block_text_colour": "",
+        "block_text_colour_hover": "",
+        "block_image_classes": "",
+        "block_svg_classes": "",
+        "custom_css": ""
+      }
+    },
+    "collection_nav_slider_KQkHtp": {
+      "type": "collection-nav-slider",
+      "blocks": {
+        "slide_Cbdfa6": {
+          "type": "slide",
+          "settings": {
+            "block_is_image": true,
+            "image": "shopify://shop_images/CircleButton-All.png",
+            "title": "Slide Title",
+            "text-classes": "text-white px-2 py-2 font-bold text-xxs uppercase lw-black rounded-full text-nowrap",
+            "link": "https://www.myoddballs.com/collections/new"
+          }
+        },
+        "slide_8XifrL": {
+          "type": "slide",
+          "settings": {
+            "block_is_image": true,
+            "image": "shopify://shop_images/Mens.png",
+            "title": "Slide Title",
+            "text-classes": "text-white px-2 py-2 font-bold text-xxs uppercase lw-black rounded-full text-nowrap",
+            "link": "https://www.myoddballs.com/collections/new-in-mens"
+          }
+        },
+        "slide_cK48tL": {
+          "type": "slide",
+          "settings": {
+            "block_is_image": true,
+            "image": "shopify://shop_images/Womens.png",
+            "title": "Slide Title",
+            "text-classes": "text-white px-2 py-2 font-bold text-xxs uppercase lw-black rounded-full text-nowrap",
+            "link": "https://www.myoddballs.com/collections/new-in-womens"
+          }
+        },
+        "slide_MEVyQi": {
+          "type": "slide",
+          "settings": {
+            "block_is_image": true,
+            "image": "shopify://shop_images/Kids.png",
+            "title": "Slide Title",
+            "text-classes": "text-white px-2 py-2 font-bold text-xxs uppercase lw-black rounded-full text-nowrap",
+            "link": "https://www.myoddballs.com/collections/new-in-kids"
+          }
+        },
+        "slide_XUQG9D": {
+          "type": "slide",
+          "settings": {
+            "block_is_image": true,
+            "image": "shopify://shop_images/Partnerships_78b39330-6388-4189-91f5-8fc34b6c4bf6.png",
+            "title": "Slide Title",
+            "text-classes": "text-white px-2 py-2 font-bold text-xxs uppercase lw-black rounded-full text-nowrap",
+            "link": "https://www.myoddballs.com/collections/new-in-partnerships"
+          }
+        }
+      },
+      "block_order": [
+        "slide_Cbdfa6",
+        "slide_8XifrL",
+        "slide_cK48tL",
+        "slide_MEVyQi",
+        "slide_XUQG9D"
+      ],
+      "disabled": true,
+      "settings": {
+        "show_on_all": "new,new-in-mens,new-in-womens,new-in-kids,new-in-partnerships,",
+        "wrapper-classes": "min-h-[100px] md:min-h-[200px]",
+        "title": "",
+        "title-classes": "text-2xl md:text-4xl uppercase  mx-auto text-center marujo",
+        "background-image": "",
+        "gold": "background: linear-gradient(45deg,rgba(244, 219, 112, 1) 0%,rgba(181, 127, 0, 1) 14%,rgba(252, 247, 198, 1) 24%,rgba(252, 247, 198, 1) 35%,rgba(244, 219, 112, 1) 48%,rgba(198, 140, 0, 1) 63%,rgba(244, 219, 112, 1) 100%);",
+        "lw-black": "background: rgb(74, 74, 74); background: radial-gradient(circle,rgba(74, 74, 74, 1) 0%,rgba(33, 33, 33, 1) 100%)",
+        "autoplay_delay": 5000,
+        "slides_per_view": 3,
+        "slides_per_group": 1,
+        "grab_cursor": true,
+        "mousewheel": true,
+        "keyboard_control": true,
+        "loop": true,
+        "slides_per_view_1024": 5,
+        "slides_per_group_1024": 5,
+        "allow_touch_move_1024": false,
+        "autoplay_1024": false,
+        "show_pagination": false,
+        "show_navigation": true,
+        "arrow_color": "#f00f83",
+        "dot_color": "#f00f83"
+      }
+    },
+    "collection_nav_slider_dte7dY": {
+      "type": "collection-nav-slider",
+      "blocks": {
+        "slide_xazND6": {
+          "type": "slide",
+          "settings": {
+            "block_is_image": false,
+            "image": "shopify://shop_images/All.png",
+            "title": "all",
+            "text-classes": "text-white px-2 py-2 font-bold text-xxs uppercase lw-black rounded-full text-nowrap",
+            "link": "https://www.myoddballs.com/collections/new"
+          }
+        },
+        "slide_ex8Nht": {
+          "type": "slide",
+          "settings": {
+            "block_is_image": false,
+            "image": "shopify://shop_images/Mens_8553042a-9f8c-4d14-b6e5-3a0ea44c7c11.png",
+            "title": "mens",
+            "text-classes": "text-white px-2 py-2 font-bold text-xxs uppercase lw-black rounded-full text-nowrap",
+            "link": "https://www.myoddballs.com/collections/new-in-mens"
+          }
+        },
+        "slide_cgi9GV": {
+          "type": "slide",
+          "settings": {
+            "block_is_image": false,
+            "image": "shopify://shop_images/Womens_5623916d-7337-483a-958d-7c970e24875e.png",
+            "title": "womens",
+            "text-classes": "text-white px-2 py-2 font-bold text-xxs uppercase lw-black rounded-full text-nowrap",
+            "link": "https://www.myoddballs.com/collections/new-in-womens"
+          }
+        },
+        "slide_wbqBqQ": {
+          "type": "slide",
+          "settings": {
+            "block_is_image": false,
+            "image": "shopify://shop_images/Kids_25acfe7c-2e8d-4a5f-bf8f-b45f56162e9a.png",
+            "title": "KIDS",
+            "text-classes": "text-white px-2 py-2 font-bold text-xxs uppercase lw-black rounded-full text-nowrap",
+            "link": "https://www.myoddballs.com/collections/new-in-kids"
+          }
+        },
+        "slide_i6T4U8": {
+          "type": "slide",
+          "settings": {
+            "block_is_image": false,
+            "image": "shopify://shop_images/Partnerships_67cd3d67-b625-475f-8e9d-d10ee670571b.png",
+            "title": "partnerships",
+            "text-classes": "text-white px-2 py-2 font-bold text-xxs uppercase lw-black rounded-full text-nowrap",
+            "link": "https://www.myoddballs.com/collections/new-in-partnerships"
+          }
+        }
+      },
+      "block_order": [
+        "slide_xazND6",
+        "slide_ex8Nht",
+        "slide_cgi9GV",
+        "slide_wbqBqQ",
+        "slide_i6T4U8"
+      ],
+      "disabled": true,
+      "custom_css": [
+        ".img-bg {background-color: #f2f5f7;}"
+      ],
+      "settings": {
+        "show_on_all": "new,new-in-mens,new-in-womens,new-in-kids,new-in-partnerships,",
+        "wrapper-classes": "min-h-[80px] md:min-h-[200px]",
+        "title": "",
+        "title-classes": "text-2xl md:text-4xl uppercase  mx-auto text-center marujo",
+        "background-image": "",
+        "gold": "",
+        "lw-black": "background-color: black;",
+        "autoplay_delay": 9000,
+        "slides_per_view": 3,
+        "slides_per_group": 1,
+        "grab_cursor": true,
+        "mousewheel": true,
+        "keyboard_control": true,
+        "loop": true,
+        "slides_per_view_1024": 5,
+        "slides_per_group_1024": 5,
+        "allow_touch_move_1024": false,
+        "autoplay_1024": false,
+        "show_pagination": false,
+        "show_navigation": true,
+        "arrow_color": "#f00f83",
+        "dot_color": "#f00f83"
+      }
+    },
+    "ob_klaviyo_forms_hfkwxR": {
+      "type": "ob-klaviyo-forms",
+      "blocks": {
+        "form_mUXg8g": {
+          "type": "form",
+          "disabled": true,
+          "settings": {
+            "country_iso": "*",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": "",
+            "slide_active": true,
+            "title": "South Park",
+            "klaviyo_id": "ViiDxa",
+            "html_id": "",
+            "wrapper_classes": "",
+            "url_handle": "south-park",
+            "not_url_handle": "",
+            "domains": "*",
+            "device": "all",
+            "customers": "all"
+          }
+        },
+        "form_fwhqJU": {
+          "type": "form",
+          "settings": {
+            "country_iso": "*",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": "",
+            "slide_active": true,
+            "title": "Stormtrooper",
+            "klaviyo_id": "TjJ8XP",
+            "html_id": "",
+            "wrapper_classes": "",
+            "url_handle": "original-stormtrooper,stormtrooper",
+            "not_url_handle": "",
+            "domains": "*",
+            "device": "all",
+            "customers": "all"
+          }
+        },
+        "form_RHiK8C": {
+          "type": "form",
+          "disabled": true,
+          "settings": {
+            "country_iso": "*",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": "",
+            "slide_active": true,
+            "title": "Traitors",
+            "klaviyo_id": "Uqk5M7",
+            "html_id": "",
+            "wrapper_classes": "",
+            "url_handle": "traitors",
+            "not_url_handle": "",
+            "domains": "*",
+            "device": "all",
+            "customers": "all"
+          }
+        },
+        "form_hAqfzb": {
+          "type": "form",
+          "disabled": true,
+          "settings": {
+            "country_iso": "*",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": "",
+            "slide_active": true,
+            "title": "Sesame Street",
+            "klaviyo_id": "X4B2R9",
+            "html_id": "",
+            "wrapper_classes": "",
+            "url_handle": "sesame-street",
+            "not_url_handle": "",
+            "domains": "*",
+            "device": "all",
+            "customers": "all"
+          }
+        },
+        "form_hyxUck": {
+          "type": "form",
+          "disabled": true,
+          "settings": {
+            "country_iso": "*",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": "",
+            "slide_active": true,
+            "title": "Beano",
+            "klaviyo_id": "YiDn3S",
+            "html_id": "",
+            "wrapper_classes": "",
+            "url_handle": "beano",
+            "not_url_handle": "",
+            "domains": "*",
+            "device": "all",
+            "customers": "all"
+          }
+        },
+        "form_JxN8wM": {
+          "type": "form",
+          "disabled": true,
+          "settings": {
+            "country_iso": "*",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": "",
+            "slide_active": true,
+            "title": "Rolling Stones",
+            "klaviyo_id": "WtfejB",
+            "html_id": "",
+            "wrapper_classes": "",
+            "url_handle": "the-rolling-stones",
+            "not_url_handle": "",
+            "domains": "*",
+            "device": "all",
+            "customers": "all"
+          }
+        },
+        "form_LHdAGe": {
+          "type": "form",
+          "disabled": true,
+          "settings": {
+            "country_iso": "*",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": "",
+            "slide_active": true,
+            "title": "Spongebob",
+            "klaviyo_id": "YqVwCR",
+            "html_id": "",
+            "wrapper_classes": "",
+            "url_handle": "spongebob",
+            "not_url_handle": "",
+            "domains": "*",
+            "device": "all",
+            "customers": "all"
+          }
+        }
+      },
+      "block_order": [
+        "form_mUXg8g",
+        "form_fwhqJU",
+        "form_RHiK8C",
+        "form_hAqfzb",
+        "form_hyxUck",
+        "form_JxN8wM",
+        "form_LHdAGe"
+      ],
+      "settings": {
+        "section_width": "full",
+        "custom_width": ""
+      }
+    },
+    "ob_trust_pilot_widget_TNt4mq": {
+      "type": "ob-trust-pilot-widget",
+      "disabled": true,
+      "settings": {
+        "outer_wrapper_classes": "border-blackblend-divide mt-3 mb-2 md:mb-1",
+        "wrapper_classes": "max-w-7xl mx-auto",
+        "widget_header": "",
+        "widget_header_classes": "",
+        "widget_subheader": "",
+        "widget_subheader_classes": "",
+        "widget_code": "<!-- TrustBox widget - Micro Combo -->\n<div class=\"hidden trustpilot-widget\" data-locale=\"en-GB\" data-template-id=\"5419b6ffb0d04a076446a9af\" data-businessunit-id=\"5c7f9459871dac0001ea0238\" data-style-height=\"40px\" data-style-width=\"100%\" data-theme=\"light\">\n  <a href=\"https://uk.trustpilot.com/review/myoddballs.com\" target=\"_blank\" rel=\"noopener\">Trustpilot</a>\n</div>\n<!-- End TrustBox widget -->",
+        "widget_wrapper_classes": "",
+        "use_microcombo": true
+      }
+    },
+    "main": {
+      "type": "ob-collection",
+      "settings": {
+        "title": "Collection",
+        "isNosto": "true",
+        "columns_desktop_sm": "3",
+        "columns_desktop_md": "4",
+        "columns_desktop_lg": "4",
+        "columns_desktop_xl": "4",
+        "columns_desktop_2xl": "4",
+        "columns_desktop_3xl": "5",
+        "columns_mobile": "2"
+      }
+    },
+    "ob_three_text_fields_RdhUcT": {
+      "type": "ob-three-text-fields",
+      "blocks": {
+        "text_lines_rGyVHz": {
+          "type": "text-lines",
+          "settings": {
+            "country_iso": "*",
+            "text-field-outer-wrapper-classes": "",
+            "text-field-inner-wrapper-classes": "",
+            "text-field-1": "",
+            "text-field-1-classes": "",
+            "text-field-2": "",
+            "text-field-2-classes": "",
+            "text-field-3": "",
+            "text-field-3-classes": "",
+            "text-field-4": "",
+            "text-field-4-classes": "",
+            "html-field": "",
+            "html-field-classes": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_lines_rGyVHz"
+      ],
+      "disabled": true,
+      "settings": {}
+    },
+    "ob_image_text_grid_8GLeKD": {
+      "type": "ob-image-text-grid",
+      "blocks": {
+        "image_and_text_TFyxRh": {
+          "type": "image-and-text",
+          "settings": {
+            "country_iso": "*",
+            "title": "",
+            "block_wrapper_classes": "col-span-12 flex justify-center  px-4 items-center text-center relative",
+            "block_title": "",
+            "title_classes": "text",
+            "description": "<p class=\"text-md lg:text-lg\">\nExplore our full range of men’s underwear, designed for everyday comfort and standout style. From classic stretch cotton boxers and breathable bamboo boxers to 100% cotton loose-fit styles, multipacks and bundles, we’ve got every option covered. Whether you need reliable everyday essentials, supportive performance underwear, or colourful statement prints, OddBalls offers boxers to suit every preference. Available in a variety of fabrics and fits, our men’s boxers are built for comfort, durability and personality. Choose cotton or bamboo for a soft, breathable feel, or stock up with our great-value multipacks when you want fresh pairs ready for the week ahead. Each design features our iconic branded waistband and cotton-rich fabrics, giving you the perfect balance of fit, function and style. Upgrade your drawer today with OddBalls boxers — colourful, comfortable and made to last.\n</p>\n<br>\n<p class=\"text-md lg:text-lg\">\n\nOddBalls men’s boxers are designed with all-day comfort in mind, made from a soft and breathable cotton blend that keeps you cool and fresh from morning to night. The supportive stretch fabric and elasticated waistband ensure a secure fit that won’t ride up, giving you the confidence to move freely whatever the day brings. Built to last with durable overlock stitching, our boxers are made for long-term wear without compromising on comfort. Every pair features our signature contrast waistband and bold OddBalls branding, combining reliable performance with standout style. From timeless plain classics to colourful statement prints, our men’s boxers are everyday essentials that bring comfort, durability and personality to your underwear drawer.\n</p>\n<br>\n<p class=\"text-md lg:text-lg\">\nShop our Men's Boxers now! </p>",
+            "description_classes": "",
+            "svg": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_and_text_TFyxRh"
+      ],
+      "settings": {
+        "outer_wrapper_classes": "relative py-10",
+        "inner_wrapper_classes": "col-span-12 flex justify-center  py-3 px-4 items-center text-center",
+        "grid_wrapper_classes": "mt-6 gap-0.5 3 lg:mt-8",
+        "title": "",
+        "title_classes": "text-center text-base font-semibold uppercase text-gray-600 tracking-wider",
+        "section_bg_colour": "",
+        "block_bg_colour": "",
+        "block_bg_colour_hover": "",
+        "block_text_colour": "",
+        "block_text_colour_hover": "",
+        "block_image_classes": "",
+        "block_svg_classes": "",
+        "custom_css": ""
+      }
+    },
+    "tabs_and_blocks_3Pam9n": {
+      "type": "tabs-and-blocks",
+      "blocks": {
+        "content_faq_33R744": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "What are the best men’s boxers for everyday wear?",
+            "title_text": "What are the best men’s boxers for everyday wear?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "Our cotton and bamboo boxers are soft, breathable, and designed for all-day comfort, making them perfect for everyday use.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_w84f7N": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "Do OddBalls boxers ride up?",
+            "title_text": "Do OddBalls boxers ride up?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "No — with a stretch fabric and elasticated waistband, OddBalls boxers are made to stay in place and prevent ride-ups.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_gTYgkP": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "Are bamboo boxers better than cotton boxers?",
+            "title_text": "Are bamboo boxers better than cotton boxers?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "Both have benefits. Cotton boxers are durable and breathable, while bamboo boxers are softer, moisture-wicking, and naturally antibacterial.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_tn7LDX": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "How do I choose the right size in men’s boxers?",
+            "title_text": "How do I choose the right size in men’s boxers?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "Check our size guide for the perfect fit — men’s boxers range from XXS to 3XL, designed to be snug but not restrictive.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_KPqim6": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "Do you sell men’s boxers in multipacks or bundles?",
+            "title_text": "Do you sell men’s boxers in multipacks or bundles?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "Yes, our multipacks and bundles offer great value, with a mix of plain and patterned designs so you can stock up with ease.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_AAJdK7": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "Which men’s boxers are best for sport or the gym?",
+            "title_text": "Which men’s boxers are best for sport or the gym?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "Our sports boxers are built for movement, with added stretch and support to keep you comfortable during workouts.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_xxCgGq": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "How should I wash men’s boxers?",
+            "title_text": "How should I wash men’s boxers?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "We recommend washing at 30°C, avoiding bleach, and letting them air dry to keep your boxers looking and feeling their best.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_hDhBA8": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "Do OddBalls boxers last after repeated washes?",
+            "title_text": "Do OddBalls boxers last after repeated washes?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "Yes — with durable overlock stitching and quality fabrics, our boxers are built to hold their shape and comfort wash after wash.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_WwThQ8": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "Can I buy men’s boxers on subscription?",
+            "title_text": "Can I buy men’s boxers on subscription?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "Yes. With our subscription service, you’ll receive new and exclusive boxer designs delivered straight to your door each month.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_dyBBQK": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "Do OddBalls boxers make a good gift?",
+            "title_text": "Do OddBalls boxers make a good gift?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "Yes — our colourful designs, multipacks, and bundles make them a popular gift choice. Many customers buy them for birthdays, Christmas, or as fun stocking fillers.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_wFxFH8": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "What are men’s boxers made of?",
+            "title_text": "What are men’s boxers made of?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "Most of our boxers are crafted from a blend of cotton, modal, and elastane — giving you softness, breathability, and stretch.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_hxfkha": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "Are boxers better than briefs?",
+            "title_text": "Are boxers better than briefs?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "It depends on your lifestyle. Boxers offer a looser, breathable fit, while briefs provide more support. Many customers choose boxers for everyday wear and lounging.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_hwtJKg": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "Whic hmen’s boxers are best for sports?",
+            "title_text": "Which men’s boxers are best for sports?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "For workouts and running, choose boxers with added stretch and moisture-wicking fabrics for support and comfort.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        }
+      },
+      "block_order": [
+        "content_faq_33R744",
+        "content_faq_w84f7N",
+        "content_faq_gTYgkP",
+        "content_faq_tn7LDX",
+        "content_faq_KPqim6",
+        "content_faq_AAJdK7",
+        "content_faq_xxCgGq",
+        "content_faq_hDhBA8",
+        "content_faq_WwThQ8",
+        "content_faq_dyBBQK",
+        "content_faq_wFxFH8",
+        "content_faq_hxfkha",
+        "content_faq_hwtJKg"
+      ],
+      "settings": {
+        "outer_wrapper_attr": "data-attribute for linking section content",
+        "outer_wrapper_classes": "2xl:mx-auto  py-12 lg:px-20 md:px-6 px-4",
+        "inner_wrapper_classes": "grid grid-cols-12 gap-6",
+        "header_wrapper_classes": "col-span-12 flex flex-col justify-center items-center text-center space-y-4",
+        "all_tabs_wrapper_classes": "",
+        "content_wrapper_classes": "col-span-12 mt-16 grid grid-cols-12",
+        "option_menu_selected": false,
+        "title": "OddBalls Men's Boxers FAQs",
+        "title_classes": "text-3xl lg:text-4xl font-semibold  leading-9 md:leading-7 lg:leading-9 text-gray-800",
+        "description": "From sizing and fit, to care instructions and style tips, here are the answers to our most frequently asked questions. Whether you're curious about our products, looking for the best way to care for your OddBalls, or just need some general info, you'll find everything you need right here.",
+        "description_classes": "text-base leading-6 text-center text-gray-600 w-full md:w-10/12"
+      }
+    }
+  },
+  "order": [
+    "ob_breadcrumbs_KabV7U",
+    "collection_title_kbw3mp",
+    "ob_metaobject_collection_conditional_banner_aDXcte",
+    "ob_metaobject_collection_conditional_banner_YJNgVX",
+    "ob_metaobject_collection_conditional_banner_BYUGUB",
+    "ob_metaobject_collection_conditional_banner_G9pjNr",
+    "ob_metaobject_collection_conditional_banner_U3dije",
+    "collection_paragragh_qg4Cnj",
+    "ob_image_text_grid_exacwB",
+    "collection_nav_slider_KQkHtp",
+    "collection_nav_slider_dte7dY",
+    "ob_klaviyo_forms_hfkwxR",
+    "ob_trust_pilot_widget_TNt4mq",
+    "main",
+    "ob_three_text_fields_RdhUcT",
+    "ob_image_text_grid_8GLeKD",
+    "tabs_and_blocks_3Pam9n"
+  ]
+}

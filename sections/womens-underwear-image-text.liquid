@@ -1,0 +1,66 @@
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&family=Twinkle+Star&display=swap" rel="stylesheet">
+
+
+
+<div class="flex justify-center">
+  <div class="block md:grid grid-cols-2">
+    <div id="womens-image" class="md:px-4">
+      {{ section.settings.image | media_tag: image_size: '600x' }}
+    </div>
+    <div id="text-section" class="md:px-20 px-4 pt-4 md:pt-0 md:flex md:flex-col md:justify-center">
+      <div id="womens-header" class="border-b-2 border-orange-300 font-bold text-4xl w-min pb-2 mb-2">
+        {{ section.settings.header }}
+      </div>
+      <div id="womens-sub-header" class="text-xl italic font-bold">
+        {{ section.settings.subHeading }}
+      </div>
+      <div id="womens-text-block">
+        {{ section.settings.text-block }}
+      </div>
+    </div>
+  </div>  
+</div>
+<style>
+  #text-section{
+    font-family: "Fraunces", serif;
+  }
+  #womens-image img{
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        aspect-ratio: 43 / 30;
+        object-position: top;
+  }
+</style>
+{% schema %}
+  {
+    "name": "Womens Underwear 2025",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "t:sections.image-banner.settings.image.label"
+      },
+      {
+        "type": "text",
+        "id": "header",
+        "label": "Header"
+      },
+      {
+        "type": "text",
+        "id": "subHeading",
+        "label": "Sub Header"
+      },
+      {
+        "type": "textarea",
+        "id": "text-block",
+        "label": "text"
+      }
+    ],
+      "presets": [
+      {
+        "name": "womens-underwear-2025"
+      }
+    ]
+  }
+{% endschema %}

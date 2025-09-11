@@ -1,0 +1,40 @@
+{%- assign nav_text_downcase = '' -%}
+{%- assign the_label_text_downcase = '' -%}
+{%- assign title_label_html = '' -%}
+{%- assign match = false -%}
+{%- assign level = level -%}
+{%- if navtitle != blank -%}
+    {% for object_lists in shop.metaobjects.desktop_nav_label_list.values %}
+        {% if settings.theme_label_version == object_lists.theme %}
+          {% assign metaobjects = object_lists.list_of_labels %}
+            {%- for object in metaobjects.value -%}                   
+                {%- assign nav_text_downcase = '' -%}
+                {%- assign the_label_text_downcase = '' -%}
+                {%- assign title_label_html = '' -%}
+                {%- assign label_nav_text = object.title_match -%}
+                {%- assign label_level = object.level_to_appear_on -%}                                  
+                {%- assign label_bg = object.bg_colour -%}
+                {%- assign label_color = object.text_colour -%}
+                {%- assign label_border = object.outline_colour -%}
+                {%- assign label_text = object.text -%}
+                {%- assign the_label_text_downcase = label_nav_text | downcase | strip | strip_html  -%}
+        		{%- assign nav_text_downcase = navtitle | downcase | strip | strip_html  -%}
+                {%- capture tag_style -%}background:{{label_bg}};border:1px solid  {{label_border}};color:{{label_color}};{%- endcapture -%}
+                {%- assign label_downcase = label_text | downcase -%}
+            	{%- if nav_text_downcase == the_label_text_downcase -%}
+                {%- assign match = true -%}
+                {%- assign class_list = object.extra_text_classes -%}   
+            	{%- capture title_label_html -%}
+                {%- unless localization.market.handle == 'eu' and label_downcase == "free product" -%}
+                    <span style="vertical-align: middle;font-size: 0.6rem; {{ tag_style }}" class="nav-label inline pointer-events-none text-yellow-800 ml-2 bg-yellow-100 rounded-full pt-1 pb-1 px-2 text-xxs tracking-wide uppercase font-semibold flex-shrink-0">
+                      {{ label_text }}
+                    </span>
+                {%- endunless -%}
+            							{%- endcapture -%}
+                                        {%- break -%}
+          							{%- endif -%}
+                            {%- endfor -%}
+      {% endif %}
+  {% endfor %}
+{%- endif -%}
+{%- if class_list != blank and match == true -%}<span class="{{ class_list }}">{%- endif -%}{{ navtitle }}{%- if class_list != blank and match == true -%}</span>{%- endif -%}{%- if label_text != blank and label_level == blank or label_text != blank and level == label_level -%}{{ title_label_html }}{%- endif -%}

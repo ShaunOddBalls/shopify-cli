@@ -1,0 +1,126 @@
+{% schema %}
+{
+  "name": "Lw Circles Text Link",
+  "settings": [],
+  "presets": [
+    {
+      "name": "lw-circles-text-link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image_block",
+      "name": "Image Block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "circle_image",
+          "label": "Circle Image"
+        },{
+          "type": "url",
+          "id": "page",
+          "label": "Page"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "button text",
+        },
+        {
+          "type": "text",
+          "id": "button-classes",
+          "label": "button classes",
+          "default": "mt-4 text-center shadow-xl rounded-full w-full mx-auto max-w-[175px] bg-black"
+        },
+        {
+          "type": "text",
+          "id": "text-classes",
+          "label": "button text classes",
+          "default": "text-white px-2 py-1 font-bold text-xs uppercase lw-black rounded-full text-nowrap"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_on_all_markets",
+          "default": true,
+          "label": "Show On All Markets",
+          "info": "on to show on all"
+        },
+        {
+          "type": "text",
+          "id": "markets_to_show_on",
+          "label": "Markets to show on",
+          "info": "Example would look like: uk, en-eu (shows on UK and EU markets)"
+        },
+        {
+          "type": "text",
+          "id": "markets_to_exclude_on",
+          "label": "Markets to Exclude on",
+          "info": "Example would look like: uk, en-eu (Would not show on UK and EU markets)"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<div class="grid grid-cols-3  md:grid-cols-6 my-1 gap-x-10 gap-y-6">
+  {% for block in section.blocks %}
+
+      {% comment %}
+      /*-------------------------------- */
+      /*  markets logic 
+      /*-------------------------------- */
+      {% endcomment %}
+      {% capture market_condition %}{% render 'ob-market-block-conditional',block:block %}{% endcapture %}
+      
+      {{market_condition }}
+      {%  if market_condition contains 'show_block:TRUE' %}
+        {% assign show_block = true %}
+      {% else %}
+        {% assign show_block = false %}
+      {% endif %}
+      {% if show_block %}
+      {% comment %}
+      /*-------------------------------- */
+      /*  markets logic END
+      /*-------------------------------- */
+      {% endcomment %}
+
+      <a href="{{ block.settings.page }}" class="flex justify-center lw-circles flex-col ">
+        {{ block.settings.circle_image | media_tag: image_size: '400x' }}
+        {% if block.settings.title != blank %}
+        <div class="{{ block.settings.button-classes }}">
+                    <div
+                      class="{{ block.settings.text-classes }}"
+                    >
+                      {{ block.settings.title }}
+                    </div>
+                  </div>
+        {% endif %}
+      </a>
+
+      {% comment %}
+      /*-------------------------------- */
+      /*  markets logic 
+      /*-------------------------------- */
+      {% endcomment %}
+      {% endif %}        
+      {% comment %}
+      /*-------------------------------- */
+      /*  markets logic END
+      /*-------------------------------- */
+      {% endcomment %}
+
+
+
+
+
+
+
+  {% endfor %}
+</div>
+<style>
+  .lw-circles img{
+    width:100%;
+  }
+</style>

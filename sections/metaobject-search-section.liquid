@@ -1,0 +1,87 @@
+{% schema %}
+{
+  "name": "Metaobject search section",
+  "blocks": [
+    {
+      "name": "Popup Block",
+      "type": "metaobject",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Market Settings"
+        },
+        {
+          "type": "paragraph",
+          "content": "Settings for showing and hiding this block from different markets."
+        },
+        {
+          "type": "checkbox",
+          "id": "show_on_all_markets",
+          "default": true,
+          "label": "Show On All Markets",
+          "info": "on to show on all"
+        },
+        {
+          "type": "text",
+          "id": "markets_to_show_on",
+          "label": "Markets to show on",
+          "info": "Example would look like: uk, en-eu (shows on UK and EU markets)"
+        },
+        {
+          "type": "text",
+          "id": "markets_to_exclude_on",
+          "label": "Markets to Exclude on",
+          "info": "Example would look like: uk, en-eu (Would not show on UK and EU markets)"
+        },
+        {
+          "type": "header",
+          "content": "MetaObject Settings"
+        },
+        {
+          "type": "paragraph",
+          "content": "Attach a popup content metaobject to this block"
+        },
+        {
+          "type": "metaobject",
+          "id": "metaobject",
+          "metaobject_type": "popup_content",
+          "label": "Attach the metaobject entry for this block"
+        }
+      ]
+    }
+  ],
+  "settings": [],
+  "presets": [
+    {
+      "name": "Default Metaobject Search"
+    }
+  ]
+}
+{% endschema %}
+
+<div class="metaobject-search-results">
+  {% for block in section.blocks %}
+    {% assign markets_to_show = block.settings.markets_to_show_on | split: ',' %}
+    {% assign markets_to_exclude_on = block.settings.markets_to_exclude_on | split: ',' %}
+    {% assign full_search_terms = search.terms | split: "|" %}
+    {% assign search_handle = full_search_terms.first %}
+    {% assign search_type = full_search_terms.last %}
+
+    {%- capture show_block -%}
+    {%- render 'ob-process-show-on-by-market', show_on_all_markets: block.settings.show_on_all_markets, markets_to_show: markets_to_show, markets_to_exclude_on: markets_to_exclude_on -%}
+    {% endcapture %}
+
+    {% if show_block contains 'true' and block.settings.metaobject.system.handle contains search_handle and block.settings.metaobject.system.type contains search_type %}
+      <div class="metaobject-search-section" data-type="{{ block.settings.metaobject.system.type }}" data-handle="{{ block.settings.metaobject.system.handle }}">
+        {% if block.settings.metaobject != blank %}<br>
+          <div id="header">
+          {{ block.settings.metaobject.popup_title }}
+          </div>
+          <div id="content">
+            {{ block.settings.metaobject.popup_content }}  
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+  {% endfor %}
+</div>

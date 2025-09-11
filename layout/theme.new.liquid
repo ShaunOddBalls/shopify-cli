@@ -1,0 +1,257 @@
+{%- comment %}<locksmith:13e6>{% endcomment -%}
+  {%- include 'locksmith' -%}
+{%- comment %}</locksmith:13e6>{% endcomment -%}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {{ locksmith_initializations }}
+    <meta charset="UTF-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Oddballs</title>
+    <link rel="stylesheet" href="{{ 'ob-scroll.carousel.min.css' | asset_url }}" />
+    <link rel="stylesheet" href="{{ 'ob-swiper.min.css' | asset_url }}" />
+    <link rel="stylesheet" href="{{ 'ob-style.css' | asset_url }}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    {{ content_for_header }}
+  </head>
+  <body>
+    {% sections 'ob-header-group' %}
+    {{ content_for_layout }}
+    <div id="footer" class="bg-base-primary">
+      <div class="wrapper wrapper--size-md py-10 lg:py-14">
+        <div class="flex flex-col gap-x-4 gap-y-6 lg:flex-row lg:justify-between">
+          <div class="lg:order-1 lg:basis-[432px]">
+            <p class="typography typography--heading-four text-white mb-2">
+              SUBSCRIBE TO
+              <br />
+              OUR NEWSLETTER
+            </p>
+            <p class="typography typography--body-sm text-[#7D7D7D]">Sign up to our newsletter for exclusive offers and discounts!</p>
+            <div>
+              <form class="mt-10">
+                <div class="input-group input-group--dark">
+                  <div class="input-group__control">
+                    <div class="input-group__input">
+                      <label for="email">Email address</label>
+                      <input id="email" name="email" autocomplete="off" />
+                    </div>
+                    <div class="input-group__adornment input-group__adornment--placement-end">
+                      <button class="button button--variant-ghost button--size-sm button--icon text-gray-600" type="submit">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 10 14"><path d="M1.31662 0.613021C1.1029 0.438158 0.787885 0.469659 0.613021 0.683381C0.438158 0.897104 0.469659 1.21211 0.683381 1.38698L1.31662 0.613021ZM9 7.54545L9.28167 7.95857L9.83413 7.58189L9.31662 7.15848L9 7.54545ZM0.683381 1.38698L8.68338 7.93243L9.31662 7.15848L1.31662 0.613021L0.683381 1.38698ZM8.71833 7.13234L0.718332 12.5869L1.28167 13.4131L9.28167 7.95857L8.71833 7.13234Z" fill="currentColor"></path></svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="flex flex-col lg:flex-row lg:gap-20 hs-accordion-group">
+            <hr class="divider !border-[#282828] mb-4 lg:hidden" aria-orientation="horizontal" />
+            <div class="flex flex-col items-start hs-accordion" id="hs-footer-heading-one">
+              <div class="flex items-center justify-between w-full hs-accordion-toggle mb-4 lg:pointer-events-none">
+                <h3 class="typography typography--body-md text-white font-semibold uppercase">Popular</h3>
+                <div class="lg:hidden [&_svg]:max-w-full [&_svg]:h-full [&_svg]:transition-transform" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" class="hs-accordion-active:rotate-0 icon -rotate-180 w-3 h-3" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 8 8" color="#7D7D7D">
+                    <path d="M0.29387 5.95502C0.235377 5.89506 0.235377 5.79783 0.29387 5.73787L3.89479 2.04617C3.95328 1.9862 4.04812 1.9862 4.10661 2.04617C4.1651 2.10614 4.1651 2.20336 4.10661 2.26333L0.505688 5.95502C0.447196 6.01499 0.352362 6.01499 0.29387 5.95502Z" fill="currentColor"></path>
+                    <path d="M3.89339 2.04498C3.95189 1.98501 4.04672 1.98501 4.10521 2.04498L7.70613 5.73667C7.76462 5.79664 7.76462 5.89387 7.70613 5.95383C7.64764 6.0138 7.5528 6.0138 7.49431 5.95383L3.89339 2.26213C3.8349 2.20217 3.8349 2.10494 3.89339 2.04498Z" fill="currentColor"></path>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M0.505688 5.95502C0.447196 6.01499 0.352362 6.01499 0.29387 5.95502C0.235377 5.89506 0.235377 5.79783 0.29387 5.73787L3.87816 2.06322C3.8827 2.05684 3.88778 2.05073 3.89339 2.04498C3.89337 2.045 3.89342 2.04495 3.89339 2.04498C3.94885 1.98821 4.03699 1.9852 4.09581 2.03611C4.09907 2.03887 4.10213 2.04189 4.10521 2.04498C4.10564 2.04541 4.10618 2.04573 4.10661 2.04617L4.1115 2.05142L7.70613 5.73667C7.76462 5.79664 7.76462 5.89387 7.70613 5.95383C7.64764 6.0138 7.5528 6.0138 7.49431 5.95383L4.00058 2.37203L0.505688 5.95502ZM4.00058 2.73006L0.684651 6.12959C0.528049 6.29014 0.271508 6.29014 0.114906 6.12959C-0.0383019 5.97252 -0.0383019 5.72037 0.114906 5.5633L3.68877 1.89934C3.69678 1.88939 3.70534 1.87973 3.71443 1.87041C3.86258 1.71853 4.10017 1.71033 4.25797 1.84582C4.26747 1.8539 4.27668 1.86249 4.28557 1.87161C4.2883 1.8744 4.29097 1.87722 4.2936 1.88007L7.88509 5.56211C8.0383 5.71918 8.0383 5.97132 7.88509 6.12839C7.72849 6.28894 7.47195 6.28894 7.31535 6.12839L4.00058 2.73006Z" fill="currentColor"></path>
+                  </svg>
+                </div>
+              </div>
+              <nav id="hs-footer-collapse-one" class="hs-accordion-content max-lg:hidden max-lg:pb-5 lg:!h-auto w-full overflow-hidden transition-[height] duration-300">
+                <ul class="flex flex-col">
+                  <li><a class="typography typography--body-sm text-[#7D7D7D] hover:text-white" href="#">About Us</a></li>
+                  <li><a class="typography typography--body-sm text-[#7D7D7D] hover:text-white" href="#">Our Charitable Partnerships</a></li>
+                  <li><a class="typography typography--body-sm text-[#7D7D7D] hover:text-white" href="#">Team GB</a></li>
+                  <li><a class="typography typography--body-sm text-[#7D7D7D] hover:text-white" href="#">Football</a></li>
+                  <li><a class="typography typography--body-sm text-[#7D7D7D] hover:text-white" href="#">Check Yourself Guide</a></li>
+                  <li><a class="typography typography--body-sm text-[#7D7D7D] hover:text-white" href="#">Rugby</a></li>
+                  <li><a class="typography typography--body-sm text-[#7D7D7D] hover:text-white" href="#">UNiDAYS</a></li>
+                  <li><a class="typography typography--body-sm text-[#7D7D7D] hover:text-white" href="#">Custom Products</a></li>
+                </ul>
+              </nav>
+            </div>
+            <hr class="divider !border-[#282828] mb-4 lg:hidden" aria-orientation="horizontal" />
+            <div class="flex flex-col items-start hs-accordion" id="hs-footer-heading-two">
+              <div class="flex items-center justify-between w-full hs-accordion-toggle mb-4 lg:pointer-events-none">
+                <h3 class="typography typography--body-md text-white font-semibold uppercase">Support</h3>
+                <div class="lg:hidden [&_svg]:max-w-full [&_svg]:h-full [&_svg]:transition-transform" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" class="hs-accordion-active:rotate-0 icon -rotate-180 w-3 h-3" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 8 8" color="#7D7D7D">
+                    <path d="M0.29387 5.95502C0.235377 5.89506 0.235377 5.79783 0.29387 5.73787L3.89479 2.04617C3.95328 1.9862 4.04812 1.9862 4.10661 2.04617C4.1651 2.10614 4.1651 2.20336 4.10661 2.26333L0.505688 5.95502C0.447196 6.01499 0.352362 6.01499 0.29387 5.95502Z" fill="currentColor"></path>
+                    <path d="M3.89339 2.04498C3.95189 1.98501 4.04672 1.98501 4.10521 2.04498L7.70613 5.73667C7.76462 5.79664 7.76462 5.89387 7.70613 5.95383C7.64764 6.0138 7.5528 6.0138 7.49431 5.95383L3.89339 2.26213C3.8349 2.20217 3.8349 2.10494 3.89339 2.04498Z" fill="currentColor"></path>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M0.505688 5.95502C0.447196 6.01499 0.352362 6.01499 0.29387 5.95502C0.235377 5.89506 0.235377 5.79783 0.29387 5.73787L3.87816 2.06322C3.8827 2.05684 3.88778 2.05073 3.89339 2.04498C3.89337 2.045 3.89342 2.04495 3.89339 2.04498C3.94885 1.98821 4.03699 1.9852 4.09581 2.03611C4.09907 2.03887 4.10213 2.04189 4.10521 2.04498C4.10564 2.04541 4.10618 2.04573 4.10661 2.04617L4.1115 2.05142L7.70613 5.73667C7.76462 5.79664 7.76462 5.89387 7.70613 5.95383C7.64764 6.0138 7.5528 6.0138 7.49431 5.95383L4.00058 2.37203L0.505688 5.95502ZM4.00058 2.73006L0.684651 6.12959C0.528049 6.29014 0.271508 6.29014 0.114906 6.12959C-0.0383019 5.97252 -0.0383019 5.72037 0.114906 5.5633L3.68877 1.89934C3.69678 1.88939 3.70534 1.87973 3.71443 1.87041C3.86258 1.71853 4.10017 1.71033 4.25797 1.84582C4.26747 1.8539 4.27668 1.86249 4.28557 1.87161C4.2883 1.8744 4.29097 1.87722 4.2936 1.88007L7.88509 5.56211C8.0383 5.71918 8.0383 5.97132 7.88509 6.12839C7.72849 6.28894 7.47195 6.28894 7.31535 6.12839L4.00058 2.73006Z" fill="currentColor"></path>
+                  </svg>
+                </div>
+              </div>
+              <nav id="hs-footer-collapse-two" class="hs-accordion-content max-lg:hidden max-lg:pb-5 lg:!h-auto w-full overflow-hidden transition-[height] duration-300">
+                <ul class="flex flex-col">
+                  <li><a class="typography typography--body-sm text-[#7D7D7D] hover:text-white" href="#">Contact Us</a></li>
+                  <li><a class="typography typography--body-sm text-[#7D7D7D] hover:text-white" href="#">FAQ + Shipping</a></li>
+                  <li><a class="typography typography--body-sm text-[#7D7D7D] hover:text-white" href="#">Returns</a></li>
+                  <li><a class="typography typography--body-sm text-[#7D7D7D] hover:text-white" href="#">Pay Later FAQ</a></li>
+                </ul>
+              </nav>
+            </div>
+            <hr class="divider !border-[#282828] mb-4 lg:hidden" aria-orientation="horizontal" />
+            <div class="flex flex-col items-start hs-accordion" id="hs-footer-heading-three">
+              <div class="flex items-center justify-between w-full hs-accordion-toggle mb-4 lg:pointer-events-none">
+                <h3 class="typography typography--body-md text-white font-semibold uppercase">Info</h3>
+                <div class="lg:hidden [&_svg]:max-w-full [&_svg]:h-full [&_svg]:transition-transform" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" class="hs-accordion-active:rotate-0 icon -rotate-180 w-3 h-3" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 8 8" color="#7D7D7D">
+                    <path d="M0.29387 5.95502C0.235377 5.89506 0.235377 5.79783 0.29387 5.73787L3.89479 2.04617C3.95328 1.9862 4.04812 1.9862 4.10661 2.04617C4.1651 2.10614 4.1651 2.20336 4.10661 2.26333L0.505688 5.95502C0.447196 6.01499 0.352362 6.01499 0.29387 5.95502Z" fill="currentColor"></path>
+                    <path d="M3.89339 2.04498C3.95189 1.98501 4.04672 1.98501 4.10521 2.04498L7.70613 5.73667C7.76462 5.79664 7.76462 5.89387 7.70613 5.95383C7.64764 6.0138 7.5528 6.0138 7.49431 5.95383L3.89339 2.26213C3.8349 2.20217 3.8349 2.10494 3.89339 2.04498Z" fill="currentColor"></path>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M0.505688 5.95502C0.447196 6.01499 0.352362 6.01499 0.29387 5.95502C0.235377 5.89506 0.235377 5.79783 0.29387 5.73787L3.87816 2.06322C3.8827 2.05684 3.88778 2.05073 3.89339 2.04498C3.89337 2.045 3.89342 2.04495 3.89339 2.04498C3.94885 1.98821 4.03699 1.9852 4.09581 2.03611C4.09907 2.03887 4.10213 2.04189 4.10521 2.04498C4.10564 2.04541 4.10618 2.04573 4.10661 2.04617L4.1115 2.05142L7.70613 5.73667C7.76462 5.79664 7.76462 5.89387 7.70613 5.95383C7.64764 6.0138 7.5528 6.0138 7.49431 5.95383L4.00058 2.37203L0.505688 5.95502ZM4.00058 2.73006L0.684651 6.12959C0.528049 6.29014 0.271508 6.29014 0.114906 6.12959C-0.0383019 5.97252 -0.0383019 5.72037 0.114906 5.5633L3.68877 1.89934C3.69678 1.88939 3.70534 1.87973 3.71443 1.87041C3.86258 1.71853 4.10017 1.71033 4.25797 1.84582C4.26747 1.8539 4.27668 1.86249 4.28557 1.87161C4.2883 1.8744 4.29097 1.87722 4.2936 1.88007L7.88509 5.56211C8.0383 5.71918 8.0383 5.97132 7.88509 6.12839C7.72849 6.28894 7.47195 6.28894 7.31535 6.12839L4.00058 2.73006Z" fill="currentColor"></path>
+                  </svg>
+                </div>
+              </div>
+              <nav id="hs-footer-collapse-three" class="hs-accordion-content max-lg:hidden max-lg:pb-5 lg:!h-auto w-full overflow-hidden transition-[height] duration-300">
+                <ul class="flex flex-col">
+                  <li><a class="typography typography--body-sm text-[#7D7D7D] hover:text-white" href="#">Size Guides</a></li>
+                  <li><a class="typography typography--body-sm text-[#7D7D7D] hover:text-white" href="#">Custom Products</a></li>
+                  <li><a class="typography typography--body-sm text-[#7D7D7D] hover:text-white" href="#">Why Bamboo</a></li>
+                  <li><a class="typography typography--body-sm text-[#7D7D7D] hover:text-white" href="#">Downloads</a></li>
+                  <li><a class="typography typography--body-sm text-[#7D7D7D] hover:text-white" href="#">Privacy</a></li>
+                  <li><a class="typography typography--body-sm text-[#7D7D7D] hover:text-white" href="#">Terms</a></li>
+                  <li><a class="typography typography--body-sm text-[#7D7D7D] hover:text-white" href="#">Discount Codes</a></li>
+                </ul>
+              </nav>
+            </div>
+            <hr class="divider !border-[#282828] lg:hidden" aria-orientation="horizontal" />
+          </div>
+        </div>
+        <div class="flex flex-col-reverse gap-y-6 lg:flex-row lg:justify-between mt-8 lg:mt-12">
+          <div class="flex flex-wrap gap-1 lg:gap-2 text-[#7D7D7D]">
+            <!-- <img width="40" class="icon flex-[0_1_auto]" src="img/payment/shopify_pay.svg" alt="" />
+            <img width="40" class="icon flex-[0_1_auto]" src="img/payment/visa.svg" alt="" />
+            <img width="40" class="icon flex-[0_1_auto]" src="img/payment/maestro.svg" alt="" />
+            <img width="40" class="icon flex-[0_1_auto]" src="img/payment/mastercard.svg" alt="" />
+            <img width="40" class="icon flex-[0_1_auto]" src="img/payment/paypal.svg" alt="" />
+            <img width="40" class="icon flex-[0_1_auto]" src="img/payment/apple_pay.svg" alt="" />
+            <img width="40" class="icon flex-[0_1_auto]" src="img/payment/google_pay.svg" alt="" />
+            <img width="40" class="icon flex-[0_1_auto]" src="img/payment/klarna.svg" alt="" />
+            <img width="40" class="icon flex-[0_1_auto]" src="img/payment/afterpay.svg" alt="" />
+            <img width="40" class="icon flex-[0_1_auto]" src="img/payment/american_express.svg" alt="" />
+            <img width="40" class="icon flex-[0_1_auto]" src="img/payment/discover.svg" alt="" /> -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" class="icon flex-[0_1_auto]" fill="currentColor" viewBox="0 0 35.19 22.225" aria-label="American Express">
+              <path d="M32.147.265h.264a2.514 2.514 0 0 1 2.514 2.513v16.669a2.514 2.514 0 0 1-2.514 2.513H2.778a2.514 2.514 0 0 1-2.513-2.513V2.778A2.514 2.514 0 0 1 2.778.265Z" fill="none" stroke="#7D7D7D" stroke-width=".52916"></path>
+              <path d="m7.25 7.673-3.017 6.606h3.61l.448-1.053h1.023l.448 1.053h3.974v-.804l.354.804h2.056l.354-.82v.82h8.265l1.005-1.026.941 1.026 4.245.008-3.025-3.293 3.025-3.321h-4.18L25.8 8.68l-.912-1.007h-8.991l-.772 1.705-.79-1.705H10.73v.776l-.401-.776H7.25zm.698.938h1.76l2 4.48V8.61h1.928l1.545 3.212 1.424-3.212h1.918v4.74h-1.167l-.01-3.714-1.701 3.714h-1.044L12.89 9.637v3.714h-2.402l-.455-1.062h-2.46L7.12 13.35H5.833l2.115-4.739zm11.643 0h4.747l1.451 1.552 1.499-1.552h1.451l-2.205 2.382 2.205 2.355h-1.517l-1.452-1.57-1.506 1.57h-4.673Zm-10.787.802-.81 1.893h1.62zm11.96.18v.865h2.589v.964h-2.59v.945h2.905l1.35-1.391-1.293-1.384h-2.962Z" fill="#C8C8C8"></path></svg
+            ><svg xmlns="http://www.w3.org/2000/svg" width="40" class="icon flex-[0_1_auto]" fill="currentColor" viewBox="0 0 35.19 22.225" aria-label="Apple Pay">
+              <path d="M32.147.265h.264a2.514 2.514 0 0 1 2.514 2.513v16.669a2.514 2.514 0 0 1-2.514 2.513H2.778a2.514 2.514 0 0 1-2.513-2.513V2.778A2.514 2.514 0 0 1 2.778.265Z" fill="none" stroke="#7D7D7D" stroke-width=".52916"></path>
+              <path d="M9.298 7.287c.31-.4.533-.933.466-1.466-.466.022-1.022.31-1.355.689-.289.333-.555.889-.489 1.4.533.066 1.044-.223 1.378-.623zm.466.756c-.755-.045-1.4.422-1.755.422s-.91-.4-1.51-.4A2.228 2.228 0 0 0 4.61 9.221c-.8 1.4-.223 3.466.577 4.6.378.555.844 1.177 1.444 1.155.578-.022.8-.378 1.488-.378.689 0 .889.378 1.51.356.623-.023 1.023-.556 1.4-1.134.444-.644.622-1.266.622-1.288-.022-.023-1.222-.467-1.222-1.845-.022-1.155.934-1.71.978-1.733-.511-.8-1.355-.889-1.644-.911M16.295 6.465c1.644 0 2.777 1.134 2.777 2.756 0 1.644-1.155 2.777-2.821 2.777h-1.8v2.867h-1.31v-8.4Zm-1.843 4.444h1.488c1.133 0 1.777-.622 1.777-1.666 0-1.067-.644-1.667-1.777-1.667h-1.51v3.333zm4.953 2.245c0-1.067.822-1.733 2.288-1.822l1.688-.09v-.466c0-.689-.466-1.089-1.221-1.089-.734 0-1.178.356-1.289.89h-1.2c.067-1.112 1.023-1.934 2.533-1.934 1.488 0 2.444.778 2.444 2.022v4.222h-1.2v-1h-.022c-.356.689-1.133 1.111-1.933 1.111-1.244 0-2.088-.755-2.088-1.844zm3.976-.556v-.489l-1.51.09c-.755.044-1.177.377-1.177.91 0 .534.444.89 1.11.89.889 0 1.577-.6 1.577-1.4zm2.377 4.555v-1.022c.09.023.311.023.4.023.578 0 .889-.245 1.089-.867 0-.022.11-.378.11-.378l-2.22-6.133h1.354l1.555 5h.022l1.555-5h1.333l-2.288 6.466c-.533 1.49-1.133 1.956-2.399 1.956-.089-.022-.4-.022-.51-.045z" fill="#C8C8C8"></path></svg
+            ><svg xmlns="http://www.w3.org/2000/svg" width="40" class="icon flex-[0_1_auto]" fill="currentColor" viewBox="0 0 35.19 22.225" aria-label="Klarna">
+              <path d="M32.147.265h.264a2.514 2.514 0 0 1 2.514 2.513v16.669a2.514 2.514 0 0 1-2.514 2.513H2.778a2.514 2.514 0 0 1-2.513-2.513V2.778A2.514 2.514 0 0 1 2.778.265z" fill="none" stroke="#7D7D7D" stroke-width=".52916"></path>
+              <path d="M30.46 12.444c-.42 0-.76.347-.76.776 0 .428.34.776.76.776s.76-.348.76-.776a.768.768 0 0 0-.76-.776zm-2.503-.6c0-.587-.492-1.063-1.098-1.063-.607 0-1.098.476-1.098 1.063s.491 1.062 1.098 1.062c.606 0 1.098-.475 1.098-1.062zm.004-2.065h1.212v4.13h-1.212v-.264a2.095 2.095 0 0 1-1.201.378c-1.18 0-2.137-.976-2.137-2.18 0-1.203.957-2.178 2.137-2.178.446 0 .859.14 1.201.378zm-9.7.538v-.538h-1.24v4.13h1.243V11.98c0-.651.691-1 1.17-1h.015V9.779c-.492 0-.945.215-1.188.538zm-3.09 1.527c0-.587-.493-1.063-1.1-1.063-.606 0-1.097.476-1.097 1.063s.491 1.062 1.098 1.062c.606 0 1.098-.475 1.098-1.062zm.003-2.065h1.212v4.13h-1.212v-.264a2.096 2.096 0 0 1-1.201.378c-1.18 0-2.137-.976-2.137-2.18 0-1.203.957-2.178 2.137-2.178.445 0 .859.14 1.201.378V9.78zm7.296-.111c-.484 0-.943.153-1.25.576V9.78h-1.206v4.13h1.222v-2.17c0-.629.412-.936.91-.936.532 0 .839.325.839.927v2.179h1.21v-2.627c0-.96-.749-1.614-1.725-1.614zm-12.4 4.24h1.27v-5.97h-1.27zm-5.572.002H5.84V7.937H4.498zm4.699-5.973a4.8 4.8 0 0 1-1.375 3.39L9.68 13.91H8.02l-2.018-2.807.52-.398a3.453 3.453 0 0 0 1.36-2.768h1.315z" fill="#C8C8C8"></path></svg
+            ><svg xmlns="http://www.w3.org/2000/svg" width="40" class="icon flex-[0_1_auto]" fill="currentColor" viewBox="0 0 35.19 22.225" aria-label="Afterpay">
+              <path d="M-370.5-288.286h112a9.501 9.501 0 0 1 9.5 9.5v63a9.502 9.502 0 0 1-9.5 9.5h-112a9.501 9.501 0 0 1-9.5-9.5v-63a9.502 9.502 0 0 1 9.5-9.5z" transform="matrix(.26458 0 0 .26458 100.806 76.54)" fill="none" stroke="#7D7D7D" stroke-width="2"></path>
+              <path d="m-254.58-254.286-3.71-2.135-3.71-2.24a3.748 3.748 0 0 0-5.102 1.387 3.737 3.737 0 0 0-.498 1.868v.455a.806.806 0 0 0 .35.665l1.75.98a.7.7 0 0 0 .98-.28.67.67 0 0 0 0-.35v-1.12a.723.723 0 0 1 .19-.53.73.73 0 0 1 .51-.24h.42l3.5 1.995 3.5 1.96a.771.771 0 0 1 .245 1.05l-.245.245-3.5 1.96-3.5 1.995a.74.74 0 0 1-.82-.032.722.722 0 0 1-.195-.213.83.83 0 0 1 0-.42v-.56a3.748 3.748 0 0 0-3.73-3.746 3.738 3.738 0 0 0-1.87.491l-3.78 2.17-3.71 2.135a3.78 3.78 0 0 0-1.4 5.11 3.497 3.497 0 0 0 1.4 1.4l3.71 2.135 3.78 2.135a3.741 3.741 0 0 0 5.101-1.386 3.748 3.748 0 0 0 .499-1.869v-.455a.807.807 0 0 0-.35-.665l-1.75-1.015a.697.697 0 0 0-.98.28.809.809 0 0 0 0 .385v1.12a.742.742 0 0 1-.422.701.733.733 0 0 1-.278.07.945.945 0 0 1-.42 0l-3.5-1.996-3.5-1.96a.766.766 0 0 1-.385-.98l.245-.245 3.5-1.96 3.5-1.995a.729.729 0 0 1 .558-.089.73.73 0 0 1 .457.334.853.853 0 0 1 0 .42v.56a3.737 3.737 0 0 0 1.863 3.24 3.744 3.744 0 0 0 3.737.015l3.78-2.17 3.71-2.135a3.717 3.717 0 0 0 1.67-2.324 3.713 3.713 0 0 0-.48-2.82 3.507 3.507 0 0 0-1.12-1.33zM-279.01-253.655l-8.715 17.99h-3.5l3.255-6.72-5.11-11.27h3.71l3.29 7.525 3.5-7.525zM-366.125-247.286a3.497 3.497 0 0 0-2.277-3.106 3.503 3.503 0 0 0-4.663 2.66 3.498 3.498 0 0 0 3.44 4.121 3.502 3.502 0 0 0 3.5-3.5zm0 6.405v-1.68a5.22 5.22 0 0 1-4.06 1.89 6.262 6.262 0 0 1-6.125-6.405v-.21a6.37 6.37 0 0 1 6.125-6.615 5.144 5.144 0 0 1 3.99 1.855v-1.61h3.115v12.775zM-347.68-243.785c-1.12 0-1.4-.42-1.4-1.47v-5.53h1.995v-2.765h-1.995v-3.22h-3.22v3.115h-4.2v-1.295c0-1.05.42-1.47 1.54-1.47h.7v-2.485h-1.505c-2.66 0-3.92.875-3.92 3.5v1.715h-1.785v2.905h1.785v10.01h3.185v-10.01h4.2v6.265c0 2.625.98 3.745 3.5 3.745h1.75v-3.01zM-336.13-248.44a3.044 3.044 0 0 0-3.185-2.625 3.117 3.117 0 0 0-3.22 2.625zm-6.37 1.995a3.185 3.185 0 0 0 3.29 2.975 3.5 3.5 0 0 0 3.01-1.645h3.29a6.265 6.265 0 0 1-6.37 4.445 6.3 6.3 0 0 1-6.72-5.845v-.77a6.617 6.617 0 0 1 6.615-6.615 6.618 6.618 0 0 1 6.615 6.615c.035.267.035.537 0 .805zM-312.19-247.286a3.5 3.5 0 1 0 0 .175zm-10.115 11.62v-17.99h3.115v1.645a5.21 5.21 0 0 1 4.06-1.89 6.259 6.259 0 0 1 4.399 1.91 6.264 6.264 0 0 1 1.761 4.46v.245a6.37 6.37 0 0 1-6.125 6.615 5.04 5.04 0 0 1-3.885-1.715v6.72zM-297.63-247.286a3.506 3.506 0 0 0-2.239-3.087 3.5 3.5 0 1 0-1.436 6.762h.175a3.5 3.5 0 0 0 3.5-3.5zm0 6.405v-1.68a5.109 5.109 0 0 1-4.025 1.89 6.268 6.268 0 0 1-6.16-6.37v-.245a6.37 6.37 0 0 1 6.125-6.615 5.07 5.07 0 0 1 3.955 1.855v-1.61h3.15v12.775zM-327.975-252.395a3.184 3.184 0 0 1 2.765-1.505c.47-.013.937.083 1.365.28v3.29a4.024 4.024 0 0 0-2.275-.595 2.239 2.239 0 0 0-1.75 2.485v7.56h-3.255v-12.775h3.15z" transform="matrix(.26458 0 0 .26458 100.806 76.54)" fill="#C8C8C8"></path></svg
+            ><svg xmlns="http://www.w3.org/2000/svg" width="40" class="icon flex-[0_1_auto]" fill="currentColor" viewBox="0 0 35.19 22.225" aria-label="PayPal">
+              <path d="M32.147.265h.264a2.514 2.514 0 0 1 2.514 2.513v16.669a2.514 2.514 0 0 1-2.514 2.513H2.778a2.514 2.514 0 0 1-2.513-2.513V2.778A2.514 2.514 0 0 1 2.778.265Z" fill="none" stroke="#7D7D7D" stroke-width=".52916"></path>
+              <path d="M16.617 7.472h3.896c2.092 0 2.88 1.055 2.758 2.604-.2 2.559-1.754 3.974-3.814 3.974h-1.04c-.282 0-.472.186-.549.691l-.441 2.935c-.03.19-.13.3-.28.316h-2.449c-.23 0-.312-.176-.251-.555l1.492-9.41c.059-.376.266-.555.678-.555z" clip-rule="evenodd" fill="#c8c8c8" fill-rule="evenodd"></path>
+              <path d="M14.18 4.233h3.9c1.099 0 2.402.035 3.273.802.583.512.888 1.326.818 2.203-.24 2.966-2.02 4.628-4.41 4.628h-1.923c-.328 0-.545.217-.637.802l-.537 3.405c-.035.22-.131.351-.302.367h-2.407c-.266 0-.36-.2-.291-.643l1.73-10.917c.07-.438.311-.647.786-.647Z" clip-rule="evenodd" fill="currentColor" fill-rule="evenodd"></path>
+              <path d="m15.257 12.322.681-4.294c.06-.377.267-.557.68-.557h3.895c.645 0 1.167.1 1.575.285-.39 2.64-2.106 4.107-4.35 4.107h-1.92c-.258.001-.447.13-.56.459z" clip-rule="evenodd" fill="currentColor" fill-rule="evenodd"></path></svg
+            ><svg xmlns="http://www.w3.org/2000/svg" width="40" class="icon flex-[0_1_auto]" fill="currentColor" viewBox="0 0 35.19 22.225" aria-label="Mastercard">
+              <path d="M32.147.265h.264a2.514 2.514 0 0 1 2.514 2.513v16.669a2.514 2.514 0 0 1-2.514 2.513H2.778a2.514 2.514 0 0 1-2.513-2.513V2.778A2.514 2.514 0 0 1 2.778.265Z" fill="none" stroke="#7D7D7D" stroke-width=".52916"></path>
+              <path d="M20.732 5.705h-6.01V16.52h6.01z" fill="currentColor"></path>
+              <path d="M15.104 11.112a6.902 6.902 0 0 1 2.614-5.407 6.818 6.818 0 0 0-4.236-1.472 6.87 6.87 0 0 0-6.867 6.88 6.87 6.87 0 0 0 6.867 6.879 6.818 6.818 0 0 0 4.236-1.472 6.873 6.873 0 0 1-2.614-5.408Z" fill="currentColor"></path>
+              <path d="M28.84 11.112a6.87 6.87 0 0 1-6.868 6.88 6.818 6.818 0 0 1-4.235-1.472 6.845 6.845 0 0 0 2.613-5.408 6.902 6.902 0 0 0-2.613-5.407 6.818 6.818 0 0 1 4.235-1.472c3.796 0 6.868 3.096 6.868 6.88Z" fill="#c8c8c8"></path></svg
+            ><svg xmlns="http://www.w3.org/2000/svg" width="40" class="icon flex-[0_1_auto]" fill="currentColor" viewBox="0 0 35.19 22.225" aria-label="Visa">
+              <path d="M32.147.265h.264a2.514 2.514 0 0 1 2.514 2.513v16.669a2.514 2.514 0 0 1-2.514 2.513H2.778a2.514 2.514 0 0 1-2.513-2.513V2.778A2.514 2.514 0 0 1 2.778.265Z" fill="none" stroke="#7D7D7D" stroke-width=".52916"></path>
+              <path d="m14.669 7.016-1.358 7.946h2.172l1.36-7.946zM11.49 7.024l-2.128 5.42-.227-.819c-.42-.986-1.61-2.401-3.009-3.294l1.945 6.627 2.299-.004 3.42-7.931z" fill="#C8C8C8"></path>
+              <path d="M8.31 7.593c-.126-.484-.492-.628-.946-.645H3.997l-.028.158c2.62.634 4.355 2.161 5.074 3.998zM21.244 8.54a4.02 4.02 0 0 1 1.626.303l.196.092.294-1.722a5.62 5.62 0 0 0-1.946-.334c-2.146 0-3.66 1.078-3.671 2.623-.014 1.14 1.078 1.778 1.902 2.159.847.39 1.13.637 1.127.986-.007.531-.675.775-1.3.775-.87 0-1.331-.12-2.045-.416l-.28-.127-.305 1.779c.508.222 1.446.413 2.42.423 2.283 0 3.767-1.065 3.783-2.715.01-.903-.57-1.592-1.825-2.158-.76-.368-1.225-.613-1.22-.985 0-.33.394-.684 1.244-.684zM28.934 7.024h-1.678c-.521 0-.909.142-1.138.66l-3.225 7.282h2.281s.372-.979.456-1.193l2.782.003c.065.277.265 1.19.265 1.19h2.015Zm-2.679 5.122c.18-.456.866-2.22.866-2.22-.012.021.177-.46.29-.76l.146.686.503 2.294z" fill="#C8C8C8"></path>
+            </svg>
+          </div>
+          <div class="flex gap-x-4 items-center text-[#7D7D7D]">
+            <a href="#" class="w-6 h-6 text-[#7D7D7D] hover:text-white" target="_blank">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" class="icon w-full h-full" fill="currentColor" viewBox="0 0 24 24" aria-label="Facebook">
+                <g clip-path="url(#a)"><path fill="currentColor" d="M12 0C5.373 0 0 5.373 0 12c0 5.944 4.326 10.867 9.999 11.82v-9.316H7.104V11.15h2.895V8.68c0-2.868 1.752-4.431 4.31-4.431 1.226 0 2.28.091 2.585.131v2.998l-1.775.001c-1.391 0-1.66.661-1.66 1.632v2.14h3.32l-.432 3.352H13.46V23.9C19.397 23.177 24 18.13 24 11.997 24 5.373 18.627 0 12 0Z"></path></g>
+                <defs>
+                  <clipPath id="a"><path fill="#fff" d="M0 0h24v24H0z"></path></clipPath>
+                </defs>
+              </svg>
+            </a>
+            <a href="#" class="w-6 h-6 text-[#7D7D7D] hover:text-white" target="_blank">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" class="icon w-full h-full" fill="currentColor" viewBox="0 0 48 48" aria-label="Twitter"><path d="M 5.9199219 6 L 20.582031 27.375 L 6.2304688 44 L 9.4101562 44 L 21.986328 29.421875 L 31.986328 44 L 44 44 L 28.681641 21.669922 L 42.199219 6 L 39.029297 6 L 27.275391 19.617188 L 17.933594 6 L 5.9199219 6 z M 9.7167969 8 L 16.880859 8 L 40.203125 42 L 33.039062 42 L 9.7167969 8 z"></path></svg>
+            </a>
+            <a href="#" class="w-6 h-6 text-[#7D7D7D] hover:text-white" target="_blank">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" class="icon w-full h-full" fill="currentColor" viewBox="0 0 24 24" aria-label="Instagram">
+                <g clip-path="url(#a)"><path fill="currentColor" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069ZM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0Zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162S8.597 18.163 12 18.163s6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162ZM12 16c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4Zm6.406-11.845c-.796 0-1.441.645-1.441 1.44 0 .795.645 1.44 1.441 1.44.795 0 1.439-.645 1.439-1.44 0-.795-.644-1.44-1.439-1.44Z"></path></g>
+                <defs>
+                  <clipPath id="a"><path fill="#fff" d="M0 0h24v24H0z"></path></clipPath>
+                </defs>
+              </svg>
+            </a>
+            <a href="#" class="w-6 h-6 text-[#7D7D7D] hover:text-white" target="_blank">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" class="icon w-full h-full" fill="currentColor" viewBox="0 0 24 24" aria-label="Youtube">
+                <g clip-path="url(#:rq:)"><path fill="currentColor" d="M19.615 3.1841c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816ZM9 16.0001v-8l8 3.993-8 4.007Z"></path></g>
+                <defs>
+                  <clipPath><path fill="#fff" d="M0 0h24v24H0z"></path></clipPath>
+                </defs>
+              </svg>
+            </a>
+            <a href="#" class="w-6 h-6 text-[#7D7D7D] hover:text-white" target="_blank">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" class="icon w-full h-full" fill="currentColor" viewBox="0 0 24 24" aria-label="TikTok">
+                <g fill="currentColor" clip-path="url(#:rr:)">
+                  <path d="M9.2719 9.4517v-.9352a6.9002 6.9002 0 0 0-.9812-.0844c-3.1819-.0067-5.999 2.0552-6.9544 5.0903-.9555 3.035.1723 6.3387 2.7842 8.156-1.9565-2.0938-2.4997-5.1421-1.387-7.7829 1.1125-2.6408 3.6733-4.3813 6.5384-4.4438Z"></path>
+                  <path d="M9.4482 20.0458c1.779-.0024 3.2414-1.404 3.3193-3.1813V1.0042h2.8976A5.4262 5.4262 0 0 1 15.5808 0h-3.9632v15.845c-.0659 1.7863-1.5317 3.2013-3.3192 3.2042a3.3719 3.3719 0 0 1-1.5332-.3833 3.3266 3.3266 0 0 0 2.683 1.3799ZM21.0771 6.3855V5.504a5.4118 5.4118 0 0 1-2.9973-.9046 5.4963 5.4963 0 0 0 2.9973 1.7861Z"></path>
+                  <path d="M18.0798 4.5995a5.4582 5.4582 0 0 1-1.3569-3.603h-1.0578a5.489 5.489 0 0 0 2.4147 3.603Zm-9.7891 7.796c-1.5267.0078-2.8521 1.0537-3.2147 2.5367-.3626 1.483.3307 3.0224 1.6816 3.7338a3.3193 3.3193 0 0 1 2.6906-5.2663c.3327.0041.6631.0558.9812.1533V9.5208a6.9605 6.9605 0 0 0-.9812-.0766h-.1763v3.0662a3.412 3.412 0 0 0-.9812-.1149Z"></path>
+                  <path d="M21.077 6.3857V9.452a9.406 9.406 0 0 1-5.4963-1.786v8.0565c-.0084 4.0202-3.2698 7.2748-7.29 7.2748a7.2135 7.2135 0 0 1-4.1702-1.3185c2.0362 2.1899 5.205 2.9108 7.9882 1.8172 2.7831-1.0937 4.6135-3.7789 4.6142-6.7692V8.6931a9.421 9.421 0 0 0 5.504 1.7631V6.5084a5.6196 5.6196 0 0 1-1.1499-.1227Z"></path>
+                  <path d="M15.5808 15.7224V7.6657a9.4055 9.4055 0 0 0 5.5039 1.7631V6.3626a5.4961 5.4961 0 0 1-3.0049-1.7631A5.4875 5.4875 0 0 1 15.6651.9966h-2.8976v15.868a3.3269 3.3269 0 0 1-2.3626 3.0487 3.3269 3.3269 0 0 1-3.655-1.232c-1.3509-.7114-2.0441-2.2508-1.6816-3.7338.3626-1.483 1.688-2.5289 3.2147-2.5367a3.412 3.412 0 0 1 .9812.1533V9.4978c-2.8811.0489-5.4612 1.7953-6.577 4.452-1.1158 2.6567-.5566 5.7217 1.4257 7.8131a7.2135 7.2135 0 0 0 4.1778 1.2342c4.0202 0 7.2816-3.2545 7.2901-7.2747Z"></path>
+                </g>
+                <defs>
+                  <clipPath><path fill="#fff" d="M0 0h24v24H0z"></path></clipPath>
+                </defs>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <hr class="divider my-4 !border-[#282828] hidden lg:block" aria-orientation="horizontal" />
+        <div class="flex flex-wrap mt-6 flex-col lg:m-0 lg:flex-row lg:justify-center lg:items-center gap-x-4 gap-y-2">
+          <button class="align-self-start text-white flex gap-x-2" aria-haspopup="dialog" aria-expanded="false">
+            <svg xmlns="http://www.w3.org/2000/svg" width="512" class="icon w-4 h-4 rounded-full border border-white" fill="currentColor" height="512" viewBox="0 0 512 512">
+              <path fill="#eee" d="m0 0 8 22-8 23v23l32 54-32 54v32l32 48-32 48v32l32 54-32 54v68l22-8 23 8h23l54-32 54 32h32l48-32 48 32h32l54-32 54 32h68l-8-22 8-23v-23l-32-54 32-54v-32l-32-48 32-48v-32l-32-54 32-54V0l-22 8-23-8h-23l-54 32-54-32h-32l-48 32-48-32h-32l-54 32L68 0H0z"></path>
+              <path fill="#0052b4" d="M336 0v108L444 0Zm176 68L404 176h108zM0 176h108L0 68ZM68 0l108 108V0Zm108 512V404L68 512ZM0 444l108-108H0Zm512-108H404l108 108Zm-68 176L336 404v108z"></path>
+              <path fill="#d80027" d="M0 0v45l131 131h45L0 0zm208 0v208H0v96h208v208h96V304h208v-96H304V0h-96zm259 0L336 131v45L512 0h-45zM176 336 0 512h45l131-131v-45zm160 0 176 176v-45L381 336h-45z"></path>
+            </svg>
+            <span class="typography typography--body-sm font-semibold">UK</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" class="icon w-[6px] h-[6px]" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 8 8">
+              <path d="M7.70601 2.04498C7.7645 2.10494 7.7645 2.20217 7.70601 2.26213L4.10509 5.95383C4.0466 6.0138 3.95176 6.0138 3.89327 5.95383C3.83478 5.89387 3.83478 5.79664 3.89327 5.73667L7.49419 2.04498C7.55268 1.98501 7.64752 1.98501 7.70601 2.04498Z" fill="currentColor"></path>
+              <path d="M4.10648 5.95503C4.04799 6.01499 3.95316 6.01499 3.89467 5.95503L0.293746 2.26333C0.235254 2.20336 0.235254 2.10613 0.293746 2.04617C0.352238 1.9862 0.447073 1.9862 0.505565 2.04617L4.10648 5.73787C4.16498 5.79783 4.16498 5.89506 4.10648 5.95503Z" fill="currentColor"></path>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M7.49419 2.04498C7.55268 1.98501 7.64752 1.98501 7.70601 2.04498C7.7645 2.10494 7.7645 2.20217 7.70601 2.26213L4.12172 5.93678C4.11718 5.94316 4.1121 5.94927 4.10648 5.95503C4.10651 5.955 4.10646 5.95505 4.10648 5.95503C4.05103 6.01179 3.96289 6.0148 3.90407 5.96389C3.90081 5.96113 3.89774 5.95811 3.89467 5.95503C3.89424 5.95459 3.8937 5.95427 3.89327 5.95383L3.88838 5.94858L0.293746 2.26333C0.235254 2.20336 0.235254 2.10613 0.293746 2.04617C0.352238 1.9862 0.447073 1.9862 0.505565 2.04617L3.9993 5.62797L7.49419 2.04498ZM3.9993 5.26994L7.31523 1.87041C7.47183 1.70986 7.72837 1.70986 7.88497 1.87041C8.03818 2.02748 8.03818 2.27963 7.88497 2.4367L4.31111 6.10066C4.30309 6.11061 4.29454 6.12027 4.28545 6.12959C4.1373 6.28147 3.89971 6.28967 3.74191 6.15418C3.73241 6.1461 3.7232 6.13751 3.71431 6.12839C3.71158 6.1256 3.70891 6.12278 3.70628 6.11993L0.114783 2.43789C-0.0384243 2.28082 -0.0384244 2.02868 0.114783 1.87161C0.271385 1.71106 0.527927 1.71106 0.684529 1.87161L3.9993 5.26994Z" fill="currentColor"></path>
+            </svg>
+          </button>
+          <p class="typography typography--body-sm text-[#7D7D7D] text-[10px]">© 2024 Oddballs. All Rights Reserved.</p>
+        </div>
+      </div>
+    </div>
+    {% render 'ob-cart-drawer' %}
+        {% assign my_product = settings.variable_values_product %}
+        {% if my_product %}
+        {% for variant in my_product.variants %}
+          {% if variant.title == 'FreeGift_MinSpend' %}
+            {% assign fg_threshold = variant.price | money_without_currency  %}
+          {% endif %}
+          {% if variant.title == 'FreeShipping_MinSpend' %}
+            {% assign fs_threshold = variant.price | money_without_currency  %}
+          {% endif %}
+          {% if variant.title == 'FreeGift_Value' %}
+            {% assign fg_value = variant.price | money_without_currency  %}
+          {% endif %}
+        {% endfor %}
+          <div id="free-gift-value" class="hidden">{{ fg_value }}</div>
+          <div id="free-gift-threshold" class="hidden">{{ fg_threshold }}</div>  
+          <div id="free-shipping-threshold" class="hidden">{{ fs_threshold }}</div>
+      {% else %}
+        <p>Product not found.</p>
+      {% endif %}
+    {% render 'popup' %}
+    <!-- JS -->
+    <script src="{{ 'ob-scroll.carousel.min.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'ob-swiper.min.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'ob-accordion.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'ob-custom.js' | asset_url }}" defer="defer"></script>
+  </body>
+</html>

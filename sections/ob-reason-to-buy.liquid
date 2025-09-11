@@ -1,0 +1,159 @@
+<div class="reasons">
+
+  {%  include 'ob-include-set-current-country' %}
+  
+  {% assign product_tag_ok_to_proceed = 'no' %}
+  {% assign product_tag_arr = section.settings.product_tags_arr | split: ',' %}
+  {% for tag in product_tag_arr %}
+    {% assign product_tag_downcase =  tag | downcase %}
+    {% assign product_tag_downcase =  product_tag_downcase | trim %}
+    {% if product.tags contains product_tag_downcase %}
+      {% assign product_tag_ok_to_proceed = 'yes' %}
+      {% break %}
+    {% endif %}
+  {% endfor %}
+  {% if product_tag_ok_to_proceed == 'yes' %}
+      
+      {% capture expandable_message %}
+      <div class="text-sm md:text-base">
+      {{ section.settings.header }}
+      <!-- <span class="tell-me-more block text-xs text-magenta-500 text-left" style="display: block;font-weight: 300;">Tell me how</span> -->
+      </div>
+      {% endcapture %}
+      {% capture expandable_content %}
+      {% if section.settings.widget_code != blank %}
+      <div>
+        {{ section.settings.widget_code }}
+      </div>
+      {% endif %}
+      {% if section.blocks.size > 0 %}
+      <ul class="{{ section.settings.list_classes }}">
+        {% for block in section.blocks %} {%  if current_country == block.settings.country_iso %}
+        <li class="{{ block.settings.content_classes }}">{{ block.settings.content }}</li>
+        {%  endif %}{% endfor %}
+      </ul>
+      {% endif %}
+      {% endcapture %}
+      
+      <div class="{{ section.settings.outer_wrapper_classes }}">
+          <div class="{{ section.settings.inner_wrapper_classes }}">
+              {%  assign reasons_to_buy_target = '.reasons-to-buy_' | append: section.id %}
+              {% render 'ob-include-expandable-info-block', target_slide1: reasons_to_buy_target, expandable_message:expandable_message, expandable_content:expandable_content,section_id:section.id %}
+          </div>
+      </div>
+      <style>
+    
+          .list-outside {
+          
+            list-style-position: outside;
+          
+          }
+    
+      </style>
+  {% endif %}
+
+</div>
+{% schema %}
+  {
+    "name": "Reasons To Buy",
+    "settings": [
+		{
+			"type": "checkbox",
+			"id": "active",
+			"label": "Is Active"
+		},
+        {
+          "type": "text",
+          "id": "product_tags_arr",
+          "label": "Product Tags Array",
+          "info": "List product tags to display on, comma separated without spaces."
+        },
+		{
+			"type": "text",
+			"id": "outer_wrapper_classes",
+			"label": "Outer Wrapper Classes"
+		},
+		{
+			"type": "text",
+			"id": "inner_wrapper_classes",
+			"label": "Inner Wrapper Classes"
+		},
+		{
+			"type": "html",
+			"id": "widget_code",
+			"label": "Widget Code"
+		},
+		{
+			"type": "text",
+			"id": "header",
+			"label": "Header"
+		},		
+		{
+			"type": "text",
+			"id": "header_classes",
+			"label": "Header Classes"
+		},
+		{
+			"type": "text",
+			"id": "list_classes",
+			"label": "List Classes"
+		}
+	],
+	"blocks": [
+       {
+         "name": "List Item",
+         "type": "list-item",
+         "settings": [
+            {
+              "type": "select",
+              "id": "country_iso",
+              "label": "Country ISO",
+              "options": [
+                {
+                  "value": "GB",
+                  "label": "UK"
+                },
+                {
+                  "value": "US",
+                  "label": "USA"
+                },
+                {
+                  "value": "CA",
+                  "label": "Canada"
+                },
+                {
+                  "value": "AU",
+                  "label": "Australia"
+                }
+			  ],
+			  "default": "GB"
+			},
+           {
+             "type": "text",
+             "id": "content",
+             "label": "Content"
+           },
+           {
+             "type": "text",
+             "id": "content_classes",
+             "label": "Content Classes"
+           }
+         ]
+       }
+	],
+    "presets": [
+       {
+         "name": "Reasons To Buy",
+         "settings": {
+
+		 }
+       }
+     ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

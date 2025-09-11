@@ -1,0 +1,38 @@
+{% schema %}
+  {
+    "name": "coppafeel-banner",
+    "settings": [
+      {
+        "type":"collection",
+        "id": "collection",
+        "label": "Collection"
+      },
+      {
+          "type": "image_picker",
+          "id": "desktopImage",
+          "label": "Desktop Image"
+        },
+      {
+          "type": "image_picker",
+          "id": "mobileImage",
+          "label": "Mobile Image"
+        }
+    ],
+    "presets":[{"name":"coppafeel-banner"}]
+  }
+{% endschema %}
+<a class="coppafeel-banner" href="/collections/{{ section.settings.collection }}">
+    <div class="max-md:hidden">
+        
+        {{ section.settings.desktopImage | media_tag: image_size: '2000x' }}
+    </div>
+    <div class="md:hidden">
+        {{ section.settings.mobileImage | media_tag: image_size: '800x' }}
+    </div>
+</a>
+
+<style>
+    .coppafeel-banner img{
+        width:100%;
+    }
+</style>

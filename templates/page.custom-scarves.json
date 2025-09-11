@@ -1,0 +1,255 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "charities-hero": {
+      "type": "ob-charities-hero",
+      "settings": {
+        "hero-outer-class": "",
+        "hero-frame-class": "max-w-7xl mx-auto sm:px-6 lg:px-8  pt-0",
+        "hero-image-outer-class": "bg-black bg-opacity-30",
+        "logo": "shopify://shop_images/SCARFBUTTON.png",
+        "title": "Custom Scarves",
+        "subtitle_description": "<p>Get Your Custom Scarves Here</p>",
+        "button_text": "Get IN TOUCH",
+        "button_class": "px-8 rounded-md uppercase btn-shadow-lg block bg-magenta border-solid border-2 border-md border-black relative font-semibold text-center p-4 text-white hover:bg-magenta-700 transition-colors duration-200",
+        "hero_url": "#contact_form_wrapper",
+        "subtitle_description_class": "mt-6 max-w-lg mx-auto text-center text-xl text-white sm:max-w-3xl",
+        "title_description": "",
+        "title_description_class": "mt-6 max-w-lg mx-auto text-center text-xl text-white sm:max-w-3xl"
+      }
+    },
+    "custom_html_nCRdJd": {
+      "type": "ob-custom-html",
+      "settings": {}
+    },
+    "16551193883dbf260d": {
+      "type": "ob-trust-pilot-widget",
+      "settings": {
+        "outer_wrapper_classes": "border-b border-solid border-gray-300",
+        "wrapper_classes": "max-w-7xl mx-auto pb-6 px-2",
+        "widget_header": "We'd be nowhere without our amazing customers!",
+        "widget_header_classes": "font-bebas text-center text-4xl md:text-5xl uppercase pb-3",
+        "widget_subheader": "",
+        "widget_subheader_classes": "",
+        "widget_code": "<!-- TrustBox widget - Slider -->\n<div class=\"trustpilot-widget\" data-locale=\"en-GB\" data-template-id=\"54ad5defc6454f065c28af8b\" data-businessunit-id=\"5c7f9459871dac0001ea0238\" data-style-height=\"240px\" data-style-width=\"100%\" data-theme=\"light\" data-stars=\"5\" data-review-languages=\"en\">\n<a href=\"https://uk.trustpilot.com/review/myoddballs.com\" target=\"_blank\" rel=\"noopener\">Trustpilot</a>\n</div>\n<!-- End TrustBox widget -->",
+        "widget_wrapper_classes": "",
+        "use_microcombo": false
+      }
+    },
+    "cfe52b2f-0696-4d62-8ec1-d36fdb17f10d": {
+      "type": "ob-tailwind-image-and-text-with-phone",
+      "blocks": {
+        "3870b2d5-6923-47f6-ae56-fae715825ffe": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/scarf-fife.jpg",
+            "title": ""
+          }
+        },
+        "b1805c67-541a-4bee-bc24-b1895123d0ad": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Scarf-banner.jpg",
+            "title": ""
+          }
+        },
+        "40367859-728d-437d-9947-5255993cd30a": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/scarf-south-shields.jpg",
+            "title": ""
+          }
+        }
+      },
+      "block_order": [
+        "3870b2d5-6923-47f6-ae56-fae715825ffe",
+        "b1805c67-541a-4bee-bc24-b1895123d0ad",
+        "40367859-728d-437d-9947-5255993cd30a"
+      ],
+      "settings": {
+        "static_image": false,
+        "section-class": "bg-white",
+        "hero-frame-class": "",
+        "image-block-class": "px-3",
+        "title": "Our Custom Scarves",
+        "text-block-class": "",
+        "intro": "",
+        "content": "<p>A cosy scarf that says your team name as well as a high quality appliqué badge will be a superb assets to your school or club shop as we enjoy some colder weather over the next few months!</p><p> </p><p>Pricing from £9 and endless design possibilities, our customer scarves are certainly a winter winner!</p>",
+        "images_per_slide": 2,
+        "row_height": 300,
+        "row_height_mobile": 300,
+        "caption": "",
+        "button_text": "Get In Touch",
+        "button_class": "px-8 rounded-md uppercase btn-shadow-lg block bg-magenta border-solid border-2 border-md border-black relative font-semibold text-center p-4 text-white hover:bg-magenta-700 transition-colors duration-200 w-full  sm:w-48",
+        "button_text_2": "call me back",
+        "button_class_2": "js-callback px-8 rounded-md uppercase btn-shadow-lg block border-solid border-2 border-md border-black relative font-semibold text-center p-4 text-black transition-colors duration-200 w-full  sm:w-48",
+        "hero_url": "#contact_form_wrapper"
+      }
+    },
+    "9d21fc79-b694-45b7-94ed-13b90ab76a91": {
+      "type": "ob-custom-html",
+      "disabled": true,
+      "settings": {}
+    },
+    "callback_form": {
+      "type": "ob-custom-html",
+      "disabled": true,
+      "settings": {}
+    },
+    "ob_snippet_holder_3znAcz": {
+      "type": "ob-snippet-holder",
+      "name": "Snippet Holder",
+      "settings": {
+        "outer_wrapper_classes": "relative z-20",
+        "inner_wrapper_classes": "",
+        "snippet_name": "custom-products-jotform"
+      }
+    },
+    "tailwind-image-and-text2": {
+      "type": "ob-tailwind-image-and-text",
+      "blocks": {
+        "d77764eb-a4aa-4d33-a5a6-8b4f288783fc": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/GROUPS_6.png",
+            "title": ""
+          }
+        },
+        "b8c404cf-327d-49a2-bfd9-567b21e535f7": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/ZEBRA_CROSSING_4.png",
+            "title": ""
+          }
+        }
+      },
+      "block_order": [
+        "d77764eb-a4aa-4d33-a5a6-8b4f288783fc",
+        "b8c404cf-327d-49a2-bfd9-567b21e535f7"
+      ],
+      "settings": {
+        "section-class": "md:px-8",
+        "hero-frame-class": "",
+        "image-block-class": "order-1 md:px-3",
+        "title": "More about us",
+        "title-classes": "marujo mt-2 text-3xl leading-8 font-extrabold tracking-tight sm:text-4xl text-magenta",
+        "text-block-class": "order-2 md:px-3",
+        "intro": "",
+        "content": "<p>So why choose OddBalls? Our underwear is made from premium cotton, making it SUPER comfy and built to last!</p><p></p><p>We have hundreds of designs to choose from, meaning you can support your favourite team, pick your favourite pattern, or chill in something plain.</p><p>We also support and make underwear for some brilliant charities, including our official charity <a href=\"https://theoddballsfoundation.com/\"><span style=\"text-decoration:underline\">The OddBalls Foundation</span></a>. Since 2014 we have donated in excess of £850,000 to <a href=\"https://www.myoddballs.com/pages/our-charities\"><span style=\"text-decoration:underline\">charity</span></a>. </p>",
+        "images_per_slide": 1,
+        "row_height": 350,
+        "row_height_mobile": 350,
+        "caption": "dsdsd",
+        "button_text": "",
+        "button_class": "",
+        "hero_url": ""
+      }
+    },
+    "98bbfe3f-f97d-4be4-9cc2-d380d052d6d3222": {
+      "type": "ob-charities-content",
+      "blocks": {
+        "b412d73d-b94c-49e8-860f-aded18adebcf222": {
+          "type": "image_text_block_style1",
+          "settings": {
+            "title": "Jo's Cervical Cancer Trust",
+            "intro": "We are proud partners of Jo's Cervical Cancer Trust – helping them raise awareness of Cervical Cancer through our marketing, branding and the sale of our female products.",
+            "content": "<p>Their mission is to see cervical cancer prevented and reduce the impact for everyone affected by cervical cell changes (abnormal cells) and cervical cancer through providing the highest quality information and support, and campaigning for excellence in cervical cancer treatment and prevention.<br/><br/>Cervical cancer and screening is something many of us at OddBalls have been affected by or experienced first hand. This made the decision to help promote the awareness and importance of cervical cancer screening an easy choice! Keeping it below the belt for women as well as men!<br/><br/>To date we have donated <strong>£30000</strong> to Jo’s Cervical Cancer Trust, and look forward to continuing this partnership in the future.</p>",
+            "image": "shopify://shop_images/JosTrustLogo_d47949f9-d74d-4693-ba3e-9c8f92af76b0.png",
+            "caption": "Jo's Cervical Cancer Trust - more information",
+            "link": "https://www.jostrust.org.uk/",
+            "stats_per_row": 2,
+            "stats_per_row_mobile": 2,
+            "stats_title_1": "",
+            "stats_caption_1": "",
+            "stats_title_2": "",
+            "stats_caption_2": "",
+            "stats_title_3": "",
+            "stats_caption_3": "",
+            "stats_title_4": "",
+            "stats_caption_4": "",
+            "stats_title_5": "",
+            "stats_caption_5": "",
+            "stats_title_6": "",
+            "stats_caption_6": ""
+          }
+        },
+        "c2928f73-d5c1-4df7-966b-c3fcf42de600222": {
+          "type": "image_text_block_style1",
+          "settings": {
+            "title": "Testicular Cancer Awareness Foundation",
+            "intro": "We are proud partners of the Testicular Cancer Awareness Foundation – helping them to raise awareness and educate the general public about the most common form of cancer in men ages 15-44.",
+            "content": "<p>They are a nonprofit compassionately dedicated in the fight against testicular cancer through awareness and outreach, promoting the importance of monthly self-exams for early detection, support and guidance to patients and families, providing a resource for the medical community, providing financial assistance to those in need and continuing to save lives.</p><p>TCAF stress the importance of early detection through the practice of monthly testicular self-exams (TSE), just as women are taught to detect early signs of breast cancer through monthly breast self-exams. We are fighting to make TSE part of education classes taught at the jr. high, high school and college levels.</p>",
+            "image": "shopify://shop_images/tcaf-long_1d4dbb31-6924-4e2c-a7d9-3df011921679.png",
+            "caption": "Testicular Cancer Awareness Foundation - more information",
+            "link": "https://www.testicularcancerawarenessfoundation.org/",
+            "stats_per_row": 2,
+            "stats_per_row_mobile": 2,
+            "stats_title_1": "",
+            "stats_caption_1": "",
+            "stats_title_2": "",
+            "stats_caption_2": "",
+            "stats_title_3": "",
+            "stats_caption_3": "",
+            "stats_title_4": "",
+            "stats_caption_4": "",
+            "stats_title_5": "",
+            "stats_caption_5": "",
+            "stats_title_6": "",
+            "stats_caption_6": ""
+          }
+        },
+        "8f3af9d8-ee6f-4a04-87f8-dab2e72691a5222": {
+          "type": "image_text_block_style1",
+          "settings": {
+            "title": "My Name'5 Doddie Foundation",
+            "intro": "We are proud partners of My Name's Doddie Foundation – helping improve the lives of those affected by Motor Neuron Disease through the sale of our charity branded products.",
+            "content": "<p>They help to fund grants, giving considerable sums to the MND Association and MND Scotland to administer to individuals and families living with MND.</p><p>They work in partnership with existing frontline care providers to ensure the holistic needs of patients and their families are understood and met. They initiate and encourage research to better understand the information and support needs of MND patients and their families.</p><p>To date we have donated over <strong>£80000</strong> to the My Name'5 Doddie Foundation since 2020, and look forward to continuing this partnership in the future.</p>",
+            "image": "shopify://shop_images/doddies_5d8467d4-ca5a-47f3-9db0-ea9d77853ee7.png",
+            "caption": "MY NAME'5 DODDIE Foundation - more information",
+            "link": "https://myname5doddie.co.uk/",
+            "stats_per_row": 2,
+            "stats_per_row_mobile": 2,
+            "stats_title_1": "",
+            "stats_caption_1": "",
+            "stats_title_2": "",
+            "stats_caption_2": "",
+            "stats_title_3": "",
+            "stats_caption_3": "",
+            "stats_title_4": "",
+            "stats_caption_4": "",
+            "stats_title_5": "",
+            "stats_caption_5": "",
+            "stats_title_6": "",
+            "stats_caption_6": ""
+          }
+        }
+      },
+      "block_order": [
+        "b412d73d-b94c-49e8-860f-aded18adebcf222",
+        "c2928f73-d5c1-4df7-966b-c3fcf42de600222",
+        "8f3af9d8-ee6f-4a04-87f8-dab2e72691a5222"
+      ],
+      "disabled": true,
+      "settings": {}
+    }
+  },
+  "order": [
+    "charities-hero",
+    "custom_html_nCRdJd",
+    "16551193883dbf260d",
+    "cfe52b2f-0696-4d62-8ec1-d36fdb17f10d",
+    "9d21fc79-b694-45b7-94ed-13b90ab76a91",
+    "callback_form",
+    "ob_snippet_holder_3znAcz",
+    "tailwind-image-and-text2",
+    "98bbfe3f-f97d-4be4-9cc2-d380d052d6d3222"
+  ]
+}

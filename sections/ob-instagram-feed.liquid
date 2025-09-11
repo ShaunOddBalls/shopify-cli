@@ -1,0 +1,787 @@
+<style>
+#{{ section.id }} .call-to-action-section {
+  position: absolute;
+  z-index: 2;
+}
+#{{ section.id }} .img-overlay-full {
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.5) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  z-index: 1;
+  height: 40%;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+#{{ section.id }} .line-height {
+  line-height: 0.88em;
+}
+@media only screen and (min-width: 640px) {
+#{{ section.id }} .line-height {
+    line-height: 0.8em;
+  }
+}
+#{{ section.id }} .text-shadow {
+  text-shadow: 1px 1px 3px #000000a8;
+}
+
+</style>
+
+{% if section.settings.brutal_classes != blank %}
+	{% assign brutal_classes = section.settings.brutal_classes %}
+{% endif %}
+
+<div class="{{ section.settings.outer_wrapper_classes }}">
+  <div class="{{ section.settings.inner_wrapper_classes }}">
+    {% if section.settings.header != blank %}
+    <h3 class="{{ section.settings.header_classes }}">{{ section.settings.header }}</h3>
+  	{% endif %}
+    <div class="{{ section.settings.grid_classes }} {{ brutal_classes}}">	
+
+      
+    {% for block in section.blocks %}
+
+      {%- comment %}<locksmith:a3f9>{% endcomment -%}
+        {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: block.settings.collection, subject_parent: section, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+      {%- comment %}</locksmith:a3f9>{% endcomment -%}
+
+      {% assign markets_to_show = block.settings.markets_to_show_on | split: ',' %}
+      {% assign markets_to_exclude_on = block.settings.markets_to_exclude_on | split: ',' %}
+      {% assign show_on_all_markets = block.settings.show_on_all_markets %}
+      {%- capture show_block -%}
+      {%- render 'ob-process-show-on-by-market', show_on_all_markets: show_on_all_markets, markets_to_show:markets_to_show, markets_to_exclude_on: markets_to_exclude_on -%}
+      {% endcapture %}
+      {% if show_block contains 'true' %}
+     
+      {% if block.type == "image" %}
+      <div class="{{ block.settings.image_wrapper_classes }} {{ block.settings.display }} {{ block.settings.display-medium }}">
+        <a href="{{ section.settings.insta_link}}" target="_blank">
+          <img loading="lazy" class="w-full h-full object-cover {{ brutal_classes }}" src="{{ block.settings.image | img_url: '360x' }}">
+        </a>
+      </div>
+    {% endif %}
+
+
+    {% if block.type == "shop-the-look" %}
+   
+      <div class="{{ block.settings.image_wrapper_classes }} relative cursor-pointer {{ block.settings.display }} {{ block.settings.display-medium }} instagram-design instagram-design-{{ block.settings.collection-link | replace: "/collections/", ""}}"  data-product_url="{{ block.settings.collection-link }}">
+        <a class="inset-0 absolute h-full offset-0 w-full z-1" style="z-index:10" href="{%- render 'ob-process-international-link', url:block.settings.collection-link %}" aria-label="view {{ block.settings.img_alt_text }}" ></a>
+        <img loading="lazy" class="w-full h-full object-cover {{ brutal_classes}}" src="{{ block.settings.image | img_url: '360x' }}" alt="{{ block.settings.img_alt_text }} image">
+{% assign img-product = block.settings.collection-link  %}
+
+    {% comment %}    
+{% capture ig-item %}
+{% render product-item, product: img-product %}
+{% endcapture %} 
+
+  {{ ig-item | replace:'product-item','shop-the-look-item' }}
+                {% endcomment %}     
+      {% if block.settings.overlay == true %}
+      <div class="img-overlay-full opacity-{{ block.settings.opacity }}"></div>
+      {% endif %}
+    
+        <div class="call-to-action-section {{ block.settings.cta-section-classes }} {{ block.settings.position-x }} {{ block.settings.position-y }}">
+          <div class="{{ block.settings.cta-section-inner-classes }}">
+          <h2 class="{{ block.settings.cta-title-classes }} {{ block.settings.title-text-size }} {{ block.settings.text-size-medium}} {{ block.settings.call-to-action-title-font-weight }} {{ block.settings.call-to-action-title-font-style }}">{{ block.settings.call-to-action-title }}</h2>
+          <div class="{{ block.settings.btn-outer-wrapper }}">
+            <span class="cursor-pointer {{ block.settings.cta-btn-classes }} {{ block.settings.btn-text-size }} {{ block.settings.btn-text-size-medium }} {{ block.settings.call-to-action-btn-font-weight }} {{ block.settings.call-to-action-btn-font-style }} {{ block.settings.btn-type }}"><a href="{%- render 'ob-process-international-link', url: block.settings.collection-link -%}" aria-label="view {{ block.settings.img_alt_text }}">{{ block.settings.call-to-action-btn-text }}</a></span>
+          </div>
+          </div>
+        </div>
+        
+      </div>
+      {% endif %}     
+    {% endif %}
+  	{% endfor %}
+    </div>
+  <h3 class="{{ section.settings.footer-title }}"><a href="{{ section.settings.insta_link }}" class="{{ section.settings.insta_handle_classes }}">{{ section.settings.insta_handle }}</a></h3>
+    
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Insta Feed Manual",
+	"presets": [
+      {
+        "name": "Insta Feed Manual",
+        "category": "insta-feed"
+      }
+  	],
+    "settings": [
+		{
+			"type": "text",
+			"id": "outer_wrapper_classes",
+			"label": "Outer Wrapper Classes"
+
+		},
+		{
+			"type": "text",
+			"id": "inner_wrapper_classes",
+			"label": "Inner Wrapper Classes",
+			"default": "max-w-7xl mx-auto"
+		},
+		{
+			"type": "text",
+			"id": "grid_classes",
+			"label": "Insta Grid Classes",
+			"default": "grid grid-cols-2 md:grid-cols-3 gap-5"
+		},
+		{
+			"type": "text",
+			"id": "header",
+			"label": "Header"
+		},
+		{
+			"type": "text",
+			"id": "insta_handle",
+			"label": "Insta Handle"
+		},	
+		{
+			"type": "url",
+			"id": "insta_link",
+			"label": "Insta Link"
+		},
+		{
+			"type": "text",
+			"id": "header_classes",
+			"label": "Header Classes"
+		},
+		{
+			"type": "text",
+			"id": "insta_handle_classes",
+			"label": "Insta Handle Classes"
+		},
+        {
+          "type": "text",
+          "id": "footer-title",
+          "label": "footer text classes"
+        },
+		{
+			"type": "text",
+			"id": "brutal_classes",
+			"label": "Brutal Classes"
+		},
+        {
+          "type": "checkbox",
+          "id": "add-to-footer",
+          "label": "Add to footer",
+          "default": false
+        }
+	],
+	"blocks":[
+        {
+          "type": "image",
+          "name": "Instagram Image",
+          "settings": [
+              {
+                "type": "header",
+                "content": "Market settings",
+              },
+               {
+                  "type": "checkbox",
+                  "id": "show_on_all_markets",
+                  "default": true,
+                  "label": "Show On All Markets",
+                  "info": "on to show on all"
+                },
+                {
+                  "type": "text",
+                  "id": "markets_to_show_on",
+                  "label": "Markets to show on",
+                  "info": "Example would look like: uk, en-eu (shows on UK and EU markets)"
+                },
+                {
+                  "type": "text",
+                  "id": "markets_to_exclude_on",
+                  "label": "Markets to Exclude on",
+                  "info": "Example would look like: uk, en-eu (Would not show on UK and EU markets)"
+                },
+              {
+			    "type": "text",
+				"id": "image_wrapper_classes",
+				"label": "Image Wrapper Classes"
+              },
+              {
+			    "type": "image_picker",
+				"id": "image",
+				"label": "Instagram Image"
+              },
+             
+		   ]
+		},
+       {
+          "type": "shop-the-look",
+          "name": "Shop The Look",
+          "settings": [
+               {
+                "type": "header",
+                "content": "Market settings",
+              },
+               {
+                  "type": "checkbox",
+                  "id": "show_on_all_markets",
+                  "default": true,
+                  "label": "Show On All Markets",
+                  "info": "on to show on all"
+                },
+                {
+                  "type": "text",
+                  "id": "markets_to_show_on",
+                  "label": "Markets to show on",
+                  "info": "Example would look like: uk, en-eu (shows on UK and EU markets)"
+                },
+                {
+                  "type": "text",
+                  "id": "markets_to_exclude_on",
+                  "label": "Markets to Exclude on",
+                  "info": "Example would look like: uk, en-eu (Would not show on UK and EU markets)"
+                },
+              {
+                "type": "select",
+                "id": "display",
+                "label": "Display",
+                "options": [
+                  {
+                    "label": "Block",
+                    "value": "block"
+                  },
+                  {
+                    "label": "Hidden",
+                    "value": "hidden"
+                  }
+                ],
+                "default": "block"
+              },
+              {
+                "type": "select",
+                "id": "display-medium",
+                "label": "Display Desktop",
+                "options": [
+                  {
+                    "label": "Block",
+                    "value": "md:block"
+                  },
+                  {
+                    "label": "Hidden",
+                    "value": "md:hidden"
+                  }
+                ],
+                "default": "md:block" 
+              },
+              {
+                "type": "url",
+                "id": "collection-link",
+                "label": "Collection Link"
+              },
+              {
+			    "type": "text",
+				"id": "image_wrapper_classes",
+				"label": "Image Wrapper Classes"
+              },
+              {
+                "type":"text",
+                "id":"img_alt_text",
+                "label":"Alt Text"
+              },
+              {
+			    "type": "image_picker",
+				"id": "image",
+				"label": "Instagram Image"
+              },
+              {
+			    "type": "checkbox",
+				"id": "overlay",
+				"label": "image overlay on/off",
+                "default": false
+              },
+              {
+                "type": "range",
+                "id": "opacity",
+                "label": "Overlay Opacity",
+                "info":"accepted values = 0, 5, 10, 20, 25, 30, 40, 50, 60, 70, 75, 80, 90, 95, 100",
+                "min": 0,
+                "max": 100,
+                "step": 5,
+                "default": 100
+              },
+            {
+              "type": "header",
+              "content": "Call to action section"
+            },
+            { 
+              "type": "text",
+              "id": "cta-section-classes",
+              "label": "call to action sections classes"
+            },
+            {
+              "type": "text",
+              "id": "cta-section-inner-classes",
+              "label": "call to action sections inner classes"
+            },
+             {
+          "type": "select",
+          "id": "position-y",
+          "label": "Content Position Y",
+          "options": [
+              {
+                "label": "Top",
+                "value": "top-0"
+              },
+              {
+                "label": "Center",
+                "value": "top-1/2 transform -translate-y-1/2"
+              },
+              {
+                "label": "Bottom",
+                "value": "bottom-0"
+              }
+            ],
+            "default": "top-0"
+          },
+          {
+            "type": "select",
+            "id": "position-x",
+            "label": "Content Position X",
+            "options": [
+              {
+                "label": "Left",
+                "value": "left-0"
+              },
+              {
+                "label": "Center",
+                "value": "left-1/2 transform -translate-x-1/2"
+              },
+              {
+                "label": "Right",
+                "value": "right-0"
+              }
+            ],
+            "default": "left-0"
+            },
+            {
+              "type": "header",
+              "content": "CTA Title options "
+            },
+            {
+          "type": "select",
+          "id": "title-text-size",
+          "label": "Title Font size",
+          "options": [
+            {
+              "label":"none",
+              "value": ""
+            },
+            {
+              "label": "Extra Small",
+              "value": "text-xs"
+            },
+            {
+              "label": "Small",
+              "value": "text-sm"
+            },
+            {
+              "label": "Regular",
+              "value": "text-base"
+            },
+            {
+              "label": "Large",
+              "value": "text-lg"
+            },
+            {
+              "label": "XL",
+              "value": "text-xl"
+            },
+            {
+              "label": "XXL",
+              "value": "text-2xl"
+            },
+            {
+              "label": "XXXL",
+              "value": "text-3xl"
+            },
+            {
+              "label": "XXXXL",
+              "value": "text-4xl"
+            },
+            {
+              "label": "XXXXXL",
+              "value": "text-5xl"
+            },
+            {
+              "label": "XXXXXXL",
+              "value": "text-6xl"
+            },
+            {
+              "label": "XXXXXXL",
+              "value": "text-7xl"
+            },
+            {
+              "label": "XXXXXXXL",
+              "value": "text-8xl"
+            },
+            {
+              "label": "XXXXXXXXL",
+              "value": "text-9xl"
+            }
+          ],
+          "default": ""
+        },
+             {
+          "type": "select",
+          "id": "text-size-medium",
+          "label": "Title Font size Desktop",
+          "options": [
+            {
+              "label":"none",
+              "value": ""
+            },
+            {
+              "label": "Extra Small",
+              "value": "md:text-xs"
+            },
+            {
+              "label": "Small",
+              "value": "md:text-sm"
+            },
+            {
+              "label": "Regular",
+              "value": "md:text-base"
+            },
+            {
+              "label": "Large",
+              "value": "md:text-lg"
+            },
+            {
+              "label": "XL",
+              "value": "md:text-xl"
+            },
+            {
+              "label": "XXL",
+              "value": "md:text-2xl"
+            },
+            {
+              "label": "XXXL",
+              "value": "md:text-3xl"
+            },
+            {
+              "label": "XXXXL",
+              "value": "md:text-4xl"
+            },
+            {
+              "label": "XXXXXL",
+              "value": "md:text-5xl"
+            },
+            {
+              "label": "XXXXXXL",
+              "value": "md:text-6xl"
+            },
+            {
+              "label": "XXXXXXL",
+              "value": "md:text-7xl"
+            },
+            {
+              "label": "XXXXXXXL",
+              "value": "md:text-8xl"
+            },
+            {
+              "label": "XXXXXXXXL",
+              "value": "md:text-9xl"
+            }
+          ],
+          "default": ""
+        },
+            {
+          "type": "select",
+          "id": "call-to-action-title-font-weight",
+          "label": "Title Font Weightt",
+          "options": [
+            {
+              "label":"none",
+              "value": ""
+            },
+            {
+              "label": "Thin",
+              "value": "font-thin"
+            },
+            {
+              "label": "Extra Light",
+              "value": "font-extralight"
+            },
+            {
+              "label": "Light",
+              "value": "font-light"
+            },
+            {
+              "label": "Normal",
+              "value": "font-normal"
+            },
+            {
+              "label": "Medium",
+              "value": "font-medium"
+            },
+            {
+              "label": "Semibold",
+              "value": "font-semibold"
+            },
+            {
+              "label": "Bold",
+              "value": "font-bold"
+            },
+            {
+              "label": "Extra Bold",
+              "value": "font-extrabold"
+            },
+            {
+              "label": "Black",
+              "value": "font-black"
+            }
+          ],
+          "default": "font-normal"
+        },
+            {
+              "type": "text",
+              "id": "cta-title-classes",
+              "label": "call to action title classes"
+            },
+            {
+              "type": "text",
+              "id": "call-to-action-title",
+              "label": "Call to action title"
+            },
+            {
+              "type": "header",
+              "content": "CTA Button options"
+            },
+            {
+              "type": "select",
+              "id": "btn-type",
+              "label": "Button Type",
+              "options": [
+                {
+                  "label": "Sqaure",
+                  "value": "rounded"
+                },
+                {
+                  "label": "Rounded",
+                  "value": "rounded-3xl"
+                }
+              ],
+              "default": "rounded"
+            },
+            {
+              "type": "text",
+              "id": "call-to-action-btn-text",
+              "label": "call to action button text"
+            },
+            
+            {
+          "type": "select",
+          "id": "btn-text-size",
+          "label": "Button Font size",
+          "options": [
+            {
+              "label":"none",
+              "value": ""
+            },
+            {
+              "label": "Extra Small",
+              "value": "text-xs"
+            },
+            {
+              "label": "Small",
+              "value": "text-sm"
+            },
+            {
+              "label": "Regular",
+              "value": "text-base"
+            },
+            {
+              "label": "Large",
+              "value": "text-lg"
+            },
+            {
+              "label": "XL",
+              "value": "text-xl"
+            },
+            {
+              "label": "XXL",
+              "value": "text-2xl"
+            },
+            {
+              "label": "XXXL",
+              "value": "text-3xl"
+            },
+            {
+              "label": "XXXXL",
+              "value": "text-4xl"
+            },
+            {
+              "label": "XXXXXL",
+              "value": "text-5xl"
+            },
+            {
+              "label": "XXXXXXL",
+              "value": "text-6xl"
+            },
+            {
+              "label": "XXXXXXL",
+              "value": "text-7xl"
+            },
+            {
+              "label": "XXXXXXXL",
+              "value": "text-8xl"
+            },
+            {
+              "label": "XXXXXXXXL",
+              "value": "text-9xl"
+            }
+          ],
+          "default": ""
+        },
+            {
+          "type": "select",
+          "id": "btn-text-size-medium",
+          "label": "Button Font size Desktop",
+          "options": [
+            {
+              "label":"none",
+              "value": ""
+            },
+            {
+              "label": "Extra Small",
+              "value": "md:text-xs"
+            },
+            {
+              "label": "Small",
+              "value": "md:text-sm"
+            },
+            {
+              "label": "Regular",
+              "value": "md:text-base"
+            },
+            {
+              "label": "Large",
+              "value": "md:text-lg"
+            },
+            {
+              "label": "XL",
+              "value": "md:text-xl"
+            },
+            {
+              "label": "XXL",
+              "value": "md:text-2xl"
+            },
+            {
+              "label": "XXXL",
+              "value": "md:text-3xl"
+            },
+            {
+              "label": "XXXXL",
+              "value": "md:text-4xl"
+            },
+            {
+              "label": "XXXXXL",
+              "value": "md:text-5xl"
+            },
+            {
+              "label": "XXXXXXL",
+              "value": "md:text-6xl"
+            },
+            {
+              "label": "XXXXXXL",
+              "value": "md:text-7xl"
+            },
+            {
+              "label": "XXXXXXXL",
+              "value": "md:text-8xl"
+            },
+            {
+              "label": "XXXXXXXXL",
+              "value": "md:text-9xl"
+            }
+          ],
+          "default": ""
+        },
+          {
+          "type": "select",
+          "id": "call-to-action-btn-font-weight",
+          "label": "Title Font size",
+          "options": [
+            {
+              "label":"none",
+              "value": ""
+            },
+            {
+              "label": "Thin",
+              "value": "font-thin"
+            },
+            {
+              "label": "Extra Light",
+              "value": "font-extralight"
+            },
+            {
+              "label": "Light",
+              "value": "font-light"
+            },
+            {
+              "label": "Normal",
+              "value": "font-normal"
+            },
+            {
+              "label": "Medium",
+              "value": "font-medium"
+            },
+            {
+              "label": "Semibold",
+              "value": "font-semibold"
+            },
+            {
+              "label": "Bold",
+              "value": "font-bold"
+            },
+            {
+              "label": "Extra Bold",
+              "value": "font-extrabold"
+            },
+            {
+              "label": "Black",
+              "value": "font-black"
+            }
+          ],
+          "default": "font-normal"
+        },
+            {
+              "type": "select",
+              "id": "call-to-action-btn-font-style",
+              "label": "Font Style",
+              "options": [
+                {
+                "label": "Bebas",
+                "value": "font-bebas"
+               },
+                {
+                "label": "Default",
+                "value": ""
+               }
+              ],
+              "default": ""             
+            },
+            {
+              "type": "text",
+              "id": "cta-btn-classes",
+              "label": "call to action button classes"
+            },
+            {
+              "type": "text",
+              "id": "btn-outer-wrapper",
+              "label": "call to action button wrapper classes"
+            }
+            
+		   ]
+		}
+	]
+  }
+{% endschema %}

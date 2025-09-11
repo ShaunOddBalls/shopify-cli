@@ -1,0 +1,358 @@
+<style>
+  
+    .small-thumbnail {
+
+        height: 75px;
+        width: 75px;
+
+    }
+  
+
+
+  
+  
+  @media screen and (max-width: 767px) {
+    
+    .medium-thumbnail {
+      
+        height: 150px;
+        width: 150px;      
+             
+    }
+    
+    
+    
+    .mobile-thumbnail {
+      
+        height: 100px;
+        width: 100px;         
+      
+    }
+    
+  }
+
+   @media screen and (min-width: 768px) {
+     
+	.large-thumbnail {
+      
+        height: 250px;
+        width: 250px;      
+      
+    }
+     
+   }
+ 
+  .page.current {
+    color: #F00F83;
+  }  
+  
+</style>
+{% capture breadcrumb_arrow %}
+    <svg class="flex-shrink-0 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+      <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+    </svg>
+{% endcapture %}
+{% capture home_icon %}
+      <svg class="flex-shrink-0 w-3 h-3 md:h-4 md:w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+        <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+      </svg>      
+{% endcapture %}
+<nav class="breadcrumbb text-size--smallerr flex items-center px-2 md:px-5 py-3 text-xxs md:text-xs border-solid border-blend bg-gray-100" role="navigation" aria-label="breadcrumbs">
+
+  <span class="breadcrumb__link"><a href="{{ routes.root_url }}">{{ home_icon }}{% comment %} %}{{ 'general.breadcrumb.homepage' | t}}{% endcomment %}</a></span>
+  {{ breadcrumb_arrow }}
+  <span class="breadcrumb__link"><a href="/account">Account</a></span>
+  {{ breadcrumb_arrow }}
+  <span class="breadcrumb__link capitalize pointer-events-none">{{ page.title }}</span>
+   
+</nav>
+<div class="bg-gray-50 border-solid blend-divide">
+  <div class="max-w-7xl mx-auto">
+	{% if customer %}
+    
+  <main class="lg:px-10 xl:max-w-5xl mx-auto px-5 py-16 sm:pb-32 sm:pt-20 xl:px-0">
+    <div class="inline-block mb-3 rounded-md shadow-sm bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-0-button" tabindex="-1">
+      <div class="border-2 border-solid  rounded-md text-black" role="none">
+        <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
+        <a href="/account" class="block cursor-pointer px-4 text-xxs py-1 uppercase" role="menuitem" tabindex="-1" id="menu-0-item-0">
+          Back
+        </a>
+      </div>
+    </div>  
+    <div class="max-w-xl">
+      <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight text-gray-900 font-bebas">Your Orders</h1>
+      <p class="mt-2 text-sm text-gray-500">Check the status of recent orders, manage returns, and discover similar products.</p>
+    </div>
+      
+    <div class="mt-10 space-y-6 orders">
+
+      {%- paginate customer.orders by 10 -%}
+      {% for order in customer.orders %}
+      <div class="single-order border-2 border-solid  rounded-md bg-white">
+        {% comment %}
+        <div class="space-y-1 md:flex md:items-baseline md:space-y-0 md:space-x-4">
+          <h2 id="4376-heading" class="text-lg font-medium text-gray-900 md:flex-shrink-0">
+            Order #{{ order.order_number }}
+          </h2>
+          <div class="space-y-5 md:flex-1 md:min-w-0 sm:flex sm:items-baseline sm:justify-between sm:space-y-0">
+            <p class="text-sm font-medium text-gray-500">
+              {% if order.fulfillment_status == 'fulfilled' %}OUT FOR DELIVERY {% else %}{{ order.financial_status_label }}{% endif %}
+            </p>
+            <div class="flex text-sm font-medium">
+              <a href="#" class="text-magenta-500 hover:text-magenta-700">Manage order</a>
+              <div class="border-l border-gray-200 ml-4 pl-4 sm:ml-6 sm:pl-6">
+                <a href="#" class="text-magenta-500 hover:text-magenta-700">View Invoice</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endcomment %}
+            <div class="flex items-center px-4 py-4 border-b-2 border-solid  sm:px-6 sm:grid sm:grid-cols-3 xl:grid-cols-3 sm:gap-x-6">
+              <dl class="flex-1 grid grid-cols-2 gap-x-6 text-sm sm:col-span-2 sm:grid-cols-3"> 
+                <div>
+                  <dt class="font-medium text-gray-900">Order number</dt>
+                  <dd class="mt-1 text-magenta-500">
+                    <a href="{{ order.customer_url }}">{{ order.order_number }}</a>
+                  </dd>
+                </div>
+                <div class="hidden sm:block">
+                  <dt class="font-medium text-gray-900">Date placed</dt>
+                  <dd class="mt-1 text-gray-500">
+                    <time>{{ order.created_at | date: "%b %d, %Y"}}</time>
+                  </dd>
+                </div>
+                <div>
+                  <dt class="font-medium text-gray-900">Total amount</dt>
+                  <dd class="mt-1 font-medium text-gray-500">
+                    {{ order.total_price | money }}
+                  </dd>
+                </div>
+              </dl>
+
+              <div class="relative flex justify-end xs:hidden">
+                <div class="js-order-dots flex items-center">
+                  <button type="button" class="-m-2 p-2 flex items-center text-gray-400 hover:text-gray-500" id="menu-0-button" aria-expanded="false" aria-haspopup="true">
+                    <span class="sr-only">Options for order WU88191111</span>
+                    <!-- Heroicon name: outline/dots-vertical -->
+                    <svg class="w-6 h-6 md:hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
+                    </svg>
+                  </button>
+                <div class="js-toggle-view-order md:block origin-bottom-right hidden lg:block absolute right-0 mt-2 w-40 rounded-full shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-0-button" tabindex="-1">
+                  <div class="py-1 border-2 border-solid  rounded-full bg-[#f00f83] text-white font-semibold text-center" role="none">
+                    <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
+                    <a href="{{ order.customer_url }}" class="block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-0-item-0">
+                      View Order
+                    </a>
+                  </div>
+                </div>
+                </div>
+
+              </div>
+
+              <div class="lg:col-span-1 xl:col-span-2 lg:items-center sm:justify-end lg:space-x-4 xs:flex hidden">
+                <a href="{{ order.customer_url }}" class="flex items-center justify-center py-2 px-2.5 text-sm {{ settings.button_outline_1 }}">
+                  <span>View Order</span>
+                  <span class="sr-only">{{ order.order_number }}</span>
+                </a>
+              </div>
+            </div>        
+        {% assign line_items_count = 0 %}
+        {% assign line_items_min = 1 %}
+        {% assign line_items_max = 2 %}        
+		{% for line_item in order.line_items %}
+        {% assign line_items_count = line_items_count | plus: 1 %}
+        
+        <div class="order-item flow-root border-t border-gray-200 divide-y divide-gray-200 {% if line_items_count > line_items_max %}hidden to-hide{%endif%}">
+          <div class="py-6 px-6 sm:flex">
+            <div class="flex space-x-4 sm:min-w-0 sm:flex-1 sm:space-x-6 lg:space-x-8">
+              <div class="relative">
+                <img src="{{ line_item.image | img_url: '300x300' }}" class="flex-none w-20 h-20 rounded-md object-center object-cover sm:w-48 sm:h-48 border-2 border-solid">
+                {% if line_item.quantity > 1 %}
+                <div class="absolute bg-magenta-500 bg-white bottom-1 font-bold px-2 py-1 right-1 rounded-full text-center text-white text-xs  border-2 border-solid">
+                  {{ line_item.quantity }}
+                </div>
+                {% endif %}
+              </div>
+              <div class="pt-1.5 min-w-0 flex-1 sm:pt-0">
+                <h3 class="text-sm font-medium text-gray-900 leading-none">
+                  <a href="#">{{ line_item.product.title }}</a>
+                </h3>
+                <p class="text-sm text-gray-500 truncate mt-1">
+                  <span>{{ line_item.variant.title }}</span>
+                </p>
+                <p class="mt-1 font-medium text-gray-900">{{ line_item.price | money }}</p>
+              </div>
+            </div>
+            <div class="mt-6 space-y-4 sm:mt-0 sm:ml-6 sm:flex-none sm:w-40">
+              <a href="{{ line_item.url }}" type="button" data-variant="{{ line_item.id }}" data-quantity="{{ line_item.quantity }}"class="text-white buy-again-button w-full uppercase flex items-center justify-center py-2 px-2.5 text-sm sm:w-full sm:flex-grow-0 bg-magenta rounded-full font-semibold {{ settings.primary_button }}">
+                Buy again
+              </a>
+              
+              {% assign line_product = line_item.product %}
+              {% assign line_product_tags = line_product.tags %}
+              {% for tag in line_product_tags %}
+              	{% if tag contains 'Product-Type-' %}
+              		{% assign collection_tag = tag %}
+              		{% break %}
+               	{% endif %}
+              {% endfor %}
+              
+              <a href="/collections/all/{{ collection_tag }}" type="button" class="w-full flex items-center justify-center py-2 px-2.5 text-sm sm:w-full sm:flex-grow-0 border-2 border-solid uppercase font-semibold rounded-full {{ settings.button_outline_1 }}">
+                Shop similar
+              </a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+        {% if order.line_items.size > line_items_max %}
+        <div class="flex justify-end px-6 pb-6">
+          <button type="button" class="show-all-button  hover:bg-cyan-700 bg-cyan block border-2  border-solid duration-200 font-semibold px-3.5 py-1.5 rounded-full text-center text-sm text-white transition-colors uppercase">
+            <span class="show-more uppercase ">Show More</span><span class="show-less hidden uppercase">Show Less</span>
+          </button>
+        </div>
+        {% endif %}
+      </div>
+      {% endfor %}
+      <div class="rounded-md border-2 border-solid  inline-block py-1 px-3">  
+        {{ paginate | default_pagination: next: 'Older', previous: 'Newer' }}
+      </div>
+      {%- endpaginate -%}
+    </div>
+  </main>    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+		{% comment %}
+        <div class="current-search-box">
+          <h1 class="current-search-message align-center md:align-left uppercase text-4xl">
+            Your Orders
+          </h1>
+          <div class="current-search-count">
+            <b>{{ customer.orders.size  | escape }}</b> {{ customer.orders.size | pluralize: 'order', 'orders' }}
+          </div>
+        </div>    
+    
+        <div id="customer_orders">
+          <div id="my_details" class="account-tab-content card-style grid grid-cols-1">
+            {% paginate customer.orders by 20 %}
+            <div class="gap-5 grid grid-cols-1 xs:grid-cols-2 mx-2 md:px-10">
+              {% if customer.orders.size != 0 %}
+              	{% for order in customer.orders %}
+                  <div class="bg-gray-100 flex flex-row gap-y-3 md:px-5 md:py-5 px-2 py-2 rounded-lg w-full">
+					<div class="flex justify-center md:order-last order-first relative">
+                      <img class="mobile-thumbnail large-thumbnail" src="{{ order.line_items[0].image | img_url: '250x250' }}">
+                      <div class="absolute bottom-2 flex gap-x-1 justify-end lg:left-2 mt-2 mx-auto right-2">
+                        {% assign line_items_count = 0 %}
+                        {% assign line_items_min = 1 %}
+                        {% assign line_items_max = 3 %}
+                        {% if order.line_items.size > 1 %}
+							{% for line_item in order.line_items %}
+                        		{% assign line_items_count = line_items_count | plus: 1 %}
+                        		{% if line_items_count > line_items_min and line_items_count <= line_items_max %}
+                        			{% if line_items_count < line_items_max %}
+                      					<img class="border border-magenta small-thumbnail hidden sm:inline-block" src="{{ line_item.image | img_url }}">
+                        			{% else %}
+                        				<div class="bg-white border border-magenta flex gap-x-3 h-8 justify-center w-8" style="">
+                        					<div class="content md:h-10 md:text-3xl md:translate-y-5 text-center text-lg transform w-full">+{{ order.line_items.size | minus: line_items_max | plus: 1 }}</div>
+                        				</div>
+                        			{% endif %}
+                        		{% endif %}                        		
+                        	{% endfor %}
+                        {% endif %}
+                      </div>
+                    </div>
+                    <div class="content-evenly gap-y-2 grid justify-center md:gap-y-0 md:ml-10 md:order-none order-first ml-6 md:ml-0">
+                      <span class="font-semibold md:text-2xl text-lg uppercase">{{ order.created_at | date: format: 'short' }}</span>
+					  {% if order.fulfillment_status == 'fulfilled' %}
+                      <span class="font-semibold md:text-xl text-sm uppercase">OUT FOR DELIVERY</span>
+                      {% else %}
+                      <span class="font-semibold md:text-xl text-sm uppercase ">{{ order.financial_status_label }}</span>
+                      {% endif %}
+                      <span class="font-semibold md:text-xl text-base hidden md:inline-block">Order: #{{ order.order_number }}</span>
+                      <span class="font-semibold md:text-xl text-base hidden md:inline-block">Total: {{ order.total_price | money }}</span>
+                      <a class="text-magenta font-semibold text-xs md:text-base">Order Details</a>
+                    </div>
+
+                  </div>              
+              	{% endfor %}
+			{% endif %}
+            </div>
+            {% endpaginate %}
+          </div>
+    </div>
+    
+    {% endcomment %}
+    {% endif %}
+    
+  </div>
+</div>
+          
+          
+          {% comment %}
+          
+          <tbody>
+            {% for order in customer.orders %}
+            <tr class="{% cycle 'odd', 'even' %} {% if order.cancelled %}cancelled_order{% endif %}">
+              <td>{{ order.name | link_to: order.customer_url }}</td>
+              <td><span class="note">{{ order.created_at | date: format: 'short' }}</span></td>
+              <td><span class="badge status_{{ order.financial_status | replace: ' ', '_' }}">{{ order.financial_status_label }}</span></td>
+              <td><span class="badge status_{{ order.fulfillment_status | replace: ' ', '_' }}">
+                {% if order.fulfillment_status == 'fulfilled' %}
+                OUT FOR DELIVERY <br />(unless you have been lucky and received your items already)
+                {% else %}
+                {{ order.financial_status_label }}
+                {% endif %}
+                </span></td>
+              <td><span class="total money">{{ order.total_price | money }}</span></td>
+            </tr>
+            {% endfor %}
+          </tbody>
+          
+          {% endcomment %}
+
+
+<script>
+document.querySelectorAll('.js-order-dots').forEach(function(element) {
+    element.addEventListener('click', function() {
+        console.log('clicked')
+        var toggleViewOrder = this.parentElement.querySelector('.js-toggle-view-order');
+        if (toggleViewOrder) {
+            toggleViewOrder.classList.toggle('hidden');
+        }
+    });
+});
+</script>
+                        
+{% schema %}
+  {
+    "name": "Customer Orders Page",
+    "settings": []
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

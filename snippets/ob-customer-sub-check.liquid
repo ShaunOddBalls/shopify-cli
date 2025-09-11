@@ -1,0 +1,17 @@
+{% assign has_active_sub = 'no' %}
+{% if customer and customer.tags contains 'Active Subscriber' %}
+    {% assign referral_metafields = customer.metafields.referral %}
+    {% assign active_subs_count = 0 %}
+    {% for meta in customer.metafields.referral %}
+        {% assign key = meta | first %}
+        {% if key contains 'subscription-' %}
+            {% assign metaJson = customer.metafields.referral[key] %}
+            {% assign active_subs_count = active_subs_count | plus: 1 %}
+            {% if active_subs_count == 1 %}
+				{% assign has_active_sub = 'yes' %}				
+				{% break %}
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+{% endif %}
+{{ has_active_sub }}

@@ -1,0 +1,569 @@
+{% capture breadcrumb_arrow %}
+    <svg class="flex-shrink-0 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+      <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+    </svg>
+{% endcapture %}
+{% capture home_icon %}
+      <svg class="flex-shrink-0 w-3 h-3 md:h-4 md:w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+        <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+      </svg>      
+{% endcapture %}
+<nav class="breadcrumbb text-size--smallerr px-2 md:px-5 py-3 text-xxs md:text-xs border-b-2 border-solid" role="navigation" aria-label="breadcrumbs">
+  <div class="max-w-7xl mx-auto flex items-center">
+    <span class="breadcrumb__link"><a href="{{ routes.root_url }}">{{ home_icon }}{% comment %} %}{{ 'general.breadcrumb.homepage' | t}}{% endcomment %}</a></span>
+    {{ breadcrumb_arrow }}
+    <span class="breadcrumb__link"><a href="/account">Account</a></span>
+    {{ breadcrumb_arrow }}
+    <span class="breadcrumb__link capitalize pointer-events-none">{{ template.name }}</span>
+  </div>
+</nav>   
+<div class="my-10 max-w-7xl mx-auto text-center">
+  <h1 class="font-bebas text-3xl md:text-4xl pb-2">Your Addresses</h1>
+  <h3 class="text-sm md:text-base">Add, edit and delete your addresses below</h3>
+  
+</div>
+
+{%- paginate customer.addresses by 10 -%}
+  
+<div class="flex relative border-b-2 border-solid border-black">
+
+  <div class="flex flex-col gap-y-3 w-0 px-4 flex-1 overflow-hidden max-w-2xl mx-auto">
+
+    {% assign default_address = customer.default_address.id %}
+    {% assign default_addresses = customer.addresses | where: 'id', default_address %}
+
+    {% for address in default_addresses %}
+    <div class="js-address-wrapper bg-gray-50 py-4 border-black border-2 border-solid rounded-md box-shadow-green-yellow text-xxs cursor-pointer">
+      <div class="js-address-warning hidden z-100 inset-0 h-full w-full">
+        <div class="warning-overlay background-gradient-cyan z-100 inset-0 h-full w-full bg-white bg-opacity-60" style="backdrop-filter: blur(5px);" overlay></div>
+        <div class="border-2 border-solid transform absolute -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 bg-white max-w-lg w-11/12 rounded-md">
+          <h4 class="border-b-2 border-solid py-5 px-10 font-semibold text-base">Delete Address</h4>
+          <div class="px-10 py-5">
+            <h4 class="text-base mb-5">Are you sure you want to delete the address?</h4>
+            <div class="grid md:grid-cols-2 gap-y-3 md:gap-x-3">
+              <form class="address-delete-form js-delete-address h-12 rounded-md uppercase btn-shadow-lg block bg-magenta border-solid border-2 border-md border-black relative font-semibold text-center text-white hover:bg-magenta-700 transition-colors duration-200 px-3 py-0.5" method="post" action="/account/addresses/{{ address.id }}">
+                <input type="hidden" name="_method" value="delete">
+                <button type="submit" class="absolute inset-0 text-sm w-full z-100">YES, DELETE</button>
+              </form>
+              <button class="js-cancel-delete text-sm h-12 rounded-md uppercase btn-shadow-lg bg-white border-solid border-2 border-black relative text-center p-4 text-black hover:bg-gray-200 transition-colors duration-200 px-3 py-0.5">
+              	CANCEL
+              </button>
+            </div>
+          </div>
+        </div>     
+      </div>
+      <div class="flex justify-between px-3 sm:px-6">
+        <div class="js-address-header grid items-center text-sm w-full">
+          <div class="flex items-center">
+            <h3 class="pr-1 inline sm:text-sm">{{ address.name }}</h3>
+            {% if address == customer.default_address %}
+            <span class="rounded-lg bg-magenta-500 text-white border-solid border border-black text-xxs py-0.5 px-1">Default</span>
+            {% endif %}
+          </div>
+          <div>     
+            <span class="pr-1 sm:text-sm">{{ address.address1 }}, </span><span class="sm:text-sm">{{ address.zip }}</span>
+          </div>
+        </div>
+        <div class="js-address-header-buttons grid items-center gap-y-2">
+			<svg class="js-edit-address w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 6.35 6.35"><path d="M 17.953125 1.0058594 C 17.174373 1.017198 16.428966 1.3290728 15.878906 1.8769531 L 1.875 15.880859 C 1.3131965 16.442724 1.0040037 17.205518 1.0039062 17.998047 L 0.99609375 22 A 1.0001001 1.0001001 0 0 0 2 23.003906 L 6.0019531 22.996094 C 6.7944271 22.99598 7.5572636 22.686902 8.1191406 22.125 L 22.123047 8.1210938 C 23.284917 6.9580197 23.284917 5.0400271 22.123047 3.8769531 L 20.123047 1.8769531 C 19.54814 1.3042035 18.764676 0.99168615 17.953125 1.0058594 z M 17.982422 2.9980469 C 18.253531 2.9942673 18.513013 3.1017247 18.705078 3.2929688 L 20.707031 5.2949219 C 21.105502 5.6938132 21.105502 6.3061868 20.707031 6.7050781 L 19.412109 7.9980469 L 16.001953 4.5878906 L 17.294922 3.2929688 C 17.479238 3.1092837 17.724538 3.0018264 17.982422 2.9980469 z M 14.587891 6.0019531 L 17.998047 9.4121094 L 7.4101562 20 L 4 16.589844 L 14.587891 6.0019531 z M 2.9960938 18.414062 L 5.5839844 21.001953 L 2.9960938 21.001953 L 2.9960938 18.414062 z "  overflow="visible" transform="scale(.26458)"/></svg>        
+			<svg class="js-delete-address w-3 h-4 mx-auto" xmlns="http://www.w3.org/2000/svg" viewBox="19.95 19.95 52.1 52.05"><path d="M70.7 64.3c1.8 1.8 1.8 4.6 0 6.4-.9.9-2 1.3-3.2 1.3-1.2 0-2.3-.4-3.2-1.3L46 52.4 27.7 70.7c-.9.9-2 1.3-3.2 1.3s-2.3-.4-3.2-1.3c-1.8-1.8-1.8-4.6 0-6.4L39.6 46 21.3 27.7c-1.8-1.8-1.8-4.6 0-6.4 1.8-1.8 4.6-1.8 6.4 0L46 39.6l18.3-18.3c1.8-1.8 4.6-1.8 6.4 0 1.8 1.8 1.8 4.6 0 6.4L52.4 46l18.3 18.3z"></path></svg>        
+        </div>
+      </div>
+      {%- form 'customer_address', address, class:'js-edit-address-form grid grid-cols-1 sm:grid-cols-2 sm:gap-x-4 gap-y-3 mt-2 pt-2 px-3 sm:px-6 border-t border-solid hidden' -%}
+        <div class="sm:col-span-2 flex sm:text-sm gap-x-1.5 items-center">
+          <span class="text-sm">Edit address below or</span>
+          <a class="js-delete-address rounded-md uppercase btn-shadow-lg bg-white border-solid border-2 border-black relative text-center p-4 text-black hover:bg-gray-200 transition-colors duration-200 px-3 py-0.5" href="#">Delete</a>
+        </div>
+     
+        <div class="bg-white block mt-1 h-12 border border-black border-solid pb-2 pt-5 px-4 relative rounded-md shadow-sm w-full">
+          <label for="AddressFirstName_{{ form.id }}" class="block font-medium text-gray-700 absolute top-1.5 text-xxs">First name</label>            
+          <input type="text" id="AddressFirstName_{{ form.id }}" class="text-sm absolute bg-transparent border-0 h-auto inset-0 overflow-hidden overflow-none p-0 pl-4 pt-3 rounded-md text-sm w-full" name="address[first_name]" value="{{ form.first_name }}" autocapitalize="words" placeholder="{% if address.first_name != blank %}{{ address.first_name }}{% else %}First name{% endif %}">
+        </div>
+        <div class="bg-white block mt-1 h-12 border border-black border-solid pb-2 pt-5 px-4 relative rounded-md shadow-sm w-full">
+          <label for="AddressLastName_{{ form.id }}" class="block font-medium text-gray-700 absolute top-1.5 text-xxs">Last name</label>            
+          <input type="text" id="AddressLastName_{{ form.id }}" class="text-sm absolute bg-transparent border-0 h-auto inset-0 overflow-hidden overflow-none p-0 pl-4 pt-3 rounded-md text-sm w-full" name="address[last_name]" value="{{ form.last_name }}" autocapitalize="words" placeholder="{% if address.last_name != blank %}{{ address.last_name }}{% else %}Last name{% endif %}">
+        </div>      
+        <div class="sm:col-span-2 bg-white block mt-1 h-12 border border-black border-solid pb-2 pt-5 px-4 relative rounded-md shadow-sm w-full">
+          <label for="AddressCompany_{{ form.id }}" class="block font-medium text-gray-700 absolute top-1.5 text-xxs">Company</label>            
+          <input type="text" id="AddressCompany_{{ form.id }}" name="address[company]" value="{{ form.company }}" autocapitalize="words" class="text-sm absolute bg-transparent border-0 h-auto inset-0 overflow-hidden overflow-none p-0 pl-4 pt-3 rounded-md text-sm w-full" placeholder="{% if address.company != blank %}{{ address.company }}{% else %}Company{% endif %}">
+        </div>
+        <div class="sm:col-span-2 bg-white block mt-1 h-12 border border-black border-solid pb-2 pt-5 px-4 relative rounded-md shadow-sm w-full">
+          <label for="AddressAddress1_{{ form.id }}" class="block font-medium text-gray-700 absolute top-1.5 text-xxs">Address Line 1</label>            
+          <input type="text" id="AddressAddress1_{{ form.id }}" name="address[address1]" value="{{ form.address1 }}" autocapitalize="words" class="text-sm absolute bg-transparent border-0 h-auto inset-0 overflow-hidden overflow-none p-0 pl-4 pt-3 rounded-md text-sm w-full" placeholder="{% if address.address1 != blank %}{{ address.address1 }}{% else %}Address Line 1{% endif %}">
+        </div>     
+        <div class="sm:col-span-2 bg-white block mt-1 h-12 border border-black border-solid pb-2 pt-5 px-4 relative rounded-md shadow-sm w-full">
+          <label for="AddressAddress2_{{ form.id }}" class="block font-medium text-gray-700 absolute top-1.5 text-xxs">Address Line 2</label>            
+          <input type="text" id="AddressAddress2_{{ form.id }}" name="address[address2]" value="{{ form.address2 }}" autocapitalize="words" class="text-sm absolute bg-transparent border-0 h-auto inset-0 overflow-hidden overflow-none p-0 pl-4 pt-3 rounded-md text-sm w-full" placeholder="{% if address.address2 != blank %}{{ address.address2 }}{% else %}Address Line 2{% endif %}">
+        </div>      
+        <div class="sm:col-span-2 bg-white block mt-1 h-12 border border-black border-solid pb-2 pt-5 px-4 relative rounded-md shadow-sm w-full">
+          <label for="AddressCity_{{ form.id }}" class="block font-medium text-gray-700 absolute top-1.5 text-xxs">Town/City</label>            
+          <input type="text" id="AddressCity_{{ form.id }}" name="address[city]" value="{{ form.city }}" autocapitalize="words" class="text-sm absolute bg-transparent border-0 h-auto inset-0 overflow-hidden overflow-none p-0 pl-4 pt-3 rounded-md text-sm w-full" placeholder="{% if address.city != blank %}{{ address.city }}{% else %}Town/City{% endif %}">
+        </div>
+        <div class="sm:col-span-2 bg-white block mt-1 h-12 border border-black border-solid pb-2 pt-5 px-4 relative rounded-md shadow-sm w-full">
+          <label for="AddressProvince_{{ form.id }}" class="block font-medium text-gray-700 absolute top-1.5 text-xxs">County/Province</label>            
+          <input type="text" id="AddressProvince_{{ form.id }}" name="address[province]" value="{{ form.province }}" autocapitalize="words" class="text-sm absolute bg-transparent border-0 h-auto inset-0 overflow-hidden overflow-none p-0 pl-4 pt-3 rounded-md text-sm w-full" placeholder="{% if address.province != blank %}{{ address.province }}{% else %}County/Province{% endif %}">
+        </div>       
+        <div class="sm:col-span-2 bg-white block mt-1 h-12 border border-black border-solid pb-2 pt-5 px-4 relative rounded-md shadow-sm w-full">
+          <label for="AddressZip_{{ form.id }}" class="block font-medium text-gray-700 absolute top-1.5 text-xxs">Postcode/ZIP</label>            
+          <input type="text" id="AddressZip_{{ form.id }}" name="address[zip]" value="{{ form.zip }}" autocapitalize="words" class="text-sm absolute bg-transparent border-0 h-auto inset-0 overflow-hidden overflow-none p-0 pl-4 pt-3 rounded-md text-sm w-full" placeholder="{% if address.zip != blank %}{{ address.zip }}{% else %}Postcode/ZIP{% endif %}">
+        </div>
+        <div class="sm:col-span-2 bg-white block mt-1 h-12 border border-black border-solid pb-2 pt-5 px-4 relative rounded-md shadow-sm w-full">
+          <label for="AddressCountry_{{ form.id }}" class="block font-medium text-gray-700 absolute top-1.5 text-xxs">Country</label>            
+          <input type="text" id="AddressCountry_{{ form.id }}" name="address[country]" value="{{ form.country }}" autocapitalize="words" class="text-sm absolute bg-transparent border-0 h-auto inset-0 overflow-hidden overflow-none p-0 pl-4 pt-3 rounded-md text-sm w-full" placeholder="{% if address.country != blank %}{{ address.country }}{% else %}Country{% endif %}">
+        </div>        
+        <div class="sm:col-span-2 bg-white block mt-1 h-12 border border-black border-solid pb-2 pt-5 px-4 relative rounded-md shadow-sm w-full">
+          <label for="AddressPhone_{{ form.id }}" class="block font-medium text-gray-700 absolute top-1.5 text-xxs">Phone</label>            
+          <input type="text" id="AddressPhone_{{ form.id }}" name="address[phone]" value="{{ form.phone }}" autocapitalize="words" class="text-sm absolute bg-transparent border-0 h-auto inset-0 overflow-hidden overflow-none p-0 pl-4 pt-3 rounded-md text-sm w-full" placeholder="{% if address.phone != blank %}{{ address.phone }}{% else %}Phone{% endif %}">
+        </div>
+        <div class="sm:col-span-2 relative flex items-center h-6">        
+          {{ form.set_as_default_checkbox | replace: 'class=""', 'class="rounded-md focus:ring-transparent"'}} <span class="relative top-0.5 text-sm">Set as default</span>
+        </div>      
+        <div class="flex gap-x-4 text-sm">
+          <button type="submit" class="rounded-md uppercase btn-shadow-lg block bg-magenta border-solid border-2 border-md border-black relative font-semibold text-center px-4 py-1 text-white hover:bg-magenta-700 transition-colors duration-200">
+            <span class="">Update</span>
+          </button>
+          <button class="rounded-md uppercase btn-shadow-lg bg-white border-solid border-2 border-black relative text-center px-4 py-1 text-black hover:bg-gray-200 transition-colors duration-200" onclick="Shopify.CustomerAddress.toggleForm({{ form.id }}); return false;">
+            <span class="">Cancel</span>
+          </button>
+        </div>  
+      {% endform %}      
+    </div>
+    {% endfor %}
+
+    {% for address in customer.addresses %}
+    {%- unless address.id == default_address -%}
+    
+    <div class="js-address-wrapper bg-gray-50 py-4 border-black border-2 border-solid rounded-md text-xxs cursor-pointer">
+      <div class="js-address-warning hidden z-100 inset-0 h-full w-full">
+        <div class="warning-overlay background-gradient-cyan z-100 inset-0 h-full w-full bg-white bg-opacity-60" style="backdrop-filter: blur(5px);" overlay></div>
+        <div class="border-2 border-solid transform absolute -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 bg-white max-w-lg w-11/12 rounded-md">
+          <h4 class="border-b-2 border-solid py-5 px-10 font-semibold text-base">Delete Address</h4>
+          <div class="px-10 py-5">
+            <h4 class="text-base mb-5">Are you sure you want to delete the address?</h4>
+            <div class="grid md:grid-cols-2 gap-y-3 md:gap-x-3">
+              <form class="address-delete-form js-delete-address h-12 rounded-md uppercase btn-shadow-lg block bg-magenta border-solid border-2 border-md border-black relative font-semibold text-center text-white hover:bg-magenta-700 transition-colors duration-200 px-3 py-0.5" method="post" action="/account/addresses/{{ address.id }}">
+                <input type="hidden" name="_method" value="delete">
+                <button type="submit" class="absolute inset-0 text-sm w-full z-100">YES, DELETE</button>
+              </form>
+              <button class="js-cancel-delete text-sm h-12 rounded-md uppercase btn-shadow-lg bg-white border-solid border-2 border-black relative text-center p-4 text-black hover:bg-gray-200 transition-colors duration-200 px-3 py-0.5">
+              	CANCEL
+              </button>
+            </div>
+          </div>
+        </div>     
+      </div>
+      <div class="flex justify-between px-3 sm:px-6">
+        <div class="js-address-header grid items-center text-sm w-full">
+          <h3 class="pr-1 inline sm:text-sm">{{ address.name }}</h3>
+          <div>     
+            <span class="pr-1 sm:text-sm">{{ address.address1 }}, </span><span class="sm:text-sm">{{ address.zip }}</span>
+          </div>
+        </div>
+        <div class="js-address-header-buttons grid items-center gap-y-2">
+			<svg class="js-edit-address w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 6.35 6.35"><path d="M 17.953125 1.0058594 C 17.174373 1.017198 16.428966 1.3290728 15.878906 1.8769531 L 1.875 15.880859 C 1.3131965 16.442724 1.0040037 17.205518 1.0039062 17.998047 L 0.99609375 22 A 1.0001001 1.0001001 0 0 0 2 23.003906 L 6.0019531 22.996094 C 6.7944271 22.99598 7.5572636 22.686902 8.1191406 22.125 L 22.123047 8.1210938 C 23.284917 6.9580197 23.284917 5.0400271 22.123047 3.8769531 L 20.123047 1.8769531 C 19.54814 1.3042035 18.764676 0.99168615 17.953125 1.0058594 z M 17.982422 2.9980469 C 18.253531 2.9942673 18.513013 3.1017247 18.705078 3.2929688 L 20.707031 5.2949219 C 21.105502 5.6938132 21.105502 6.3061868 20.707031 6.7050781 L 19.412109 7.9980469 L 16.001953 4.5878906 L 17.294922 3.2929688 C 17.479238 3.1092837 17.724538 3.0018264 17.982422 2.9980469 z M 14.587891 6.0019531 L 17.998047 9.4121094 L 7.4101562 20 L 4 16.589844 L 14.587891 6.0019531 z M 2.9960938 18.414062 L 5.5839844 21.001953 L 2.9960938 21.001953 L 2.9960938 18.414062 z "  overflow="visible" transform="scale(.26458)"/></svg>        
+			<svg class="js-delete-address w-3 h-4 mx-auto" xmlns="http://www.w3.org/2000/svg" viewBox="19.95 19.95 52.1 52.05"><path d="M70.7 64.3c1.8 1.8 1.8 4.6 0 6.4-.9.9-2 1.3-3.2 1.3-1.2 0-2.3-.4-3.2-1.3L46 52.4 27.7 70.7c-.9.9-2 1.3-3.2 1.3s-2.3-.4-3.2-1.3c-1.8-1.8-1.8-4.6 0-6.4L39.6 46 21.3 27.7c-1.8-1.8-1.8-4.6 0-6.4 1.8-1.8 4.6-1.8 6.4 0L46 39.6l18.3-18.3c1.8-1.8 4.6-1.8 6.4 0 1.8 1.8 1.8 4.6 0 6.4L52.4 46l18.3 18.3z"></path></svg>        
+          {% comment %}
+          <button class="js-edit-address rounded-md uppercase btn-shadow-lg bg-white border-solid border-2 border-black relative text-center p-4 text-black hover:bg-gray-200 transition-colors duration-200 px-3 py-0.5">Edit</button>          
+          <button class="js-delete-address rounded-md uppercase btn-shadow-lg bg-white border-solid border-2 border-black relative text-center p-4 text-black hover:bg-gray-200 transition-colors duration-200 px-3 py-0.5" method="post" action="/account/addresses/{{ address.id }}">
+			DELETE
+          </button>
+          {% endcomment %}
+        </div>
+      </div>
+      {%- form 'customer_address', address, class:'js-edit-address-form grid grid-cols-1 sm:grid-cols-2 sm:gap-x-4 gap-y-3 mt-2 pt-2 px-3 sm:px-6 border-t border-solid hidden' -%}
+        <div class="sm:col-span-2 flex sm:text-sm gap-x-1.5 items-center">
+          <span class="text-sm">Edit address below or</span>
+          <a class="js-delete-address rounded-md uppercase btn-shadow-lg bg-white border-solid border-2 border-black relative text-center p-4 text-black hover:bg-gray-200 transition-colors duration-200 px-3 py-0.5" href="#">Delete</a>
+        </div>
+     
+        <div class="bg-white block mt-1 h-12 border border-black border-solid pb-2 pt-5 px-4 relative rounded-md shadow-sm w-full">
+          <label for="AddressFirstName_{{ form.id }}" class="block font-medium text-gray-700 absolute top-1.5 text-xxs">First name</label>            
+          <input type="text" id="AddressFirstName_{{ form.id }}" class="text-sm absolute bg-transparent border-0 h-auto inset-0 overflow-hidden overflow-none p-0 pl-4 pt-3 rounded-md text-sm w-full" name="address[first_name]" value="{{ form.first_name }}" autocapitalize="words" placeholder="{% if address.first_name != blank %}{{ address.first_name }}{% else %}First name{% endif %}">
+        </div>
+        <div class="bg-white block mt-1 h-12 border border-black border-solid pb-2 pt-5 px-4 relative rounded-md shadow-sm w-full">
+          <label for="AddressLastName_{{ form.id }}" class="block font-medium text-gray-700 absolute top-1.5 text-xxs">Last name</label>            
+          <input type="text" id="AddressLastName_{{ form.id }}" class="text-sm absolute bg-transparent border-0 h-auto inset-0 overflow-hidden overflow-none p-0 pl-4 pt-3 rounded-md text-sm w-full" name="address[last_name]" value="{{ form.last_name }}" autocapitalize="words" placeholder="{% if address.last_name != blank %}{{ address.last_name }}{% else %}Last name{% endif %}">
+        </div>      
+        <div class="sm:col-span-2 bg-white block mt-1 h-12 border border-black border-solid pb-2 pt-5 px-4 relative rounded-md shadow-sm w-full">
+          <label for="AddressCompany_{{ form.id }}" class="block font-medium text-gray-700 absolute top-1.5 text-xxs">Company</label>            
+          <input type="text" id="AddressCompany_{{ form.id }}" name="address[company]" value="{{ form.company }}" autocapitalize="words" class="text-sm absolute bg-transparent border-0 h-auto inset-0 overflow-hidden overflow-none p-0 pl-4 pt-3 rounded-md text-sm w-full" placeholder="{% if address.company != blank %}{{ address.company }}{% else %}Company{% endif %}">
+        </div>
+        <div class="sm:col-span-2 bg-white block mt-1 h-12 border border-black border-solid pb-2 pt-5 px-4 relative rounded-md shadow-sm w-full">
+          <label for="AddressAddress1_{{ form.id }}" class="block font-medium text-gray-700 absolute top-1.5 text-xxs">Address Line 1</label>            
+          <input type="text" id="AddressAddress1_{{ form.id }}" name="address[address1]" value="{{ form.address1 }}" autocapitalize="words" class="text-sm absolute bg-transparent border-0 h-auto inset-0 overflow-hidden overflow-none p-0 pl-4 pt-3 rounded-md text-sm w-full" placeholder="{% if address.address1 != blank %}{{ address.address1 }}{% else %}Address Line 1{% endif %}">
+        </div>     
+        <div class="sm:col-span-2 bg-white block mt-1 h-12 border border-black border-solid pb-2 pt-5 px-4 relative rounded-md shadow-sm w-full">
+          <label for="AddressAddress2_{{ form.id }}" class="block font-medium text-gray-700 absolute top-1.5 text-xxs">Address Line 2</label>            
+          <input type="text" id="AddressAddress2_{{ form.id }}" name="address[address2]" value="{{ form.address2 }}" autocapitalize="words" class="text-sm absolute bg-transparent border-0 h-auto inset-0 overflow-hidden overflow-none p-0 pl-4 pt-3 rounded-md text-sm w-full" placeholder="{% if address.address2 != blank %}{{ address.address2 }}{% else %}Address Line 2{% endif %}">
+        </div>      
+        <div class="sm:col-span-2 bg-white block mt-1 h-12 border border-black border-solid pb-2 pt-5 px-4 relative rounded-md shadow-sm w-full">
+          <label for="AddressCity_{{ form.id }}" class="block font-medium text-gray-700 absolute top-1.5 text-xxs">Town/City</label>            
+          <input type="text" id="AddressCity_{{ form.id }}" name="address[city]" value="{{ form.city }}" autocapitalize="words" class="text-sm absolute bg-transparent border-0 h-auto inset-0 overflow-hidden overflow-none p-0 pl-4 pt-3 rounded-md text-sm w-full" placeholder="{% if address.city != blank %}{{ address.city }}{% else %}Town/City{% endif %}">
+        </div>
+        <div class="sm:col-span-2 bg-white block mt-1 h-12 border border-black border-solid pb-2 pt-5 px-4 relative rounded-md shadow-sm w-full">
+          <label for="AddressProvince_{{ form.id }}" class="block font-medium text-gray-700 absolute top-1.5 text-xxs">County/Province</label>            
+          <input type="text" id="AddressProvince_{{ form.id }}" name="address[province]" value="{{ form.province }}" autocapitalize="words" class="text-sm absolute bg-transparent border-0 h-auto inset-0 overflow-hidden overflow-none p-0 pl-4 pt-3 rounded-md text-sm w-full" placeholder="{% if address.province != blank %}{{ address.province }}{% else %}County/Province{% endif %}">
+        </div>       
+        <div class="sm:col-span-2 bg-white block mt-1 h-12 border border-black border-solid pb-2 pt-5 px-4 relative rounded-md shadow-sm w-full">
+          <label for="AddressZip_{{ form.id }}" class="block font-medium text-gray-700 absolute top-1.5 text-xxs">Postcode/ZIP</label>            
+          <input type="text" id="AddressZip_{{ form.id }}" name="address[zip]" value="{{ form.zip }}" autocapitalize="words" class="text-sm absolute bg-transparent border-0 h-auto inset-0 overflow-hidden overflow-none p-0 pl-4 pt-3 rounded-md text-sm w-full" placeholder="{% if address.zip != blank %}{{ address.zip }}{% else %}Postcode/ZIP{% endif %}">
+        </div>
+        <div class="sm:col-span-2 bg-white block mt-1 h-12 border border-black border-solid pb-2 pt-5 px-4 relative rounded-md shadow-sm w-full">
+          <label for="AddressCountry_{{ form.id }}" class="block font-medium text-gray-700 absolute top-1.5 text-xxs">Country</label>            
+          <input type="text" id="AddressCountry_{{ form.id }}" name="address[country]" value="{{ form.country }}" autocapitalize="words" class="text-sm absolute bg-transparent border-0 h-auto inset-0 overflow-hidden overflow-none p-0 pl-4 pt-3 rounded-md text-sm w-full" placeholder="{% if address.country != blank %}{{ address.country }}{% else %}Country{% endif %}">
+        </div>        
+        <div class="sm:col-span-2 bg-white block mt-1 h-12 border border-black border-solid pb-2 pt-5 px-4 relative rounded-md shadow-sm w-full">
+          <label for="AddressPhone_{{ form.id }}" class="block font-medium text-gray-700 absolute top-1.5 text-xxs">Phone</label>            
+          <input type="text" id="AddressPhone_{{ form.id }}" name="address[phone]" value="{{ form.phone }}" autocapitalize="words" class="text-sm absolute bg-transparent border-0 h-auto inset-0 overflow-hidden overflow-none p-0 pl-4 pt-3 rounded-md text-sm w-full" placeholder="{% if address.phone != blank %}{{ address.phone }}{% else %}Phone{% endif %}">
+        </div>
+        <div class="sm:col-span-2 relative flex items-center h-6">        
+          {{ form.set_as_default_checkbox | replace: 'class=""', 'class="rounded-md focus:ring-transparent"'}} <span class="relative top-0.5 text-sm">Set as default</span>
+        </div>          
+        <div class="flex gap-x-4 text-sm">
+          <button type="submit" class="rounded-md uppercase btn-shadow-lg block bg-magenta border-solid border-2 border-md border-black relative font-semibold text-center px-4 py-1 text-white hover:bg-magenta-700 transition-colors duration-200">
+            <span class="">Update</span>
+          </button>
+          <button class="rounded-md uppercase btn-shadow-lg bg-white border-solid border-2 border-black relative text-center px-4 py-1 text-black hover:bg-gray-200 transition-colors duration-200" onclick="Shopify.CustomerAddress.toggleForm({{ form.id }}); return false;">
+            <span class="">Cancel</span>
+          </button>
+        </div> 
+      {% endform %}      
+    </div>
+      {% endunless %}
+    {% endfor %}
+    <div class="js-add-form-wrapper">
+      <button class="js-add-address rounded-md uppercase btn-shadow-lg bg-white border-solid border-2 border-black relative text-center px-4 py-1 text-black hover:bg-gray-200 transition-colors duration-200 text-sm">Add New Address</button>
+      {%- form 'customer_address', customer.new_address, class:'js-add-address-form grid grid-cols-1 sm:grid-cols-2 sm:gap-x-4 gap-y-3 mt-2 pt-2 border-2 py-5 rounded-md box-shadow-green-yellow border-solid hidden' -%}
+        <div class="sm:col-span-2 flex sm:text-sm gap-x-1.5 items-center px-3 sm:px-6 pb-2 border-b-2 border-solid">
+          <span class="text-sm">ADD ADDRESS</span>
+        </div>
+     	<div class="px-3 sm:px-6 sm:col-span-2">
+          <div class="bg-white block mt-1 h-12 border border-black border-solid pb-2 pt-5 px-4 relative rounded-md shadow-sm w-full">
+            <label for="AddressFirstName_{{ form.id }}" class="block font-medium text-gray-700 absolute top-1.5 text-xxs">First name</label>            
+            <input type="text" id="AddressFirstName_{{ form.id }}" class="text-sm absolute bg-transparent border-0 h-auto inset-0 overflow-hidden overflow-none p-0 pl-4 pt-3 rounded-md text-sm w-full" name="address[first_name]" value="{{ form.first_name }}" autocapitalize="words" placeholder="{% if address.first_name != blank %}{{ address.first_name }}{% else %}First name{% endif %}">
+          </div>
+          <div class="bg-white block mt-1 h-12 border border-black border-solid pb-2 pt-5 px-4 relative rounded-md shadow-sm w-full">
+            <label for="AddressLastName_{{ form.id }}" class="block font-medium text-gray-700 absolute top-1.5 text-xxs">Last name</label>            
+            <input type="text" id="AddressLastName_{{ form.id }}" class="text-sm absolute bg-transparent border-0 h-auto inset-0 overflow-hidden overflow-none p-0 pl-4 pt-3 rounded-md text-sm w-full" name="address[last_name]" value="{{ form.last_name }}" autocapitalize="words" placeholder="{% if address.last_name != blank %}{{ address.last_name }}{% else %}Last name{% endif %}">
+          </div>      
+          <div class="sm:col-span-2 bg-white block mt-1 h-12 border border-black border-solid pb-2 pt-5 px-4 relative rounded-md shadow-sm w-full">
+            <label for="AddressCompany_{{ form.id }}" class="block font-medium text-gray-700 absolute top-1.5 text-xxs">Company</label>            
+            <input type="text" id="AddressCompany_{{ form.id }}" name="address[company]" value="{{ form.company }}" autocapitalize="words" class="text-sm absolute bg-transparent border-0 h-auto inset-0 overflow-hidden overflow-none p-0 pl-4 pt-3 rounded-md text-sm w-full" placeholder="{% if address.company != blank %}{{ address.company }}{% else %}Company{% endif %}">
+          </div>
+          <div class="sm:col-span-2 bg-white block mt-1 h-12 border border-black border-solid pb-2 pt-5 px-4 relative rounded-md shadow-sm w-full">
+            <label for="AddressAddress1_{{ form.id }}" class="block font-medium text-gray-700 absolute top-1.5 text-xxs">Address Line 1</label>            
+            <input type="text" id="AddressAddress1_{{ form.id }}" name="address[address1]" value="{{ form.address1 }}" autocapitalize="words" class="text-sm absolute bg-transparent border-0 h-auto inset-0 overflow-hidden overflow-none p-0 pl-4 pt-3 rounded-md text-sm w-full" placeholder="{% if address.address1 != blank %}{{ address.address1 }}{% else %}Address Line 1{% endif %}">
+          </div>     
+          <div class="sm:col-span-2 bg-white block mt-1 h-12 border border-black border-solid pb-2 pt-5 px-4 relative rounded-md shadow-sm w-full">
+            <label for="AddressAddress2_{{ form.id }}" class="block font-medium text-gray-700 absolute top-1.5 text-xxs">Address Line 2</label>            
+            <input type="text" id="AddressAddress2_{{ form.id }}" name="address[address2]" value="{{ form.address2 }}" autocapitalize="words" class="text-sm absolute bg-transparent border-0 h-auto inset-0 overflow-hidden overflow-none p-0 pl-4 pt-3 rounded-md text-sm w-full" placeholder="{% if address.address2 != blank %}{{ address.address2 }}{% else %}Address Line 2{% endif %}">
+          </div>      
+          <div class="sm:col-span-2 bg-white block mt-1 h-12 border border-black border-solid pb-2 pt-5 px-4 relative rounded-md shadow-sm w-full">
+            <label for="AddressCity_{{ form.id }}" class="block font-medium text-gray-700 absolute top-1.5 text-xxs">Town/City</label>            
+            <input type="text" id="AddressCity_{{ form.id }}" name="address[city]" value="{{ form.city }}" autocapitalize="words" class="text-sm absolute bg-transparent border-0 h-auto inset-0 overflow-hidden overflow-none p-0 pl-4 pt-3 rounded-md text-sm w-full" placeholder="{% if address.city != blank %}{{ address.city }}{% else %}Town/City{% endif %}">
+          </div>
+          <div class="sm:col-span-2 bg-white block mt-1 h-12 border border-black border-solid pb-2 pt-5 px-4 relative rounded-md shadow-sm w-full">
+            <label for="AddressProvince_{{ form.id }}" class="block font-medium text-gray-700 absolute top-1.5 text-xxs">County/Province</label>            
+            <input type="text" id="AddressProvince_{{ form.id }}" name="address[province]" value="{{ form.province }}" autocapitalize="words" class="text-sm absolute bg-transparent border-0 h-auto inset-0 overflow-hidden overflow-none p-0 pl-4 pt-3 rounded-md text-sm w-full" placeholder="{% if address.province != blank %}{{ address.province }}{% else %}County/Province{% endif %}">
+          </div>       
+          <div class="sm:col-span-2 bg-white block mt-1 h-12 border border-black border-solid pb-2 pt-5 px-4 relative rounded-md shadow-sm w-full">
+            <label for="AddressZip_{{ form.id }}" class="block font-medium text-gray-700 absolute top-1.5 text-xxs">Postcode/ZIP</label>            
+            <input type="text" id="AddressZip_{{ form.id }}" name="address[zip]" value="{{ form.zip }}" autocapitalize="words" class="text-sm absolute bg-transparent border-0 h-auto inset-0 overflow-hidden overflow-none p-0 pl-4 pt-3 rounded-md text-sm w-full" placeholder="{% if address.zip != blank %}{{ address.zip }}{% else %}Postcode/ZIP{% endif %}">
+          </div>
+          <div class="sm:col-span-2 bg-white block mt-1 h-12 border border-black border-solid pb-2 pt-5 px-4 relative rounded-md shadow-sm w-full">
+            <label for="AddressCountry_{{ form.id }}" class="block font-medium text-gray-700 absolute top-1.5 text-xxs">Country</label>            
+            <input type="text" id="AddressCountry_{{ form.id }}" name="address[country]" value="{{ form.country }}" autocapitalize="words" class="text-sm absolute bg-transparent border-0 h-auto inset-0 overflow-hidden overflow-none p-0 pl-4 pt-3 rounded-md text-sm w-full" placeholder="{% if address.country != blank %}{{ address.country }}{% else %}Country{% endif %}">
+          </div>        
+          <div class="sm:col-span-2 bg-white block mt-1 h-12 border border-black border-solid pb-2 pt-5 px-4 relative rounded-md shadow-sm w-full">
+            <label for="AddressPhone_{{ form.id }}" class="block font-medium text-gray-700 absolute top-1.5 text-xxs">Phone</label>            
+            <input type="text" id="AddressPhone_{{ form.id }}" name="address[phone]" value="{{ form.phone }}" autocapitalize="words" class="text-sm absolute bg-transparent border-0 h-auto inset-0 overflow-hidden overflow-none p-0 pl-4 pt-3 rounded-md text-sm w-full" placeholder="{% if address.phone != blank %}{{ address.phone }}{% else %}Phone{% endif %}">
+          </div>      
+          <div class="flex gap-x-4 text-sm pt-5">
+            <button type="submit" class="rounded-md uppercase btn-shadow-lg block bg-magenta border-solid border-2 border-md border-black relative font-semibold text-center px-4 py-1 text-white hover:bg-magenta-700 transition-colors duration-200">
+              <span class="">Submit</span>
+            </button>
+            <button class="rounded-md uppercase btn-shadow-lg bg-white border-solid border-2 border-black relative text-center px-4 py-1 text-black hover:bg-gray-200 transition-colors duration-200" onclick="Shopify.CustomerAddress.toggleForm({{ form.id }}); return false;">
+              <span class="">Cancel</span>
+            </button>
+          </div>
+      	</div>
+      {% endform %}     
+    </div>    
+    
+    
+    {%- if paginate.pages > 1 -%}
+      {%- render 'pagination', paginate: paginate, style: 'small' -%}
+    {%- endif -%}
+  </div>
+  
+
+
+</div>
+
+
+
+{% comment %}
+  <div class="shopify-section">
+
+    <div id="section-addresses" class="site-box-container container--fullscreen box--can-stick">
+
+      <div class="site-box box--big lap--box--small-fl-auto box--typo-big box--lots-of-text box--top-align box--column-flow box__heading box--add-hr" data-order="0">
+        <div class="reduce-top-margin">
+          <div class="site-box-content">
+            <h1 class="title h1">{{ 'customer.account.title' | t }}</h1>
+            <a href="{{ routes.account_url }}" class="button button--outline">
+              <span class="button-scroll-in">{{ 'customer.account.return' | t }}</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="site-box box--big lap--box--bigger box--top-align box--column-flow box__text" data-order="1">
+
+        <div class="site-box-content reduce-top-margin">
+
+          <div>
+
+            <div class="simple-block">
+
+              <h2 class="simple-title h4">{{ 'customer.addresses.title' | t }}</h2>
+
+              {%- for address in customer.addresses -%}
+
+                <strong>
+                  {{ address.first_name | capitalize }} {{address.last_name | capitalize }}
+                  {%- if address == customer.default_address -%}{{ 'customer.addresses.default' | t }}{%- endif -%}
+                </strong>
+
+                <div class="simple-address">{{ address | format_address }}</div>
+
+                <p>
+                  {{ 'customer.addresses.edit' | t | edit_customer_address_link: address.id }} |
+                  {{ 'customer.addresses.delete' | t | delete_customer_address_link: address.id }}
+                </p>
+
+                <div id="EditAddress_{{ address.id }}" class="form-vertical" style="display:none;">
+
+                  {%- form 'customer_address', address -%}
+
+                    <div class="simple-grid">
+
+                      <h3 class="simple-title grid__item h4">{{ 'customer.addresses.edit_address' | t }}</h3>
+
+                      <div class="grid__item one-half portable--one-whole">
+                        <label for="AddressFirstName_{{ form.id }}">{{ 'customer.addresses.first_name' | t }}</label>
+                        <input type="text" id="AddressFirstName_{{ form.id }}" class="input-full" name="address[first_name]" value="{{ form.first_name }}" autocapitalize="words">
+                      </div>
+
+                      <div class="grid__item one-half portable--one-whole">
+                        <label for="AddressLastName_{{ form.id }}">{{ 'customer.addresses.last_name' | t }}</label>
+                        <input type="text" id="AddressLastName_{{ form.id }}" class="input-full" name="address[last_name]" value="{{ form.last_name }}" autocapitalize="words">
+                      </div>
+
+                      <div class="grid__item one-whole">
+                        <label for="AddressCompany_{{ form.id }}">{{ 'customer.addresses.company' | t }}</label>
+                        <input type="text" id="AddressCompany_{{ form.id }}" class="input-full" name="address[company]" value="{{ form.company }}" autocapitalize="words">
+                      </div>
+
+                      <div class="grid__item one-whole">
+                        <label for="AddressAddress1_{{ form.id }}">{{ 'customer.addresses.address1' | t }}</label>
+                        <input type="text" id="AddressAddress1_{{ form.id }}" class="input-full" name="address[address1]" value="{{ form.address1 }}" autocapitalize="words">
+                      </div>
+
+                      <div class="grid__item one-whole">
+                        <label for="AddressAddress2_{{ form.id }}">{{ 'customer.addresses.address2' | t }}</label>
+                        <input type="text" id="AddressAddress2_{{ form.id }}" class="input-full" name="address[address2]" value="{{ form.address2 }}" autocapitalize="words">
+                      </div>
+
+                      <div class="grid__item one-whole">
+                        <label for="AddressCity_{{ form.id }}">{{ 'customer.addresses.city' | t }}</label>
+                        <input type="text" id="AddressCity_{{ form.id }}" class="input-full" name="address[city]" value="{{ form.city }}" autocapitalize="words">
+                      </div>
+
+                      <div class="grid__item one-whole">
+                        <label for="AddressCountry_{{ form.id }}">{{ 'customer.addresses.country' | t }}</label>
+                        <select id="AddressCountry_{{ form.id }}" class="input-full" name="address[country]" data-default="{{ form.country }}">{{ country_option_tags }}</select>
+                      </div>
+
+                      <div id="AddressProvinceContainer_{{ form.id }}" class="grid__item one-whole" style="display:none">
+                        <label for="AddressProvince_{{ form.id }}">{{ 'customer.addresses.province' | t }}</label>
+                        <select id="AddressProvince_{{ form.id }}" class="input-full" name="address[province]" data-default="{{ form.province }}"></select>
+                      </div>
+
+                      <div class="grid__item one-half portable--one-whole">
+                        <label for="AddressZip_{{ form.id }}">{{ 'customer.addresses.zip' | t }}</label>
+                        <input type="text" id="AddressZip_{{ form.id }}" class="input-full" name="address[zip]" value="{{ form.zip }}" autocapitalize="characters">
+                      </div>
+
+                      <div class="grid__item one-half portable--one-whole">
+                        <label for="AddressPhone_{{ form.id }}">{{ 'customer.addresses.phone' | t }}</label>
+                        <input type="tel" id="AddressPhone_{{ form.id }}" class="input-full" name="address[phone]" value="{{ form.phone }}">
+                      </div>
+
+                      <div class="grid__item one-whole">
+                        {{ form.set_as_default_checkbox }}
+                        <label for="address_default_address_{{ form.id }}" class="inline">{{ 'customer.addresses.set_default' | t }}</label>
+                      </div>
+
+                      <div class="grid__item one-whole">
+                        <div class="buttons-holder">
+                          <button type="submit" class="button button--solid">
+                            <span class="button-scroll-in">{{ 'customer.addresses.update' | t }}</span>
+                          </button>
+                          <button class="button button--outline" onclick="Shopify.CustomerAddress.toggleForm({{ form.id }}); return false;">
+                            <span class="button-scroll-in">{{ 'customer.addresses.cancel' | t }}</span>
+                          </button>
+                        </div>
+                      </div>
+
+                    </div>
+
+                  {%- endform -%}
+
+                </div>
+
+              {%- endfor -%}
+
+              {%- if paginate.pages > 1 -%}
+                {%- render 'pagination', paginate: paginate, style: 'small' -%}
+              {%- endif -%}
+
+            </div>
+      
+            <div class="simple-block">
+
+              <button class="button button--solid" onclick="Shopify.CustomerAddress.toggleNewForm(); return false;">
+                <span class="button-scroll-in">{{ 'customer.addresses.add_new' | t }}</span>
+              </button>
+
+              <div id="AddAddress" class="form-vertical" style="display: none;">
+                  
+                {%- form 'customer_address', customer.new_address -%}
+
+                  <div class="simple-grid">
+
+                    <h2 class="simple-title h4 grid__item">{{ 'customer.addresses.add_new' | t }}</h2>
+
+                    <div class="grid__item one-half portable--one-whole">
+                      <label for="AddressFirstNameNew">{{ 'customer.addresses.first_name' | t }}</label>
+                      <input type="text" id="AddressFirstNameNew" class="input-full" name="address[first_name]" value="{{ form.first_name }}" autocapitalize="words">
+                    </div>
+
+                    <div class="grid__item one-half portable--one-whole">
+                      <label for="AddressLastNameNew">{{ 'customer.addresses.last_name' | t }}</label>
+                      <input type="text" id="AddressLastNameNew" class="input-full" name="address[last_name]" value="{{ form.last_name }}" autocapitalize="words">
+                    </div>
+        
+                    <div class="grid__item one-whole">
+                      <label for="AddressCompanyNew">{{ 'customer.addresses.company' | t }}</label>
+                      <input type="text" id="AddressCompanyNew" class="input-full" name="address[company]" value="{{ form.company }}" autocapitalize="words">
+                    </div>
+
+                    <div class="grid__item one-whole">
+                      <label for="AddressAddress1New">{{ 'customer.addresses.address1' | t }}</label>
+                      <input type="text" id="AddressAddress1New" class="input-full" name="address[address1]" value="{{ form.address1 }}" autocapitalize="words">
+                    </div>
+
+                    <div class="grid__item one-whole">
+                      <label for="AddressAddress2New">{{ 'customer.addresses.address2' | t }}</label>
+                      <input type="text" id="AddressAddress2New" class="input-full" name="address[address2]" value="{{ form.address2 }}" autocapitalize="words">
+                    </div>
+
+                    <div class="grid__item one-whole">
+                      <label for="AddressCityNew">{{ 'customer.addresses.city' | t }}</label>
+                      <input type="text" id="AddressCityNew" class="input-full" name="address[city]" value="{{ form.city }}" autocapitalize="words">
+                    </div>
+
+                    <div class="grid__item one-whole">
+                      <label for="AddressCountryNew">{{ 'customer.addresses.country' | t }}</label>
+                      <select id="AddressCountryNew" class="input-full" name="address[country]" data-default="{{ form.country }}">{{ country_option_tags }}</select>
+                    </div>
+
+                    <div class="grid__item one-whole" id="AddressProvinceContainerNew" style="display:none">
+                      <label for="AddressProvinceNew">{{ 'customer.addresses.province' | t }}</label>
+                      <select id="AddressProvinceNew" class="input-full" name="address[province]" data-default="{{ form.province }}"></select>
+                    </div>
+
+                    <div class="grid__item one-half portable--one-whole">
+                      <label for="AddressZipNew">{{ 'customer.addresses.zip' | t }}</label>
+                      <input type="text" id="AddressZipNew" class="input-full" name="address[zip]" value="{{ form.zip }}" autocapitalize="characters">
+                    </div>
+
+                    <div class="grid__item one-half portable--one-whole">
+                      <label for="AddressPhoneNew">{{ 'customer.addresses.phone' | t }}</label>
+                      <input type="tel" id="AddressPhoneNew" class="input-full" name="address[phone]" value="{{ form.phone }}">
+                    </div>
+
+                    <div class="grid__item one-whole">
+                      {{ form.set_as_default_checkbox }}
+                      <label for="address_default_address_new" class="inline">{{ 'customer.addresses.set_default' | t }}</label>
+                    </div>
+
+                    <div class="grid__item one-whole">
+                      <div class="buttons-holder">
+                        <button type="submit" class="button button--solid">
+                          <span class="button-scroll-in">{{ 'customer.addresses.add' | t }}</span>
+                        </button>
+                        <button class="button button--outline" onclick="Shopify.CustomerAddress.toggleNewForm(); return false;">
+                          <span class="button-scroll-in">{{ 'customer.addresses.cancel' | t }}</span>
+                        </button>
+                      </div>
+                    </div>
+
+                  </div>
+
+                {%- endform -%}
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+{% endcomment %}
+
+  <script>
+
+    window.onload = function(){
+
+      new Shopify.CountryProvinceSelector('AddressCountryNew', 'AddressProvinceNew', {
+        hideElement: 'AddressProvinceContainerNew'
+      });
+
+      {%- for address in customer.addresses -%}
+        new Shopify.CountryProvinceSelector('AddressCountry_{{ address.id }}', 'AddressProvince_{{ address.id }}', {
+          hideElement: 'AddressProvinceContainer_{{ address.id }}'
+        });
+      {%- endfor -%}
+
+      Shopify.CustomerAddress = {
+        toggleForm: function(id) {
+          var editEl = document.getElementById('EditAddress_'+id);
+          editEl.style.display = editEl.style.display == 'none' ? '' : 'none';
+          return false;
+        },
+
+        toggleNewForm: function() {
+          var el = document.getElementById('AddAddress');
+          el.style.display = el.style.display == 'none' ? '' : 'none';
+          return false;
+        },
+
+        destroy: function(id, confirm_msg) {
+          if (confirm(confirm_msg || "Are you sure you wish to delete this address?")) {
+            Shopify.postLink('{{ routes.account_addresses_url }}'+'/'+id, {'parameters': {'_method': 'delete'}});
+          }
+        }
+      }
+    }
+
+  </script>
+
+{%- endpaginate -%}

@@ -1,0 +1,71 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "t:sections.header.name",
+  "type": "header",
+  "sections": {
+    "header": {
+      "type": "ob-header",
+      "settings": {}
+    },
+    "ob_announcement_bar_piGYLR": {
+      "type": "ob-announcement-bar",
+      "blocks": {
+        "announcement_cGB7qF": {
+          "type": "announcement",
+          "settings": {
+            "text": "Welcome to our store",
+            "link": ""
+          }
+        },
+        "announcement_p9ACmP": {
+          "type": "announcement",
+          "settings": {
+            "text": "OFFER 2",
+            "link": ""
+          }
+        },
+        "announcement_Amm9LB": {
+          "type": "announcement",
+          "settings": {
+            "text": "OFFER 3",
+            "link": ""
+          }
+        },
+        "announcement_x4AhJ7": {
+          "type": "announcement",
+          "settings": {
+            "text": "Welcome to our store",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "announcement_cGB7qF",
+        "announcement_p9ACmP",
+        "announcement_Amm9LB",
+        "announcement_x4AhJ7"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "show_line_separator": true,
+        "show_social": false,
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "enable_country_selector": false,
+        "enable_language_selector": false
+      }
+    }
+  },
+  "order": [
+    "header",
+    "ob_announcement_bar_piGYLR"
+  ]
+}

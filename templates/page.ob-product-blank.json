@@ -1,0 +1,1367 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "ob_breadcrumbs_HGajWk": {
+      "type": "ob-breadcrumbs",
+      "settings": {}
+    },
+    "main": {
+      "type": "ob-main-product",
+      "blocks": {
+        "badge_9AmGnb": {
+          "type": "badge",
+          "settings": {
+            "badge_text": "15% Off"
+          }
+        },
+        "title_CKCV8R": {
+          "type": "title",
+          "settings": {
+            "show_title": true
+          }
+        },
+        "liquid_Uh4giy": {
+          "type": "liquid",
+          "settings": {
+            "title": "Trustpilot",
+            "custom_liquid": "{% render 'ob-trustpilot-small', product:product %}"
+          }
+        },
+        "price_DgQaEc": {
+          "type": "price",
+          "settings": {
+            "show_price": true,
+            "show_compare_at_price": true
+          }
+        },
+        "banner_GhXD9f": {
+          "type": "banner",
+          "disabled": true,
+          "settings": {
+            "show_banner": true,
+            "banner_metaobject": "product-page-free-gift-banner",
+            "classes": "mdhidden"
+          }
+        },
+        "Free_Card_gHknrH": {
+          "type": "free-card-banner",
+          "disabled": true,
+          "settings": {
+            "show_free_card_banner": true,
+            "free_card_metaobject": "free-card-popup",
+            "extra_classes": "md:hidden"
+          }
+        },
+        "prints_selector_cmhFxV": {
+          "type": "prints_selector",
+          "settings": {
+            "prints_label": "Prints"
+          }
+        },
+        "designs_kKqQTU": {
+          "type": "designs",
+          "settings": {}
+        },
+        "product_form_CwNMrX": {
+          "type": "product_form",
+          "disabled": true,
+          "settings": {}
+        },
+        "size_selector_k9YUDP": {
+          "type": "size_selector",
+          "disabled": true,
+          "settings": {
+            "size_label": "Size"
+          }
+        },
+        "variant_selector_CqtjNU": {
+          "type": "variant_selector",
+          "disabled": true,
+          "settings": {
+            "picker_type": "button"
+          }
+        },
+        "buy_buttons_cX7pTn": {
+          "type": "buy_buttons",
+          "disabled": true,
+          "settings": {
+            "show_dynamic_checkout": true
+          }
+        },
+        "banner_gHknrH": {
+          "type": "banner",
+          "disabled": true,
+          "settings": {
+            "show_banner": true,
+            "banner_metaobject": "product-page-free-gift-banner",
+            "classes": "md:hidden"
+          }
+        },
+        "free_card_banner_BtBrEQ": {
+          "type": "free-card-banner",
+          "disabled": true,
+          "settings": {
+            "show_free_card_banner": true,
+            "free_card_metaobject": "free-card-popup",
+            "extra_classes": "hidden md:flex"
+          }
+        },
+        "upsells_tpi637": {
+          "type": "upsells",
+          "settings": {
+            "upsells_title": "Complete the look",
+            "upsells_collection": "size-11-12",
+            "upsells_count": 2
+          }
+        },
+        "accordion_jtdPyz": {
+          "type": "accordion",
+          "settings": {
+            "accordion_title": "DETAILS",
+            "accordion_content": "<p>description</p>"
+          }
+        },
+        "accordion_EUyM43": {
+          "type": "accordion",
+          "settings": {
+            "accordion_title": "WHY PEOPLE CHOOSE US",
+            "accordion_content": "<ul><li>Premium underwear for extreme comfort</li><li>Over £1,000,000 donated to charities</li><li>Over 30,000 x 5 star reviews on Trustpilot</li></ul>"
+          }
+        },
+        "accordion_bGGLK3": {
+          "type": "accordion",
+          "settings": {
+            "accordion_title": "Get yours from",
+            "accordion_content": "<p>asdassdadsd</p>"
+          }
+        },
+        "custom_Hcz7ji": {
+          "type": "custom",
+          "settings": {
+            "title": "",
+            "custom_html": "<div class=\"mt-2 mb-6 px-6 py-8 rounded-md border border-solid border-color bg-gray-50\">\n  <div class=\"flex items-center mb-3\">\n    <div class=\"w-12 flex-initial pr-8\">\n      <span class=\"\" data-live-text-setting=\"section.template--16117681160253__main.block.8b75ace3-418f-4295-8fea-825dfe88326c.icon_1\">\n        <svg class=\"w-7\" xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 256 256\">\n          <rect width=\"256\" height=\"256\" fill=\"none\"></rect>\n          <path fill=\"none\" stroke=\"#000\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"8\" d=\"M240,120H176V80h42.58374a8,8,0,0,1,7.42781,5.02887Z\"></path>\n          <line x1=\"16\" x2=\"176\" y1=\"144\" y2=\"144\" fill=\"none\" stroke=\"#000\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"8\"></line>\n          <circle cx=\"188\" cy=\"192\" r=\"24\" fill=\"none\" stroke=\"#000\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"8\"></circle>\n          <circle cx=\"68\" cy=\"192\" r=\"24\" fill=\"none\" stroke=\"#000\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"8\"></circle>\n          <line x1=\"164\" x2=\"92\" y1=\"192\" y2=\"192\" fill=\"none\" stroke=\"#000\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"8\"></line>\n          <path fill=\"none\" stroke=\"#000\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"8\" d=\"M44 192H24a8 8 0 0 1-8-8V72a8 8 0 0 1 8-8H176V171.21508M176 171.21508V120h64v64a8 8 0 0 1-8 8H212\"></path>\n        </svg>\n      </span>\n    </div>\n    <div class=\"typography typography--body-md flex-initial\">\n      <span class=\"font-normal\">Free UK Tracked Shipping on orders over\n        <span class=\"shippingBannerA\">£35</span>. </span>\n    </div>\n  </div>\n\n  <div class=\"flex items-center mb-3\">\n    <div class=\"w-12 flex-initial pr-8\">\n      <span class=\"\" data-live-text-setting=\"section.template--16117681160253__main.block.8b75ace3-418f-4295-8fea-825dfe88326c.icon_2\">\n        <svg class=\"w-8\" xmlns=\"http://www.w3.org/2000/svg\" data-name=\"Layer 1\" viewbox=\"0 0 1000 1000\">\n          <path d=\"M392.58,613.47H211.08a127.08,127.08,0,1,1,0-254.15h181.5a16,16,0,0,1,16,16V597.47A16,16,0,0,1,392.58,613.47ZM211.08,391.32a95.08,95.08,0,1,0,0,190.15h165.5V391.32Z\"></path>\n          <path d=\"M273 877.44a72.9 72.9 0 01-72.82-72.81V597.47a16 16 0 0116-16H329.82a16 16 0 0116 16V804.63A72.89 72.89 0 01273 877.44zm-40.82-264V804.63a40.82 40.82 0 0081.63 0V613.47zM735 800.24c-10.36 0-22.64-2.09-37.33-6.26a15.93 15.93 0 01-3.75-1.6l-309.46-182a16 16 0 1116.23-27.58l307.65 180.9c27.11 7.41 34.86 3.67 36.6 2.32 6.14-4.75 5.64-25.89 5.17-46.33-.16-6.75-.32-13.74-.32-21.15V274.2c0-7.41.16-14.39.32-21.14.47-20.45 1-41.58-5.17-46.33-1.74-1.35-9.49-5.1-36.6 2.32L400.69 390a16 16 0 11-16.23-27.58l309.46-182a15.86 15.86 0 013.74-1.6c32.14-9.12 52.76-8.31 66.88 2.62 18.91 14.64 18.28 41.39 17.56 72.37-.16 6.57-.31 13.37-.31 20.4V698.58c0 7 .15 13.83.31 20.4.72 31 1.35 57.74-17.56 72.38C756.88 797.29 747.3 800.24 735 800.24zM291.57 466.41H201a16 16 0 010-32h90.56a16 16 0 010 32zM291.57 538.37H201a16 16 0 010-32h90.56a16 16 0 110 32z\"></path>\n          <path d=\"M766.17,588.18c-.44,0-.9,0-1.34,0a16,16,0,0,1,1.44-32,69.79,69.79,0,0,0,0-139.57,16,16,0,0,1-1.45-32c.44,0,.9,0,1.34,0a101.79,101.79,0,0,1,0,203.57Zm.55-32h0Zm0,0h0Zm0-139.6h0Zm0,0h0Z\"></path>\n        </svg>\n      </span>\n    </div>\n    <div class=\"typography typography--body-md flex-initial\">\n      <span class=\"font-normal\">Spend over £40 get 1 FREE PRODUCT (Up to RRP £20.00).</span>\n    </div>\n  </div>\n\n  <div class=\"flex items-center mb-3\">\n    <div class=\"w-12 flex-initial pr-8\">\n      <span class=\"\" data-live-text-setting=\"section.template--16117681160253__main.block.8b75ace3-418f-4295-8fea-825dfe88326c.icon_3\">\n        <svg class=\"w-8\" xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 80 80\">\n          <path d=\"M15.222 40.41c.992 2.393 3.525 3.32 5.76 4.137 1.242.455 2.527.925 3.109 1.507.337.338.636.914.917 1.578L17.8 68.939a1.998 1.998 0 0 0 2.784 2.432l5.117-2.542 2.615 5.086a1.999 1.999 0 0 0 3.673-.275l7.03-20.82c.354-.102.69-.176.98-.176s.626.074.98.175l7.03 20.82a2 2 0 0 0 3.673.276l2.615-5.086 5.117 2.542a1.998 1.998 0 0 0 2.784-2.432l-7.207-21.307c.28-.664.58-1.24.917-1.578.583-.582 1.867-1.052 3.11-1.507 2.234-.818 4.767-1.744 5.76-4.136.956-2.31-.144-4.709-1.116-6.825-.572-1.246-1.164-2.534-1.164-3.44 0-.907.592-2.195 1.164-3.442.972-2.116 2.072-4.514 1.115-6.824-.992-2.393-3.525-3.319-5.76-4.137-1.242-.454-2.526-.924-3.109-1.507-.582-.582-1.053-1.867-1.507-3.11-.817-2.234-1.744-4.767-4.136-5.758-2.309-.96-4.71.143-6.825 1.114-1.246.573-2.535 1.164-3.441 1.164s-2.195-.591-3.441-1.164c-2.116-.971-4.518-2.072-6.824-1.115-2.393.992-3.32 3.526-4.137 5.76-.454 1.243-.925 2.527-1.507 3.11-.582.582-1.867 1.052-3.11 1.507-2.234.817-4.767 1.744-5.76 4.136-.956 2.31.144 4.708 1.116 6.825.572 1.246 1.164 2.534 1.164 3.44 0 .907-.592 2.195-1.164 3.44-.972 2.117-2.072 4.516-1.115 6.826zm14.49 27.471-1.355-2.636a2 2 0 0 0-2.668-.876l-2.548 1.266L27.414 53c.587.818 1.322 1.51 2.321 1.924.628.26 1.262.368 1.895.368.838 0 1.674-.19 2.492-.467l-4.41 13.056zm24.599-3.512a2 2 0 0 0-2.668.876l-1.356 2.636-4.41-13.057c1.438.486 2.932.704 4.388.1 1-.415 1.734-1.106 2.32-1.924l4.274 12.635-2.548-1.266zM19.973 25.035c-.6-1.304-1.345-2.927-1.056-3.622.32-.772 1.977-1.378 3.44-1.913 1.649-.604 3.355-1.228 4.562-2.435s1.831-2.914 2.435-4.564c.535-1.461 1.141-3.119 1.914-3.439a.999.999 0 0 1 .38-.064c.804 0 2.137.612 3.242 1.12 1.636.751 3.329 1.528 5.11 1.528s3.474-.777 5.11-1.528c1.305-.599 2.93-1.344 3.623-1.056.772.32 1.378 1.977 1.913 3.439.604 1.65 1.228 3.356 2.435 4.563s2.913 1.832 4.564 2.436c1.461.535 3.119 1.141 3.438 1.912.29.696-.456 2.319-1.056 3.623-.75 1.637-1.528 3.33-1.528 5.11s.777 3.474 1.528 5.11c.6 1.305 1.345 2.928 1.056 3.623-.32.771-1.977 1.378-3.438 1.913-1.65.604-3.357 1.228-4.564 2.435s-1.831 2.913-2.435 4.564c-.536 1.461-1.141 3.119-1.913 3.439-.694.292-2.318-.457-3.623-1.056-1.636-.752-3.329-1.529-5.11-1.529s-3.474.777-5.11 1.529c-1.304.6-2.927 1.348-3.623 1.056-.772-.32-1.377-1.978-1.913-3.44-.604-1.65-1.228-3.356-2.435-4.563-1.207-1.207-2.913-1.831-4.563-2.435-1.462-.535-3.12-1.141-3.439-1.913-.29-.695.456-2.318 1.056-3.623.75-1.636 1.528-3.329 1.528-5.11 0-1.78-.777-3.473-1.528-5.11z\"></path>\n          <path d=\"M40 44.013c7.646 0 13.868-6.221 13.868-13.867S47.646 16.278 40 16.278s-13.868 6.221-13.868 13.868S32.354 44.013 40 44.013zm0-23.735c5.441 0 9.868 4.427 9.868 9.868S45.441 40.013 40 40.013s-9.868-4.427-9.868-9.867 4.427-9.868 9.868-9.868z\"></path>\n        </svg>\n      </span>\n    </div>\n    <div class=\"typography typography--body-md flex-initial\">\n      <span class=\"font-normal\">We have donated over £1,000,000 to charities since 2014. <a href=\"/pages/about-us#charity\" class=\"text-magenta\">Find Out\n        More</a></span>\n    </div>\n  </div>\n</div>"
+          }
+        },
+        "bnpl_88RKtn": {
+          "type": "bnpl",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "badge_9AmGnb",
+        "title_CKCV8R",
+        "liquid_Uh4giy",
+        "price_DgQaEc",
+        "banner_GhXD9f",
+        "Free_Card_gHknrH",
+        "prints_selector_cmhFxV",
+        "designs_kKqQTU",
+        "product_form_CwNMrX",
+        "size_selector_k9YUDP",
+        "variant_selector_CqtjNU",
+        "buy_buttons_cX7pTn",
+        "banner_gHknrH",
+        "free_card_banner_BtBrEQ",
+        "upsells_tpi637",
+        "accordion_jtdPyz",
+        "accordion_EUyM43",
+        "accordion_bGGLK3",
+        "custom_Hcz7ji",
+        "bnpl_88RKtn"
+      ],
+      "settings": {
+        "product": ""
+      }
+    },
+    "ob_snippet_holder_gP7bz7": {
+      "type": "ob-snippet-holder",
+      "settings": {
+        "outer_wrapper_classes": "relative z-20",
+        "inner_wrapper_classes": "",
+        "snippet_name": "recomendations-and-trust-selector"
+      }
+    },
+    "ob_product_tabs_content_VzXYDF": {
+      "type": "ob-product-tabs-content",
+      "settings": {}
+    },
+    "ob_product_tag_recommendations_h8VmJH": {
+      "type": "ob-product-tag-recommendations",
+      "settings": {}
+    },
+    "ob_get_yours_from_6a7xrK": {
+      "type": "ob-get-yours-from",
+      "blocks": {
+        "e5b96a21-6ef3-4c20-b108-ca0a1a2e066b": {
+          "type": "price-break",
+          "settings": {
+            "country_iso": "GB",
+            "product_types_arr": "Boxer Shorts,Teen Boys Boxer Shorts,Classic Mens Boxer Shorts,Briefs,Classic Mens Briefs,Ladies Boxers,Classic Ladies Boxers,Teen Boys Briefs,Teen Girls Boxers,Low Rise Briefs,Teen Girls Low Rise Briefs,Classic Ladies Briefs",
+            "title": "Get yours from £8"
+          }
+        },
+        "price_break_tiYBBz": {
+          "type": "price-break",
+          "settings": {
+            "country_iso": "*",
+            "product_types_arr": "",
+            "title": ""
+          }
+        },
+        "price_break_BcHM4c": {
+          "type": "price-break",
+          "settings": {
+            "country_iso": "GB",
+            "product_types_arr": "Bamboo Boxer Shorts",
+            "title": "Get yours from £6"
+          }
+        },
+        "19d181c1-f720-4059-a013-62f6b895e694": {
+          "type": "price-break",
+          "settings": {
+            "country_iso": "GB",
+            "product_types_arr": "Thong,Teen Girls Thong,Classic Ladies Thongs",
+            "title": "Get yours from £7"
+          }
+        },
+        "e70aaefa-ac21-4ac1-aacf-4737355045b6": {
+          "type": "price-break",
+          "settings": {
+            "country_iso": "GB",
+            "product_types_arr": "Bralette,Teen Girls Bralette",
+            "title": "Get yours from £11"
+          }
+        },
+        "de95a701-9f68-4f08-bd88-eb9e24d8cdf8": {
+          "type": "price-break",
+          "settings": {
+            "country_iso": "GB",
+            "product_types_arr": "goolies",
+            "title": "Get yours from £4.50"
+          }
+        },
+        "854f3c3c-5772-40ac-b963-c460dc13cb78": {
+          "type": "price-break",
+          "disabled": true,
+          "settings": {
+            "country_iso": "GB",
+            "product_types_arr": "Low Rise Briefs,Thong,Teen Girls Low Rise Briefs,Teen Girls Thong,Boxer Shorts,Teen Boys Boxer Shorts,Classic Mens Boxer Shorts,Briefs,Classic Mens Briefs,Ladies Boxers,Classic Ladies Boxers,Teen Boys Briefs,Teen Girls Boxers,Bralette,Teen Girls Bralette,goolies",
+            "title": "Get up to 35% Off This Easter"
+          }
+        },
+        "13a0bf1c-eb04-4136-a526-4a94324192aa": {
+          "type": "price-break",
+          "settings": {
+            "country_iso": "GB",
+            "product_types_arr": "seamless,Teen Girls Seamless",
+            "title": "Get yours from £3.50"
+          }
+        },
+        "c20f60e8-a1dd-4109-96d2-615226811e91": {
+          "type": "price-break",
+          "settings": {
+            "country_iso": "GB",
+            "product_types_arr": "Seamless Full Briefs",
+            "title": "Get yours from £4"
+          }
+        },
+        "a716f803-269f-45c7-9f74-6cd147c92c6f": {
+          "type": "price-break",
+          "settings": {
+            "country_iso": "GB",
+            "product_types_arr": "Socks,Ankle Socks",
+            "title": "Get yours from £2.50"
+          }
+        },
+        "533df264-a9b8-4874-9856-7187747f7bd3": {
+          "type": "price-break",
+          "settings": {
+            "country_iso": "US",
+            "product_types_arr": "Boxer Shorts,Teen Boys Boxer Shorts,Classic Mens Boxer Shorts, Briefs,Classic Mens Briefs,Ladies Boxers,Classic Ladies Boxers,Teen Boys Briefs,Teen Girls Boxers",
+            "title": "Get yours from $13"
+          }
+        },
+        "aa22e8ec-dee4-4d1e-9b8c-94b427cf6752": {
+          "type": "price-break",
+          "settings": {
+            "country_iso": "US",
+            "product_types_arr": "Low Rise Briefs,Thong,Teen Girls Low Rise Briefs,Teen Girls Thong",
+            "title": "Get yours from $11"
+          }
+        },
+        "00675b40-d8b8-40f3-95a5-33d498d0479e": {
+          "type": "price-break",
+          "settings": {
+            "country_iso": "US",
+            "product_types_arr": "Bralette,Teen Girls Bralette",
+            "title": "Get yours from $18"
+          }
+        },
+        "37344838-a4aa-4e32-a7d8-f0da1d0070df": {
+          "type": "price-break",
+          "settings": {
+            "country_iso": "CA",
+            "product_types_arr": "Boxer Shorts,Teen Boys Boxer Shorts,Classic Mens Boxer Shorts, Briefs,Classic Mens Briefs,Ladies Boxers,Classic Ladies Boxers,Teen Boys Briefs,Teen Girls Boxers",
+            "title": "Get yours from $14"
+          }
+        },
+        "962726af-6f1a-48bf-bd3d-b0a4b0788bc6": {
+          "type": "price-break",
+          "settings": {
+            "country_iso": "CA",
+            "product_types_arr": "Low Rise Briefs,Thong,Teen Girls Low Rise Briefs,Teen Girls Thong",
+            "title": "Get yours from $12"
+          }
+        },
+        "0dd253dc-7496-4563-968d-1ab1af64ee98": {
+          "type": "price-break",
+          "settings": {
+            "country_iso": "CA",
+            "product_types_arr": "Bralette,Teen Girls Bralette",
+            "title": "Get yours from $19"
+          }
+        }
+      },
+      "block_order": [
+        "e5b96a21-6ef3-4c20-b108-ca0a1a2e066b",
+        "price_break_tiYBBz",
+        "price_break_BcHM4c",
+        "19d181c1-f720-4059-a013-62f6b895e694",
+        "e70aaefa-ac21-4ac1-aacf-4737355045b6",
+        "de95a701-9f68-4f08-bd88-eb9e24d8cdf8",
+        "854f3c3c-5772-40ac-b963-c460dc13cb78",
+        "13a0bf1c-eb04-4136-a526-4a94324192aa",
+        "c20f60e8-a1dd-4109-96d2-615226811e91",
+        "a716f803-269f-45c7-9f74-6cd147c92c6f",
+        "533df264-a9b8-4874-9856-7187747f7bd3",
+        "aa22e8ec-dee4-4d1e-9b8c-94b427cf6752",
+        "00675b40-d8b8-40f3-95a5-33d498d0479e",
+        "37344838-a4aa-4e32-a7d8-f0da1d0070df",
+        "962726af-6f1a-48bf-bd3d-b0a4b0788bc6",
+        "0dd253dc-7496-4563-968d-1ab1af64ee98"
+      ],
+      "disabled": true,
+      "settings": {
+        "active": true,
+        "outer_wrapper_classes": "",
+        "inner_wrapper_classes": "mx-auto md:ml-8 mb-4",
+        "widget_code": "",
+        "header": "",
+        "header_classes": "text-sm text-center font-semibold px-5 py-3",
+        "list_classes": "list-disc"
+      }
+    },
+    "166316781538be4c6c": {
+      "type": "ob-multibuy-table-general",
+      "blocks": {
+        "f038ece8-49e0-4491-9a11-c99b06c76e66": {
+          "type": "row",
+          "settings": {
+            "country_iso": "GB",
+            "title": "",
+            "left_cell": "1-2",
+            "left_extra": "",
+            "right_cell": "£15.00",
+            "right_extra": ""
+          }
+        },
+        "1d425bf4-4dfc-4810-b6b0-b61e5bcec351": {
+          "type": "row",
+          "settings": {
+            "country_iso": "GB",
+            "title": "",
+            "left_cell": "Buy 3",
+            "left_extra": "",
+            "right_cell": "£13.00",
+            "right_extra": ""
+          }
+        },
+        "524792f9-2339-47e6-9c54-1d7af0fc7a3e": {
+          "type": "row",
+          "settings": {
+            "country_iso": "GB",
+            "title": "",
+            "left_cell": "Buy 6",
+            "left_extra": "",
+            "right_cell": "£12.00",
+            "right_extra": ""
+          }
+        },
+        "f1dd2929-d86e-448e-9943-bf08958917e0": {
+          "type": "row",
+          "settings": {
+            "country_iso": "GB",
+            "title": "",
+            "left_cell": "Buy 9",
+            "left_extra": "",
+            "right_cell": "£11.00",
+            "right_extra": ""
+          }
+        }
+      },
+      "block_order": [
+        "f038ece8-49e0-4491-9a11-c99b06c76e66",
+        "1d425bf4-4dfc-4810-b6b0-b61e5bcec351",
+        "524792f9-2339-47e6-9c54-1d7af0fc7a3e",
+        "f1dd2929-d86e-448e-9943-bf08958917e0"
+      ],
+      "settings": {
+        "country_iso": "",
+        "title": "£15 $24 $25",
+        "active": true,
+        "header_left": "Quantity",
+        "header_right": "Price Per Unit",
+        "collection": "multi-buy-bralettes-15"
+      }
+    },
+    "16631678221fe0580a": {
+      "type": "ob-multibuy-table-general",
+      "blocks": {
+        "a63d9715-991b-4d18-b734-4ca5717304d3": {
+          "type": "row",
+          "settings": {
+            "country_iso": "GB",
+            "title": "",
+            "left_cell": "1-2",
+            "left_extra": "",
+            "right_cell": "£8.50",
+            "right_extra": ""
+          }
+        },
+        "85b90e9d-3042-4857-b48c-1f2b1c30060c": {
+          "type": "row",
+          "settings": {
+            "country_iso": "GB",
+            "title": "",
+            "left_cell": "Buy 3",
+            "left_extra": "",
+            "right_cell": "£6.50",
+            "right_extra": ""
+          }
+        },
+        "f47377aa-fb8c-4c55-bb5b-29b3ea0a5486": {
+          "type": "row",
+          "settings": {
+            "country_iso": "GB",
+            "title": "",
+            "left_cell": "Buy 6",
+            "left_extra": "",
+            "right_cell": "£5.50",
+            "right_extra": ""
+          }
+        },
+        "a544b911-adf2-4648-8131-3c63582cbf0b": {
+          "type": "row",
+          "settings": {
+            "country_iso": "GB",
+            "title": "",
+            "left_cell": "Buy 9",
+            "left_extra": "",
+            "right_cell": "£4.50",
+            "right_extra": ""
+          }
+        }
+      },
+      "block_order": [
+        "a63d9715-991b-4d18-b734-4ca5717304d3",
+        "85b90e9d-3042-4857-b48c-1f2b1c30060c",
+        "f47377aa-fb8c-4c55-bb5b-29b3ea0a5486",
+        "a544b911-adf2-4648-8131-3c63582cbf0b"
+      ],
+      "settings": {
+        "country_iso": "GB",
+        "title": "UK 8.50",
+        "active": true,
+        "header_left": "Quantity",
+        "header_right": "Price Per Unit",
+        "collection": "multi-buy-goolies-8"
+      }
+    },
+    "16631685100e69c00d": {
+      "type": "ob-multibuy-table-general",
+      "blocks": {
+        "9e5d9d3b-10b6-47d9-a299-c7e74450cf56": {
+          "type": "row",
+          "settings": {
+            "country_iso": "GB",
+            "title": "",
+            "left_cell": "1",
+            "left_extra": "",
+            "right_cell": "£4.00",
+            "right_extra": ""
+          }
+        },
+        "c4cc7ee2-ab85-458d-a8e9-39e4e69e0b94": {
+          "type": "row",
+          "settings": {
+            "country_iso": "GB",
+            "title": "",
+            "left_cell": "Buy 3",
+            "left_extra": "",
+            "right_cell": "£2.75",
+            "right_extra": ""
+          }
+        },
+        "2a586ac0-0b7b-4b86-8742-49235ffd4235": {
+          "type": "row",
+          "settings": {
+            "country_iso": "GB",
+            "title": "",
+            "left_cell": "Buy 6",
+            "left_extra": "",
+            "right_cell": "£2.50",
+            "right_extra": ""
+          }
+        },
+        "42c9b923-fa98-486b-b930-d3c5f976d0f5": {
+          "type": "row",
+          "settings": {
+            "country_iso": "GB",
+            "title": "",
+            "left_cell": "Buy 6",
+            "left_extra": "",
+            "right_cell": "£2.50",
+            "right_extra": ""
+          }
+        }
+      },
+      "block_order": [
+        "9e5d9d3b-10b6-47d9-a299-c7e74450cf56",
+        "c4cc7ee2-ab85-458d-a8e9-39e4e69e0b94",
+        "2a586ac0-0b7b-4b86-8742-49235ffd4235",
+        "42c9b923-fa98-486b-b930-d3c5f976d0f5"
+      ],
+      "settings": {
+        "country_iso": "GB",
+        "title": "UK £5",
+        "active": true,
+        "header_left": "Quantity",
+        "header_right": "Price Per Unit",
+        "collection": "multi-buy-socks-5"
+      }
+    },
+    "1663168516ca6f83aa": {
+      "type": "ob-multibuy-table-general",
+      "blocks": {
+        "1ccf6075-e3e6-4dcc-9aec-9630c8d3573a": {
+          "type": "row",
+          "settings": {
+            "country_iso": "GB",
+            "title": "",
+            "left_cell": "1-2",
+            "left_extra": "",
+            "right_cell": "£6.50",
+            "right_extra": ""
+          }
+        },
+        "05874523-e519-4e30-94e0-fc0201318592": {
+          "type": "row",
+          "settings": {
+            "country_iso": "GB",
+            "title": "",
+            "left_cell": "Buy 3",
+            "left_extra": "",
+            "right_cell": "£4.50",
+            "right_extra": ""
+          }
+        },
+        "70ae8b1e-06ae-4ef9-b591-25b18bbcef57": {
+          "type": "row",
+          "settings": {
+            "country_iso": "GB",
+            "title": "",
+            "left_cell": "Buy 6",
+            "left_extra": "",
+            "right_cell": "£3.50",
+            "right_extra": ""
+          }
+        },
+        "c02111da-0fa7-4223-a15e-4951f7616864": {
+          "type": "row",
+          "disabled": true,
+          "settings": {
+            "country_iso": "GB",
+            "title": "",
+            "left_cell": "Buy 9",
+            "left_extra": "",
+            "right_cell": "£2.50",
+            "right_extra": ""
+          }
+        }
+      },
+      "block_order": [
+        "1ccf6075-e3e6-4dcc-9aec-9630c8d3573a",
+        "05874523-e519-4e30-94e0-fc0201318592",
+        "70ae8b1e-06ae-4ef9-b591-25b18bbcef57",
+        "c02111da-0fa7-4223-a15e-4951f7616864"
+      ],
+      "settings": {
+        "country_iso": "GB",
+        "title": "UK £6.50",
+        "active": true,
+        "header_left": "Quantity",
+        "header_right": "Price Per Unit",
+        "collection": "multi-buy-seamless-6-50"
+      }
+    },
+    "ob_multibuy_table_general_PqmRUR": {
+      "type": "ob-multibuy-table-general",
+      "blocks": {
+        "row_NmH4Ve": {
+          "type": "row",
+          "settings": {
+            "country_iso": "GB",
+            "title": "",
+            "left_cell": "1-2",
+            "left_extra": "",
+            "right_cell": "£12.00",
+            "right_extra": ""
+          }
+        },
+        "row_HU8kwU": {
+          "type": "row",
+          "settings": {
+            "country_iso": "GB",
+            "title": "",
+            "left_cell": "Buy 3",
+            "left_extra": "",
+            "right_cell": "£10.00",
+            "right_extra": ""
+          }
+        },
+        "row_gX4gh3": {
+          "type": "row",
+          "settings": {
+            "country_iso": "GB",
+            "title": "",
+            "left_cell": "Buy 6",
+            "left_extra": "",
+            "right_cell": "£9.00",
+            "right_extra": ""
+          }
+        },
+        "row_NPXEJT": {
+          "type": "row",
+          "settings": {
+            "country_iso": "*",
+            "title": "",
+            "left_cell": "Buy 9",
+            "left_extra": "",
+            "right_cell": "£8.00",
+            "right_extra": ""
+          }
+        }
+      },
+      "block_order": [
+        "row_NmH4Ve",
+        "row_HU8kwU",
+        "row_gX4gh3",
+        "row_NPXEJT"
+      ],
+      "settings": {
+        "country_iso": "*",
+        "title": "£12 $19 $21",
+        "active": true,
+        "header_left": "Quantity",
+        "header_right": "Price Per Unit",
+        "collection": "multi-buy-underwear-12"
+      }
+    },
+    "size-guide-charts": {
+      "type": "ob-size-guide-charts",
+      "blocks": {
+        "99102f8b-105c-4b00-b475-78dbc2102a11": {
+          "type": "product_tag",
+          "settings": {
+            "title": "Socks Size Guide",
+            "product_tag": "sizechart-socks",
+            "page": "uk-adult-socks-size-chart"
+          }
+        },
+        "2dba91c9-88ce-4c85-8d52-b3ff3afd9dde": {
+          "type": "product_tag",
+          "settings": {
+            "title": "Sports Bra Size GUide",
+            "product_tag": "sizechart-sports-bras",
+            "page": "sports-bras-size-guide-new"
+          }
+        },
+        "84108409-0d34-46ea-8409-bf0c09a7d5d4": {
+          "type": "product_tag",
+          "settings": {
+            "title": "Gym Shorts Size Guide",
+            "product_tag": "sizechart-gym-shorts",
+            "page": "gym-shorts-size-chart"
+          }
+        },
+        "79e50057-3d69-4e26-9bb2-f20411a370f5": {
+          "type": "product_tag",
+          "settings": {
+            "title": "Womens Underwear Size Guide",
+            "product_tag": "sizechart-womens",
+            "page": "womens-size-chart"
+          }
+        },
+        "4004eb3a-33a4-43e5-a1ac-59b0095b4718": {
+          "type": "product_tag",
+          "settings": {
+            "title": "New Bralette Size Guide",
+            "product_tag": "bralette",
+            "page": "bralette-size-guide-new-1"
+          }
+        },
+        "ea517618-1d0d-4a04-a263-c9af8ee109a0": {
+          "type": "product_tag",
+          "settings": {
+            "title": "Mens Underwear Size Guide",
+            "product_tag": "sizechart-mens",
+            "page": "mens-size-chart"
+          }
+        },
+        "product_tag_4373g4": {
+          "type": "product_tag",
+          "settings": {
+            "title": "Cycling Jersey Size Guide",
+            "product_tag": "sizechart-cycling-jersey",
+            "page": "cycling-jerseys-size-guide"
+          }
+        },
+        "e0d4c15a-7950-42d2-87af-93c2ec7da946": {
+          "type": "product_tag",
+          "settings": {
+            "title": "Kids (Kids) Underwear Size Guide",
+            "product_tag": "sizechart-kids",
+            "page": "kids-size-chart"
+          }
+        },
+        "a94d5f81-9059-427c-b9e4-7654a217d227": {
+          "type": "product_type",
+          "settings": {
+            "title": "Gloves",
+            "product_type": "Gloves",
+            "page": "gloves-size-chart"
+          }
+        },
+        "4d9e0ef9-0b38-43a3-8304-ad58c58f4184": {
+          "type": "product_tag",
+          "settings": {
+            "title": "Women's Pyjamas - Short",
+            "product_tag": "sizechart-womens-pyjamas-short",
+            "page": "womens-pyjamas-size-chart"
+          }
+        },
+        "a9cb99f8-8f16-40e9-aded-c0f1d90606c7": {
+          "type": "product_tag",
+          "settings": {
+            "title": "Women's Pyjamas - Long",
+            "product_tag": "sizechart-womens-pyjamas-long",
+            "page": "womens-pyjamas-size-chart-long"
+          }
+        },
+        "262418c5-0e30-48e9-a07c-272ea82d2716": {
+          "type": "product_tag",
+          "settings": {
+            "title": "Men's Pyjamas (Long) Size Guide",
+            "product_tag": "sizechart-mens-pyjamas-long",
+            "page": "new-mens-pyjama-bottoms-long-size-guide"
+          }
+        },
+        "2c0dee36-2e79-453a-9669-4ddb004095df": {
+          "type": "product_tag",
+          "settings": {
+            "title": "Men's Pyjamas (Short) Size Guide",
+            "product_tag": "sizechart-mens-pyjamas-short",
+            "page": "new-mens-pyjama-bottoms-short-size-guide"
+          }
+        },
+        "f46a60bf-d181-494d-a85a-d2a8fb7fa429": {
+          "type": "product_type",
+          "settings": {
+            "title": "Sports Shorts Size Guide",
+            "product_type": "Sports Shorts",
+            "page": "sports-shorts-size-chart"
+          }
+        },
+        "9a639ecc-bf21-499c-98a0-9cf5c164fa92": {
+          "type": "product_tag",
+          "settings": {
+            "title": "Goolies (Kids) Pyjamas Size Guide - Short",
+            "product_tag": "sizechart-goolies-pyjamas-short",
+            "page": "goolies-pyjama-bottoms-size-guide-short"
+          }
+        },
+        "134c89ba-ec6c-407c-a262-7dd1593cb531": {
+          "type": "product_tag",
+          "settings": {
+            "title": "Goolies (Kids) Pyjamas Size Guide - Long",
+            "product_tag": "sizechart-goolies-pyjamas-long",
+            "page": "goolies-pyjama-bottoms-size-guide-long"
+          }
+        },
+        "68b6ce0c-680d-45e5-aea1-96c6df9745b0": {
+          "type": "product_tag",
+          "settings": {
+            "title": "Clothing size guide",
+            "product_tag": "sizechart-clothing",
+            "page": "clothing-size-chart"
+          }
+        },
+        "712bda02-ba0b-4eed-9f5b-ba702daea226": {
+          "type": "product_tag",
+          "settings": {
+            "title": "Xmas Jumper Size Guide",
+            "product_tag": "sizechart-xmas-jumper",
+            "page": "christmas-jumpers-size-guide"
+          }
+        },
+        "649a46c9-be06-427d-98be-125945499758": {
+          "type": "product_type",
+          "settings": {
+            "title": "Flex fit caps size guide",
+            "product_type": "Hats",
+            "page": "flex-fit-caps-size-guide"
+          }
+        },
+        "5e5d8eba-aeab-4163-a0c3-6df96590f715": {
+          "type": "product_type",
+          "settings": {
+            "title": "Running Vests",
+            "product_type": "Running Vests",
+            "page": "vests-size-guide"
+          }
+        },
+        "8aa15f13-c123-4f06-b6a4-98a6a7f2f73c": {
+          "type": "product_type",
+          "settings": {
+            "title": "Training T-Shirt (Womens)",
+            "product_type": "Training T-Shirt (Womens)",
+            "page": "ladies-t-shirt-size-chart"
+          }
+        },
+        "3e6b71e8-fcb7-45c2-bbfe-ee71f3167266": {
+          "type": "product_tag",
+          "settings": {
+            "title": "Size Chart - Womens Underwear US",
+            "product_tag": "sizechart-us-womens",
+            "page": "us-womens-size-chart"
+          }
+        },
+        "product_tag_yT66QA": {
+          "type": "product_tag",
+          "settings": {
+            "title": "mens underwear size chart",
+            "product_tag": "sizechart-mens-underwear",
+            "page": "mens-underwear-size-chart"
+          }
+        },
+        "product_tag_JhYTww": {
+          "type": "product_tag",
+          "settings": {
+            "title": "Bucket Hats",
+            "product_tag": "sizechart-bucket-hats",
+            "page": "bucket-hats-size-guide"
+          }
+        }
+      },
+      "block_order": [
+        "99102f8b-105c-4b00-b475-78dbc2102a11",
+        "2dba91c9-88ce-4c85-8d52-b3ff3afd9dde",
+        "84108409-0d34-46ea-8409-bf0c09a7d5d4",
+        "79e50057-3d69-4e26-9bb2-f20411a370f5",
+        "4004eb3a-33a4-43e5-a1ac-59b0095b4718",
+        "ea517618-1d0d-4a04-a263-c9af8ee109a0",
+        "product_tag_4373g4",
+        "e0d4c15a-7950-42d2-87af-93c2ec7da946",
+        "a94d5f81-9059-427c-b9e4-7654a217d227",
+        "4d9e0ef9-0b38-43a3-8304-ad58c58f4184",
+        "a9cb99f8-8f16-40e9-aded-c0f1d90606c7",
+        "262418c5-0e30-48e9-a07c-272ea82d2716",
+        "2c0dee36-2e79-453a-9669-4ddb004095df",
+        "f46a60bf-d181-494d-a85a-d2a8fb7fa429",
+        "9a639ecc-bf21-499c-98a0-9cf5c164fa92",
+        "134c89ba-ec6c-407c-a262-7dd1593cb531",
+        "68b6ce0c-680d-45e5-aea1-96c6df9745b0",
+        "712bda02-ba0b-4eed-9f5b-ba702daea226",
+        "649a46c9-be06-427d-98be-125945499758",
+        "5e5d8eba-aeab-4163-a0c3-6df96590f715",
+        "8aa15f13-c123-4f06-b6a4-98a6a7f2f73c",
+        "3e6b71e8-fcb7-45c2-bbfe-ee71f3167266",
+        "product_tag_yT66QA",
+        "product_tag_JhYTww"
+      ],
+      "settings": {}
+    },
+    "ob_reason_to_buy_gwMJUG": {
+      "type": "ob-reason-to-buy",
+      "blocks": {
+        "d13540d9-339f-43f1-813f-3ef0a5224a7f": {
+          "type": "list-item",
+          "settings": {
+            "country_iso": "GB",
+            "content": "Moisture wicking fabric, perfect for sport",
+            "content_classes": "list-outside ml-4 mb-0 pb-1 font-medium text-sm md:text-base"
+          }
+        },
+        "437713ff-3ef0-4e90-bf9a-34534decfd92": {
+          "type": "list-item",
+          "settings": {
+            "country_iso": "GB",
+            "content": "Anti chafe gusset for happy thighs",
+            "content_classes": "list-outside ml-4 mb-0 pb-1 font-medium text-sm md:text-base"
+          }
+        },
+        "ac1c4647-462a-40c0-8d43-117c30dfcea9": {
+          "type": "list-item",
+          "settings": {
+            "country_iso": "GB",
+            "content": "No leg-ride - stays in place ALL DAY",
+            "content_classes": "list-outside ml-4 mb-0 pb-1 font-medium text-sm md:text-base"
+          }
+        },
+        "d7bd97b9-0edb-4611-8c41-0dcf0f85d840": {
+          "type": "list-item",
+          "settings": {
+            "country_iso": "GB",
+            "content": "No-dig elastic, perfect for ANY shape",
+            "content_classes": "list-outside ml-4 mb-0 pb-1 font-medium text-sm md:text-base"
+          }
+        }
+      },
+      "block_order": [
+        "d13540d9-339f-43f1-813f-3ef0a5224a7f",
+        "437713ff-3ef0-4e90-bf9a-34534decfd92",
+        "ac1c4647-462a-40c0-8d43-117c30dfcea9",
+        "d7bd97b9-0edb-4611-8c41-0dcf0f85d840"
+      ],
+      "settings": {
+        "active": true,
+        "product_tags_arr": "type-bamboo-underwear",
+        "outer_wrapper_classes": "js-reasons-to-buy-start hidden",
+        "inner_wrapper_classes": "mx-auto mb-4",
+        "widget_code": "",
+        "header": "WHY PEOPLE CHOOSE BAMBOO?",
+        "header_classes": "text-sm text-center font-semibold text-gray-800 px-5 py-3",
+        "list_classes": "list-disc"
+      }
+    },
+    "ob_reason_to_buy_3beALi": {
+      "type": "ob-reason-to-buy",
+      "blocks": {
+        "6033138f-117a-4bf4-86e5-cf4e3e8ad06c": {
+          "type": "list-item",
+          "settings": {
+            "country_iso": "GB",
+            "content": "Premium underwear for extreme comfort",
+            "content_classes": "list-outside tw-ml-4 tw-mb-0 tw-pb-1 tw-font-medium tw-text-sm md:tw-text-base"
+          }
+        },
+        "ca940668-44e7-404d-9982-56ce1c97b7a1": {
+          "type": "list-item",
+          "settings": {
+            "country_iso": "GB",
+            "content": "Over  £1,000,000 donated to charities",
+            "content_classes": "list-outside tw-ml-4 tw-mb-0 tw-pb-1 tw-font-medium tw-text-sm md:tw-text-base"
+          }
+        },
+        "67aa51f6-8150-4d49-8990-bdfa1dc880b3": {
+          "type": "list-item",
+          "settings": {
+            "country_iso": "GB",
+            "content": "Over 30,000 x 5* reviews on Trustpilot",
+            "content_classes": "list-outside tw-ml-4 tw-mb-0 tw-pb-1 tw-font-medium tw-text-sm md:tw-text-base"
+          }
+        },
+        "dedf551e-d22a-4d4c-8735-9230af6e98d4": {
+          "type": "list-item",
+          "settings": {
+            "country_iso": "US",
+            "content": "Premium cotton for extreme comfort",
+            "content_classes": "list-outside tw-ml-4 tw-mb-0 tw-pb-1 tw-font-medium tw-text-sm md:tw-text-base"
+          }
+        },
+        "65d145f5-298f-411d-ae85-c2d4c916ede0": {
+          "type": "list-item",
+          "settings": {
+            "country_iso": "US",
+            "content": "Over $1,000,000 donated to charities",
+            "content_classes": "list-outside tw-ml-4 tw-mb-0 tw-pb-1 tw-font-medium tw-text-sm md:tw-text-base"
+          }
+        },
+        "5ed2a39b-3a5f-496e-adc0-c45d7b581ea7": {
+          "type": "list-item",
+          "settings": {
+            "country_iso": "US",
+            "content": "Over 25,000 x 5 reviews on Trustpilot",
+            "content_classes": "list-outside tw-ml-4 tw-mb-0 tw-pb-1 tw-font-medium tw-text-sm md:tw-text-base"
+          }
+        },
+        "af529a38-f5c9-4a2f-8d5c-3e02cdc84c4b": {
+          "type": "list-item",
+          "settings": {
+            "country_iso": "CA",
+            "content": "Premium cotton for extreme comfort",
+            "content_classes": "list-outside tw-ml-4 tw-mb-0 tw-pb-1 tw-font-medium tw-text-sm"
+          }
+        },
+        "682df9cb-70ae-455d-a420-c3b911c9d806": {
+          "type": "list-item",
+          "settings": {
+            "country_iso": "CA",
+            "content": "Over $1,300,000 donated to charities",
+            "content_classes": "list-outside tw-ml-4 tw-mb-0 tw-pb-1 tw-font-medium tw-text-sm md:tw-text-base"
+          }
+        },
+        "22c3791f-6272-4b9a-b729-14be7d951cad": {
+          "type": "list-item",
+          "settings": {
+            "country_iso": "CA",
+            "content": "Over 25,000 x 5 reviews on Trustpilot",
+            "content_classes": "list-outside tw-ml-4 tw-mb-0 tw-pb-1 tw-font-medium tw-text-sm md:tw-text-base"
+          }
+        }
+      },
+      "block_order": [
+        "6033138f-117a-4bf4-86e5-cf4e3e8ad06c",
+        "ca940668-44e7-404d-9982-56ce1c97b7a1",
+        "67aa51f6-8150-4d49-8990-bdfa1dc880b3",
+        "dedf551e-d22a-4d4c-8735-9230af6e98d4",
+        "65d145f5-298f-411d-ae85-c2d4c916ede0",
+        "5ed2a39b-3a5f-496e-adc0-c45d7b581ea7",
+        "af529a38-f5c9-4a2f-8d5c-3e02cdc84c4b",
+        "682df9cb-70ae-455d-a420-c3b911c9d806",
+        "22c3791f-6272-4b9a-b729-14be7d951cad"
+      ],
+      "settings": {
+        "active": true,
+        "product_tags_arr": "type-underwear",
+        "outer_wrapper_classes": "js-reasons-to-buy-start tw-hidden",
+        "inner_wrapper_classes": "tw-mx-auto tw-mb-4",
+        "widget_code": "",
+        "header": "WHY PEOPLE CHOOSE US",
+        "header_classes": "tw-text-sm tw-text-center tw-font-semibold tw-text-gray-800 tw-px-5 tw-py-3",
+        "list_classes": "tw-list-disc"
+      }
+    },
+    "ob_reason_to_buy_VPLCQJ": {
+      "type": "ob-reason-to-buy",
+      "blocks": {
+        "6033138f-117a-4bf4-86e5-cf4e3e8ad06c": {
+          "type": "list-item",
+          "settings": {
+            "country_iso": "GB",
+            "content": "Brand new underwear designs + FREE Socks",
+            "content_classes": "list-outside tw-ml-4 tw-mb-0 tw-pb-1 tw-font-medium tw-text-sm md:tw-text-base"
+          }
+        },
+        "list_item_fgL6cr": {
+          "type": "list-item",
+          "settings": {
+            "country_iso": "GB",
+            "content": "",
+            "content_classes": ""
+          }
+        },
+        "ca940668-44e7-404d-9982-56ce1c97b7a1": {
+          "type": "list-item",
+          "settings": {
+            "country_iso": "GB",
+            "content": "Free UK delivery on all orders",
+            "content_classes": "list-outside tw-ml-4 tw-mb-0 tw-pb-1 tw-font-medium tw-text-sm md:tw-text-base"
+          }
+        },
+        "67aa51f6-8150-4d49-8990-bdfa1dc880b3": {
+          "type": "list-item",
+          "settings": {
+            "country_iso": "GB",
+            "content": "Exclusive gifts & discounts",
+            "content_classes": "list-outside tw-ml-4 tw-mb-0 tw-pb-1 tw-font-medium tw-text-sm md:tw-text-base"
+          }
+        },
+        "a1773568-b42e-4575-8ba7-f5fba4cbe4f5": {
+          "type": "list-item",
+          "settings": {
+            "country_iso": "GB",
+            "content": "VIP Access to new products & sale events",
+            "content_classes": "list-outside tw-ml-4 tw-mb-0 tw-pb-1 tw-font-medium tw-text-sm md:tw-text-base"
+          }
+        },
+        "ae943679-d462-451b-bf4b-9fd39aa233e1": {
+          "type": "list-item",
+          "settings": {
+            "country_iso": "GB",
+            "content": "Cancel or skip at any time!",
+            "content_classes": "list-outside tw-ml-4 tw-mb-0 tw-pb-1 tw-font-medium tw-text-sm md:tw-text-base"
+          }
+        }
+      },
+      "block_order": [
+        "6033138f-117a-4bf4-86e5-cf4e3e8ad06c",
+        "list_item_fgL6cr",
+        "ca940668-44e7-404d-9982-56ce1c97b7a1",
+        "67aa51f6-8150-4d49-8990-bdfa1dc880b3",
+        "a1773568-b42e-4575-8ba7-f5fba4cbe4f5",
+        "ae943679-d462-451b-bf4b-9fd39aa233e1"
+      ],
+      "settings": {
+        "active": true,
+        "product_tags_arr": "type-subscription",
+        "outer_wrapper_classes": "js-reasons-to-buy-start tw-hidden",
+        "inner_wrapper_classes": "tw-mx-auto tw-mb-4",
+        "widget_code": "",
+        "header": "BENEFITS OF BECOMING A SUBSCRIBER",
+        "header_classes": "tw-text-sm tw-text-center tw-font-semibold tw-text-gray-800 tw-px-5 tw-py-3",
+        "list_classes": "tw-list-disc"
+      }
+    },
+    "ob_reason_to_buy_daCBEJ": {
+      "type": "ob-reason-to-buy",
+      "blocks": {
+        "3677ae59-a540-4d35-bcce-1760dd578422": {
+          "type": "list-item",
+          "settings": {
+            "country_iso": "GB",
+            "content": "Every month, for just £11, included in your delivery, you will get the below",
+            "content_classes": "list-outside tw-ml-4 tw-mb-0 tw-pb-1 tw-font-medium tw-text-sm md:tw-text-base"
+          }
+        },
+        "785284ee-5aa8-4368-aa55-da556d4f39a7": {
+          "type": "list-item",
+          "settings": {
+            "country_iso": "GB",
+            "content": "Underwear worth £12.00 RRP",
+            "content_classes": "list-outside tw-ml-4 tw-mb-0 tw-pb-1 tw-font-medium tw-text-sm md:tw-text-base"
+          }
+        },
+        "d44a212a-5e43-46e9-b76e-08cc5bde50cc": {
+          "type": "list-item",
+          "settings": {
+            "country_iso": "GB",
+            "content": "FREE Socks worth £4.00 RRP",
+            "content_classes": "list-outside tw-ml-4 tw-mb-0 tw-pb-1 tw-font-medium tw-text-sm md:tw-text-base"
+          }
+        },
+        "c9f62453-cce3-40f5-aaef-9bcce0b6da98": {
+          "type": "list-item",
+          "settings": {
+            "country_iso": "GB",
+            "content": "FREE Delivery worth £3.95",
+            "content_classes": "list-outside tw-ml-4 tw-mb-0 tw-pb-1 tw-font-medium tw-text-sm md:tw-text-base"
+          }
+        }
+      },
+      "block_order": [
+        "3677ae59-a540-4d35-bcce-1760dd578422",
+        "785284ee-5aa8-4368-aa55-da556d4f39a7",
+        "d44a212a-5e43-46e9-b76e-08cc5bde50cc",
+        "c9f62453-cce3-40f5-aaef-9bcce0b6da98"
+      ],
+      "settings": {
+        "active": true,
+        "product_tags_arr": "type-subscription-12-underwear",
+        "outer_wrapper_classes": "js-reasons-to-buy-start tw-hidden",
+        "inner_wrapper_classes": "tw-mx-auto tw-mb-4",
+        "widget_code": "",
+        "header": "SAVE UP TO £8 EVERY MONTH",
+        "header_classes": "tw-text-sm tw-text-center tw-font-semibold tw-text-gray-800 tw-px-5 tw-py-3",
+        "list_classes": "tw-list-disc"
+      }
+    },
+    "ob_reason_to_buy_Er7hyY": {
+      "type": "ob-reason-to-buy",
+      "blocks": {
+        "66dd840c-6c76-43f1-b84f-1ba4ac21aa0c": {
+          "type": "list-item",
+          "settings": {
+            "country_iso": "GB",
+            "content": "Every month, for just £10, included in your delivery, you will get the below",
+            "content_classes": "list-outside tw-ml-4 tw-mb-0 tw-pb-1 tw-font-medium tw-text-sm md:tw-text-base"
+          }
+        },
+        "a1fb6ba6-d124-4d13-8c33-8d7d72fe0688": {
+          "type": "list-item",
+          "settings": {
+            "country_iso": "GB",
+            "content": "Underwear worth £11.00 RRP",
+            "content_classes": "list-outside tw-ml-4 tw-mb-0 tw-pb-1 tw-font-medium tw-text-sm md:tw-text-base"
+          }
+        },
+        "7578726c-5c9d-44fa-9e9d-9423cc78e9da": {
+          "type": "list-item",
+          "settings": {
+            "country_iso": "GB",
+            "content": "FREE Socks worth £4.00 RRP",
+            "content_classes": "list-outside tw-ml-4 tw-mb-0 tw-pb-1 tw-font-medium tw-text-sm md:tw-text-base"
+          }
+        },
+        "ead80452-46ad-4299-b7e5-f72e0f2e733e": {
+          "type": "list-item",
+          "settings": {
+            "country_iso": "GB",
+            "content": "FREE Delivery worth £3.95",
+            "content_classes": "list-outside tw-ml-4 tw-mb-0 tw-pb-1 tw-font-medium tw-text-sm md:tw-text-base"
+          }
+        },
+        "list_item_fWnD9C": {
+          "type": "list-item",
+          "settings": {
+            "country_iso": "GB",
+            "content": "",
+            "content_classes": ""
+          }
+        }
+      },
+      "block_order": [
+        "66dd840c-6c76-43f1-b84f-1ba4ac21aa0c",
+        "a1fb6ba6-d124-4d13-8c33-8d7d72fe0688",
+        "7578726c-5c9d-44fa-9e9d-9423cc78e9da",
+        "ead80452-46ad-4299-b7e5-f72e0f2e733e",
+        "list_item_fWnD9C"
+      ],
+      "settings": {
+        "active": true,
+        "product_tags_arr": "type-subscription-11-underwear",
+        "outer_wrapper_classes": "js-reasons-to-buy-start tw-hidden",
+        "inner_wrapper_classes": "tw-mx-auto tw-mb-4",
+        "widget_code": "",
+        "header": "SAVE UP TO £8 EVERY MONTH",
+        "header_classes": "tw-text-sm tw-text-center tw-font-semibold tw-text-gray-800 tw-px-5 tw-py-3",
+        "list_classes": "tw-list-disc"
+      }
+    },
+    "ob_reason_to_buy_bWLtdx": {
+      "type": "ob-reason-to-buy",
+      "blocks": {
+        "889cdc55-092b-4b0f-b3f6-dab5e6e8b5a1": {
+          "type": "list-item",
+          "settings": {
+            "country_iso": "GB",
+            "content": "Every month, for just £15, included in your delivery, you will get the below",
+            "content_classes": "list-outside tw-ml-4 tw-mb-0 tw-pb-1 tw-font-medium tw-text-sm md:tw-text-base"
+          }
+        },
+        "1da6e0ae-862e-42d2-9445-4b970129e0a2": {
+          "type": "list-item",
+          "settings": {
+            "country_iso": "GB",
+            "content": "Underwear worth £15.00 RRP",
+            "content_classes": "list-outside tw-ml-4 tw-mb-0 tw-pb-1 tw-font-medium tw-text-sm md:tw-text-base"
+          }
+        },
+        "fe4039d0-3b0d-468c-84c7-d9db1e85bd01": {
+          "type": "list-item",
+          "settings": {
+            "country_iso": "GB",
+            "content": "FREE Socks worth £4.00 RRP",
+            "content_classes": "list-outside tw-ml-4 tw-mb-0 tw-pb-1 tw-font-medium tw-text-sm md:tw-text-base"
+          }
+        },
+        "fceedda0-6e05-4daf-92a6-9a9b3d9ec99b": {
+          "type": "list-item",
+          "settings": {
+            "country_iso": "GB",
+            "content": "FREE Delivery worth £3.95",
+            "content_classes": "list-outside tw-ml-4 tw-mb-0 tw-pb-1 tw-font-medium tw-text-sm md:tw-text-base"
+          }
+        }
+      },
+      "block_order": [
+        "889cdc55-092b-4b0f-b3f6-dab5e6e8b5a1",
+        "1da6e0ae-862e-42d2-9445-4b970129e0a2",
+        "fe4039d0-3b0d-468c-84c7-d9db1e85bd01",
+        "fceedda0-6e05-4daf-92a6-9a9b3d9ec99b"
+      ],
+      "settings": {
+        "active": true,
+        "product_tags_arr": "type-subscription-15-underwear",
+        "outer_wrapper_classes": "js-reasons-to-buy-start tw-hidden",
+        "inner_wrapper_classes": "tw-mx-auto tw-mb-4",
+        "widget_code": "",
+        "header": "SAVE UP TO £7 EVERY MONTH",
+        "header_classes": "tw-text-sm tw-text-center tw-font-semibold tw-text-gray-800 tw-px-5 tw-py-3",
+        "list_classes": "tw-list-disc"
+      }
+    },
+    "ob_reason_to_buy_mHttCD": {
+      "type": "ob-reason-to-buy",
+      "blocks": {
+        "2df846e5-f7e4-4052-ac1c-3ed8e8e53243": {
+          "type": "list-item",
+          "settings": {
+            "country_iso": "GB",
+            "content": "Every month, for just £8, included in your delivery, you will get the below",
+            "content_classes": "list-outside tw-ml-4 tw-mb-0 tw-pb-1 tw-font-medium tw-text-sm md:tw-text-base"
+          }
+        },
+        "af54d0b8-6845-4e33-b82b-897b7247ba16": {
+          "type": "list-item",
+          "settings": {
+            "country_iso": "GB",
+            "content": "Underwear worth £8.50 RRP",
+            "content_classes": "list-outside tw-ml-4 tw-mb-0 tw-pb-1 tw-font-medium tw-text-sm md:tw-text-base"
+          }
+        },
+        "198d7194-217a-42c4-b6fa-f8d5166f762a": {
+          "type": "list-item",
+          "settings": {
+            "country_iso": "GB",
+            "content": "FREE Socks worth £4.00 RRP",
+            "content_classes": "list-outside tw-ml-4 tw-mb-0 tw-pb-1 tw-font-medium tw-text-sm md:tw-text-base"
+          }
+        },
+        "edf9a35b-c86a-4a20-a0c5-3a74f6db12eb": {
+          "type": "list-item",
+          "settings": {
+            "country_iso": "GB",
+            "content": "FREE Delivery worth £3.95",
+            "content_classes": "list-outside tw-ml-4 tw-mb-0 tw-pb-1 tw-font-medium tw-text-sm md:tw-text-base"
+          }
+        }
+      },
+      "block_order": [
+        "2df846e5-f7e4-4052-ac1c-3ed8e8e53243",
+        "af54d0b8-6845-4e33-b82b-897b7247ba16",
+        "198d7194-217a-42c4-b6fa-f8d5166f762a",
+        "edf9a35b-c86a-4a20-a0c5-3a74f6db12eb"
+      ],
+      "settings": {
+        "active": true,
+        "product_tags_arr": "type-subscription-850-underwear",
+        "outer_wrapper_classes": "js-reasons-to-buy-start tw-hidden",
+        "inner_wrapper_classes": "tw-mx-auto tw-mb-4",
+        "widget_code": "",
+        "header": "SAVE UP TO £8 EVERY MONTH",
+        "header_classes": "tw-text-sm tw-text-center tw-font-semibold tw-text-gray-800 tw-px-5 tw-py-3",
+        "list_classes": "tw-list-disc"
+      }
+    }
+  },
+  "order": [
+    "ob_breadcrumbs_HGajWk",
+    "main",
+    "ob_snippet_holder_gP7bz7",
+    "ob_product_tabs_content_VzXYDF",
+    "ob_product_tag_recommendations_h8VmJH",
+    "ob_get_yours_from_6a7xrK",
+    "166316781538be4c6c",
+    "16631678221fe0580a",
+    "16631685100e69c00d",
+    "1663168516ca6f83aa",
+    "ob_multibuy_table_general_PqmRUR",
+    "size-guide-charts",
+    "ob_reason_to_buy_gwMJUG",
+    "ob_reason_to_buy_3beALi",
+    "ob_reason_to_buy_VPLCQJ",
+    "ob_reason_to_buy_daCBEJ",
+    "ob_reason_to_buy_Er7hyY",
+    "ob_reason_to_buy_bWLtdx",
+    "ob_reason_to_buy_mHttCD"
+  ]
+}

@@ -1,0 +1,211 @@
+{% if product.available %}
+
+{% else %}
+<div class="options-holderr variant-options-holder">
+
+    {% render 'freeshipping-threshold-attribute' %}
+<select style="display:none" name="id" data-productid="{{ product.id }}" class="product-form__master-select supports-no-js" data-master-select>
+    {% for variant in product.variants %}
+      {% if variant.available %}
+
+        {% comment %}
+        Note: if you use option_selection.js, your select tag will be overwritten, meaning what you have inside <option> will not reflect what you coded below.
+        {% endcomment %}
+        <option {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} data-sku="{{ variant.sku }}" value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money_with_currency }}</option>
+
+      {% else %}
+        <option disabled="disabled">
+          {{ variant.title }} - {{ 'products.product.sold_out' | t }}
+        </option>
+      {% endif %}
+    {% endfor %}
+</select>
+{% endif %}
+
+    <style type="text/css">
+        #mc_embed_signup_outofstock{
+          padding:1em 2em;
+          background:transparent; clear:left;width:100%;}
+
+          #mc-embedded-subscribe {
+              width: auto !important;
+          background: #f00f83 !important;
+          border: 0px !important;
+          padding: 0.7em 1.7em !important;
+          margin-top: 1em;
+          color: #fff !important;
+          font-weight: bold !important;
+          letter-spacing: 0.09em !important;
+          font-size: 13px !important;
+          border-radius: 3px !important;
+                height:auto !important;
+          }
+
+          #mce-success-response {
+        padding: 1em 1.5em;
+        color: #256125;
+        background: #f0fff0;
+        font-size: 12px;
+        line-height: 1.4em;
+        margin-top: 1em;
+          }
+        /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+           We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+    </style>
+
+  
+    <script src="https://a.klaviyo.com/media/js/onsite/onsite.js"></script>
+
+{% if product.available %} 
+
+{% else %}
+  
+      <script>
+        var klaviyo = klaviyo || [];
+        klaviyo.init({
+          account: "yKULaH",
+          list: 'yKz6rc',
+          platform: "shopify"
+        });
+        klaviyo.enable("backinstock",{ 
+        trigger: {
+          product_page_text: "Notify Me When Available",
+          product_page_class: "btn back-in-stock-button",
+          product_page_text_align: "center",
+          product_page_margin: "0px",
+          replace_anchor: false
+        },
+        modal: {
+         headline: "{product_name}",
+         body_content: "Register to receive a notification when this item comes back in stock.",
+         email_field_label: "Email",
+         newsletter_subscribe_label: "Add me to your email list.",
+         subscribe_checked: true,
+         button_label: "Notify me when available",
+         subscription_success_label: "You're in! We'll let you know when it's back.",
+         footer_content: '',
+         additional_styles: "@import url('https://fonts.googleapis.com/css?family=Helvetica+Neue');",
+         drop_background_color: "#000",
+         background_color: "#fff",
+         text_color: "#222",
+         button_text_color: "#fff",
+         button_background_color: "#439fdb",
+         close_button_color: "#ccc",
+         error_background_color: "#fcd6d7",
+         error_text_color: "#C72E2F",
+         success_background_color: "#d3efcd",
+         success_text_color: "#1B9500"
+        }
+      });
+    </script>
+  {% comment %}
+	<a class="klaviyo-bis-trigger notify-me-button" href="#">Notify Me When Available</a>
+  {% endcomment %}
+</div>
+{% endif %}
+  
+
+
+{% unless product.available %}
+{% comment %}
+<!-- Begin Mailchimp Signup Form -->
+<link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+	#mc_embed_signup_outofstock{
+	  padding:1em 2em;
+      background:transparent; clear:left;width:100%;}
+  
+      #mc-embedded-subscribe {
+          width: auto !important;
+      background: #f00f83 !important;
+      border: 0px !important;
+      padding: 0.7em 1.7em !important;
+      margin-top: 1em;
+      color: #fff !important;
+      font-weight: bold !important;
+      letter-spacing: 0.09em !important;
+      font-size: 13px !important;
+      border-radius: 3px !important;
+        	height:auto !important;
+      }
+  
+      #mce-success-response {
+    padding: 1em 1.5em;
+    color: #256125;
+    background: #f0fff0;
+    font-size: 12px;
+    line-height: 1.4em;
+    margin-top: 1em;
+      }
+	/* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+</style>
+{% assign current_url = '' %}
+
+{% case template %}
+	{% when 'page' %}
+		{% assign current_url = page.url %}
+	{% when 'blog' %}
+		{% assign current_url = blog.url %}
+	{% when 'article' %}
+		{% assign current_url = blog.url %}
+	{% when 'collection' %}
+		{% assign current_url = collection.url %}
+	{% when 'product' %}
+		{% assign current_url = product.url %}
+{% endcase %}
+
+<div id="mc_embed_signup_outofstock">
+	
+  	{% comment %}
+    <form action="https://myoddballs.us10.list-manage.com/subscribe/post?u=f3a72f3d4bb454c209d74254d&amp;id=19ace144ee&SIGNUPLOC={{ current_url }}" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+        <div id="mc_embed_signup_scroll">
+        <label for="mce-EMAIL">Subscribe</label>
+        <p>
+            Sign up to our newsletter and get notified when this product becomes available
+        </p>
+        <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
+        <div id="mce-responses" class="clear">
+            <div class="response" id="mce-error-response" style="display:none"></div>
+            <div class="response" id="mce-success-response" style="display:none"></div>
+        </div> 
+        <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+        <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_f3a72f3d4bb454c209d74254d_19ace144ee" tabindex="-1" value=""></div>
+        <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+        </div>
+    </form>
+  	{% endcomment %}
+</div>
+
+<!--End mc_embed_signup-->
+
+
+{% comment %}
+<div id="sold-out">
+  {% form 'contact' %}
+    {% if form.posted_successfully? %}
+    <p class="accent-text">Thanks! We will notify you when this product becomes available!</p>
+    {% else %}
+    <p>Click <a id="notify-me" href="#"><strong>here</strong></a> to be notified by email when {{ product.title }} becomes available.</p>
+    {% endif %}
+    {% if form.errors %}
+    <div class="error feedback accent-text">
+      <p>Please provide a valid email address.</p>
+    </div>
+    {% endif %}
+    {% unless form.posted_successfully? %}
+    <div id="notify-me-wrapper" class="clearfix" style="display:none">
+      {% if customer %}
+      <input type="hidden" name="contact[email]" value="{{ customer.email }}" />
+      {% else %}
+      <input style="float:left; width:180px;" required="required" type="email" name="contact[email]" placeholder="your@email.com" class="styled-input{% if form.errors contains 'email' %} error{% endif %}" value="{{ contact.fields.email }}" />
+      {% endif %}
+      <input type="hidden" name="contact[body]" value="Please notify me when {{ product.title | escape }} becomes available." />
+      <input style="float:left; margin-left:5px;" class="btn styled-submit" type="submit" value="Send" />
+    </div>
+    {% endunless %}
+  {% endform %}
+</div>
+{% endcomment %}
+{% endcomment %}
+{% endunless %}

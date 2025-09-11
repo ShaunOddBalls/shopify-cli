@@ -1,0 +1,36 @@
+    <div class="product-card">
+      <div class="product-card__image-wrapper">
+        <a href="{{ product.url }}" class="swiper swiper-product product-card__image group aspect-square swiper-initialized swiper-horizontal swiper-ios swiper-backface-hidden">
+          <div class="swiper-wrapper" aria-live="polite">
+            <div class="swiper-slide swiper-slide-active" role="group" aria-label="1 / 1">
+              <img class="w-full" src="{{ product.images[0] | img_url: '500x' }}" loading="lazy" alt="{{ product.title }}" width="500" height="500">
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="product-card__details sm:px-0">
+        <div class="bg-gray-100 p-2 pb-3 px-4">
+          <div class="rounded-full border border-black border-solid max-w-80 grid grid-cols-2 w-full bg-white">
+            <a href="{{ product.url }}" id="{{ grid_type }}-see-more-{{ index }}" class="text-xxs  text-black font-semibold {% unless buttontype == 'small-buttons' %}md:text-xs{% endunless %} items-center text-center uppercase border-r border-solid border-gray-400 py-2 font-semibold ">{{ "collection_page.see_more" | t }}</a>
+            <div class="text-xxs text-black font-semibold {% unless buttontype == 'small-buttons' %}md:text-xs{% endunless %}  relative items-center text-center uppercase cart-bs-quick-add py-2 font-semibold event-quickbuy-show" data-handle="{{ product.handle }}" id="{{ grid_type }}-quick-buy-{{ index }}">
+              <div class="absolute w-6 h-6 loading-button-loader hidden absolute w-6  inset-0 left-1/2 w-1/2 h-1/2 top-1/2 transform -translate-y-1/2 -translate-x-1/2 loading-button-loader hidden" ><svg class="loading-ele-outer" viewBox="25 25 50 50"><circle class="loading-ele-inner" cx="50" cy="50" r="20" fill="none" stroke-width="4"></circle></svg></div>
+              <div class="loading-button-text">{{ "collection_page.quick_buy" | t }}</div>
+            </div>
+          </div>
+        </div>
+        <a href="{{ product.url }}">
+          {% assign title_parts = product.title | split: " - " %}
+          <p class="product-card__details__title text-md uppercase px-2 font-semibold">{{ title_parts | first }}</p>
+          <p class="product-card__details__color px-2">{{ title_parts | slice: 1, title_parts.size | join: " - " }}</p>
+<p class="product-card__details__price text-magenta-500 px-2">
+  {{ product.price | money }}
+  {% if product.compare_at_price > product.price %}
+    <del class="ml-1 text-gray-500">
+      {{ product.compare_at_price | money }}
+    </del>
+  {% endif %}
+</p>
+        </a>
+      </div>
+   <input type="hidden" value='{{ product | json | escape }}' class="prod-info"> 
+    </div>

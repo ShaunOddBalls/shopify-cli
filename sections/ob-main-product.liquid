@@ -1,0 +1,1129 @@
+{% schema %}
+{
+  "name": "ob Main Product",
+  "settings": [
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Product"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "title",
+      "name": "Product Title",
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "show_title",
+          "label": "Show product title",
+          "default": true
+        }
+      ]
+    },
+    {
+      "type": "dark-mode-icons",
+      "name": "Dark Mode Icons",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image-1",
+          "label": "Image 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "image-2",
+          "label": "Image 2"
+        },
+        {
+          "type": "image_picker",
+          "id": "image-3",
+          "label": "Image 3"
+        },
+      ]
+    },
+    {
+      "type": "banner",
+      "name": "HTML Mmetobject Banner",
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "show_banner",
+          "label": "Show banner",
+          "default": true
+        },
+        {
+          "type": "metaobject",
+          "id": "banner_metaobject",
+          "label": "Banner Metaobject",
+          "metaobject_type": "banner_with_popup"
+        },
+        {
+          "type": "text",
+          "id": "classes",
+          "label": "extra classes",
+          "default": "md:hidden"
+        }
+      ]
+    },
+    {
+      "type": "free-card-banner",
+      "name": "Free Card",
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "show_free_card_banner",
+          "label": "Show free card banner",
+          "default": true
+        },
+        {
+          "type": "metaobject",
+          "id": "free_card_metaobject",
+          "label": "Free Card Metaobject",
+          "metaobject_type": "free_product_banner_with_pop_up"
+        },
+        {
+          "type": "text",
+          "id": "extra_classes",
+          "label": "Extra classes",
+          "default": "md:hidden"
+        }
+      ]
+    },
+    {
+      "type": "price",
+      "name": "Price",
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "show_price",
+          "label": "Show price",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "show_compare_at_price",
+          "label": "Show compare at price",
+          "default": true
+        }
+      ]
+    },
+
+    {
+      "type": "designs",
+      "name": "Designs"
+    },
+    {
+      "type": "variant_selector",
+      "name": "Variant Selector",
+      "settings": [
+        {
+          "type": "select",
+          "id": "picker_type",
+          "options": [
+            { "value": "dropdown", "label": "Dropdown" },
+            { "value": "button", "label": "Button" }
+          ],
+          "default": "button",
+          "label": "Picker type"
+        }
+      ]
+    },
+    {
+      "type": "product_form",
+      "name": "Product form"
+    },
+    {
+      "type": "quantity_selector",
+      "name": "Quantity Selector"
+    },
+    {
+      "type": "buy_buttons",
+      "name": "Buy Buttons",
+
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "show_dynamic_checkout",
+          "label": "Show dynamic checkout button",
+          "info": "Using the payment methods available on your store, customers see their preferred option, like PayPal or Apple Pay. [Learn more](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)",
+          "default": true
+        }
+      ]
+    },
+    {
+      "type": "description",
+      "name": "Description",
+
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "show_description",
+          "label": "Show description",
+          "default": true
+        }
+      ]
+    },
+    {
+      "type": "description-accordion",
+      "name": "Description Accordion",
+
+      "settings": [
+        {
+          "type": "text",
+          "id": "accordion_title",
+          "label": "Accordion title"
+        }
+      ]
+    },
+    {
+      "type": "share",
+      "name": "Share",
+
+      "settings": [
+        {
+          "type": "text",
+          "id": "share_label",
+          "label": "Share label",
+          "default": "Share"
+        }
+      ]
+    },
+    {
+      "type": "custom",
+      "name": "Custom HTML",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "block title"
+        },
+        {
+          "type": "html",
+          "id": "custom_html",
+          "label": "Custom HTML"
+        }
+      ]
+    },
+    {
+      "type": "localised_custom",
+      "name": "Localised Custom HTML",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "block title"
+        },
+        {
+          "type": "html",
+          "id": "custom_html",
+          "label": "Custom HTML"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_on_all_markets",
+          "default": true,
+          "label": "Show On All Markets",
+          "info": "on to show on all"
+        },
+        {
+          "type": "text",
+          "id": "markets_to_show_on",
+          "label": "Markets to show on",
+          "info": "Example would look like: uk, en-eu (shows on UK and EU markets)"
+        },
+        {
+          "type": "text",
+          "id": "markets_to_exclude_on",
+          "label": "Markets to Exclude on",
+          "info": "Example would look like: uk, en-eu (Would not show on UK and EU markets)"
+        }
+      ]
+    },
+    {
+      "type": "liquid",
+      "name": "Custom liquid",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "block title"
+        },
+        {
+          "type": "liquid",
+          "id": "custom_liquid",
+          "label": "Custom Liquid"
+        }
+      ]
+    },
+    {
+      "type": "product-form-open",
+      "name": "Product Form Open",
+      "settings": [
+        {
+          "type": "text",
+          "id": "attributes",
+          "label": "Attributes"
+        }
+      ]
+    },
+    {
+      "type": "product-form-close",
+      "name": "Product Form Closr",
+      "settings": [
+        {
+          "type": "text",
+          "id": "attributes",
+          "label": "Attributes"
+        }
+      ]
+    },
+    {
+      "type": "badge",
+      "name": "Badge",
+
+      "settings": [
+        {
+          "type": "text",
+          "id": "badge_text",
+          "label": "Badge text",
+          "default": "15% Off"
+        }
+      ]
+    },
+    {
+      "type": "prints_selector",
+      "name": "Prints Selector",
+
+      "settings": [
+        {
+          "type": "text",
+          "id": "prints_label",
+          "label": "Prints label",
+          "default": "Prints"
+        }
+      ]
+    },
+    {
+      "type": "bnpl",
+      "name": "BNPL Providers"
+    },
+    {
+      "type": "size_selector",
+      "name": "Size Selector",
+
+      "settings": [
+        {
+          "type": "text",
+          "id": "size_label",
+          "label": "Size label",
+          "default": "Size"
+        }
+      ]
+    },
+    {
+      "type": "upsells",
+      "name": "Upsells",
+
+      "settings": [
+        {
+          "type": "text",
+          "id": "upsells_title",
+          "label": "Upsells title",
+          "default": "Complete the look"
+        },
+        {
+          "type": "collection",
+          "id": "upsells_collection",
+          "label": "Upsells collection"
+        },
+        {
+          "type": "range",
+          "id": "upsells_count",
+          "min": 2,
+          "max": 4,
+          "step": 1,
+          "default": 2,
+          "label": "Number of upsell products"
+        }
+      ]
+    },
+    {
+      "type": "accordion",
+      "name": "Accordion",
+      "settings": [
+        {
+          "type": "text",
+          "id": "accordion_title",
+          "label": "Accordion title"
+        },
+        {
+          "type": "richtext",
+          "id": "accordion_content",
+          "label": "Accordion content"
+        }
+      ]
+    },
+    {
+      "type": "nosto-injection",
+      "name": "Nosto A/B block",
+      "settings": [
+        {
+          "type": "text",
+          "default": "Nosto Test",
+          "id": "title",
+          "label": "Name of you nosto test"
+        },
+        {
+          "type": "text",
+          "id": "id",
+          "label": "Id for nosto to inject into",
+          "info": "ID rules:\n\n1. Use letters, numbers, hyphens, and underscores.\n   ✅ Valid: my-id, user_123.\n   ❌ Avoid: Spaces, !, @, #, etc.\n\n2. Must start with a letter or _.\n   ✅ Valid: myId, _item1.\n   ❌ Avoid: 123id.\n\n3. No spaces.\n   ❌ my id (Use my_id).\n\n4. Case-sensitive (myId ≠ MyId).\n\n5. Must be unique on the page."
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+<script type="text/javascript" src="{{'product-page.js'| asset_url}}" defer></script>
+
+{% comment %}
+  if possible add tag logic here
+{% endcomment %}
+{% assign show_print_swap = 'false' %}
+{% assign vodafone_prod = false %}
+{% assign darkmode = false %}
+
+{% for tag in product.tags %}
+  {% assign d_tag = tag | downcase %}
+  {% if d_tag == 'feature-design-selector' %}
+    {% assign show_print_swap = 'true' %}
+  {% endif %}
+  {% if d_tag == 'theme-darkmode' %}
+    {% assign darkmode = true %}
+  {% endif %}
+{% endfor %}
+{% if product.tags contains 'design-perfectly-imperfect' %}
+  {% assign show_print_swap = 'false' %}
+  {% assign vodafone_prod = true %}
+{% endif %}
+{% comment %}
+  end tag logic
+{% endcomment %}
+
+{% capture label %}
+  {% render "label-generator" %}
+{% endcapture %}
+<div id="product-page-wrapper" class="md:wrapper sm:wrapper sm:mt-6 sm:mb-10">
+  <div
+    id="product-page-inner-wrapper"
+    class="relative flex flex-col flex-1 sm:mb-16 sm:flex-row gap-x-0 md:gap-x-7 xl:gap-x-14 z-1"
+  >
+    <!-- Product images -->
+<div class="sm:hidden">
+      {% render "productSlider2", darkmode: darkmode %}
+</div>
+    <div
+      id="product-images"
+      class="product-images max-sm:hidden sm:grid grid-cols-2 gap-3 self-start flex-1 sticky top-[var(--header-height)]"
+      style="height:min-content;"
+    >
+      <div id="" class="label-wrapper absolute mt-1 right-4 top-0 w-max z-50 text-center">
+        {{ label }}
+      </div>
+      <div class="right-4 top-8  w-max z-50 absolute">
+        <div class="nosto-top-product-placement"></div>
+      </div>
+      {% for media in product.media limit: 18 %}
+        {% assign current_month = 'now' | date: '%b' %}
+        {% assign current_month = current_month | downcase %}
+        {% assign ok_to_proceed = 'true' %}
+        {% if product.type == 'Subscription' or product.type == 'Pre-Paid Subscription' %}
+          {% assign ok_to_proceed = 'no' %}
+          {% assign temp_img_str = media | downcase %}
+          {% if temp_img_str contains 'month-' %}
+            {% if temp_img_str contains current_month %}
+              {% assign ok_to_proceed = 'true' %}
+            {% endif %}
+          {% endif %}
+        {% endif %}
+
+        {% if ok_to_proceed == 'true' %}
+          <div class="w-full relative">
+            {% if forloop.first %}
+              <button
+                class="button button--variant-outline button--icon product-card__favourite product-card__favourite--off"
+                aria-label="Add product to favourites"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="icon"
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  viewBox="0 0 1024 1024"
+                >
+                  <path fill="currentColor" d="M923 283.6a260.04 260.04 0 0 0-56.9-82.8a264.4 264.4 0 0 0-84-55.5A265.34 265.34 0 0 0 679.7 125c-49.3 0-97.4 13.5-139.2 39c-10 6.1-19.5 12.8-28.5 20.1c-9-7.3-18.5-14-28.5-20.1c-41.8-25.5-89.9-39-139.2-39c-35.5 0-69.9 6.8-102.4 20.3c-31.4 13-59.7 31.7-84 55.5a258.44 258.44 0 0 0-56.9 82.8c-13.9 32.3-21 66.6-21 101.9c0 33.3 6.8 68 20.3 103.3c11.3 29.5 27.5 60.1 48.2 91c32.8 48.9 77.9 99.9 133.9 151.6c92.8 85.7 184.7 144.9 188.6 147.3l23.7 15.2c10.5 6.7 24 6.7 34.5 0l23.7-15.2c3.9-2.5 95.7-61.6 188.6-147.3c56-51.7 101.1-102.7 133.9-151.6c20.7-30.9 37-61.5 48.2-91c13.5-35.3 20.3-70 20.3-103.3c.1-35.3-7-69.6-20.9-101.9zM512 814.8S156 586.7 156 385.5C156 283.6 240.3 201 344.3 201c73.1 0 136.5 40.8 167.7 100.4C543.2 241.8 606.6 201 679.7 201c104 0 188.3 82.6 188.3 184.5c0 201.2-356 429.3-356 429.3z"></path>
+                  <path fill="currentColor" fill-opacity="0" d="M679.7 201c-73.1 0-136.5 40.8-167.7 100.4C480.8 241.8 417.4 201 344.3 201c-104 0-188.3 82.6-188.3 184.5c0 201.2 356 429.3 356 429.3s356-228.1 356-429.3C868 283.6 783.7 201 679.7 201z"></path>
+                </svg>
+              </button>
+            {% endif %}
+            <button
+              class="w-full relative bg-background-primary-default overflow-hidden {{ product.type | replace: " ", "-" | downcase }}"
+              {% comment %} data-toggle="collapse"
+              data-target=".modal-gallery"
+              data-overflow="true" {% endcomment %}
+            >
+              {%
+                render 'ob-product-media',
+                media: media,
+                alt: media.alt | default: product.title,
+                classes: 'w-full h-full aspect-square object-cover'
+                default_size: '600'
+              %}
+              <!--
+                <img class="w-full h-full aspect-square object-cover" src="{{ image | img_url: 'large' }}" loading="lazy" alt="{{ image.alt | escape }}" />
+              -->
+            </button>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    {% comment %}
+    <div
+      id="modal-images"
+      class="modal-gallery sm:fixed sm:inset-0 w-full sm:h-full sm:bg-[#070707] sm:bg-opacity-80 backdrop-blur-md  z-40 max-sm:!block"
+    >
+      <div class="right-4 top-8  w-max z-50 absolute">
+        <div class="nosto-top-product-placement-mobile"></div>
+      </div>
+      <div id="" class="label-wrapper absolute mt-1 right-4 top-0 w-max z-50">
+        {{ label }}
+      </div>
+      <div class="sm:flex sm:justify-center sm:h-full relative">
+        <div class="ob-slider-container w-full h-full flex flex-col product-slider">
+          <div
+            class="ob-slider flex-1 relative overflow-hidden"
+            data-autoplay="false"
+            data-slides-mobile="1"
+            data-slides-md="1"
+            data-slides-lg="1"
+            data-gap="1"
+            data-loop="true"
+            data-marquee="false"
+            data-marquee-pause="false"
+            data-marquee-speed="0"
+            data-drag-scroll="true"
+            data-slider-enabled="true"
+            data-slide-by="1"
+          >
+            <div class="modal-gallery ob-slides-wrappers flex h-full">
+              {% assign current_month = 'now' | date: '%b' %}
+              {% assign current_month = current_month | downcase %}
+
+              {% assign media_count = 0 %}
+              {%- for media in product.media limit: 18 -%}
+                {% assign media_ok_to_proceed = 'yes' %}
+
+                {% if product.type == 'Subscription' or product.type == 'Pre-Paid Subscription' %}
+                  {% assign temp_img_str = media | downcase %}
+
+                  {% if temp_img_str contains 'month-' %}
+                    {% assign media_ok_to_proceed = 'no' %}
+                    {% if temp_img_str contains current_month %}
+                      {% assign media_ok_to_proceed = 'yes' %}
+                    {% endif %}
+                  {% endif %}
+                {% endif %}
+
+                {% if media_ok_to_proceed == 'yes' %}
+                  <div class="ob-slide flex-shrink-0 w-full h-full relative" data-slide-index="{{ media_count }}">
+                    <div style="width:100vw; padding-top:100%;">
+                    </div>
+                    {% capture classes_to_pass %}'w-full h-full object-contain absolute top-0 left-0'{% endcapture %}
+                    {%
+                      render 'ob-product-media',
+                      media: media,
+                      alt: media.alt | default: product.title,
+                      media_count: media_count,
+                      classes: classes_to_pass
+                      default_size: '600'
+                    %}
+                  </div>
+                  {% assign media_count = media_count | plus: 1 %}
+                {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+          <div class="ob-dots flex items-center justify-center gap-2 mt-4 mb-4 overflow-x-auto max-w-full pl-4 ">
+            {% render 'ob-product-thumbnails' %}
+          </div>
+        </div>
+        <div class="hidden md:flex absolute z-10 bottom-6 max-w-screen-md">
+          <div class="flex items-center justify-center max-h-full overflow-auto gap-x-2">
+            {% for media in product.media limit: 6 %}
+              <button class="swiper-thumb aspect-[5/7] border border-2 border-transparent rounded-md overflow-hidden relative after:content-empty after:absolute after:inset-0 after:bg-white after:opacity-50">
+                <img
+                  class="w-[72px] h-full object-cover bg-white"
+                  src="{{ media | img_url: 'small' }}"
+                  loading="lazy"
+                  alt="{{ image.alt | escape }}"
+                >
+              </button>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      <button
+        class="button button--variant-ghost button--icon !bg-[#F5F5F5] !text-black !w-6 !h-6 absolute top-10 right-10 max-sm:hidden"
+        data-toggle="collapse"
+        data-target=".modal-gallery"
+        aria-label="Close"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 14 14" fill="none">
+          <rect width="16.9705" height="1.13137" rx="0.565684" transform="matrix(0.707106 -0.707108 0.707106 0.707108 0.600586 12.6001)" fill="currentColor"></rect>
+          <rect width="16.9705" height="1.13137" rx="0.565684" transform="matrix(-0.707106 -0.707107 0.707106 -0.707108 12.6006 13.4001)" fill="currentColor"></rect>
+        </svg>
+      </button>
+    </div>
+    {% endcomment %}
+
+    <!-- product info -->
+    <div
+      id="product-content"
+      class="product-content sm:flex-[0_0_322px]  lg:flex-[0_0_400px] lg:max-w-[400px] px-6 py-4 md:py-0 md:px-0"
+    >
+      {% render 'ob-metaobject-product-banner' %}
+      <div id="product-content-wrapper" class="sticky top-[calc(var(--header-height)+24px)]">
+        {% assign accordion_count = 0 %}
+        {% for block in section.blocks %}
+          {% case block.type %}
+            {% when 'title' %}
+              <h1 id="product-title" class="text-xl lg:text-3xl font-semibold uppercase mb-2">{{ product.title }}</h1>
+            {% when 'price' %}
+              <div id="product-price" class="text-sm item-center items-center mb-4 lg:text-lg flex">
+               <div id="prod-price" class="text-magenta-500 font-bold">{% if vodafone_prod %}{{ 205 | money }}{% else %}{{ product.price | money }}{% endif %}</div>
+
+                <del
+                  id="prod-comp-price"
+                  class="ml-2 text-gray-500 {% unless product.compare_at_price > product.price %}hidden{% endunless %}"
+                >
+                  {{- product.compare_at_price | money -}}
+                </del>
+
+                {% render 'ob-product-multibuy-upsell-message', product: product %}
+              </div>
+            {% when 'banner' %}
+              {% if block.settings.show_banner %}
+                {% assign continue = "true" %}
+                {% assign tagMatch = block.settings.banner_metaobject.tags_to_show_on.value | split: "," %}
+                {% if tagMatch != "" %}
+                  {% assign continue = "false" %}
+                {% endif %}
+                {% for matchingTag in tagMatch %}
+                  {% for tag in product.tags %}
+                    {% if tag == matchingTag %}
+                      {% assign continue = "true" %}
+                    {% endif %}
+                  {% endfor %}
+                {% endfor %}
+                {% if continue == "true" %}
+                <div
+                  class="px-4 py-2 mb-6 rounded-lg {%  if block.settings.banner_metaobject.popup_optional.value.system.handle %}js-open-generic-banner{% endif %} flex items-center {{ block.settings.classes }}"
+                  style="color:{{ block.settings.banner_metaobject.text_color.value }}; background-color:{{ block.settings.banner_metaobject.banner_color.value }}"
+                  data-metaobjecthandle="{{ block.settings.banner_metaobject.popup_optional.value.system.handle }}"
+                >
+                  {{ block.settings.banner_metaobject.svg_icon_side_html.value }}
+                  {{ block.settings.banner_metaobject.banner_header.value }}
+                </div>
+                {% endif %}
+              {% endif %}
+
+            {% when "dark-mode-icons" %}
+              {% if darkmode %}
+              <div class="w-full py-4 text-white flex justify-between items-center">
+
+                {% if block.settings.image-1 %}
+                  <div class="w-full aspect-square relative">
+                    {{ block.settings.image-1 | image_url: width: 800 | image_tag: class: "w-full h-full object-contain" }}
+                  </div>
+                {% endif %}
+
+                {% if block.settings.image-2 %}
+                  <div class="w-full aspect-square relative">
+                    {{ block.settings.image-2 | image_url: width: 800 | image_tag: class: "w-full h-full object-contain" }}
+                  </div>
+                {% endif %}
+
+                {% if block.settings.image-3 %}
+                  <div class="w-full aspect-square relative">
+                    {{ block.settings.image-3 | image_url: width: 800 | image_tag: class: "w-full h-full object-contain" }}
+                  </div>
+                {% endif %}
+              </div>
+            {% endif %}
+
+            {% when 'free-card-banner' %}
+              {% assign debug = false %}
+
+              {% assign banner_object = block.settings.free_card_metaobject %}
+              {% assign popup_object = banner_object.popup_optional.value.system.handle %}
+
+              {% assign handle = banner_object.popup_optional.value.system.handle %}
+              {% assign banner = shop.metaobjects.free_product_banner_with_pop_up[block.settings.free_card_metaobject] %}
+              {% assign product_metaobject = banner_object.product.value %}
+              {% assign use_product_image = banner_object.use_product_image %}
+              {% assign header = banner_object.banner_header_at_least_item_one_in_cart %}
+              {% assign header_2 = banner_object.banner_header %}
+              {% assign image = banner_object.svg_icon_side_html %}
+              {% assign popup = banner_object.popup_optional.value.system.handle %}
+              {% assign text_color = banner_object.text_colour %}
+              {% assign banner_color = banner_object.banner_color %}
+
+              {% if settings.cart_free_card == 'on' %}
+                {% if debug %}
+                  <div class="p-4">
+                    <h2>MetaObject Settings</h2>
+                    <p>Object: {{ banner_object }}</p>
+                    <p>Popup Object: {{ popup_object }}</p>
+                    <p>Banner: {{ banner }}</p>
+                    <p>Handle: {{ handle }}</p>
+                    <p>Pop Up: {{ popup }}</p>
+                    <p>Product: {{ product_metaobject.featured_image }}</p>
+                    <p>Show Product Image: {{ use_product_image }}</p>
+                    <p>Banner Icon/HTML: {{ image }}</p>
+                    <p>Banner Header One in Cart: {{ header }}</p>
+                    <p>Banner Header Empty Cart: {{ header_2 }}</p>
+                    <p>Text Color: {{ text_color }}</p>
+                    <p>Banner Color: {{ banner_color }}</p>
+                  </div>
+                {% endif %}
+
+                {% assign show_banner = true %}
+
+                {% if product_metaobject and product_metaobject != blank %}
+                  {% for item in cart.items %}
+                    {% if item.properties and item.properties['_Free-card'] %}
+                      {% assign show_banner = false %}
+                      {% break %}
+                    {% endif %}
+                  {% endfor %}
+                {% endif %}
+
+                {% assign market_code = localization.language.root_url %}
+                {% unless market_code == '/' %}
+                  {% assign show_banner = false %}
+                {% endunless %}
+
+                {% if product_metaobject and product_metaobject != blank and show_banner %}
+                  <div
+                    id="free-card-banner"
+                    class="w-full free-card-banner {{ block.settings.extra_classes }}"
+                    style="color:{{ text_color }}; background-color:{{ banner_color }}"
+                  >
+                    <div class="flex justify-between items-center h-full pr-2 py-2">
+                      <div class="h-full flex items-center justify-start">
+                        {% if use_product_image %}
+                          <img
+                            class="h-full w-28 object-contain"
+                            src="{{ product_metaobject.featured_image | img_url: 'medium' }}"
+                            alt="{{ product_metaobject.title }}"
+                          >
+                        {% else %}
+                          {{ image }}
+                        {% endif %}
+                      </div>
+
+                      <div
+                        class="w-full {% if popup %}js-open-generic-banner cursor-pointer{% endif %}"
+                        data-metaobjecthandle="{{ popup }}"
+                      >
+                        {% if cart.item_count > 0 %}
+                          {{ header }}
+                        {% else %}
+                          {{ header_2 }}
+                        {% endif %}
+                      </div>
+
+                      <div class="flex justify-end">
+                        <form method="post" id="free-card-form" onsubmit="return false">
+                          {% if product_metaobject.variants.size > 0 %}
+                            <input type="hidden" name="id" value="{{ product_metaobject.variants.first.id }}">
+                            <input type="hidden" name="quantity" id="quantity-{{ product.id }}" value="1" min="1">
+                            <input type="hidden" name="properties[_Free-card]" value="{{ product.id }}">
+
+                            <button
+                              type="button"
+                              id="free-card-button"
+                              class="uppercase bg-magenta-500 w-28 max-w-28 text-nowrap rounded-full text-white text-xs font-semibold justify-center items-center flex px-3 py-2 col-span-3 relative"
+                            >
+                              <svg
+                                class="circular-loader hidden mx-auto"
+                                viewBox="25 25 50 50"
+                                style="width: 20px; height: 20px;"
+                              >
+                                <circle class="loading-ele-inner" cx="50" cy="50" r="20" fill="none" stroke-width="4"></circle>
+                              </svg>
+                              <span class="free-cart-btn-text">Add to Cart</span>
+                            </button>
+                          {% endif %}
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                {% endif %}
+              {% endif %}
+
+            {% when 'designs' %}
+              {% if show_print_swap == 'true'  %}
+                {% render 'ob-print-swap' %}
+              {% endif %}
+
+            {% when 'nosto-injection' %}
+              <div id="{{ block.settings.id }}"></div>
+
+            {% when 'liquid' %}
+              {{ block.settings.custom_liquid }}
+            {% when 'product_form' %}
+              {% assign product_form_class = 'flex h-full flex-col border-t bg-white product-form' %}
+              {% capture product_form_id %}product-form-{{ product.id }}{% endcapture %}
+              <div class="sas-parent-form individual-selected">
+                <!-- form wrapper for changing sub-and-save -->
+                {% if settings.subscribe_and_save_active == true %}
+                  {% assign metafileld_object_gid = product.metafields.custom.subscription_equivalent %}
+                  {% assign metafileld_product = product.metafields.custom.subscription_equivalent.value %}
+                  <div id="sub-and-save-wrapper">
+                    {% if metafileld_product != blank %}
+                      {% render 'sub-and-save', product: metafileld_product %}
+                    {% endif %}
+                  </div>
+                {% endif %}
+
+                {% render 'matching-socks-upsell' %}
+
+                {% assign prod_type = product.type | downcase | replace: " ", "-" %}
+{% assign sas_metaobject = shop.metaobjects.sas_product[prod_type] %}
+{% assign match = collections['subscribe-save-eligible'].products | where: "id", product.id %}
+{% assign in_collection = false %}
+
+{% if match.size > 0 %}
+  {% assign in_collection = true %}
+{% endif %}
+             
+{%  assign sas_product = sas_metaobject.product.value %}
+{% assign sas_sock_product = sas_metaobject.sock_subscription.value %}
+
+<div id="sas-product-variants" style="display:none">
+  {% for variant in sas_product.variants %}
+    {% assign splittitle = variant.title | split:"/" %}
+  <input class="sas-variant" type="hidden" data-first="{{ splittitle[0] | strip }}" data-second="{{ splittitle[1] | strip }}" data-title="{{ variant.title }}" data-id="{{ variant.id }}">
+{% endfor %}
+  <div id="sas-prod-info" data-sas-monthy-price="£{{ sas_metaobject.subscription_equivalent.value.price | divided_by: 100  }}">{{ sas_product | json }}</div>
+</div>
+
+{% if settings.subscribe_and_save_active %}
+<div id="sas-product-form-container">
+{% if sas_product and in_collection and settings.subscribe_and_save_active %}      
+        <div id="sas-form-container">
+                {%- form 'product',
+                  sas_product,
+                  data-product-id: sas_product.id,
+                  id: sas_product,
+                  class: "hidden",
+                  novalidate: 'novalidate',
+                  data-type: 'add-to-cart-form'
+                -%}
+                  {% render 'ob-product-form-attributes', product: sas_product %}
+              {% endform %}
+          
+        </div>
+        <div id="sas-product-variants" style="display:none">
+          {% for variant in sas_product.variants %}
+            {% assign splittitle = variant.title | split:"/" %}
+          <input class="sas-variant" type="hidden" data-first="{{ splittitle[0] | strip }}" data-second="{{ splittitle[1] | strip }}" data-title="{{ variant.title }}" data-id="{{ variant.id }}">
+        {% endfor %}
+          <div id="sas-prod-info">{{ sas_product | json }}</div>
+        </div>
+{% endif %}
+  </div>
+{% endif %}
+
+                {%- form 'product',
+                  product,
+                  data-product-id: product.id,
+                  id: product_form_id,
+                  class: product_form_class,
+                  novalidate: 'novalidate',
+                  data-type: 'add-to-cart-form'
+                -%}
+                  {% render 'ob-product-form-attributes', product: product %}
+                  <div class="h-0 flex-1">
+                    <div class="flex flex-1 flex-col justify-between">
+                      <div class="divide-y divide-gray-200">
+                        <div class="space-y-6 pt-4">
+                          <!-- Variant Options -->
+                          <div class="product-variants-wrap">
+                            {% render 'ob-product-variants', product: product %}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  {% if settings['xmas-delivery-product'] == 'on' %}
+                    {% capture banner_product %}
+                <div class="gap-2 hidden {%  if settings.christmas_banner_metaobject_product.popup_optional.value.system.handle %}js-open-generic-banner{% endif %} flex items-center" style="color:{{ settings.christmas_banner_metaobject_product.text_color.value }}; background-color:{{ settings.christmas_banner_metaobject.banner_color.value }}" data-metaobjecthandle="{{ settings.christmas_banner_metaobject.popup_optional.value.system.handle }}">
+                {{ settings.christmas_banner_metaobject_product.svg_icon_side_html.value }}
+                {{ settings.christmas_banner_metaobject_product.banner_header.value }}
+                </div>                    
+                {% endcapture %}
+                    {% assign show_banner = false %}
+                    {% unless settings.christmas_banner_metaobject_collection.countrys_to_show_on.value == blank %}
+                      {% for value in settings.christmas_banner_metaobject_collection.countrys_to_show_on.value %}
+                        {% if value == cart.currency.iso_code %}
+                          {% assign show_banner = true %}
+                        {% endif %}
+                      {% endfor %}
+                    {% else %}
+                      {% assign show_banner = true %}
+                    {% endunless %}
+                    {% if show_banner %}
+                      {{ banner_product }}
+                    {% endif %}
+                  {% endif %}
+
+                  {% if metafileld_product != blank %}
+                    <div class="flex justify-between hidden">
+                      <div class="sas-individual-selector">Buy Once</div>
+                      <div class="sas-subscription-selector">Subscribe</div>
+                    </div>
+                  {% endif %}
+
+                  {% render 'ob-gift-card-form' %}
+                  {% render 'ob-bundle-swap' %}
+                  <div id="nosto-above-atc-button"></div>
+                  <div class="flex flex-shrink-0 justify-end sm:px-0 pt-0">
+                    <!-- add to cart buttons -->
+                    <div id="cart-marker"></div>
+
+                    <div class="grid w-full grid-cols-4 gap-2 mb-8 mt-6">
+                      {% render 'ob-product-atc-button', product: product %}
+                      {% render 'ob-product-atc-quantity', product: product %}
+                    </div>
+                  </div>
+    {% if settings.subscribe_and_save_active %}
+        
+                  {% if sas_product and in_collection and settings.subscribe_and_save_active %}
+                    <div id="sas-selector" sectionid="{{ section.id }}">
+                    {% render "sas-selector" sas_product:sas_product, sas_metaobject:sas_metaobject sas_sock_product: sas_sock_product %}
+                      </div>
+                {% else %}
+                  <div id="sas-selector"></div>
+                  {% endif %}
+                {% endif %}
+                  <input
+                    type="hidden"
+                    id="product-json"
+                    product-id="{{ product.id }}"
+                    class="product-json"
+                    value="{{ product | json | escape }}"
+                  >
+                {% endform %}
+              </div>
+
+            {% when 'variant_selector' %}
+              <!-- product variants -->
+              {% render 'ob-product-variants', product: product %}
+            {% when 'quantity_selector' %}
+              <div class="quantity mb-6">
+                <p class="typography typography--body-lg mb-3 font-semibold leading-sm">Quantity</p>
+                <div class="flex gap-x-3">
+                  <button class="btn-minus button button--variant-ghost button--icon w-7 h-7 border border-gray-200 rounded-full">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 16 16">
+                      <path d="M16 7.9999C16 8.29446 15.7761 8.53324 15.5 8.53324L0.500001 8.53322C0.223859 8.53322 3.25878e-07 8.29444 0 7.99989V7.99989C-3.25878e-07 7.70533 0.223856 7.46655 0.499998 7.46655L15.5 7.46657C15.7761 7.46657 16 7.70535 16 7.9999V7.9999Z" fill="#000"></path>
+                    </svg>
+                  </button>
+                  <input
+                    class="w-14 border rounded-full text-center pointer-events-none"
+                    type="text"
+                    name="quantity"
+                    value="1"
+                    readonly
+                  >
+                  <button class="btn-plus button button--variant-ghost button--icon w-7 h-7 border border-gray-200 rounded-full">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 18 18">
+                      <path d="M9 17V9M9 9V1M9 9H17M9 9H1" stroke="#000" stroke-width="1.33333" stroke-linecap="round"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            {% when 'buy_buttons' %}
+              <!-- add to cart buttons -->
+              <div id="cart-marker"></div>
+
+              <div class="grid grid-cols-4 gap-2 mb-6">
+                {% render 'ob-product-atc-button', product: product %}
+                {% render 'ob-product-atc-quantity', product: product %}
+              </div>
+
+            {% when 'description' %}
+              {% if block.settings.show_description %}
+                <div class="product-description"></div>
+              {% endif %}
+            {% when 'share' %}
+              // Implement share buttons
+            {% when 'custom' %}
+              {% capture processed_content %}{% render 'ob-process-line-links-in-text', html_text: block.settings.custom_html, debug: true %}{% endcapture %}
+              {{ processed_content }}
+            {% when 'localised_custom' %}
+              {% capture processed_content %}{% render 'ob-process-line-links-in-text', html_text: block.settings.custom_html, debug: true %}{% endcapture %}
+              {% assign markets_to_show = block.settings.markets_to_show_on | split: ',' %}
+              {% assign markets_to_exclude_on = block.settings.markets_to_exclude_on | split: ',' %}
+              {% assign show_on_all_markets = block.settings.show_on_all_markets %}
+              {% assign show_block = 'false' %}
+              {%- capture show_block -%}
+  {%- render 'ob-process-show-on-by-market', show_on_all_markets: show_on_all_markets, markets_to_show: markets_to_show, markets_to_exclude_on: markets_to_exclude_on -%}
+  {% endcapture %}
+              {% if show_block contains 'true' %}
+                {{ processed_content }}
+              {% endif %}
+            {% when 'upsells' %}
+              {% render 'ob-product-upsell', product: product %}
+            {% when 'bnpl' %}
+            <div class="bnpl-container w-full">
+              {% render 'ob-product-bnpl', product: product %}
+            </div>
+            {% when 'accordion' %}
+              {% if accordion_count == 0 %}
+                {% assign accordion_count = 1 %}
+
+                <div class="hs-accordion-group product-page-accordian " id="accordion-group">
+                  {% for block in section.blocks %}
+                    {% if block.type == 'accordion' %}
+                      {% if block.settings.accordion_title == 'WHY PEOPLE CHOOSE US' %}
+                        <div id="reasons" class="border-t"></div>
+                      {% else %}
+                        <div class="hs-accordion flex flex-col border-t" id="hs-heading-{{ block.id }}">
+                          <button
+                            type="button"
+                            class="hs-accordion-toggle flex items-center justify-between m-0 gap-3 px-0 py-3 border-0 bg-transparent"
+                            aria-controls="hs-collapse-{{ block.id }}"
+                          >
+                            <p class="typography typography--heading-six !text-sm">
+                              {% if block.settings.accordion_content contains 'asdassdadsd' -%}
+                                {{- block.settings.accordion_title }}
+                                <span id="get-yours-from-deal"></span>
+                              {%- else -%}
+                                {{- block.settings.accordion_title -}}
+                              {%- endif %}
+                            </p>
+                            <div
+                              class="[&_svg]:max-w-full [&_svg]:h-full [&_svg]:transition-transform"
+                              aria-hidden="true"
+                            >
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="20px"
+                                class="hs-accordion-active:rotate-0 icon -rotate-180 w-3 h-3"
+                                fill="currentColor"
+                                fill-rule="evenodd"
+                                clip-rule="evenodd"
+                                viewBox="0 0 8 8"
+                                color="#7D7D7D"
+                              >
+                                <path d="M0.29387 5.95502C0.235377 5.89506 0.235377 5.79783 0.29387 5.73787L3.89479 2.04617C3.95328 1.9862 4.04812 1.9862 4.10661 2.04617C4.1651 2.10614 4.1651 2.20336 4.10661 2.26333L0.505688 5.95502C0.447196 6.01499 0.352362 6.01499 0.29387 5.95502Z" fill="currentColor"></path>
+                                <path d="M3.89339 2.04498C3.95189 1.98501 4.04672 1.98501 4.10521 2.04498L7.70613 5.73667C7.76462 5.79664 7.76462 5.89387 7.70613 5.95383C7.64764 6.0138 7.5528 6.0138 7.49431 5.95383L3.89339 2.26213C3.8349 2.20217 3.8349 2.10494 3.89339 2.04498Z" fill="currentColor"></path>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M0.505688 5.95502C0.447196 6.01499 0.352362 6.01499 0.29387 5.95502C0.235377 5.89506 0.235377 5.79783 0.29387 5.73787L3.87816 2.06322C3.8827 2.05684 3.88778 2.05073 3.89339 2.04498C3.89337 2.045 3.89342 2.04495 3.89339 2.04498C3.94885 1.98821 4.03699 1.9852 4.09581 2.03611C4.09907 2.03887 4.10213 2.04189 4.10521 2.04498C4.10564 2.04541 4.10618 2.04573 4.10661 2.04617L4.1115 2.05142L7.70613 5.73667C7.76462 5.79664 7.76462 5.89387 7.70613 5.95383C7.64764 6.0138 7.5528 6.0138 7.49431 5.95383L4.00058 2.37203L0.505688 5.95502ZM4.00058 2.73006L0.684651 6.12959C0.528049 6.29014 0.271508 6.29014 0.114906 6.12959C-0.0383019 5.97252 -0.0383019 5.72037 0.114906 5.5633L3.68877 1.89934C3.69678 1.88939 3.70534 1.87973 3.71443 1.87041C3.86258 1.71853 4.10017 1.71033 4.25797 1.84582C4.26747 1.8539 4.27668 1.86249 4.28557 1.87161C4.2883 1.8744 4.29097 1.87722 4.2936 1.88007L7.88509 5.56211C8.0383 5.71918 8.0383 5.97132 7.88509 6.12839C7.72849 6.28894 7.47195 6.28894 7.31535 6.12839L4.00058 2.73006Z" fill="currentColor"></path>
+                              </svg>
+                            </div>
+                          </button>
+                          <div
+                            id="hs-collapse-{{ block.id }}"
+                            class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300"
+                            aria-labelledby="hs-heading-{{ block.id }}"
+                          >
+                            <div class="pb-4 {% if block.settings.accordion_content contains "description" %}description-div{% endif %}">
+                              {% capture des %}{{ block.settings.accordion_content }}{% endcapture %}
+
+                              {%- if block.settings.accordion_content contains 'description' -%}
+                                {% assign product_description = product.description %}
+                                {% capture processed_product_content %}{% render 'ob-process-line-links-in-text', html_text: product_description, debug: true %}{% endcapture %}
+                                {{ processed_product_content }}
+                              {% elsif block.settings.accordion_content contains 'asdassdadsd' %}
+                                <div id="get-yours-from-here"></div>
+                              {% else %}
+                                {{ block.settings.accordion_content }}
+                              {% endif %}
+                            </div>
+                          </div>
+                        </div>
+                      {% endif %}
+                    {% endif %}
+                  {% endfor %}
+                </div>
+              {% endif %}
+          {% endcase %}
+        {% endfor %}
+
+        {% comment %}
+          {% assign my_product = settings.variable_values_product %}
+            {% if my_product %}
+            {% for variant in my_product.variants %}
+              {% if variant.title == 'FreeGift_MinSpend' %}
+                {% assign fg_threshold = variant.price | money  %}
+              {% endif %}
+              {% if variant.title == 'FreeShipping_MinSpend' %}
+                {% assign fs_threshold = variant.price | money  %}
+              {% endif %}
+              {% if variant.title == 'FreeGift_Value' %}
+                {% assign fg_value = variant.price | money %}
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+
+          <div id="product-page-fancy-things" class="px-6 py-6 rounded-md border border-solid border-color bg-gray-50 mx-4 my-2">
+
+                <div class="flex items-center mb-3 ">
+                  <div class="w-12 flex-initial pr-8">
+                    <span class="">
+                      <svg class="w-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"></rect><path fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="8" d="M240,120H176V80h42.58374a8,8,0,0,1,7.42781,5.02887Z"></path><line x1="16" x2="176" y1="144" y2="144" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"></line><circle cx="188" cy="192" r="24" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"></circle><circle cx="68" cy="192" r="24" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"></circle><line x1="164" x2="92" y1="192" y2="192" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"></line><path fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="8" d="M44 192H24a8 8 0 0 1-8-8V72a8 8 0 0 1 8-8H176V171.21508M176 171.21508V120h64v64a8 8 0 0 1-8 8H212"></path></svg>
+                    </span>
+                  </div>
+                  <div class="text-sm md:text-base flex-initial">
+                    <span class="font-medium">Free UK Tracked Shipping on orders over{{ fs_threshold }}</span>
+                  </div>
+                </div>
+
+
+                <div class="flex items-center mb-3 ">
+                  <div class="w-12 flex-initial pr-8">
+                    <span class="">
+                      <svg class="w-8" xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 1000 1000"><path d="M392.58,613.47H211.08a127.08,127.08,0,1,1,0-254.15h181.5a16,16,0,0,1,16,16V597.47A16,16,0,0,1,392.58,613.47ZM211.08,391.32a95.08,95.08,0,1,0,0,190.15h165.5V391.32Z"></path><path d="M273 877.44a72.9 72.9 0 01-72.82-72.81V597.47a16 16 0 0116-16H329.82a16 16 0 0116 16V804.63A72.89 72.89 0 01273 877.44zm-40.82-264V804.63a40.82 40.82 0 0081.63 0V613.47zM735 800.24c-10.36 0-22.64-2.09-37.33-6.26a15.93 15.93 0 01-3.75-1.6l-309.46-182a16 16 0 1116.23-27.58l307.65 180.9c27.11 7.41 34.86 3.67 36.6 2.32 6.14-4.75 5.64-25.89 5.17-46.33-.16-6.75-.32-13.74-.32-21.15V274.2c0-7.41.16-14.39.32-21.14.47-20.45 1-41.58-5.17-46.33-1.74-1.35-9.49-5.1-36.6 2.32L400.69 390a16 16 0 11-16.23-27.58l309.46-182a15.86 15.86 0 013.74-1.6c32.14-9.12 52.76-8.31 66.88 2.62 18.91 14.64 18.28 41.39 17.56 72.37-.16 6.57-.31 13.37-.31 20.4V698.58c0 7 .15 13.83.31 20.4.72 31 1.35 57.74-17.56 72.38C756.88 797.29 747.3 800.24 735 800.24zM291.57 466.41H201a16 16 0 010-32h90.56a16 16 0 010 32zM291.57 538.37H201a16 16 0 010-32h90.56a16 16 0 110 32z"></path><path d="M766.17,588.18c-.44,0-.9,0-1.34,0a16,16,0,0,1,1.44-32,69.79,69.79,0,0,0,0-139.57,16,16,0,0,1-1.45-32c.44,0,.9,0,1.34,0a101.79,101.79,0,0,1,0,203.57Zm.55-32h0Zm0,0h0Zm0-139.6h0Zm0,0h0Z"></path></svg>
+                    </span>
+                  </div>
+                  <div class="text-sm md:text-base flex-initial">
+                    <span class="font-medium">Spend over {{ fg_threshold }} get 1 FREE PRODUCT (Up to RRP {{ fg_value }}).</span>
+                  </div>
+                </div>
+
+
+
+                <div class="flex items-center mb-3 ">
+                  <div class="w-12 flex-initial pr-8">
+                    <span class="">
+                      <svg class="w-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80"><path d="M15.222 40.41c.992 2.393 3.525 3.32 5.76 4.137 1.242.455 2.527.925 3.109 1.507.337.338.636.914.917 1.578L17.8 68.939a1.998 1.998 0 0 0 2.784 2.432l5.117-2.542 2.615 5.086a1.999 1.999 0 0 0 3.673-.275l7.03-20.82c.354-.102.69-.176.98-.176s.626.074.98.175l7.03 20.82a2 2 0 0 0 3.673.276l2.615-5.086 5.117 2.542a1.998 1.998 0 0 0 2.784-2.432l-7.207-21.307c.28-.664.58-1.24.917-1.578.583-.582 1.867-1.052 3.11-1.507 2.234-.818 4.767-1.744 5.76-4.136.956-2.31-.144-4.709-1.116-6.825-.572-1.246-1.164-2.534-1.164-3.44 0-.907.592-2.195 1.164-3.442.972-2.116 2.072-4.514 1.115-6.824-.992-2.393-3.525-3.319-5.76-4.137-1.242-.454-2.526-.924-3.109-1.507-.582-.582-1.053-1.867-1.507-3.11-.817-2.234-1.744-4.767-4.136-5.758-2.309-.96-4.71.143-6.825 1.114-1.246.573-2.535 1.164-3.441 1.164s-2.195-.591-3.441-1.164c-2.116-.971-4.518-2.072-6.824-1.115-2.393.992-3.32 3.526-4.137 5.76-.454 1.243-.925 2.527-1.507 3.11-.582.582-1.867 1.052-3.11 1.507-2.234.817-4.767 1.744-5.76 4.136-.956 2.31.144 4.708 1.116 6.825.572 1.246 1.164 2.534 1.164 3.44 0 .907-.592 2.195-1.164 3.44-.972 2.117-2.072 4.516-1.115 6.826zm14.49 27.471-1.355-2.636a2 2 0 0 0-2.668-.876l-2.548 1.266L27.414 53c.587.818 1.322 1.51 2.321 1.924.628.26 1.262.368 1.895.368.838 0 1.674-.19 2.492-.467l-4.41 13.056zm24.599-3.512a2 2 0 0 0-2.668.876l-1.356 2.636-4.41-13.057c1.438.486 2.932.704 4.388.1 1-.415 1.734-1.106 2.32-1.924l4.274 12.635-2.548-1.266zM19.973 25.035c-.6-1.304-1.345-2.927-1.056-3.622.32-.772 1.977-1.378 3.44-1.913 1.649-.604 3.355-1.228 4.562-2.435s1.831-2.914 2.435-4.564c.535-1.461 1.141-3.119 1.914-3.439a.999.999 0 0 1 .38-.064c.804 0 2.137.612 3.242 1.12 1.636.751 3.329 1.528 5.11 1.528s3.474-.777 5.11-1.528c1.305-.599 2.93-1.344 3.623-1.056.772.32 1.378 1.977 1.913 3.439.604 1.65 1.228 3.356 2.435 4.563s2.913 1.832 4.564 2.436c1.461.535 3.119 1.141 3.438 1.912.29.696-.456 2.319-1.056 3.623-.75 1.637-1.528 3.33-1.528 5.11s.777 3.474 1.528 5.11c.6 1.305 1.345 2.928 1.056 3.623-.32.771-1.977 1.378-3.438 1.913-1.65.604-3.357 1.228-4.564 2.435s-1.831 2.913-2.435 4.564c-.536 1.461-1.141 3.119-1.913 3.439-.694.292-2.318-.457-3.623-1.056-1.636-.752-3.329-1.529-5.11-1.529s-3.474.777-5.11 1.529c-1.304.6-2.927 1.348-3.623 1.056-.772-.32-1.377-1.978-1.913-3.44-.604-1.65-1.228-3.356-2.435-4.563-1.207-1.207-2.913-1.831-4.563-2.435-1.462-.535-3.12-1.141-3.439-1.913-.29-.695.456-2.318 1.056-3.623.75-1.636 1.528-3.329 1.528-5.11 0-1.78-.777-3.473-1.528-5.11z"></path><path d="M40 44.013c7.646 0 13.868-6.221 13.868-13.867S47.646 16.278 40 16.278s-13.868 6.221-13.868 13.868S32.354 44.013 40 44.013zm0-23.735c5.441 0 9.868 4.427 9.868 9.868S45.441 40.013 40 40.013s-9.868-4.427-9.868-9.867 4.427-9.868 9.868-9.868z"></path></svg>
+                    </span>
+                  </div>
+                  <div class="text-sm md:text-base flex-initial">
+                    <span class="font-medium">We have donated over £950,000 to charities since 2014. Find Out More</span>
+                  </div>
+                </div>
+
+
+              </div>
+        {% endcomment %}
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Include Product Data -->

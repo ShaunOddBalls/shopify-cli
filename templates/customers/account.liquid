@@ -1,0 +1,150 @@
+<div class="flex border-b-2 border-solid">
+
+  <div class="flex flex-col w-0 flex-1">
+    <main class="flex-1 relative overflow-y-auto focus:outline-none">
+      <div class="max-w-7xl mx-auto py-6">
+        <div class="py-5 border-b border-gray-200 max-w-3xl mx-auto px-4 sm:px-6 md:px-8 lg:px-0">
+          <h3 class="text-3xl xs:text-4xl sm:text-5xl leading-6 font-medium text-gray-900 uppercase mb-1 font-bebas">
+            Your Account
+          </h3>
+          <div class="mt-2 flex text-xs xs:text-sm text-gray-500 justify-between items-center">
+	      	<p class="">View and edit your account details</p>
+           	<a href="{{ routes.account_logout_url }}" class="btn-shadow-lg hover:bg-gray-200 bg-white  border-solid border duration-200 px-4 py-1 relative rounded-full text-black text-center transition-colors capitalise">{{ 'Log Out' | customer.log_out_link }}</a>
+          </div>
+        </div>
+        <div class="max-w-7xl mx-auto pt-6 px-4 sm:px-6 md:px-8 xl:px-0">
+          {% section 'account-menu-options' %}         
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+
+{% assign platform = 'Account popup close' %}
+{% capture ga_tracking %} gaevent data-type="event" data-category="Click popup" data-action="{{platform}}" data-label="{{platform}} click" {% endcapture %}
+
+<div class="js-account-referral-popup hidden w-full h-full bg-black bg-opacity-70 hidden inset-0 z-100">
+  <div class="absolute inset-0 h-full w-full z-50"></div>
+  <div class="transform -translate-y-1/2 -translate-x-1/2 top-1/2 left-1/2 absolute w-full max-w-xs xs:max-w-sm sm:max-w-lg bg-white z-75">
+	{% comment %}
+    <svg {{ ga_tracking }} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="js-close-referral-popup cursor-pointer absolute fill-current h-6 text-white hover:text-gray-200 right-0" style="top:-2.0rem;"><path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5 0-200-89.5-200-200S145.5 56 256 56s200 89.5 200 200-89.5 200-200 200zm101.8-262.2L295.6 256l62.2 62.2c4.7 4.7 4.7 12.3 0 17l-22.6 22.6c-4.7 4.7-12.3 4.7-17 0L256 295.6l-62.2 62.2c-4.7 4.7-12.3 4.7-17 0l-22.6-22.6c-4.7-4.7-4.7-12.3 0-17l62.2-62.2-62.2-62.2c-4.7-4.7-4.7-12.3 0-17l22.6-22.6c4.7-4.7 12.3-4.7 17 0l62.2 62.2 62.2-62.2c4.7-4.7 12.3-4.7 17 0l22.6 22.6c4.7 4.7 4.7 12.3 0 17z"/></svg>    
+    {% endcomment %}
+    <img src="{{ 'ALOHA_REF_BANNER_NOTEXT-min.jpg' | file_img_url: '1000x' }}">
+    <div class="px-5 py-5">
+	  <h3 class="text-center text-2xl pb-3">WANT TO GET YOUR SUBSCRIPTION FOR FREE?</h3>
+      <div class="text-center">
+		Invite your friends to be an OddBalls Subscriber and save money off your Subscription!</div>
+      <div class="flex flex-col items-center w-full pt-4">
+        
+        {% assign platform = 'Account see more' %}
+        {% capture ga_tracking %} gaevent data-type="event" data-category="Click popup" data-action="{{platform}}" data-label="{{platform}} click" {% endcapture %}        
+        <a href="/pages/refer-a-friend" {{ ga_tracking }} class="cursor-pointer bg-magenta-500 text-white rounded-md px-10 font-semibold py-2 hover:bg-white hover:text-magenta-500 border-2 border-magenta-500 border-solid">FIND OUT MORE</a>
+
+        {% assign platform = 'Account popup close' %}
+        {% capture ga_tracking %} gaevent data-type="event" data-category="Click popup" data-action="{{platform}}" data-label="{{platform}} click" {% endcapture %}        
+        <span {{ ga_tracking }} class="js-close-referral-popup text-gray-500 text-xs pt-2 cursor-pointer hover:text-magenta-500">No thanks, I like to pay full price</span>
+      </div>
+    </div>
+  </div>
+</div>
+{% comment %}
+{%- capture date_format -%} {{ 'general.date_format.month_day_year' | t }} {%- endcapture -%}
+
+<div class="shopify-section">
+
+  <div id="section-account" class="site-box-container container--fullscreen box--can-stick">
+
+    <div class="site-box box--big lap--box--small-fl-auto box--typo-big box--lots-of-text box--top-align box--column-flow box__heading box--add-hr" data-order="0">
+      <div class="reduce-top-margin">
+        <div class="site-box-content">
+          <h1 class="title h1">{{ 'customer.account.title' | t }}</h1>
+          <a href="{{ routes.account_logout_url }}" class="button button--outline">
+            <span class="button-scroll-in">{{ 'general.navigation.logout' | t }}</span>
+          </a>
+        </div> 
+      </div>
+    </div>
+
+    <div class="site-box box--big lap--box--bigger box--top-align box--column-flow box__text" data-order="1">
+
+      <div class="site-box-content reduce-top-margin">
+
+        <div>
+
+          <div class="simple-block">
+
+            <h4 class="simple-title">{{ 'customer.orders.title' | t }}</h4>
+
+            {%- paginate customer.orders by 20 -%}
+
+              {%- if customer.orders.size != 0 -%}
+
+                <div class="table-wrap">
+                  <table class="order-table o-history">
+
+                    <tbody>
+                      {%- for order in customer.orders -%}
+                        <tr>
+                          <td>
+                            <span class="label">{{ 'customer.orders.order_number' | t }}</span>
+                            {{ order.name | link_to: order.customer_url }}
+                          </td>
+                          <td>
+                            <span class="label">{{ 'customer.orders.date' | t }}</span>
+                            {{ order.created_at | date: date_format }}
+                          </td>
+                          <td>
+                            <span class="label">{{ 'customer.orders.payment_status' | t }}</span>
+                            {{ order.financial_status_label }}
+                          </td>
+                          <td>
+                            <span class="label">{{ 'customer.orders.fulfillment_status' | t }}</span>
+                            {{ order.fulfillment_status_label }}
+                          </td>
+                          <td>
+                            <span class="label">{{ 'customer.orders.total' | t }}</span>
+                            {{ order.total_price | money }}
+                          </td>
+                        </tr>
+                      {%- endfor -%}
+                    </tbody>
+                  </table>
+                </div>
+
+              {%- else -%}
+
+                <p>{{ 'customer.orders.none' | t }}</p>
+
+              {%- endif -%}
+
+              {%- render 'pagination', paginate: paginate, style: 'small' -%}
+
+            {%- endpaginate -%}
+
+          </div>
+
+          <div class="simple-block">
+
+            <h4 class="simple-title">{{ 'customer.account.details' | t }}</h4>
+            <div class="simple-address">{{ customer.default_address | format_address }}</div>
+<!-- Begin ReCharge code -->
+<p id="rc_link_container">
+    <a href="/tools/recurring/login">Manage Subscriptions</a>
+</p>
+<!-- End ReCharge code -->
+
+            <p><a href="{{ routes.account_addresses_url }}"><strong>{{ 'customer.account.view_addresses' | t }} ({{ customer.addresses_count }})</strong></a></p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+{% endcomment %}

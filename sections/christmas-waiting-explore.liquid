@@ -1,0 +1,81 @@
+{% schema %}
+{
+  "name": "Christmas Waiting Explore",
+  "settings": [
+    {
+      "type": "text",
+      "label": "Title",
+      "id": "title"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Christmas Waiting Explore"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image_block",
+      "name": "Image Block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "circle_image",
+          "label": "Image"
+        },{
+          "type": "collection",
+          "id": "page",
+          "label": "Page"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Use Url instead of a collection",
+          "info": " ℹ️ Page input must be Blank"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "button text",
+        },
+        {
+          "type": "text",
+          "id": "button-classes",
+          "label": "button classes"
+        },
+        {
+          "type": "text",
+          "id": "text-classes",
+          "label": "button text classes"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+<div class="flex flex-col justify-center items-center bg-gray-50 my-4">
+  <div class="w-full text-center font-bold text-3xl py-4">
+    {{ section.settings.title }}
+  </div>
+  <div class="grid grid-cols-2  md:grid-cols-6 my-1 gap-x-10 gap-y-6 max-w-7xl">
+    {% for block in section.blocks %}
+        <a href="{% if block.settings.page != blank %}/collections/{{ block.settings.page }}{% endif %}{% if block.settings.url != blank and block.settings.page == blank %}{{ block.settings.url }}{% endif %}" class="flex justify-center lw-circles flex-col ">
+          {{ block.settings.circle_image | media_tag: image_size: '400x' }}
+          {% if block.settings.title != blank %}
+          <div class="{{ block.settings.button-classes }}">
+                      <div
+                        class="{{ block.settings.text-classes }}"
+                      >
+                        {{ block.settings.title }}
+                      </div>
+                    </div>
+          {% endif %}
+        </a>
+    {% endfor %}
+  </div>
+</div>
+<style>
+  .lw-circles img{
+    width:100%;
+  }
+</style>

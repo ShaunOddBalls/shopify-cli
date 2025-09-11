@@ -1,0 +1,69 @@
+{% schema %}
+  {
+    "name": "coppafeel-top",
+    "settings": [
+      {
+        "type":"textarea",
+        "id": "text",
+        "label": "Text"
+      },
+      {
+        "type":"color",
+        "id":"backgroundcolor",
+        "label":"Background Colour"
+      },
+      {
+        "type":"color",
+        "id":"textColor",
+        "label":"Text Colour"
+      },
+      {
+          "type": "image_picker",
+          "id": "desktopImage",
+          "label": "Desktop Image"
+        },
+      {
+          "type": "image_picker",
+          "id": "mobileImage",
+          "label": "Mobile Image"
+        }
+    ],
+    "presets":[{"name":"coppafeel-top"}]
+  }
+{% endschema %}
+<div class="grid md:grid-cols-2 w-screen coppafeel-top-wrapper">
+    <div class="w-full relative">
+        <div style="color:{{ section.settings.textColor }}; background-color:{{ section.settings.backgroundcolor }}" class="py-4 px-8  md:px-12  w-full h-full text-center flex flex-col justify-center items-center">
+            <div class="text-center w-full font-bold text-lg md:text-xl mb-4 max-w-xl">
+              We’re donating 20% of all bralette sales to CoppaFeel! this weekend only
+              </div>
+             <div class="text-center w-full text-lg md:text-xl mb-2 max-w-xl">
+               <u>Who is CoppaFeel!?</u>
+              </div>
+             <div class="w-full text-center md:text-lg max-w-xl">
+
+               <div class="mb-2">CoppaFeel! are the UK’s only youth focused breast cancer awareness charity, and they’re on a mission to ensure all breast cancers in young people are diagnosed early and accurately.</div>
+               They educate people on the signs and symptoms of breast cancer and encourage them to check their chests regularly.
+              </div>
+ 
+        </div>
+    </div>
+    <div class="w-full relative mb-4">
+        
+        <div class=" w-full h-full top-0 left-0 max-md:hidden">
+            {{ section.settings.desktopImage | media_tag: image_size: '800x' }}
+        </div>
+        <div class=" w-full h-full top-0 left-0 md:hidden">
+            {{ section.settings.mobileImage | media_tag: image_size: '800x' }}
+        </div>
+    </div>
+
+
+
+</div>
+
+<style>
+    .coppafeel-top-wrapper img{
+    width:100%;
+}
+</style>

@@ -1,0 +1,1394 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "current": {
+    "theme_label_version": "B",
+    "multibuy_variant": "c",
+    "variable_values_product": "variablevalues-no-currency-cohort-a-multi-currency",
+    "logo": "shopify://shop_images/OddBalls_Logo_Black.png",
+    "logo_width": 90,
+    "favicon": "shopify://shop_images/Favicon-1_e8d138a7-0806-4036-9e43-645ca11f5e88.png",
+    "type_header_font": "assistant_n4",
+    "heading_scale": 100,
+    "type_body_font": "assistant_n4",
+    "body_scale": 100,
+    "page_width": 1200,
+    "spacing_sections": 0,
+    "spacing_grid_horizontal": 8,
+    "spacing_grid_vertical": 8,
+    "animations_reveal_on_scroll": true,
+    "animations_hover_elements": "none",
+    "subscribe_and_save_active": true,
+    "cart_sub_and_save": false,
+    "matching_product_upsell": false,
+    "e_gift_active": true,
+    "buttons_border_thickness": 1,
+    "buttons_border_opacity": 100,
+    "buttons_radius": 0,
+    "buttons_shadow_opacity": 0,
+    "buttons_shadow_horizontal_offset": 0,
+    "buttons_shadow_vertical_offset": 4,
+    "buttons_shadow_blur": 5,
+    "variant_pills_border_thickness": 1,
+    "variant_pills_border_opacity": 55,
+    "variant_pills_radius": 40,
+    "variant_pills_shadow_opacity": 0,
+    "variant_pills_shadow_horizontal_offset": 0,
+    "variant_pills_shadow_vertical_offset": 4,
+    "variant_pills_shadow_blur": 5,
+    "inputs_border_thickness": 1,
+    "inputs_border_opacity": 55,
+    "inputs_radius": 0,
+    "inputs_shadow_opacity": 0,
+    "inputs_shadow_horizontal_offset": 0,
+    "inputs_shadow_vertical_offset": 4,
+    "inputs_shadow_blur": 5,
+    "card_style": "standard",
+    "card_image_padding": 0,
+    "card_text_alignment": "left",
+    "card_color_scheme": "scheme-2",
+    "card_border_thickness": 0,
+    "card_border_opacity": 10,
+    "card_corner_radius": 0,
+    "card_shadow_opacity": 0,
+    "card_shadow_horizontal_offset": 0,
+    "card_shadow_vertical_offset": 4,
+    "card_shadow_blur": 5,
+    "collection_card_style": "standard",
+    "collection_card_image_padding": 0,
+    "collection_card_text_alignment": "left",
+    "collection_card_color_scheme": "scheme-2",
+    "collection_card_border_thickness": 0,
+    "collection_card_border_opacity": 10,
+    "collection_card_corner_radius": 0,
+    "collection_card_shadow_opacity": 0,
+    "collection_card_shadow_horizontal_offset": 0,
+    "collection_card_shadow_vertical_offset": 4,
+    "collection_card_shadow_blur": 5,
+    "blog_card_style": "standard",
+    "blog_card_image_padding": 0,
+    "blog_card_text_alignment": "left",
+    "blog_card_color_scheme": "scheme-2",
+    "blog_card_border_thickness": 0,
+    "blog_card_border_opacity": 10,
+    "blog_card_corner_radius": 0,
+    "blog_card_shadow_opacity": 0,
+    "blog_card_shadow_horizontal_offset": 0,
+    "blog_card_shadow_vertical_offset": 4,
+    "blog_card_shadow_blur": 5,
+    "text_boxes_border_thickness": 0,
+    "text_boxes_border_opacity": 10,
+    "text_boxes_radius": 0,
+    "text_boxes_shadow_opacity": 0,
+    "text_boxes_shadow_horizontal_offset": 0,
+    "text_boxes_shadow_vertical_offset": 4,
+    "text_boxes_shadow_blur": 5,
+    "media_border_thickness": 1,
+    "media_border_opacity": 5,
+    "media_radius": 0,
+    "media_shadow_opacity": 0,
+    "media_shadow_horizontal_offset": 0,
+    "media_shadow_vertical_offset": 4,
+    "media_shadow_blur": 5,
+    "popup_border_thickness": 1,
+    "popup_border_opacity": 10,
+    "popup_corner_radius": 0,
+    "popup_shadow_opacity": 5,
+    "popup_shadow_horizontal_offset": 0,
+    "popup_shadow_vertical_offset": 4,
+    "popup_shadow_blur": 5,
+    "drawer_border_thickness": 1,
+    "drawer_border_opacity": 10,
+    "drawer_shadow_opacity": 0,
+    "drawer_shadow_horizontal_offset": 0,
+    "drawer_shadow_vertical_offset": 4,
+    "drawer_shadow_blur": 5,
+    "badge_position": "bottom left",
+    "badge_corner_radius": 40,
+    "sale_badge_color_scheme": "scheme-4",
+    "sold_out_badge_color_scheme": "scheme-3",
+    "brand_headline": "",
+    "brand_description": "<p></p>",
+    "brand_image_width": 100,
+    "gift-card-propery": true,
+    "show_extra_cart_message": false,
+    "social_facebook_link": "",
+    "social_instagram_link": "",
+    "social_youtube_link": "",
+    "social_tiktok_link": "",
+    "social_twitter_link": "",
+    "social_snapchat_link": "",
+    "social_pinterest_link": "",
+    "social_tumblr_link": "",
+    "social_vimeo_link": "",
+    "predictive_search_enabled": true,
+    "predictive_search_show_vendor": false,
+    "predictive_search_show_price": false,
+    "accent_color_1": "#009fd2",
+    "info_image_1": "multibuy",
+    "info_image_3": "free shipping",
+    "accent_color_4": "#2ca55f",
+    "info_image_4": "reviews",
+    "callout_block_description_1": "<p>Free UK Shipping on orders over {freeshipping_threshold_money}.</p>",
+    "callout_block_description_2": "<p>Spend over £40 get 1 FREE PRODUCT (RRP £20.00).</p>",
+    "callout_block_description_3": "<p>Every purchase raises money and awareness for our charities.<a href=\"https://www.myoddballs.com/pages/about-us#charity\" target=\"_blank\" title=\"https://www.myoddballs.com/pages/about-us#charity\"> Find Out More.</a></p>",
+    "currency_code_enabled": true,
+    "cart_type": "notification",
+    "show_vendor": false,
+    "show_cart_note": false,
+    "cart_drawer_collection": "",
+    "cart_color_scheme": "scheme-1",
+    "total_raised_uk": "950000",
+    "bab-sale": "off",
+    "cart_free_shipping_banner": true,
+    "cart_banner": "off",
+    "banner_metaobject": "donation-message",
+    "cart_free_card": "off",
+    "free_metaobject": "free-card-popup-1",
+    "xmas-delivery-collection": "off",
+    "christmas_banner_metaobject_collection": "donation-item-grid",
+    "xmas-delivery-quickbuy": "off",
+    "christmas_banner_metaobject_quickbuy": "donation-item-grid",
+    "xmas-delivery-product": "off",
+    "christmas_banner_metaobject_product": "donation-message",
+    "ll-popup-text": "Your Discount Code",
+    "ll-success-discount-message": "✅ 25% Discount Applied to checkout",
+    "ll-collection": "shopify://collections/new",
+    "donation-collection": "off",
+    "donation_metaobject_donation-collection": "donation-item-grid",
+    "donation-quickbuy": "off",
+    "donation_metaobject_quickbuy": "donation-item-grid",
+    "donation_product": "off",
+    "donation_metaobject_product": "donation-message",
+    "donation-messaging": "on",
+    "xmas-delivery": "off",
+    "christmas_banner_metaobject": "arrives-before-christmas",
+    "sections": {
+      "main-password-header": {
+        "type": "main-password-header",
+        "settings": {
+          "color_scheme": "scheme-1"
+        }
+      },
+      "main-password-footer": {
+        "type": "main-password-footer",
+        "settings": {
+          "color_scheme": "scheme-1"
+        }
+      },
+      "ob-nav-section": {
+        "type": "ob-nav-section",
+        "blocks": {
+          "desktop_nav_image_C6fUQa": {
+            "type": "desktop-nav-image",
+            "settings": {
+              "title": "ACCESSORIES",
+              "text": "Collection One",
+              "url": "www.myoddbalss.com",
+              "image": "shopify://shop_images/Insta_Reel_Image_12.png",
+              "text-2": "Collection Two",
+              "url-2": "",
+              "image-2": "shopify://shop_images/filthy_animal_insta.png"
+            }
+          },
+          "desktop_nav_image_VRfRN3": {
+            "type": "desktop-nav-image",
+            "settings": {
+              "title": "Subscription",
+              "text": "Collection One",
+              "url": "",
+              "image": "shopify://shop_images/classic_black_insta_e2823fbc-285e-452a-b901-b7826a4a5e23.png",
+              "text-2": "Collection Two",
+              "url-2": "",
+              "image-2": "shopify://shop_images/mobile_5ab4a9d2-96e7-4feb-90d4-3b2f1fb00dce.png"
+            }
+          },
+          "desktop_nav_image_pRTGGt": {
+            "type": "desktop-nav-image",
+            "settings": {
+              "title": "SALE",
+              "text": "Collection One",
+              "url": "",
+              "image": "shopify://shop_images/FESTIVAL_WAISTBAND_DETAIL-min_f4e46987-0f81-4e0d-80b7-eab15b264c7e.png",
+              "text-2": "Collection Two",
+              "url-2": "",
+              "image-2": "shopify://shop_images/Insta5---Test.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "desktop_nav_image_C6fUQa",
+          "desktop_nav_image_VRfRN3",
+          "desktop_nav_image_pRTGGt"
+        ],
+        "settings": {
+          "logo_position": "middle-left",
+          "menu": "nova-main-menu",
+          "menu_type_desktop": "dropdown",
+          "sticky_header_type": "on-scroll-up",
+          "show_line_separator": true,
+          "color_scheme": "background-1",
+          "enable_country_selector": false,
+          "enable_language_selector": false,
+          "mobile_logo_position": "center",
+          "margin_bottom": 0,
+          "padding_top": 20,
+          "padding_bottom": 20
+        }
+      },
+      "ob-footer-links": {
+        "type": "ob-footer-links",
+        "settings": {
+          "footer_link_lists": "ob-footer-menu",
+          "enable_country_selector": true,
+          "countries_to_add": "DE",
+          "enable_language_selector": true
+        }
+      },
+      "ob-nav-label-logic": {
+        "type": "ob-nav-label-logic",
+        "blocks": {
+          "fb6fbe3a-47f2-428e-86ae-274340ff99e3": {
+            "type": "nav_label",
+            "settings": {
+              "label_active": true,
+              "title": "Popular",
+              "nav_text": "SUBSCRIPTIONS",
+              "text_color": "#f00f83",
+              "bg_color": "#ffffff",
+              "border_color": "#f00f83"
+            }
+          },
+          "6cc53b36-48a5-4e98-b44b-5339036adf95": {
+            "type": "nav_label",
+            "settings": {
+              "label_active": true,
+              "title": "Popular",
+              "nav_text": "UNDERWEAR",
+              "text_color": "#f00f83",
+              "bg_color": "#ffffff",
+              "border_color": "#f00f83"
+            }
+          },
+          "a7b848c5-20a3-4b74-9884-83b8f1070291": {
+            "type": "nav_label",
+            "settings": {
+              "label_active": true,
+              "title": "Popular",
+              "nav_text": "BOXER SHORTS",
+              "text_color": "#f00f83",
+              "bg_color": "#ffffff",
+              "border_color": "#f00f83"
+            }
+          },
+          "353185e3-eb99-4ac2-878f-6573c58598bd": {
+            "type": "nav_label",
+            "settings": {
+              "label_active": true,
+              "title": "Popular",
+              "nav_text": "UNDERWEAR CLEARANCE",
+              "text_color": "#f00f83",
+              "bg_color": "#ffffff",
+              "border_color": "#f00f83"
+            }
+          }
+        },
+        "block_order": [
+          "fb6fbe3a-47f2-428e-86ae-274340ff99e3",
+          "6cc53b36-48a5-4e98-b44b-5339036adf95",
+          "a7b848c5-20a3-4b74-9884-83b8f1070291",
+          "353185e3-eb99-4ac2-878f-6573c58598bd"
+        ],
+        "settings": {}
+      },
+      "ob-refered-friend-hero-banner": {
+        "type": "ob-refered-friend-hero-banner",
+        "blocks": {
+          "image_p3T3aA": {
+            "type": "image",
+            "settings": {
+              "wrapper_classes": "w-full md:w-1/2 p-5 relative",
+              "img_wrapper_classes": "w-full",
+              "img_classes": "bg-bluey",
+              "desktop_img": "shopify://shop_images/HeroImage-2-ReferFriend.png",
+              "mobile_img": "shopify://shop_images/HeroImage-2-ReferFriend.png"
+            }
+          },
+          "text_PPj3L8": {
+            "type": "text",
+            "settings": {
+              "wrapper_classes": "w-full md:w-1/2 flex flex-col align-center justify-center text-center px-6",
+              "title": "",
+              "title_classes": "",
+              "img_wrapper_classes": "flex items-center justify-center w-full",
+              "img_classes": "max-w-2xl py-4",
+              "mobile_img": "shopify://shop_images/Get-your-20_-off.gif",
+              "desktop_img": "shopify://shop_images/Get-your-20_-off.gif",
+              "subtitle": "",
+              "subtitle_classes": "",
+              "call_to_action": "Enjoy 20% off for you and a friend when you redeem your code and purchase",
+              "call_to_action_classes": "uppercase px-3 pb-4 max-w-md mx-auto md:text-2xl text-2xl text-indigo-900  marujo",
+              "btn_classes": "rounded-md uppercase bg-white px-16 pb-3 pt-1  marujo text-3xl js-refer-modal",
+              "link_text": "Redeem code",
+              "link_url": ""
+            }
+          }
+        },
+        "block_order": [
+          "image_p3T3aA",
+          "text_PPj3L8"
+        ],
+        "settings": {
+          "classes": "w-full bg-blue-100  max-w-9xl  hero-banner",
+          "inner_classes": "w-full  flex flex-col lg:flex-row-reverse  max-w-9xl mx-auto"
+        }
+      },
+      "ob-refered-friend-reason": {
+        "type": "ob-refered-friend-reason",
+        "blocks": {
+          "title_YghfbJ": {
+            "type": "title",
+            "settings": {
+              "text": "GET REWARDED IN 4 EASY STEPS",
+              "wrapper-classes": "",
+              "classes": "mx-auto text-center text-white marujo text-4xl lg:text-5xl py-3 pb-6 text-magenta"
+            }
+          },
+          "card_pkjYc8": {
+            "type": "card",
+            "settings": {
+              "classes": "rounded-md shadow-lg p-5 flex flex-col justify-between",
+              "title": "1. Sign up",
+              "title_classes": "text-3xl text-center marujo text-magenta pb-2",
+              "paragraph": "Simply enter your name and email address",
+              "para_class": "text-center mx-auto  text-base md:text-lg  text-magenta",
+              "svg": "",
+              "img": "shopify://shop_images/Share.svg"
+            }
+          },
+          "card_p4WFGL": {
+            "type": "card",
+            "settings": {
+              "classes": "rounded-md shadow-lg p-5 flex flex-col justify-between",
+              "title": "2. Get your code",
+              "title_classes": "text-3xl text-center marujo text-magenta pb-2",
+              "paragraph": "Copy your code",
+              "para_class": "text-center mx-auto  text-base md:text-lg  text-magenta",
+              "svg": "",
+              "img": "shopify://shop_images/GetCode.svg"
+            }
+          },
+          "card_HCDYKy": {
+            "type": "card",
+            "settings": {
+              "classes": "rounded-md shadow-lg p-5 flex flex-col justify-between",
+              "title": "3. Shop",
+              "title_classes": "text-3xl text-center marujo text-magenta pb-2",
+              "paragraph": "Pick you favourite designs and add to your cart",
+              "para_class": "text-center mx-auto  text-base md:text-lg  text-magenta",
+              "svg": "",
+              "img": "shopify://shop_images/Basket.svg"
+            }
+          },
+          "card_KBmWzU": {
+            "type": "card",
+            "settings": {
+              "classes": "rounded-md shadow-lg p-5 flex flex-col justify-between",
+              "title": "4. Reward",
+              "title_classes": "text-3xl text-center marujo text-magenta pb-2",
+              "paragraph": "Add your code at check out to receive 20% off",
+              "para_class": "text-center mx-auto  text-base md:text-lg  text-magenta",
+              "svg": "",
+              "img": "shopify://shop_images/Rewards.svg"
+            }
+          },
+          "title_WehRWK": {
+            "type": "title",
+            "settings": {
+              "text": "Redeem your code",
+              "wrapper-classes": "text-center",
+              "classes": "rounded-md uppercase bg-magenta px-3 pb-3 pt-1  marujo text-2xl js-refer-modal inline-block text-white  cursor-pointer js-refer-modal mb-6 mt-6"
+            }
+          }
+        },
+        "block_order": [
+          "title_YghfbJ",
+          "card_pkjYc8",
+          "card_p4WFGL",
+          "card_HCDYKy",
+          "card_KBmWzU",
+          "title_WehRWK"
+        ],
+        "settings": {
+          "section-wrap": "px-3"
+        }
+      },
+      "ob-refer-a-friend-trust-pilot": {
+        "type": "ob-refer-a-friend-trust-pilot",
+        "settings": {
+          "outer_wrapper_classes": "bg-blue-1000 text-indigo-900 px-3",
+          "wrapper_classes": "max-w-7xl mx-auto py-10 px-2",
+          "widget_header": "Building friendships one review at a time",
+          "widget_header_classes": "text-center text-4xl md:text-5xl uppercase pb-8 text-indigo-900  marujo",
+          "widget_subheader": "",
+          "widget_subheader_classes": "",
+          "widget_code": "<!-- TrustBox widget - Slider -->\n<div class=\"trustpilot-widget\" data-locale=\"en-GB\" data-template-id=\"54ad5defc6454f065c28af8b\" data-businessunit-id=\"5c7f9459871dac0001ea0238\" data-style-height=\"240px\" data-style-width=\"100%\" data-theme=\"light\" data-stars=\"5\" data-review-languages=\"en\">\n<a href=\"https://uk.trustpilot.com/review/myoddballs.com\" target=\"_blank\" rel=\"noopener\">Trustpilot</a>\n</div>\n<!-- End TrustBox widget -->",
+          "widget_wrapper_classes": "",
+          "use_microcombo": false
+        }
+      },
+      "ob-refered-friend-faq": {
+        "type": "ob-refered-friend-faq",
+        "blocks": {
+          "content_faq_n8CyTF": {
+            "type": "content-faq",
+            "settings": {
+              "tab_identifier": "",
+              "country_iso": "*",
+              "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-black overflow-hidden",
+              "id": "",
+              "title": "How does the refer-a-friend scheme work?",
+              "title_text": "How does the refer-a-friend scheme work?",
+              "block_title_classes": "w-full  px-8 pt-5 pb-5 text-l md:text-2xl font-medium leading-7 md:leading-5 text-left",
+              "description": "<br> As a thank you for spreading the word about our products, we have created the refer-a-friend scheme whereby current customers can refer new customers to OddBalls. Both the referrer and the referred friend will receive a 20% discount off their next purchase.",
+              "block_description_classes": "px-8 pb-5 text-md leading-6"
+            }
+          },
+          "content_faq_7wiPXb": {
+            "type": "content-faq",
+            "settings": {
+              "tab_identifier": "",
+              "country_iso": "*",
+              "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-black overflow-hidden",
+              "id": "How do I invite a friend?",
+              "title": "How do I invite a friend?",
+              "title_text": "How do I invite a friend?",
+              "block_title_classes": "w-full  px-8 pt-5 pb-5 text-l md:text-2xl font-medium leading-7 md:leading-5 text-left",
+              "description": "<br>To invite a friend, navigate to the referral page and enter your name and email address. You will find a unique referral link that will be sent directly to your friends email. When your friend uses this link to make their first purchase, both of you will receive a 20% discount.",
+              "block_description_classes": "px-8 pb-5 text-md leading-6"
+            }
+          },
+          "content_faq_UAtaNB": {
+            "type": "content-faq",
+            "settings": {
+              "tab_identifier": "",
+              "country_iso": "*",
+              "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-black overflow-hidden",
+              "id": "How to refer a friend?",
+              "title": "How to refer a friend?",
+              "title_text": "How to refer a friend?",
+              "block_title_classes": "w-full  px-8 pt-5 pb-5 text-l md:text-2xl font-medium leading-7 md:leading-5 text-left",
+              "description": "<br>To start referring friends, follow these steps: \n<br>\n<br>\n1.\tGo to the referral page\n<br>\n2.\tEnter your name and email address\n<br>\n3.\tYou will find a unique referral link that will be sent directly to your friends email\n<br>\n4.\tEnsure your friend uses this link when they make their first purchase to activate the discounts and to receive your 20% off too",
+              "block_description_classes": "px-8 pb-5 text-md leading-6"
+            }
+          },
+          "content_faq_iBgh7Q": {
+            "type": "content-faq",
+            "settings": {
+              "tab_identifier": "",
+              "country_iso": "*",
+              "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-black overflow-hidden",
+              "id": "How to refer a friend?",
+              "title": "I’ve been referred by a friend. How do I get my reward?",
+              "title_text": "I’ve been referred by a friend. How do I get my reward?",
+              "block_title_classes": "w-full  px-8 pt-5 pb-5 text-l md:text-2xl font-medium leading-7 md:leading-5 text-left",
+              "description": "<br> If you’ve been referred by a friend, click on the referral link they sent you. This link will take you to our website where you can sign up and make your first purchase. Once you’ve completed your purchase, enter your unique code into the discount code link and a 20% discount will be automatically applied. Your friend will also receive their 20% discount reward.",
+              "block_description_classes": "px-8 pb-5 text-md leading-6"
+            }
+          },
+          "content_faq_qEe9tW": {
+            "type": "content-faq",
+            "settings": {
+              "tab_identifier": "",
+              "country_iso": "*",
+              "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-black overflow-hidden",
+              "id": "How many people can I refer to OddBalls?",
+              "title": "How many people can I refer to OddBalls?",
+              "title_text": "How many people can I refer to OddBalls?",
+              "block_title_classes": "w-full  px-8 pt-5 pb-5 text-l md:text-2xl font-medium leading-7 md:leading-5 text-left",
+              "description": "<br> There is no limit to the number of people you can refer to OddBalls. The more friends you refer, the more rewards you can earn. Each time a referred friend makes their first purchase using your referral link, you will receive a 20% discount. So, keep sharing and enjoy the benefits.",
+              "block_description_classes": "px-8 pb-5 text-md leading-6"
+            }
+          }
+        },
+        "block_order": [
+          "content_faq_n8CyTF",
+          "content_faq_7wiPXb",
+          "content_faq_UAtaNB",
+          "content_faq_iBgh7Q",
+          "content_faq_qEe9tW"
+        ],
+        "settings": {
+          "outer_wrapper_attr": "data-attribute for linking section content",
+          "outer_wrapper_classes": "2xl:mx-auto 2xl:container py-12 lg:px-20 md:px-6 px-3  px-3 max-w-7xl mx-auto px-6",
+          "inner_wrapper_classes": "grid grid-cols-12 gap-6",
+          "header_wrapper_classes": "col-span-12 flex flex-col justify-center items-center text-center space-y-4",
+          "all_tabs_wrapper_classes": "",
+          "content_wrapper_classes": "col-span-12 mt-8 grid grid-cols-12 gap-y-8",
+          "option_menu_selected": false,
+          "title": "Refer a friend FAQs",
+          "title_classes": "text-4xl lg:text-5xl leading-9 md:leading-7 lg:leading-9 text-magenta marujo",
+          "description": "",
+          "description_classes": "text-base leading-6 text-center text-gray-600 w-full md:w-10/12"
+        }
+      },
+      "ob-size-guide-charts": {
+        "type": "ob-size-guide-charts",
+        "blocks": {
+          "1535462536352": {
+            "type": "product_tag",
+            "settings": {
+              "title": "Womens Underwear Size Guide",
+              "product_tag": "sizechart-oversized-hoodies",
+              "page": "womens-size-chart"
+            }
+          },
+          "1535462509111": {
+            "type": "product_tag",
+            "settings": {
+              "title": "Mens Underwear Size Guide",
+              "product_tag": "sizechart-mens",
+              "page": "mens-size-chart"
+            }
+          },
+          "product_tag_JPkweR": {
+            "type": "product_tag",
+            "settings": {
+              "title": "Youth Male Underwear Size guide",
+              "product_tag": "sizechart-youth-male-underwear",
+              "page": "youth-male-underwear-size-chart"
+            }
+          },
+          "acd82bc7-b793-432a-be03-7813989c9fc9": {
+            "type": "product_tag_snippet",
+            "disabled": true,
+            "settings": {
+              "title": "Bralette & Sports Bra Size Guide",
+              "product_tag": "bralette",
+              "snippet": "include-bralette-size-guide"
+            }
+          },
+          "f6107fc8-14a8-427e-a5c3-de90748997c1": {
+            "type": "product_tag",
+            "settings": {
+              "title": "Bralette Size Guide",
+              "product_tag": "bralette",
+              "page": "bralette-size-guide-new-1"
+            }
+          },
+          "06650976-2cf2-45ee-afbe-ef5fd468ffa5": {
+            "type": "product_type",
+            "settings": {
+              "title": "Socks Size Guide",
+              "product_type": "Socks",
+              "page": "uk-adult-socks-size-chart"
+            }
+          },
+          "product_tag_jzYwXg": {
+            "type": "product_tag",
+            "settings": {
+              "title": "Cycling Jerseys Size Guide",
+              "product_tag": "sizechart-cycling-jersey",
+              "page": "cycling-jerseys-size-guide"
+            }
+          },
+          "590a80b7-7ff7-4fdd-88b8-9d2f9d9102c6": {
+            "type": "product_type",
+            "disabled": true,
+            "settings": {
+              "title": "Oversized Hoodie",
+              "product_type": "Oversized Hoodie",
+              "page": "oversized-hoodies-size-chart"
+            }
+          },
+          "1535462419925": {
+            "type": "product_tag",
+            "settings": {
+              "title": "Kids Underwear Size Guide",
+              "product_tag": "sizechart-kids",
+              "page": "kids-size-chart"
+            }
+          },
+          "2e26ba22-e2b0-4ab7-b735-b786ec97880a": {
+            "type": "product_tag",
+            "disabled": true,
+            "settings": {
+              "title": "Oversized Hoodies Size Guide",
+              "product_tag": "sizechart-oversized-hoodies",
+              "page": "oversized-hoodies-size-chart"
+            }
+          },
+          "7d110f59-fc7e-4be8-9a5f-d90327aed547": {
+            "type": "product_type",
+            "disabled": true,
+            "settings": {
+              "title": "Leggings Size Guide",
+              "product_type": "Leggings",
+              "page": "leggings-size-chart"
+            }
+          },
+          "a5f5bb45-a2b1-4469-818d-e77a2214c1fb": {
+            "type": "product_type",
+            "disabled": true,
+            "settings": {
+              "title": "Compression Shorts Size Guide",
+              "product_type": "Compression Shorts",
+              "page": "compression-shorts"
+            }
+          },
+          "86b50d00-a9af-4ec6-bd30-69f02c077ea9": {
+            "type": "product_type",
+            "settings": {
+              "title": "Sports Bra Size Guide",
+              "product_type": "Sports Bras",
+              "page": "sports-bras-size-guide-new"
+            }
+          },
+          "ed609139-a373-41c3-94e4-fb507caea3f3": {
+            "type": "product_type",
+            "disabled": true,
+            "settings": {
+              "title": "Gloves",
+              "product_type": "Gloves",
+              "page": "gloves-size-chart"
+            }
+          },
+          "87c4e725-b84d-43a4-943c-621f53eceac0": {
+            "type": "product_tag",
+            "settings": {
+              "title": "Men's Pyjamas Size Guide - Long",
+              "product_tag": "sizechart-mens-pyjamas-long",
+              "page": "new-mens-pyjama-bottoms-long-size-guide"
+            }
+          },
+          "3cf513b9-1466-4afe-88db-497d59a804e9": {
+            "type": "product_tag",
+            "settings": {
+              "title": "Men's Pyjamas Size Guide - Short",
+              "product_tag": "sizechart-mens-pyjamas-short",
+              "page": "new-mens-pyjama-bottoms-short-size-guide"
+            }
+          },
+          "de72733b-e6a5-494f-8d00-ceabfdd8b1b1": {
+            "type": "product_tag",
+            "settings": {
+              "title": "Women's Pyjamas Size Guide - Long",
+              "product_tag": "sizechart-womens-pyjamas-long",
+              "page": "womens-pyjamas-size-chart-long"
+            }
+          },
+          "5c7410ce-92f9-409d-ac94-0cd3ac9eeaac": {
+            "type": "product_tag",
+            "settings": {
+              "title": "Women's Pyjamas Size Guide - Short",
+              "product_tag": "sizechart-womens-pyjamas-short",
+              "page": "womens-pyjamas-size-chart"
+            }
+          },
+          "1d8bfaf3-20b1-429c-a6f0-ed3473c8e45e": {
+            "type": "product_tag",
+            "settings": {
+              "title": "Goolies (Kids) Pyjamas Size Guide - Long",
+              "product_tag": "sizechart-goolies-pyjamas-long",
+              "page": "goolies-pyjama-bottoms-size-guide-long"
+            }
+          },
+          "4ba81d43-c5bc-49f7-b0e3-3eeafc276603": {
+            "type": "product_tag",
+            "settings": {
+              "title": "Goolies (Kids) Pyjamas Size Guide - Short",
+              "product_tag": "sizechart-goolies-pyjamas-short",
+              "page": "goolies-pyjama-bottoms-size-guide-short"
+            }
+          },
+          "9a9c7b02-b8ce-4f94-bd0e-1e29deabaf1e": {
+            "type": "product_type",
+            "settings": {
+              "title": "Sports Shorts Size Guide",
+              "product_type": "Sports Shorts",
+              "page": "sports-shorts-size-chart"
+            }
+          },
+          "b6612bb5-1999-4030-a0dc-1f85b0f16858": {
+            "type": "product_type",
+            "disabled": true,
+            "settings": {
+              "title": "Leisurewear Hoodies Size Chart",
+              "product_type": "Leisurewear Hoodies",
+              "page": "leisurewear-hoodies-size-chart"
+            }
+          },
+          "ba744728-9caf-462a-b304-e8fb5f00ddda": {
+            "type": "product_type",
+            "disabled": true,
+            "settings": {
+              "title": "Leisurewear Sweatshirts",
+              "product_type": "Leisurewear Sweatshirts",
+              "page": "leisurewear-sweatshirts-size-chart"
+            }
+          },
+          "1565127743540": {
+            "type": "product_tag",
+            "disabled": true,
+            "settings": {
+              "title": "Goolies (Kids) Underwear Size Guide",
+              "product_tag": "sizecharts-goolies",
+              "page": "goolies-size-chart"
+            }
+          },
+          "1535462477594": {
+            "type": "product_tag",
+            "disabled": true,
+            "settings": {
+              "title": "Clothing size guide",
+              "product_tag": "sizechart-clothing",
+              "page": "clothing-size-chart"
+            }
+          },
+          "1557842993801": {
+            "type": "product_type",
+            "settings": {
+              "title": "Flex fit caps size guide",
+              "product_type": "Hats",
+              "page": "flex-fit-caps-size-guide"
+            }
+          },
+          "1586276015356": {
+            "type": "product_type",
+            "disabled": true,
+            "settings": {
+              "title": "Vests size guide",
+              "product_type": "vests",
+              "page": "vests-size-guide"
+            }
+          },
+          "35178aca-14c5-46f5-811c-09b5dd5bdea7": {
+            "type": "product_type",
+            "settings": {
+              "title": "Running Vests",
+              "product_type": "Running Vests",
+              "page": "vests-size-guide"
+            }
+          },
+          "757f1510-4a6c-4c1d-993f-78cdc44bee81": {
+            "type": "product_type",
+            "settings": {
+              "title": "Training T-Shirt (Womens)",
+              "product_type": "Training T-Shirt (Womens)",
+              "page": "ladies-t-shirt-size-chart"
+            }
+          },
+          "693f1f22-4a4e-4dc3-ab31-c657b4abcbb7": {
+            "type": "product_type",
+            "disabled": true,
+            "settings": {
+              "title": "Flip Flops Size Guide",
+              "product_type": "Flip Flops",
+              "page": "flip-flops-size-chart"
+            }
+          },
+          "b4fabb40-5547-4f0d-bfd5-5c9ca4058cf4": {
+            "type": "product_tag",
+            "disabled": true,
+            "settings": {
+              "title": "Size Chart - Womens Underwear US",
+              "product_tag": "sizechart-us-womens",
+              "page": "us-womens-size-chart"
+            }
+          },
+          "e30111e5-610a-43b5-ba0f-ab1e16a8d648": {
+            "type": "product_tag",
+            "disabled": true,
+            "settings": {
+              "title": "Adult Slippers Size Chart",
+              "product_tag": "sizechart-slippers",
+              "page": "uk-adult-slipper-size-chart"
+            }
+          },
+          "product_tag_CtXCnY": {
+            "type": "product_tag",
+            "settings": {
+              "title": "Bucket Hats Size Guide",
+              "product_tag": "sizechart-bucket-hats",
+              "page": "bucket-hats-size-guide"
+            }
+          }
+        },
+        "block_order": [
+          "1535462536352",
+          "1535462509111",
+          "product_tag_JPkweR",
+          "acd82bc7-b793-432a-be03-7813989c9fc9",
+          "f6107fc8-14a8-427e-a5c3-de90748997c1",
+          "06650976-2cf2-45ee-afbe-ef5fd468ffa5",
+          "product_tag_jzYwXg",
+          "590a80b7-7ff7-4fdd-88b8-9d2f9d9102c6",
+          "1535462419925",
+          "2e26ba22-e2b0-4ab7-b735-b786ec97880a",
+          "7d110f59-fc7e-4be8-9a5f-d90327aed547",
+          "a5f5bb45-a2b1-4469-818d-e77a2214c1fb",
+          "86b50d00-a9af-4ec6-bd30-69f02c077ea9",
+          "ed609139-a373-41c3-94e4-fb507caea3f3",
+          "87c4e725-b84d-43a4-943c-621f53eceac0",
+          "3cf513b9-1466-4afe-88db-497d59a804e9",
+          "de72733b-e6a5-494f-8d00-ceabfdd8b1b1",
+          "5c7410ce-92f9-409d-ac94-0cd3ac9eeaac",
+          "1d8bfaf3-20b1-429c-a6f0-ed3473c8e45e",
+          "4ba81d43-c5bc-49f7-b0e3-3eeafc276603",
+          "9a9c7b02-b8ce-4f94-bd0e-1e29deabaf1e",
+          "b6612bb5-1999-4030-a0dc-1f85b0f16858",
+          "ba744728-9caf-462a-b304-e8fb5f00ddda",
+          "1565127743540",
+          "1535462477594",
+          "1557842993801",
+          "1586276015356",
+          "35178aca-14c5-46f5-811c-09b5dd5bdea7",
+          "757f1510-4a6c-4c1d-993f-78cdc44bee81",
+          "693f1f22-4a4e-4dc3-ab31-c657b4abcbb7",
+          "b4fabb40-5547-4f0d-bfd5-5c9ca4058cf4",
+          "e30111e5-610a-43b5-ba0f-ab1e16a8d648",
+          "product_tag_CtXCnY"
+        ],
+        "custom_css": [
+          "th {background-color: #d1d5db !important; text-transform: uppercase; font-size: 16px; font-weight: bold;}",
+          ".scroll {overflow: scroll !important;}"
+        ],
+        "settings": {}
+      },
+      "ob-gift-subscription-selector": {
+        "type": "ob-gift-subscription-selector",
+        "blocks": {
+          "title_k677TF": {
+            "type": "title",
+            "settings": {
+              "text": "Oddballs Subscription",
+              "wrapper_classes": "w-full px-6  pt-6",
+              "text_classes": "text-2xl marujo"
+            }
+          },
+          "paragraph_Wfe8Mr": {
+            "type": "paragraph",
+            "settings": {
+              "text": "Give the Gift of a monthly delivery of super comfy underwear and socks, with loads of added perks EXCLUSIVE to members.",
+              "wrapper_classes": "px-6 py-2",
+              "text_classes": ""
+            }
+          }
+        },
+        "block_order": [
+          "title_k677TF",
+          "paragraph_Wfe8Mr"
+        ],
+        "settings": {
+          "background_heading": "",
+          "mobile_img": "shopify://shop_images/BannerText.svg",
+          "desktop_img": "shopify://shop_images/subscription-desktop-svg_3.svg",
+          "mobile_background_img": "shopify://shop_images/subscription-desktop-svg_3.svg",
+          "banner-text": "",
+          "step_one_text": "",
+          "step_two_text": "",
+          "step_tree_text": "",
+          "card_title_wrapper_classes": "text-xs text-center",
+          "card_title_classes": "text-xs text-center",
+          "background-color": "#ffffff",
+          "opacity": 88,
+          "backdrop-blur": 10,
+          "info-slider": true
+        }
+      },
+      "ob-new-size-guide-option": {
+        "type": "ob-new-size-guide-option",
+        "blocks": {
+          "size_guide_833Vcx": {
+            "type": "size-guide",
+            "settings": {
+              "title": "womens underwear",
+              "handle": "womens-underwear-size-guide"
+            }
+          },
+          "size_guide_YbUzX7": {
+            "type": "size-guide",
+            "settings": {
+              "title": "Mens Underwear",
+              "handle": "mens-underwear-size-guide"
+            }
+          }
+        },
+        "block_order": [
+          "size_guide_833Vcx",
+          "size_guide_YbUzX7"
+        ],
+        "settings": {}
+      },
+      "account-menu-options": {
+        "type": "account-menu-options",
+        "blocks": {
+          "option_LEaQGL": {
+            "type": "option",
+            "settings": {
+              "option_type": "",
+              "platform": "Orders",
+              "wrapper_classes": "justify-center px-10 py-5 rounded-lg btn-shadow-lg border-2  border-solid cursor-pointer flex",
+              "option_link": "shopify://pages/customer-orders",
+              "title": "My Orders",
+              "subtitle": "Check your order history",
+              "svg_path": "<path class=\"text-magenta\" d=\"M509.5 184.6L458.9 32.8C452.4 13.2 434.1 0 413.4 0H98.6c-20.7 0-39 13.2-45.5 32.8L2.5 184.6c-1.6 4.9-2.5 10-2.5 15.2V464c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48V199.8c0-5.2-.8-10.3-2.5-15.2zm-48.1 7.4H280V48h133.4l48 144zM98.6 48H232v144H50.6l48-144zM48 464V240h416v224H48z\"></path>"
+            }
+          },
+          "option_j9Chna": {
+            "type": "option",
+            "settings": {
+              "option_type": "",
+              "platform": "WishList",
+              "wrapper_classes": "justify-center px-10 py-5 rounded-lg btn-shadow-lg border-2  border-solid cursor-pointer flex",
+              "option_link": "shopify://pages/wishlist",
+              "title": "My Wishlist",
+              "subtitle": "See items you've saved for later",
+              "svg_path": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"text-magenta hearticon\" viewbox=\"0 -256 1850 1850\">\n<g transform=\"matrix(1,0,0,-1,37.966102,1343.4237)\">\n    <path d=\"m 896,-128 q -26,0 -44,18 L 228,492 q -10,8 -27.5,26 Q 183,536 145,583.5 107,631 77,681 47,731 23.5,802 0,873 0,940 q 0,220 127,344 127,124 351,124 62,0 126.5,-21.5 64.5,-21.5 120,-58 55.5,-36.5 95.5,-68.5 40,-32 76,-68 36,36 76,68 40,32 95.5,68.5 55.5,36.5 120,58 64.5,21.5 126.5,21.5 224,0 351,-124 127,-124 127,-344 0,-221 -229,-450 L 940,-110 q -18,-18 -44,-18\"></path>\n</g>\n</svg>"
+            }
+          },
+          "option_Gii4N4": {
+            "type": "option",
+            "settings": {
+              "option_type": "",
+              "platform": "View address",
+              "wrapper_classes": "justify-center px-10 py-5 rounded-lg btn-shadow-lg border-2  border-solid cursor-pointer flex",
+              "option_link": "https://www.myoddballs.com/account/addresses",
+              "title": "My Details",
+              "subtitle": "View and update your account details",
+              "svg_path": "<path class=\"text-magenta\" d=\"M436 160c6.6 0 12-5.4 12-12v-40c0-6.6-5.4-12-12-12h-20V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48v416c0 26.5 21.5 48 48 48h320c26.5 0 48-21.5 48-48v-48h20c6.6 0 12-5.4 12-12v-40c0-6.6-5.4-12-12-12h-20v-64h20c6.6 0 12-5.4 12-12v-40c0-6.6-5.4-12-12-12h-20v-64h20zm-68 304H48V48h320v416zM208 256c35.3 0 64-28.7 64-64s-28.7-64-64-64-64 28.7-64 64 28.7 64 64 64zm-89.6 128h179.2c12.4 0 22.4-8.6 22.4-19.2v-19.2c0-31.8-30.1-57.6-67.2-57.6-10.8 0-18.7 8-44.8 8-26.9 0-33.4-8-44.8-8-37.1 0-67.2 25.8-67.2 57.6v19.2c0 10.6 10 19.2 22.4 19.2z\"></path>"
+            }
+          },
+          "option_FUpbJV": {
+            "type": "option",
+            "settings": {
+              "option_type": "",
+              "platform": "",
+              "wrapper_classes": "justify-center px-10 py-5 rounded-lg btn-shadow-lg border-2  border-solid cursor-pointer flex",
+              "option_link": "shopify://pages/refer-a-friend",
+              "title": "My Referrals",
+              "subtitle": "Share your code to save on your next purchase",
+              "svg_path": "<path class=\"text-magenta\" d=\"M255.7 182.7l65.6-60.1c7.4-6.8 17-10.5 27-10.5l83.7-.2c2.1 0 4.1.8 5.5 2.3l61.7 61.6H624c8.8 0 16-7.2 16-16v-16c0-8.8-7.2-16-16-16H519.2l-47.6-47.6C461.1 69.9 446.9 64 432 64H205.2c-14.8 0-29.1 5.9-39.6 16.3L118 127.9H16c-8.8 0-16 7.2-16 16v16c0 8.8 7.2 16 16 16h121.9l61.7-61.6c2-.8 3.7-1.5 5.7-2.3H262l-38.7 35.5c-29.4 26.9-31.1 72.3-4.4 101.3 14.8 16.2 61.2 41.2 101.5 4.4l8.2-7.5 108.2 87.8c3.4 2.8 4 7.8 1.2 11.3L411.9 377c-2.8 3.4-7.8 4-11.3 1.2l-23.9-19.4-30 36.5c-2.2 2.7-5.4 4.4-8.9 4.8-3.5.4-7-.7-9.1-2.4l-36.8-31.5-15.6 19.2c-13.9 17.1-39.2 19.7-55.3 6.6l-97.3-88H16c-8.8 0-16 7.2-16 16v16c0 8.8 7.2 16 16 16h89l84.6 76.4c30.9 25.1 73.8 25.7 105.6 3.8 12.5 10.8 26 15.9 41.1 15.9 18.2 0 35.3-7.4 48.8-24 22.1 8.7 48.2 2.6 64-16.8l26.2-32.3c5.6-6.9 9.1-14.8 10.9-23H624c8.8 0 16-7.2 16-16v-16c0-8.8-7.2-16-16-16H474.8c-2.3-2.8-4.9-5.4-7.7-7.7l-102.7-83.4 12.5-11.4c6.5-6 7-16.1 1-22.6L367 167.1c-6-6.5-16.1-6.9-22.6-1l-55.2 50.6c-9.5 8.7-25.7 9.4-34.6 0-9.4-9.9-8.5-25.2 1.1-34z\"></path>"
+            }
+          },
+          "option_xJXiwV": {
+            "type": "option",
+            "settings": {
+              "option_type": "Manage Subscription",
+              "platform": "Manage subscription",
+              "wrapper_classes": "justify-center px-10 py-5 rounded-lg btn-shadow-lg border-2  border-solid cursor-pointer flex",
+              "option_link": "",
+              "title": "My Subscriptions",
+              "subtitle": "Skip or cancel your subscriptions",
+              "svg_path": "<path class=\"text-magenta\" d=\"M148 288h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm108-12v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm-96 96v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm-96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm192 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm96-260v352c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V112c0-26.5 21.5-48 48-48h48V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h128V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h48c26.5 0 48 21.5 48 48zm-48 346V160H48v298c0 3.3 2.7 6 6 6h340c3.3 0 6-2.7 6-6z\"></path>"
+            }
+          }
+        },
+        "block_order": [
+          "option_LEaQGL",
+          "option_j9Chna",
+          "option_Gii4N4",
+          "option_FUpbJV",
+          "option_xJXiwV"
+        ],
+        "custom_css": [
+          ".underline-hover {position: relative;}"
+        ],
+        "settings": {
+          "options_wrapper_classes": "grid grid-cols-1 lg:grid-cols-2 gap-5 sm:gap-10 max-w-3xl mx-auto",
+          "option_background": "",
+          "option_text": "",
+          "option_background_hover": "",
+          "option_text_hover": "text-black"
+        }
+      },
+      "main-register": {
+        "type": "main-register",
+        "settings": {
+          "padding_top": 36,
+          "padding_bottom": 36
+        }
+      },
+      "main-login": {
+        "type": "main-login",
+        "settings": {
+          "enable_shop_login_button": true,
+          "padding_top": 36,
+          "padding_bottom": 36
+        }
+      },
+      "meta-redirects": {
+        "type": "meta-redirects",
+        "blocks": {
+          "redirect_rule_JHLBX6": {
+            "type": "redirect_rule",
+            "settings": {
+              "from_url": "https://www.myoddballs.com/de-eu/collections/him-individuals",
+              "to_url": "https://www.myoddballs.com/de-eu/collections/herren-boxershorts"
+            }
+          },
+          "redirect_rule_gPEEqt": {
+            "type": "redirect_rule",
+            "settings": {
+              "from_url": "https://www.myoddballs.com/en-eu/collections/him-individuals",
+              "to_url": "https://www.myoddballs.com/en-eu/collections/herren-boxershorts"
+            }
+          }
+        },
+        "block_order": [
+          "redirect_rule_JHLBX6",
+          "redirect_rule_gPEEqt"
+        ],
+        "settings": {}
+      },
+      "popup-section": {
+        "type": "popup-section",
+        "settings": {}
+      }
+    },
+    "content_for_index": [],
+    "blocks": {
+      "855628211100114053": {
+        "type": "shopify://apps/klaviyo-email-marketing-sms/blocks/klaviyo-onsite-embed/2632fe16-c075-4321-a88b-50b567f42507",
+        "disabled": false,
+        "settings": {}
+      },
+      "10812935154079970445": {
+        "type": "shopify://apps/nosto/blocks/nosto-script-embed-block/a67c43f0-0fc3-4649-a7dc-65ac499cae31",
+        "disabled": false,
+        "settings": {}
+      },
+      "6990797075511561578": {
+        "type": "shopify://apps/nosto/blocks/nosto-tagging-embed-block/a67c43f0-0fc3-4649-a7dc-65ac499cae31",
+        "disabled": false,
+        "settings": {}
+      },
+      "17151115064775110295": {
+        "type": "shopify://apps/recharge-subscriptions/blocks/recharge-theme/371eed76-0b44-4869-9813-730372ea378e",
+        "disabled": false,
+        "settings": {
+          "color_brand": "#467C99",
+          "contrast_color": "#FFFFFF",
+          "color_brand_secondary": "#467C99",
+          "corners": "8px",
+          "app_background": "#f9f8f4",
+          "app_container": 1200,
+          "app_vertical_padding": 32,
+          "images_aspect_ratio": "1",
+          "cards_background": "#FFFFFF",
+          "cards_border_color": "rgba(0,0,0,0)"
+        }
+      },
+      "4291333794791649201": {
+        "type": "shopify://apps/loyalty-rewards-and-referrals/blocks/embed-sdk/6f172e67-4106-4ac0-89c5-b32a069b3101",
+        "disabled": false,
+        "settings": {
+          "disableBundledCSS": false,
+          "disableBundledFonts": false,
+          "useClassIsolator": false
+        }
+      },
+      "6412501105843178657": {
+        "type": "shopify://apps/loyalty-rewards-and-referrals/blocks/embed-main/6f172e67-4106-4ac0-89c5-b32a069b3101",
+        "disabled": false,
+        "settings": {
+          "primary_color": "#4d384b",
+          "secondary_color": "#126bbf",
+          "icon_color": "#126bbf",
+          "button_size": "medium",
+          "button_border_radius": 4,
+          "button_primary_background_color": "#4d384b",
+          "button_primary_text_color": "#ffffff",
+          "button_neutral_background_color": "#757575",
+          "button_neutral_text_color": "#ffffff"
+        }
+      },
+      "15879463164198068590": {
+        "type": "shopify://apps/tapcart-mobile-app/blocks/ck_loader/604cad6b-3841-4da3-b864-b96622b4adb8",
+        "disabled": true,
+        "settings": {}
+      },
+      "11348531219507317188": {
+        "type": "shopify://apps/eb-easy-bundle-builder/blocks/app-embed/05b1325c-6303-4da5-8e2f-b13ab2a50e1a",
+        "disabled": true,
+        "settings": {}
+      },
+      "6279071938380501511": {
+        "type": "shopify://apps/powerful-form-builder/blocks/app-embed/e4bcb1eb-35b2-42e6-bc37-bfe0e1542c9d",
+        "disabled": true,
+        "settings": {}
+      },
+      "12592085946906583873": {
+        "type": "shopify://apps/wunderkind/blocks/tag/40b05e3b-2403-4814-8fab-e17e57e8b1aa",
+        "disabled": false,
+        "settings": {}
+      },
+      "10864971697205422121": {
+        "type": "shopify://apps/gorgias-live-chat-helpdesk/blocks/gorgias/a66db725-7b96-4e3f-916e-6c8e6f87aaaa",
+        "disabled": false,
+        "settings": {}
+      },
+      "7878088468538493966": {
+        "type": "shopify://apps/wisepops-ai-popups-push-cro/blocks/app-embed/e7d7a4f7-0df4-4073-9375-5f36db513952",
+        "disabled": false,
+        "settings": {}
+      }
+    },
+    "color_schemes": {
+      "scheme-1": {
+        "settings": {
+          "background": "#ffffff",
+          "background_gradient": "",
+          "text": "#121212",
+          "button": "#121212",
+          "button_label": "#ffffff",
+          "secondary_button_label": "#121212",
+          "shadow": "#121212"
+        }
+      },
+      "scheme-2": {
+        "settings": {
+          "background": "#f3f3f3",
+          "background_gradient": "",
+          "text": "#121212",
+          "button": "#121212",
+          "button_label": "#f3f3f3",
+          "secondary_button_label": "#121212",
+          "shadow": "#121212"
+        }
+      },
+      "scheme-3": {
+        "settings": {
+          "background": "#242833",
+          "background_gradient": "",
+          "text": "#ffffff",
+          "button": "#ffffff",
+          "button_label": "#000000",
+          "secondary_button_label": "#ffffff",
+          "shadow": "#121212"
+        }
+      },
+      "scheme-4": {
+        "settings": {
+          "background": "#121212",
+          "background_gradient": "",
+          "text": "#ffffff",
+          "button": "#ffffff",
+          "button_label": "#121212",
+          "secondary_button_label": "#ffffff",
+          "shadow": "#121212"
+        }
+      },
+      "scheme-5": {
+        "settings": {
+          "background": "#334fb4",
+          "background_gradient": "",
+          "text": "#ffffff",
+          "button": "#ffffff",
+          "button_label": "#334fb4",
+          "secondary_button_label": "#ffffff",
+          "shadow": "#121212"
+        }
+      }
+    }
+  },
+  "presets": {
+    "Default": {
+      "logo_width": 90,
+      "color_schemes": {
+        "scheme-1": {
+          "settings": {
+            "background": "#FFFFFF",
+            "background_gradient": "",
+            "text": "#121212",
+            "button": "#121212",
+            "button_label": "#FFFFFF",
+            "secondary_button_label": "#121212",
+            "shadow": "#121212"
+          }
+        },
+        "scheme-2": {
+          "settings": {
+            "background": "#F3F3F3",
+            "background_gradient": "",
+            "text": "#121212",
+            "button": "#121212",
+            "button_label": "#F3F3F3",
+            "secondary_button_label": "#121212",
+            "shadow": "#121212"
+          }
+        },
+        "scheme-3": {
+          "settings": {
+            "background": "#242833",
+            "background_gradient": "",
+            "text": "#FFFFFF",
+            "button": "#FFFFFF",
+            "button_label": "#000000",
+            "secondary_button_label": "#FFFFFF",
+            "shadow": "#121212"
+          }
+        },
+        "scheme-4": {
+          "settings": {
+            "background": "#121212",
+            "background_gradient": "",
+            "text": "#FFFFFF",
+            "button": "#FFFFFF",
+            "button_label": "#121212",
+            "secondary_button_label": "#FFFFFF",
+            "shadow": "#121212"
+          }
+        },
+        "scheme-5": {
+          "settings": {
+            "background": "#334FB4",
+            "background_gradient": "",
+            "text": "#FFFFFF",
+            "button": "#FFFFFF",
+            "button_label": "#334FB4",
+            "secondary_button_label": "#FFFFFF",
+            "shadow": "#121212"
+          }
+        }
+      },
+      "type_header_font": "assistant_n4",
+      "heading_scale": 100,
+      "type_body_font": "assistant_n4",
+      "body_scale": 100,
+      "page_width": 1200,
+      "spacing_sections": 0,
+      "spacing_grid_horizontal": 8,
+      "spacing_grid_vertical": 8,
+      "animations_reveal_on_scroll": true,
+      "animations_hover_elements": "none",
+      "buttons_border_thickness": 1,
+      "buttons_border_opacity": 100,
+      "buttons_radius": 0,
+      "buttons_shadow_opacity": 0,
+      "buttons_shadow_horizontal_offset": 0,
+      "buttons_shadow_vertical_offset": 4,
+      "buttons_shadow_blur": 5,
+      "variant_pills_border_thickness": 1,
+      "variant_pills_border_opacity": 55,
+      "variant_pills_radius": 40,
+      "variant_pills_shadow_opacity": 0,
+      "variant_pills_shadow_horizontal_offset": 0,
+      "variant_pills_shadow_vertical_offset": 4,
+      "variant_pills_shadow_blur": 5,
+      "inputs_border_thickness": 1,
+      "inputs_border_opacity": 55,
+      "inputs_radius": 0,
+      "inputs_shadow_opacity": 0,
+      "inputs_shadow_horizontal_offset": 0,
+      "inputs_shadow_vertical_offset": 4,
+      "inputs_shadow_blur": 5,
+      "card_style": "standard",
+      "card_image_padding": 0,
+      "card_text_alignment": "left",
+      "card_color_scheme": "scheme-2",
+      "card_border_thickness": 0,
+      "card_border_opacity": 10,
+      "card_corner_radius": 0,
+      "card_shadow_opacity": 0,
+      "card_shadow_horizontal_offset": 0,
+      "card_shadow_vertical_offset": 4,
+      "card_shadow_blur": 5,
+      "collection_card_style": "standard",
+      "collection_card_image_padding": 0,
+      "collection_card_text_alignment": "left",
+      "collection_card_color_scheme": "scheme-2",
+      "collection_card_border_thickness": 0,
+      "collection_card_border_opacity": 10,
+      "collection_card_corner_radius": 0,
+      "collection_card_shadow_opacity": 0,
+      "collection_card_shadow_horizontal_offset": 0,
+      "collection_card_shadow_vertical_offset": 4,
+      "collection_card_shadow_blur": 5,
+      "blog_card_style": "standard",
+      "blog_card_image_padding": 0,
+      "blog_card_text_alignment": "left",
+      "blog_card_color_scheme": "scheme-2",
+      "blog_card_border_thickness": 0,
+      "blog_card_border_opacity": 10,
+      "blog_card_corner_radius": 0,
+      "blog_card_shadow_opacity": 0,
+      "blog_card_shadow_horizontal_offset": 0,
+      "blog_card_shadow_vertical_offset": 4,
+      "blog_card_shadow_blur": 5,
+      "text_boxes_border_thickness": 0,
+      "text_boxes_border_opacity": 10,
+      "text_boxes_radius": 0,
+      "text_boxes_shadow_opacity": 0,
+      "text_boxes_shadow_horizontal_offset": 0,
+      "text_boxes_shadow_vertical_offset": 4,
+      "text_boxes_shadow_blur": 5,
+      "media_border_thickness": 1,
+      "media_border_opacity": 5,
+      "media_radius": 0,
+      "media_shadow_opacity": 0,
+      "media_shadow_horizontal_offset": 0,
+      "media_shadow_vertical_offset": 4,
+      "media_shadow_blur": 5,
+      "popup_border_thickness": 1,
+      "popup_border_opacity": 10,
+      "popup_corner_radius": 0,
+      "popup_shadow_opacity": 5,
+      "popup_shadow_horizontal_offset": 0,
+      "popup_shadow_vertical_offset": 4,
+      "popup_shadow_blur": 5,
+      "drawer_border_thickness": 1,
+      "drawer_border_opacity": 10,
+      "drawer_shadow_opacity": 0,
+      "drawer_shadow_horizontal_offset": 0,
+      "drawer_shadow_vertical_offset": 4,
+      "drawer_shadow_blur": 5,
+      "badge_position": "bottom left",
+      "badge_corner_radius": 40,
+      "sale_badge_color_scheme": "scheme-4",
+      "sold_out_badge_color_scheme": "scheme-3",
+      "brand_headline": "",
+      "brand_description": "<p></p>",
+      "brand_image_width": 100,
+      "social_twitter_link": "",
+      "social_facebook_link": "",
+      "social_pinterest_link": "",
+      "social_instagram_link": "",
+      "social_tiktok_link": "",
+      "social_tumblr_link": "",
+      "social_snapchat_link": "",
+      "social_youtube_link": "",
+      "social_vimeo_link": "",
+      "predictive_search_enabled": true,
+      "predictive_search_show_vendor": false,
+      "predictive_search_show_price": false,
+      "currency_code_enabled": true,
+      "cart_type": "notification",
+      "show_vendor": false,
+      "show_cart_note": false,
+      "cart_drawer_collection": "",
+      "cart_color_scheme": "scheme-1",
+      "sections": {
+        "main-password-header": {
+          "type": "main-password-header",
+          "settings": {
+            "color_scheme": "scheme-1"
+          }
+        },
+        "main-password-footer": {
+          "type": "main-password-footer",
+          "settings": {
+            "color_scheme": "scheme-1"
+          }
+        }
+      }
+    }
+  }
+}

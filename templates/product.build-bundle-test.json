@@ -1,0 +1,434 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "ob-main-product",
+      "blocks": {
+        "badge_9AmGnb": {
+          "type": "badge",
+          "settings": {
+            "badge_text": "15% Off"
+          }
+        },
+        "title_CKCV8R": {
+          "type": "title",
+          "settings": {
+            "show_title": true
+          }
+        },
+        "liquid_Uh4giy": {
+          "type": "liquid",
+          "settings": {
+            "title": "Trustpilot",
+            "custom_liquid": "{% render 'ob-trustpilot-small', product:product %}"
+          }
+        },
+        "price_DgQaEc": {
+          "type": "price",
+          "settings": {
+            "show_price": true,
+            "show_compare_at_price": true
+          }
+        },
+        "banner_GhXD9f": {
+          "type": "banner",
+          "disabled": true,
+          "settings": {
+            "show_banner": true,
+            "banner_metaobject": "product-page-free-gift-banner",
+            "classes": "mdhidden"
+          }
+        },
+        "Free_Card_gHknrH": {
+          "type": "free-card-banner",
+          "disabled": true,
+          "settings": {
+            "show_free_card_banner": true,
+            "free_card_metaobject": "free-card-popup",
+            "extra_classes": "md:hidden"
+          }
+        },
+        "nosto_injection_hcPHKB": {
+          "type": "nosto-injection",
+          "settings": {
+            "title": "Nosto FOMO Test",
+            "id": "nosto-fomo-test"
+          }
+        },
+        "prints_selector_cmhFxV": {
+          "type": "prints_selector",
+          "settings": {
+            "prints_label": "Prints"
+          }
+        },
+        "designs_kKqQTU": {
+          "type": "designs",
+          "settings": {}
+        },
+        "product_form_CwNMrX": {
+          "type": "product_form",
+          "settings": {}
+        },
+        "size_selector_k9YUDP": {
+          "type": "size_selector",
+          "disabled": true,
+          "settings": {
+            "size_label": "Size"
+          }
+        },
+        "variant_selector_CqtjNU": {
+          "type": "variant_selector",
+          "disabled": true,
+          "settings": {
+            "picker_type": "button"
+          }
+        },
+        "buy_buttons_cX7pTn": {
+          "type": "buy_buttons",
+          "disabled": true,
+          "settings": {
+            "show_dynamic_checkout": true
+          }
+        },
+        "banner_gHknrH": {
+          "type": "banner",
+          "disabled": true,
+          "settings": {
+            "show_banner": true,
+            "banner_metaobject": "product-page-free-gift-banner",
+            "classes": "md:hidden"
+          }
+        },
+        "free_card_banner_BtBrEQ": {
+          "type": "free-card-banner",
+          "disabled": true,
+          "settings": {
+            "show_free_card_banner": true,
+            "free_card_metaobject": "free-card-popup",
+            "extra_classes": "hidden md:flex"
+          }
+        },
+        "accordion_jtdPyz": {
+          "type": "accordion",
+          "settings": {
+            "accordion_title": "DETAILS",
+            "accordion_content": "<p>description</p>"
+          }
+        },
+        "accordion_EUyM43": {
+          "type": "accordion",
+          "settings": {
+            "accordion_title": "WHY PEOPLE CHOOSE US",
+            "accordion_content": "<ul><li>Premium underwear for extreme comfort</li><li>Over £1,000,000 donated to charities</li><li>Over 30,000 x 5 star reviews on Trustpilot</li></ul>"
+          }
+        },
+        "accordion_bGGLK3": {
+          "type": "accordion",
+          "settings": {
+            "accordion_title": "Get yours from",
+            "accordion_content": "<p>asdassdadsd</p>"
+          }
+        },
+        "custom_Hcz7ji": {
+          "type": "custom",
+          "settings": {
+            "title": "",
+            "custom_html": "<div class=\"mt-2 mb-6 px-6 py-8 rounded-md border border-solid border-color bg-gray-50\">\n  <div class=\"flex items-center mb-3\">\n    <div class=\"w-12 flex-initial pr-8\">\n      <span class=\"\" data-live-text-setting=\"section.template--16117681160253__main.block.8b75ace3-418f-4295-8fea-825dfe88326c.icon_1\">\n        <svg class=\"w-7\" xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 256 256\">\n          <rect width=\"256\" height=\"256\" fill=\"none\"></rect>\n          <path fill=\"none\" stroke=\"#000\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"8\" d=\"M240,120H176V80h42.58374a8,8,0,0,1,7.42781,5.02887Z\"></path>\n          <line x1=\"16\" x2=\"176\" y1=\"144\" y2=\"144\" fill=\"none\" stroke=\"#000\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"8\"></line>\n          <circle cx=\"188\" cy=\"192\" r=\"24\" fill=\"none\" stroke=\"#000\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"8\"></circle>\n          <circle cx=\"68\" cy=\"192\" r=\"24\" fill=\"none\" stroke=\"#000\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"8\"></circle>\n          <line x1=\"164\" x2=\"92\" y1=\"192\" y2=\"192\" fill=\"none\" stroke=\"#000\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"8\"></line>\n          <path fill=\"none\" stroke=\"#000\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"8\" d=\"M44 192H24a8 8 0 0 1-8-8V72a8 8 0 0 1 8-8H176V171.21508M176 171.21508V120h64v64a8 8 0 0 1-8 8H212\"></path>\n        </svg>\n      </span>\n    </div>\n    <div class=\"typography typography--body-md flex-initial\">\n      <span class=\"font-normal\">Free UK Tracked Shipping on orders over\n        <span class=\"shippingBannerA\">£35</span>. </span>\n    </div>\n  </div>\n\n  <div class=\"flex items-center mb-3\">\n    <div class=\"w-12 flex-initial pr-8\">\n      <span class=\"\" data-live-text-setting=\"section.template--16117681160253__main.block.8b75ace3-418f-4295-8fea-825dfe88326c.icon_2\">\n        <svg class=\"w-8\" xmlns=\"http://www.w3.org/2000/svg\" data-name=\"Layer 1\" viewbox=\"0 0 1000 1000\">\n          <path d=\"M392.58,613.47H211.08a127.08,127.08,0,1,1,0-254.15h181.5a16,16,0,0,1,16,16V597.47A16,16,0,0,1,392.58,613.47ZM211.08,391.32a95.08,95.08,0,1,0,0,190.15h165.5V391.32Z\"></path>\n          <path d=\"M273 877.44a72.9 72.9 0 01-72.82-72.81V597.47a16 16 0 0116-16H329.82a16 16 0 0116 16V804.63A72.89 72.89 0 01273 877.44zm-40.82-264V804.63a40.82 40.82 0 0081.63 0V613.47zM735 800.24c-10.36 0-22.64-2.09-37.33-6.26a15.93 15.93 0 01-3.75-1.6l-309.46-182a16 16 0 1116.23-27.58l307.65 180.9c27.11 7.41 34.86 3.67 36.6 2.32 6.14-4.75 5.64-25.89 5.17-46.33-.16-6.75-.32-13.74-.32-21.15V274.2c0-7.41.16-14.39.32-21.14.47-20.45 1-41.58-5.17-46.33-1.74-1.35-9.49-5.1-36.6 2.32L400.69 390a16 16 0 11-16.23-27.58l309.46-182a15.86 15.86 0 013.74-1.6c32.14-9.12 52.76-8.31 66.88 2.62 18.91 14.64 18.28 41.39 17.56 72.37-.16 6.57-.31 13.37-.31 20.4V698.58c0 7 .15 13.83.31 20.4.72 31 1.35 57.74-17.56 72.38C756.88 797.29 747.3 800.24 735 800.24zM291.57 466.41H201a16 16 0 010-32h90.56a16 16 0 010 32zM291.57 538.37H201a16 16 0 010-32h90.56a16 16 0 110 32z\"></path>\n          <path d=\"M766.17,588.18c-.44,0-.9,0-1.34,0a16,16,0,0,1,1.44-32,69.79,69.79,0,0,0,0-139.57,16,16,0,0,1-1.45-32c.44,0,.9,0,1.34,0a101.79,101.79,0,0,1,0,203.57Zm.55-32h0Zm0,0h0Zm0-139.6h0Zm0,0h0Z\"></path>\n        </svg>\n      </span>\n    </div>\n    <div class=\"typography typography--body-md flex-initial\">\n      <span class=\"font-normal\">Spend over £40 get 1 FREE PRODUCT (Up to RRP £20.00).</span>\n    </div>\n  </div>\n\n  <div class=\"flex items-center mb-3\">\n    <div class=\"w-12 flex-initial pr-8\">\n      <span class=\"\" data-live-text-setting=\"section.template--16117681160253__main.block.8b75ace3-418f-4295-8fea-825dfe88326c.icon_3\">\n        <svg class=\"w-8\" xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 80 80\">\n          <path d=\"M15.222 40.41c.992 2.393 3.525 3.32 5.76 4.137 1.242.455 2.527.925 3.109 1.507.337.338.636.914.917 1.578L17.8 68.939a1.998 1.998 0 0 0 2.784 2.432l5.117-2.542 2.615 5.086a1.999 1.999 0 0 0 3.673-.275l7.03-20.82c.354-.102.69-.176.98-.176s.626.074.98.175l7.03 20.82a2 2 0 0 0 3.673.276l2.615-5.086 5.117 2.542a1.998 1.998 0 0 0 2.784-2.432l-7.207-21.307c.28-.664.58-1.24.917-1.578.583-.582 1.867-1.052 3.11-1.507 2.234-.818 4.767-1.744 5.76-4.136.956-2.31-.144-4.709-1.116-6.825-.572-1.246-1.164-2.534-1.164-3.44 0-.907.592-2.195 1.164-3.442.972-2.116 2.072-4.514 1.115-6.824-.992-2.393-3.525-3.319-5.76-4.137-1.242-.454-2.526-.924-3.109-1.507-.582-.582-1.053-1.867-1.507-3.11-.817-2.234-1.744-4.767-4.136-5.758-2.309-.96-4.71.143-6.825 1.114-1.246.573-2.535 1.164-3.441 1.164s-2.195-.591-3.441-1.164c-2.116-.971-4.518-2.072-6.824-1.115-2.393.992-3.32 3.526-4.137 5.76-.454 1.243-.925 2.527-1.507 3.11-.582.582-1.867 1.052-3.11 1.507-2.234.817-4.767 1.744-5.76 4.136-.956 2.31.144 4.708 1.116 6.825.572 1.246 1.164 2.534 1.164 3.44 0 .907-.592 2.195-1.164 3.44-.972 2.117-2.072 4.516-1.115 6.826zm14.49 27.471-1.355-2.636a2 2 0 0 0-2.668-.876l-2.548 1.266L27.414 53c.587.818 1.322 1.51 2.321 1.924.628.26 1.262.368 1.895.368.838 0 1.674-.19 2.492-.467l-4.41 13.056zm24.599-3.512a2 2 0 0 0-2.668.876l-1.356 2.636-4.41-13.057c1.438.486 2.932.704 4.388.1 1-.415 1.734-1.106 2.32-1.924l4.274 12.635-2.548-1.266zM19.973 25.035c-.6-1.304-1.345-2.927-1.056-3.622.32-.772 1.977-1.378 3.44-1.913 1.649-.604 3.355-1.228 4.562-2.435s1.831-2.914 2.435-4.564c.535-1.461 1.141-3.119 1.914-3.439a.999.999 0 0 1 .38-.064c.804 0 2.137.612 3.242 1.12 1.636.751 3.329 1.528 5.11 1.528s3.474-.777 5.11-1.528c1.305-.599 2.93-1.344 3.623-1.056.772.32 1.378 1.977 1.913 3.439.604 1.65 1.228 3.356 2.435 4.563s2.913 1.832 4.564 2.436c1.461.535 3.119 1.141 3.438 1.912.29.696-.456 2.319-1.056 3.623-.75 1.637-1.528 3.33-1.528 5.11s.777 3.474 1.528 5.11c.6 1.305 1.345 2.928 1.056 3.623-.32.771-1.977 1.378-3.438 1.913-1.65.604-3.357 1.228-4.564 2.435s-1.831 2.913-2.435 4.564c-.536 1.461-1.141 3.119-1.913 3.439-.694.292-2.318-.457-3.623-1.056-1.636-.752-3.329-1.529-5.11-1.529s-3.474.777-5.11 1.529c-1.304.6-2.927 1.348-3.623 1.056-.772-.32-1.377-1.978-1.913-3.44-.604-1.65-1.228-3.356-2.435-4.563-1.207-1.207-2.913-1.831-4.563-2.435-1.462-.535-3.12-1.141-3.439-1.913-.29-.695.456-2.318 1.056-3.623.75-1.636 1.528-3.329 1.528-5.11 0-1.78-.777-3.473-1.528-5.11z\"></path>\n          <path d=\"M40 44.013c7.646 0 13.868-6.221 13.868-13.867S47.646 16.278 40 16.278s-13.868 6.221-13.868 13.868S32.354 44.013 40 44.013zm0-23.735c5.441 0 9.868 4.427 9.868 9.868S45.441 40.013 40 40.013s-9.868-4.427-9.868-9.867 4.427-9.868 9.868-9.868z\"></path>\n        </svg>\n      </span>\n    </div>\n    <div class=\"typography typography--body-md flex-initial\">\n      <span class=\"font-normal\">We have donated over £1,000,000 to charities since 2014. <a href=\"/pages/about-us#charity\" class=\"text-magenta\">Find Out\n        More</a></span>\n    </div>\n  </div>\n</div>"
+          }
+        },
+        "bnpl_88RKtn": {
+          "type": "bnpl",
+          "settings": {}
+        },
+        "nosto_injection_DizVTw": {
+          "type": "nosto-injection",
+          "disabled": true,
+          "settings": {
+            "title": "Nosto Test B",
+            "id": ""
+          }
+        }
+      },
+      "block_order": [
+        "badge_9AmGnb",
+        "title_CKCV8R",
+        "liquid_Uh4giy",
+        "price_DgQaEc",
+        "banner_GhXD9f",
+        "Free_Card_gHknrH",
+        "nosto_injection_hcPHKB",
+        "prints_selector_cmhFxV",
+        "designs_kKqQTU",
+        "product_form_CwNMrX",
+        "size_selector_k9YUDP",
+        "variant_selector_CqtjNU",
+        "buy_buttons_cX7pTn",
+        "banner_gHknrH",
+        "free_card_banner_BtBrEQ",
+        "accordion_jtdPyz",
+        "accordion_EUyM43",
+        "accordion_bGGLK3",
+        "custom_Hcz7ji",
+        "bnpl_88RKtn",
+        "nosto_injection_DizVTw"
+      ],
+      "disabled": true,
+      "settings": {
+        "product": ""
+      }
+    },
+    "size-guide-charts": {
+      "type": "ob-size-guide-charts",
+      "blocks": {
+        "99102f8b-105c-4b00-b475-78dbc2102a11": {
+          "type": "product_tag",
+          "settings": {
+            "title": "Socks Size Guide",
+            "product_tag": "sizechart-socks",
+            "page": "uk-adult-socks-size-chart"
+          }
+        },
+        "2dba91c9-88ce-4c85-8d52-b3ff3afd9dde": {
+          "type": "product_tag",
+          "settings": {
+            "title": "Sports Bra Size GUide",
+            "product_tag": "sizechart-sports-bras",
+            "page": "sports-bras-size-guide-new"
+          }
+        },
+        "84108409-0d34-46ea-8409-bf0c09a7d5d4": {
+          "type": "product_tag",
+          "settings": {
+            "title": "Gym Shorts Size Guide",
+            "product_tag": "sizechart-gym-shorts",
+            "page": "gym-shorts-size-chart"
+          }
+        },
+        "79e50057-3d69-4e26-9bb2-f20411a370f5": {
+          "type": "product_tag",
+          "settings": {
+            "title": "Womens Underwear Size Guide",
+            "product_tag": "sizechart-womens",
+            "page": "womens-size-chart"
+          }
+        },
+        "4004eb3a-33a4-43e5-a1ac-59b0095b4718": {
+          "type": "product_tag",
+          "settings": {
+            "title": "New Bralette Size Guide",
+            "product_tag": "bralette",
+            "page": "bralette-size-guide-new-1"
+          }
+        },
+        "ea517618-1d0d-4a04-a263-c9af8ee109a0": {
+          "type": "product_tag",
+          "settings": {
+            "title": "Mens Underwear Size Guide",
+            "product_tag": "sizechart-mens",
+            "page": "mens-size-chart"
+          }
+        },
+        "product_tag_4373g4": {
+          "type": "product_tag",
+          "settings": {
+            "title": "Cycling Jersey Size Guide",
+            "product_tag": "sizechart-cycling-jersey",
+            "page": "cycling-jerseys-size-guide"
+          }
+        },
+        "e0d4c15a-7950-42d2-87af-93c2ec7da946": {
+          "type": "product_tag",
+          "settings": {
+            "title": "Kids (Kids) Underwear Size Guide",
+            "product_tag": "sizechart-kids",
+            "page": "kids-size-chart"
+          }
+        },
+        "a94d5f81-9059-427c-b9e4-7654a217d227": {
+          "type": "product_type",
+          "settings": {
+            "title": "Gloves",
+            "product_type": "Gloves",
+            "page": "gloves-size-chart"
+          }
+        },
+        "4d9e0ef9-0b38-43a3-8304-ad58c58f4184": {
+          "type": "product_tag",
+          "settings": {
+            "title": "Women's Pyjamas - Short",
+            "product_tag": "sizechart-womens-pyjamas-short",
+            "page": "womens-pyjamas-size-chart"
+          }
+        },
+        "a9cb99f8-8f16-40e9-aded-c0f1d90606c7": {
+          "type": "product_tag",
+          "settings": {
+            "title": "Women's Pyjamas - Long",
+            "product_tag": "sizechart-womens-pyjamas-long",
+            "page": "womens-pyjamas-size-chart-long"
+          }
+        },
+        "262418c5-0e30-48e9-a07c-272ea82d2716": {
+          "type": "product_tag",
+          "settings": {
+            "title": "Men's Pyjamas (Long) Size Guide",
+            "product_tag": "sizechart-mens-pyjamas-long",
+            "page": "new-mens-pyjama-bottoms-long-size-guide"
+          }
+        },
+        "2c0dee36-2e79-453a-9669-4ddb004095df": {
+          "type": "product_tag",
+          "settings": {
+            "title": "Men's Pyjamas (Short) Size Guide",
+            "product_tag": "sizechart-mens-pyjamas-short",
+            "page": "new-mens-pyjama-bottoms-short-size-guide"
+          }
+        },
+        "f46a60bf-d181-494d-a85a-d2a8fb7fa429": {
+          "type": "product_type",
+          "settings": {
+            "title": "Sports Shorts Size Guide",
+            "product_type": "Sports Shorts",
+            "page": "sports-shorts-size-chart"
+          }
+        },
+        "9a639ecc-bf21-499c-98a0-9cf5c164fa92": {
+          "type": "product_tag",
+          "settings": {
+            "title": "Goolies (Kids) Pyjamas Size Guide - Short",
+            "product_tag": "sizechart-goolies-pyjamas-short",
+            "page": "goolies-pyjama-bottoms-size-guide-short"
+          }
+        },
+        "134c89ba-ec6c-407c-a262-7dd1593cb531": {
+          "type": "product_tag",
+          "settings": {
+            "title": "Goolies (Kids) Pyjamas Size Guide - Long",
+            "product_tag": "sizechart-goolies-pyjamas-long",
+            "page": "goolies-pyjama-bottoms-size-guide-long"
+          }
+        },
+        "68b6ce0c-680d-45e5-aea1-96c6df9745b0": {
+          "type": "product_tag",
+          "settings": {
+            "title": "Clothing size guide",
+            "product_tag": "sizechart-clothing",
+            "page": "clothing-size-chart"
+          }
+        },
+        "712bda02-ba0b-4eed-9f5b-ba702daea226": {
+          "type": "product_tag",
+          "settings": {
+            "title": "Xmas Jumper Size Guide",
+            "product_tag": "sizechart-xmas-jumper",
+            "page": "christmas-jumpers-size-guide"
+          }
+        },
+        "649a46c9-be06-427d-98be-125945499758": {
+          "type": "product_type",
+          "settings": {
+            "title": "Flex fit caps size guide",
+            "product_type": "Hats",
+            "page": "flex-fit-caps-size-guide"
+          }
+        },
+        "5e5d8eba-aeab-4163-a0c3-6df96590f715": {
+          "type": "product_type",
+          "settings": {
+            "title": "Running Vests",
+            "product_type": "Running Vests",
+            "page": "vests-size-guide"
+          }
+        },
+        "8aa15f13-c123-4f06-b6a4-98a6a7f2f73c": {
+          "type": "product_type",
+          "settings": {
+            "title": "Training T-Shirt (Womens)",
+            "product_type": "Training T-Shirt (Womens)",
+            "page": "ladies-t-shirt-size-chart"
+          }
+        },
+        "3e6b71e8-fcb7-45c2-bbfe-ee71f3167266": {
+          "type": "product_tag",
+          "settings": {
+            "title": "Size Chart - Womens Underwear US",
+            "product_tag": "sizechart-us-womens",
+            "page": "us-womens-size-chart"
+          }
+        },
+        "product_tag_yT66QA": {
+          "type": "product_tag",
+          "settings": {
+            "title": "mens underwear size chart",
+            "product_tag": "sizechart-mens-underwear",
+            "page": "mens-underwear-size-chart"
+          }
+        },
+        "product_tag_JhYTww": {
+          "type": "product_tag",
+          "settings": {
+            "title": "Bucket Hats",
+            "product_tag": "sizechart-bucket-hats",
+            "page": "bucket-hats-size-guide"
+          }
+        }
+      },
+      "block_order": [
+        "99102f8b-105c-4b00-b475-78dbc2102a11",
+        "2dba91c9-88ce-4c85-8d52-b3ff3afd9dde",
+        "84108409-0d34-46ea-8409-bf0c09a7d5d4",
+        "79e50057-3d69-4e26-9bb2-f20411a370f5",
+        "4004eb3a-33a4-43e5-a1ac-59b0095b4718",
+        "ea517618-1d0d-4a04-a263-c9af8ee109a0",
+        "product_tag_4373g4",
+        "e0d4c15a-7950-42d2-87af-93c2ec7da946",
+        "a94d5f81-9059-427c-b9e4-7654a217d227",
+        "4d9e0ef9-0b38-43a3-8304-ad58c58f4184",
+        "a9cb99f8-8f16-40e9-aded-c0f1d90606c7",
+        "262418c5-0e30-48e9-a07c-272ea82d2716",
+        "2c0dee36-2e79-453a-9669-4ddb004095df",
+        "f46a60bf-d181-494d-a85a-d2a8fb7fa429",
+        "9a639ecc-bf21-499c-98a0-9cf5c164fa92",
+        "134c89ba-ec6c-407c-a262-7dd1593cb531",
+        "68b6ce0c-680d-45e5-aea1-96c6df9745b0",
+        "712bda02-ba0b-4eed-9f5b-ba702daea226",
+        "649a46c9-be06-427d-98be-125945499758",
+        "5e5d8eba-aeab-4163-a0c3-6df96590f715",
+        "8aa15f13-c123-4f06-b6a4-98a6a7f2f73c",
+        "3e6b71e8-fcb7-45c2-bbfe-ee71f3167266",
+        "product_tag_yT66QA",
+        "product_tag_JhYTww"
+      ],
+      "disabled": true,
+      "settings": {}
+    },
+    "17422937523c933b90": {
+      "type": "apps",
+      "blocks": {
+        "eb_easy_bundle_builder_app_block_mix_and_match_bundle_UWyNCY": {
+          "type": "shopify://apps/eb-easy-bundle-builder/blocks/app-block-mixAndMatchBundle/05b1325c-6303-4da5-8e2f-b13ab2a50e1a",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "eb_easy_bundle_builder_app_block_mix_and_match_bundle_UWyNCY"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "size-guide-charts",
+    "17422937523c933b90"
+  ]
+}

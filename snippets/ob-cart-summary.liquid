@@ -1,0 +1,63 @@
+<div class="cart-subtotal">
+    <div class="shoppingbag__sidesection items-summary">  
+      
+        {% assign totaldiscounts = cart.total_discounts | plus: totalcomparesaving %}
+        {% assign totaloriginalprice = cart.total_price | plus: totalcomparesaving %}       
+        {% assign totaloriginalprice = totaloriginalprice | plus: freegiftsavings %}                 
+      
+        <div class="items-content grid--full">
+            {% if totaldiscounts > 0 %}
+            {% assign savings = totaldiscounts | minus: freegiftsavings  %}
+            <div class="flex justify-between text-sm pb-1">								 	
+                <!-- If there is a discount -->								
+                <div class=""> 
+                    {{ 'ob_cart.order_value' | t }}: 
+                </div>
+                <div class="">
+                    {{ totaloriginalprice | money }}
+                </div>	
+            </div>
+          {% if totalcomparesaving > 0 %}
+            <div class="flex justify-between text-sm pb-1">
+                <div class=""> 
+                   {{ 'ob_cart.cart_savings' | t }}:  
+                </div>
+                <div class="">
+                    -{{ totalcomparesaving | money }}
+                </div>	
+            </div>
+            {% endif %}
+          
+            <!-- End: If there is a discount -->				
+            {% endif %}	
+          {% if freegiftsavings != 0 %}
+          <div class="flex justify-between text-sm pb-1">
+                <div class=""> 
+                    Free Gift Savings Applied:  
+                </div>
+                <div class="">
+                    -{{ freegiftsavings | money }}
+                </div>	
+            </div>
+            {% endif %}
+            <div class="flex justify-between text-lg font-semibold">
+                <div class=""> 
+                    {{ 'ob_cart.subtotal' | t }}
+                </div>
+                <div class="text-magenta">
+                    {{ cart.total_price | money }}
+                </div>	
+            </div>
+             {% comment %}
+             {% if cart.total_discounts > 0 %}
+             <!-- If there is a discount -->								
+            <div class="items-summary-discount lap--full desk--full">
+                <span class="cart-discount">{% assign savings = cart.total_discounts | money %}</span>
+                <span class="cart-subtotal__discount">{{ 'cart.general.savings_html' | t: price: savings }}</span>		
+            </div>
+            <!-- End: If there is a discount -->
+            {% endif %}	
+            {% endcomment %}
+        </div>
+    </div>
+</div>

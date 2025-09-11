@@ -1,0 +1,703 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "wrapper": "div.template-wrapper",
+  "sections": {
+    "custom_liquid_b9CPmp": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<script defer src=\"https://help-center.gorgias.help/api/help-centers/loader.js?v=2\" data-gorgias-loader-help-center data-gorgias-help-center-uid=\"gcgo2kcy\"></script>",
+        "color_scheme": "",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "1639476975d6303e7b": {
+      "type": "tabs-and-blocks",
+      "blocks": {
+        "e31a37ae-20ff-49f5-a50e-dce0ca1bf006": {
+          "type": "tab",
+          "disabled": true,
+          "settings": {
+            "tab_id": "loyalty",
+            "country_iso": "*",
+            "default_tab": true,
+            "title": "Black Friday",
+            "block_title_classes": "",
+            "block_extra_field": "",
+            "block_extra_field_classes": "",
+            "block_wrapper_classes": "flex justify-center items-center flex-col text-center  py-2 px-2 btn-shadow-lg border-2 border-solid border-black rounded-md hover:bg-magenta-200 transition-colors duration-200"
+          }
+        },
+        "4a57264d-53b3-4793-9e90-b56536cd89ae": {
+          "type": "tab",
+          "settings": {
+            "tab_id": "offers_tab",
+            "country_iso": "*",
+            "default_tab": true,
+            "title": "Current Offers",
+            "block_title_classes": "",
+            "block_extra_field": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 24 24\" class=\"h-6 w-6 fill-current\"><path d=\"M7.5,6A1.5,1.5,0,1,0,9,7.5,1.5,1.5,0,0,0,7.5,6Zm13.62,4.71L12.71,2.29A1,1,0,0,0,12,2H3A1,1,0,0,0,2,3v9a1,1,0,0,0,.29.71l8.42,8.41a3,3,0,0,0,4.24,0L21.12,15a3,3,0,0,0,0-4.24Zm-1.41,2.82h0l-6.18,6.17a1,1,0,0,1-1.41,0L4,11.59V4h7.59l8.12,8.12a1,1,0,0,1,.29.71A1,1,0,0,1,19.71,13.53Z\"></path></svg>",
+            "block_extra_field_classes": "hidden",
+            "block_wrapper_classes": "flex justify-center items-center flex-col text-center  py-2 px-2 btn-shadow-lg border-2 border-solid border-black rounded-md hover:bg-magenta-200 transition-colors duration-200"
+          }
+        },
+        "ceaf312f-a0a9-4737-b906-feb1c14c6b13": {
+          "type": "tab",
+          "settings": {
+            "tab_id": "ordering_tab",
+            "country_iso": "*",
+            "default_tab": false,
+            "title": "Ordering",
+            "block_title_classes": "",
+            "block_extra_field": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 640 512\" class=\"h-6 w-6 fill-current\"><!-- Font Awesome Pro 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) --><path d=\"M112 48h352v48h48V32a32.09 32.09 0 0 0-32-32H96a32.09 32.09 0 0 0-32 32v256H16a16 16 0 0 0-16 16v16a64.14 64.14 0 0 0 63.91 64H352v-96H112zm492 80H420a36 36 0 0 0-36 36v312a36 36 0 0 0 36 36h184a36 36 0 0 0 36-36V164a36 36 0 0 0-36-36zm-12 336H432V176h160z\"></path></svg>",
+            "block_extra_field_classes": "hidden",
+            "block_wrapper_classes": "flex justify-center items-center flex-col text-center  py-2 px-2 btn-shadow-lg border-2 border-solid border-black rounded-md hover:bg-magenta-200 transition-colors duration-200"
+          }
+        },
+        "d84dadff-acee-4ab0-ba10-f006c7ea23d6": {
+          "type": "tab",
+          "settings": {
+            "tab_id": "payment_tab",
+            "country_iso": "*",
+            "default_tab": false,
+            "title": "Payment",
+            "block_title_classes": "",
+            "block_extra_field": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 576 512\" class=\"h-6 w-6 fill-current\"><!-- Font Awesome Pro 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) --><path d=\"M527.9 32H48.1C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48.1 48h479.8c26.6 0 48.1-21.5 48.1-48V80c0-26.5-21.5-48-48.1-48zm-6 400H54.1c-3.3 0-6-2.7-6-6V86c0-3.3 2.7-6 6-6h467.8c3.3 0 6 2.7 6 6v340c0 3.3-2.7 6-6 6zM192 364v8c0 6.6-5.4 12-12 12h-72c-6.6 0-12-5.4-12-12v-8c0-6.6 5.4-12 12-12h72c6.6 0 12 5.4 12 12zm192 0v8c0 6.6-5.4 12-12 12H236c-6.6 0-12-5.4-12-12v-8c0-6.6 5.4-12 12-12h136c6.6 0 12 5.4 12 12zm-124-44h-56c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h56c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm28-12v-40c0-6.6 5.4-12 12-12h56c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12h-56c-6.6 0-12-5.4-12-12zm-192 0v-40c0-6.6 5.4-12 12-12h56c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12h-56c-6.6 0-12-5.4-12-12zm384-40v40c0 6.6-5.4 12-12 12h-72c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h72c6.6 0 12 5.4 12 12zm0-132v48c0 13.3-10.7 24-24 24h-80c-13.3 0-24-10.7-24-24v-48c0-13.3 10.7-24 24-24h80c13.3 0 24 10.7 24 24z\"></path></svg>",
+            "block_extra_field_classes": "hidden",
+            "block_wrapper_classes": "flex justify-center items-center flex-col text-center  py-2 px-2 btn-shadow-lg border-2 border-solid border-black rounded-md hover:bg-magenta-200 transition-colors duration-200"
+          }
+        },
+        "52acc579-b606-49ee-b87c-ee20259129ad": {
+          "type": "tab",
+          "settings": {
+            "tab_id": "problems_tab",
+            "country_iso": "*",
+            "default_tab": false,
+            "title": "Order Problems",
+            "block_title_classes": "",
+            "block_extra_field": "<svg xmlns=\"http://www.w3.org/2000/svg\" enable-background=\"new 0 0 32 32\" viewbox=\"0 0 32 32\" class=\"h-6 w-6 fill-current\"><path d=\"M13,28H7c-0.6,0-1-0.4-1-1V5c0-0.6,0.4-1,1-1h14c0.6,0,1,0.4,1,1v8c0,0.6,0.4,1,1,1s1-0.4,1-1V5c0-1.7-1.3-3-3-3H7C5.3,2,4,3.3,4,5v22c0,1.7,1.3,3,3,3h6c0.6,0,1-0.4,1-1S13.6,28,13,28z\"></path><path d=\"M13 6c-.6 0-1 .4-1 1s.4 1 1 1h2c.6 0 1-.4 1-1s-.4-1-1-1H13zM23.7 20.3c-.4-.4-1-.4-1.4 0L21 21.6l-1.3-1.3c-.4-.4-1-.4-1.4 0s-.4 1 0 1.4l1.3 1.3-1.3 1.3c-.4.4-.4 1 0 1.4.2.2.5.3.7.3s.5-.1.7-.3l1.3-1.3 1.3 1.3c.2.2.5.3.7.3s.5-.1.7-.3c.4-.4.4-1 0-1.4L22.4 23l1.3-1.3C24.1 21.3 24.1 20.7 23.7 20.3z\"></path><path d=\"M21,16c-3.9,0-7,3.1-7,7s3.1,7,7,7s7-3.1,7-7S24.9,16,21,16z M21,28c-2.8,0-5-2.2-5-5s2.2-5,5-5s5,2.2,5,5S23.8,28,21,28z\"></path></svg>",
+            "block_extra_field_classes": "hidden",
+            "block_wrapper_classes": "flex justify-center items-center flex-col text-center  py-2 px-2 btn-shadow-lg border-2 border-solid border-black rounded-md hover:bg-magenta-200 transition-colors duration-200"
+          }
+        },
+        "a7271ded-752d-4b33-8ce7-cd1afa38fde4": {
+          "type": "tab",
+          "settings": {
+            "tab_id": "discount_tab",
+            "country_iso": "*",
+            "default_tab": false,
+            "title": "Discount Codes",
+            "block_title_classes": "",
+            "block_extra_field": "<svg xmlns=\"http://www.w3.org/2000/svg\" enable-background=\"new 0 0 64 64\" viewbox=\"0 0 64 64\" class=\"h-6 w-6 fill-current\"><path d=\"M57.3,26.7c1.1-0.5,1.7-1.6,1.7-2.7V16c0-1.7-1.3-3-3-3H8c-1.7,0-3,1.3-3,3v7.8C5,25,5.7,26,6.8,26.5    c2.1,1,3.5,3.1,3.5,5.5S9,36.5,6.8,37.5C5.7,38,5,39,5,40.2V48c0,1.7,1.3,3,3,3h48c1.7,0,3-1.3,3-3v-7.9c0-1.1-0.7-2.2-1.7-2.7    c-2-1-3.3-3.1-3.3-5.3S55.3,27.7,57.3,26.7z M52,32c0,3,1.7,5.8,4.4,7.1c0.4,0.2,0.6,0.6,0.6,0.9V48c0,0.6-0.4,1-1,1H8    c-0.6,0-1-0.4-1-1v-7.8c0-0.4,0.3-0.8,0.7-0.9c2.9-1.3,4.7-4.2,4.7-7.3s-1.8-6-4.7-7.3C7.3,24.5,7,24.2,7,23.8V16c0-0.6,0.4-1,1-1    h48c0.6,0,1,0.4,1,1v7.9c0,0.4-0.2,0.7-0.6,0.9C53.7,26.2,52,29,52,32z\"></path><path d=\"M39 34c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5S41.8 34 39 34zM39 42c-1.7 0-3-1.3-3-3s1.3-3 3-3 3 1.3 3 3S40.7 42 39 42zM25 30c2.8 0 5-2.2 5-5s-2.2-5-5-5-5 2.2-5 5S22.2 30 25 30zM25 22c1.7 0 3 1.3 3 3s-1.3 3-3 3-3-1.3-3-3S23.3 22 25 22zM43 23.9c0-.8-.3-1.5-.9-2.1-1.1-1.1-3-1.1-4.1 0L21.9 38c-.5.5-.9 1.3-.9 2.1 0 .8.3 1.5.9 2.1.6.6 1.3.9 2.1.9.7 0 1.5-.3 2.1-.9L42.1 26C42.7 25.4 43 24.7 43 23.9zM40.7 24.5C40.7 24.5 40.7 24.5 40.7 24.5L24.5 40.7c-.4.4-.9.4-1.3 0-.2-.2-.3-.4-.3-.6s.1-.5.3-.6l16.2-16.2c.2-.2.4-.3.6-.3s.5.1.6.3c.2.2.3.4.3.6S40.9 24.4 40.7 24.5z\"></path></svg>",
+            "block_extra_field_classes": "hidden",
+            "block_wrapper_classes": "flex justify-center items-center flex-col text-center  py-2 px-2 btn-shadow-lg border-2 border-solid border-black rounded-md hover:bg-magenta-200 transition-colors duration-200"
+          }
+        },
+        "39044e62-3990-4582-bcc1-92db30518573": {
+          "type": "tab",
+          "settings": {
+            "tab_id": "shipping_tab",
+            "country_iso": "*",
+            "default_tab": false,
+            "title": "Shipping & Delivery",
+            "block_title_classes": "",
+            "block_extra_field": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 640 512\" class=\"h-6 w-6 fill-current\"><!-- Font Awesome Pro 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) --><path d=\"M624 368h-16V251.9c0-19-7.7-37.5-21.1-50.9L503 117.1C489.6 103.7 471 96 452.1 96H416V56c0-30.9-25.1-56-56-56H56C25.1 0 0 25.1 0 56v304c0 30.9 25.1 56 56 56h8c0 53 43 96 96 96s96-43 96-96h128c0 53 43 96 96 96s96-43 96-96h48c8.8 0 16-7.2 16-16v-16c0-8.8-7.2-16-16-16zm-464 96c-26.5 0-48-21.5-48-48s21.5-48 48-48 48 21.5 48 48-21.5 48-48 48zm208-96H242.7c-16.6-28.6-47.2-48-82.7-48s-66.1 19.4-82.7 48H56c-4.4 0-8-3.6-8-8V56c0-4.4 3.6-8 8-8h304c4.4 0 8 3.6 8 8v312zm48-224h36.1c6.3 0 12.5 2.6 17 7l73 73H416v-80zm64 320c-26.5 0-48-21.5-48-48s21.5-48 48-48 48 21.5 48 48-21.5 48-48 48zm80-100.9c-17.2-25.9-46.6-43.1-80-43.1-24.7 0-47 9.6-64 24.9V272h144v91.1z\"></path></svg>",
+            "block_extra_field_classes": "hidden",
+            "block_wrapper_classes": "flex justify-center items-center flex-col text-center  py-2 px-2 btn-shadow-lg border-2 border-solid border-black rounded-md hover:bg-magenta-200 transition-colors duration-200"
+          }
+        },
+        "8a815caf-7312-4e5d-98c2-aad270572c6b": {
+          "type": "tab",
+          "settings": {
+            "tab_id": "returns_tab",
+            "country_iso": "*",
+            "default_tab": false,
+            "title": "Returns",
+            "block_title_classes": "",
+            "block_extra_field": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 64 64\" class=\"h-6 w-6 fill-current\"><rect width=\"9.3\" height=\"2\" x=\"7.323\" y=\"38.558\"></rect><rect width=\"7.055\" height=\"2\" x=\"7.323\" y=\"44.063\"></rect><path d=\"M57.6,33.345H50.1V15.418H50.1a1,1,0,0,0-.092-.43L45.577,5.7a1,1,0,0,0-.9-.57H7.578a1,1,0,0,0-.9.57l-4.43,9.291a.983.983,0,0,0-.092.43H2.148V51.984a1,1,0,0,0,1,1h35.28v6.981a1,1,0,0,0,1,1H57.6a5,5,0,0,0,4.991-4.991V38.335A5,5,0,0,0,57.6,33.345ZM47.519,14.418H32.775V7.127H44.044ZM30.775,7.127v7.291h-9.3V7.127Zm-9.3,9.291h9.3V29.285h-9.3ZM8.209,7.127H19.477v7.291H4.733ZM4.148,16.418H19.477V30.285a1,1,0,0,0,1,1h11.3a1,1,0,0,0,1-1V16.418H48.1V33.345H43.7v-2.92a1,1,0,0,0-1.548-.837L29.84,37.642a1,1,0,0,0,0,1.673l12.307,8.053a1,1,0,0,0,1.548-.837v-3.2H52.61v7.657H4.148ZM60.592,55.974A3,3,0,0,1,57.6,58.965H40.428V52.984H53.61a1,1,0,0,0,1-1V42.326a1,1,0,0,0-1-1H42.7a1,1,0,0,0-1,1v2.356l-9.481-6.2,9.481-6.2v2.071a1,1,0,0,0,1,1H57.6a2.994,2.994,0,0,1,2.991,2.99Z\"></path></svg>",
+            "block_extra_field_classes": "hidden",
+            "block_wrapper_classes": "flex justify-center items-center flex-col text-center  py-2 px-2 btn-shadow-lg border-2 border-solid border-black rounded-md hover:bg-magenta-200 transition-colors duration-200"
+          }
+        },
+        "2519f67c-b088-4a93-943d-3b5ece6350a9": {
+          "type": "tab",
+          "settings": {
+            "tab_id": "communication_tab",
+            "country_iso": "*",
+            "default_tab": false,
+            "title": "Communication",
+            "block_title_classes": "",
+            "block_extra_field": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 576 512\" class=\"h-6 w-6 fill-current\"><!-- Font Awesome Pro 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) --><path d=\"M512 160h-96V64c0-35.3-28.7-64-64-64H64C28.7 0 0 28.7 0 64v160c0 35.3 28.7 64 64 64h32v52c0 7.1 5.8 12 12 12 2.4 0 4.9-.7 7.1-2.4l76.9-43.5V384c0 35.3 28.7 64 64 64h96l108.9 61.6c2.2 1.6 4.7 2.4 7.1 2.4 6.2 0 12-4.9 12-12v-52h32c35.3 0 64-28.7 64-64V224c0-35.3-28.7-64-64-64zM96 240H64c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h288c8.8 0 16 7.2 16 16v160c0 8.8-7.2 16-16 16H211.4l-11 6.2-56.4 31.9V240H96zm432 144c0 8.8-7.2 16-16 16h-80v38.1l-56.4-31.9-11-6.2H256c-8.8 0-16-7.2-16-16v-96h112c35.3 0 64-28.7 64-64v-16h96c8.8 0 16 7.2 16 16v160z\"></path></svg>",
+            "block_extra_field_classes": "hidden",
+            "block_wrapper_classes": "flex justify-center items-center flex-col text-center  py-2 px-2 btn-shadow-lg border-2 border-solid border-black rounded-md hover:bg-magenta-200 transition-colors duration-200"
+          }
+        },
+        "26f04af7-47d5-44f5-a639-f197f4c89f25": {
+          "type": "tab",
+          "settings": {
+            "tab_id": "rewards_tab",
+            "country_iso": "*",
+            "default_tab": false,
+            "title": "Rewards Programme",
+            "block_title_classes": "",
+            "block_extra_field": "",
+            "block_extra_field_classes": "hidden",
+            "block_wrapper_classes": "flex justify-center items-center flex-col text-center  py-2 px-2 btn-shadow-lg border-2 border-solid border-black rounded-md hover:bg-magenta-200 transition-colors duration-200"
+          }
+        }
+      },
+      "block_order": [
+        "e31a37ae-20ff-49f5-a50e-dce0ca1bf006",
+        "4a57264d-53b3-4793-9e90-b56536cd89ae",
+        "ceaf312f-a0a9-4737-b906-feb1c14c6b13",
+        "d84dadff-acee-4ab0-ba10-f006c7ea23d6",
+        "52acc579-b606-49ee-b87c-ee20259129ad",
+        "a7271ded-752d-4b33-8ce7-cd1afa38fde4",
+        "39044e62-3990-4582-bcc1-92db30518573",
+        "8a815caf-7312-4e5d-98c2-aad270572c6b",
+        "2519f67c-b088-4a93-943d-3b5ece6350a9",
+        "26f04af7-47d5-44f5-a639-f197f4c89f25"
+      ],
+      "disabled": true,
+      "settings": {
+        "outer_wrapper_attr": "data-attribute for linking section content",
+        "outer_wrapper_classes": "max-w-7xl mx-auto pt-12 lg:px-20 md:px-6 px-4",
+        "inner_wrapper_classes": "",
+        "header_wrapper_classes": "col-span-12 flex flex-col justify-center items-center text-center gap-y-4",
+        "all_tabs_wrapper_classes": "hidden col-span-12 md:block md:grid grid-cols-2 sm:grid-cols-3 w-full lg:grid-cols-3 xl:grid-cols-3 justify-items-around gap-x-3 gap-y-3 xl:gap-x-5 mt-10",
+        "content_wrapper_classes": "grid grid-cols-12 gap-6",
+        "option_menu_selected": true,
+        "title": "Frequently Asked Questions",
+        "title_classes": "font-bebas text-3xl lg:text-5xl font-semibold  leading-9 md:leading-7 lg:leading-9 text-gray-800",
+        "description": "",
+        "description_classes": "text-base leading-6 text-center text-gray-600 w-full md:w-10/12"
+      }
+    },
+    "1639480410b2031966": {
+      "type": "tabs-and-blocks",
+      "blocks": {
+        "451e1246-4179-4528-a3f0-e55829751104": {
+          "type": "content-image-faq",
+          "disabled": true,
+          "settings": {
+            "tab_identifier": "offers_tab",
+            "block_wrapper_classes": "mt-10 col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-black overflow-hidden",
+            "id": "freevdaycard",
+            "title": "FREE Valentines Card",
+            "block_title_classes": "w-full bg-gray-100 px-8 pt-5 pb-3 text-xl md:text-2xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas",
+            "description": "FREE Valentine's Day Card  \n<br>\nFor a limited time only, you can add a FREE Valentine's Card to your order. \n<br>\nThis will be in one of four of our popular designs, with 'I FANCY THE PANTS OFF YOU' messaging on the front, and blank inside for your own message! \n<br>\nDue to a high volume of orders, customers are unable to specify which free gift they would like.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600 mt-4",
+            "image_classes": "h-full w-full md:w-40 mb-3"
+          }
+        },
+        "aa82711a-e8b3-482b-a513-b7c388054d78": {
+          "type": "content-faq",
+          "disabled": true,
+          "settings": {
+            "tab_identifier": "offers_tab",
+            "country_iso": "*",
+            "block_wrapper_classes": "mt-10 col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-black overflow-hidden",
+            "id": "bfgift",
+            "title": "Free Black Friday Gift",
+            "title_text": "",
+            "block_title_classes": "w-full bg-gray-100 px-8 pt-5 pb-3 text-xl md:text-2xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas",
+            "description": "Every order during Black Friday will get a FREE extra gift! This will be either a tea towel, keyring, washbag or travel pillow. Due to a high volume of orders this weekend, customers are unable to specify which free gift they would like.",
+            "block_description_classes": "px-8 py-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "3e9bd242-d0bb-4a5f-9faf-4c5597bd6a7f": {
+          "type": "content-image-faq",
+          "disabled": true,
+          "settings": {
+            "tab_identifier": "offers_tab2",
+            "block_wrapper_classes": "mt-10 col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-black overflow-hidden bf-for-popup",
+            "id": "bfgift",
+            "title": "Free Black Friday Gift",
+            "block_title_classes": "w-full bg-gray-100 px-8 pt-5 pb-3 text-xl md:text-2xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas",
+            "description": "Free Black Friday gift with every order placed today!\n<span class=\"pb-1 block\"></span>\nThis will automatically be added to your order after checkout, and will be either a tea towel or keyring. \n<span class=\"pb-1 block\"></span>\nDue to a high volume of orders expected, customers are unable to specify which free gift they would like.",
+            "block_description_classes": "px-8 py-5 text-sm leading-6 dark:text-gray-400 text-gray-600",
+            "faq_image": "shopify://shop_images/BF_FREEGIFT_4-min.png",
+            "image_classes": "h-full w-full md:w-40 mb-3"
+          }
+        },
+        "29a82992-1af7-4cc2-81bf-d807118edcb2": {
+          "type": "content-faq",
+          "disabled": true,
+          "settings": {
+            "tab_identifier": "offers_tab",
+            "country_iso": "*",
+            "block_wrapper_classes": "mt-10 col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-black overflow-hidden",
+            "id": "blackFridayOffer",
+            "title": "Black Friday",
+            "title_text": "January Sale",
+            "block_title_classes": "w-full bg-gray-100 px-8 pt-5 pb-3 text-xl md:text-2xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas",
+            "description": "During our January Sale Event, there is up to 40% off a huge range of products online. The are some excluded products such as new ranges, Custom Products, Our OddBalls Subscription (Memberships) and Gift Cards. \n<br><br>\nThe use of discount codes is always disabled across our sale events, as you’re already getting a brilliant deal online!",
+            "block_description_classes": "px-8 py-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "f5c657d5-3107-44ba-9493-4615158b61b7": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "offers_tab",
+            "country_iso": "GB",
+            "block_wrapper_classes": "my-4 col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-black overflow-hidden",
+            "id": "ourfreepoffer",
+            "title": "GB - Our Current Offers",
+            "title_text": "Our Current Offers",
+            "block_title_classes": "w-full bg-gray-100 px-8 pt-5 pb-3 text-xl md:text-2xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas",
+            "description": "<b>Free Products</b>\n<br>\nIf you spend over <b>£40.00</b> on one order, you can select ONE FREE PRODUCT to your order (RRP up to £20.00). Select the products you want in the checkout when you have over £40.00 (there are plenty to choose from!). We cannot send the item out to you if it is not on the order confirmation.\n<br>\nYou can mix and match any products as long as over £40.00 is spent on products after payment. (These prices exclude any shipping costs and discount codes you might apply).\n<br>\nYou can't exchange the free products unless the fault lies with us. Please select the products and style you want in the cart section to claim the offer.\n<br>\nFor random offers you can't pick the designs you want. We will send the item at random.\n<br>\n**Please note: discount codes cannot be used on custom products or memberships**<br><br>",
+            "block_description_classes": "px-8 py-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "ca083e8e-1c70-4c1f-bce4-f1e76e6826e1": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "offers_tab",
+            "country_iso": "US",
+            "block_wrapper_classes": "my-4 col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-black overflow-hidden",
+            "id": "ourfreepoffer",
+            "title": "US - Our Current Offers",
+            "title_text": "Our Current Offers",
+            "block_title_classes": "w-full bg-gray-100 px-8 pt-5 pb-3 text-xl md:text-2xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas",
+            "description": "<b>Free Products</b>\n<br>\nIf you spend over <b>$55.00</b> on one order, you can select ONE FREE PRODUCT to your order RRP $24.00. Select the product you want in the checkout when you have over $55.00. We cannot send the item out to you if it is not on the order confirmation.\n<br>\nYou can mix and match any products as long as over $55.00 is spent on products after payment. (These prices exclude any shipping costs and discount codes you might apply).\n<br>\nYou can't exchange the free products unless the fault lies with us. Please select the products and style you want in the cart section to claim the offer.\n<br>\nFor random offers you can't pick the designs you want. We will send the item at random.\n<br>",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "88a917f5-566f-454d-9c95-1c6a45bc67b1": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "offers_tab",
+            "country_iso": "CA",
+            "block_wrapper_classes": "my-4 col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-black overflow-hidden",
+            "id": "ourfreepoffer",
+            "title": "CA - Our Current Offers",
+            "title_text": "Our Current Offers",
+            "block_title_classes": "w-full bg-gray-100 px-8 pt-5 pb-3 text-xl md:text-2xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas",
+            "description": "<b>Free Products</b>\n<br>\nIf you spend over <b>$70.00</b> on one order, you can select ONE FREE PRODUCT to your order RRP $26.00. Select the product you want in the checkout when you have over $70.00. We cannot send the item out to you if it is not on the order confirmation.\n<br>\nYou can mix and match any products as long as over $70.00 is spent on products after payment. (These prices exclude any shipping costs and discount codes you might apply).\n<br>\nYou can't exchange the free products unless the fault lies with us. Please select the products and style you want in the cart section to claim the offer.\n<br>\nFor random offers you can't pick the designs you want. We will send the item at random.\n<br>",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "22b0ba64-447f-4fed-bed9-4ff77fa87185": {
+          "type": "content-faq",
+          "disabled": true,
+          "settings": {
+            "tab_identifier": "offers_tab",
+            "country_iso": "GB",
+            "block_wrapper_classes": "my-4 col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-black overflow-hidden",
+            "id": "freevdaycard",
+            "title": "Free Valentine's Card",
+            "title_text": "Free Valentine's Card",
+            "block_title_classes": "w-full bg-gray-100 px-8 pt-5 pb-3 text-xl md:text-2xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas",
+            "description": "<b>FREE Valentine's Day Card</b>  \n<br>\nFor a limited time only, you can add a FREE Valentine's Card to your order. \n<br>\nThis will be in one of four of our popular designs, with 'I FANCY THE PANTS OFF YOU' messaging on the front, and blank inside for your own message! \n<br>\nDue to a high volume of orders, customers are unable to specify which free gift they would like.",
+            "block_description_classes": "px-8 py-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "89671a29-080a-45fa-8489-f7bf61f06168": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "ordering_tab",
+            "country_iso": "*",
+            "block_wrapper_classes": "my-4 col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "PLACING AN ORDER",
+            "title_text": "PLACING AN ORDER",
+            "block_title_classes": "w-full bg-gray-100 px-8 pt-5 pb-3 text-xl md:text-2xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas",
+            "description": "Once you have submitted your order, you will be taken to the order confirmation page which you can print for your records. You will also receive an e-mail confirmation, usually within minutes. Please check that all details are correct. If not please contact us immediately.<br><br>   We will do our best to make any changes to orders however this is not always possible so please thoroughly check your order before placing it!",
+            "block_description_classes": "px-8 py-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "c3b66b5b-5f78-4ae7-9d57-130f603c47fa": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "ordering_tab",
+            "country_iso": "*",
+            "block_wrapper_classes": "my-4 col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "IS VAT INCLUDED IN THE PRICE?",
+            "title_text": "IS VAT INCLUDED IN THE PRICE?",
+            "block_title_classes": "w-full bg-gray-100 px-8 pt-5 pb-3 text-xl md:text-2xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas",
+            "description": "All prices given on myoddballs.com include VAT unless otherwise stated. No discount will be given on products where VAT is not chargeable. OddBalls reserves the right to amend our prices to reflect any changes in VAT that may occur. International orders will not be charged UK VAT.",
+            "block_description_classes": "px-8 py-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "9b22cd86-b40a-477e-aeee-a7892a50bb88": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "ordering_tab",
+            "country_iso": "*",
+            "block_wrapper_classes": "my-4 col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "CANCELLING AN ORDER",
+            "title_text": "CANCELLING AN ORDER",
+            "block_title_classes": "w-full bg-gray-100 px-8 pt-5 pb-3 text-xl md:text-2xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas",
+            "description": "Under the Consumer Protection (distance selling) Regulations 2000, you have a statutory right (exercisable up to and including the seventh working day after the day of delivery), to cancel your order for any reason and receive a full refund.",
+            "block_description_classes": "px-8 py-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "226f7a10-b0cb-4022-bf64-253476c4587b": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "ordering_tab",
+            "country_iso": "*",
+            "block_wrapper_classes": "my-4 col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "HOW CAN I CANCEL MY ORDER?",
+            "title_text": "HOW CAN I CANCEL MY ORDER?",
+            "block_title_classes": "w-full bg-gray-100 px-8 pt-5 pb-3 text-xl md:text-2xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas",
+            "description": "You can cancel your order at any point up to the completion and shipment of your order. Please contact us via our Contact Form or email us at: lookafter@myoddballs.com within 24 hours and we will confirm cancellation. Please make sure you include your full name, your order number, and a clear declaration that you wish to cancel the order in your message to us.   <br><br>If your order has already shipped, you can return your purchase to us in accordance with our return policy described below.",
+            "block_description_classes": "px-8 py-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "9323a8be-f4d5-4719-9e06-436416de56fd": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "payment_tab",
+            "country_iso": "*",
+            "block_wrapper_classes": "my-4 col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "PAYMENT METHODS",
+            "title_text": "PAYMENT METHODS",
+            "block_title_classes": "w-full bg-gray-100 px-8 pt-5 pb-3 text-xl md:text-2xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas",
+            "description": "We accept online payment in a secure environment by credit card and Paypal. We currently accept Visa Credit/Debit, MasterCard, Maestro, Delta, and Switch. All transactions are shown in UK £ sterling. <br><br>  Please note that we only accept credit cards from countries where we ship. <br><br>  For your safety and security we require you to enter your Card Verification Number (CVN) when paying by Credit Card. <br><br>  We use a simple and secure payment gateway service via Sage Pay, so you can shop with us safe in knowledge that your transactions are 100% secure. <br><br>  At this moment in time we are currently unable to accept cash, cheques or postal orders.",
+            "block_description_classes": "px-8 py-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "715ef6b8-203f-48de-b14f-8e3226b4fe58": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "payment_tab",
+            "country_iso": "*",
+            "block_wrapper_classes": "my-4 col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "CAN I PAY BY INVOICE?",
+            "title_text": "CAN I PAY BY INVOICE?",
+            "block_title_classes": "w-full bg-gray-100 px-8 pt-5 pb-3 text-xl md:text-2xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas",
+            "description": "No, unfortunately not at this time.",
+            "block_description_classes": "px-8 py-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "00c6b3b8-7dfe-4860-9e5b-3c4d053345a2": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "problems_tab",
+            "country_iso": "*",
+            "block_wrapper_classes": "my-4 col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "WHY HAS MY PAYMENT BEEN DECLINED?",
+            "title_text": "WHY HAS MY PAYMENT BEEN DECLINED?",
+            "block_title_classes": "w-full bg-gray-100 px-8 pt-5 pb-3 text-xl md:text-2xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas",
+            "description": "Card payments can be declined for a variety of reasons: <ul> <li>\tIs your card out of date?</li>  <li>\tHave you entered your details correctly?</li> <li>Did you enter your credit card's correct three-digit CVC code on the back?</li> </ul> If the problem persists please contact your bank or credit card issuer.",
+            "block_description_classes": "px-8 py-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "80a83f89-c89a-49e8-b141-c6b6b33523c0": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "problems_tab",
+            "country_iso": "*",
+            "block_wrapper_classes": "my-4 col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "WHAT DO I DO IF I HAVEN'T RECEIVED MY ORDER?",
+            "title_text": "WHAT DO I DO IF I HAVEN'T RECEIVED MY ORDER?",
+            "block_title_classes": "w-full bg-gray-100 px-8 pt-5 pb-3 text-xl md:text-2xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas",
+            "description": "Packages sent via regular postal service do not carry tracking numbers so cannot be tracked once they have left us.  <br><br> Please can we ask that you allow a minimum of 5 business days for an order being delivered within the UK, 10 business days for an order being delivered within Europe and 15 business days for an order being delivered to any other country, before contacting us to advise that you have not received your item.  <br><br> Orders that are returned to us by the courier will be refunded. Additionally orders that are abandoned by you for any reason will not be returned to you and will only be re-sent at your expense.",
+            "block_description_classes": "px-8 py-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "2005507c-eb74-4f95-bafa-ca076a5b705e": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "discount_tab",
+            "country_iso": "*",
+            "block_wrapper_classes": "my-4 col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "WHAT CAN I BUY WITH MY DISCOUNT CODE?",
+            "title_text": "WHAT CAN I BUY WITH MY DISCOUNT CODE?",
+            "block_title_classes": "w-full bg-gray-100 px-8 pt-5 pb-3 text-xl md:text-2xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas",
+            "description": "You can use discount codes on almost all of our products! The only exclusions are Subscriptions, Gift Cards, Custom Products and some of our sale / clearance items.",
+            "block_description_classes": "px-8 py-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "166dea92-66e6-4b64-b318-3c489adde178": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "discount_tab",
+            "country_iso": "*",
+            "block_wrapper_classes": "my-4 col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "I FORGOT TO USE MY PROMOTION CODE?",
+            "title_text": "I FORGOT TO USE MY PROMOTION CODE?",
+            "block_title_classes": "w-full bg-gray-100 px-8 pt-5 pb-3 text-xl md:text-2xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas",
+            "description": "Unfortunately, we are unable to apply any discounts after your order has been placed on site.",
+            "block_description_classes": "px-8 py-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "38310819-4e45-43f7-92a7-d8716548a956": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "discount_tab",
+            "country_iso": "*",
+            "block_wrapper_classes": "my-4 col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "I CANNOT APPLY A PROMOTION CODE?",
+            "title_text": "I CANNOT APPLY A PROMOTION CODE?",
+            "block_title_classes": "w-full bg-gray-100 px-8 pt-5 pb-3 text-xl md:text-2xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas",
+            "description": "If you are experiencing problems when trying to apply a promotion code on the check out page please contact us via our Contact Form prior to placing your order and we will assist you as quickly as possible.",
+            "block_description_classes": "px-8 py-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "9cad3b91-56d7-43d0-b47b-195cdbd6f573": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "shipping_tab",
+            "country_iso": "*",
+            "block_wrapper_classes": "my-4 col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "WHEN WILL MY ORDER SHIP?",
+            "title_text": "WHEN WILL MY ORDER SHIP?",
+            "block_title_classes": "w-full bg-gray-100 px-8 pt-5 pb-3 text-xl md:text-2xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas",
+            "description": "Your order is normally shipped via your local Royal Mail postal service or you can choose to pay for tracked delivery via DPD.   <br><br> Please note - the selected shipping timeframe only begins from the date your order is shipped and NOT the date the the order is placed.   <br><br> International orders can arrive anywhere between 7-10 business days from when the order reaches the destination country, not from when it is dispatched from us. Some packages can take slightly longer due to postal delays. Orders may also be delayed by customs procedures as customs duty may need to be paid before your package can be delivered in some non-EU countries. Please note that for orders outside the EU, custom charges may apply at your expense.",
+            "block_description_classes": "px-8 py-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "1afdf955-021d-4128-a3da-c1fe75f15e43": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "shipping_tab",
+            "country_iso": "*",
+            "block_wrapper_classes": "my-4 col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "WHAT ARE THE STANDARD SHIPPING COSTS?",
+            "title_text": "WHAT ARE THE STANDARD SHIPPING COSTS?",
+            "block_title_classes": "w-full bg-gray-100 px-8 pt-5 pb-3 text-xl md:text-2xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas",
+            "description": "Standard UK Shipping cost is £3.95<br>\nFree UK Shipping is available on orders over {freeshipping_threshold_money}<br>\nInternational shipping costs outside of the UK may vary, see below for more details.",
+            "block_description_classes": "px-8 py-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "93b9fdb0-390d-498f-85a6-d3c23cad38b4": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "shipping_tab",
+            "country_iso": "*",
+            "block_wrapper_classes": "my-4 col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "CAN I TRACK MY ORDER?",
+            "title_text": "CAN I TRACK MY ORDER?",
+            "block_title_classes": "w-full bg-gray-100 px-8 pt-5 pb-3 text-xl md:text-2xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas",
+            "description": "You should receive an automated email with a link in to track your order from the courier - please check your junk mail folder!",
+            "block_description_classes": "px-8 py-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "92fa2743-1da8-42d6-b165-692ed852284a": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "shipping_tab",
+            "country_iso": "*",
+            "block_wrapper_classes": "my-4 col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "INTERNATIONAL ORDERS",
+            "title_text": "INTERNATIONAL ORDERS",
+            "block_title_classes": "w-full bg-gray-100 px-8 pt-5 pb-3 text-xl md:text-2xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas",
+            "description": "All countries outside the ELI have additional customs clearance charges. Any customs or import duties are levied once the package reaches its destination country. Additional charges for customs clearance must be borne by you (the recipient). We regret that we have no control over these charges and cannot predict what they may be. For further details please contact your local customs authority. OddBalls cannot be accountable for any delays incurred whilst in transit with our courier. <br><br> All International orders will not be charged UK VAT. We use DHL for express international shipping and Royal Mail for standard international shipping. International shipping will take longer than UK shipping, International orders can arrive anywhere between 7-10 business days from when the order reaches the destination country, not from when it is dispatched from us. Please bare this in mind when ordering. <br><br> If an item is sent to an address that you specified when ordering which turns out to be incorrect, we are not liable if this item does not reach you. Any orders placed over the weekend or on a bank holiday will not be processed until the next working day.",
+            "block_description_classes": "px-8 py-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "abf027a8-e512-427a-ace4-2146310f1eaf": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "rewards_tab",
+            "country_iso": "*",
+            "block_wrapper_classes": "my-4 col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "DISCLAIMER",
+            "title_text": "DISCLAIMER",
+            "block_title_classes": "w-full bg-gray-100 px-8 pt-5 pb-3 text-xl md:text-2xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas",
+            "description": "OddBalls 'Ball Points' rewards programme was discontinued in August 2022. We now make use a new Refer a Friend programme which you can find <a class=\"text-magenta-500\" href=\"/pages/refer-a-friend-signup\">here</a>.",
+            "block_description_classes": "px-8 py-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "5e709577-cda1-4d3a-8201-f214a1f9d785": {
+          "type": "content-faq",
+          "disabled": true,
+          "settings": {
+            "tab_identifier": "loyalty",
+            "country_iso": "*",
+            "block_wrapper_classes": "my-4 col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "Loyalty Week",
+            "title_text": "",
+            "block_title_classes": "w-full bg-gray-100 px-8 pt-5 pb-3 text-xl md:text-2xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas",
+            "description": "During our Loyalty Week Sale Event, there is 20-50% off everything online. The only products that are excluded are Custom Products, our OddBalls Subscription (Memberships) and Gift Cards. \n<br><br>\nThe use of discount codes is always disabled across our sale events, as you’re already getting a brilliant deal online!\n<br><br>\nRefer A Friend programme: You can still refer a friend during Loyalty Week, but you can't use discount codes during the event. You can still redeem your code once the event is finished!",
+            "block_description_classes": "px-8 py-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        }
+      },
+      "block_order": [
+        "451e1246-4179-4528-a3f0-e55829751104",
+        "aa82711a-e8b3-482b-a513-b7c388054d78",
+        "3e9bd242-d0bb-4a5f-9faf-4c5597bd6a7f",
+        "29a82992-1af7-4cc2-81bf-d807118edcb2",
+        "f5c657d5-3107-44ba-9493-4615158b61b7",
+        "ca083e8e-1c70-4c1f-bce4-f1e76e6826e1",
+        "88a917f5-566f-454d-9c95-1c6a45bc67b1",
+        "22b0ba64-447f-4fed-bed9-4ff77fa87185",
+        "89671a29-080a-45fa-8489-f7bf61f06168",
+        "c3b66b5b-5f78-4ae7-9d57-130f603c47fa",
+        "9b22cd86-b40a-477e-aeee-a7892a50bb88",
+        "226f7a10-b0cb-4022-bf64-253476c4587b",
+        "9323a8be-f4d5-4719-9e06-436416de56fd",
+        "715ef6b8-203f-48de-b14f-8e3226b4fe58",
+        "00c6b3b8-7dfe-4860-9e5b-3c4d053345a2",
+        "80a83f89-c89a-49e8-b141-c6b6b33523c0",
+        "2005507c-eb74-4f95-bafa-ca076a5b705e",
+        "166dea92-66e6-4b64-b318-3c489adde178",
+        "38310819-4e45-43f7-92a7-d8716548a956",
+        "9cad3b91-56d7-43d0-b47b-195cdbd6f573",
+        "1afdf955-021d-4128-a3da-c1fe75f15e43",
+        "93b9fdb0-390d-498f-85a6-d3c23cad38b4",
+        "92fa2743-1da8-42d6-b165-692ed852284a",
+        "abf027a8-e512-427a-ace4-2146310f1eaf",
+        "5e709577-cda1-4d3a-8201-f214a1f9d785"
+      ],
+      "disabled": true,
+      "settings": {
+        "outer_wrapper_attr": "",
+        "outer_wrapper_classes": "max-w-7xl mx-auto lg:px-20 md:px-6 px-4",
+        "inner_wrapper_classes": "grid grid-cols-12 gap-6",
+        "header_wrapper_classes": "",
+        "all_tabs_wrapper_classes": "",
+        "content_wrapper_classes": "col-span-12 grid grid-cols-12",
+        "option_menu_selected": false,
+        "title": "",
+        "title_classes": "text-3xl lg:text-4xl font-semibold  leading-9 md:leading-7 lg:leading-9 text-gray-800",
+        "description": "",
+        "description_classes": "text-base leading-6 text-center text-gray-600 w-full md:w-10/12"
+      }
+    },
+    "16394847469b6bebbd": {
+      "type": "tabs-and-blocks",
+      "blocks": {
+        "86e2f235-75f4-4de6-90ab-4215ea1f9389": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "shipping_tab",
+            "country_iso": "*",
+            "block_wrapper_classes": "my-4 col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "IS VAT, FREIGHT COSTS, OR CUSTOM FEES INCLUDED IN THE PRICE?",
+            "title_text": "IS VAT, FREIGHT COSTS, OR CUSTOM FEES INCLUDED IN THE PRICE?",
+            "block_title_classes": "w-full bg-gray-100 px-8 pt-5 pb-3 text-xl md:text-2xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas",
+            "description": "All prices given on myoddballs.com include VAT unless otherwise is stated. International orders will not be charged UK VAT. No discount will be given on products where VAT is not chargeable. OddBalls reserves the right to amend our prices to reflect any changes in VAT that may occur. <br><br> All prices given on the Website are exclusive of freight costs, custom fees and other applicable duties or fees. Please note that on orders outside the UK, custom charges may apply at your expense.",
+            "block_description_classes": "px-8 py-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "6dbf130a-14f1-4904-81d2-ea6707d5d595": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "returns_tab",
+            "country_iso": "*",
+            "block_wrapper_classes": "my-4 col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "RETURN OF UNUSED GOODS",
+            "title_text": "RETURN OF UNUSED GOODS",
+            "block_title_classes": "w-full bg-gray-100 px-8 pt-5 pb-3 text-xl md:text-2xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas",
+            "description": "Please see below for instructions on how to return your items.   <br><br>Please note - any orders placed from the 1st October to the 23rd December can be returned until the 27th January 2025. Please note: We do not process Exchanges - we recommend you re-order the product you would like and send your original item to us for a refund. Please allow up to 14 working days from the date your return parcel is received back at OddBalls for your refund to be processed  \n <br><br>\nPlease be advised we DO NOT accept hand delivered returns, our office is strictly not open/accessible to the general public.    <br><br> We can only accept products for a return if they are unworn, in the original packaging and in a re-saleable condition. All item(s) must then be returned within 90 days of invoice.  <br><br> Postage must be covered by the customer and we strongly advise to use a tracked delivery service when returning parcels to us as, if we do not have proof that products have been received back with us, a refund may not be possible.    <br><br> Any postage costs from your original order will not be refunded.    <br><br>  If your order contained a free gift, you will need to return that as, if it is not returned, we will have to deduct the price of the product from your refund   <br><br> Please allow up to 14 working days from the date your return parcel is received back at OddBalls for your refund or exchange to be processed  <br><br> Please remember to include a note with the parcel stating your order number and send the product(s) to:   <br><br> OddBalls<br> Unit L3<br> Intersect 19<br> Tyne Tunnel Trading Estate<br> North Shields<br> NE29 7UT   <br><br> If you have any further questions, you can contact us on - <br>lookafter@myoddballs.com<br> <a href=\"/pages/contact-us\">Contact Form</a>",
+            "block_description_classes": "px-8 py-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "e7ba7c8f-32dc-4794-b117-6900e8db1620": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "returns_tab",
+            "country_iso": "*",
+            "block_wrapper_classes": "my-4 col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "FAULTY, INCORRECT, OR SUB-STANDARD PRODUCTS",
+            "title_text": "FAULTY, INCORRECT, OR SUB-STANDARD PRODUCTS",
+            "block_title_classes": "w-full bg-gray-100 px-8 pt-5 pb-3 text-xl md:text-2xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas",
+            "description": "If there are any issues with the products you have received in your OddBalls order please contact us on lookafter@myoddballs.com with a picture of the fault and the order number. <br><br> Please note, we offer a 3 month guarantee and goods that have been considered faulty outside of this period will not be subject to a refund.",
+            "block_description_classes": "px-8 py-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "890eec3f-1e1b-44b3-b00d-74684b8fd4d4": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "returns_tab",
+            "country_iso": "*",
+            "block_wrapper_classes": "my-4 col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "RETURNS OF ITEMS IN ORDER TO EXCHANGE",
+            "title_text": "RETURNS OF ITEMS IN ORDER TO EXCHANGE",
+            "block_title_classes": "w-full bg-gray-100 px-8 pt-5 pb-3 text-xl md:text-2xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas",
+            "description": "Please note - any orders placed from the 1st October to the 23rd December can be returned until the 27th January 2025. Please note: We do not process Exchanges - we recommend you re-order the product you would like and send your original item to us for a refund. Please be advised we DO NOT accept hand delivered returns, our office is strictly not open/accessible to the general public. We can only accept products for a return if they are unworn, in the original packaging and in a re-saleable condition.",
+            "block_description_classes": "px-8 py-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "3ba36aaa-9167-4ff8-b1be-910364e5a1bd": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "returns_tab",
+            "country_iso": "*",
+            "block_wrapper_classes": "my-4 col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "CONFORMITY OF GOODS",
+            "title_text": "CONFORMITY OF GOODS",
+            "block_title_classes": "w-full bg-gray-100 px-8 pt-5 pb-3 text-xl md:text-2xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas",
+            "description": "We take every care to ensure that the description and specification of our products are correct at the time of going to press. However, while the colour reproduction of the products is a close representation, we cannot accept any responsibility for any variation in colour caused by the browser software or computer system used by you.",
+            "block_description_classes": "px-8 py-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "6ee01bec-205c-40f2-8827-9849ff50952c": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "communication_tab",
+            "country_iso": "*",
+            "block_wrapper_classes": "my-4 col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "COMMUNICATION",
+            "title_text": "COMMUNICATION",
+            "block_title_classes": "w-full bg-gray-100 px-8 pt-5 pb-3 text-xl md:text-2xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas",
+            "description": "We will attempt to communicate with mail order customers by email. All relevant information about your order will be sent to the email address you have provided to us.",
+            "block_description_classes": "px-8 py-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        }
+      },
+      "block_order": [
+        "86e2f235-75f4-4de6-90ab-4215ea1f9389",
+        "6dbf130a-14f1-4904-81d2-ea6707d5d595",
+        "e7ba7c8f-32dc-4794-b117-6900e8db1620",
+        "890eec3f-1e1b-44b3-b00d-74684b8fd4d4",
+        "3ba36aaa-9167-4ff8-b1be-910364e5a1bd",
+        "6ee01bec-205c-40f2-8827-9849ff50952c"
+      ],
+      "disabled": true,
+      "settings": {
+        "outer_wrapper_attr": "",
+        "outer_wrapper_classes": "max-w-7xl mx-auto 2xl:container pb-12 lg:px-20 md:px-6 px-4",
+        "inner_wrapper_classes": "grid grid-cols-12",
+        "header_wrapper_classes": "",
+        "all_tabs_wrapper_classes": "",
+        "content_wrapper_classes": "col-span-12 grid grid-cols-12",
+        "option_menu_selected": false,
+        "title": "",
+        "title_classes": "text-3xl lg:text-4xl font-semibold  leading-9 md:leading-7 lg:leading-9 text-gray-800",
+        "description": "",
+        "description_classes": "text-base leading-6 text-center text-gray-600 w-full md:w-10/12"
+      }
+    }
+  },
+  "order": [
+    "custom_liquid_b9CPmp",
+    "1639476975d6303e7b",
+    "1639480410b2031966",
+    "16394847469b6bebbd"
+  ]
+}

@@ -1,0 +1,12 @@
+            {%unless is_sub_product %}
+              <button id="{% if qb %}qb-{% endif %}atc-button" type="submit" class="{% if qb %}event-quickbuy-atc{% endif %} add-to-cart-button w-full bg-magenta-500 rounded-full text-white text-base font-semibold justify-center items-center flex py-3 col-span-3" style="bottom:0px; top:0px">
+              <div id="add-to-cart-loaded" class="pointer-events-none button-text">{{ "ob_quick_buy.atc" | t }}</div>
+              <div id="add-to-cart-loading" class="pointer-events-none w-full absolute flex justify-center loading-button-loader items-center h-full" style="display:none;"><svg class="loading-ele-outer h-6 w-6" viewBox="25 25 50 50"><circle class="loading-ele-inner" style="stroke: white;" cx="50" cy="50" r="20" fill="none" stroke-width="4"></circle></svg></div>
+            </button>
+            {%else %}
+
+            <div  id="add-sub-form" class=" w-full bg-magenta-500 rounded-full text-white text-base font-semibold justify-center items-center flex py-3 col-span-3" style="bottom:0px; top:0px">
+              <div id="add-to-cart-loaded" class="pointer-events-none button-text">{{ "ob_quick_buy.atc" | t }}</div>
+              <div id="add-to-cart-loading" class="pointer-events-none w-full absolute flex justify-center loading-button-loader items-center h-full" style="display:none;"><svg class="loading-ele-outer h-6 w-6" viewBox="25 25 50 50"><circle class="loading-ele-inner" style="stroke: white;" cx="50" cy="50" r="20" fill="none" stroke-width="4"></circle></svg></div>
+            </div>
+            {%endunless %}

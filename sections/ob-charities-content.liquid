@@ -1,0 +1,376 @@
+{% comment %}
+
+This is the charity template being used.
+
+{% endcomment %}
+
+{% assign prefix = "" %}
+
+<style>
+
+  .bg-cover {
+  
+    background: url({{"2-FREE-GIFTS-DESKTOP.jpg" | file_url}});
+    background-color: rgba(255, 255, 255, 0.7);
+    
+  }
+  
+  
+</style>
+
+
+ 
+<div class="">
+
+  
+    <div class="relative bg-magenta inline-block w-full blend-divide">
+      <div class="absolute inset-x-0 bottom-0 h-1/2 bg-magenta"></div>
+      <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 bg-magenta pt-4 sm:pt-6 lg:pt-8">
+        <div class="relative shadow-xl sm:rounded-2xl sm:overflow-hidden">
+          <div class="absolute inset-0 z-10">
+            <img class="h-full w-full object-cover opacity-10" src="https://cdn.shopify.com/s/files/1/0353/7249/files/oddballs-cars.jpg?v=1628760997" alt="People working on laptops">          
+          </div>
+          <div class="relative px-4 py-16 sm:px-6 sm:py-24 lg:py-32 lg:px-8 bg-magenta">
+            <h1 class="text-center text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
+              <span class="block text-white font-bebas">OUR CHARITABLE PARTNERSHIPS</span>
+            </h1>
+            <p class="mt-6 max-w-lg mx-auto text-center text-xl text-white sm:max-w-3xl">
+OddBalls was originally founded, to not only produce incredible underwear, but to raise awareness of Testicular Cancer. We now donate to, support and make underwear for some brilliant charities – and have donated over £950,000 since 2014. 
+Our aim is to donate over £1,000,000 to charities, by the end of 2024.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="relative max-w-7xl mx-auto mt-3 mb-3">
+      <div class="swiper charity-logos-swiper">
+        <div class="swiper-wrapper">
+          {% for block in section.blocks %}
+            {% if block.type == 'logo' %}
+              <div class="swiper-slide">
+                <img class="rounded-md mx-auto md:h-20" src="{{ block.settings.logo | img_url: '1000x' }}" alt="">
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    </div>
+</div>
+
+  
+    
+  
+    <section class="w-full bg-cyan-500 relative border-solid blend-divide">
+      <img src="https://images.pexels.com/photos/5935235/pexels-photo-5935235.jpeg" style="
+            position: absolute;
+            top: 0px;
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            mix-blend-mode: color-burn;
+            opacity: 0.1;
+        ">
+      <div class="px-4 py-10 max-w-2xl lg:max-w-7xl mx-auto hidden">
+        <h1 class="text-center text-3xl lg:text-4xl font-semibold pb-10 text-white tracking-tight">Take a look at what our customers think of our cause</h1>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 px-3 gap-6 sm:max-w-full mx-auto"><!-- review grid -->
+         <div class="mt-12 relative text-base max-w-prose mx-auto lg:mt-0 lg:max-w-none">
+            <blockquote class="relative bg-white rounded-md shadow-lg">
+              <div class="rounded-t-lg px-6 py-8 sm:px-10 sm:pt-10 sm:pb-8">
+                <div class="relative text-lg font-medium">
+                  <svg class="absolute top-0 left-0 transform -translate-x-3 -translate-y-2 h-8 w-8" fill="currentColor" viewBox="0 0 32 32" aria-hidden="true">
+                    <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" />
+                  </svg>
+                  <p class="relative">Lovely fun product and great that it raises awareness of testicular cancer. Gave us as a family to have a conversation about it all and lots of giggles and laughs with the kids but at the same time making them aware.</p>
+                </div>
+              </div>
+
+            </blockquote>
+          </div> 
+         <div class="mt-12 relative text-base max-w-prose mx-auto lg:mt-0 lg:max-w-none">
+            <blockquote class="relative bg-white rounded-md shadow-lg">
+              <div class="rounded-t-lg px-6 py-8 sm:px-10 sm:pt-10 sm:pb-8">
+                <div class="relative text-lg font-medium">
+                  <svg class="absolute top-0 left-0 transform -translate-x-3 -translate-y-2 h-8 w-8" fill="currentColor" viewBox="0 0 32 32" aria-hidden="true">
+                    <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" />
+                  </svg>
+                  <p class="relative">Having now bought 8 pairs of men’s boxers from OddBalls I won’t buy from anywhere else in future! The boxers are comfy, bright & cheerful & a great price. And on top of that money goes to help testicular cancer charity!</p>
+                </div>
+              </div>
+
+            </blockquote>
+          </div>  
+         <div class="mt-12 relative text-base max-w-prose mx-auto lg:mt-0 lg:max-w-none hidden lg:inline-block">
+            <blockquote class="relative bg-white rounded-md shadow-lg">
+              <div class="rounded-t-lg px-6 py-8 sm:px-10 sm:pt-10 sm:pb-8">
+                <div class="relative text-lg font-medium">
+                  <svg class="absolute top-0 left-0 transform -translate-x-3 -translate-y-2 h-8 w-8" fill="currentColor" viewBox="0 0 32 32" aria-hidden="true">
+                    <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" />
+                  </svg>
+                  <p class="relative">Always happy to receive a new batch of oddballs. These are by far the comfiest underwear I’ve ever bought. Really well priced with great designs. Customer service is A* and the whole testicular cancer awareness is just icing on the cake.</p>
+                </div>
+              </div>
+            </blockquote>
+          </div>        
+        </div>
+      </div>
+    </section>  
+
+
+
+
+                      
+  
+      {%  for block in section.blocks %}
+      {%  if block.type == 'image_text_block_style1' %}
+      <div class="py-16  {% cycle 'bg-gray-50', 'bg-white' %} overflow-hidden blend-divide border-solid">
+        <div class="max-w-7xl mx-auto px-4 space-y-8 sm:px-6 lg:px-8">
+          {% if block.settings.title != blank %}
+          <div class="text-base max-w-prose mx-auto lg:max-w-none">
+            <h2 class="mt-2 text-3xl leading-8 font-extrabold tracking-tight sm:text-4xl text-magenta font-bebas">{{ block.settings.title }}</h2>
+          </div>
+          {% endif %}
+          <div class="lg:grid lg:grid-cols-2 lg:gap-8 lg:items-start">
+            <div class=""> 
+              {% if block.settings.intro != blank %}
+              <div class="relative z-10 text-base max-w-prose mx-auto lg:max-w-5xl lg:mx-0">
+                <p class="text-lg pb-2">{{ block.settings.intro }}<p>
+              </div>
+              {% endif %}
+              <div class="relative z-10">
+                <div class="mx-auto lg:max-w-none">
+                  {% if block.settings.content != blank %}
+                      {{ block.settings.content }}
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+            <div class="mt-12 relative text-base max-w-prose mx-auto lg:mt-0 lg:max-w-none">
+              <blockquote class="relative bg-white rounded-md border-2 border-solid  overflow-hidden">
+                <div class="rounded-t-lg px-6 sm:px-10 py-14">
+                  <div class="relative text-lg font-medium">
+                    <img class="mx-auto" src="{{ block.settings.image | img_url:'466x' }}">
+                  </div>
+                </div>              
+                <div class="sm:pl-12 sm:pr-10 sm:py-5 bg-magenta flex items-center justify-center not-italic px-6 py-5 border-t-2 border-solid relative">
+                  <div class="relative ml-4 text-indigo-300 font-semibold leading-6 sm:pl-1">
+                    <a href="{{ block.settings.link }}" target="_blank" class="text-white font-semibold sm:inline">{{ block.settings.caption }}</a>
+                  </div>
+                </div>
+              </blockquote>
+            </div>            
+          </div>
+          {%  assign has_stats = 'no' %}
+          {% capture block_stats %}
+          <div class="mt-8 max-w-5xl mx-auto md:pb-12">
+            <div class="mt-1 grid grid-cols-{{ block.settings.stats_per_row_mobile }} md:grid-cols-{{ block.settings.stats_per_row }} rounded-md border-2 border-solid overflow-hidden bg-white">
+
+              {% for i in (1..6) -%}
+                
+              {% assign stats_title_setting =  'stats_title_' | append: i %}
+              {% assign stats_caption_setting =  'stats_caption_' | append: i %}
+              {% if block.settings[stats_title_setting] != blank  %}
+                 {%  assign has_stats = 'yes' %}
+              <div class="relative px-6 py-5 flex items-center border-b md:border-b-0 md:border-r border-solid">
+                <div class="flex-1 min-w-0">
+                  <div href="#" class="focus:outline-none">
+                    <span class="absolute inset-0" aria-hidden="true"></span>
+                    {% if block.settings[stats_title_setting] != blank  %}
+                    <span class="font-medium text-2xl text-magenta block">
+                     {{ block.settings[stats_title_setting] }}
+                    </span>
+                    {% endif %}
+                    {% if block.settings[stats_caption_setting] != blank  %}
+                    <span class="text-base md:text-lg">
+                      {{ block.settings[stats_caption_setting] }}
+                    </span>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+              {%  endif %}
+              {% endfor %}
+
+            </div>
+          </div>    
+          {% endcapture %}
+          {%  if has_stats == 'yes' %}
+              {{ block_stats }}
+          {% endif %}
+        </div>
+      </div>
+      {%  endif %}
+      {% endfor %}
+  
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    new Swiper('.charity-logos-swiper', {
+      slidesPerView: 4,
+      slidesPerGroup: 4,
+      spaceBetween: 30,
+      loop: true,
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+      },
+      breakpoints: {
+        1024: {
+          slidesPerView: 7,
+          slidesPerGroup: 7,
+        },
+      },
+    });
+  });
+</script>
+{% schema %}
+  {
+    "name": "Charities Content",
+    "settings": [],
+    "presets": [
+      {
+        "name": "Charity Content",
+      }
+    ],
+    "blocks": [
+      {
+        "type": "image_text_block_style1",
+        "name": "Image text block style 1",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          },
+          {
+            "type": "text",
+            "id": "intro",
+            "label": "content intro"
+          },
+          {
+            "type": "richtext",
+            "id": "content",
+            "label": "content"
+          },
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+            "type": "text",
+            "id": "caption",
+            "label": "Image caption"
+          },
+          {
+            "type": "url",
+            "id": "link",
+            "label": "Image caption link"
+          },
+          {
+            "type": "header",
+            "content": "stats"
+          },
+          {
+            "type": "range",
+            "id": "stats_per_row",
+            "min": 1,
+            "max": 3,
+            "step": 1,
+            "unit": "col",
+            "label": "Items per row (desktop",
+            "default": 2
+          },
+          {
+            "type": "range",
+            "id": "stats_per_row_mobile",
+            "min": 1,
+            "max": 3,
+            "step": 1,
+            "unit": "col",
+            "label": "Items per row (mobile",
+            "default": 2
+          },
+          {
+            "type": "text",
+            "id": "stats_title_1",
+            "label": "Stats title #1"
+          },
+          {
+            "type": "text",
+            "id": "stats_caption_1",
+            "label": "Stats caption #1"
+          },
+          {
+            "type": "text",
+            "id": "stats_title_2",
+            "label": "Stats title #2"
+          },
+          {
+            "type": "text",
+            "id": "stats_caption_2",
+            "label": "Stats caption #2"
+          },
+          {
+            "type": "text",
+            "id": "stats_title_3",
+            "label": "Stats title #3"
+          },
+          {
+            "type": "text",
+            "id": "stats_caption_3",
+            "label": "Stats caption #3"
+          },
+          {
+            "type": "text",
+            "id": "stats_title_4",
+            "label": "Stats title #4"
+          },
+          {
+            "type": "text",
+            "id": "stats_caption_4",
+            "label": "Stats caption #4"
+          },
+          {
+            "type": "text",
+            "id": "stats_title_5",
+            "label": "Stats title #5"
+          },
+          {
+            "type": "text",
+            "id": "stats_caption_5",
+            "label": "Stats caption #5"
+          },
+          {
+            "type": "text",
+            "id": "stats_title_6",
+            "label": "Stats title #6"
+          },
+          {
+            "type": "text",
+            "id": "stats_caption_6",
+            "label": "Stats caption #6"
+          }
+        ]
+      },
+      {
+        "type": "logo",
+        "name": "Logo",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "logo",
+            "label": "Logo"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

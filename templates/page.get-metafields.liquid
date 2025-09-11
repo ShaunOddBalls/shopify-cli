@@ -1,0 +1,6 @@
+
+{% for order in customer.orders %}
+        {% for property in order.metafields.custom.weather.value -%}
+            {{ property.first | capitalize }}: {{ property.last }}
+        {%- endfor %}
+{% endfor %}

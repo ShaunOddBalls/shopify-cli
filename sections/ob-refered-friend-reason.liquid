@@ -1,0 +1,160 @@
+{% assign card_count = 0 %}
+{% capture card_section %}
+   {% for block in section.blocks %}
+     {% if block.type == 'card' %}
+      <div class="{{ block.settings.classes}}m-2">
+        <div>
+          {% if block.settings.svg != "" %}
+            {{ block.settings.svg }}
+          {% endif %}
+          {% if block.settings.img %}
+          <div class="w-1/2  relative mx-auto my-2">
+           <div class="inset-0 flex items-center justify-center z-10">
+             <img src="{{ block.settings.img | img_url: "large" }}" alt="{{ block.settings.title }}" class="h-full w-full">
+            </div>
+          </div>
+          {% endif %}
+          </div>
+            <h3 class="{{ block.settings.title_classes }}">{{ block.settings.title }}</h3>
+          <p class="{{ block.settings.para_class }}">{{ block.settings.paragraph }}</p>
+        </div>
+    
+     {% endif %}
+  {% endfor %}
+{% endcapture %}
+
+<div class="w-full {{ section.settings.section-wrap }}">
+  <div class="mx-auto max-w-7xl py-6">
+    {% for block in section.blocks %}
+    {% case block.type %}
+    {% when 'title' %}
+    <div class="{{ block.settings.wrapper-classes }}">
+      <h2 class="{{ block.settings.classes }}">{{ block.settings.text }}</h2>
+    </div>
+    {% when 'paragraph' %}
+    <div class="{{ block.settings.wrapper-classes }}">
+      <p class="{{ block.settings.classes }}">{{ block.settings.text }}</p>
+    </div>
+      
+    {% when 'card' %}
+      {% if card_count == 0 %} 
+          <div class="grid grid-cols-2 lg:grid-cols-4 max-w-7xl">
+            {{ card_section }}
+          </div>
+       
+        {% assign card_count = card_count| plus: 1 %}
+      {% endif %}
+     
+
+    {% endcase %}
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "card section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section-wrap",
+      "label": "Section wrapper classes"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "title",
+      "type": "title",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "text",
+          "default": "title"
+        },
+        {
+          "type": "text",
+          "id": "wrapper-classes",
+          "label": "wrapper classes",
+        },
+        {
+          "type": "text",
+          "id": "classes",
+          "label": "classes",
+          "default": "mx-auto font-bebas"
+        }
+      ]
+    },
+    {
+      "name": "paragraph",
+      "type": "paragraph",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "text",
+          "default": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi sed quasi in voluptates at consectetur, odit esse neque mollitia accusamus!"
+        },
+        {
+          "type": "text",
+          "id": "wrapper-classes",
+          "label": "wrapper classes",
+        },
+        {
+          "type": "text",
+          "id": "classes",
+          "label": "classes",
+          "default": "mx-auto font-bebas"
+        }
+      ]
+    },
+    {
+      "name": "card",
+      "type": "card",
+      "settings": [
+        {
+          "id": "classes",
+          "type": "text",
+          "label": "card classes"
+        },
+        {
+          "id": "title",
+          "type": "text",
+          "label": "title",
+          "default": "title"
+        },
+        {
+          "id": "title_classes",
+          "type": "text",
+          "label": "title classes",
+          "default": "text-3xl"
+        },
+        {
+          "id": "paragraph",
+          "type": "text",
+          "label": "paragraph",
+          "default": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi sed quasi in voluptates at consectetur, odit esse neque mollitia accusamus!"
+        },
+        {
+          "id": "para_class",
+          "type": "text",
+          "label": "paragraph classes",
+          "default": "text-l"
+        },
+        {
+          "id": "svg",
+          "type": "html",
+          "label": "Svg",
+   
+        },
+        {
+          "id": "img",
+          "type": "image_picker",
+          "label": "image icon",
+        },
+      ]
+    }
+  ]
+}
+
+{% endschema %}

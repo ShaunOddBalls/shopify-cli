@@ -1,0 +1,160 @@
+{% comment %} <div class="search-collapse w-screen h-full overflow-y-auto z-50 hidden fixed left-0 right-0 max-xl:top-0 max-xl:bottom:0 max-xl:max-h-screen max-xl:bg-white xl:max-h-[calc(100vh-var(--header-height))]">
+	<!-- Background overlay -->
+	<div class="absolute top-0 left-0 w-full h-full bg-black/80 z-[-1] max-xl:hidden" data-toggle="collapse" data-target=".search-collapse" data-reset="true"></div>
+  	<!-- Mobile search form -->
+	<form class="w-full xl:hidden">
+	  <div class="input-group input-group--has-value color-[#111111] w-full [&_.input-group\_\_control]:px-0 [&_.input-group\_\_control]:px-2 [&_.input-group\_\_control]:!rounded-[0] [&_.input-group\_\_control]:!border-x-0 [&_.input-group\_\_control]:!border-y-1 [&_.input-group\_\_control]:!border-[#F0F0F0] [&_input]:px-0 [&_input]:py-4 sticky top-0">
+		<div class="input-group__control">
+		  <div class="input-group__adornment input-group__adornment--placement-start">
+			<svg xmlns="http://www.w3.org/2000/svg" width="16" class="icon" fill="currentColor" viewBox="0 0 24 24" height="16">
+			  <path fill-rule="evenodd" clip-rule="evenodd" d="M19.6 10.5C19.6 15.5258 15.5258 19.6 10.5 19.6C5.47421 19.6 1.4 15.5258 1.4 10.5C1.4 5.47421 5.47421 1.4 10.5 1.4C15.5258 1.4 19.6 5.47421 19.6 10.5ZM17.4222 18.3953C15.5741 20.0169 13.1519 21 10.5 21C4.70101 21 0 16.299 0 10.5C0 4.70101 4.70101 0 10.5 0C16.299 0 21 4.70101 21 10.5C21 13.1519 20.0169 15.5741 18.3953 17.4222C18.4304 17.4462 18.4638 17.4739 18.495 17.505L23.495 22.505C23.7683 22.7784 23.7683 23.2216 23.495 23.495C23.2216 23.7683 22.7784 23.7683 22.505 23.495L17.505 18.495C17.4739 18.4638 17.4462 18.4304 17.4222 18.3953Z"></path>
+			</svg>
+		  </div>
+		  <div class="input-group__input">
+			<input class="search-collapse-input" autocomplete="off" placeholder="Search products" aria-label="Search" name="search-products" />
+		  </div>
+		  <div class="input-group__adornment input-group__adornment--placement-end">
+			<button class="button button--variant-ghost button--icon bg-[#F5F5F5] !w-6 !h-6" data-toggle="collapse" data-target=".search-collapse" data-reset="true" type="reset" aria-label="Clear">
+			  <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 14 14">
+				<rect width="16.9705" height="1.13137" rx="0.565684" transform="matrix(0.707106 -0.707108 0.707106 0.707108 0.600586 12.6001)" fill="currentColor"></rect>
+				<rect width="16.9705" height="1.13137" rx="0.565684" transform="matrix(-0.707106 -0.707107 0.707106 -0.707108 12.6006 13.4001)" fill="currentColor"></rect>
+			  </svg>
+			</button>
+		  </div>
+		</div>
+	  </div>
+	</form>
+    <style>
+		.nosto-desktop-search-open{
+		   height: 100vh;
+		   overflow: hidden;
+		}
+		 input[type="text"]:-ms-input-placeholder { /* Edge 12-18 */
+			 color: #888;
+			 opacity: 1; 
+			 font-size: 14px;
+			 font-family:inherit;
+	   }
+		 input[type="text"]:placeholder {
+			 color: #888;
+			 opacity: 1; 
+			 font-size: 14px;
+			 font-family:inherit;
+		 }
+	   #nosto-search-results .product-item {
+		   color: #000;
+		   font-size: 12px;
+		   font-family: sans-serif;
+		   position: relative;
+		   border: 1px solid #e5e7eb;
+		   padding: 10px;
+	   }
+	   #nosto-search-results .site-box:before {
+		   content: "";
+		   width: 100%;
+		   background: var(--main-borders);
+		   position: absolute;
+		   left: 0;
+		   top: 0;
+		   height: 0px;
+		   z-index: 99;
+	   }
+
+	   #nosto-search-results .site-box:after {
+		   content: "";
+		   height: calc(100%);
+		   background: var(--main-borders);
+		   position: absolute;
+		   right: 0;
+		   top: 1px;
+		   width: 0px;
+		   z-index: 9;
+	   }
+	   #nosto-search-results .box-outline-gray .site-box-content:after {
+		   content: "";
+		   position: absolute;
+		   top: 0px;
+		   left: 0px;
+		   width: 100%;
+		   height: 100%;
+		   border: 1px solid red;
+		   pointer-events: none;
+		   z-index: 100;
+		   border: 0px solid var(--main-borders);
+	   }
+   </style>
+ 	<!-- Search results container -->
+   <div id="nosto-search-results" class="tw-flex tw-rounded-md tw-overflow-auto tw-absolute tw-z-100 tw-left-0 tw-w-full tw-w-full tw-border-t tw-border-solid tw-border-gray-200 tw-transform tw-translate-y-3.5 tw-gap-4" style="z-index:9999; display:none; z-index: -1; height: 100vh;
+   background: transparent;    top: auto;
+   height: calc(100vh - 130px);
+   background: transparent;
+   overflow: hidden;">
+       <!-- Safety overlay -->
+	 <div id="desktop-notso-safety" class="tw-fixed tw-h-screen tw-bg-black tw-bg-opacity-50 tw-w-screen tw-top-0 tw-left-0" style="z-index: -1">
+	 </div>
+	     <!-- Initial search results (before user input) -->
+	 <div id="desktop-nosto-before-results" class="tw-flex tw-w-full tw-h-full tw-shadow-2xl tw-bg-white" style="height:40rem;">
+	         <!-- Popular searches column -->
+		<div  style="width:20%; border-width: 0px 1px 0px 0px; border-style:solid; border-color:#cdcdcd;"style="">
+		 <div class="tw-text-md tw-font-semi-bold tw-p-4 tw-py-3 tw-pt-4 tw-border-b tw-border-solid tw-border-gray-200">Popular Searches:</div>
+		 <div id="desktop-recommended-searches" class="tw-flex tw-flex-col tw-p-4 tw-gap-2" >
+		 </div>
+	   </div>
+	         <!-- Popular products column -->
+	   <div style="width:80%;">
+		 <div class="tw-text-md tw-font-semi-bold tw-p-4 tw-py-3 tw-pt-4 tw-border-b tw-border-solid tw-border-gray-200">Our Popular Products:</div>
+		 <div id="desktop-recommended-products" class="tw-gap-0 tw-grid tw-grid-cols-4"  style="margin-top: -1px;
+   /* overflow: scroll; */
+   overflow-y: scroll;
+   /* height: 100%; */
+   max-height: calc(100vh - 185px);">
+             <!-- Loading product placeholders -->
+			   <div class="loading-prod nosto-category-item append-element box-outline-gray site-box float-unset box--smalll box--typo-small box--center-align box--no-padding box--column-flow box__collection2" data-id="7475443204157" style=" pointer-events: none; "> <div class="site-box-content product-holder tw-h-full"> <div class="product-item-collection product-item tw-relative tw-h-full tw-flex-col tw-flexx tw-justify-between style--one alt color--light with-secondary-image"> <div class="tw--translate-y-1/2 tw-relative tw-self-center tw-h-full tw-top-1/2 tw-transform"> <div class="collection-product-link animate-mt"> <div class="js-product-item-img animate-mt box--product-image primary tw-relative image-wrapper-position" style=" "></div> </div> <div class="caption collection-item tw-flex tw-flex-col"> <div class="tw-flex tw-w-full tw-justify-between gap-3  tw-text-center tw-mb-3" style=" gap: 5px; "> <div class="see-more tw-border-2 tw-border-r-0 tw-border-solid tw-leading-9 tw-px-2 tw-rounded-bl-md tw-rounded-tl-md tw-text-xxs animate-mt tw-uppercase tw-w-full max-w-50">Loading</div> <div data-prod-id="" class="quick-add-to-cart animate-mt qatc-button tw-border-2 tw-border-l-2 tw-border-black tw-border-solid tw-leading-9 tw-rounded-br-md tw-rounded-tr-md tw-text-xxs tw-uppercase tw-w-full"> <div class="quick-add-to-cart-button" style="pointer-events: auto;"> <a class="product__add-to-cart tw-px-2" href="https://www.myoddballs.com/products/jungle-bundle-mens-boxer-shorts-3-pack" view="simple"> <span class="visually-hidden">Loading</span> </a> </div> </div> </div> <div class="tw-flex-col tw-flex tw-justify-between tw-w-full "> <div class="title"> <div class="tw-flex tw-justify-between tw-flex-col tw-relative"> <div class="tw-uppercase tw-text-sm tw-leading-tight tw-tracking-wide tw-pbb-5 clean-title tw-text-black sm:tw-text-base md:tw-text-md tw-font-semibold tw-pb-1 md:tw-pb-0" style=" /* visibility: hidden; */ "> <span class="animate-mt">Loading</span> </div> <div class="sentence tw-capitalize tw-absolutee tw-whitespace-nowrapp tw-tracking-wide tw-leading-4 tw-bottom-0 tw-t-2 tw-text-gray-300 tw-font-normal tw-text-sm sm:tw-text-sm md:tw-text-md clean-subtitle" style=" /* visibility: hidden; */ "> <span class="animate-mt">Product Is Loading...</span> </div> </div> </div> <div class="price  tw-text-base tw-font-semibold tw-items-center tw-flex tw-text-magenta-500"> <span class="animate-mt">£30.00</span> </div> </div> </div> </div> </div> </div> </div>
+			   <div class="loading-prod nosto-category-item append-element box-outline-gray site-box float-unset box--smalll box--typo-small box--center-align box--no-padding box--column-flow box__collection2" data-id="7475443204157" style=" pointer-events: none; "> <div class="site-box-content product-holder tw-h-full"> <div class="product-item-collection product-item tw-relative tw-h-full tw-flex-col tw-flexx tw-justify-between style--one alt color--light with-secondary-image"> <div class="tw--translate-y-1/2 tw-relative tw-self-center tw-h-full tw-top-1/2 tw-transform"> <div class="collection-product-link animate-mt"> <div class="js-product-item-img animate-mt box--product-image primary tw-relative image-wrapper-position" style=" "></div> </div> <div class="caption collection-item tw-flex tw-flex-col"> <div class="tw-flex tw-w-full tw-justify-between gap-3  tw-text-center tw-mb-3" style=" gap: 5px; "> <div class="see-more tw-border-2 tw-border-r-0 tw-border-solid tw-leading-9 tw-px-2 tw-rounded-bl-md tw-rounded-tl-md tw-text-xxs animate-mt tw-uppercase tw-w-full max-w-50">Loading</div> <div data-prod-id="" class="quick-add-to-cart animate-mt qatc-button tw-border-2 tw-border-l-2 tw-border-black tw-border-solid tw-leading-9 tw-rounded-br-md tw-rounded-tr-md tw-text-xxs tw-uppercase tw-w-full"> <div class="quick-add-to-cart-button" style="pointer-events: auto;"> <a class="product__add-to-cart tw-px-2" href="https://www.myoddballs.com/products/jungle-bundle-mens-boxer-shorts-3-pack" view="simple"> <span class="visually-hidden">Loading</span> </a> </div> </div> </div> <div class="tw-flex-col tw-flex tw-justify-between tw-w-full "> <div class="title"> <div class="tw-flex tw-justify-between tw-flex-col tw-relative"> <div class="tw-uppercase tw-text-sm tw-leading-tight tw-tracking-wide tw-pbb-5 clean-title tw-text-black sm:tw-text-base md:tw-text-md tw-font-semibold tw-pb-1 md:tw-pb-0" style=" /* visibility: hidden; */ "> <span class="animate-mt">Loading</span> </div> <div class="sentence tw-capitalize tw-absolutee tw-whitespace-nowrapp tw-tracking-wide tw-leading-4 tw-bottom-0 tw-t-2 tw-text-gray-300 tw-font-normal tw-text-sm sm:tw-text-sm md:tw-text-md clean-subtitle" style=" /* visibility: hidden; */ "> <span class="animate-mt">Product Is Loading...</span> </div> </div> </div> <div class="price  tw-text-base tw-font-semibold tw-items-center tw-flex tw-text-magenta-500"> <span class="animate-mt">£30.00</span> </div> </div> </div> </div> </div> </div> </div>
+			   <div class="loading-prod nosto-category-item append-element box-outline-gray site-box float-unset box--smalll box--typo-small box--center-align box--no-padding box--column-flow box__collection2" data-id="7475443204157" style=" pointer-events: none; "> <div class="site-box-content product-holder tw-h-full"> <div class="product-item-collection product-item tw-relative tw-h-full tw-flex-col tw-flexx tw-justify-between style--one alt color--light with-secondary-image"> <div class="tw--translate-y-1/2 tw-relative tw-self-center tw-h-full tw-top-1/2 tw-transform"> <div class="collection-product-link animate-mt"> <div class="js-product-item-img animate-mt box--product-image primary tw-relative image-wrapper-position" style=" "></div> </div> <div class="caption collection-item tw-flex tw-flex-col"> <div class="tw-flex tw-w-full tw-justify-between gap-3  tw-text-center tw-mb-3" style=" gap: 5px; "> <div class="see-more tw-border-2 tw-border-r-0 tw-border-solid tw-leading-9 tw-px-2 tw-rounded-bl-md tw-rounded-tl-md tw-text-xxs animate-mt tw-uppercase tw-w-full max-w-50">Loading</div> <div data-prod-id="" class="quick-add-to-cart animate-mt qatc-button tw-border-2 tw-border-l-2 tw-border-black tw-border-solid tw-leading-9 tw-rounded-br-md tw-rounded-tr-md tw-text-xxs tw-uppercase tw-w-full"> <div class="quick-add-to-cart-button" style="pointer-events: auto;"> <a class="product__add-to-cart tw-px-2" href="https://www.myoddballs.com/products/jungle-bundle-mens-boxer-shorts-3-pack" view="simple"> <span class="visually-hidden">Loading</span> </a> </div> </div> </div> <div class="tw-flex-col tw-flex tw-justify-between tw-w-full "> <div class="title"> <div class="tw-flex tw-justify-between tw-flex-col tw-relative"> <div class="tw-uppercase tw-text-sm tw-leading-tight tw-tracking-wide tw-pbb-5 clean-title tw-text-black sm:tw-text-base md:tw-text-md tw-font-semibold tw-pb-1 md:tw-pb-0" style=" /* visibility: hidden; */ "> <span class="animate-mt">Loading</span> </div> <div class="sentence tw-capitalize tw-absolutee tw-whitespace-nowrapp tw-tracking-wide tw-leading-4 tw-bottom-0 tw-t-2 tw-text-gray-300 tw-font-normal tw-text-sm sm:tw-text-sm md:tw-text-md clean-subtitle" style=" /* visibility: hidden; */ "> <span class="animate-mt">Product Is Loading...</span> </div> </div> </div> <div class="price  tw-text-base tw-font-semibold tw-items-center tw-flex tw-text-magenta-500"> <span class="animate-mt">£30.00</span> </div> </div> </div> </div> </div> </div> </div>
+			   <div class="loading-prod nosto-category-item append-element box-outline-gray site-box float-unset box--smalll box--typo-small box--center-align box--no-padding box--column-flow box__collection2" data-id="7475443204157" style=" pointer-events: none; "> <div class="site-box-content product-holder tw-h-full"> <div class="product-item-collection product-item tw-relative tw-h-full tw-flex-col tw-flexx tw-justify-between style--one alt color--light with-secondary-image"> <div class="tw--translate-y-1/2 tw-relative tw-self-center tw-h-full tw-top-1/2 tw-transform"> <div class="collection-product-link animate-mt"> <div class="js-product-item-img animate-mt box--product-image primary tw-relative image-wrapper-position" style=" "></div> </div> <div class="caption collection-item tw-flex tw-flex-col"> <div class="tw-flex tw-w-full tw-justify-between gap-3  tw-text-center tw-mb-3" style=" gap: 5px; "> <div class="see-more tw-border-2 tw-border-r-0 tw-border-solid tw-leading-9 tw-px-2 tw-rounded-bl-md tw-rounded-tl-md tw-text-xxs animate-mt tw-uppercase tw-w-full max-w-50">Loading</div> <div data-prod-id="" class="quick-add-to-cart animate-mt qatc-button tw-border-2 tw-border-l-2 tw-border-black tw-border-solid tw-leading-9 tw-rounded-br-md tw-rounded-tr-md tw-text-xxs tw-uppercase tw-w-full"> <div class="quick-add-to-cart-button" style="pointer-events: auto;"> <a class="product__add-to-cart tw-px-2" href="https://www.myoddballs.com/products/jungle-bundle-mens-boxer-shorts-3-pack" view="simple"> <span class="visually-hidden">Loading</span> </a> </div> </div> </div> <div class="tw-flex-col tw-flex tw-justify-between tw-w-full "> <div class="title"> <div class="tw-flex tw-justify-between tw-flex-col tw-relative"> <div class="tw-uppercase tw-text-sm tw-leading-tight tw-tracking-wide tw-pbb-5 clean-title tw-text-black sm:tw-text-base md:tw-text-md tw-font-semibold tw-pb-1 md:tw-pb-0" style=" /* visibility: hidden; */ "> <span class="animate-mt">Loading</span> </div> <div class="sentence tw-capitalize tw-absolutee tw-whitespace-nowrapp tw-tracking-wide tw-leading-4 tw-bottom-0 tw-t-2 tw-text-gray-300 tw-font-normal tw-text-sm sm:tw-text-sm md:tw-text-md clean-subtitle" style=" /* visibility: hidden; */ "> <span class="animate-mt">Product Is Loading...</span> </div> </div> </div> <div class="price  tw-text-base tw-font-semibold tw-items-center tw-flex tw-text-magenta-500"> <span class="animate-mt">£30.00</span> </div> </div> </div> </div> </div> </div> </div>
+		 </div>
+	   </div>
+	   
+	 </div>
+    <!-- Search results (after user input) -->
+	 <div id="desktop-nosto-after-results" class="tw-flex tw-w-full tw-h-full tw-shadow-2xl tw-bg-white" style="">
+	   <div class="nosto-results-found tw-flex tw-w-full tw-h-full">
+        <!-- Search suggestions column -->
+		   <div id="search-terms-column" class="tw-text-md tw-font-semi-bold" style="width:20% max-width:200px">
+			   <div class="tw-text-md tw-font-semi-bold tw-p-4 tw-py-3 tw-pt-4 tw-border-b tw-border-solid tw-border-gray-200">Suggestions</div>
+			   <div id="desktop-nosto-keywords" class="tw-flex tw-flex-col tw-p-4 tw-gap-2" >
+			   </div>
+		   </div>
+        <!-- Search results column -->
+		   <div id="search-results-column" style="width:100%">
+			   <div class="tw-text-md tw-font-semi-bold tw-p-4 tw-py-3 tw-pt-4 tw-border-b tw-border-solid tw-border-gray-200">Products related to <i><b id="the-search-term"></b></i></div>
+			   <div id="desktop-nosto-searched-products" class="tw-gap-0 tw-grid tw-grid-cols-4"  style="margin-top: -1px;
+   /* overflow: scroll; */
+   overflow-y: scroll;
+   /* height: 100%; */
+   max-height: calc(100vh - 185px);">
+               <!-- Loading product placeholders -->
+			   <div class="loading-prod nosto-category-item append-element box-outline-gray site-box float-unset box--smalll box--typo-small box--center-align box--no-padding box--column-flow box__collection2" data-id="7475443204157" style=" pointer-events: none; "> <div class="site-box-content product-holder tw-h-full"> <div class="product-item-collection product-item tw-relative tw-h-full tw-flex-col tw-flexx tw-justify-between style--one alt color--light with-secondary-image"> <div class="tw--translate-y-1/2 tw-relative tw-self-center tw-h-full tw-top-1/2 tw-transform"> <div class="collection-product-link animate-mt"> <div class="js-product-item-img animate-mt box--product-image primary tw-relative image-wrapper-position" style=" "></div> </div> <div class="caption collection-item tw-flex tw-flex-col"> <div class="tw-flex tw-w-full tw-justify-between gap-3  tw-text-center tw-mb-3" style=" gap: 5px; "> <div class="see-more tw-border-2 tw-border-r-0 tw-border-solid tw-leading-9 tw-px-2 tw-rounded-bl-md tw-rounded-tl-md tw-text-xxs animate-mt tw-uppercase tw-w-full max-w-50">Loading</div> <div data-prod-id="" class="quick-add-to-cart animate-mt qatc-button tw-border-2 tw-border-l-2 tw-border-black tw-border-solid tw-leading-9 tw-rounded-br-md tw-rounded-tr-md tw-text-xxs tw-uppercase tw-w-full"> <div class="quick-add-to-cart-button" style="pointer-events: auto;"> <a class="product__add-to-cart tw-px-2" href="https://www.myoddballs.com/products/jungle-bundle-mens-boxer-shorts-3-pack" view="simple"> <span class="visually-hidden">Loading</span> </a> </div> </div> </div> <div class="tw-flex-col tw-flex tw-justify-between tw-w-full "> <div class="title"> <div class="tw-flex tw-justify-between tw-flex-col tw-relative"> <div class="tw-uppercase tw-text-sm tw-leading-tight tw-tracking-wide tw-pbb-5 clean-title tw-text-black sm:tw-text-base md:tw-text-md tw-font-semibold tw-pb-1 md:tw-pb-0" style=" /* visibility: hidden; */ "> <span class="animate-mt">Loading</span> </div> <div class="sentence tw-capitalize tw-absolutee tw-whitespace-nowrapp tw-tracking-wide tw-leading-4 tw-bottom-0 tw-t-2 tw-text-gray-300 tw-font-normal tw-text-sm sm:tw-text-sm md:tw-text-md clean-subtitle" style=" /* visibility: hidden; */ "> <span class="animate-mt">Product Is Loading...</span> </div> </div> </div> <div class="price  tw-text-base tw-font-semibold tw-items-center tw-flex tw-text-magenta-500"> <span class="animate-mt">£30.00</span> </div> </div> </div> </div> </div> </div> </div>
+			   <div class="loading-prod nosto-category-item append-element box-outline-gray site-box float-unset box--smalll box--typo-small box--center-align box--no-padding box--column-flow box__collection2" data-id="7475443204157" style=" pointer-events: none; "> <div class="site-box-content product-holder tw-h-full"> <div class="product-item-collection product-item tw-relative tw-h-full tw-flex-col tw-flexx tw-justify-between style--one alt color--light with-secondary-image"> <div class="tw--translate-y-1/2 tw-relative tw-self-center tw-h-full tw-top-1/2 tw-transform"> <div class="collection-product-link animate-mt"> <div class="js-product-item-img animate-mt box--product-image primary tw-relative image-wrapper-position" style=" "></div> </div> <div class="caption collection-item tw-flex tw-flex-col"> <div class="tw-flex tw-w-full tw-justify-between gap-3  tw-text-center tw-mb-3" style=" gap: 5px; "> <div class="see-more tw-border-2 tw-border-r-0 tw-border-solid tw-leading-9 tw-px-2 tw-rounded-bl-md tw-rounded-tl-md tw-text-xxs animate-mt tw-uppercase tw-w-full max-w-50">Loading</div> <div data-prod-id="" class="quick-add-to-cart animate-mt qatc-button tw-border-2 tw-border-l-2 tw-border-black tw-border-solid tw-leading-9 tw-rounded-br-md tw-rounded-tr-md tw-text-xxs tw-uppercase tw-w-full"> <div class="quick-add-to-cart-button" style="pointer-events: auto;"> <a class="product__add-to-cart tw-px-2" href="https://www.myoddballs.com/products/jungle-bundle-mens-boxer-shorts-3-pack" view="simple"> <span class="visually-hidden">Loading</span> </a> </div> </div> </div> <div class="tw-flex-col tw-flex tw-justify-between tw-w-full "> <div class="title"> <div class="tw-flex tw-justify-between tw-flex-col tw-relative"> <div class="tw-uppercase tw-text-sm tw-leading-tight tw-tracking-wide tw-pbb-5 clean-title tw-text-black sm:tw-text-base md:tw-text-md tw-font-semibold tw-pb-1 md:tw-pb-0" style=" /* visibility: hidden; */ "> <span class="animate-mt">Loading</span> </div> <div class="sentence tw-capitalize tw-absolutee tw-whitespace-nowrapp tw-tracking-wide tw-leading-4 tw-bottom-0 tw-t-2 tw-text-gray-300 tw-font-normal tw-text-sm sm:tw-text-sm md:tw-text-md clean-subtitle" style=" /* visibility: hidden; */ "> <span class="animate-mt">Product Is Loading...</span> </div> </div> </div> <div class="price  tw-text-base tw-font-semibold tw-items-center tw-flex tw-text-magenta-500"> <span class="animate-mt">£30.00</span> </div> </div> </div> </div> </div> </div> </div>
+			   <div class="loading-prod nosto-category-item append-element box-outline-gray site-box float-unset box--smalll box--typo-small box--center-align box--no-padding box--column-flow box__collection2" data-id="7475443204157" style=" pointer-events: none; "> <div class="site-box-content product-holder tw-h-full"> <div class="product-item-collection product-item tw-relative tw-h-full tw-flex-col tw-flexx tw-justify-between style--one alt color--light with-secondary-image"> <div class="tw--translate-y-1/2 tw-relative tw-self-center tw-h-full tw-top-1/2 tw-transform"> <div class="collection-product-link animate-mt"> <div class="js-product-item-img animate-mt box--product-image primary tw-relative image-wrapper-position" style=" "></div> </div> <div class="caption collection-item tw-flex tw-flex-col"> <div class="tw-flex tw-w-full tw-justify-between gap-3  tw-text-center tw-mb-3" style=" gap: 5px; "> <div class="see-more tw-border-2 tw-border-r-0 tw-border-solid tw-leading-9 tw-px-2 tw-rounded-bl-md tw-rounded-tl-md tw-text-xxs animate-mt tw-uppercase tw-w-full max-w-50">Loading</div> <div data-prod-id="" class="quick-add-to-cart animate-mt qatc-button tw-border-2 tw-border-l-2 tw-border-black tw-border-solid tw-leading-9 tw-rounded-br-md tw-rounded-tr-md tw-text-xxs tw-uppercase tw-w-full"> <div class="quick-add-to-cart-button" style="pointer-events: auto;"> <a class="product__add-to-cart tw-px-2" href="https://www.myoddballs.com/products/jungle-bundle-mens-boxer-shorts-3-pack" view="simple"> <span class="visually-hidden">Loading</span> </a> </div> </div> </div> <div class="tw-flex-col tw-flex tw-justify-between tw-w-full "> <div class="title"> <div class="tw-flex tw-justify-between tw-flex-col tw-relative"> <div class="tw-uppercase tw-text-sm tw-leading-tight tw-tracking-wide tw-pbb-5 clean-title tw-text-black sm:tw-text-base md:tw-text-md tw-font-semibold tw-pb-1 md:tw-pb-0" style=" /* visibility: hidden; */ "> <span class="animate-mt">Loading</span> </div> <div class="sentence tw-capitalize tw-absolutee tw-whitespace-nowrapp tw-tracking-wide tw-leading-4 tw-bottom-0 tw-t-2 tw-text-gray-300 tw-font-normal tw-text-sm sm:tw-text-sm md:tw-text-md clean-subtitle" style=" /* visibility: hidden; */ "> <span class="animate-mt">Product Is Loading...</span> </div> </div> </div> <div class="price  tw-text-base tw-font-semibold tw-items-center tw-flex tw-text-magenta-500"> <span class="animate-mt">£30.00</span> </div> </div> </div> </div> </div> </div> </div>
+			   <div class="loading-prod nosto-category-item append-element box-outline-gray site-box float-unset box--smalll box--typo-small box--center-align box--no-padding box--column-flow box__collection2" data-id="7475443204157" style=" pointer-events: none; "> <div class="site-box-content product-holder tw-h-full"> <div class="product-item-collection product-item tw-relative tw-h-full tw-flex-col tw-flexx tw-justify-between style--one alt color--light with-secondary-image"> <div class="tw--translate-y-1/2 tw-relative tw-self-center tw-h-full tw-top-1/2 tw-transform"> <div class="collection-product-link animate-mt"> <div class="js-product-item-img animate-mt box--product-image primary tw-relative image-wrapper-position" style=" "></div> </div> <div class="caption collection-item tw-flex tw-flex-col"> <div class="tw-flex tw-w-full tw-justify-between gap-3  tw-text-center tw-mb-3" style=" gap: 5px; "> <div class="see-more tw-border-2 tw-border-r-0 tw-border-solid tw-leading-9 tw-px-2 tw-rounded-bl-md tw-rounded-tl-md tw-text-xxs animate-mt tw-uppercase tw-w-full max-w-50">Loading</div> <div data-prod-id="" class="quick-add-to-cart animate-mt qatc-button tw-border-2 tw-border-l-2 tw-border-black tw-border-solid tw-leading-9 tw-rounded-br-md tw-rounded-tr-md tw-text-xxs tw-uppercase tw-w-full"> <div class="quick-add-to-cart-button" style="pointer-events: auto;"> <a class="product__add-to-cart tw-px-2" href="https://www.myoddballs.com/products/jungle-bundle-mens-boxer-shorts-3-pack" view="simple"> <span class="visually-hidden">Loading</span> </a> </div> </div> </div> <div class="tw-flex-col tw-flex tw-justify-between tw-w-full "> <div class="title"> <div class="tw-flex tw-justify-between tw-flex-col tw-relative"> <div class="tw-uppercase tw-text-sm tw-leading-tight tw-tracking-wide tw-pbb-5 clean-title tw-text-black sm:tw-text-base md:tw-text-md tw-font-semibold tw-pb-1 md:tw-pb-0" style=" /* visibility: hidden; */ "> <span class="animate-mt">Loading</span> </div> <div class="sentence tw-capitalize tw-absolutee tw-whitespace-nowrapp tw-tracking-wide tw-leading-4 tw-bottom-0 tw-t-2 tw-text-gray-300 tw-font-normal tw-text-sm sm:tw-text-sm md:tw-text-md clean-subtitle" style=" /* visibility: hidden; */ "> <span class="animate-mt">Product Is Loading...</span> </div> </div> </div> <div class="price  tw-text-base tw-font-semibold tw-items-center tw-flex tw-text-magenta-500"> <span class="animate-mt">£30.00</span> </div> </div> </div> </div> </div> </div> </div>
+		 
+			   </div>
+		   </div>
+	   </div>
+	         <!-- No results found message -->
+	   <div class="nosto-no-results-found tw-w-full tw-h-full" style="display:none;">
+		 <div class="tw-p-2 tw-font-bold">Try Again With Another Search</div>
+		 <div id="nosto-no-search-results-loc" class="tw-flex"></div>
+	   </div>
+
+	 </div>
+   </div>
+</div>
+{% schema %}
+  {
+    "name": "ob Header Search",
+    "settings": []
+  }
+{% endschema %} {% endcomment %}

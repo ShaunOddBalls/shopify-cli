@@ -1,0 +1,106 @@
+{% assign product_form_class = "flex h-full flex-col divide-y divide-gray-200 bg-white product-form" %}
+{% capture product_form_id %}product-form-{{ product.id }}{% endcapture %}
+
+
+        <div class="recharge-widget">
+          <div class="typography typography--body-md uppercase mb-2 font-semibold size-name -mb-3.5">4. Add the details of the person youy gifting too</div>
+                   <!----- recharge widget ---->
+                    {% for block in section.blocks %}  
+                      {% case block.type %}
+                      {%- when '@app' -%}
+                        {% capture the_block %}{% render block %}{% endcapture %}
+                          {{ the_block }}  
+                        {% endcase %}
+                      {% endfor %}
+                    <!-- ./recharge widget --->
+    </div>
+    
+{%- form 'product', product, data-product-id: product.id, id: product_form_id, class: product_form_class, novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
+    {% render 'ob-product-form-attributes',product:product %}
+    <div class="h-0 flex-1 overflow-y-auto">
+        <div class="flex flex-1 flex-col justify-between">
+          <div class="divide-y divide-gray-200">
+              <div class="space-y-6 p-6 py-4 varient-selector px-2">
+                  <!-- Variant Options -->
+                  {% render 'ob-gifting-product-variants', product:product %}
+              </div>
+          
+          </div>
+        </div>
+    </div>
+        <header class="qb-header relative flex items-center justify-between px-6 py-6 border-b">
+          <div class="absolute top-2 right-2">
+           {% render 'label-generator' product:product, labelTags:labelTags %}
+          </div>
+          <div>
+            <div class="flex">
+              <div id="default-quick-buy-image" class="flex-none">
+                <picture>
+                  <img id="prod-img"class="transition duration-100 ease-in-out opacity-100 rounded-sm aspect-square object-cover border border-solid borrder-gray-200 rounded-lg" src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}" loading="eager" width="84" height="84" draggable="false">
+                </picture>
+              </div>
+              <div class="flex flex-col justify-center ml-4">
+                <div class="typography typography--body-md">
+                    <div>
+                          <h2 id="default-quick-buy-header-title" class="text-xl lg:text-3xl uppercase font-semibold mb-2">{{ product.title | split: '-' | first }}</h2>
+      
+      
+                      
+                          <h3 id="default-quick-buy-header-sub-title" class="text-[#7D7D7D]">{{ product.title | split: '-' | last }}</h3>
+                    </div>
+                </div>
+                <div class="flex">
+                    <div id="prod-price" class="typography typography--body-md font-medium text-magenta-500 text-semibold">
+                      {% assign price = product.variants[0].price %}
+                      {% assign compare_at_price = product.variants[0].compare_at_price  %}
+                      {{ price | money }}
+                    </div>
+                    
+                    <del id="default-quick-buy-comp-price" class="ml-2" style="{% if price == compare_at_price %}display: none;{% else %}display: block;{% endif %}">
+                      {{ compare_at_price | money }}
+                    </del>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- <button class="button button--variant-ghost button--icon bg-[#F5F5F5] !w-6 !h-6 !bg-[#F0F0F0] self-start" translate="no" aria-label="Close">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 14 14">
+              <rect width="16.9705" height="1.13137" rx="0.565684" transform="matrix(0.707106 -0.707108 0.707106 0.707108 0.600586 12.6001)" fill="currentColor"></rect>
+              <rect width="16.9705" height="1.13137" rx="0.565684" transform="matrix(-0.707106 -0.707107 0.707106 -0.707108 12.6006 13.4001)" fill="currentColor"></rect>
+            </svg>
+          </button> -->
+        </header>
+        
+    <div class="flex flex-shrink-0 justify-end px-6 py-6 bg-white">
+        <!-- Add to Cart Button -->
+        <div class="grid grid-cols-4 w-full gap-2">
+            {% render 'ob-product-atc-button', product:product %}
+            {% render 'ob-product-atc-quantity', product:product %}
+        </div>
+    </div>
+    <div></div>
+    <!-- Include Product Data -->
+    <input type="hidden" name="attributes[ _Sub Gift Card Page]" value="{{ product.id }}">
+    <input type="hidden" id="product-json" product-id="{{ product.id }}" value="{{ product | json | escape }}">
+  
+{% endform %}
+
+
+{% schema %}
+  {
+    "name": "Sub Quick View",
+    "settings": [
+    ],
+    "blocks": [
+      {
+       "type": "@app"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Sub Quick View"
+      }
+      
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,110 @@
+{% schema %}
+{
+  "name": "Text and Image Grid",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Background Image"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "heading_classes",
+      "label": "Heading Classes"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text Content"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text"
+    },
+    {
+      "type": "text",
+      "id": "btn_url",
+      "label": "Button url"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Grid Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Url"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Text and Image Grid",
+      "category": "Image"
+    }
+  ]
+}
+{% endschema %}
+
+<div class="w-full mx-auto ">
+  <div class="grid md:grid-cols-2 w-full ">
+    <div class="col-span-1 flex justify-center items-center mt-10 relative"> 
+      {% if section.settings.image != blank %}    
+        <div class="w-full h-auto absolute -z-10 top-0 left-0 md:hidden">
+           <img class="w-full h-auto object-fit"
+                    src="{{ section.settings.image | img_url: '1200x' }}" 
+                    alt="{{ section.settings.image.alt | escape }}"
+                    loading="lazy">
+        </div>
+      {% endif %}
+      <div class="mx-auto max-w-2xl">
+      {% if section.settings.title != blank %}
+        <div class="py-6 md:py-3 px-6 text-lg uppercase font-semibold"><h2 class="{{ section.settings.heading_classes }}">{{ section.settings.title }}</h2></div>
+      {% endif %}
+    
+      {% if section.settings.text != blank %}
+          <div class="p-6">
+            <p>{{ section.settings.text }}</p>
+          </div>
+        {% endif %}
+          
+      {% if section.settings.button_text != blank %}
+        <div class="mb-12 px-6 ">
+          <a href="{%- render 'ob-process-international-link', url:section.settings.btn_url %}" class="block p-6 py-2 max-w-sm mx-auto text-center w-full bg-magenta text-white rounded-full font-semibold uppercase">
+            {{ section.settings.button_text }}
+          </a>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+    <div class="col-span-1 grid grid-cols-4 h-full">
+      
+          <!-- Slides --> 
+          {% for block in section.blocks %}
+            {% if block.type == "image" %}
+              <a href="{%- render 'ob-process-international-link', url:block.settings.link %}" class="w-full h-full">
+                     <img class="aspect-square w-full h-full"
+                  src="{{ block.settings.image | img_url: '1200x' }}" 
+                  alt="{{ block.settings.image.alt | escape }}"
+                  loading="lazy"
+                ></a>
+      
+            {% endif %}
+          {% endfor %}
+        </div>
+    </div>
+ </div>

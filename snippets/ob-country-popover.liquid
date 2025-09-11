@@ -1,0 +1,43 @@
+<div style="max-width:300px;display:none; z-index:999999999" class="js-iso-dropdown iso-dropdown animate pop absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white pb-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"  aria-orientation="vertical" id="headlessui-listbox-options-2">
+    {% capture top_currencies %}
+    {% for currency in shop.enabled_currencies %}
+        {%  if currency.iso_code == 'GBP' or  currency.iso_code == 'EUR' or currency.iso_code == 'AUD' or currency.iso_code == 'JPY'  or currency.iso_code == 'USD' %}
+            <li class="iso-{{ currency.iso_code | downcase }} relative  {% if currency == cart.currency %} bg-magenta-500 text-white {%  else %}hover:bg-magenta-100 hover:text-magenta-900{% endif %} cursor-default select-none py-2 pl-10 pr-4 text-gray-900" id="headlessui-listbox-option-3" role="option" tabindex="-1" aria-selected="true" data-headlessui-state="selected">
+                <a href="?currency={{currency.iso_code}}">
+                <span class="block truncate font-medium {% if currency == cart.currency %} text-white {%  else %} hover:text-magenta-900{% endif %}">{{currency.iso_code}} {{currency.symbol}}</span>
+                {% if currency == cart.currency %}
+                <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class="h-5 w-5">
+                        <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd"></path>
+                    </svg>
+                </span>
+                {% endif %}
+                 </a>
+            </li>
+        {% endif %}
+    {% endfor %}
+    {% endcapture %}
+    <ul class="flex flex-col">
+    {{ top_currencies }}
+    </ul>
+
+    <h5 class="text-gray-900 bg-gray-100 text-xxs p-2  pl-10 border-t border-b border-solid border-gray-100">Other currencies</h5>
+    <ul class="flex flex-col">
+    {% for currency in shop.enabled_currencies %}
+        {% unless currency.iso_code == 'GBP' or  currency.iso_code == 'EUR' or currency.iso_code == 'AUD' or currency.iso_code == 'JPY' %}
+            <li class="relative  {% if currency == cart.currency %} bg-magenta-500 text-white {%  else %}hover:bg-magenta-100 hover:text-magenta-900{% endif %} cursor-default select-none py-2 pl-10 pr-4 text-gray-900" id="headlessui-listbox-option-3" role="option" tabindex="-1" aria-selected="true" data-headlessui-state="selected">
+                <a href="?currency={{currency.iso_code}}">
+                <span class="block truncate font-medium {% if currency == cart.currency %} text-white {%  else %} hover:text-magenta-900{% endif %}">{{currency.iso_code}} {{currency.symbol}}</span>
+                {% if currency == cart.currency %}
+                <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class="h-5 w-5">
+                        <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd"></path>
+                    </svg>
+                </span>
+                {% endif %}
+                </a>
+            </li>
+        {% endunless %}
+    {% endfor %}
+    </ul>
+</div>

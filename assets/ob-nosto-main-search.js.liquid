@@ -1,0 +1,1007 @@
+// Wait for the document to fully load before running the script
+document.addEventListener('DOMContentLoaded', function() {
+
+
+  
+
+  let globRedirect = "";
+
+  document.querySelectorAll('.search-collapse-input').forEach(input => {
+  input.addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') {
+      if(globRedirect){
+       event.preventDefault(); 
+      window.location.href = globRedirect;
+      }
+    }
+  });
+});
+  const market = document.body.getAttribute("market") === 'eu' ? 'eu' : 'uk';
+  const marketTag = `country-${market}`;
+  const equivelant100 = parseFloat(document.getElementById("100-money").value);
+  const currencySymbol = document.body.getAttribute("currency-symbol")
+  
+    const countryUrl = document.body.getAttribute("country-url");
+    let searchTranslations = {
+    "default": {
+        "try": "try",
+        "see_more": "see more",
+        "quick_buy": "quick buy",
+        "add_another": "add another",
+        "search_for_products": "search for products"
+      },
+    "nl": {
+          "try": "proberen",
+          "see_more": "meer bekijken",
+          "quick_buy": "snel kopen",
+          "add_another": "nog een toevoegen",
+          "search_for_products": "Zoeken naar producten"
+      },
+      "de": {
+        "see_more": "Meer zien",
+        "quick_buy": "Snel kopen",
+        "add_another": "Voeg een andere toe"
+      },
+      "en": {
+        "see_more": "see more",
+        "quick_buy": "quick buy",
+        "add_another": "add another"
+      }
+    }
+  const debug = {
+    enabled: true,
+    log: function(...args) {
+        if (this.enabled) {
+            console.log(...args);
+        }
+    },
+    error: function(...args) {
+        if (this.enabled) {
+            console.error(...args);
+        }
+    }
+};
+let searchLanguage = document.body.getAttribute("language");
+  
+  let labelList;
+
+async function get_designs() {
+    // Pull print information from metaobjects, store in above array
+    const design_url = 'https://www.myoddballs.com/pages/gift-ideas-for-all-occasions?view=get-designs';
+    try {
+        const response = await fetch(design_url);
+        const data = await response.text();
+        glob_designs = JSON.parse(data).designs
+    } catch (error) {
+        console.error('Error fetching designs:', error);
+    }
+}
+
+async function get_labels() {
+  const countryUrl = document.body.getAttribute("country-url");
+  const url = countryUrl ? `https://www.myoddballs.com${countryUrl}/pages/perfect-pair?view=labels` : "https://www.myoddballs.com/pages/perfect-pair?view=labels";
+  
+  const data12 = await fetch(url);
+  const html = await data12.text();
+
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(html, "text/html");
+let tempLabels = []
+  const inputs = doc.querySelectorAll("input.tag");
+  inputs.forEach(input => {
+    tempLabels.push(JSON.parse(input.value));
+  });
+  labelList = tempLabels;
+}
+	function waitForNostoJs(callback) {
+		var checkInterval = setInterval(function() {
+		if (typeof window.Nosto !== 'undefined') {
+			clearInterval(checkInterval);
+			callback();
+		}
+		}, 100); // Check every 100 milliseconds
+	}
+		
+(async () => {
+    waitForNostoJs(async function() {
+        console.log('nostojs is ready');
+        initNostoDependentFunctions();
+        await Promise.all([get_labels()]);
+    });
+})();
+
+  function addLabels(){
+  const products = document.querySelectorAll('.product-card');
+  if(products.length > 1){
+       products.forEach(function(card) {
+        try {
+            // Find the input element with class 'prod-info' within the current card
+            let prodInfo = card.querySelector('.prod-info');
+            let prod = JSON.parse(prodInfo.value); // Use the value of the input element
+            let label = generateProductLabel(prod);
+            
+            // Find the element with class 'label-loc' within the current card
+            let labelLoc = card.querySelector('.label-loc');
+            if(labelLoc){
+              labelLoc.innerHTML = label; // Set the innerHTML to the generated label
+            }
+        } catch (error) {
+            console.error("Error adding label: " + error);
+        }
+    });
+  }else{
+    setTimeout(function(){
+      addLabels();
+    }, 300)
+  }
+ 
+
+}
+
+function generateProductLabel(data) {
+        let available = data.available;
+        const current_id = data.productId;
+        const image_url = data.imageUrl;
+        let prod_price = data.price;
+        let comp_price = data.listPrice;
+        const current_title = data.name;
+        const tags = data.tags1;
+      
+        let label_found = false;
+        let savings = 0;
+      
+        for (const label of labelList) {
+          let proceed = false
+
+          if(label.theme_version == "B"){
+            proceed = true;
+          }
+
+          if(label && proceed){
+           let  labelMatch = label.tag_match;
+           let  bgColor = label.bg_color;
+          let  textColor = label.text_color;
+          let  labelText = label.text;
+          let  labelBorder = label.outline_color
+          let countryUrl = document.body.getAttribute("country-url");
+          const labelDisplay = label.show_hide_class
+        
+            if (!Array.isArray(tags)) continue;
+            for (const tag of tags) {
+              if (tag === labelMatch && !label_found) {
+                if (tag === "label-sale-percent-discount") {
+                  if (parseFloat(comp_price) > parseFloat(prod_price)) {
+                    label_found = true;
+                    savings = ((comp_price - prod_price) / comp_price * 100).toFixed(2);
+                    return `<span class="${labelDisplay} top-2 right-2 rounded px-1.5 py-1 font-display text-3xs lg:!text-md  font-bold uppercase rounded-md" style="z-index:12; background-color: ${bgColor}; color:${textColor}; border: 2px solid ${labelBorder}; box-shadow: 1px 1px 1px rgb(0 0 0 / 30%);">${Math.round(savings)}${translations.collections.percent_saving}</span>`;
+                  }
+                } else if (tag === "label-sale-value-discount") {
+                  if (parseFloat(comp_price) > parseFloat(prod_price)) {
+                    label_found = true;
+                    savings = comp_price - prod_price;
+                    if (savings % 1 !== 0) {
+                        savings = savings.toFixed(2); // Format to 2 decimal places
+                    }
+                    return `<span class="${labelDisplay} top-2 right-2 rounded px-1.5 py-1 font-display text-3xs lg:!text-md  font-bold uppercase rounded-md" style="z-index:12; background-color: ${bgColor}; color:${textColor}; border: 2px solid ${labelBorder}; box-shadow: 1px 1px 1px rgb(0 0 0 / 30%);">Save ${currencySymbol}${savings}</span>`;//1234
+                  }
+                } else {
+                  // default label handling
+                  label_found = true;
+                  return `<span class="${labelDisplay} top-2 right-2 rounded px-1.5 py-1 font-display text-3xs lg:!text-md font-bold uppercase rounded-md" style="z-index:12; background-color: ${bgColor}; color:${textColor}; border: 2px solid ${labelBorder}; box-shadow: 1px 1px 1px rgb(0 0 0 / 30%);">${labelText}</span>`;
+                }
+              }
+            }
+          }
+        }
+        return null; 
+      }
+	console.log('----ob-nosto-main-search.js.liquid-------');
+	// Function to add a character to the placeholder with a random delay to simulate typing
+	function addToPlaceholder(toAdd, el) {
+		// Append the new character to the current placeholder text
+		el.placeholder = el.placeholder + toAdd;
+		// Return a promise that resolves after a random delay between 50 and 100 milliseconds
+		return new Promise(resolve => setTimeout(resolve, 50 + Math.random() * 50));
+	}
+
+	// Function to remove the last character from the placeholder with a random delay to simulate backspacing
+	function removeFromPlaceholder(el) {
+		let currentPlaceholder = el.placeholder;
+		if (currentPlaceholder.length > 0) {
+			// Remove the last character from the placeholder text
+			el.placeholder = currentPlaceholder.slice(0, -1);
+			// Return a promise that resolves after a random delay between 25 and 50 milliseconds
+			return new Promise(resolve => setTimeout(resolve, 25 + Math.random() * 25));
+		}
+		// If there's no text left, resolve the promise immediately
+		return Promise.resolve();
+	}
+	
+	// Function to clear the placeholder text down to a certain number of characters
+	function clearPlaceholder(el, charsToKeep = 0) {
+		return new Promise(resolve => {
+			// Recursive function to remove characters one by one
+			function clear() {
+				if (el.placeholder.length > charsToKeep) {
+					// Remove one character and call clear() again
+					removeFromPlaceholder(el).then(clear);
+				} else {
+					// When desired length is reached, resolve the promise
+					resolve();
+				}
+			}
+			clear();
+		});
+	}
+	
+	// Function to type out a phrase in the placeholder
+	function printPhrase(phrase, el) {
+		return new Promise(resolve => {
+			let letters = phrase.split('');
+			// Chain promises to type each letter sequentially
+			letters.reduce(
+				(promise, letter, index) => promise.then(() => {
+					// When the last letter is typed, wait for 1 second before resolving
+					if (index === letters.length - 1) {
+						setTimeout(resolve, 1000);
+					}
+					// Add the next letter to the placeholder
+					return addToPlaceholder(letter, el);
+				}),
+				Promise.resolve()
+			);
+		});
+	}
+	
+	// Function to cycle through an array of terms, animating each one in the placeholder
+	function suggestTerms(basePhrase, terms, el) {
+		return terms.reduce((promise, term, index) => {
+			let phrase;
+			if (index === 0) {
+				// For the first term, prepend the base phrase
+				phrase = `${basePhrase}"${term}"`;
+			} else if (index === terms.length - 1) {
+				// For the last term, change the phrase
+				phrase = `${translations.search.or_maybe} "${term}"`;
+			} else {
+				// For other terms, just display the term in quotes
+				phrase = `"${term}"`;
+			}
+
+			return promise
+				.then(() => {
+					// Type out the phrase in the placeholder
+					return printPhrase(phrase, el);
+				})
+				// Wait for a short pause before clearing the placeholder
+				.then(() => new Promise(resolve => setTimeout(resolve, 300)))
+				.then(() => {
+					// Clear the placeholder, keeping the base phrase if necessary
+					if (index < terms.length - 2) {
+						return clearPlaceholder(el, basePhrase.length);
+					} else {
+						return clearPlaceholder(el);
+					}
+				});
+		}, Promise.resolve());
+	}
+	
+	// Function to manage the animation loop for the placeholder text
+	function animatePlaceholder(el, loopCount = 0) {
+		// Define basePhrase here
+		let basePhrase = translations.search.try;
+		// Define terms here as well
+		let terms = Object.values(translations.search.search_terms);
+	
+		printPhrase(translations.search.search_for_products, el)
+			// Wait for a short pause after typing the initial phrase
+			.then(() => new Promise(resolve => setTimeout(resolve, 300)))
+			// Clear the placeholder text
+			.then(() => clearPlaceholder(el))
+			// Start suggesting terms
+			.then(() => suggestTerms(basePhrase, terms, el))
+			// Wait for a short pause after suggestions
+			.then(() => new Promise(resolve => setTimeout(resolve, 300)))
+			.then(() => {
+				// Loop the animation if the loop count hasn't been reached
+				if (loopCount < 1) {
+					animatePlaceholder(el, loopCount + 1);
+				} else {
+					// After looping, type out the default placeholder text
+					printPhrase(translations.search.search_for_products, el);
+				}
+			});
+	}
+	
+	// Function to initialize and run the animated placeholder
+    function runAnimatedPlaceholder() {
+        // Base phrase to prepend to suggestions
+        let basePhrase = translations.search.try;
+        // Array of terms to suggest
+        let terms = Object.values(translations.search.search_terms); 
+    
+        // Get all search input elements with the specified class
+        const searchInputs = document.querySelectorAll('.search-collapse-input');
+        
+        // Start the animation on each search input
+        searchInputs.forEach(input => {
+            if (input) {
+                animatePlaceholder(input);
+            }
+        });
+    }
+	
+	// Run the animated placeholder when the document is ready
+	runAnimatedPlaceholder();
+	  
+	function initNostoDependentFunctions() {
+		const searchInputs = document.querySelectorAll('.search-collapse-input');
+	
+		searchInputs.forEach(input => {
+		  const debouncedSearch = debounce(function() {
+			if (input.value.length > 2) {
+			  performSearch(input.value);
+                      showLoadingIndicator(input);
+			} else {
+			  //showSearchSuggestions();
+			}
+		  }, 300);
+	
+		  input.addEventListener('input', debouncedSearch);
+		});
+		function showLoadingIndicator(input) {
+			// Create a loading indicator element
+			const loadingIndicator = document.createElement('div');
+			loadingIndicator.className = 'search-loading-indicator';
+			loadingIndicator.style.cssText = `
+			  position: absolute;
+			  right: 10px;
+			  top: 50%;
+			  transform: translateY(-50%);
+			  width: 20px;
+			  height: 20px;
+			  background-image: url('{{ 'loading.gif' | asset_url }}');
+			  background-size: contain;
+			  background-repeat: no-repeat;
+			`;
+		
+			// Add the loading indicator to the input's parent container
+			input.parentElement.style.position = 'relative';
+			input.parentElement.appendChild(loadingIndicator);
+		  }
+		  function hideLoadingIndicator() {
+			const loadingIndicator = document.querySelector('.search-loading-indicator');
+			if (loadingIndicator) {
+			  loadingIndicator.remove();
+			}
+		  }
+		function performSearch(query) {
+		  nostojs(api => {
+			api.search({
+			  query: query,
+			  products: {
+        fields: ["name", "price", "listPrice", "imageUrl", "url", "available", "tags1", "categories", "alternateImageUrls", "skus.id", "skus.name", "skus.availability", "skus.customFields.key", "skus.customFields.value", "customFields.key","customFields.value"],
+        size: 4,
+				facets: ['*']
+			  },
+			  keywords: {
+				fields: ["keyword"],
+				size: 5
+			  }
+			}, {
+			  track: 'serp'
+			}).then(data => {
+
+              console.log(data);
+                  globRedirect = data.redirect;
+                     klaviyo.track("Searched Site",{
+                       "SearchTerm": query,
+                       "SearchTerm (autocorrected)": query,
+                       "ReturnedResults": data.products.total
+                     });
+			  updateSearchResults(data, query);
+              			  hideLoadingIndicator();
+              try{
+                addLabels();
+              }catch(error){
+                console.error(error)
+              }
+			}).catch(error => {
+			  console.error('Error fetching search results:', error);
+              			  hideLoadingIndicator();
+			});
+		  });
+		}
+
+
+	
+		function updateSearchResults(data, query) {
+		  // Update search term and count
+		  const searchTermElements = document.querySelectorAll('.desktop-search-term');
+		  const searchCountElements = document.querySelectorAll('.desktop-search-count');
+          const seeAllResults = document.getElementById("see-all-results");
+          seeAllResults.setAttribute("href", (countryUrl + "/search?q=" + query).replace("//","/"));
+		  
+		  searchTermElements.forEach(el => el.textContent = `"${query}"`);
+		  searchCountElements.forEach(el => el.textContent = data.products.total);
+	
+		  // Update product results
+		  const searchResultsContainer = document.getElementById('search-rsults');
+		  if (searchResultsContainer) {
+			searchResultsContainer.innerHTML = ''; // Clear existing results
+			buildGridItem(data.products.hits, searchResultsContainer);
+		  }
+	
+		  // Update keyword suggestions
+		  const keywordSuggestionsContainer = document.getElementById('desktop-nosto-keywords');
+		  if (keywordSuggestionsContainer) {
+			keywordSuggestionsContainer.innerHTML = '';
+			data.keywords.hits.forEach(keyword => {
+			  const suggestionElement = document.createElement('div');
+			  suggestionElement.className = "text-xs nosto-autocomplete flex";
+			  suggestionElement.setAttribute("data-keyword", keyword.keyword);
+			  suggestionElement.innerHTML = `
+				<b class="mr-1">${query}</b>
+				<span class="whitespace-nowrap">${keyword.keyword.replace(query, "")}</span>
+			  `;
+			  keywordSuggestionsContainer.appendChild(suggestionElement);
+			});
+		  }
+	
+		  // Show search results and hide suggestions
+		  document.querySelector('.search-suggestions')?.classList.add('hidden');
+		  document.querySelector('.search-result')?.classList.remove('hidden');
+		}
+	
+		function showSearchSuggestions() {
+		  // Show search suggestions and hide results
+		  document.querySelector('.search-suggestions')?.classList.remove('hidden');
+		  document.querySelector('.search-result')?.classList.add('hidden');
+	
+		  // Load default suggestions
+		  loadDefaultSuggestions();
+		}
+        document.addEventListener('click', function(event) {
+          if (event.target.closest('.js-show-search-recommendations')) {
+              loadDefaultSuggestions();
+          }
+        });
+		function loadDefaultSuggestions() {
+		  const defaultSuggestions = ["pyjamas", "pringles", "socks", "cow", "team gb", "bucket hat", "towel", "bralette"];
+		  const suggestionsContainer = document.getElementById('pre-search-text-suggestions');
+		  if (suggestionsContainer) {
+			suggestionsContainer.innerHTML = '';
+			defaultSuggestions.forEach(suggestion => {
+			  const p = document.createElement('a');
+			  p.className = "typography typography--body-md mb-1 capitalize cursor-pointer";
+			  p.textContent = suggestion;
+              p.setAttribute("href", (countryUrl + "/search?q=" + suggestion).replace("//","/"));
+			  suggestionsContainer.appendChild(p);
+			});
+		  }
+	
+		  // Load default product suggestions
+		  loadDefaultProductSuggestions();
+		}
+	
+		function loadDefaultProductSuggestions() {
+          var searchInput = document.querySelector(".search-collapse-input");
+          //searchInput.focus();
+		  nostojs(api => {
+			api.search({
+			  products: {
+        fields: ["name", "price", "listPrice", "imageUrl", "url", "available", "tags1", "categories", "alternateImageUrls", "skus.id", "skus.name", "skus.availability", "skus.customFields.key", "skus.customFields.value", "customFields.key","customFields.value"],
+				size: 4,
+				categoryId: "269146980413",
+				facets: ['*']
+			  }
+			}).then(data => {
+			  const productSuggestionsContainer = document.getElementById('pre-search-product-suggestions');
+			  if (productSuggestionsContainer) {
+				productSuggestionsContainer.innerHTML = '';
+				buildGridItem(data.products.hits, productSuggestionsContainer);
+                try{
+                addLabels();
+              }catch(error){
+                console.error(error)
+              }
+			  }
+			}).catch(error => {
+			  console.error('Error fetching default product suggestions:', error);
+			});
+		  });
+		}
+	
+		function buildGridItem(products, target) {
+		  try {
+			// Clear existing content
+			if (target) {
+			  target.innerHTML = '';
+			} else {
+			  console.warn('Target element not found');
+			  return;
+			}
+	
+			// Check if products is an array and not empty
+			if (!Array.isArray(products) || products.length === 0) {
+			  console.warn('No products to display');
+			  return;
+			}
+	
+			// Create the main grid container
+			const gridContainer = document.createElement('div'); //not used
+	
+			// Iterate through each product
+			products.forEach((product, index) => {
+    try{
+      let proceed = !product.name.toLowerCase().includes('mid-collection') && !product.name.toLowerCase().includes('mid collection');
+      proceed = proceed && !product.tags1.includes("hide-me") && 
+            (product.tags1.includes(marketTag) || !product.tags1.some(tag => tag.startsWith("country-")));
+      if(proceed){
+        const productCard = document.createElement('div');
+        productCard.classList.add("product-card","flex","flex-col");
+        productCard.setAttribute('data-product-id', product.productId);
+    
+        const imageWrapper = document.createElement('div');
+        imageWrapper.classList.add("product-card__image-wrapper");
+    
+        const favoriteButton = document.createElement('button');
+        favoriteButton.classList.add("button", "button--variant-outline", "button--icon", "product-card__favourite", "product-card__favourite--off", "hidden");
+        favoriteButton.setAttribute("aria-label", "Add product to favourites");
+    
+        const favoriteIcon = '<svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 1024 1024"> <path fill="currentColor" d="M923 283.6a260.04 260.04 0 0 0-56.9-82.8a264.4 264.4 0 0 0-84-55.5A265.34 265.34 0 0 0 679.7 125c-49.3 0-97.4 13.5-139.2 39c-10 6.1-19.5 12.8-28.5 20.1c-9-7.3-18.5-14-28.5-20.1c-41.8-25.5-89.9-39-139.2-39c-35.5 0-69.9 6.8-102.4 20.3c-31.4 13-59.7 31.7-84 55.5a258.44 258.44 0 0 0-56.9 82.8c-13.9 32.3-21 66.6-21 101.9c0 33.3 6.8 68 20.3 103.3c11.3 29.5 27.5 60.1 48.2 91c32.8 48.9 77.9 99.9 133.9 151.6c92.8 85.7 184.7 144.9 188.6 147.3l23.7 15.2c10.5 6.7 24 6.7 34.5 0l23.7-15.2c3.9-2.5 95.7-61.6 188.6-147.3c56-51.7 101.1-102.7 133.9-151.6c20.7-30.9 37-61.5 48.2-91c13.5-35.3 20.3-70 20.3-103.3c.1-35.3-7-69.6-20.9-101.9zM512 814.8S156 586.7 156 385.5C156 283.6 240.3 201 344.3 201c73.1 0 136.5 40.8 167.7 100.4C543.2 241.8 606.6 201 679.7 201c104 0 188.3 82.6 188.3 184.5c0 201.2-356 429.3-356 429.3z"></path> <path fill="currentColor" fill-opacity="0" d="M679.7 201c-73.1 0-136.5 40.8-167.7 100.4C480.8 241.8 417.4 201 344.3 201c-104 0-188.3 82.6-188.3 184.5c0 201.2 356 429.3 356 429.3s356-228.1 356-429.3C868 283.6 783.7 201 679.7 201z"></path> </svg>'
+        
+        favoriteButton.innerHTML = favoriteIcon;
+        imageWrapper.appendChild(favoriteButton);
+    
+        const productLink = document.createElement('a');
+        productLink.href = product.url;
+        productLink.classList.add("swiper", "swiper-product", "product-card__image", "group", "aspect-square", "swiper-initialized", "swiper-horizontal", "swiper-ios", "swiper-backface-hidden");
+    
+        const swiperWrapper = document.createElement('div');
+        swiperWrapper.classList.add("swiper-wrapper");
+        swiperWrapper.setAttribute("aria-live", "polite");
+    
+        const imageSlide = document.createElement('div');
+        imageSlide.classList.add("swiper-slide", "swiper-slide-active", "flex", "items-center");
+        imageSlide.setAttribute("role", "group");
+        imageSlide.setAttribute("aria-label", "1 / 1");
+    
+        const productImage = document.createElement('img');
+        productImage.classList.add("w-full");
+        productImage.src = product.imageUrl;
+        productImage.loading = "lazy";
+        productImage.alt = product.name;
+        productImage.width = 500;
+        productImage.height = 500;
+    
+        imageSlide.appendChild(productImage);
+        swiperWrapper.appendChild(imageSlide);
+        productLink.appendChild(swiperWrapper);
+        imageWrapper.appendChild(productLink);
+        const labelLoc = document.createElement('div');
+        labelLoc.className = "label-loc";
+        labelLoc.classList.add("text-xxs");
+        productCard.appendChild(imageWrapper);
+        productCard.appendChild(labelLoc);
+        const quickAddWrapper = document.createElement('div');
+        quickAddWrapper.className = "bg-gray-100 p-2 pb-3 px-4"
+        const quickAddDiv = document.createElement('div');
+        quickAddWrapper.append(quickAddDiv);
+        quickAddDiv.className = "rounded-full border border-black border-solid grid grid-cols-2 w-full bg-white";
+        
+        const seeMoreDiv = document.createElement('a');
+        seeMoreDiv.id = "search-see-more-" + (index + 1)
+        seeMoreDiv.href = product.url;
+        seeMoreDiv.className = "text-xxs md:text-xs items-center text-center uppercase border-r border-solid border-gray-300 py-1 md:py-2 font-semibold md:font-normal";
+        seeMoreDiv.innerText = translations.search.see_more;
+        quickAddDiv.append(seeMoreDiv);
+        
+        const quickAddButton = document.createElement('div');
+        quickAddButton.id = "search-quick-add-" + (index + 1)
+        quickAddButton.className = "text-xxs md:text-xs items-center text-center uppercase search-quick-add py-1 font-semibold md:font-normal relative md:py-2 cursor-pointer";
+        quickAddButton.innerText = translations.search.quick_buy;
+        
+        // Create padding div and append it correctly
+        const qbPadding = document.createElement('div');
+        qbPadding.className = "absolute left-0 search-quick-add z-2";
+        qbPadding.style.top = "-50%";
+        qbPadding.style.width = "120%";
+        qbPadding.style.height = "195%";
+        qbPadding.setAttribute('data-handle', getShopifyProductHandle(product.url));
+        quickAddButton.append(qbPadding);
+        
+        quickAddDiv.append(quickAddButton);
+
+        const productDetails = document.createElement('div');
+        productDetails.append(quickAddWrapper);
+        productDetails.classList.add("product-card__details", "sm:px-0", "h-full", "pb-2");
+    
+        const productTitleLink = document.createElement('a');
+        productTitleLink.href = product.url;
+        productTitleLink.classList.add("h-full", "flex", "flex-col", "justify-between");
+        let titleInfo = titleLogic(product);
+
+        const productTitleWrap = document.createElement('div');
+    
+        const productTitle = document.createElement('p');
+        productTitle.classList.add("product-card__details__title", "px-2", "text-md", "font-semibold");
+        productTitle.textContent = String(titleInfo['cleanTitle']);
+    
+        const productCategory = document.createElement('p');
+        productCategory.classList.add("product-card__details__color", "px-2", "text-sm");
+        productCategory.textContent = String(titleInfo['subTitle']); // Customize as needed
+
+        const productPriceWrap = document.createElement('div');
+    
+        const productPrice = document.createElement('p');
+        productPrice.classList.add("product-card__details__price", "px-2", "text-magenta-500", "text-md");
+        let price = product.price;
+        if(price % 1 != 0){
+          price = parseFloat(price).toFixed(2);
+        }
+        const normalPrice = `£${price}`;
+        const listPriceElement = product.listPrice > product.price
+          ? `<del class="ml-1 text-gray-400">£${product.listPrice}</del>`
+          : `<del class="ml-1 text-gray-400 hidden">£${product.listPrice}</del>`;
+        productPrice.innerHTML = `${normalPrice}${listPriceElement}`;
+
+        productTitleWrap.append(productTitle, productCategory);
+        productPriceWrap.append(productPrice);
+        productTitleLink.append(productTitleWrap, productPriceWrap);
+        
+        productDetails.appendChild(productTitleLink);
+        productCard.appendChild(productDetails);
+        const prodInfo = document.createElement('input');
+        prodInfo.setAttribute("type", "hidden");
+        prodInfo.setAttribute("value", JSON.stringify(product)); // Convert product object to a string if needed
+        prodInfo.classList.add("prod-info");
+        productCard.appendChild(prodInfo);
+
+        target.appendChild(productCard)
+      }else{
+        
+      }
+      
+    } catch (productError) {
+				console.error('Error processing product:', productError, product);
+			  }
+			});
+	
+			// Add the grid to the target element
+			//target.appendChild(gridContainer);
+		  } catch (error) {
+			console.error('Error in buildGridItem:', error);
+			// Display a user-friendly error message
+			if (target) {
+			  const errorMessage = document.createElement('div');
+			  errorMessage.textContent = 'Sorry, we encountered an error while loading the products. Please try again later.';
+			  errorMessage.className = 'text-red-500 text-center py-4';
+			  target.appendChild(errorMessage);
+			}
+		  }
+          if (market !== 'uk') {
+              setTimeout(() => {
+                  products.forEach(product => {
+                      updateNonUKPrices(product.productId);
+                  });
+              }, 100);
+          }
+		}
+
+  async function updateNonUKPrices(productId) {
+    debug.log('[updateNonUKPrices] Starting updateNonUKPrices for product ID:', productId);
+    try {
+        const card = document.querySelector(`[data-product-id="${productId}"]`);
+        if (!card) {
+            debug.error(`Could not find card for product ID: ${productId}`);
+            return;
+        }
+
+        const prodInfo = card.querySelector('.prod-info');
+        debug.log('[updateNonUKPrices] Found prodInfo:', prodInfo);
+        
+        const product = JSON.parse(prodInfo.value);
+        debug.log('[updateNonUKPrices] Parsed product data:', product);
+        
+        const productHandle = getShopifyProductHandle(product.url);
+        debug.log('[updateNonUKPrices] Extracted handle:', productHandle, 'from URL:', product.url);
+        
+        if (!productHandle) {
+            debug.log('[updateNonUKPrices] No product handle found, skipping');
+            return;
+        }
+
+        debug.log('[updateNonUKPrices] Fetching Shopify data for handle:', productHandle);
+        const url = market === 'eu' 
+            ? `${window.Shopify.routes.root}products/${productHandle}.js?currency=EUR`
+            : `${window.Shopify.routes.root}products/${productHandle}.js`;
+            
+        const response = await fetch(url);
+        debug.log('[updateNonUKPrices] Fetch response:', response);
+        
+        const shopifyProduct = await response.json();
+        debug.log('[updateNonUKPrices] Shopify product data:', shopifyProduct);
+        
+        // Verify we have the correct product by comparing handles
+        const shopifyHandle = shopifyProduct.handle;
+        debug.log('[updateNonUKPrices] Comparing handles:', {shopifyHandle, productHandle});
+        
+        if (shopifyHandle !== productHandle) {
+            debug.error('[updateNonUKPrices] Product handle mismatch:', {shopifyHandle, productHandle});
+            return;
+        }
+
+        // Update price
+        const priceElement = card.querySelector('.product-card__details__price');
+        debug.log('[updateNonUKPrices] Price element found:', priceElement);
+        
+        if (priceElement) {
+            let price = shopifyProduct.price;
+            let comparePrice = shopifyProduct.compare_at_price;
+            debug.log('[updateNonUKPrices] Raw prices:', {price, comparePrice});
+            
+            if (price % 1 !== 0) {
+                price = parseFloat(price/100).toFixed(2);
+            } else {
+                price = (price/100);
+            }
+            
+            const normalPrice = currencySymbol + `${price}`;
+            debug.log('[updateNonUKPrices] Formatted normal price:', normalPrice);
+            
+            let listPriceElement = '';
+            
+            if (comparePrice && comparePrice > shopifyProduct.price) {
+                if (comparePrice % 1 !== 0) {
+                    comparePrice = parseFloat(comparePrice/100).toFixed(2);
+                } else {
+                    comparePrice = (comparePrice/100);
+                }
+                listPriceElement = `<del class="ml-1 text-gray-400">${currencySymbol}${comparePrice}</del>`;
+            } else {
+                listPriceElement = `<del class="ml-1 text-gray-400 hidden">${currencySymbol}${price}</del>`;
+            }
+            
+            debug.log('[updateNonUKPrices] Setting price HTML to:', `${normalPrice}${listPriceElement}`);
+            priceElement.innerHTML = `${normalPrice}${listPriceElement}`;
+        }
+
+        // Update title and product type
+        const titleElement = card.querySelector('.product-card__details__title');
+        const categoryElement = card.querySelector('.product-card__details__color');
+        debug.log('[updateNonUKPrices] Found elements:', {titleElement, categoryElement});
+        
+        if (titleElement) {
+            const titleLogicInput = {
+                name: shopifyProduct.title,
+                tags1: shopifyProduct.tags,
+                compare_at_price: shopifyProduct.compare_at_price,
+                price: shopifyProduct.price
+            };
+            debug.log('[updateNonUKPrices] Title logic input:', titleLogicInput);
+            
+            const titleInfo = titleLogic(titleLogicInput);
+            debug.log('[updateNonUKPrices] Title logic output:', titleInfo);
+            
+            debug.log('[updateNonUKPrices] Setting title to:', titleInfo.cleanTitle);
+            titleElement.textContent = titleInfo.cleanTitle;
+            
+            if (categoryElement && titleInfo.subTitle) {
+                debug.log('[updateNonUKPrices] Setting category to:', titleInfo.subTitle);
+                categoryElement.textContent = titleInfo.subTitle;
+            }
+        }
+        const updatedProduct = {
+            ...product,
+            price: shopifyProduct.price/100,
+            listPrice: shopifyProduct.compare_at_price ? shopifyProduct.compare_at_price/100 : shopifyProduct.price/100,
+            name: shopifyProduct.title,
+            tags1: shopifyProduct.tags
+        };
+        debug.log('[updateNonUKPrices] Updating stored product info to:', updatedProduct);
+        prodInfo.value = JSON.stringify(updatedProduct);
+        
+        debug.log('Successfully updated product:', shopifyHandle);
+        
+    } catch (error) {
+        debug.error('Error updating product info:', error);
+        debug.error('Error stack:', error.stack);
+    }
+}
+      
+		function buildImageSlider(swiperWrapper, alternateImages, title) {
+		  // Check if the slider has already been built
+		  if (swiperWrapper.children.length > 1) {
+			return; // Slider already built, exit the function
+		  }
+	
+		  // Add alternate images
+		  alternateImages.forEach(altImageUrl => {
+			const altSlide = document.createElement('div');
+			altSlide.className = 'swiper-slide';
+			const altImage = document.createElement('img');
+			altImage.className = 'w-full';
+			altImage.src = modifyUrlWithResolutions(altImageUrl);
+			altImage.loading = 'lazy';
+			altImage.alt = title;
+			altImage.width = '500';
+			altImage.height = '500';
+			altSlide.appendChild(altImage);
+			swiperWrapper.appendChild(altSlide);
+		  });
+	
+		  // Initialize Swiper
+		  new Swiper(swiperWrapper.parentElement, {
+			// Swiper options
+			loop: true,
+			navigation: {
+			  nextEl: '.btn-next-pro',
+			  prevEl: '.btn-prev-pro',
+			},
+		  });
+		}
+	  }
+		
+	
+	/**
+	 * Creates a debounced version of a function.
+	 * 
+	 * @param {Function} func - The function to debounce.
+	 * @param {number} wait - The number of milliseconds to delay.
+	 * @param {boolean} [immediate=false] - Whether to call the function immediately on the leading edge.
+	 * @return {Function} The debounced function.
+	 */
+	function debounce(func, wait, immediate = false) {
+		// Validate input parameters
+		if (typeof func !== 'function') {
+			console.error('debounce: First argument must be a function');
+			return () => {}; // Return a no-op function
+		}
+		if (typeof wait !== 'number' || wait < 0) {
+			console.warn('debounce: Invalid wait time, defaulting to 0');
+			wait = 0;
+		}
+
+		let timeout;
+
+		return function executedFunction(...args) {
+			// Store the context for the function to be executed
+			const context = this;
+
+			// The function to be executed after the debounce time has elapsed
+			const later = function() {
+				timeout = null;
+				if (!immediate) {
+					try {
+						func.apply(context, args);
+					} catch (error) {
+						console.error('Error in debounced function:', error);
+					}
+				}
+			};
+
+			// Determine whether to execute the function on the leading edge
+			const callNow = immediate && !timeout;
+
+			// Clear the previous timeout (if any)
+			clearTimeout(timeout);
+
+			// Set a new timeout
+			timeout = setTimeout(later, wait);
+
+			// If callNow is true, execute the function immediately
+			if (callNow) {
+				try {
+					func.apply(context, args);
+				} catch (error) {
+					console.error('Error in immediate debounced function call:', error);
+				}
+			}
+		};
+	}
+		
+	/**
+	 * Modifies a given URL to create a srcset string with multiple resolutions.
+	 * @param {string} url - The original image URL.
+	 * @returns {string} A srcset string with multiple resolutions, or the original URL if an error occurs.
+	 */
+	function modifyUrlWithResolutions(url) {
+		try {
+			// Array of desired image resolutions
+			var resolutions = [360, 420, 480, 640, 840, 1080, 1280, 1540, 1860, 1950];
+			
+			// Split the URL into filename and extension
+			var parts = url.split('.');
+			if (parts.length < 2) {
+				throw new Error('Invalid URL format');
+			}
+			
+			var fileName = parts.slice(0, -1).join('.'); 
+			var fileExtension = parts[parts.length - 1];
+			
+			// Array to store modified URLs
+			var modifiedUrls = [];
+		
+			// Generate modified URLs for each resolution
+			for (var i = 0; i < resolutions.length; i++) {
+				var resolution = resolutions[i];
+				var modifiedUrl = `${fileName}_${resolution}x.${fileExtension} ${resolution}w`;
+				modifiedUrls.push(modifiedUrl);
+			}
+		
+			// Join the modified URLs into a single string
+			var result = modifiedUrls.join(',');
+		
+			// Return the resulting srcset string
+			return result;
+		} catch (error) {
+			console.warn('Error in modifyUrlWithResolutions:', error.message);
+			// Return the original URL if an error occurs
+			return url;
+		}
+	}
+  function getShopifyProductHandle(url) {
+  // Regular expression to match Shopify product URLs
+  const regex = /\/products\/([a-zA-Z0-9-]+)(?:\?|$)/;
+  
+  // Try to match the URL
+  const match = url.match(regex);
+  
+  // If a match is found, return the handle, otherwise return null
+  return match ? match[1] : null;
+}
+  function titleLogic(product) {
+    let title = product.name;
+    let cleanTitle = title; 
+    let subTitle = 'no';
+    let onSale = product.compare_at_price > product.price; 
+    if (title.toLowerCase().includes("subscriptionx") && false) {
+        let tags = product.tags1; 
+        if (tags.includes('subscription_classic')) {
+            subTitle = 'CLASSIC';
+            title = 'Plain Monthly Subscription';
+        } else if (tags.includes('subscription_adventurous')) {
+            title = 'Patterned Monthly Subscription';
+          subtitle = "something"
+            cleanTitle = title
+        }
+    } else if (title.toLowerCase().includes("pre-paid subscription")) {
+        let tags = product.tags1;
+        if (tags.includes('subscription_classic')) {
+            subTitle = '{{sub}} Plain Subscription';
+        } else if (tags.includes('subscription_adventurous')) {
+            subTitle = '{{sub}} Patterned Subscription';
+        }
+
+        if (title.includes('06 Month Pre-Paid: ')) {
+            cleanTitle = subTitle.replace('{{sub}}', '6 month pre-paid ');
+            title = title.replace('06 Month Pre-Paid: ', '')
+                         .replace('CLASSIC Subscription - ', '')
+                         .replace('[G2]', '')
+                         .replace(' monthly subscription', '')
+                         .toLowerCase();
+        } else if (title.includes('12 Month Pre-Paid: ')) {
+            cleanTitle = subTitle.replace('{{sub}}', '12 month pre-paid ');
+            title = title.replace('12 Month Pre-Paid: ', '')
+                         .replace('CLASSIC Subscription - ', '')
+                         .replace('[G2]', '')
+                         .replace(' monthly subscription', '')
+                         .toLowerCase();
+        }
+    } else {
+        if (cleanTitle.includes('-')) {
+            let cleanTitleArr = cleanTitle.split(' - ');
+            let cleanTitleFirst = cleanTitleArr[0] + ' - ';
+            subTitle = cleanTitle.replace(cleanTitleFirst, '');
+            cleanTitle = cleanTitleFirst.replace(' - ', '');
+        }
+    }
+
+    return {
+        cleanTitle,
+        subTitle,
+        onSale
+    };
+}
+});

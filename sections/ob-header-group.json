@@ -1,0 +1,352 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "header",
+  "name": "Header group",
+  "sections": {
+    "mobile_install_banner_UGdg4m": {
+      "type": "mobile-install-banner",
+      "disabled": true,
+      "settings": {
+        "image": "shopify://shop_images/AppBanner-SummerSHop.jpg",
+        "title": "Get the App",
+        "description": "Experience the best of our store on mobile.",
+        "rating": 5,
+        "button_text": "Install Now",
+        "android_url": "",
+        "ios_url": ""
+      }
+    },
+    "ob_top_header_section_tgRLTL": {
+      "type": "ob-top-header-section",
+      "blocks": {
+        "sign_in_H7tj6X": {
+          "type": "sign-in",
+          "settings": {
+            "outer-classes": "flex items-center",
+            "classes": "hover:text-[#7D7D7D] capitalize pr-1 flex items-center",
+            "account": true
+          }
+        },
+        "link_XaYxUb": {
+          "type": "link",
+          "settings": {
+            "title": "help",
+            "url": "shopify://pages/contact-us",
+            "outer-classes": "",
+            "classes": "hover:text-[#7D7D7D] capitalize px-2 flex items-center"
+          }
+        },
+        "link_LeVrr8": {
+          "type": "link",
+          "settings": {
+            "title": "FAQ's",
+            "url": "shopify://pages/faqs",
+            "outer-classes": "",
+            "classes": "hover:text-[#7D7D7D] capitalize px-2 flex items-center"
+          }
+        },
+        "currency_LC4DBd": {
+          "type": "currency",
+          "settings": {
+            "add-flag": true,
+            "outer-classes": "pl-2",
+            "classes": ""
+          }
+        }
+      },
+      "block_order": [
+        "sign_in_H7tj6X",
+        "link_XaYxUb",
+        "link_LeVrr8",
+        "currency_LC4DBd"
+      ],
+      "disabled": true,
+      "settings": {
+        "outer-classes": "w-full py-1 bg-base-primary  typography typography--body-hidden z-10 typography",
+        "inner-classes": "text-white flex w-full h-full w-full   items-center",
+        "text-classes": "text-white",
+        "position": "justify-end",
+        "message": "Black Friday Sale! 20-40% Off Everything..."
+      }
+    },
+    "ob-header_XhMnaV": {
+      "type": "ob-header-style-1",
+      "blocks": {
+        "text_slider_arAhD7": {
+          "type": "text-slider",
+          "settings": {
+            "text": "FREE EU SHIPPING ON ORDERS OVER €35",
+            "mobile": false,
+            "desktop": false,
+            "show_on_all_markets": false,
+            "markets_to_show_on": "en-eu",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "text_slider_MCtiCf": {
+          "type": "text-slider",
+          "disabled": true,
+          "settings": {
+            "text": "Free product when you spend over £40🎁",
+            "mobile": false,
+            "desktop": false,
+            "show_on_all_markets": false,
+            "markets_to_show_on": "uk",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "text_slider_j9Ptht": {
+          "type": "text-slider",
+          "settings": {
+            "text": "Free product when you spend over £40🎁",
+            "mobile": false,
+            "desktop": false,
+            "show_on_all_markets": false,
+            "markets_to_show_on": "uk",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "text_slider_Vr9JLk": {
+          "type": "text-slider",
+          "settings": {
+            "text": "Kostenloser Versand bei Bestellungen über 40 €",
+            "mobile": false,
+            "desktop": false,
+            "show_on_all_markets": false,
+            "markets_to_show_on": "de-eu",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "text_slider_6QqWwx": {
+          "type": "text-slider",
+          "disabled": true,
+          "settings": {
+            "text": "Get 10% off with code SUMMER10 🤑",
+            "mobile": false,
+            "desktop": false,
+            "show_on_all_markets": false,
+            "markets_to_show_on": "uk",
+            "markets_to_exclude_on": "en-eu"
+          }
+        }
+      },
+      "block_order": [
+        "text_slider_arAhD7",
+        "text_slider_MCtiCf",
+        "text_slider_j9Ptht",
+        "text_slider_Vr9JLk",
+        "text_slider_6QqWwx"
+      ],
+      "custom_css": [],
+      "settings": {
+        "logo": "shopify://shop_images/OddBalls_Logo_Black.png",
+        "menu": "a-b-test-nav-theme-2",
+        "alt-menu": "gender-led-eu-navigation",
+        "desktop_highlights": "SUMMER CLEARANCE|#FFFFFF|#EA983E,VALENTINES DAY|#FFFFFF|#f44444",
+        "simple_top_bar": "Free product when you spend over £40🎁",
+        "sub-title": "",
+        "is-timer": false,
+        "date": "2025-08-11",
+        "time": "00:00"
+      }
+    },
+    "ob-header-search_genVPw": {
+      "type": "ob-header-search",
+      "settings": {}
+    },
+    "ob-header-anncouncement_genVPw": {
+      "type": "ob-header-announcement",
+      "blocks": {
+        "html_block_E79bb3": {
+          "type": "html-block",
+          "disabled": true,
+          "settings": {
+            "html": "<div class=\"tracking-tighter\">\n<span class=\"font-semibold text-md\">Cyber Monday Price Promise🎁</span><span div=\"\"></span>\n</div>",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "liquid_block_TzVk3i": {
+          "type": "liquid-block",
+          "disabled": true,
+          "settings": {
+            "liquid": "ob-trust-piot-announcement-snippet",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "text_block_nTXcRL": {
+          "type": "text-block",
+          "disabled": true,
+          "settings": {
+            "title": "<p>Enjoy 15% Off Your First Order – No Duties, Just Comfort</p>",
+            "show_on_all_markets": false,
+            "markets_to_show_on": "en-eu",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "text_block_z97XPW": {
+          "type": "text-block",
+          "settings": {
+            "title": "<p>Free Delivery on orders over €35</p>",
+            "show_on_all_markets": false,
+            "markets_to_show_on": "en-eu",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "text_block_rDJPNf": {
+          "type": "text-block",
+          "settings": {
+            "title": "<p><strong>FREE UK delivery</strong> on all orders over £35</p>",
+            "show_on_all_markets": false,
+            "markets_to_show_on": "uk",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "text_block_g6xMKh": {
+          "type": "text-block",
+          "settings": {
+            "title": "<p><a href=\"https://www.myoddballs.com/pages/app\" title=\"https://www.myoddballs.com/pages/app\">Download our app today!</a></p>",
+            "show_on_all_markets": false,
+            "markets_to_show_on": "uk",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "text_block_fPAKWw": {
+          "type": "text-block",
+          "settings": {
+            "title": "<p>Free £20 product when you spend over £40!</p>",
+            "show_on_all_markets": false,
+            "markets_to_show_on": "uk",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "text_block_FXqKQQ": {
+          "type": "text-block",
+          "settings": {
+            "title": "<p>Kostenloser Versand bei Bestellungen über 40 € </p>",
+            "show_on_all_markets": false,
+            "markets_to_show_on": "de-eu",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "text_block_rRUCyn": {
+          "type": "text-block",
+          "settings": {
+            "title": "<p>Jetzt kaufen, später bezahlen mit Klarna & Clearpay<br/>                </p>",
+            "show_on_all_markets": false,
+            "markets_to_show_on": "de-eu",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "text_block_tCr3Ei": {
+          "type": "text-block",
+          "settings": {
+            "title": "<p>Fast, Tracked Delivery with InPost, Royal Mail & DPD<br/>                </p>",
+            "show_on_all_markets": false,
+            "markets_to_show_on": "uk",
+            "markets_to_exclude_on": ""
+          }
+        }
+      },
+      "block_order": [
+        "html_block_E79bb3",
+        "liquid_block_TzVk3i",
+        "text_block_nTXcRL",
+        "text_block_z97XPW",
+        "text_block_rDJPNf",
+        "text_block_g6xMKh",
+        "text_block_fPAKWw",
+        "text_block_FXqKQQ",
+        "text_block_rRUCyn",
+        "text_block_tCr3Ei"
+      ],
+      "settings": {}
+    },
+    "ob-header-account-nav_genVPw": {
+      "type": "ob-header-account-nav",
+      "disabled": true,
+      "settings": {}
+    },
+    "ob-side-nav_genVPw": {
+      "type": "ob-side-nav",
+      "blocks": {
+        "featured_image_aUcBe4": {
+          "type": "featured-image",
+          "settings": {
+            "title": "",
+            "image": "shopify://shop_images/BurgerBanner-Bamboo.jpg",
+            "url": "https://www.myoddballs.com/collections/bamboo-underwear",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "featured_image_MxiN9q": {
+          "type": "featured-image",
+          "disabled": true,
+          "settings": {
+            "title": "Bespoke Bucket Hats",
+            "image": "shopify://shop_images/Bespoke_Bucket_Hats-removebg-preview.png",
+            "url": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "featured_image_cBbAFz": {
+          "type": "featured-image",
+          "disabled": true,
+          "settings": {
+            "title": "Bespoke Blankets",
+            "image": "shopify://shop_images/Blankets-NEW_f249b604-386a-494b-8e6c-dd1b8299784e-removebg-preview.png",
+            "url": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        }
+      },
+      "block_order": [
+        "featured_image_aUcBe4",
+        "featured_image_MxiN9q",
+        "featured_image_cBbAFz"
+      ],
+      "settings": {
+        "logo": "shopify://shop_images/OB-logo-plain.png",
+        "menu": "a-b-test-nav-theme-2",
+        "alt-menu": "gender-led-eu-navigation",
+        "mobile_highlights": "SUMMER CLEARANCE|#FFFFFF|#EA983E",
+        "link_list": false,
+        "mobile_slides": 4,
+        "tablet_slides": 4,
+        "desktop_slides": 4,
+        "gap": 5,
+        "autoplay": false,
+        "loop": false,
+        "drags_scroll": true,
+        "header-text": "",
+        "featured-on": true
+      }
+    }
+  },
+  "order": [
+    "mobile_install_banner_UGdg4m",
+    "ob_top_header_section_tgRLTL",
+    "ob-header_XhMnaV",
+    "ob-header-search_genVPw",
+    "ob-header-anncouncement_genVPw",
+    "ob-header-account-nav_genVPw",
+    "ob-side-nav_genVPw"
+  ]
+}

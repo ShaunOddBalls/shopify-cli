@@ -1,0 +1,43 @@
+{% schema %}
+{
+  "name": "Loyalty Redeem Bundle",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "@app"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Loyalty Redeem Bundle"
+    }
+  ]
+}
+{% endschema %}
+
+<div id="referal-popup" class="fixed inset-0 flex lg:items-center items-end justify-center bg-black bg-opacity-50 hidden z-50">
+    <div class="bg-white rounded-lg shadow-lg md:p-6 lg:w-11/12 w-full h-[90vh] relative rounded-t-2xl mb-6 lg:mb-2">
+        <!-- Close Button -->
+        <button id="close-popup" class="absolute top-3 right-3 p-2 bg-gray-200 rounded-full hover:bg-gray-300">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <line x1="4.93" y1="4.93" x2="19.07" y2="19.07" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></line>
+                <line x1="19.07" y1="4.93" x2="4.93" y2="19.07" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></line>
+            </svg>
+        </button>
+        
+        <!-- Header -->
+        <div class="text-center text-2xl font-semibold my-4 lg:mb-4 lg:my-0 marujo">Select Your Pants</div>
+        
+        <!-- Content -->
+        <div id="referal-popup-contents" class="relative overflow-y-auto max-h-[96%]
+          ">
+            {% for block in section.blocks %}
+                {% case block.type %}
+                    {% when '@app' %}
+                        {% render block %}
+                {% endcase %}
+            {% endfor %}
+        </div>
+        <div class="text-xs mx-auto py-2 text-magent">Discount applied in cart</div>
+    </div>
+</div>

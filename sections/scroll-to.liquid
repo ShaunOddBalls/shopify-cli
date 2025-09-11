@@ -1,0 +1,21 @@
+{% schema %}
+{
+  "name": "Scroll To",
+    "settings": [
+      {
+        "type": "text",
+        "id": "scroll_to",
+        "label": "Id",
+        "info": "put this in the url to scroll to this div"
+      }
+    ],
+  "presets": [
+    {
+      "name": "Scroll To",
+    }
+  ]
+}
+{% endschema %}
+<div class="relative">
+  <div class="absolute" style="top:-133px" id="{{ section.settings.scroll_to }}"></div>
+</div>

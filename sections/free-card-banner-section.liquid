@@ -1,0 +1,29 @@
+{% schema %}
+  {
+    "name": "Free Card Banner",
+    "settings": [
+      {
+        "type": "text",
+        "id": "text",
+        "label": "text",
+        "default": "my text"
+      },
+      {
+        "type": "metaobject",
+        "id": "free_card_metaobject",
+        "label": "Free Card Metaobject",
+        "metaobject_type": "free_product_banner_with_pop_up"
+      },
+    ],
+    "presets": [
+      {
+        "name": "Free Card Banner"
+      }
+    ]
+  }
+{% endschema %}
+
+
+{% assign banner_object = section.settings.free_card_metaobject %}
+
+{% render 'ob-free-card-banner-pass-metaobject-ref', metaobject: banner_object  %}

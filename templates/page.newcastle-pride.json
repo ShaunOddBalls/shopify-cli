@@ -1,0 +1,123 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "image_text_grid_YYxeFP": {
+      "type": "ob-image-text-grid",
+      "blocks": {
+        "image_and_text_FjWtPP": {
+          "type": "image-and-text",
+          "settings": {
+            "country_iso": "*",
+            "title": "",
+            "block_wrapper_classes": "col-span-12 flex justify-center  px-4 items-center text-center relative",
+            "block_title": "",
+            "title_classes": "text",
+            "description": "<h2 class=\"text-center font-bebas text-3xl lg:text-4xl\">🏳️‍🌈 Newcastle Pride  🏳️‍🌈</h2>",
+            "description_classes": "",
+            "svg": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_and_text_FjWtPP"
+      ],
+      "settings": {
+        "outer_wrapper_classes": "relative pb-6",
+        "inner_wrapper_classes": "col-span-12 flex justify-center  py-3 px-4 items-center text-center",
+        "grid_wrapper_classes": "mt-6 grid grid-cols-2 gap-0.5 md:grid-cols-3 lg:mt-8",
+        "title": "",
+        "title_classes": "text-center text-base font-semibold uppercase text-gray-600 tracking-wider",
+        "section_bg_colour": "",
+        "block_bg_colour": "",
+        "block_bg_colour_hover": "",
+        "block_text_colour": "",
+        "block_text_colour_hover": "",
+        "block_image_classes": "",
+        "block_svg_classes": "",
+        "custom_css": ""
+      }
+    },
+    "conditional_banner_bbwHQc": {
+      "type": "ob-conditional-banner",
+      "blocks": {
+        "collection_banner_wpngNR": {
+          "type": "collection-banner",
+          "settings": {
+            "block_active": true,
+            "banner_background": "",
+            "wrapper_classes": "",
+            "title": "",
+            "text": "",
+            "customers": "both",
+            "url_handle": "oddballs-10th-birthday-party",
+            "not_url_handle": "*",
+            "country_iso": "*",
+            "banner_link": "",
+            "desktop_image": "shopify://shop_images/Desktop-BG_77434c98-d34f-4f87-9f48-5922feefd4d5.jpg",
+            "mobile_image": "shopify://shop_images/Mobile-BG_446ba922-33b9-43be-b973-1d44935507c6.jpg",
+            "desktop_image_classes": "mx-auto w-full hidden md:block",
+            "mobile_image_classes": "mx-auto w-full md:hidden",
+            "desktop_svg": "Desktop-FG_afa29a15-a0d6-4d4d-845a-411c39abdec6.svg",
+            "mobile_svg": "Mobile-FG_f443cd66-bf0a-4654-a97f-b09a4ab424a2.svg",
+            "desktop_svg_classes": "absolute inset-0 w-full h-full mx-auto hidden md:block",
+            "mobile_svg_classes": "absolute inset-0 w-full h-full mx-auto md:hidden"
+          }
+        }
+      },
+      "block_order": [
+        "collection_banner_wpngNR"
+      ],
+      "settings": {
+        "banner_background": "",
+        "wrapper_classes": ""
+      }
+    },
+    "klaviyo_forms_TKHMxb": {
+      "type": "ob-klaviyo-forms",
+      "blocks": {
+        "form_CFaqew": {
+          "type": "form",
+          "settings": {
+            "country_iso": "*",
+            "slide_active": true,
+            "title": "Newcastle Pride",
+            "klaviyo_id": "S56a9W",
+            "html_id": "",
+            "wrapper_classes": "",
+            "url_handle": "newcastle-pride",
+            "not_url_handle": "",
+            "domains": "*",
+            "device": "all",
+            "customers": "all"
+          }
+        }
+      },
+      "block_order": [
+        "form_CFaqew"
+      ],
+      "settings": {
+        "section_width": "full",
+        "custom_width": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_text_grid_YYxeFP",
+    "conditional_banner_bbwHQc",
+    "klaviyo_forms_TKHMxb"
+  ]
+}

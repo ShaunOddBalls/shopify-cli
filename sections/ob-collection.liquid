@@ -1,0 +1,218 @@
+{% schema %}
+{
+  "name": "Collection Grid",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Collection"
+    },
+    {
+      "type": "text",
+      "id": "isNosto",
+      "label": "isNosto",
+      "default": "true"
+    },
+    {
+      "type": "select",
+      "id": "columns_desktop_sm",
+      "label": "Columns on desktop (sm)",
+      "options": [
+        {
+          "value": "2",
+          "label": "2 columns"
+        },
+        {
+          "value": "3",
+          "label": "3 columns"
+        },
+        {
+          "value": "4",
+          "label": "4 columns"
+        },
+        {
+		"value": "5",
+		"label": "5 columns"
+		},
+		{
+		"value": "6",
+		"label": "6 columns"
+		}
+      ],
+      "default": "4"
+    },
+    {
+      "type": "select",
+      "id": "columns_desktop_md",
+      "label": "Columns on desktop (md)",
+      "options": [
+        {
+          "value": "2",
+          "label": "2 columns"
+        },
+        {
+          "value": "3",
+          "label": "3 columns"
+        },
+        {
+          "value": "4",
+          "label": "4 columns"
+        },
+        {
+		"value": "5",
+		"label": "5 columns"
+		},
+		{
+		"value": "6",
+		"label": "6 columns"
+		}
+      ],
+      "default": "4"
+    },
+    {
+		"type": "select",
+		"id": "columns_desktop_lg",
+		"label": "Columns on desktop (lg)",
+		"options": [
+		  {
+			"value": "2",
+			"label": "2 columns"
+		  },
+		  {
+			"value": "3",
+			"label": "3 columns"
+		  },
+		  {
+			"value": "4",
+			"label": "4 columns"
+		  },
+		  {
+		  "value": "5",
+		  "label": "5 columns"
+		  },
+		  {
+		  "value": "6",
+		  "label": "6 columns"
+		  }
+		],
+		"default": "4"
+	},
+    {
+		"type": "select",
+		"id": "columns_desktop_xl",
+		"label": "Columns on desktop (xl)",
+		"options": [
+		  {
+			"value": "2",
+			"label": "2 columns"
+		  },
+		  {
+			"value": "3",
+			"label": "3 columns"
+		  },
+		  {
+			"value": "4",
+			"label": "4 columns"
+		  },
+		  {
+		  "value": "5",
+		  "label": "5 columns"
+		  },
+		  {
+		  "value": "6",
+		  "label": "6 columns"
+		  }
+		],
+		"default": "4"
+	},
+    {
+		"type": "select",
+		"id": "columns_desktop_2xl",
+		"label": "Columns on desktop (2xl)",
+		"options": [
+		  {
+			"value": "2",
+			"label": "2 columns"
+		  },
+		  {
+			"value": "3",
+			"label": "3 columns"
+		  },
+		  {
+			"value": "4",
+			"label": "4 columns"
+		  },
+		  {
+		  "value": "5",
+		  "label": "5 columns"
+		  },
+		  {
+		  "value": "6",
+		  "label": "6 columns"
+		  }
+		],
+		"default": "4"
+	},
+    {
+		"type": "select",
+		"id": "columns_desktop_3xl",
+		"label": "Columns on desktop (3xl)",
+		"options": [
+		  {
+			"value": "2",
+			"label": "2 columns"
+		  },
+		  {
+			"value": "3",
+			"label": "3 columns"
+		  },
+		  {
+			"value": "4",
+			"label": "4 columns"
+		  },
+		  {
+		  "value": "5",
+		  "label": "5 columns"
+		  },
+		  {
+		  "value": "6",
+		  "label": "6 columns"
+		  }
+		],
+		"default": "4"
+	},
+    {
+      "type": "select",
+      "id": "columns_mobile",
+      "label": "Columns on mobile",
+      "options": [
+        {
+          "value": "1",
+          "label": "1 column"
+        },
+        {
+          "value": "2",
+          "label": "2 columns"
+        }
+      ],
+      "default": "2"
+    }
+  ]
+}
+{% endschema %}
+
+{% if section.settings.isNosto == "true" %}
+   <script src="{{ 'ob-collection.js' | asset_url }}" defer="defer"></script>
+   {% else %}
+  <script>
+    document.addEventListener('DOMContentLoaded', function () { 
+
+      document.getElementById("nosto-results-filters").classList.add("hidden");
+      document.getElementById("no-nosto-results-filters").classList.remove("hidden");
+    })
+  </script>
+{% endif %}
+
+
+{% render "ob-collection-content", isNosto:section.settings.isNosto %}

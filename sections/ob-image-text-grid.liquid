@@ -1,0 +1,314 @@
+{% include 'ob-include-set-current-country' %}
+
+{% assign svg_classes = 'group-hover:'
+  | append: section.settings.block_text_colour_hover
+  | append: ' fill-current '
+  | append: section.settings.block_text_colour
+  | append: 'h-10'
+%}
+{% comment %}
+/*-------------------------------- */
+/*  markets logic init
+/*-------------------------------- */
+{% endcomment %}
+{% assign market_code = localization.language.root_url %}
+{% if market_code == '/' %}
+  {% assign market_code = 'uk' %}
+{% else %}
+  {% assign market_code = market_code | remove: '/' %}
+{% endif %}
+{% comment %}
+/*-------------------------------- */
+/*  markets logic init END
+/*-------------------------------- */
+{% endcomment %}
+<div class="{{ section.settings.outer_wrapper_classes }} {{ section.settings.section_bg_colour }}">
+  <div class="{{ section.settings.inner_wrapper_classes }}">
+    {% if section.settings.title != blank %}
+      <p class="{{ section.settings.title_classes }}">{{ section.settings.title }}</p>
+    {% endif %}
+    <div class="{{ section.settings.grid_wrapper_classes }}">
+      {% for block in section.blocks %}
+        {% include 'ob-include-country-ok-to-proceed', thingObj: block %}
+
+
+
+{% comment %}
+/*-------------------------------- */
+/*  markets logic 
+/*-------------------------------- */
+{% endcomment %}
+          {% assign show_block = true %}
+          {% if block.settings.show_on_all_markets == false %}
+            {% assign markets_to_show = block.settings.markets_to_show_on | split: ',' %}
+            {% assign markets_to_exclude_on = block.settings.markets_to_exclude_on | split: ',' %}
+
+            {% if markets_to_exclude_on != blank %}
+            {% for market in markets_to_exclude_on %}
+              {% assign market_strip = market | strip %}
+              {% assign market_downcase = market_strip | downcase %}
+              {% if market_code == market_downcase %}
+                {% assign show_block = false %}
+                {% break %}
+              {% endif %}
+            {% endfor %}
+            {% endif %}
+            
+            {% if markets_to_show != blank and show_block  %}
+              
+              {% assign show_block = false %}
+              {% for market in markets_to_show %}
+      
+                {% assign market_strip = market | strip %}
+                {% assign market_downcase = market_strip | downcase %}
+                {% if market_code == market_downcase %}
+                  {% assign show_block = true %}
+                  {% break %}
+                {% endif %}
+              {% endfor %}
+            {% endif %}
+          {% else %}
+            {% assign show_block = true %}
+          {% endif %}
+
+{% if show_block %}
+{% comment %}
+/*-------------------------------- */
+/*  markets logic END
+/*-------------------------------- */
+{% endcomment %}
+      
+        {% if country_ok_to_proceed == 'yes' %}
+          <div class="{{ block.settings.block_wrapper_classes }} {{ section.settings.block_bg_colour }} {{ section.settings.block_text_colour }} hover:{{ section.settings.block_bg_colour_hover }} hover:{{ section.settings.block_text_colour_hover }}">
+            {% if block.settings.svg != blank %}
+              {% capture block_svg %}{{ block.settings.svg }}{% endcapture %}
+              {{ block_svg | replace: 'svg_classes', svg_classes }}
+            {% elsif block.settings.img != blank %}
+              <img
+                class="{{ section.settings.block_image_classes }}"
+                src="{{ block.settings.img | file_img_url: 'master' }}"
+              >
+            {% endif %}
+            {% if block.settings.block_title != blank %}
+              <span class="{{ block.settings.title_classes }}">{{ block.settings.block_title }}</span>
+            {% endif %}
+            {% if block.settings.description != blank %}
+              <div class="{{ block.settings.description_classes }}">
+                {% capture processed_content %}{% render 'ob-process-line-links-in-text', html_text: block.settings.description, debug: true %}{% endcapture %}
+                {{ processed_content }}
+              </div>
+            {% endif %}
+          </div>
+        {% endif %}
+
+
+      
+{% comment %}
+/*-------------------------------- */
+/*  markets logic 
+/*-------------------------------- */
+{% endcomment %}
+{% endif %}        
+{% comment %}
+/*-------------------------------- */
+/*  markets logic END
+/*-------------------------------- */
+{% endcomment %}
+
+
+
+      
+      {% endfor %}
+    </div>
+  </div>
+</div>
+<style>
+  {{ section.settings.custom_css }}
+
+  .debug-info,
+  .debug-url,
+  .debug-myoddballs,
+  .debug-other,
+  .debug-final {
+    background: #f0f0f0;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    font-family: monospace;
+    white-space: pre-wrap;
+  }
+</style>
+{% schema %}
+{
+  "name": "Image Text Grid",
+  "settings": [
+    {
+      "id": "outer_wrapper_classes",
+      "type": "text",
+      "label": "Outer wrapper classes"
+    },
+    {
+      "id": "inner_wrapper_classes",
+      "type": "text",
+      "label": "Inner wrapper classes",
+      "default": "max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8"
+    },
+    {
+      "id": "grid_wrapper_classes",
+      "type": "text",
+      "label": "Grid wrapper classes",
+      "default": "mt-6 grid grid-cols-2 gap-0.5 md:grid-cols-3 lg:mt-8"
+    },
+    {
+      "id": "title",
+      "type": "text",
+      "label": "Title"
+    },
+    {
+      "id": "title_classes",
+      "type": "text",
+      "label": "Title classes",
+      "default": "text-center text-base font-semibold uppercase text-gray-600 tracking-wider"
+    },
+    {
+      "id": "section_bg_colour",
+      "type": "text",
+      "label": "Section background colour",
+      "info": "Enter a class e.g bg-magenta-500"
+    },
+    {
+      "id": "block_bg_colour",
+      "type": "text",
+      "label": "Block background colour",
+      "info": "Enter a class e.g bg-magenta-500"
+    },
+    {
+      "id": "block_bg_colour_hover",
+      "type": "text",
+      "label": "Block background hover colour",
+      "info": "Enter a class e.g bg-magenta-500"
+    },
+    {
+      "id": "block_text_colour",
+      "type": "text",
+      "label": "Block text colour",
+      "info": "Enter a class e.g text-magenta-500"
+    },
+    {
+      "id": "block_text_colour_hover",
+      "type": "text",
+      "label": "Block text hover colour",
+      "info": "Enter a class e.g text-magenta-500"
+    },
+    {
+      "id": "block_image_classes",
+      "type": "text",
+      "label": "Block image classes",
+      "info": "Only needed if using an image instead of an SVG"
+    },
+    {
+      "id": "block_svg_classes",
+      "type": "text",
+      "label": "Block SVG classes",
+      "info": "Only needed if using an SVG instead of an image. Add class=svg_classes to the svg code."
+    },
+    {
+      "id": "custom_css",
+      "type": "html",
+      "label": "Custom CSS"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image-and-text",
+      "name": "Image and Text",
+      "settings": [
+        {
+          "type": "html",
+          "id": "country_iso",
+          "label": "Only display if current iso is (* for all)",
+          "info": "Comma seperated",
+          "default": "*"
+        },
+        {
+          "id": "title",
+          "type": "text",
+          "label": "Block Identifier",
+          "info": "Only used for naming the block."
+        },
+        {
+          "id": "block_wrapper_classes",
+          "type": "text",
+          "label": "Wrapper classes",
+          "default": "col-span-1 flex justify-center py-8 px-8 gap-x-5 items-center cursor-pointer"
+        },
+        {
+          "id": "block_title",
+          "type": "text",
+          "label": "Title"
+        },
+        {
+          "id": "title_classes",
+          "type": "text",
+          "label": "Title classes",
+          "default": "text"
+        },
+        {
+          "id": "description",
+          "type": "textarea",
+          "label": "Description"
+        },
+        {
+          "id": "description_classes",
+          "type": "text",
+          "label": "Description classes"
+        },
+        {
+          "id": "svg",
+          "type": "liquid",
+          "label": "SVG Path",
+          "info": "Enter the svg path code only here, inlcuding <path> tags"
+        },
+        {
+          "id": "img",
+          "type": "image_picker",
+          "label": "Image"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_on_all_markets",
+          "default": true,
+          "label": "Show On All Markets",
+          "info": "on to show on all"
+        },
+        {
+          "type": "text",
+          "id": "markets_to_show_on",
+          "label": "Markets to show on",
+          "info": "Example would look like: uk, en-eu (shows on UK and EU markets)"
+        },
+        {
+          "type": "text",
+          "id": "markets_to_exclude_on",
+          "label": "Markets to Exclude on",
+          "info": "Example would look like: uk, en-eu (Would not show on UK and EU markets)"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image Text Grid",
+      "settings": {
+        "title": "Image Text Grid"
+      }
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

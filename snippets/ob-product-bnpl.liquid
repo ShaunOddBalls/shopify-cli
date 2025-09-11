@@ -1,0 +1,67 @@
+            {% if localization.language.root_url == "/" %}
+            {%  assign bnpl_count = 0 %}
+            {% capture bnpl_html %}
+            {%  unless product.type == 'Custom' and product.vendor == 'Custom' %}
+            {%  assign bnpl_count = bnpl_count | plus: 1 %}
+            {% if product.type != 'Subscription' or product.type == 'Pre-Paid Subscription' %}
+                  <div class="{{ block.settings.wrapper_classes }} rounded-t-md overflow-hidden">
+                    <div class="klarna-block-wrap">
+                      <div class="klarna-block"></div>
+                    </div>
+                  </div>
+            {% endif %}
+            {% endunless %}
+            {%  unless product.type == 'Custom' and product.vendor == 'Custom' %}
+            {%  assign bnpl_count = bnpl_count | plus: 1 %}
+            {% if product.type != 'Subscription' or product.type == 'Pre-Paid Subscription' %}
+                <div class="laybuy-block-wrapp container {{ block.settings.wrapper_classes }}">
+                    <div class="laybuy-icon"></div>
+                    <div id="laybuy-block"></div>
+                </div>
+            {% endif %}
+            {%  endunless %}
+            {%  unless product.type == 'Custom' and product.vendor == 'Custom' %}
+            {%  assign bnpl_count = bnpl_count | plus: 1 %}
+            {% if product.type != 'Subscription' or product.type == 'Pre-Paid Subscription' %}
+                {% comment %}
+                <div id="clearpay_wrapper" class="cleaqrpay-block-wrap container bg-white border border-color border-solid flex items-center rounded-b-md overflow-hidden">
+                  <img class="clearpay-logo" src="https://static.afterpay.com/integration/product-page/logo-clearpay-colour.png" srcset="https://static.afterpay.com/integration/product-page/logo-clearpay-colour.png 1x, https://static.afterpay.com/integration/product-page/logo-clearpay-colour@2x.png 2x, https://static.afterpay.com/integration/product-page/logo-clearpay-colour@3x.png 3x" width="110" height="21" alt="Clearpay" style="vertical-align: middle; width: 110px; border: 0px;">
+                  <div class="relative">
+                    <div class="afterpay-logo-link"><span class="afterpay-logo brand-clearpay lockup-white">or 4 interest-free payments of £3.00</span><button id="logo-link" class="afterpay-link" tabindex="0" aria-label="Learn More about Clearpay - Opens a dialog" title="Learn More about Clearpay - Opens a dialog">iii</button></div>
+                    <div id="cleaqrpay-blockk" class="hidden absolute"></div>
+                  </div>
+                </div>
+                {% endcomment %}
+                <div id="clearpay_wrapper" class="cleaqrpay-block-wrap container flex bg-white border border-color border-solid flex items-center rounded-b-md overflow-hidden">
+                  <img class="clearpay-logo" src="https://static.afterpay.com/integration/product-page/logo-clearpay-colour.png" srcset="https://static.afterpay.com/integration/product-page/logo-clearpay-colour.png 1x, https://static.afterpay.com/integration/product-page/logo-clearpay-colour@2x.png 2x, https://static.afterpay.com/integration/product-page/logo-clearpay-colour@3x.png 3x" width="110" height="21" alt="Clearpay" style="vertical-align: middle; width: 110px; border: 0px;">
+                  <div class="relative ">
+                    {% assign monthly_cost = product.price | divided_by: 4 %}
+                    <span>Or 4 interest-free fortnightly payments of <b>{{ monthly_cost | money }}</b></span>
+                  </div>
+                  <span class="js-learn-more ml-3 cursor-pointer" data-title-url="pages/clearpay-popup-content .rte h1" data-content-url="pages/clearpay-popup-content .rte h1 + div">ⓘ</span>
+                </div>                     
+            {% endif %}
+            {%  endunless %}
+            {% endcapture %}
+            {% if bnpl_count > 0 %}
+            <div class="flex flex-col gap-y-0 mb-6">
+              {{ bnpl_html }}
+            </div>
+            {% endif %}
+            <style>
+              .cleaqrpay-block-wrap{
+                  padding:14px;
+                    margin-top: -1px;
+              }
+              .clearpay-logo {
+                  vertical-align: middle;
+                  width: 71px;
+                  border: 0px;
+                  height: 33px;
+                  border-radius: 7px;
+                  background: #b1fbe3;
+                  object-fit: contain;
+                  margin-right: 15px;
+              }
+            </style>
+            {% endif %}
