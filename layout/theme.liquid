@@ -111,6 +111,11 @@
       {% endif %}
       href="{{ 'custom.css' | asset_url }}"
     >
+     
+      <link
+        rel="stylesheet"
+        href="{{ 'local.css' | asset_url }}"
+      >
     <!-- css for pages -->
     {% if template.suffix == 'perfect-pair' %}
       <link rel="stylesheet" href="{{ 'ob-perfect-pair.css' | asset_url }}">
