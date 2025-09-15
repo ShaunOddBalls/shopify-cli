@@ -4,3 +4,8 @@ import '@testing-library/jest-dom';
 global.Shopify = {
   currency: { active: 'GBP' },
 };
+// tests/setupTests.js
+if (!global.fetch) {
+    global.fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
+  }
+  

@@ -1,11 +1,11 @@
-import { mountBaseDOM } from './domFixture';
+import { mountBaseDOM } from '../domFixture';
 
 describe('modifyUrlWithResolutions', () => {
   let mod;
   beforeEach(() => {
     mountBaseDOM();
     // load your script file; assuming it’s built to dist/theme.js or similar:
-    require('../assets/subscription-product');
+    require('../../assets/subscription-product');
     mod = window.__subsModule__;
   });
 

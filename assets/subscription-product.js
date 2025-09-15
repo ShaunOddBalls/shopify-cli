@@ -16,23 +16,7 @@
     const background  = document.getElementById("subs-background");
     const mobile_background  = document.getElementById("mobile-subs-background");
     const productFormInput = document.getElementById("product-json")
-    
-    document.addEventListener("click", (e)=>{
-        if(e.target.closest(".product-variant")){
-            updateAtcButton();
-        }
-        if(e.target.closest("#subscription-print-swap")){
-            swapSub();
-            e.target.closest("#subscription-print-swap").classList.toggle("patterned-message")
-        }
-        if(e.target.closest("#add-sub-form") ){
-            e.preventDefault();
-            if(!e.target.closest(".missing-variants")){
 
-                addSubToCart();
-            }
-        }
-    })
     
     const addSubToCart = () => {
         console.log("hello")
@@ -43,7 +27,7 @@
         const selectedArr = Array.from(selectedInputs);
         const currentProdVariants = JSON.parse(productFormInput.value).variants;
         currentProdVariants.forEach((variant)=>{
-            isCorrectVariant = true;
+            let isCorrectVariant = true;
             const first = variant.option1;
             const second = variant.option2;
             selectedArr.forEach((input) =>{
@@ -123,6 +107,7 @@
     const swapSub = () =>{
         isOrigionalProduct = !isOrigionalProduct;
         let nextBackground;
+        let nextSecondaryBackground;
         let nextProduct;
         if(isOrigionalProduct){
             nextBackground = origionalBackground;
@@ -238,6 +223,31 @@ function modifyUrlWithResolutions(url) { // used to return a source set with mul
     //return("")
     return result;
   }
+      
+  const handlers = {
+    updateAtcButton,
+    swapSub,
+    addSubToCart,
+  };
+  
+  // replace your existing listener body to call handlers.*
+  document.addEventListener('click', (e) => {
+    if (e.target.closest('.product-variant')) {
+      handlers.updateAtcButton();
+    }
+    if (e.target.closest('#subscription-print-swap')) {
+      handlers.swapSub();
+      e.target.closest('#subscription-print-swap').classList.toggle('patterned-message');
+    }
+    if (e.target.closest('#add-sub-form')) {
+      e.preventDefault();
+      if (!e.target.closest('.missing-variants')) {
+        handlers.addSubToCart();
+      }
+    }
+  });
+
+  __test__.handlers = handlers
 
   __test__.modifyUrlWithResolutions = modifyUrlWithResolutions;
     __test__.updateAtcButton = updateAtcButton;
