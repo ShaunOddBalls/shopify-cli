@@ -34,3 +34,4 @@ dist/
 build/
 
 assets/local.css
+test/
