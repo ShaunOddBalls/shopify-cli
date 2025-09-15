@@ -16,7 +16,7 @@ describe('Popup Controller', () => {
     test('does NOT show on the first pageview, even after 30s', () => {
       const showFn = jest.fn();
       popupController.init(showFn);
-      jest.advanceTimersByTime(30_000);
+      jest.advanceTimersByTime(31_000);
       expect(showFn).not.toHaveBeenCalled();
     });
   

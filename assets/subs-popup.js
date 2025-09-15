@@ -68,7 +68,7 @@ const STORAGE_KEYS = {
           try {
             showFn();
           } catch {
-            // swallow – tests don't care about thrown errors in showFn
+           console.error("error calling popup function")
           }
         }
       }, 30_000);
@@ -92,5 +92,7 @@ const STORAGE_KEYS = {
   init_subs_popup(async()=>{
     const popup = await fetch("/pages/subscription-selector?view=subs-popup");
     const text = await popup.text();
-    console.log(text)
+    const subPopup = document.querySelector("#subs-popup")
+    const subsContent = document.getElementById("subs-popup-content");
+    
   })
