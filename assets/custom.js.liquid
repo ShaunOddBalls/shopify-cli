@@ -1409,8 +1409,11 @@ if(event.target.closest(".js-show-country-popup")){
   
     //click listner for close popup
     if (event.target.closest('.popup-safety-screen')) {
-      const popup = event.target.closest(".page-popup-content");
-      resetPopup(popup);
+      if(!event.target.closest("#subs-popup-safety-screen")){
+
+        const popup = event.target.closest(".page-popup-content");
+        resetPopup(popup);
+      }
     }
     if (event.target.closest('.popup-safety-screen-button')) {
       const popup = event.target.closest(".page-popup-content");

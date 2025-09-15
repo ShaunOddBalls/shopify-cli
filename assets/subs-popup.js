@@ -89,10 +89,43 @@ const STORAGE_KEYS = {
     init:init_subs_popup,
     reset: reset_subs_popup
   }
-  init_subs_popup(async()=>{
+
+  const openSubsPopup = async()=>{
     const popup = await fetch("/pages/subscription-selector?view=subs-popup");
     const text = await popup.text();
+    document.body.classList.add("body-popup-active");
     const subPopup = document.querySelector("#subs-popup")
     const subsContent = document.getElementById("subs-popup-content");
-    
+    subsContent.innerHTML = text;
+    const safetyScreen = subPopup.querySelector(".popup-safety-screen");
+    subPopup.style.display = "block";
+    setTimeout(()=>{
+        safetyScreen.style.opacity = "0.8";
+        subsContent.style.transform = "translateX(0%)"
+    },1)
+
+  }
+
+  const resetSubsPopup = () => {
+    const subsContent = document.getElementById("subs-popup-content");
+    const subPopup = document.querySelector("#subs-popup")
+    const safetyScreen = subPopup.querySelector(".popup-safety-screen");
+    safetyScreen.style.opacity = "0";
+    subsContent.style.transform = "translateX(100%)"
+    setTimeout(()=>{
+        subPopup.style.display = "hidden";
+        document.body.classList.remove("body-popup-active");
+    }, 300)
+    console.log("resetting")
+  }
+  init_subs_popup(openSubsPopup)
+
+  document.addEventListener("click", (e)=>{
+    if(e.target.closest(".close-subs-popup")){
+        console.log("wahoo")
+        resetSubsPopup()
+    }
+    if(e.target.closest("#subs-popup-safety-screen")){
+        resetSubsPopup()
+    }
   })

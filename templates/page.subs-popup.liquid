@@ -1,8 +1,14 @@
 {%layout none%}
-<div class="p-4 flex flex-col gap-4">
-
-    <div class="marujo text-2xl">
-        Fresh Pants Every Month!?    
+<div class="p-4 flex flex-col gap-4 relative">
+    
+    <div class="marujo text-2xl flex justigy-between gap-4 items-center">
+        <div>Fresh Pants Every Month!?    </div>
+        <div class="close-subs-popup  top-2 right-2">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <line x1="4.93" y1="4.93" x2="19.07" y2="19.07" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> </line>
+        <line x1="19.07" y1="4.93" x2="4.93" y2="19.07" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> </line>
+        </svg>
+    </div>
     </div>
     <div>
         Never run out of comfy, funky Oddballs again! Our subscription selector makes stocking up easier than ever.
@@ -16,38 +22,53 @@
         <div>✅ Exclusive Discounts - Straight to your inbox</div>
         <div>✅ No Tie-Ins - Pause or Cancel Anytime!</div>
     </div>
-    <div class="button button--secondary uppercase bg-cyan-500">
+    <a href="pages/subscription-selector">
+        <div class="button button--secondary uppercase bg-cyan-500">
         Create My Subscription
-    </div>
-    <div clas="close-subs-popup">No Thanks I like Wearing Boring Pants</div>
-    <div class="relative overflow-hidden reasons-swiper-wrap">
-        <div class="swiper info-slider">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide flex flex-col justify-center items-center text-center h-32">
-              <div><img src="https://cdn.shopify.com/s/files/1/0353/7249/files/Designs.svg?v=1722324793" alt="1. Fun Designs" class="w-24 h-24"></div>
+        </div>
+    </a>
+    <div class="close-subs-popup" style="color:rgb(95, 95, 95)">No Thanks I like Wearing Boring Pants</div>
+    <div class="relative overflow-hidden reasons-swiper-wrap ob-slider-container">
+        <div class="ob-slider"
+        data-slides-mobile="3"
+        data-slides-md="3"
+        data-slides-lg="3"
+        data-gap="10px"
+        data-autoplay="true"
+        data-loop="true"
+        data-drag-scroll="false"
+        data-slide-by="all"
+        data-slider-enabled="true"
+        data-center-when-fewer-slides="true"
+        data-dots="false"
+        >
+          <div class="ob-slides-wrappers flex">
+            <div class="ob-slide flex flex-col justify-center items-center text-center h-32">
+              <div><img src="https://cdn.shopify.com/s/files/1/0353/7249/files/Designs.svg?v=1722324793" alt="1. Fun Designs" style="height:6rem; width:6rem;"></div>
               <div><h2 class="mx-auto text-lg marujo leading-none">Fun New<br>Designs</h2></div>
             </div>
-            <div class="swiper-slide flex flex-col justify-center items-center text-center h-32">
-              <div><img src="https://cdn.shopify.com/s/files/1/0353/7249/files/Socks-2.svg?v=1722324793" alt="2. Free Socks" class="w-24 h-24"></div>
+            <div class="ob-slide flex flex-col justify-center items-center text-center h-32">
+              <div><img src="https://cdn.shopify.com/s/files/1/0353/7249/files/Socks-2.svg?v=1722324793" alt="2. Free Socks" style="height:6rem; width:6rem;"></div>
               <div><h2 class="mx-auto text-lg marujo leading-none">Free<br>Socks</h2></div>
             </div>
-            <div class="swiper-slide flex flex-col justify-center items-center text-center h-32">
-              <div><img src="https://cdn.shopify.com/s/files/1/0353/7249/files/FreeDelivery.svg?v=1722324793" alt="3.Free Delivery" class="w-24 h-24"></div>
+            <div class="ob-slide flex flex-col justify-center items-center text-center h-32">
+              <div><img src="https://cdn.shopify.com/s/files/1/0353/7249/files/FreeDelivery.svg?v=1722324793" alt="3.Free Delivery" style="height:6rem; width:6rem;"></div>
               <div><h2 class="mx-auto text-lg marujo leading-none">Free Delivery<br>On All Orders</h2></div>
             </div>
-            <div class="swiper-slide flex flex-col justify-center items-center text-center h-32">
-              <div><img src="https://cdn.shopify.com/s/files/1/0353/7249/files/ExclusiveGifts-2.svg?v=1722324793" alt="4.Exclusive Gifts" class="w-24 h-24"></div>
+            <div class="ob-slide flex flex-col justify-center items-center text-center h-32">
+              <div><img src="https://cdn.shopify.com/s/files/1/0353/7249/files/ExclusiveGifts-2.svg?v=1722324793" alt="4.Exclusive Gifts" style="height:6rem; width:6rem;"></div>
               <div><h2 class="mx-auto text-lg marujo leading-none">Exclusive<br>Gifts</h2></div>
             </div>
-            <div class="swiper-slide flex flex-col justify-center items-center text-center h-32">
-              <div><img src="https://cdn.shopify.com/s/files/1/0353/7249/files/VIP.svg?v=1722324793" alt="5.VIP Access" class="w-24 h-24"></div>
+            <div class="ob-slide flex flex-col justify-center items-center text-center h-32">
+              <div><img src="https://cdn.shopify.com/s/files/1/0353/7249/files/VIP.svg?v=1722324793" alt="5.VIP Access" style="height:6rem; width:6rem;"></div>
               <div><h2 class="mx-auto text-lg marujo leading-none">VIP<br>Access</h2></div>
             </div>
-            <div class="swiper-slide flex flex-col justify-center items-center text-center h-32">
-              <div><img src="https://cdn.shopify.com/s/files/1/0353/7249/files/Discounts-2.svg?v=1722324793" alt="6.Exclusive Discounts" class="w-24 h-24"></div>
+            <div class="ob-slide flex flex-col justify-center items-center text-center h-32">
+              <div><img src="https://cdn.shopify.com/s/files/1/0353/7249/files/Discounts-2.svg?v=1722324793" alt="6.Exclusive Discounts" style="height:6rem; width:6rem;"></div>
               <div><h2 class="mx-auto text-lg marujo leading-none">Exclusive<br>Discounts</h2></div>
             </div>
           </div>
         </div>
       </div>
+
 </div>
