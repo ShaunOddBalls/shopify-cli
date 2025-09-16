@@ -10,13 +10,151 @@
 {% endschema %}
 <div id="size-guide-wrapper">
   <div class="flex justify-center">
+<div class="py-2">
 
-    <div id="size-guide-options" class="grid grid-cols-4">
-      <div class="size-guide-option">Mens</div>
-      <div class="size-guide-option">Womens</div>
-      <div class="size-guide-option">Kids</div>
-      <div class="size-guide-option">Accessories</div>
+  <div id="size-guide-options" class="grid grid-cols-4 py-2 relative">
+    <div id="size-guide-indicator" style="position:absolute; height:100%; top:0px; left:0px; background:#31eded; z-index:-1; width:25%; transition:all 0.3s ease; border-radius:0.305rem;">
+      
+    </div>
+      <div data-loc="0" class="size-guide-option text-center active">Mens</div>
+      <div data-loc="1" class="size-guide-option text-center">Womens</div>
+      <div data-loc="2" class="size-guide-option text-center">Kids</div>
+      <div data-loc="3" class="size-guide-option text-center">Accessories</div>
+      </div>
+    </div>
+  </div>
+  <div id="size-guide-content-wrapper" class="flex justify-center">
+    <div style="max-width:40rem; overflow:hidden;">
+
+      <div id="size-guide-slider" style="display:flex; transition: all 0.3s ease;">
+        
+      
+      <div id="mens-size-guide" class="size-guide-wrapper">
+          <div class="col-span-2 text-center font-bold py-2">mens-boxer-size-guide</div>
+          <div id="mens-boxer-size-guide" class="grid grid-cols-2">
+            <div>
+              <table>
+                <tr>
+                  <th>size</th>
+                  <th>measurements</th>
+                </tr>
+                <tr>
+                  <td>
+                    1 inch
+                    </td>
+                    <td>
+                      tiny
+                      </td>
+                      </tr>
+              </table>
+            </div>
+            <div>
+              picture here
+              </div>
+              </div>
+              <div id="mens-brief-size-guide" class="grid grid-cols-2">
+            <div class="col-span-2 text-center font-bold py-2">mens-brief-size-guide</div>
+            <div>
+              <table>
+                <tr>
+                  <th>Size</th>
+                  <th>measurements</th>
+                </tr>
+                <tr>
+                  <td>
+                    1 inch
+                  </td>
+                  <td>
+                    tiny
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div>
+              picture here
+            </div>
+          </div>
+        </div>
+        <div id="womens-size-guide" class="size-guide-wrapper">
+          <div id="womens-boxer-size-guide" class="grid grid-cols-2">
+            <div class="col-span-2 text-center font-bold py-2">womens-boxer-size-guide</div>
+            <div>
+              <table>
+                <tr>
+                  <th>Size</th>
+                  <th>measurements</th>
+                </tr>
+                <tr>
+                  <td>
+                    1 inch
+                    </td>
+                    <td>
+                      tiny
+                  </td>
+                </tr>
+                </table>
+            </div>
+            <div>
+              picture here
+            </div>
+          </div>
+          <div id="womens-brief-size-guide" class="grid grid-cols-2">
+            <div class="col-span-2 text-center font-bold py-2">title</div>
+            <div>
+              <table>
+                <tr>
+                  <th>Size</th>
+                  <th>measurements</th>
+                </tr>
+                <tr>
+                  <td>
+                    1 inch
+                  </td>
+                  <td>
+                    tiny
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div>
+              picture here
+            </div>
+          </div>
+        </div>
+        <div id="kids-size-guide"></div>
+        <div id="accessories-size-guide"></div>
     </div>
   </div>
       
 </div>
+</div>
+<script>
+  document.addEventListener("click",(e) => {
+    if(e.target.closest(".size-guide-option")){
+      let target = e.target.closest(".size-guide-option");
+      const otherOptions = Array.from(document.querySelectorAll(".size-guide-option"));
+      otherOptions.forEach((option)=>{
+        option.classList.remove("active");
+      })
+      target.classList.add("active")
+      const loc = target.dataset.loc;
+      const slider = document.getElementById("size-guide-slider");
+      slider.style.transform = `translateX(${-loc*100}%)`
+      const sizeGuideIndicator = document.getElementById("size-guide-indicator");
+      sizeGuideIndicator.style.transform = `translateX(${loc*100}%)`
+    }
+  })
+</script>
+<style>
+  .size-guide-wrapper{
+    min-width:40rem;
+  }
+  @media(max-width: 1024px){
+    .size-guide-wrapper{
+      min-width:100vw;
+    }
+  }
+  .active{
+    color:white;
+  }
+</style>
