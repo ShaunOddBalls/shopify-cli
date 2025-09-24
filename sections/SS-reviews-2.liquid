@@ -1,0 +1,71 @@
+{% schema %}
+  {
+    "name": "SS-25-reviews-2",
+    "settings": [
+      {
+        "type": "text",
+        "id": "quote",
+        "label":"quote"
+      },
+      {
+        "type": "text",
+        "id": "name",
+        "label":"Name"
+      },
+      {
+        "type": "text",
+        "id": "buttontext",
+        "label":"Button Text"
+      },
+      {
+        "type": "text",
+        "id": "buttonclasses",
+        "label":"Button Classes",
+        "default":"border border-solid border-white rounded-md py-1 px-2 text-white"
+      },
+      {
+        "type":"color",
+        "id":"backgroundcolor",
+        "label":"Background Colour"
+      },
+      {
+        "type":"color",
+        "id":"textcolor",
+        "label":"Text Colour"
+      },
+      {
+          "type": "image_picker",
+          "id": "Image",
+          "label": "Image"
+        }
+    ],
+    "presets":[{"name":"SS-25-reviews-2"}]
+  }
+{% endschema %}
+
+<div class="grid md:grid-cols-2">
+  <div class="reviews-image">
+    {{ section.settings.Image | media_tag: image_size: '400x' }}
+  </div>
+  <div style="background:{{ section.settings.backgroundcolor }}; color:{{ section.settings.textcolor }}" class="flex flex-col items-center justify-center w-full h-full max-md:py-4">
+    <div>
+      ****
+    </div>
+    <div class="text-xl md:text-4xl">
+      {{ section.settings.quote }}
+    </div>
+    <div class="italic md:text-xl">
+      {{ section.settings.name }}
+    </div>
+    <div class="{{ section.settings.buttonclasses }}">
+      {{ section.settings.buttontext }}
+    </div>
+  </div>
+  
+</div>
+
+<style>
+  .reviews-image img{
+    width:100%;
+  }
+</style>

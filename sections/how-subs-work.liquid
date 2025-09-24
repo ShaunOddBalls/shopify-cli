@@ -1,0 +1,153 @@
+{% schema %}
+{
+  "name": "how-subs-works",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "dt_image_1",
+      "label": "desktop image 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "dt_image_2",
+      "label": "desktop image 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "dt_image_3",
+      "label": "desktop image 3"
+    },
+    {
+      "type": "image_picker",
+      "id": "mb_image_1",
+      "label": "mobile image 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "mb_image_2",
+      "label": "mobile image 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "mb_image_3",
+      "label": "mobile image 3"
+    },
+    {
+      "type": "image_picker",
+      "id": "arrow",
+      "label": "arrow"
+    },
+    { "type": "text", "label": "title_1", "id": "title_1" },
+    { "type": "text", "label": "text_1", "id": "text_1" },
+    { "type": "text", "label": "title_2", "id": "title_2" },
+    { "type": "text", "label": "text_2", "id": "text_2" },
+    { "type": "text", "label": "title_3", "id": "title_3" },
+    { "type": "text", "label": "text_3", "id": "text_3" }
+  ],
+  "presets": [
+    {
+      "name": "how-subs-works"
+    }
+  ]
+}
+{% endschema %}
+<style>
+    .text-4xl {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+}
+    @media not all and (min-width: 768px) {
+    .max-md\:hidden {
+        display:none !important;
+    }
+}
+</style>
+
+<div class="flex flex-col items-center justify-center py-4 px-4">
+  <div class="text-4xl font-bold text-gray-900 marujo pb-6 pt-2 text-center">How Subscriptions Work</div>
+
+  <div class="max-md:hidden grid grid-cols-3 w-full" style="max-width: 59rem;">
+    <div class="relative flex flex-col justify-center items-center">
+      <div>
+        <img src="{{section.settings.dt_image_1| image_url }}">
+      </div>
+      <div class="text-center w-full font-bold text-lg">
+        {{ section.settings.title_1 }}
+      </div>
+      <div class="text-center w-full max-w-[200px]">
+        {{ section.settings.text_1 }}
+      </div>
+      <div style="position:absolute; bottom:77%; left:89%; height:40px; width:120px;">
+        <img src="{{ section.settings.arrow | image_url }}">
+      </div>
+    </div>
+    <div class="relative flex flex-col justify-center items-center">
+      <div>
+        <img src="{{section.settings.dt_image_2 | image_url}}">
+      </div>
+      <div class="text-center w-full font-bold text-lg">
+        {{ section.settings.title_2 }}
+      </div>
+      <div class="text-center w-full max-w-[200px]">
+        {{ section.settings.text_2 }}
+      </div>
+      <div style="position:absolute; bottom:77%; left:89%; height:40px; width:120px;">
+        <img src="{{ section.settings.arrow | image_url }}">
+      </div>
+    </div>
+    <div class="relative flex flex-col justify-center items-center">
+      <div>
+        <img src="{{section.settings.dt_image_3 | image_url}}">
+      </div>
+      <div class="text-center w-full font-bold text-lg">
+        {{ section.settings.title_3 }}
+      </div>
+      <div class="text-center w-full max-w-[200px]">
+        {{ section.settings.text_3 }}
+      </div>
+    </div>
+  </div>
+  <div class="md:hidden">
+    <div class="grid grid-cols-2">
+        <div class="relative flex flex-col justify-center items-center">
+            <div style="width: 2rem; text-align: center; display: flex ; align-items: center; justify-content: center;" class="absolute top-2 left-2 rounded-full bg-black text-white h-8 w-8 text-xs">1</div>
+            <div class="px-4">
+                <img src="{{section.settings.mb_image_1| image_url }}">
+            </div>
+            <div class="text-center w-full font-bold text-lg px-4">
+                {{ section.settings.title_1 }}
+            </div>
+            <div class="text-center w-full max-w-[200px] px-4">
+                {{ section.settings.text_1 }}
+            </div>
+        </div>
+        <div class="relative flex flex-col justify-center items-center">
+            <div style="width: 2rem; text-align: center; display: flex ; align-items: center; justify-content: center;" class="absolute top-2 left-2 rounded-full bg-black text-white h-8 w-8 text-xs">2</div>
+            <div class="px-4">
+                <img src="{{section.settings.mb_image_2 | image_url}}">
+            </div>
+            <div class="text-center w-full font-bold text-lg px-4">
+                {{ section.settings.title_2 }}
+            </div>
+            <div class="text-center w-full max-w-[200px] px-4">
+                {{ section.settings.text_2 }}
+            </div>
+        </div>
+    </div>
+    <div class="w-full flex justfy-center" style="justify-content:center;">
+        
+        <div class="relative flex flex-col justify-center items-center">
+            <div style="width: 2rem; text-align: center; display: flex ; align-items: center; justify-content: center;" class="absolute top-2 left-2 rounded-full bg-black text-white h-8 w-8 text-xs">3</div>
+            <div class="px-4">
+                <img src="{{section.settings.mb_image_3 | image_url}}">
+            </div>
+            <div class="text-center w-full font-bold text-lg px-4">
+                {{ section.settings.title_3 }}
+            </div>
+            <div class="text-center w-full max-w-[200px] px-4">
+                {{ section.settings.text_3 }}
+            </div>
+        </div>
+    </div>
+  </div>
+</div>

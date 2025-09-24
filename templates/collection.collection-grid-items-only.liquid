@@ -1,0 +1,34 @@
+{% layout none %}
+{% assign product_count = 0 %}
+<!-- test -->
+{% capture country_tag = %}country-{{ localization.market.handle }}{% endcapture %}
+{% unless country_tag == 'country-eu' %}
+  {% assign country_tag = 'country-uk' %}
+{% endunless %}
+{%- comment %}<locksmith:ad7e>{% endcomment -%}
+  {%- assign locksmith_ee00_forloop__size = 0 %}{% for product in collection.products %}{% capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product, subject_parent: collection, variable: 'transparent' %}{% endcapture %}{% if var == 'true' %}{% assign locksmith_ee00_forloop__size = locksmith_ee00_forloop__size | plus: 1 %}{% endif %}{% endfor %}{% assign locksmith_ee00_forloop__index = nil -%}
+{%- comment %}</locksmith:ad7e>{% endcomment -%}
+{% for product in collection.products %}
+    {%- comment %}<locksmith:4ab7>{% endcomment -%}
+      {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product, subject_parent: collection, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% if locksmith_ee00_forloop__index == nil %}{% assign locksmith_ee00_forloop__index = 1 %}{% assign locksmith_ee00_forloop__index0 = 0 %}{% else %}{% assign locksmith_ee00_forloop__index = locksmith_ee00_forloop__index | plus: 1 %}{% assign locksmith_ee00_forloop__index0 = locksmith_ee00_forloop__index0 | plus: 1 %}{% endif %}{% if locksmith_ee00_forloop__index == 1 %}{% assign locksmith_ee00_forloop__first = true %}{% else %}{% assign locksmith_ee00_forloop__first = false %}{% endif %}{% if locksmith_ee00_forloop__index == locksmith_ee00_forloop__size %}{% assign locksmith_ee00_forloop__last = true %}{% else %}{% assign locksmith_ee00_forloop__last = false %}{% endif %}{% assign locksmith_ee00_forloop__rindex = locksmith_ee00_forloop__size | minus: locksmith_ee00_forloop__index | minus: 1 %}{% assign locksmith_ee00_forloop__rindex0 = locksmith_ee00_forloop__size | minus: locksmith_ee00_forloop__index0 | minus: 1 %}{% else %}{% continue %}{% endif -%}
+    {%- comment %}</locksmith:4ab7>{% endcomment -%}
+    {% assign country_continue = 'true' %}
+    {% assign country_match = 'false' %}
+    {% for tag in product.tags %}
+        {% if tag contains 'country-' and country_match == 'false' %}
+            {% assign country_continue = 'false' %}
+            {% if tag == country_tag %}
+                {% assign country_match = 'true' %}
+                {% assign country_continue = 'true' %}
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+    {% if product_count < 15 %}
+        {% if product.type != 'Mid-Collection Banners' and product.available and country_continue == 'true' %}
+            <div class="ob-slide flex-shrink-0">
+            {% render 'ob-product-card', product: product, labelTags: labelTags, index: locksmith_ee00_forloop__index, grid_type: "product-page-recommendations"  %}
+            {% assign product_count = product_count | plus: 1 %}
+            </div>
+        {% endif %}
+    {% endif %}
+{% endfor %}

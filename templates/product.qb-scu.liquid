@@ -1,0 +1,13 @@
+{% layout none %}
+
+{% comment %} --------------- SUB SELECTOR QUICKBUY --------------- {% endcomment %}
+{% capture cart_attributes %}
+
+<input type="hidden" name="attributes[ _Subscription_Cart_upsell]" value="{{ product.id }}">
+<input id="cart-matching-upsell" type="hidden" value="{{ product.type }}" name="properties[_Cart Matching Upsell]">
+
+  
+
+
+{% endcapture %}
+{% render 'ob-qb-product-sub-and-save', cart_attributes:cart_attributes, product:product %}

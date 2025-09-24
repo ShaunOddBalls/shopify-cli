@@ -1,0 +1,285 @@
+<style>
+  .banner-img:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: -0.25rem;
+    background: linear-gradient(180deg, #0000 1.05%, #000000b0 80%);
+    margin-bottom: 0.25rem;
+  }
+.homepage-slider-image-placeholder{
+      min-width: 200px;
+      width: 100% !important;
+      padding-top: 76%;
+    }
+  {% comment %} @media (max-width: 767px) {
+    .banner-with-slider .ob-slider-container .ob-slide {
+      width: calc(100% / 2.5) !important;
+      flex-basis: calc(100% / 2.5) !important;
+    } {% endcomment %}
+    .homepage-slider-image-placeholder{
+      min-width: 130px;
+      width: 100% !important;
+      padding-top: 76%;
+    }
+  }
+</style>
+
+{% assign hero_metaobject_list = shop.metaobjects.hero_banner_with_slider[section.settings.metaobject] %}
+{% assign slider_list = hero_metaobject_list.nav_links_for_sliders %}
+{% assign now = 'now' | date: '%Y-%m-%d %H:%M' %}
+
+
+{% assign market_code = localization.language.root_url %}
+{% if market_code == '/' %}
+  {% assign market_code = 'uk' %}
+{% else %}
+  {% assign market_code = market_code | remove: '/' %}
+{% endif %}
+
+{% assign show_banner = true %}
+
+{% assign show_on_all_markets = hero_metaobject_list.show_on_all_markets %}
+{% assign markets_to_show = hero_metaobject_list.markets_to_show_on %}
+{% assign markets_to_show = markets_to_show | replace: '[', '' | replace: ']', '' | replace: '"', '' %}
+{% assign markets_to_show = markets_to_show | split: ',' %}
+{% assign markets_to_exclude = hero_metaobject_list.markets_to_exclude_from %}
+{% assign markets_to_exclude = markets_to_exclude | replace: '[', '' | replace: ']', '' | replace: '"', '' %}
+{% assign markets_to_exclude = markets_to_exclude | split: ',' %}
+
+{% assign display_from = hero_metaobject_list.time_to_display_from | date: '%Y-%m-%d %H:%M' %}
+{% assign display_untill = hero_metaobject_list.display_untill | date: '%Y-%m-%d %H:%M' %}
+{% assign is_timed = hero_metaobject_list.is_timed_banner %}
+
+{% if show_on_all_markets == false %}
+  {% comment %} check to see if it's in the to show on list {% endcomment %}
+  {% for market in markets_to_exclude %}
+    {% assign market_strip = market | strip %}
+    {% assign market_downcase = market_strip | downcase %}
+    {% if market_code == market_downcase %}
+      {% assign show_banner = false %}
+      {% break %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{% if show_banner == true and markets_to_show != blank %}
+  {% assign show_banner = false %}
+  {% for market in markets_to_show %}
+    {% assign market_strip = market | strip %}
+    {% assign market_downcase = market_strip | downcase %}
+    {% if market_code == market_downcase %}
+      {% assign show_banner = true %}
+      {% break %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{% if is_timed %}
+  {% if display_from %}
+    {% if now <= display_from %}
+      {% assign show_banner = false %}
+    {% endif %}
+  {% endif %}
+
+  {% if display_untill %}
+    {% if now >= display_untill %}
+      {% assign show_banner = false %}
+    {% endif %}
+  {% endif %}
+{% endif %}
+
+{% if show_banner == true %}
+
+  <div class="w-full md:flex relative banner-with-slider md:max-h-[750px] {% if section.settings.reverse %} md:flex-row-reverse {% endif %}">
+    <div
+      {% if hero_metaobject_list.background_color != blank %}
+        style="background-color: {{ hero_metaobject_list.background_color }};"
+      {% endif %}
+      class=" {% if hero_metaobject_list.background_color %}{% endif %}flex w-full h-[calc(100vh-200px)] max-h-[67vh] md:max-h-[100%] md:h-auto md:w-1/3 justify-center items-end md:items-center"
+    >
+      {%
+        render 'srcset-image-responsive',
+        image: hero_metaobject_list.background_image_mobile,
+        class: 'h-full w-full absolute top-0 left-0 md:hidden banner-img object-cover',
+        alt: {{ hero_metaobject_list.display_name }},
+        loading: "eager",
+        size: 'mobile',
+        full_width: true
+      %}
+
+      <div class="p-4 flex flex-col justify-center w-full md:w-1/2 z-10 {% if section.settings.reverse %}md:dir-rtl{% endif %}">
+        {% if hero_metaobject_list.html_section_input != blank %}
+          {{ hero_metaobject_list.html_section_input.value }}
+        {% endif %}
+
+        {% if hero_metaobject_list.svg_desktop != blank %}
+          {% render 'srcset-image-responsive',
+            image: hero_metaobject_list.svg_desktop,
+            class: 'hidden md:block',
+            alt: 'desktop',
+            loading: 'eager',
+            size: 'mobile',
+            full_width: false
+          %}
+        {% endif %}
+        {% if hero_metaobject_list.svg_mobile != blank %}
+          <div class="w-full flex  md:hidden pb-6">
+            {% render 'srcset-image-responsive',
+              image: hero_metaobject_list.svg_mobile,
+              class: 'md:hidden w-3/4',
+              alt: 'mobile svg',
+              loading: 'eager',
+              size: 'mobile',
+              full_width: false
+            %}
+          </div>
+        {% endif %}
+
+        {% if hero_metaobject_list.button_text != blank %}
+          <a
+            href="{% if hero_metaobject_list.url != blank %}{%- render 'ob-process-international-link', url:hero_metaobject_list.url %}{% else %}{%- render 'ob-process-international-link', url:"#" %}{% endif %}"
+            class="wcc px-8 p-2 whitespace-nowrap max-w-sm uppercase rounded-lg btn-shadow-lg block font-semibold text-center transition-colors duration-200 flex items-center justify-center mb-6 my-4"
+            style="color:{% if hero_metaobject_list.button_text_colour %}{{ hero_metaobject_list.button_text_colour }}{% else %}#000{% endif %};background-color:{% if hero_metaobject_list.button_background_colour %}{{ hero_metaobject_list.button_background_colour }}{% else %}#fff{% endif %}"
+          >
+            Shop Now
+          </a>
+        {% endif %}
+        {% if slider_list != blank %}
+          <div class="ob-slider-container overflow-hidden md:overflow-visible md:min-w-[820px] relative" {% if section.settings.reverse %}style="direction: ltr;"{% endif %}>
+            <div class="ob-prev bg-white absolute left-0 top-1/2 -translate-y-1/2 w-10 h-10 z-10 text-black text-4xl flex justify-center items-center font-bold">
+              <svg class="w-10 h-10" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15 6L9 12L15 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+
+            <div class="ob-next w-10 w-10 absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white">
+              <svg class="w-10 h-10" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 6L15 12L9 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+
+            <div
+              class="ob-slider flex w-full overflow-hidden"
+              data-autoplay="false"
+              data-loop="false"
+              data-gap="8"
+              data-slides-mobile="2.5"
+              data-slides-md="4"
+              data-slides-lg="4"
+              data-slide-by="all"
+              data-drag-scroll="true"
+              data-dots="false"
+            >
+              <div class="ob-slides-wrappers flex w-full gap-2">
+                {% for slider in slider_list.value %}
+                  {% if slider.show_label %}
+                  {% endif %}
+                  <div class="ob-slide shadow-2xl flex flex-col text-white md:min-w-[200px] relative">
+                    <div class="text-xs md:text-lg absolute px-2 py-1 rounded-md" style="background-color:{{ slider.label_colour }}; color:{{ slider.label_text_colour }}; z-index: 1; right: 0.25rem;  top: 0.25rem;">
+                      
+                      {{ slider.label_text }}
+                    </div>
+                    <a
+                      href="{%- render 'ob-process-international-link', url:slider.url %}"
+                      class="block w-full h-full flex flex-col"
+                    >
+                      <div class="w-full relative">
+
+                        <div class="homepage-slider-image-placeholder">
+                          
+                        </div>
+                        <img
+                          style="position:absolute;
+                          top:0px;
+                          left:0px;
+                          width:100%;
+                          height:100%;
+                          object-fit:cover;"
+                          src={{ slider.image | image_url }} 
+                          alt="{{ slider.text }}"
+                          height="200px"
+                          width="200px"
+                          srcset = "{{ slider.image | image_url: width: 200 }} 400w,
+                          {{ slider.image | image_url: width: 300 }} 600w,
+                          {{ slider.image | image_url: width: 400 }} 800w,
+                          {{ slider.image | image_url: width: 500 }} 1000w,
+                          {{ slider.image | image_url: width: 600 }} 1200w,
+                          {{ slider.image | image_url: width: 700 }} 1400w,"
+                          sizes="(min-width: 720px) 200px, 150px"
+                        />
+                      </div>
+                        <span class="block w-full uppercase text-xs text-center text-black bg-white font-semibold py-0.5 whitespace-nowrap">
+                        {{- slider.text -}}
+                      </span>
+                    </a>
+                  </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+
+    <!-- Right Column -->
+    <a
+      href="{% if hero_metaobject_list.url != blank %}{%- render 'ob-process-international-link', url:hero_metaobject_list.url %}{% else %}{%- render 'ob-process-international-link', url:"#" %}{% endif %}"
+      class="w-2/3 hidden md:block"
+    >
+      <div class="w-full h-full">
+        <img
+                          style="
+                          width:100%;
+                          height:100%;"
+                          src={{ hero_metaobject_list.background_image_desktop | image_url }} 
+                          alt=""
+                          height="200px"
+                          width="200px"
+                          srcset = "{{hero_metaobject_list.background_image_desktop | image_url: width: 200 }} 200w,
+                          {{ hero_metaobject_list.background_image_desktop | image_url: width: 300 }} 300w,
+                          {{ hero_metaobject_list.background_image_desktop | image_url: width: 400 }} 400w,
+                          {{ hero_metaobject_list.background_image_desktop | image_url: width: 500 }} 500w,
+                          {{ hero_metaobject_list.background_image_desktop | image_url: width: 600 }} 600w,
+                          {{ hero_metaobject_list.background_image_desktop | image_url: width: 600 }} 600w,
+                          {{ hero_metaobject_list.background_image_desktop | image_url: width: 700 }} 700w,
+                          {{ hero_metaobject_list.background_image_desktop | image_url: width: 900 }} 900w,
+                          {{ hero_metaobject_list.background_image_desktop | image_url: width: 1200 }} 1200w,
+                          {{ hero_metaobject_list.background_image_desktop | image_url: width: 1500 }} 1500w,"
+                          sizes="(min-width: 720px) 66vw, 100vw"
+                        />
+      </div>
+    </a>
+  </div>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Hero Banner With Slider",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Add a metaobject type:hero with slider"
+    },
+    {
+      "type": "metaobject",
+      "metaobject_type": "hero_banner_with_slider",
+      "label": "Metaobject - hero with slider",
+      "id": "metaobject"
+    },
+    {
+      "type": "checkbox",
+      "id": "reverse",
+      "default": false,
+      "label": "reverse the direction of the img and banner" 
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Banner With Slider"
+    }
+  ]
+}
+{% endschema %}

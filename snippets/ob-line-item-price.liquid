@@ -1,0 +1,45 @@
+                    {%- assign sitewidesale = 'yes' -%}
+		            <div class="item-price flex text-sm">
+                      {%- if sitewidesale == 'yes' -%}
+		              {%- if item.final_line_price < item.original_line_price -%}
+                          <strong class="text-magenta-500 mr-3 ">{{ item.final_line_price | money }}</strong>
+                          <del><div class="qb-total-line-item text-gray-400 line-through" data-id="{{ item.key }}">{{ item.variant.compare_at_price | times: item.quantity | money }}</div></del>
+		              {%- elsif item.variant.compare_at_price > item.variant.price -%}
+                          <strong class="text-magenta-500 mr-3 ">{{ item.final_line_price | money }}</strong>
+                          <del><div class="text-gray-400 line-through">{{ item.variant.compare_at_price | times: item.quantity | money }}</div></del>
+		              {%- else -%}
+                          <strong class="text-magenta-500 mr-3 ">{{ item.final_line_price | money }}</strong>
+		              {%- endif -%}
+
+		              {%- if item.unit_price_measurement -%}
+		                <span class="unit-price text-size--smaller">
+		                  {{ item.unit_price | money }} / 
+		                  {%- if item.unit_price_measurement.reference_value != 1 -%}
+		                    {{ item.unit_price_measurement.reference_value }}
+		                  {%- endif -%}
+		                  {{ item.unit_price_measurement.reference_unit }}
+		                </span>
+		              {%- endif -%}
+                      {%- else -%}
+		              {%- if item.final_line_price < item.original_line_price -%}
+                          <strong class="text-magenta-500 mr-3 ">{{ item.final_line_price | money }}</strong>
+                          <!-- item json {{ item | json }} -->
+                          <del><div class="qb-total-line-item text-gray-400 line-through" data-id="{{ item.key }}">{{ item.original_line_price | money }}</div></del>
+		              {%- elsif item.variant.compare_at_price > item.variant.price -%}
+                          <strong class="text-magenta-500 mr-3 ">{{ item.final_line_price | money }}</strong>
+                          <del><div class="text-gray-400 line-through">{{ item.variant.compare_at_price | times: item.quantity | money }}</div></del>
+		              {%- else -%}
+                          <strong class="text-magenta-500 mr-3 ">{{ item.final_line_price | money }}</strong>
+		              {%- endif -%}
+
+		              {%- if item.unit_price_measurement -%}
+		                <span class="unit-price text-xs">
+		                  {{ item.unit_price | money }} / 
+		                  {%- if item.unit_price_measurement.reference_value != 1 -%}
+		                    {{ item.unit_price_measurement.reference_value }}
+		                  {%- endif -%}
+		                  {{ item.unit_price_measurement.reference_unit }}
+		                </span>
+		              {%- endif -%}
+                      {%- endif -%}
+		            </div><!--item-price-->

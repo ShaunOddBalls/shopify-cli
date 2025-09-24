@@ -1,0 +1,407 @@
+{% schema %}
+{
+  "name": "Slider Nav Collection",
+  "settings": [
+    {
+      "type": "text",
+      "id": "show_on_all",
+      "label": "collections to Show on collections * for all",
+      "info": "comma separated collection handles",
+      "default": "*"
+    },
+    {
+      "type": "text",
+      "id": "wrapper-classes",
+      "label": "section wrapper classes"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "title text"
+    },
+    {
+      "type": "text",
+      "id": "title-classes",
+      "label": "title text classes",
+      "default": "text-2xl md:text-4xl uppercase  mx-auto text-center marujo"
+    },
+    {
+      "type": "header",
+      "content": "Background Settings"
+    },
+    {
+      "type": "text",
+      "id": "background-image",
+      "label": "Background image url"
+    },
+    {
+      "type": "html",
+      "label": "css for image and text borders",
+      "id": "gold",
+      "default": "background: linear-gradient(45deg,rgba(244, 219, 112, 1) 0%,rgba(181, 127, 0, 1) 14%,rgba(252, 247, 198, 1) 24%,rgba(252, 247, 198, 1) 35%,rgba(244, 219, 112, 1) 48%,rgba(198, 140, 0, 1) 63%,rgba(244, 219, 112, 1) 100%);"
+    },
+    {
+      "type": "html",
+      "id": "lw-black",
+      "label": "css properties for image bg text and image background colors",
+      "default": "background: rgb(74, 74, 74); background: radial-gradient(circle,rgba(74, 74, 74, 1) 0%,rgba(33, 33, 33, 1) 100%)"
+    },
+    {
+      "type": "range",
+      "id": "autoplay_delay",
+      "min": 2000,
+      "max": 9000,
+      "step": 500,
+      "unit": "ms",
+      "label": "Autoplay Delay",
+      "default": 5000
+    },
+    {
+      "type": "range",
+      "id": "slides_per_view",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "label": "Slides Per View",
+      "default": 3
+    },
+    {
+      "type": "range",
+      "id": "slides_per_group",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "label": "Slides Per Group",
+      "default": 3
+    },
+    {
+      "type": "checkbox",
+      "id": "grab_cursor",
+      "label": "Grab Cursor",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "mousewheel",
+      "label": "Mousewheel Control",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "keyboard_control",
+      "label": "Keyboard Control",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "loop",
+      "label": "Loop",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "slides_per_view_1024",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "label": "Slides Per View (1024px and above)",
+      "default": 6
+    },
+    {
+      "type": "range",
+      "id": "slides_per_group_1024",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "label": "Slides Per Group (1024px and above)",
+      "default": 1
+    },
+    {
+      "type": "checkbox",
+      "id": "allow_touch_move_1024",
+      "label": "Allow Touch Move (1024px and above)",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay_1024",
+      "label": "Autoplay (1024px and above)",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_pagination",
+      "label": "Show Pagination",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_navigation",
+      "label": "Show Navigation Arrows",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "arrow_color",
+      "label": "Navigation Arrow Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "dot_color",
+      "label": "Pagnation dot Color",
+      "default": "#f00f83"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "checkbox",
+          "default": false,
+          "id": "block_is_image",
+          "label": "Use a image as entire slide"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Slide Title"
+        },
+        {
+          "type": "text",
+          "id": "text-classes",
+          "label": "Text Classes",
+          "default": "text-white px-2 py-2 font-bold text-xxs uppercase lw-black rounded-full text-nowrap"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Slider Nav Collection",
+      "blocks": [
+        {
+          "type": "slide"
+        },
+        {
+          "type": "slide"
+        },
+        {
+          "type": "slide"
+        },
+        {
+          "type": "slide"
+        },
+        {
+          "type": "slide"
+        },
+        {
+          "type": "slide"
+        },
+        {
+          "type": "slide"
+        },
+        {
+          "type": "slide"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+{% if request.page_type != 'collection'
+  or section.settings.show_on_all == '*'
+  or section.settings.show_on_all contains collection.handle
+%}
+  <div
+    class="w-full nav-slider-{{ section.id }} {% if section.settings.background-image != blank %}{{ section.id }}-backgound-image {% endif %}  section-wrapper load-animate"
+    data-section-id="{{ section.id }}"
+  >
+    {% if section.settings.title != blank %}
+      <h2 class="{{ section.settings.title-classes }}">{{ section.settings.title }}</h2>
+    {% endif %}
+
+    <div class="relative w-full flex flex-col ">
+      <div class="flex items-center justify-center w-full gap-4">
+        {% if section.settings.show_navigation %}
+          <button class="swiper-button-prev !static !mt-0 !w-auto !h-auto"></button>
+        {% endif %}
+
+        <div class="swiper scrollable-nav-{{ section.id }} flex-1">
+          <div class="swiper-wrapper {{ section.settings.wrapper-classes }}">
+            {% for block in section.blocks %}
+              <div
+                class="card swiper-slide flex flex-col items-center {% unless block.settings.block_is_image %}p-2 {% else %}min-h-[200px]{% endunless %} text-white rounded-lg  max-w-sm mx-auto w-full relative h-full"
+              >
+                {% if block.settings.link %}
+                  <a href="{{ block.settings.link }}" class="w-full h-ful flex flex-col items-center justify-center">
+                {% endif %}
+                {% unless block.settings.block_is_image %}
+                  <div class="">
+                    <!-- Circular Border -->
+                    <div
+                      class="rounded-full gold shadow-lg aspect-square w-24 md:w-32 flex flex-col relative"
+                    >
+                        <img
+                          src="{% if block.settings.image %}{{ block.settings.image | image_url  }}{% else %}https://cdn.shopify.com/s/files/1/0353/7249/products/HIPPY_JUNGLE_L.BOXER_BACK-min_8884a181-ba32-4d7e-bc19-c9cab92c22ca.png?v=1677760641{% endif %}"
+                          alt="place holder"
+                          class="object-contain rounded-full absolute -top-0"
+                        >
+                      </div>
+                  </div>
+
+                  <!-- Text Section -->
+                  <div class="mt-4 text-center gold shadow-xl rounded-full w-full mx-auto max-w-[175px]">
+                    <div
+                      class="text-white px-2 py-1 font-bold text-xs uppercase lw-black rounded-full text-nowrap"
+                    >
+                      {{ block.settings.title }}
+                    </div>
+                  </div>
+                {% else %}
+                  <div class="w-full h-full p-4 absolute max-w-[175px]">
+                    <img
+                      src="{% if block.settings.image %}{{ block.settings.image | image_url  }}{% else %}https://cdn.shopify.com/s/files/1/0353/7249/files/MensBoxers_5e317801-65fb-4962-abe3-764cb734b370.png?v=1732784243{% endif %}"
+                      alt="placeholder"
+                      class="w-full w-full object-cover"
+                    >
+                  </div>
+                {% endunless %}
+
+                {% if block.settings.link %}
+                  </a>
+                {% endif %}
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+
+        {% if section.settings.show_navigation %}
+          <button class="swiper-button-next !static !mt-0 !w-auto !h-auto"></button>
+        {% endif %}
+      </div>
+
+      {% if section.settings.show_pagination %}
+        <div class="w-full flex justify-center mt-4">
+          <div class="swiper-pagination"></div>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+{% endif %}
+<style>
+  .scrollable-nav-{{ section.id }} .lw-black {
+        {{ section.settings.lw-black }}
+      }
+
+  .scrollable-nav-{{ section.id }} .gold{
+      {{ section.settings.gold }}
+    }
+
+
+     .{{ section.id }}-backgound-image{
+      background-image: url('{{ section.settings.background-image }}')
+
+    }
+
+  {% if section.settings.show_navigation %}
+    .nav-slider-{{ section.id }} .swiper-button-next,
+    .nav-slider-{{ section.id }} .swiper-button-prev {
+      color: {{ section.settings.arrow_color }};
+    }
+
+    .swiper-button-next::after,
+    .swiper-button-prev::after {
+      font-size: 24px;
+    }
+
+    /* Remove default swiper button styles */
+    .swiper-button-next,
+    .swiper-button-prev {
+      position: relative !important;
+      margin: 0 !important;
+      width: auto !important;
+      height: auto !important;
+    }
+  {% endif %}
+
+  {% if section.settings.show_pagination %}
+    .nav-slider-{{ section.id }} .swiper-pagination-bullet {
+      background: {{ section.settings.dot_color }};
+    }
+    .nav-slider-{{ section.id }} .swiper-pagination-bullet-active {
+      background: {{ section.settings.dot_color }};
+    }
+  {% endif %}
+</style>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const swiper = new Swiper('.scrollable-nav-{{ section.id }}', {
+      slidesPerView: {{ section.settings.slides_per_view | default: 3 }},
+      slidesPerGroup: {{ section.settings.slides_per_group | default: 3 }},
+      grabCursor: {{ section.settings.grab_cursor | default: true }},
+      mousewheel: {{ section.settings.mousewheel | default: true }},
+      keyboard: {
+        enabled: {{ section.settings.keyboard_control | default: true }},
+      },
+      autoplay: {
+        delay: {{ section.settings.autoplay_delay | default: 5000 }},
+        disableOnInteraction: false,
+      },
+      loop: {{ section.settings.loop | default: true }},
+      breakpoints: {
+        1024: {
+          slidesPerView: {{ section.settings.slides_per_view_1024 | default: 6 }},
+            slidesPerGroup: {{ section.settings.slides_per_group_1024 | default: 1 }},
+            allowTouchMove: {{ section.settings.allow_touch_move_1024 | default: true }},
+            autoplay: {{ section.settings.autoplay_1024 | default: false }},
+        },
+      },
+      on: {
+        init: function () {
+          try {
+            // Find the section wrapper using the data attribute
+            const sectionWrapper = document.querySelector(`[data-section-id="{{ section.id }}"]`);
+            console.log('Section wrapper found:', sectionWrapper); // Debug log
+            if (sectionWrapper) {
+              sectionWrapper.classList.remove('load-animate');
+              console.log('load-animate class removed'); // Debug log
+            } else {
+              console.warn('Section wrapper not found for ID: {{ section.id }}');
+            }
+          } catch (error) {
+            console.error('Error removing load-animate class:', error);
+          }
+        }
+      },
+      
+      {% if section.settings.show_pagination %}
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true
+      },
+      {% endif %}
+      
+      {% if section.settings.show_navigation %}
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
+      },
+      {% endif %}
+    });
+  });
+</script>

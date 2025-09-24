@@ -1,0 +1,2819 @@
+<!-- conditional-banner.liquid -->
+{% include 'ob-include-set-current-country' %}	
+{% assign banners_count = 0 %}
+
+<!--multibuy-banner.liquid-->
+{% capture banners %}
+<div class="js-conditional-banner-wrapper {{ section.settings.wrapper_classes }}" style="background-color:{{ section.settings.banner_background }}">  
+  
+  {% assign grid_banner_count = 0 %}
+  {% for block in section.blocks %}
+    {% if block.type == 'Timed' %}
+
+
+      {% assign current_year = "now" | date: "%Y" %}
+{% assign current_month = "now" | date: "%m" %}
+{% assign current_day = "now" | date: "%d" %}
+{% assign current_hour = "now" | date: "%H" %}
+{% assign current_min = "now" | date: "%M" %}
+
+{% assign active_year = block.settings.countdown_yyyy %}
+{% assign active_month = block.settings.countdown_mm %}
+{% assign active_day = block.settings.countdown_dd %}
+
+{% assign expiry_year = block.settings.e_countdown_yyyy %}
+{% assign expiry_month = block.settings.e_countdown_mm %}
+{% assign expiry_day = block.settings.e_countdown_dd %}
+
+{% assign show_banner = false %}
+{% if block.settings.countdown_yyyy %}
+  {% comment %} Check if current date is after the go live date {% endcomment %}
+  {% if current_year > active_year %}
+    {% assign show_banner = true %}
+  {% elsif current_year == active_year %}
+    {% if current_month > active_month %}
+      {% assign show_banner = true %}
+    {% elsif current_month == active_month %}
+      {% if current_day >= active_day %}
+        {% assign show_banner = true %}
+      {% endif %}
+    {% endif %}
+  {% endif %}
+{% endif %}
+
+{% assign show_banner_1 = true %}
+{% if block.settings.e_countdown_yyyy %}
+  {% comment %} Check if current date is after the expiry date {% endcomment %}
+  {% if current_year > expiry_year %}
+    {% assign show_banner_1 = false %}
+  {% elsif current_year == expiry_year %}
+    {% if current_month > expiry_month %}
+      {% assign show_banner_1 = false %}
+    {% elsif current_month == expiry_month %}
+      {% if current_day > expiry_day %}
+        {% assign show_banner_1 = false %}
+      {% endif %}
+    {% endif %}
+  {% endif %}
+{% endif %}
+
+{% if show_banner and show_banner_1 %}
+{% assign page_handle = page.handle | downcase %}
+          {% assign block_handles_arr = block.settings.url_handle | downcase | replace: ' ', '' | split: ',' %}
+          {% assign block_not_handles_arr = block.settings.not_url_handle | downcase | replace: ' ', '' | split: ',' %}
+
+          {% if block_handles_arr contains '*' %}
+            {% assign handle_ok_to_proceed = 'yes' %}
+          {% endif%}
+          {% if block_handles_arr contains current_handle %}
+            {% assign handle_ok_to_proceed = 'yes' %}
+          {% endif%}
+          {% if block_not_handles_arr contains current_handle %}
+            {% assign handle_ok_to_proceed = 'no' %}
+          {% endif %}
+          
+          {% assign customer_ok_to_proceed = 'yes' %}
+          {% if customer %}
+            {% assign is_customer = 'yes' %}
+          {% else %}
+            {% assign is_customer = 'no' %}
+          {% endif %}
+          
+          {% assign customers_block_check = block.settings.customers %}
+          {% unless customer_check == 'both' or block.settings.customers == blank %}
+            {% if is_customer == 'yes' and customers_block_check == 'not customer' %}
+              {% assign customer_ok_to_proceed = 'no' %}           
+            {% endif %}
+
+            {% if is_customer == 'no' and customers_block_check == 'customer' %}
+              {% assign customer_ok_to_proceed = 'no' %}            
+            {% endif %}
+          {% endunless%}
+            
+  
+
+          {% if handle_ok_to_proceed == 'yes' and customer_ok_to_proceed == 'yes' %}
+            <div class="page-banner blend-divide-yy relative {{ block.settings.wrapper_classes }}" style="background-color:{{ block.settings.banner_background }}" {{ block.shopify_attributes }}>
+              {% if block.settings.text != blank %}
+              <div class="{{ block.settings.text_wrapper_classes }}">{{ block.settings.text }}</div>
+              {% endif %}
+              
+              {% if block.settings.mobile_image != blank %}
+              {%  assign mobile_image = block.settings.mobile_image | img_url: '1000x' %}
+              <img id="himg" mobile class="{{ block.settings.mobile_image_classes }}" src="{{ mobile_image }}">
+              {% endif %}
+              {% if block.settings.desktop_image != blank %}
+              {%  assign desktop_image = block.settings.desktop_image | img_url: '2000x' %}
+              <img id="himg" desktop class="{{ block.settings.desktop_image_classes }}" src="{{ desktop_image }}">
+              {% endif %}
+              {% if block.settings.mobile_svg != blank %}
+              {%  assign mobile_svg = block.settings.mobile_svg | file_url  %}
+              <img id="himg" mobile svg class="{{ block.settings.mobile_svg_classes }}" src="{{ mobile_svg }}">
+              {% endif %}
+              {% if block.settings.desktop_svg != blank %}
+              {%  assign desktop_svg = block.settings.desktop_svg | file_url  %}
+              <img id="himg" desktop svg class="{{ block.settings.desktop_svg_classes }}" src="{{ desktop_svg }}">
+              {% endif %}
+              {% if block.settings.banner_link != blank %}
+              <a class="absolute inset-0 w-full h-full" href="{{ block.settings.banner_link }}"></a>
+              {% endif %}
+            </div>
+
+            {%  if mobile_image contains '/no-image-' or mobile_image contains '/no-image-' or mobile_svg contains '/no-image-' or desktop_svg contains '/no-image-' %}
+            {%  else %}
+                {%  if mobile_image != blank or mobile_image  != blank or mobile_svg  != blank  or desktop_svg  != blank %}
+                    {% assign banners_count = banners_count | plus: 1 %}
+                {% endif %}
+            {%  endif %}
+  
+          {% endif %}
+
+{% endif %}
+     
+    
+
+
+
+
+      
+        {% elsif block.type == 'Page-banner' %}
+          {% assign page_handle = page.handle | downcase %}
+          {% assign block_handles_arr = block.settings.url_handle | downcase | replace: ' ', '' | split: ',' %}
+          {% assign block_not_handles_arr = block.settings.not_url_handle | downcase | replace: ' ', '' | split: ',' %}
+
+          {% if block_handles_arr contains '*' %}
+            {% assign handle_ok_to_proceed = 'yes' %}
+          {% endif%}
+          {% if block_handles_arr contains current_handle %}
+            {% assign handle_ok_to_proceed = 'yes' %}
+          {% endif%}
+          {% if block_not_handles_arr contains current_handle %}
+            {% assign handle_ok_to_proceed = 'no' %}
+          {% endif %}
+          
+          {% assign customer_ok_to_proceed = 'yes' %}
+          {% if customer %}
+            {% assign is_customer = 'yes' %}
+          {% else %}
+            {% assign is_customer = 'no' %}
+          {% endif %}
+          
+          {% assign customers_block_check = block.settings.customers %}
+          {% unless customer_check == 'both' or block.settings.customers == blank %}
+            {% if is_customer == 'yes' and customers_block_check == 'not customer' %}
+              {% assign customer_ok_to_proceed = 'no' %}           
+            {% endif %}
+
+            {% if is_customer == 'no' and customers_block_check == 'customer' %}
+              {% assign customer_ok_to_proceed = 'no' %}            
+            {% endif %}
+          {% endunless%}
+            
+  
+
+          {% if handle_ok_to_proceed == 'yes' and customer_ok_to_proceed == 'yes' %}
+            <div class="page-banner blend-divide-yy relative {{ block.settings.wrapper_classes }}" style="background-color:{{ block.settings.banner_background }}" {{ block.shopify_attributes }}>
+              {% if block.settings.text != blank %}
+              <div class="{{ block.settings.text_wrapper_classes }}">{{ block.settings.text }}</div>
+              {% endif %}
+              
+              {% if block.settings.mobile_image != blank %}
+              {%  assign mobile_image = block.settings.mobile_image | img_url: '1000x' %}
+              <img id="himg" mobile class="{{ block.settings.mobile_image_classes }}" src="{{ mobile_image }}">
+              {% endif %}
+              {% if block.settings.desktop_image != blank %}
+              {%  assign desktop_image = block.settings.desktop_image | img_url: '2000x' %}
+              <img id="himg" desktop class="{{ block.settings.desktop_image_classes }}" src="{{ desktop_image }}">
+              {% endif %}
+              {% if block.settings.mobile_svg != blank %}
+              {%  assign mobile_svg = block.settings.mobile_svg | file_url  %}
+              <img id="himg" mobile svg class="{{ block.settings.mobile_svg_classes }}" src="{{ mobile_svg }}">
+              {% endif %}
+              {% if block.settings.desktop_svg != blank %}
+              {%  assign desktop_svg = block.settings.desktop_svg | file_url  %}
+              <img id="himg" desktop svg class="{{ block.settings.desktop_svg_classes }}" src="{{ desktop_svg }}">
+              {% endif %}
+              {% if block.settings.banner_link != blank %}
+              <a class="absolute inset-0 w-full h-full" href="{{ block.settings.banner_link }}"></a>
+              {% endif %}
+            </div>
+
+            {%  if mobile_image contains '/no-image-' or mobile_image contains '/no-image-' or mobile_svg contains '/no-image-' or desktop_svg contains '/no-image-' %}
+            {%  else %}
+                {%  if mobile_image != blank or mobile_image  != blank or mobile_svg  != blank  or desktop_svg  != blank %}
+                    {% assign banners_count = banners_count | plus: 1 %}
+                {% endif %}
+            {%  endif %}
+          {% endif %}
+  
+
+    {% elsif block.type == 'col-grid-item-bannerr' %}{% assign grid_banner_count = grid_banner_count | plus: 1 %}{% endif %}
+    
+    {% assign ok_to_proceed = 'no' %}
+    {% assign customer_ok_to_proceed = 'no' %}
+    {% assign handle_ok_to_proceed = 'no' %}
+    
+    {% if customer %}
+      {% assign customer_ok_to_proceed = 'yes' %}
+    {% endif %}
+  
+  
+    {% assign current_handle = '' %}
+    
+    {% case template.name %}
+    {% when 'page' %}
+    {% assign current_handle = page.handle %}
+    {% when 'blog' %}
+    {% assign current_handle = blog.handle %}
+    {% when 'article' %}
+    {% assign current_handle = blog.handle %}
+    {% when 'collection' %}
+    {% assign current_handle = collection.handle %}
+    {% when 'product' %}
+    {% assign current_handle = product.handle %}
+    {% endcase %}
+  
+
+    
+
+    
+    {% if block.settings.customers != 'not customer' %}
+      {% assign customer_ok_to_proceed = 'yes' %}
+    {% endif %}
+
+    
+   
+    {% if block.settings.block_active == true %}
+      {% include 'include-country-ok-to-proceed', thingObj:block %}
+
+      {% if country_ok_to_proceed == 'yes' %}
+        {% if block.type == 'product-banner' %}
+          {% assign product_types = block.settings.product_types %}
+          {% assign product_type = product.type | downcase %}
+          {% assign product_types_arr = block.settings.product_types | downcase %}
+          {% assign proceed_with_multibuy = 'no' %}
+          {% if block.settings.is_multibuy_banner %}
+            {% unless product.compare_at_price > product.price %}
+              {% assign proceed_with_multibuy = 'yes' %}
+            {% endunless %}
+          {% else %}
+              {% assign proceed_with_multibuy = 'yes' %}
+          {% endif %}
+
+          {% assign tags_ok_to_proceed = 'yes' %}
+          {% if block.settings.exclude_tags != blank %}
+            {% assign exclude_tags = block.settings.exclude_tags | downcase %}
+            {% assign exclude_tags_arr = exclude_tags | split: ',' %}
+            {% for tag in exclude_tags_arr %}
+              {% assign tag_downcase = tag | downcase %}
+              {% for prod_tag in product.tags %}
+                {% assign prod_tag_downcase = prod_tag | downcase %}
+                
+                {% if tag_downcase == prod_tag_downcase %}
+                  {% assign tags_ok_to_proceed = 'no'%}
+                {% endif %}
+              {% endfor %}
+            {% endfor %}           
+          {% endif %}
+
+          {% assign customer_ok_to_proceed = 'yes' %}
+          {% if is_customer %}
+            {% assign is_customer = 'yes' %}
+          {% else %}
+            {% assign is_customer = 'no' %}
+          {% endif %}
+          
+          {% assign customers_block_check = block.settings.customers %}
+          {% unless customer_check == 'both' or block.settings.customers == blank %}
+            {% if is_customer == 'yes' and customers_block_check == 'not customer' %}
+              {% assign customer_ok_to_proceed = 'no' %}           
+            {% endif %}
+
+            {% if is_customer == 'no' and customers_block_check == 'customer' %}
+              {% assign customer_ok_to_proceed = 'no' %}            
+            {% endif %}
+          {% endunless%}
+
+          {% if product_types_arr contains product_type and customer_ok_to_proceed == 'yes' and tags_ok_to_proceed == 'yes' and proceed_with_multibuy == 'yes'%}   
+            <div class="banner-present relative" >
+              {% if block.settings.mobile_image != blank %}
+              {%  assign mobile_image = block.settings.mobile_image | img_url: '1000x' %}
+              <img id="himg" mobile class="{{ block.settings.mobile_image_classes }}" src="{{ mobile_image }}">
+              {% endif %}
+              {% if block.settings.desktop_image != blank %}
+              {%  assign desktop_image = block.settings.desktop_image | img_url: '1000x' %}
+              <img id="himg" desktop class="{{ block.settings.desktop_image_classes }}" src="{{ desktop_image }}">
+              {% endif %}
+
+
+          {% if block.settings.block_video_desktop != blank and block.settings.block_video_mobile != blank %}    
+          <div class="video-block video-replace-me {{ block.settings.video_outer_wrap }}" data-src-mobile="{{ block.settings.block_video_mobile | file_url }}" data-src="{{ block.settings.block_video_desktop | file_url }}"> 
+            <div class="fluid-width-video-wrapper">
+              {% if block.settings.block_video_desktop contains '.json' %}
+                <lottie-player loading="lazy" src="{{ block.settings.block_video_desktop | file_url }}"  background="transparent"  speed="1"  style="width: 100%"  loop autoplay></lottie-player>
+              {% else %}
+                <video loading="lazy" class="object-cover h-full w-full" src=""><source src="" type="video/mp4"></video>    
+              {% endif %}
+            </div>
+          </div>
+        
+          {% endif %}
+              
+              {% if block.settings.mobile_svg != blank %}
+              {%  assign mobile_svg = block.settings.mobile_svg | file_url  %}
+              <img id="himg" mobile svg class="{{ block.settings.mobile_svg_classes }}" src="{{ mobile_svg }}">
+              {% endif %}
+              {% if block.settings.desktop_svg != blank %}
+              {%  assign desktop_svg = block.settings.desktop_svg | file_url  %}
+              <img id="himg" desktop svg class="{{ block.settings.desktop_svg_classes }}" src="{{ desktop_svg }}">
+              {% endif %}
+            </div>
+
+            {%  if mobile_image contains '/no-image-' or mobile_image contains '/no-image-' or mobile_svg contains '/no-image-' or desktop_svg contains '/no-image-' %}
+            {%  else %}
+                {% assign banners_count = banners_count | plus: 1 %}
+            {%  endif %}
+            
+          {% endif %}
+        {% elsif block.type == 'collection-banner' or block.type == 'html_only' or block.type == 'link_banner' or block.type == 'image-svg-form' or block.type == 'Auto-discount' %}
+          {% assign collection_handle = collection.handle | downcase %}
+
+          {% assign block_handles_arr = block.settings.url_handle | downcase | replace: ' ', '' | split: ',' %}
+          {% assign block_not_handles_arr = block.settings.not_url_handle | downcase | replace: ' ', '' | split: ',' %}
+
+          {% if block_handles_arr contains '*' %}
+            {% assign handle_ok_to_proceed = 'yes' %}
+          {% endif%}
+          {% if block_handles_arr contains current_handle %}
+            {% assign handle_ok_to_proceed = 'yes' %}
+          {% endif%}
+          {% if block_not_handles_arr contains current_handle %}
+            {% assign handle_ok_to_proceed = 'no' %}
+          {% endif %}
+          
+          {% assign customer_ok_to_proceed = 'yes' %}
+          {% if customer %}
+            {% assign is_customer = 'yes' %}
+          {% else %}
+            {% assign is_customer = 'no' %}
+          {% endif %}
+          
+          {% assign customers_block_check = block.settings.customers %}
+          {% unless customer_check == 'both' or block.settings.customers == blank %}
+            {% if is_customer == 'yes' and customers_block_check == 'not customer' %}
+              {% assign customer_ok_to_proceed = 'no' %}           
+            {% endif %}
+
+            {% if is_customer == 'no' and customers_block_check == 'customer' %}
+              {% assign customer_ok_to_proceed = 'no' %}            
+            {% endif %}
+          {% endunless%}
+            
+  
+
+          {% if handle_ok_to_proceed == 'yes' and customer_ok_to_proceed == 'yes' %}
+
+            {% if block.type == 'Auto-discount' %}
+              {% capture banner_inline_style %}{%  if block.settings.bg_color != blank %}background:{{ block.settings.bg_color }};{%  endif %}{%  if block.settings.border_color != blank %}border:1px solid {{block.settings.border_color}};{%  endif %}{%  if block.settings.text_color != blank %}color:{{block.settings.text_color}};{%  endif %}{% endcapture %}
+              {% capture text-inline-styles %}{%  if block.settings.text-align != blank %}text-align:{{block.settings.text-align}};{%  endif %}{% endcapture %}
+              {% assign banners_count = banners_count | plus: 1 %}
+              <div class="relative block  py-3 px-3 mt-0 text-xs md:text-md text-center overflow-hidden rounded-none block border border-solid border-color overflow-hidden uppercase mb-4 mb-6 cursor-pointer js-add-discount-code {% if block.settings.action-type == "auto-add" %} js-auto-discount-code {% endif %}" data-discount-code="{{ block.settings.discount-code }}" style="{{ banner_inline_style }}"> 
+                <div class="flex text-left gap-x-2 items-center md:justify-center">
+                  <div class="">
+                    
+                    <svg class="discount-svg-add inline w-6 discount-svg" fill="{{ block.settings.svg-color }}" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 464.628 464.628" enable-background="new 0 0 464.628 464.628" xmlns:xlink="http://www.w3.org/1999/xlink">
+                      <path d="m394.33,105.596h-76.136c22.944-22.372 37.216-53.596 37.216-88.096 0-9.665-7.835-17.5-17.5-17.5-44.786,0-84.057,24.045-105.596,59.9-21.539-35.855-60.81-59.9-105.595-59.9-9.665,0-17.5,7.835-17.5,17.5 0,34.5 14.273,65.724 37.216,88.096h-76.137c-9.665,0-17.5,7.835-17.5,17.5v324.033c0,9.665 7.835,17.5 17.5,17.5h324.032c9.665,0 17.5-7.835 17.5-17.5v-324.033c0-9.665-7.835-17.5-17.5-17.5zm-17.5,162.016h-127.016v-127.016h127.016v127.016zm-58.646-230.385c-7.525,32.765-33.378,58.618-66.144,66.143 7.526-32.766 33.379-58.619 66.144-66.143zm-105.596,66.142c-32.765-7.525-58.618-33.378-66.143-66.143 32.765,7.525 58.618,33.378 66.143,66.143zm2.226,37.227v127.016h-127.016v-127.016h127.016zm-127.016,162.016h127.016v127.017h-127.016v-127.017zm162.016,127.016v-127.016h127.016v127.017h-127.016z"></path>
+                    </svg>
+                    
+                    <svg style="color: {{ block.settings.svg-color }};" class=" discount-svg discount-svg-load circular-loader-load-button circular-loader inline ml-3 w-6 m-0 relative w-6 hidden" viewBox="25 25 50 50"><circle class="loader-path" cx="50" cy="50" r="20" fill="none" stroke-width="4"></circle>
+                    </svg>
+                    
+                    <svg class="discount-svg-success hidden discount-svg" fill="{{ block.settings.svg-color }}" height="15px" width="15px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve" style="    width: 15px;    height: 15px;"><polygon points="437.3,30 202.7,339.3 64,200.7 0,264.7 213.3,478 512,94 "></polygon>
+                    </svg>
+                    
+                  </div>
+                  <div style="{{ text-inline-styles }}">
+                  <b class="discount-message py-5" data-end-message="{{ block.settings.success-message }}">{{ block.settings.discount-message }}</b>
+                  </div>
+                </div>
+              </div>
+            {% endif %}
+       
+            {%  if block.type == 'html_only' %}
+              
+                {% assign banners_count = banners_count | plus: 1 %}
+                {% capture banner_inline_style %}{%  if block.settings.bg_color != blank %}background:{{ block.settings.bg_color }};{%  endif %}{%  if block.settings.border_color != blank %}border:1px solid {{block.settings.border_color}};{%  endif %}{%  if block.settings.text_color != blank %}color:{{block.settings.text_color}};{%  endif %}{% endcapture %}
+                
+                <div class="html-only collection-banner relative {{ block.settings.wrapper_classes }}" style="{{ banner_inline_style }}">
+                  {% if block.settings.html != blank %}
+                    {% assign block_html = block.settings.html | replace_first:'<b>','<b first>' %}
+                    {% assign block_html = block_html | replace_first:'<b>','<b second>' %}
+                    {% if block.settings.first_bold_text_color != blank %}
+                        {%  capture bold_replace %}<b style="color:{{ block.settings.first_bold_text_color }}">{% endcapture %}
+                        {% assign block_html = block_html | replace:'<b first>', bold_replace %}
+                    {% endif %}
+                    {% if block.settings.second_bold_text_color != blank %}
+                        {%  capture bold_replace %}<b style="color:{{ block.settings.second_bold_text_color }}">{% endcapture %}
+                        {% assign block_html = block_html | replace:'<b second>', bold_replace %}
+                    {% endif %}
+                    {{ block_html }}
+                  {% endif %}
+               </div>
+            {% elsif block.type == "link_banner" %}
+              {% assign banners_count = banners_count | plus: 1 %}
+                                        {% assign link_banner_count = 0 %}
+              {% assign linklist = block.settings.link_list %}
+              {% assign url = canonical_url %}
+              {% assign path = url | remove_first: "https://www.myoddballs.com" | downcase %}
+              <div class="link-banner blend-divide-yy relative {{ block.settings.wrapper_classes }}" style="background-color:{{ block.settings.banner_background }}">
+                <div class="{{ block.settings.links_wrapper_classes }} link-banner-wrap-{{ linklists[linklist].links.size }}">    
+                  {% for link in linklists[linklist].links %}      
+                    {%- comment %}<locksmith:3c5f>{% endcomment -%}
+                      {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: link, subject_parent: linklists[linklist], variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+                    {%- comment %}</locksmith:3c5f>{% endcomment -%}      
+                    {% assign link_banner_count = link_banner_count | plus: 1 %}
+                    {% assign link_lower = link.url | remove_first: "https://www.myoddballs.com" | downcase %}
+                    <a href="{{ link.url }}" class="link-banner-{{ link_banner_count }}-{{ linklists[linklist].links.size }} {% if link_lower == path %}{{ block.settings.link_block_active_classes }}{% else %}{{ block.settings.link_block_classes }}{% endif %}">{{ link.title }}</a>
+                  {% endfor %}
+                </div>
+              </div>
+           
+            {% elsif block.type == 'image-svg-form' %}
+              <div class="collection-banner blend-divide-yy relative {{ block.settings.wrapper_classes }}" style="background-color:{{ block.settings.border_colour_accent }}">
+                <div class="relative">
+                {% if block.settings.mobile_image != blank %}
+                {%  assign mobile_image = block.settings.mobile_image | img_url: '1000x' %}
+                <img id="himg" mobile class="{{ block.settings.mobile_image_classes }}" src="{{ mobile_image }}">
+                {% endif %}
+                {% if block.settings.desktop_image != blank %}
+                {%  assign desktop_image = block.settings.desktop_image | img_url: '2000x' %}
+                <img id="himg" desktop class="{{ block.settings.desktop_image_classes }}" src="{{ desktop_image }}">
+                {% endif %}
+                {% if block.settings.mobile_svg != blank %}
+                {%  assign mobile_svg = block.settings.mobile_svg | file_url  %}
+                <img id="himg" mobile svg class="{{ block.settings.mobile_svg_classes }}" src="{{ mobile_svg }}">
+                {% endif %}
+                {% if block.settings.desktop_svg != blank %}
+                {%  assign desktop_svg = block.settings.desktop_svg | file_url  %}
+                <img id="himg" desktop svg class="{{ block.settings.desktop_svg_classes }}" src="{{ desktop_svg }}">
+                {% endif %}
+
+
+                {%  if mobile_image contains '/no-image-' or mobile_image contains '/no-image-' or mobile_svg contains '/no-image-' or desktop_svg contains '/no-image-' %}
+                {%  else %}
+                    {%  if mobile_image != blank or mobile_image  != blank or mobile_svg  != blank  or desktop_svg  != blank %}
+                        {% assign banners_count = banners_count | plus: 1 %}
+                    {% endif %}
+                {%  endif %}
+
+                
+                {% if block.settings.klaviyo_id != blank %}
+                 <div id="klaviyo-wrap-{{ block.settings.klaviyo_id }}" class="{{ block.settings.klaviyo_classes }}" >
+                       
+                      <div id="klaviyo-form-{{ block.settings.klaviyo_id }}">
+                        
+                           <div class="klaviyo-form-{{ block.settings.klaviyo_id }}">
+                              <span style="display:none; padding: 0px 15px;font-weight: bold;text-shadow: 0px 1px #000; color: #fff;" >Sign up to win your free pair</span>
+                           
+                           </div>
+                       </div>
+                 </div>
+                  <style>
+                        #klaviyo-form-{{ block.settings.klaviyo_id }} {
+                            max-width:90%;
+                            margin: 0px auto;
+                            zoom:0.9;
+                        }
+                 </style>
+                  <style>
+                        {{ block.settings.custom_css }}
+
+
+
+
+
+                          .klaviyo-form-{{ block.settings.klaviyo_id }}  ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+                              color: #555 !important;
+                              font-size: 14px !important;
+                              opacity: 1; /* Firefox */
+                          }
+                          
+                          .klaviyo-form-{{ block.settings.klaviyo_id }}  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+                              color: #555 !important;
+                              font-size: 14px !important;
+                          }
+                          
+                          .klaviyo-form-{{ block.settings.klaviyo_id }}  ::-ms-input-placeholder { /* Microsoft Edge */
+                              color: #555 !important;
+                              font-size: 14px !important;
+                          }
+
+
+
+
+
+
+
+
+
+                    
+                        #shopify-section-template--15204059512893__165764012617ae3115 {
+                          display:none;
+                        }
+                        .klaviyo-form-{{ block.settings.klaviyo_id }} .kl-private-reset-css-Xuajs1 input[type="email"] {
+                        		border: 0px solid rgb(180, 187, 195);
+                        		box-shadow: 1px 1px 2px rgb(0 0 0 / 33%);
+                        		border-radius: 3px;
+                                margin-bottom:5px !important;
+                        }
+
+                        .klaviyo-form-{{ block.settings.klaviyo_id }} div[data-testid="form-row"].kl-private-reset-css-Xuajs1 {
+                            paddingtop: 0px !important;
+                        	padding-bottom:0px !important;
+                        }
+                        .klaviyo-form-{{ block.settings.klaviyo_id }} [type="checkbox"] + label > svg:first-child {
+                        	    stroke: rgb(180 187 195 / 0%);
+                        		margin-right: 8px;
+                        		min-width: 20px;
+                        		width: auto;
+                        		height: auto;
+                        		border: 0px solid rgb(180, 187, 195);
+                        		box-shadow: 1px 1px 2px rgb(0 0 0 / 33%);
+                        		border-radius: 3px;
+                        }
+                        
+                        .klaviyo-form-{{ block.settings.klaviyo_id }} [type="checkbox"] + label > svg + svg + div {
+                        		color:#fff !important;
+                        	    text-shadow: 0px 1px #000;
+                                font-size:14px !important;
+                        		letter-spacing: 0.05em;
+                        }
+                        
+                        .klaviyo-form-{{ block.settings.klaviyo_id }} [data-testid="form-component"].kl-private-reset-css-Xuajs1 {
+                        		padding: 0px 12px 0px 12px !important;
+                        	}
+                        
+                        .klaviyo-form-{{ block.settings.klaviyo_id }} .kl-private-reset-css-Xuajs1[type="button"] {
+                        		background: {{ block.settings.border_colour_accent }} !important;
+                        		font-size: 15px !important;
+                        		font-weight: 500 !important;
+                        		width: 100%;
+                                margin-top:5px !important;
+                                  box-shadow: 3px 3px #000;
+                                  border: 2px solid #000 !important;
+                                  border-radius: 5px !important;
+                        	}
+                        
+                        .klaviyo-form-{{ block.settings.klaviyo_id }} [data-testid="form-row"] > div {
+                            paddingtop: 0px;
+                        	padding-bottom:0px;
+                        }
+
+                          .box-outline-gray .site-box-content:after {
+                              content: "";
+                              position: absolute;
+                              top: 0px;
+                              left: 0px;
+                              width: 100%;
+                              height: 100%;
+                              border: 1px solid red;
+                              pointer-events: none;
+                              z-index: 100;
+                              border: 0px solid var(--main-borders);
+                          }
+                          .box-outline-gray .site-box-content {
+                              z-index: 9;
+                              padding: 5px;
+                          }
+                          site-box-container.container--fullscreen {
+                              background: {{ block.settings.colour_accent }};
+                          }
+                          .shopify-section.mount-products.mount-images mount-facets.mount-border-fix .site-box-container.container--fullscreen {
+      
+                              background: {{ block.settings.colour_accent }};
+                          }
+                          #main-collection-product-grid .site-filter-handle-holder.site-filter-handle-holder-mobile {
+                              background-color: {{ block.settings.colour_accent }};
+                              padding: 0px 30px 15px 30px;
+                          }
+                          .site-box-container.container--fullscreen {
+                              background-color: {{ block.settings.colour_accent }};    
+                          }
+                          #AjaxinateContainer {
+                              background: #ffffff;
+                              /* gap: 20px; */
+                              border: 12px solid {{ block.settings.border_colour_accent }};
+                          }
+                          #main-collection-product-grid {
+                              padding: 15px;
+                              padding-bottom: 60px;
+                          }
+
+                          .form-tandc {
+                              font-size: 11px;
+                              color: #fff;
+                              padding: 0px 20px 15px 20px;
+                              background: {{ block.settings.border_colour_accent }};
+                              line-height: 1.2em;
+                          }
+                              #klaviyo-wrap-{{ block.settings.klaviyo_id }} {
+                                  bottom:5%;
+                              }    
+
+                              #klaviyo-wrap-{{ block.settings.klaviyo_id }} form {
+
+                                  background: #ffffff3b;
+                                  backdrop-filter: blur(10px);
+                                  border-radius: 5px;
+                              }
+
+
+                    
+                          @media (min-width: 768px) {
+
+
+                              #klaviyo-wrap-{{ block.settings.klaviyo_id }} {
+                                  bottom:10%;
+                              }
+
+                            
+                              #main-collection-product-grid {
+                                  padding: 30px;
+                                  padding-bottom: 60px;
+                              }
+                              #AjaxinateContainer {
+                                  background: #ffffff;
+                                  border: 30px solid {{ block.settings.border_colour_accent }};
+                              }
+
+                              .klaviyo-form-{{ block.settings.klaviyo_id }} .kl-private-reset-css-Xuajs1[type="button"] {
+                              		background: #f00f83 !important;
+                              		font-size: 18px !important;
+                                    padding-top: 15px !important;
+                                    padding-bottom: 15px !important;
+                                    margin-top: 20px !important;
+                              	}
+                                .form-tandc {
+                                    font-size: 11px;
+                                    color: #fff;
+                                    padding: 0px 20px 20px 20px;
+                                    line-height: 1.2em;
+                                    max-width: 630px;
+                                    margin-top: -10px;
+                                    z-index: 10;
+                                    position: relative;
+                                    margin: -10px auto 0px auto;
+                                }
+                          }
+                    
+                  </style>
+
+                {% endif %}
+                </div>
+                  <div class="form-tandc text-sm">
+                              By ticking the above box, we'll send you occasional emails about OddBalls products and services in accordance with our <a href="/pages/privacy-policy">Privacy Policy</a> and <a href="/pages/terms-conditions?view=terms">Terms &amp; Conditions</a>. You can unsubscribe at any time by clicking the link in our emails.
+                  </div>
+              </div>  
+            {% else %}
+            <div class="collection-banner blend-divide-yy relative {{ block.settings.wrapper_classes }}" style="background-color:{{ block.settings.banner_background }}">
+              {% if block.settings.mobile_image != blank %}
+              {%  assign mobile_image = block.settings.mobile_image | img_url: '1000x' %}
+              <img id="himg" mobile class="{{ block.settings.mobile_image_classes }}" src="{{ mobile_image }}">
+              {% endif %}
+              {% if block.settings.desktop_image != blank %}
+              {%  assign desktop_image = block.settings.desktop_image | img_url: '2000x' %}
+              <img id="himg" desktop class="{{ block.settings.desktop_image_classes }}" src="{{ desktop_image }}">
+              {% endif %}
+              {% if block.settings.mobile_svg != blank %}
+              {%  assign mobile_svg = block.settings.mobile_svg | file_url  %}
+              <img id="himg" mobile svg class="{{ block.settings.mobile_svg_classes }}" src="{{ mobile_svg }}">
+              {% endif %}
+              {% if block.settings.desktop_svg != blank %}
+              {%  assign desktop_svg = block.settings.desktop_svg | file_url  %}
+              <img id="himg" desktop svg class="{{ block.settings.desktop_svg_classes }}" src="{{ desktop_svg }}">
+              {% endif %}
+              {% if block.settings.banner_link != blank %}
+              <a class="absolute inset-0 w-full h-full" href="{{ block.settings.banner_link }}"></a>
+              {% endif %}
+
+
+              
+            </div>
+
+            {%  if mobile_image contains '/no-image-' or mobile_image contains '/no-image-' or mobile_svg contains '/no-image-' or desktop_svg contains '/no-image-' %}
+            {%  else %}
+                {%  if mobile_image != blank or mobile_image  != blank or mobile_svg  != blank  or desktop_svg  != blank %}
+                    {% assign banners_count = banners_count | plus: 1 %}
+                {% endif %}
+            {%  endif %}
+
+            {% endif %}
+  
+          {% endif %}
+          
+        {% elsif block.type == 'col-grid-img-banner' or block.type == 'col-grid-text-banner' or block.type == 'col-grid-item-banner' %}
+          
+          {% assign collection_handle = collection.handle | downcase %}
+          {% assign block_handles_arr = block.settings.url_handle | downcase | replace: ' ', '' | split: ',' %}
+          {% assign block_not_handles_arr = block.settings.not_url_handle | downcase | replace: ' ', '' | split: ',' %}
+
+          {% if block_handles_arr contains '*' %}
+            {% assign handle_ok_to_proceed = 'yes' %}
+          {% endif%}
+          {% if block_handles_arr contains current_handle %}
+            {% assign handle_ok_to_proceed = 'yes' %}
+          {% endif%}
+          {% if block_not_handles_arr contains current_handle %}
+            {% assign handle_ok_to_proceed = 'no' %}
+          {% endif %}
+          
+          {% assign customer_ok_to_proceed = 'yes' %}
+          {% if customer %}
+            {% assign is_customer = 'yes' %}
+          {% else %}
+            {% assign is_customer = 'no' %}
+          {% endif %}
+          
+          {% assign customers_block_check = block.settings.customers %}
+          {% unless customer_check == 'both' or block.settings.customers == blank %}
+            {% if is_customer == 'yes' and customers_block_check == 'not customer' %}
+              {% assign customer_ok_to_proceed = 'no' %}           
+            {% endif %}
+
+            {% if is_customer == 'no' and customers_block_check == 'customer' %}
+              {% assign customer_ok_to_proceed = 'no' %}            
+            {% endif %}
+          {% endunless%}
+
+          {% if handle_ok_to_proceed == 'yes' and customer_ok_to_proceed == 'yes' %}
+
+            {% if block.type == 'col-grid-img-banner' or block.type == 'col-grid-text-banner' %}
+              {% assign banner_size = 'full-width-grid-banner' %}
+            {% else %}
+              {% assign banner_size = 'grid-item-banner' %}
+            {% endif %}
+            
+            {% if block.type == 'col-grid-img-banner' or block.type == 'col-grid-item-banner' %}
+              
+              <div class="js-move-collection-banner collection-grid-banner {{ banner_size }} {% if block.settings.block_active %}{{ active }} {% endif %}blend-divide-yy relative {{ block.settings.wrapper_classes }}" style="background-color:{{ block.settings.banner_background }}" grid-item-breakpoint-1="{{ block.settings.break_rows_1 }}" grid-item-breakpoint-2="{{ block.settings.break_rows_2 }}" grid-item-breakpoint-3="{{ block.settings.break_rows_3 }}" grid-item-breakpoint-4="{{ block.settings.break_rows_4 }}" grid-item-def-breakpoints='{{ block.settings.break_rows_1 }},{{ block.settings.break_rows_2 }},{{ block.settings.break_rows_3 }},{{ block.settings.break_rows_4 }}'>
+                {% if block.settings.mobile_image != blank %}
+                {%  assign mobile_image = block.settings.mobile_image | img_url: '1000x' %}
+                <img id="himg" mobile class="{{ block.settings.mobile_image_classes }}" src="{{ mobile_image }}">
+                {% endif %}
+                {% if block.settings.desktop_image != blank %}
+                {%  assign desktop_image = block.settings.desktop_image | img_url: '2000x' %}
+                <img id="himg" desktop class="{{ block.settings.desktop_image_classes }}" src="{{ desktop_image }}">
+                {% endif %}
+                {% if block.settings.mobile_svg != blank %}
+                {%  assign mobile_svg = block.settings.mobile_svg | file_url  %}
+                <img id="himg" mobile svg class="{{ block.settings.mobile_svg_classes }}" src="{{ mobile_svg }}">
+                {% endif %}
+                {% if block.settings.desktop_svg != blank %}
+                {%  assign desktop_svg = block.settings.desktop_svg | file_url  %}
+                <img id="himg" desktop svg class="{{ block.settings.desktop_svg_classes }}" src="{{ desktop_svg }}">
+                {% endif %}
+                {% if block.settings.banner_link != blank %}
+                <a class="absolute inset-0 w-full h-full" href="{{ block.settings.banner_link }}"></a>
+                {% endif %}
+              </div>
+            {% elsif block.type == 'col-grid-text-banner'%}
+              <div class="js-move-collection-banner collection-grid-banner {{ banner_size }} {% if block.settings.block_active %}{{ active }} {% endif %}blend-divide-yy relative {{ block.settings.wrapper_classes }}" style="background-color:{{ block.settings.banner_background }}" grid-item-breakpoint-1="{{ block.settings.break_rows_1 }}" grid-item-breakpoint-2="{{ block.settings.break_rows_2 }}" grid-item-breakpoint-3="{{ block.settings.break_rows_3 }}" grid-item-breakpoint-4="{{ block.settings.break_rows_4 }}" grid-item-def-breakpoints="{{ block.settings.break_rows_1 }},{{ block.settings.break_rows_2 }},{{ block.settings.break_rows_3 }},{{ block.settings.break_rows_4 }}">
+                {% if block.settings.main_text != blank %}
+                  <div class="{{ block.settings.main_text_classes }}">{{ block.settings.main_text }}</div>
+                {% endif %}
+                {% if block.settings.secondary_text != blank %}
+                  <div class="{{ block.settings.secondary_text_classes }}">{{ block.settings.secondary_text }}</div>
+                {% endif %}              
+                {% if block.settings.banner_link != blank %}
+                <a class="absolute inset-0 w-full h-full" href="{{ block.settings.banner_link }}"></a>
+                {% endif %}
+              </div>            
+            {% else %}
+              <div class="js-move-collection-banner collection-grid-banner {% if block.settings.block_active %}{{ active }} {% endif %}blend-divide-yy relative {{ block.settings.wrapper_classes }}" style="background-color:{{ block.settings.banner_background }}" grid-item-breakpoint-1="{{ block.settings.break_rows_1 }}" grid-item-breakpoint-2="{{ block.settings.break_rows_2 }}" grid-item-breakpoint-3="{{ block.settings.break_rows_3 }}" grid-item-breakpoint-4="{{ block.settings.break_rows_4 }}">
+                {% if block.settings.main_text != blank %}
+                  <div class="{{ block.settings.main_text_classes }}">{{ block.settings.main_text }}</div>
+                {% endif %}
+                {% if block.settings.secondary_text != blank %}
+                  <div class="{{ block.settings.secondary_text_classes }}">{{ block.settings.secondary_text }}</div>
+                {% endif %}              
+                {% if block.settings.banner_link != blank %}
+                <a class="absolute inset-0 w-full h-full" href="{{ block.settings.banner_link }}"></a>
+                {% endif %}
+              </div>               
+            {% endif %}
+
+            {%  if mobile_image contains '/no-image-' or mobile_image contains '/no-image-' or mobile_svg contains '/no-image-' or desktop_svg contains '/no-image-' %}
+            {%  else %}
+                {%  if mobile_image != blank or mobile_image  != blank or mobile_svg  != blank  or desktop_svg  != blank %}
+                    {% assign banners_count = banners_count | plus: 1 %}
+                {% endif %}
+            {%  endif %}            
+  
+          {% endif %}
+          
+        {% elsif block.type == 'page-banner' %}
+          {% assign page_handle = page.handle | downcase %}
+          {% assign block_handles_arr = block.settings.url_handle | downcase | replace: ' ', '' | split: ',' %}
+          {% assign block_not_handles_arr = block.settings.not_url_handle | downcase | replace: ' ', '' | split: ',' %}
+
+          {% if block_handles_arr contains '*' %}
+            {% assign handle_ok_to_proceed = 'yes' %}
+          {% endif%}
+          {% if block_handles_arr contains current_handle %}
+            {% assign handle_ok_to_proceed = 'yes' %}
+          {% endif%}
+          {% if block_not_handles_arr contains current_handle %}
+            {% assign handle_ok_to_proceed = 'no' %}
+          {% endif %}
+          
+          {% assign customer_ok_to_proceed = 'yes' %}
+          {% if customer %}
+            {% assign is_customer = 'yes' %}
+          {% else %}
+            {% assign is_customer = 'no' %}
+          {% endif %}
+          
+          {% assign customers_block_check = block.settings.customers %}
+          {% unless customer_check == 'both' or block.settings.customers == blank %}
+            {% if is_customer == 'yes' and customers_block_check == 'not customer' %}
+              {% assign customer_ok_to_proceed = 'no' %}           
+            {% endif %}
+
+            {% if is_customer == 'no' and customers_block_check == 'customer' %}
+              {% assign customer_ok_to_proceed = 'no' %}            
+            {% endif %}
+          {% endunless%}
+            
+  
+
+          {% if handle_ok_to_proceed == 'yes' and customer_ok_to_proceed == 'yes' %}
+            <div class="page-banner blend-divide-yy relative {{ block.settings.wrapper_classes }}" style="background-color:{{ block.settings.banner_background }}" {{ block.shopify_attributes }}>
+              {% if block.settings.text != blank %}
+              <div class="{{ block.settings.text_wrapper_classes }}">{{ block.settings.text }}</div>
+              {% endif %}
+              
+              {% if block.settings.mobile_image != blank %}
+              {%  assign mobile_image = block.settings.mobile_image | img_url: '1000x' %}
+              <img id="himg" mobile class="{{ block.settings.mobile_image_classes }}" src="{{ mobile_image }}">
+              {% endif %}
+              {% if block.settings.desktop_image != blank %}
+              {%  assign desktop_image = block.settings.desktop_image | img_url: '2000x' %}
+              <img id="himg" desktop class="{{ block.settings.desktop_image_classes }}" src="{{ desktop_image }}">
+              {% endif %}
+              {% if block.settings.mobile_svg != blank %}
+              {%  assign mobile_svg = block.settings.mobile_svg | file_url  %}
+              <img id="himg" mobile svg class="{{ block.settings.mobile_svg_classes }}" src="{{ mobile_svg }}">
+              {% endif %}
+              {% if block.settings.desktop_svg != blank %}
+              {%  assign desktop_svg = block.settings.desktop_svg | file_url  %}
+              <img id="himg" desktop svg class="{{ block.settings.desktop_svg_classes }}" src="{{ desktop_svg }}">
+              {% endif %}
+              {% if block.settings.banner_link != blank %}
+              <a class="absolute inset-0 w-full h-full" href="{{ block.settings.banner_link }}"></a>
+              {% endif %}
+            </div>
+
+            {%  if mobile_image contains '/no-image-' or mobile_image contains '/no-image-' or mobile_svg contains '/no-image-' or desktop_svg contains '/no-image-' %}
+            {%  else %}
+                {%  if mobile_image != blank or mobile_image  != blank or mobile_svg  != blank  or desktop_svg  != blank %}
+                    {% assign banners_count = banners_count | plus: 1 %}
+                {% endif %}
+            {%  endif %}
+
+          
+  
+          {% endif %}
+        {% endif %}          
+      {% endif %}
+  
+    {% endif %}
+
+                          
+  {% endfor %}
+</div>
+
+{% endcapture %}
+{% if banners_count > 0 %}
+  {{ banners }}
+{% endif %}
+{% schema %}
+  {
+    "name": "Conditional Banner",
+    "settings": [
+      {
+        "id": "banner_background",
+        "type": "color",
+        "label": "Banner background colour"			
+      },
+      {
+        "id": "wrapper_classes",
+        "type": "textarea",
+        "label": "Wrapper classes"			
+      }      
+    ],    
+	"blocks": [
+      {
+        "type": "product-banner",
+        "name": "Product Banner",
+        "settings": [
+          {
+            "id": "block_active",
+            "type": "checkbox",
+            "label": "block active?",
+			"default": true
+          },
+          {
+            "id": "is_multibuy_banner",
+            "type": "checkbox",
+            "label": "Is multibuy banner",
+            "info": "Check to activate",
+			"default": false
+          },
+          {
+            "id": "banner_background",
+            "type": "color",
+            "label": "Banner background colour"			
+          },
+          {
+            "id": "wrapper_classes",
+            "type": "textarea",
+            "label": "Wrapper classes"			
+          },           
+          {
+            "id": "title",
+            "type": "text",
+            "label": "Title for block",
+            "info": "Used for identification only"
+          },
+          {
+            "id": "text",
+            "type": "text",
+            "label": "Text for Block (optional)",
+            "info": "Used instead of svg"
+          },
+          {
+            "id": "customers",
+            "type": "select",
+            "default": "both",            
+            "options": [
+              {
+                "value": "both",
+                "label": "both"
+              },
+              {
+                "value": "customer",
+                "label": "customer"
+              },
+              {
+                "value": "not-customer",
+                "label": "not customer"
+              } 
+            ],
+            "label": "Customer (optional)"
+          },
+          {
+            "type": "html",
+            "id": "country_iso",
+            "label": "Only display if current iso is (* for all)",
+            "info": "Comma seperated",
+            "default":"*"
+          },         
+          {
+            "id": "product_types",
+            "type": "textarea",
+            "label": "Product types to display",
+         	"info": "List separated with commas"			
+          },
+          {
+            "id": "exclude_tags",
+            "type": "textarea",
+            "label": "Exclude if product contains tags",
+         	"info": "List separated with commas"			
+          },
+          {
+            "id": "desktop_image",
+            "type": "image_picker",
+            "label": "Desktop image"			
+          },
+          {
+            "id": "mobile_image",
+            "type": "image_picker",
+            "label": "Mobile image"			
+          },
+          {
+            "id": "desktop_image_classes",
+            "type": "textarea",
+            "label": "Desktop image classes",
+            "default": "mx-auto w-full hidden md:block"
+          },
+          {
+            "id": "mobile_image_classes",
+            "type": "textarea",
+            "label": "Mobile image classes",
+            "default": "mx-auto w-full md:hidden"
+          },
+          {
+            "id": "desktop_svg",
+            "type": "text",
+            "label": "Desktop SVG",
+         	"info": "Enter as file name"			
+          },
+          {
+            "id": "mobile_svg",
+            "type": "text",
+            "label": "Mobile SVG",
+         	"info": "Enter as file name"			
+          },
+          {
+            "id": "desktop_svg_classes",
+            "type": "textarea",
+            "label": "Desktop svg classes",
+            "default": "absolute inset-0 w-full h-full mx-auto hidden md:block"
+          },
+          {
+            "id": "mobile_svg_classes",
+            "type": "textarea",
+            "label": "Mobile svg classes",
+            "default": "absolute inset-0 w-full h-full mx-auto md:hidden"
+          },
+            {
+              "id": "video_outer_wrap",
+              "type": "text",
+              "label": "video outer wrap",
+              "default": "absolute inset-0 absolute inset-0 w-full h-full mx-auto",
+              "info": "eg. absolute inset-0 absolute inset-0 w-full h-full mx-auto"			
+            },
+            {
+              "id": "video_wrap",
+              "type": "text",
+              "label": "video wrap",
+              "default": "col-span-12 absolute inset-0 w-full h-full",
+              "info": "eg. col-span-12 absolute inset-0 w-full h-full"			
+            },
+            {
+              "id": "block_video_desktop",
+              "type": "text",
+              "label": "desktop video (optional)"
+            },
+            {
+              "id": "block_video_desktop_class",
+              "type": "text",
+              "label": "desktop video class",
+              "default": "object-cover h-full w-full",
+              "info": "eg. object-cover h-full w-full"
+            },
+            {
+              "id": "block_video_mobile",
+              "type": "text",
+              "label": "mobile video (optional)"
+            },
+            {
+              "id": "block_video_mobile_class",
+              "type": "text",
+              "label": "mobile video class",
+              "default": "object-cover h-full w-full",
+              "info": "eg. object-cover h-full w-full"
+            }
+
+          
+        ]
+      },
+      {
+        "type": "collection-banner",
+        "name": "Collection Banner",
+        "settings": [
+          {
+            "id": "block_active",
+            "type": "checkbox",
+            "label": "block active?",
+			"default": true
+          },
+          {
+            "id": "banner_background",
+            "type": "color",
+            "label": "Banner background colour"			
+          },
+          {
+            "id": "wrapper_classes",
+            "type": "textarea",
+            "label": "Wrapper classes"			
+          },          
+          {
+            "id": "title",
+            "type": "text",
+            "label": "Title for block",
+            "info": "Used for identification only"
+          },
+          {
+            "id": "text",
+            "type": "text",
+            "label": "Text for Block (optional)",
+            "info": "Used instead of svg"
+          },
+          {
+            "id": "customers",
+            "type": "select",
+            "default": "both",
+            "options": [
+              {
+                "value": "both",
+                "label": "both"
+              },
+              {
+                "value": "customer",
+                "label": "customer"
+              },
+              {
+                "value": "not-customer",
+                "label": "not customer"
+              } 
+            ],
+            "label": "Customer (optional)"
+          },
+          
+          {
+            "type": "textarea",
+            "id": "url_handle",
+            "label": "Only display if url contains this handle (* for all)",
+            "info": "One per line",
+            "default":"*"
+          },
+          {
+            "type": "textarea",
+            "id": "not_url_handle",
+            "label": "Dont display if url contains this handle",
+            "info": "One per line"
+          },
+          {
+            "type": "html",
+            "id": "country_iso",
+            "label": "Only display if current iso is (* for all)",
+            "info": "Comma seperated",
+            "default":"*"
+          }, 
+          {
+            "type": "url",
+            "id": "banner_link",
+            "label": "Banner link"
+          },           
+          {
+            "id": "desktop_image",
+            "type": "image_picker",
+            "label": "Desktop image"			
+          },
+          {
+            "id": "mobile_image",
+            "type": "image_picker",
+            "label": "Mobile image"			
+          },
+          {
+            "id": "desktop_image_classes",
+            "type": "textarea",
+            "label": "Desktop image classes",
+            "default": "mx-auto w-full hidden md:block"
+          },
+          {
+            "id": "mobile_image_classes",
+            "type": "textarea",
+            "label": "Mobile image classes",
+            "default": "mx-auto w-full md:hidden"
+          },
+          {
+            "id": "desktop_svg",
+            "type": "text",
+            "label": "Desktop SVG",
+         	"info": "Enter as file name"			
+          },
+          {
+            "id": "mobile_svg",
+            "type": "text",
+            "label": "Mobile SVG",
+         	"info": "Enter as file name"			
+          },
+          {
+            "id": "desktop_svg_classes",
+            "type": "textarea",
+            "label": "Desktop svg classes",
+            "default": "absolute inset-0 w-full h-full mx-auto hidden md:block"
+          },
+          {
+            "id": "mobile_svg_classes",
+            "type": "textarea",
+            "label": "Mobile svg classes",
+            "default": "absolute inset-0 w-full h-full mx-auto md:hidden"
+          }          
+        ]        
+      },
+      {
+        "type": "col-grid-img-banner",
+        "name": "Col Grid Img Banner",
+        "settings": [
+          {
+            "id": "block_active",
+            "type": "checkbox",
+            "label": "block active?",
+			"default": true
+          },
+          {
+            "type":"header",
+            "content": "Banner Placement"
+          },
+          {
+            "type": "range",
+            "id": "break_rows_1",
+            "min": 1,
+            "max": 50,
+            "step": 1,
+            "label": "Grid rows of 2 items: Append after grid item number",
+            "default": 10
+          },
+          {
+            "type": "range",
+            "id": "break_rows_2",
+            "min": 3,
+            "max": 60,
+            "step": 3,
+            "label": "Grid rows of 3 items: Append after grid item number",
+            "default": 15
+          }, 
+          {
+            "type": "range",
+            "id": "break_rows_3",
+            "min": 4,
+            "max": 60,
+            "step": 4,
+            "label": "Grid rows of 4 items: Append after grid item number",
+            "default": 20
+          },
+          {
+            "type": "range",
+            "id": "break_rows_4",
+            "min": 5,
+            "max": 80,
+            "step": 5,
+            "label": "Grid rows of 5 items: Append after grid item number",
+            "default": 25
+          },
+          {
+            "type":"header",
+            "content": "Banner Content"
+          },
+          {
+            "id": "banner_background",
+            "type": "color",
+            "label": "Banner background colour"			
+          },
+          {
+            "id": "wrapper_classes",
+            "type": "textarea",
+            "label": "Wrapper classes"			
+          },          
+          {
+            "id": "title",
+            "type": "text",
+            "label": "Title for block",
+            "info": "Used for identification only"
+          },
+          {
+            "id": "customers",
+            "type": "select",
+            "default": "both",
+            "options": [
+              {
+                "value": "both",
+                "label": "both"
+              },
+              {
+                "value": "customer",
+                "label": "customer"
+              },
+              {
+                "value": "not-customer",
+                "label": "not customer"
+              } 
+            ],
+            "label": "Customer (optional)"
+          },         
+          {
+            "type": "textarea",
+            "id": "url_handle",
+            "label": "Only display if url contains this handle (* for all)",
+            "info": "One per line",
+            "default":"*"
+          },
+          {
+            "type": "textarea",
+            "id": "not_url_handle",
+            "label": "Dont display if url contains this handle",
+            "info": "One per line"
+          },
+          {
+            "type": "html",
+            "id": "country_iso",
+            "label": "Only display if current iso is (* for all)",
+            "info": "Comma seperated",
+            "default":"*"
+          }, 
+          {
+            "type": "url",
+            "id": "banner_link",
+            "label": "Banner link"
+          },           
+          {
+            "id": "desktop_image",
+            "type": "image_picker",
+            "label": "Desktop image"			
+          },
+          {
+            "id": "mobile_image",
+            "type": "image_picker",
+            "label": "Mobile image"			
+          },
+          {
+            "id": "desktop_image_classes",
+            "type": "textarea",
+            "label": "Desktop image classes",
+            "default": "hidden"
+          },
+          {
+            "id": "mobile_image_classes",
+            "type": "textarea",
+            "label": "Mobile image classes",
+            "default": "mx-auto w-full lg:hidden"
+          },
+          {
+            "id": "desktop_svg",
+            "type": "text",
+            "label": "Desktop SVG",
+         	"info": "Enter as file name"			
+          },
+          {
+            "id": "mobile_svg",
+            "type": "text",
+            "label": "Mobile SVG",
+         	"info": "Enter as file name"			
+          },
+          {
+            "id": "desktop_svg_classes",
+            "type": "textarea",
+            "label": "Desktop svg classes",
+            "default": "hidden"
+          },
+          {
+            "id": "mobile_svg_classes",
+            "type": "textarea",
+            "label": "Mobile svg classes",
+            "default": "absolute inset-0 w-full h-full mx-auto lg:hidden"
+          }          
+        ]        
+      }, 
+      {
+        "type": "col-grid-text-banner",
+        "name": "Col Grid Text Banner",
+        "settings": [
+          {
+            "id": "block_active",
+            "type": "checkbox",
+            "label": "block active?",
+			"default": true
+          },
+          {
+            "type":"header",
+            "content": "Banner Placement"
+          },
+          {
+            "type": "range",
+            "id": "break_rows_1",
+            "min": 2,
+            "max": 50,
+            "step": 2,
+            "label": "Grid rows of 2 items: Append after grid item number",
+            "default": 10
+          },
+          {
+            "type": "range",
+            "id": "break_rows_2",
+            "min": 3,
+            "max": 60,
+            "step": 3,
+            "label": "Grid rows of 3 items: Append after grid item number",
+            "default": 15
+          }, 
+          {
+            "type": "range",
+            "id": "break_rows_3",
+            "min": 4,
+            "max": 60,
+            "step": 4,
+            "label": "Grid rows of 4 items: Append after grid item number",
+            "default": 20
+          },
+          {
+            "type": "range",
+            "id": "break_rows_4",
+            "min": 5,
+            "max": 80,
+            "step": 5,
+            "label": "Grid rows of 5 items: Append after grid item number",
+            "default": 25
+          },
+          {
+            "type":"header",
+            "content": "Banner Content"
+          },
+          {
+            "id": "banner_background",
+            "type": "color",
+            "label": "Banner background colour"			
+          },
+          {
+            "id": "wrapper_classes",
+            "type": "textarea",
+            "label": "Wrapper classes"			
+          },          
+          {
+            "id": "title",
+            "type": "text",
+            "label": "Title for block",
+            "info": "Used for identification only"
+          },
+          {
+            "id": "customers",
+            "type": "select",
+            "default": "both",
+            "options": [
+              {
+                "value": "both",
+                "label": "both"
+              },
+              {
+                "value": "customer",
+                "label": "customer"
+              },
+              {
+                "value": "not-customer",
+                "label": "not customer"
+              } 
+            ],
+            "label": "Customer (optional)"
+          },
+          
+          {
+            "type": "textarea",
+            "id": "url_handle",
+            "label": "Only display if url contains this handle (* for all)",
+            "info": "One per line",
+            "default":"*"
+          },
+          {
+            "type": "textarea",
+            "id": "not_url_handle",
+            "label": "Dont display if url contains this handle",
+            "info": "One per line"
+          },
+          {
+            "type": "html",
+            "id": "country_iso",
+            "label": "Only display if current iso is (* for all)",
+            "info": "Comma seperated",
+            "default":"*"
+          },
+          {
+            "type": "text",
+            "id": "main_text",
+            "label": "Main banner text"
+          },
+          {
+            "type": "text",
+            "id": "main_text_classes",
+            "label": "Main banner text classes"
+          },
+          {
+            "type": "text",
+            "id": "secondary_text",
+            "label": "Secondary banner text"
+          },
+          {
+            "type": "text",
+            "id": "secondary_text_classes",
+            "label": "Secondary banner text classes"
+          },
+          {
+            "type": "url",
+            "id": "banner_link",
+            "label": "Banner link"
+          }   
+        ]        
+      },
+      {
+        "type": "col-grid-item-banner",
+        "name": "Col Grid Item Banner",
+        "settings": [
+          {
+            "id": "block_active",
+            "type": "checkbox",
+            "label": "block active?",
+			"default": true
+          },
+          {
+            "type":"header",
+            "content": "Banner Placement"
+          },
+          {
+            "type": "range",
+            "id": "break_rows_1",
+            "min": 1,
+            "max": 50,
+            "step": 1,
+            "label": "Grid rows of 2 items: Append after grid item number",
+            "default": 10
+          },
+          {
+            "type": "range",
+            "id": "break_rows_2",
+            "min": 1,
+            "max": 60,
+            "step": 1,
+            "label": "Grid rows of 3 items: Append after grid item number",
+            "default": 15
+          }, 
+          {
+            "type": "range",
+            "id": "break_rows_3",
+            "min": 1,
+            "max": 60,
+            "step": 1,
+            "label": "Grid rows of 4 items: Append after grid item number",
+            "default": 20
+          },
+          {
+            "type": "range",
+            "id": "break_rows_4",
+            "min": 1,
+            "max": 80,
+            "step": 1,
+            "label": "Grid rows of 5 items: Append after grid item number",
+            "default": 25
+          },
+          {
+            "type":"header",
+            "content": "Banner Content"
+          },
+          {
+            "id": "banner_background",
+            "type": "color",
+            "label": "Banner background colour"			
+          },
+          {
+            "id": "wrapper_classes",
+            "type": "textarea",
+            "label": "Wrapper classes",
+            "default": "w-full lg:w-1/3 xxl:w-1/4 xxxl:w-1/5"
+          },          
+          {
+            "id": "title",
+            "type": "text",
+            "label": "Title for block",
+            "info": "Used for identification only"
+          },
+          {
+            "id": "customers",
+            "type": "select",
+            "default": "both",
+            "options": [
+              {
+                "value": "both",
+                "label": "both"
+              },
+              {
+                "value": "customer",
+                "label": "customer"
+              },
+              {
+                "value": "not-customer",
+                "label": "not customer"
+              } 
+            ],
+            "label": "Customer (optional)"
+          },         
+          {
+            "type": "textarea",
+            "id": "url_handle",
+            "label": "Only display if url contains this handle (* for all)",
+            "info": "One per line",
+            "default":"*"
+          },
+          {
+            "type": "textarea",
+            "id": "not_url_handle",
+            "label": "Dont display if url contains this handle",
+            "info": "One per line"
+          },
+          {
+            "type": "html",
+            "id": "country_iso",
+            "label": "Only display if current iso is (* for all)",
+            "info": "Comma seperated",
+            "default":"*"
+          }, 
+          {
+            "type": "url",
+            "id": "banner_link",
+            "label": "Banner link"
+          },           
+          {
+            "id": "desktop_image",
+            "type": "image_picker",
+            "label": "Desktop image"			
+          },
+          {
+            "id": "mobile_image",
+            "type": "image_picker",
+            "label": "Mobile image"			
+          },
+          {
+            "id": "desktop_image_classes",
+            "type": "textarea",
+            "label": "Desktop image classes",
+            "default": "mx-auto hidden lg:block w-full h-full object-contain"
+          },
+          {
+            "id": "mobile_image_classes",
+            "type": "textarea",
+            "label": "Mobile image classes",
+            "default": "hidden"
+          },
+          {
+            "id": "desktop_svg",
+            "type": "text",
+            "label": "Desktop SVG",
+         	"info": "Enter as file name"			
+          },
+          {
+            "id": "mobile_svg",
+            "type": "text",
+            "label": "Mobile SVG",
+         	"info": "Enter as file name"			
+          },
+          {
+            "id": "desktop_svg_classes",
+            "type": "textarea",
+            "label": "Desktop svg classes",
+            "default": "absolute inset-0 w-full h-full mx-auto hidden lg:block object-contain"
+          },
+          {
+            "id": "mobile_svg_classes",
+            "type": "textarea",
+            "label": "Mobile svg classes",
+            "default": "hidden"
+          }          
+        ]        
+      },       
+      {
+        "type": "html_only",
+        "name": "HTML (collection)",
+        "settings": [
+          {
+            "id": "block_active",
+            "type": "checkbox",
+            "label": "block active?",
+			"default": true
+          },
+          {
+            "id": "customers",
+            "type": "select",
+            "default": "both",
+            "options": [
+              {
+                "value": "both",
+                "label": "both"
+              },
+              {
+                "value": "customer",
+                "label": "customer"
+              },
+              {
+                "value": "not-customer",
+                "label": "not customer"
+              } 
+            ],
+            "label": "Customer (optional)"
+          },
+          {
+            "type": "textarea",
+            "id": "url_handle",
+            "label": "Only display if url contains this handle (* for all)",
+            "info": "One per line",
+            "default":"*"
+          },
+          {
+            "type": "textarea",
+            "id": "not_url_handle",
+            "label": "Dont display if url contains this handle",
+            "info": "One per line"
+          },
+          {
+            "type": "html",
+            "id": "country_iso",
+            "label": "Only display if current iso is (* for all)",
+            "info": "Comma seperated",
+            "default":"*"
+          }, 
+          {
+            "type": "url",
+            "id": "banner_link",
+            "label": "Banner link"
+          },    
+          {
+             "type": "text",
+             "id": "title",
+             "label": "Block Title",
+             "info": "Only used for identifying the block."
+          },
+          {
+             "type": "text",
+             "id": "wrapper_classes",
+             "label": "Wrapper Classes",
+             "info": "Gets overwritten by colour settings below."
+          },
+          {
+            "type": "color",
+            "id": "text_color",
+            "label": "Text colour"
+          },
+          {
+            "type": "color",
+            "id": "first_bold_text_color",
+            "label": "First bold color"
+          },
+          {
+            "type": "color",
+            "id": "second_bold_text_color",
+            "label": "Second bold color"
+          },
+          {
+            "type": "color",
+            "id": "bg_color",
+            "label": "BG colour"
+          },
+          {
+            "type": "color",
+            "id": "border_color",
+            "label": "Border colour"
+          },
+          {
+             "type": "html",
+             "id": "html",
+             "label": "HTML Code"
+          }         
+        ]
+      },
+      {
+        "type": "link_banner",
+        "name": "Link Banner",
+        "settings": [
+          {
+            "id": "block_active",
+            "type": "checkbox",
+            "label": "block active?",
+			"default": true
+          },
+          {
+            "id": "customers",
+            "type": "select",
+            "default": "both",
+            "options": [
+              {
+                "value": "both",
+                "label": "both"
+              },
+              {
+                "value": "customer",
+                "label": "customer"
+              },
+              {
+                "value": "not-customer",
+                "label": "not customer"
+              } 
+            ],
+            "label": "Customer (optional)"
+          },
+          {
+            "type": "textarea",
+            "id": "url_handle",
+            "label": "Only display if url contains this handle (* for all)",
+            "info": "One per line",
+            "default":"*"
+          },
+          {
+            "type": "textarea",
+            "id": "not_url_handle",
+            "label": "Dont display if url contains this handle",
+            "info": "One per line"
+          },
+          {
+            "type": "html",
+            "id": "country_iso",
+            "label": "Only display if current iso is (* for all)",
+            "info": "Comma seperated",
+            "default":"*"
+          }, 
+          {
+            "type": "link_list",
+            "id": "link_list",
+            "label": "Banner linklist"
+          },    
+          {
+             "type": "text",
+             "id": "title",
+             "label": "Block Title",
+             "info": "Only used for identifying the block."
+          },
+          {
+             "type": "text",
+             "id": "wrapper_classes",
+             "label": "Wrapper Classes",
+             "info": "Gets overwritten by colour settings below."
+          },
+          {
+            "type": "text",
+            "id": "links_wrapper_classes",
+            "label": "Links wrapper classes"
+          },          
+          {
+            "type": "text",
+            "id": "link_block_classes",
+            "label": "Link block classes"
+          },
+          {
+            "type": "text",
+            "id": "link_block_active_classes",
+            "label": "link block active classes"
+          }        
+        ]
+      },
+      {
+        "type": "page-banner",
+        "name": "Page Banner",
+        "settings": [
+          {
+            "id": "block_active",
+            "type": "checkbox",
+            "label": "block active?",
+			"default": true
+          },
+          {
+            "id": "banner_background",
+            "type": "color",
+            "label": "Banner background colour"			
+          },
+          {
+            "id": "wrapper_classes",
+            "type": "textarea",
+            "label": "Wrapper classes"			
+          },          
+          {
+            "id": "title",
+            "type": "text",
+            "label": "Title for block",
+            "info": "Used for identification only"
+          },
+          {
+            "id": "text",
+            "type": "text",
+            "label": "Text for Block (optional)",
+            "info": "Used instead of svg"
+          },
+          {
+            "id": "text_wrapper_classes",
+            "type": "text",
+            "label": "Text Wrapper Classes"
+          },
+          {
+            "id": "customers",
+            "type": "select",
+            "default": "both",
+            "options": [
+              {
+                "value": "both",
+                "label": "both"
+              },
+              {
+                "value": "customer",
+                "label": "customer"
+              },
+              {
+                "value": "not-customer",
+                "label": "not customer"
+              } 
+            ],
+            "label": "Customer (optional)"
+          },
+          
+          {
+            "type": "textarea",
+            "id": "url_handle",
+            "label": "Only display if url contains this handle (* for all)",
+            "info": "One per line",
+            "default":"*"
+          },
+          {
+            "type": "textarea",
+            "id": "not_url_handle",
+            "label": "Dont display if url contains this handle",
+            "info": "One per line"
+          },
+          {
+            "type": "html",
+            "id": "country_iso",
+            "label": "Only display if current iso is (* for all)",
+            "info": "Comma seperated",
+            "default":"*"
+          }, 
+          {
+            "type": "url",
+            "id": "banner_link",
+            "label": "Banner link"
+          },           
+          {
+            "id": "desktop_image",
+            "type": "image_picker",
+            "label": "Desktop image"			
+          },
+          {
+            "id": "mobile_image",
+            "type": "image_picker",
+            "label": "Mobile image"			
+          },
+          {
+            "id": "desktop_image_classes",
+            "type": "textarea",
+            "label": "Desktop image classes",
+            "default": "mx-auto w-full hidden md:block"
+          },
+          {
+            "id": "mobile_image_classes",
+            "type": "textarea",
+            "label": "Mobile image classes",
+            "default": "mx-auto w-full md:hidden"
+          },
+          {
+            "id": "desktop_svg",
+            "type": "text",
+            "label": "Desktop SVG",
+         	"info": "Enter as file name"			
+          },
+          {
+            "id": "mobile_svg",
+            "type": "text",
+            "label": "Mobile SVG",
+         	"info": "Enter as file name"			
+          },
+          {
+            "id": "desktop_svg_classes",
+            "type": "textarea",
+            "label": "Desktop svg classes",
+            "default": "absolute inset-0 w-full h-full mx-auto hidden md:block"
+          },
+          {
+            "id": "mobile_svg_classes",
+            "type": "textarea",
+            "label": "Mobile svg classes",
+            "default": "absolute inset-0 w-full h-full mx-auto md:hidden"
+          }          
+        ]        
+      },
+      {
+        "type": "image-svg-form",
+        "name": "Image + svg + form",
+        "settings": [
+          {
+            "id": "block_active",
+            "type": "checkbox",
+            "label": "block active?",
+			"default": true
+          },
+          {
+            "id": "banner_background",
+            "type": "color",
+            "label": "Banner background colour"			
+          },
+          {
+            "id": "wrapper_classes",
+            "type": "textarea",
+            "label": "Wrapper classes"			
+          },          
+          {
+            "id": "title",
+            "type": "text",
+            "label": "Title for block",
+            "info": "Used for identification only"
+          },
+          {
+            "id": "customers",
+            "type": "select",
+            "default": "both",
+            "options": [
+              {
+                "value": "both",
+                "label": "both"
+              },
+              {
+                "value": "customer",
+                "label": "customer"
+              },
+              {
+                "value": "not-customer",
+                "label": "not customer"
+              } 
+            ],
+            "label": "Customer (optional)"
+          },
+          
+          {
+            "type": "textarea",
+            "id": "url_handle",
+            "label": "Only display if url contains this handle (* for all)",
+            "info": "One per line",
+            "default":"*"
+          },
+          {
+            "type": "textarea",
+            "id": "not_url_handle",
+            "label": "Dont display if url contains this handle",
+            "info": "One per line"
+          },
+          {
+            "type": "html",
+            "id": "country_iso",
+            "label": "Only display if current iso is (* for all)",
+            "info": "Comma seperated",
+            "default":"*"
+          }, 
+          {
+            "type": "url",
+            "id": "banner_link",
+            "label": "Banner link"
+          },           
+          {
+            "id": "desktop_image",
+            "type": "image_picker",
+            "label": "Desktop image"			
+          },
+          {
+            "id": "mobile_image",
+            "type": "image_picker",
+            "label": "Mobile image"			
+          },
+          {
+            "id": "desktop_image_classes",
+            "type": "textarea",
+            "label": "Desktop image classes",
+            "default": "mx-auto w-full hidden md:block"
+          },
+          {
+            "id": "mobile_image_classes",
+            "type": "textarea",
+            "label": "Mobile image classes",
+            "default": "mx-auto w-full md:hidden"
+          },
+          {
+            "id": "desktop_svg",
+            "type": "text",
+            "label": "Desktop SVG",
+         	"info": "Enter as file name"			
+          },
+          {
+            "id": "mobile_svg",
+            "type": "text",
+            "label": "Mobile SVG",
+         	"info": "Enter as file name"			
+          },
+          {
+            "id": "desktop_svg_classes",
+            "type": "textarea",
+            "label": "Desktop svg classes",
+            "default": "absolute inset-0 w-full h-full mx-auto hidden md:block"
+          },
+          {
+            "id": "mobile_svg_classes",
+            "type": "textarea",
+            "label": "Mobile svg classes",
+            "default": "absolute inset-0 w-full h-full mx-auto md:hidden"
+          },
+          {
+            "id": "colour_accent",
+            "type": "color",
+            "label": "Colour accent"		
+          },
+          {
+            "id": "border_colour_accent",
+            "type": "color",
+            "label": "Border colour accent"		
+          },
+          {
+            "id": "button_colour_accent",
+            "type": "color",
+            "label": "Button colour accent"	
+          },
+          {
+            "id": "klaviyo_id",
+            "type": "text",
+            "label": "klaviyo ID"		
+          },
+          {
+            "id": "klaviyo_form_title",
+            "type": "text",
+            "label": "klaviyo form title"		
+          },
+          {
+            "id": "klaviyo_form_legal",
+            "type": "text",
+            "label": "klaviyo form legal"		
+          },
+          {
+            "id": "klaviyo_classes",
+            "type": "text",
+            "label": "klaviyo classes"		
+          },
+          {
+            "id": "custom_css",
+            "type": "html",
+            "label": "Custom css rules"		
+          }
+        ]        
+      },
+      {
+        "type": "Timed",
+        "name": "Timed Banner",
+        "settings": [
+          {
+            "id": "block_active",
+            "type": "checkbox",
+            "label": "block active?",
+			"default": true
+          },
+          {
+            "id": "banner_background",
+            "type": "color",
+            "label": "Banner background colour"			
+          },
+          {
+            "id": "wrapper_classes",
+            "type": "textarea",
+            "label": "Wrapper classes"			
+          },          
+          {
+            "id": "title",
+            "type": "text",
+            "label": "Title for block",
+            "info": "Used for identification only"
+          },
+          {
+            "id": "text",
+            "type": "text",
+            "label": "Text for Block (optional)",
+            "info": "Used instead of svg"
+          },
+          {
+            "id": "text_wrapper_classes",
+            "type": "text",
+            "label": "Text Wrapper Classes"
+          },
+          {
+            "id": "customers",
+            "type": "select",
+            "default": "both",
+            "options": [
+              {
+                "value": "both",
+                "label": "both"
+              },
+              {
+                "value": "customer",
+                "label": "customer"
+              },
+              {
+                "value": "not-customer",
+                "label": "not customer"
+              } 
+            ],
+            "label": "Customer (optional)"
+          },
+          
+          {
+            "type": "textarea",
+            "id": "url_handle",
+            "label": "Only display if url contains this handle (* for all)",
+            "info": "One per line",
+            "default":"*"
+          },
+          {
+            "type": "textarea",
+            "id": "not_url_handle",
+            "label": "Dont display if url contains this handle",
+            "info": "One per line"
+          },
+          {
+            "type": "html",
+            "id": "country_iso",
+            "label": "Only display if current iso is (* for all)",
+            "info": "Comma seperated",
+            "default":"*"
+          }, 
+          {
+            "type": "url",
+            "id": "banner_link",
+            "label": "Banner link"
+          },           
+          {
+            "id": "desktop_image",
+            "type": "image_picker",
+            "label": "Desktop image"			
+          },
+          {
+            "id": "mobile_image",
+            "type": "image_picker",
+            "label": "Mobile image"			
+          },
+          {
+            "id": "desktop_image_classes",
+            "type": "textarea",
+            "label": "Desktop image classes",
+            "default": "mx-auto w-full hidden md:block"
+          },
+          {
+            "id": "mobile_image_classes",
+            "type": "textarea",
+            "label": "Mobile image classes",
+            "default": "mx-auto w-full md:hidden"
+          },
+          {
+            "id": "desktop_svg",
+            "type": "text",
+            "label": "Desktop SVG",
+         	"info": "Enter as file name"			
+          },
+          {
+            "id": "mobile_svg",
+            "type": "text",
+            "label": "Mobile SVG",
+         	"info": "Enter as file name"			
+          },
+          {
+            "id": "desktop_svg_classes",
+            "type": "textarea",
+            "label": "Desktop svg classes",
+            "default": "absolute inset-0 w-full h-full mx-auto hidden md:block"
+          },
+          {
+            "id": "mobile_svg_classes",
+            "type": "textarea",
+            "label": "Mobile svg classes",
+            "default": "absolute inset-0 w-full h-full mx-auto md:hidden"
+          },
+          {
+            "type": "header",
+            "content": "Go Live Date"
+          },
+          {
+          "type": "select",
+          "id": "countdown_dd",
+          "label": "Day",
+          "options": [
+            {
+              "value": "01",
+              "label": "1"
+            },
+            {
+              "value": "02",
+              "label": "2"
+            },
+            {
+              "value": "03",
+              "label": "3"
+            },
+            {
+              "value": "04",
+              "label": "4"
+            },
+            {
+              "value": "05",
+              "label": "5"
+            },
+            {
+              "value": "06",
+              "label": "6"
+            },
+            {
+              "value": "07",
+              "label": "7"
+            },
+            {
+              "value": "08",
+              "label": "8"
+            },
+            {
+              "value": "09",
+              "label": "9"
+            },
+            {
+              "value": "10",
+              "label": "10"
+            },
+            {
+              "value": "11",
+              "label": "11"
+            },
+            {
+              "value": "12",
+              "label": "12"
+            },
+            {
+              "value": "13",
+              "label": "13"
+            },
+            {
+              "value": "14",
+              "label": "14"
+            },
+            {
+              "value": "15",
+              "label": "15"
+            },
+            {
+              "value": "16",
+              "label": "16"
+            },
+            {
+              "value": "17",
+              "label": "17"
+            },
+            {
+              "value": "18",
+              "label": "18"
+            },
+            {
+              "value": "19",
+              "label": "19"
+            },
+            {
+              "value": "20",
+              "label": "20"
+            },
+            {
+              "value": "21",
+              "label": "21"
+            },
+            {
+              "value": "22",
+              "label": "22"
+            },
+            {
+              "value": "23",
+              "label": "23"
+            },
+            {
+              "value": "24",
+              "label": "24"
+            },
+            {
+              "value": "25",
+              "label": "25"
+            },
+            {
+              "value": "26",
+              "label": "26"
+            },
+            {
+              "value": "27",
+              "label": "27"
+            },
+            {
+              "value": "28",
+              "label": "28"
+            },
+            {
+              "value": "29",
+              "label": "29"
+            },
+            {
+              "value": "30",
+              "label": "30"
+            },
+            {
+              "value": "31",
+              "label": "31"
+            }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "countdown_mm",
+          "label": "Month",
+          "options": [
+            {
+              "value": "01",
+              "label": "January"
+            },
+            {
+              "value": "02",
+              "label": "February"
+            },
+            {
+              "value": "03",
+              "label": "March"
+            },
+            {
+              "value": "04",
+              "label": "April"
+            },
+            {
+              "value": "05",
+              "label": "May"
+            },
+            {
+              "value": "06",
+              "label": "June"
+            },
+            {
+              "value": "07",
+              "label": "July"
+            },
+            {
+              "value": "08",
+              "label": "August"
+            },
+            {
+              "value": "09",
+              "label": "September"
+            },
+            {
+              "value": "10",
+              "label": "October"
+            },
+            {
+              "value": "11",
+              "label": "November"
+            },
+            {
+              "value": "12",
+              "label": "December"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "countdown_yyyy",
+          "label": "Year"
+        },
+        {
+          "type": "text",
+          "id": "countdown_time",
+          "label": "E.g. 0:00:00 GMT+00:00"
+        },
+          {
+            "type": "header",
+            "content": "Stop Live Date"
+          },
+          {
+          "type": "select",
+          "id": "e_countdown_dd",
+          "label": "Day",
+          "options": [
+            {
+              "value": "01",
+              "label": "01"
+            },
+            {
+              "value": "02",
+              "label": "2"
+            },
+            {
+              "value": "03",
+              "label": "3"
+            },
+            {
+              "value": "04",
+              "label": "4"
+            },
+            {
+              "value": "05",
+              "label": "5"
+            },
+            {
+              "value": "06",
+              "label": "6"
+            },
+            {
+              "value": "07",
+              "label": "7"
+            },
+            {
+              "value": "08",
+              "label": "8"
+            },
+            {
+              "value": "09",
+              "label": "9"
+            },
+            {
+              "value": "10",
+              "label": "10"
+            },
+            {
+              "value": "11",
+              "label": "11"
+            },
+            {
+              "value": "12",
+              "label": "12"
+            },
+            {
+              "value": "13",
+              "label": "13"
+            },
+            {
+              "value": "14",
+              "label": "14"
+            },
+            {
+              "value": "15",
+              "label": "15"
+            },
+            {
+              "value": "16",
+              "label": "16"
+            },
+            {
+              "value": "17",
+              "label": "17"
+            },
+            {
+              "value": "18",
+              "label": "18"
+            },
+            {
+              "value": "19",
+              "label": "19"
+            },
+            {
+              "value": "20",
+              "label": "20"
+            },
+            {
+              "value": "21",
+              "label": "21"
+            },
+            {
+              "value": "22",
+              "label": "22"
+            },
+            {
+              "value": "23",
+              "label": "23"
+            },
+            {
+              "value": "24",
+              "label": "24"
+            },
+            {
+              "value": "25",
+              "label": "25"
+            },
+            {
+              "value": "26",
+              "label": "26"
+            },
+            {
+              "value": "27",
+              "label": "27"
+            },
+            {
+              "value": "28",
+              "label": "28"
+            },
+            {
+              "value": "29",
+              "label": "29"
+            },
+            {
+              "value": "30",
+              "label": "30"
+            },
+            {
+              "value": "31",
+              "label": "31"
+            }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "e_countdown_mm",
+          "label": "Month",
+          "options": [
+            {
+              "value": "01",
+              "label": "January"
+            },
+            {
+              "value": "02",
+              "label": "February"
+            },
+            {
+              "value": "03",
+              "label": "March"
+            },
+            {
+              "value": "04",
+              "label": "April"
+            },
+            {
+              "value": "05",
+              "label": "May"
+            },
+            {
+              "value": "06",
+              "label": "June"
+            },
+            {
+              "value": "07",
+              "label": "July"
+            },
+            {
+              "value": "08",
+              "label": "August"
+            },
+            {
+              "value": "09",
+              "label": "September"
+            },
+            {
+              "value": "10",
+              "label": "October"
+            },
+            {
+              "value": "11",
+              "label": "November"
+            },
+            {
+              "value": "12",
+              "label": "December"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "e_countdown_yyyy",
+          "label": "Year"
+        },
+        {
+          "type": "text",
+          "id": "e_countdown_time",
+          "label": "E.g. 0:00:00 GMT+00:00"
+        }
+        ]
+      },
+      {
+        "type": "Auto-discount",
+        "name": "Auto Add discount Code",
+        "settings": [
+          {
+            "id": "block_active",
+            "type": "checkbox",
+            "label": "block active?",
+			"default": true
+          },
+          {
+            "id": "customers",
+            "type": "select",
+            "default": "both",
+            "options": [
+              {
+                "value": "both",
+                "label": "both"
+              },
+              {
+                "value": "customer",
+                "label": "customer"
+              },
+              {
+                "value": "not-customer",
+                "label": "not customer"
+              } 
+            ],
+            "label": "Customer (optional)"
+          },
+          {
+            "type": "textarea",
+            "id": "url_handle",
+            "label": "Only display if url contains this handle (* for all)",
+            "info": "One per line",
+            "default":"*"
+          },
+          {
+            "type": "textarea",
+            "id": "not_url_handle",
+            "label": "Dont display if url contains this handle",
+            "info": "One per line"
+          },
+          {
+            "type": "html",
+            "id": "country_iso",
+            "label": "Only display if current iso is (* for all)",
+            "info": "Comma seperated",
+            "default":"*"
+          },
+          {
+            "type": "color",
+            "id": "svg-color",
+            "label": "Svg Color"
+          },
+          {
+            "type": "select",
+            "id": "action-type",
+            "label": "Call to Action Type",
+            "options": [
+              {
+                "label": "Banner",
+                "value": "banner"
+              },
+              {
+                "label": "Button",
+                "value": "button"
+              },
+              {
+                "label": "Auto Add Discount",
+                "value": "auto-add"
+              }
+            ],
+            "default": "banner"
+          },
+          {
+            "type": "color",
+            "id": "text_color",
+            "label": "Text colour"
+          },
+          {
+            "type": "color",
+            "id": "bg_color",
+            "label": "BG colour"
+          },
+          {
+            "type": "color",
+            "id": "border_color",
+            "label": "Border colour"
+          },
+         {
+            "type": "select",
+            "id": "text-align",
+            "label": "Text Align",
+            "options": [
+              {
+                "value": "Right",
+                "label": "right"
+              },
+              {
+                "value": "center",
+                "label": "Center"
+              },
+              {
+                "value": "left",
+                "label": "Left"
+              }
+            ],
+            "default": "center"
+          },
+          {
+              "type": "text",
+              "id": "discount-code",
+              "label": "Discount Code To Be Added To The Cart"
+          },
+          {
+              "type": "text",
+              "id": "discount-message",
+              "label": "Discount Message"
+          },
+          {
+            "type": "text",
+            "id": "success-message",
+            "label": "Success Message"
+          }
+      
+        ]
+      }
+      
+    ],
+  	"presets": [
+     	{
+       		"name": "Conditional Banner"
+		}
+	] 
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

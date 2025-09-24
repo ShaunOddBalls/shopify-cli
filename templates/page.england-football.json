@@ -1,0 +1,1238 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "ob_text_video_slider_hkPjJH": {
+      "type": "ob-text-video-slider",
+      "settings": {
+        "handle": "football-page-hero",
+        "extra-attributes": "",
+        "section_wrapper_classes": "relative",
+        "extra-logged-in": "",
+        "extra-logged-out": "",
+        "show_dots": true,
+        "dots_container_classes": "ob-dots absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10",
+        "dot_classes": "ob-dot w-2 h-2 rounded-full bg-gray-300 transition-colors duration-200",
+        "slider_enabled": true,
+        "autoplay": true,
+        "loop": true,
+        "slides_mobile": 1,
+        "slides_md": 1,
+        "slides_lg": 1,
+        "slide_gap": 0,
+        "cta-setting": false,
+        "position": "start",
+        "title": "Title",
+        "title-text-classes": "text-3xl md:text-6xl capitalize dbl-cta-title pb-1 font-bebas",
+        "title-text-postion": "left",
+        "title-text-size": 18,
+        "title-color": "",
+        "desktop-title-text-size": 32,
+        "paragragh": "My Paragraph",
+        "p-classes": "",
+        "paragraph-text-postion": "left",
+        "paragragh-font-size": 12,
+        "paragraph-color": "",
+        "desktop-paragraph-text-size": 18,
+        "btn-one-text": "button one",
+        "btn-one-classes": "px-8 relative p-2 rounded-md uppercase btn-shadow-lg block border-solid border-2 border-md border-black text-black font-semibold text-center  transition-colors duration-200",
+        "btn-1-url": "",
+        "btn-one-color": "#ffffff",
+        "btn-one-bg-color": "#000000",
+        "btn-two-text": "button two",
+        "btn-two-classes": "px-8 relative p-2 rounded-md uppercase btn-shadow-lg block border-solid border-2 border-md border-black text-black font-semibold text-center  transition-colors duration-200",
+        "btn-2-url": "",
+        "btn-two-color": "#000000",
+        "btn-two-bg-color": "#ffffff",
+        "button-postion": "start"
+      }
+    },
+    "260d0e54-27e1-4d94-8a4b-2234abe73b2e": {
+      "type": "ob-three-text-fields",
+      "blocks": {
+        "f5e55140-37b6-45d6-8eb9-b72896d55d92": {
+          "type": "text-lines",
+          "settings": {
+            "country_iso": "*",
+            "text-field-outer-wrapper-classes": "",
+            "text-field-inner-wrapper-classes": "typography--title-five uppercase  mx-auto text-center",
+            "text-field-1": "",
+            "text-field-1-classes": "font-bebas text-4xl",
+            "text-field-2": "",
+            "text-field-2-classes": "",
+            "text-field-3": "",
+            "text-field-3-classes": "",
+            "text-field-4": "",
+            "text-field-4-classes": "",
+            "html-field": "",
+            "html-field-classes": ""
+          }
+        }
+      },
+      "block_order": [
+        "f5e55140-37b6-45d6-8eb9-b72896d55d92"
+      ],
+      "settings": {}
+    },
+    "5d5f3373-9d53-4f8f-92f8-8c045d8301d1": {
+      "type": "ob-image-text-grid",
+      "blocks": {
+        "74e7acfa-b82d-4f31-9e04-2ae2c5f93c22": {
+          "type": "image-and-text",
+          "settings": {
+            "country_iso": "*",
+            "title": "",
+            "block_wrapper_classes": "col-span-12 flex justify-center  px-4 items-center text-center relative",
+            "block_title": "",
+            "title_classes": "text",
+            "description": "<p class=\"text-md lg:text-lg\">\nGet ready for football season with OddBalls! We're the go-to underwear brand for everyone who plays, supports, follows, or simply ADORES football.\n</p>",
+            "description_classes": "",
+            "svg": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        }
+      },
+      "block_order": [
+        "74e7acfa-b82d-4f31-9e04-2ae2c5f93c22"
+      ],
+      "settings": {
+        "outer_wrapper_classes": "relative pb-6",
+        "inner_wrapper_classes": "col-span-12 flex justify-center  py-3 px-4 items-center text-center",
+        "grid_wrapper_classes": "",
+        "title": "",
+        "title_classes": "text-center text-base font-semibold uppercase text-gray-600 tracking-wider",
+        "section_bg_colour": "",
+        "block_bg_colour": "",
+        "block_bg_colour_hover": "",
+        "block_text_colour": "",
+        "block_text_colour_hover": "",
+        "block_image_classes": "",
+        "block_svg_classes": "",
+        "custom_css": ".link{\ncolor: #f00f82\n}"
+      }
+    },
+    "289ab40a-57e7-4538-a246-879f383aad57": {
+      "type": "ob-trust-pilot-widget",
+      "settings": {
+        "outer_wrapper_classes": "border-blackblend-divide mt-3 mb-2 md:mb-1",
+        "wrapper_classes": "max-w-7xl mx-auto",
+        "widget_header": "",
+        "widget_header_classes": "",
+        "widget_subheader": "",
+        "widget_subheader_classes": "",
+        "widget_code": "<!-- TrustBox widget - Micro Combo -->\n<div class=\"trustpilot-widget\" data-locale=\"en-GB\" data-template-id=\"5419b6ffb0d04a076446a9af\" data-businessunit-id=\"5c7f9459871dac0001ea0238\" data-style-height=\"40px\" data-style-width=\"100%\" data-theme=\"light\">\n  <a href=\"https://uk.trustpilot.com/review/myoddballs.com\" target=\"_blank\" rel=\"noopener\">Trustpilot</a>\n</div>\n<!-- End TrustBox widget -->",
+        "widget_wrapper_classes": "",
+        "use_microcombo": false
+      }
+    },
+    "1b716c4e-2777-4dce-9fde-909f14717745": {
+      "type": "ob-mosaic-hero",
+      "blocks": {
+        "338cb97d-a620-4e1f-8352-1286cfc2d41b": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "",
+            "image": "shopify://shop_images/england_fa_classic_icon_c7eab945-eb6d-418f-b30d-4d39b986a3c1.png",
+            "img-overlay": "",
+            "img-class-list": "cover",
+            "button-text": "ENGLAND FA",
+            "button_link": "shopify://collections/design-england-fa",
+            "button-class-list": "",
+            "background-color": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "602c4634-18e8-4db8-b3e5-b4c0dec1110a": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "",
+            "image": "shopify://shop_images/CLASSICS_JUDE.png",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "PLAIN BOXERS",
+            "button_link": "https://www.myoddballs.com/collections/him-individuals/style-classic",
+            "button-class-list": "",
+            "background-color": "#cb2147",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "dff9b96c-6826-48aa-90a7-5f34fe388cb0": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "",
+            "image": "shopify://shop_images/football_landing_page_boxer_short_bundle_button.png",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "BOXER SHORT BUNDLES",
+            "button_link": "https://www.myoddballs.com/collections/him-individuals/mens-boxer-shorts-bundles",
+            "button-class-list": "",
+            "background-color": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "6844e7ed-eaea-4ead-9173-0b109212a782": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "",
+            "image": "shopify://shop_images/Patterned_boxers_fathers_day.png",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "PATTERNED BOXERS",
+            "button_link": "https://www.myoddballs.com/collections/him-individuals/style-adventurous",
+            "button-class-list": "",
+            "background-color": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        }
+      },
+      "block_order": [
+        "338cb97d-a620-4e1f-8352-1286cfc2d41b",
+        "602c4634-18e8-4db8-b3e5-b4c0dec1110a",
+        "dff9b96c-6826-48aa-90a7-5f34fe388cb0",
+        "6844e7ed-eaea-4ead-9173-0b109212a782"
+      ],
+      "custom_css": [
+        ".cover {object-fit: cover; width: 100%; height: 100%;}",
+        ".btn-max-width {max-width: 500px;}",
+        ".z-index-1 {z-index: 1;}",
+        ".z-index-2 {z-index: 2;}",
+        ".gradient {background: linear-gradient( 0deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0) 100% );}"
+      ],
+      "settings": {
+        "mosaic-container": "grid grid-cols-2 md:grid-cols-4 justify-items-center   overflow-y-hidden  md:gap-2 gap-2",
+        "all-block-outer-class": "relative inline-block w-  lg:w-60 lg:h-60 xl:w-full xl:h-full md:w-full md:h-full",
+        "all-image-class": "cover",
+        "img-overlay": "h-1/2 w-full gradient absolute bottom-0 left-0 z-index-1",
+        "all-button-class": "text-center absolute  bg-white block p-3  backdrop-blur-xl  drop-shadow-lg font-bold  border-black border-2  md:text-md xl:text-lg bottom-2 left-1/2 rounded-3xl w-11/12 transform left-1/2 -translate-x-1/2  text-xxs uppercase btn-max-width z-index-2 marujo leading-none tracking-wide shadow-sm"
+      }
+    },
+    "three_text_fields_9hkMCY": {
+      "type": "ob-three-text-fields",
+      "blocks": {
+        "text_lines_qF3Wzy": {
+          "type": "text-lines",
+          "settings": {
+            "country_iso": "*",
+            "text-field-outer-wrapper-classes": "",
+            "text-field-inner-wrapper-classes": "text-center text-black relative max-w-4xl mx-auto py-2",
+            "text-field-1": "",
+            "text-field-1-classes": "",
+            "text-field-2": "",
+            "text-field-2-classes": "",
+            "text-field-3": "",
+            "text-field-3-classes": "",
+            "text-field-4": "",
+            "text-field-4-classes": "",
+            "html-field": "",
+            "html-field-classes": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_lines_qF3Wzy"
+      ],
+      "settings": {}
+    },
+    "ob_collection_slider_old_UfMRtC": {
+      "type": "ob-collection-slider-old",
+      "settings": {
+        "collection": "football-best-sellers",
+        "product_list": [],
+        "title": "",
+        "wrapper_class": "",
+        "text_class": "typography--title-five uppercase mb-8 mx-auto text-center",
+        "slider_enabled": true,
+        "autoplay": false,
+        "loop": false,
+        "slides_mobile": 2,
+        "slides_md": 3,
+        "slides_lg": 5,
+        "slide_gap": 10,
+        "slide_by": "all",
+        "drag_scroll": true,
+        "show_dots": true,
+        "dots_container_classes": "relative ob-dots w-full justify-center items-center flex gap-2 z-10 my-4",
+        "dot_classes": "ob-dot w-2 h-2 rounded-full bg-neutral-300 transition-colors duration-300 ease-in-out",
+        "show_on_all_markets": true,
+        "markets_to_show_on": "",
+        "markets_to_exclude_on": ""
+      }
+    },
+    "image_text_grid_tBicz8": {
+      "type": "ob-image-text-grid",
+      "blocks": {
+        "image_and_text_4rJxPD": {
+          "type": "image-and-text",
+          "settings": {
+            "country_iso": "*",
+            "title": "",
+            "block_wrapper_classes": "typography--title-five uppercase  mx-auto text-center py-10",
+            "block_title": "",
+            "title_classes": "text",
+            "description": "<h2 class=\"text-center font-bebas text-2xl lg:text-4xl\">\nAs seen on the England Squad\n</h2>",
+            "description_classes": "",
+            "svg": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_and_text_4rJxPD"
+      ],
+      "settings": {
+        "outer_wrapper_classes": "",
+        "inner_wrapper_classes": "",
+        "grid_wrapper_classes": "",
+        "title": "",
+        "title_classes": "text-center text-base font-semibold uppercase text-gray-600 tracking-wider",
+        "section_bg_colour": "",
+        "block_bg_colour": "",
+        "block_bg_colour_hover": "",
+        "block_text_colour": "",
+        "block_text_colour_hover": "",
+        "block_image_classes": "",
+        "block_svg_classes": "",
+        "custom_css": ""
+      }
+    },
+    "mosaic_hero_RKnwcG": {
+      "type": "ob-mosaic-hero",
+      "blocks": {
+        "collection_block_ADMjW7": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative row-span-6 col-span-2 md:row-span-2",
+            "image": "shopify://shop_images/Declan_rice_1.png",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "",
+            "button_link": "https://www.myoddballs.com/products/classic-black-mens-briefs",
+            "button-class-list": "",
+            "background-color": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "collection_block_ziWxm6": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "",
+            "image": "shopify://shop_images/harry_kane_2.png",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "",
+            "button_link": "https://www.myoddballs.com/products/classic-black-mens-boxer-shorts",
+            "button-class-list": "",
+            "background-color": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "collection_block_AdxzT3": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "",
+            "image": "shopify://shop_images/ANTHONY_GORDON_3.png",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "",
+            "button_link": "https://www.myoddballs.com/products/classic-white-mens-briefs",
+            "button-class-list": "",
+            "background-color": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "collection_block_aUcXac": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "",
+            "image": "shopify://shop_images/iVAN_TONEY_1.png",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "",
+            "button_link": "https://www.myoddballs.com/products/classic-black-mens-boxer-shorts",
+            "button-class-list": "",
+            "background-color": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "collection_block_ghgBM6": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "",
+            "image": "shopify://shop_images/james_maddison_2.png",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "",
+            "button_link": "https://www.myoddballs.com/products/classic-white-mens-boxer-shorts",
+            "button-class-list": "",
+            "background-color": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_block_ADMjW7",
+        "collection_block_ziWxm6",
+        "collection_block_AdxzT3",
+        "collection_block_aUcXac",
+        "collection_block_ghgBM6"
+      ],
+      "custom_css": [
+        ".cover {object-fit: cover; width: 100%; height: 100%;}",
+        ".btn-max-width {max-width: 500px;}",
+        ".z-index-1 {z-index: 1;}",
+        ".z-index-2 {z-index: 2;}",
+        ".gradient {background: linear-gradient( 0deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0) 100% );}",
+        ".grid-item {position: relative;}",
+        ".gradient {display: none;}"
+      ],
+      "settings": {
+        "mosaic-container": "grid md:grid-cols-4 md:grid-rows-2 gap-1  grid-cols-2",
+        "all-block-outer-class": "",
+        "all-image-class": "cover",
+        "img-overlay": "h-1/2 w-full gradient absolute bottom-0 left-0 z-index-1",
+        "all-button-class": ""
+      }
+    },
+    "71645e1c-7ee0-4a99-8ab8-e24a0a7ce6fb": {
+      "type": "ob-image-text-grid",
+      "blocks": {
+        "7c99cdc2-88bb-4db5-b5c3-bec893bb9eb4": {
+          "type": "image-and-text",
+          "settings": {
+            "country_iso": "*",
+            "title": "",
+            "block_wrapper_classes": "col-span-8 flex justify-center  px-4 items-center text-center relative",
+            "block_title": "",
+            "title_classes": "text",
+            "description": "<h2 class=\"text-center font-bebas text-2xl lg:text-4xl\">\nOFFICIALLY LICENSED FOOTBALL UNDERWEAR\n</h2>\n\n<br>\n\n<p class=\"text-md lg:text-lg\">\n</p><p class=\"text-md lg:text-lg\"> We’re incredibly proud to partner with the  <a href=\"https://www.myoddballs.com/collections/design-england-fa#patterned\" class=\"link\">England FA</a> , <a href=\"https://www.myoddballs.com/collections/design-cymru#patterned\" class=\"link\">Welsh FA</a>, and top teams from the Premier League, Championship, and beyond. We are also supported by a variety of grass roots clubs, each with bespoke ranges.\n</p>\n\n<br>\n<p class=\"text-md lg:text-lg\"> Whether you’re cheering from the stands or relaxing at home, elevate your underwear game with colourful styles that score on and off the pitch. Our <a href=\"https://www.myoddballs.com/collections/style-classic#patterned\" class=\"link\">plain </a>and <a href=\"https://www.myoddballs.com/collections/style-adventurous#patterned\" class=\"link\">patterned underwear </a> collections combine comfort, quality, and the lively energy of football.</p>",
+            "description_classes": "",
+            "svg": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        }
+      },
+      "block_order": [
+        "7c99cdc2-88bb-4db5-b5c3-bec893bb9eb4"
+      ],
+      "custom_css": [
+        ".link {color: #f00f83; font-weight: 400;}"
+      ],
+      "settings": {
+        "outer_wrapper_classes": "relative py-10",
+        "inner_wrapper_classes": "col-span-12 flex justify-center  py-3 px-4 items-center text-center",
+        "grid_wrapper_classes": "",
+        "title": "",
+        "title_classes": "text-center text-base font-semibold uppercase text-gray-600 tracking-wider",
+        "section_bg_colour": "",
+        "block_bg_colour": "",
+        "block_bg_colour_hover": "",
+        "block_text_colour": "",
+        "block_text_colour_hover": "",
+        "block_image_classes": "",
+        "block_svg_classes": "",
+        "custom_css": ""
+      }
+    },
+    "23dddb08-6703-4d0d-a048-d0052e8a9c1d": {
+      "type": "ob-mosaic-hero",
+      "blocks": {
+        "collection_block_NbNXdR": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/NUFC-FRONT_2efd02ac-b568-4ab3-9c5c-0d7de006961d.jpg",
+            "img-overlay": "",
+            "img-class-list": "font-babes",
+            "button-text": "NEWCASTLE X ODDBALLS",
+            "button_link": "https://shop.newcastleunited.com/products/newcastle-united-oddballs-mens-boxer-shorts?",
+            "button-class-list": "",
+            "background-color": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "c4360464-13ae-4a1a-a4e9-70d7893cb2e1": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/SPURS-FRONT.jpg",
+            "img-overlay": "",
+            "img-class-list": "font-babes",
+            "button-text": "SPURS X ODDBALLS",
+            "button_link": "https://shop.tottenhamhotspur.com/spurs-x-oddballs-mens-navy-trunks/mu01aw21",
+            "button-class-list": "",
+            "background-color": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "f2aa6a61-3d15-43d9-a617-47bb5410aa58": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/DUNDEE-UTD-FRONT.jpg",
+            "img-overlay": "",
+            "img-class-list": "font-babes",
+            "button-text": "DUNDEE UTD X ODDBALLS",
+            "button_link": "https://shop.dundeeunitedfc.co.uk/item/1033/football/Oddballs-Mens-Boxers-Tangerine.html",
+            "button-class-list": "",
+            "background-color": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "collection_block_gBfAj3": {
+          "type": "collection_block",
+          "disabled": true,
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/Buttons-Football_LEICESTER.png",
+            "img-overlay": "",
+            "img-class-list": "font-babes",
+            "button-text": "Leicester Tigers X ODDBALLS",
+            "button_link": "https://shop.leicestertigers.com/tigers/search/oddballs#",
+            "button-class-list": "",
+            "background-color": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "1081d377-0d9d-44da-abb6-1c5e07708dcc": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/CRYSTAL-FRONT.jpg",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "crystal palace x oddballs",
+            "button_link": "https://shop.cpfc.co.uk/clothing/adult-clothing/shorts-pants/4418_oddballs-boxer-shorts.html",
+            "button-class-list": "",
+            "background-color": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "collection_block_zn4G3r": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/DERBY.png",
+            "img-overlay": "",
+            "img-class-list": "font-babes",
+            "button-text": "DERBY X ODDBALLS",
+            "button_link": "https://www.dcfcmegastore.co.uk/en/derby-county-crest-boxers-black-mens/p-1281923271759654+z-909-757926900",
+            "button-class-list": "",
+            "background-color": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "collection_block_VFYebE": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/EVERTON.png",
+            "img-overlay": "",
+            "img-class-list": "font-babes",
+            "button-text": "EVERTON X ODDBALLS",
+            "button_link": "https://shop.skysports.com/en/premier-league/everton/pajamas-and-underwear/everton-lucky-boxers-royal-mens/o-10641540+t-53874521+d-200029+f-346168125+z-9-556056767?utm_medium=cse&cur=GBP&loc=en-gb&_s=gpa_ca-skysports-uk&sku=204701362&gad_source=1&gclid=Cj0KCQiAqL28BhCrARIsACYJvkeq5WtqwSmukGPOnlxTMuITNfdSo2qSzUAvA279YkJ8Ie1MBL8KN7UaAjYhEALw_wcB",
+            "button-class-list": "",
+            "background-color": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "collection_block_MJRGn7": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/DUNDEE-FC-FRONT_8b752d47-5c48-4d8c-accc-9a74ab5d85b3.jpg",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "DUNDEE FC X ODDBALLS",
+            "button_link": "https://www.dfcdirect.co.uk/search?q=oddballs&options%5Bprefix%5D=last",
+            "button-class-list": "",
+            "background-color": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "collection_block_dwwk86": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/Stoke-Front.png",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "STOKE CITY X ODDBALLS",
+            "button_link": "https://store.stokecityfc.com/listing.php?criteria=oddballs",
+            "button-class-list": "",
+            "background-color": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "0d193e51-28ff-4c09-8047-7b02b25e716c": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/LEICESTER-FRONT.jpg",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "LEICESTER CITY X ODDBALLS",
+            "button_link": "https://shop.lcfc.com/en/search?query=oddballs",
+            "button-class-list": "",
+            "background-color": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "collection_block_VpJWge": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/HIBS-FRONT_9aa39845-4031-4c50-b8b5-07209c25a2f9.jpg",
+            "img-overlay": "",
+            "img-class-list": "font-babes",
+            "button-text": "HIBERNIAN FC X ODDBALLS",
+            "button_link": "https://www.hiberniandirect.co.uk/?query=oddballs&_ref=p-PDP:m-SEARCH",
+            "button-class-list": "",
+            "background-color": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "collection_block_Gb6fJJ": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/STMIRREN-FRONT.jpg",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "ST MIRREN FC X ODDBALLS",
+            "button_link": "https://www.stmirrendirect.co.uk/search?q=oddballs&options%5Bprefix%5D=last",
+            "button-class-list": "",
+            "background-color": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "df51a41f-efdf-48cd-99a4-30b05039a74d": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/BRENTFORD-FRONT.jpg",
+            "img-overlay": "",
+            "img-class-list": "font-babes",
+            "button-text": "BRENTFORD X ODDBALLS",
+            "button_link": "https://shop.brentfordfc.com/listing.php?criteria=oddballs",
+            "button-class-list": "",
+            "background-color": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "fb0a193f-6ab9-4fac-bd81-cded0977694a": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/NOTTINGHAM-FRONT.jpg",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "NOTTINGHAM FOREST X ODDBALLS",
+            "button_link": "https://shop.nottinghamforest.co.uk/products/nffc-mens-oddballs-boxer-shorts",
+            "button-class-list": "",
+            "background-color": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "collection_block_tiXDVa": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/Football_Team_Buttons-01.jpg",
+            "img-overlay": "",
+            "img-class-list": "font-babes",
+            "button-text": "BRECHIN CITY FC X ODDBALLS",
+            "button_link": "https://www.brechincity.com/store/index.php?route=product/product&product_id=290&search=oddballs",
+            "button-class-list": "",
+            "background-color": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "6538bea0-7610-4087-8b56-b2952a8b6f85": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/HUDDERSFIELD-FRONT.jpg",
+            "img-overlay": "",
+            "img-class-list": "font-babes",
+            "button-text": "HUDDERSFIELD X ODDBALLS",
+            "button_link": "https://shop.htafc.com/apparel/fashion-men/fashion-sweats/3889_htafc-oddballs.html",
+            "button-class-list": "",
+            "background-color": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "a5ae176a-2a44-43c8-924d-d6ba2f7b60dd": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/BOURNEMOUTH-FRONT_a596f9f7-1683-44e4-b9fc-59311f7eae4e.jpg",
+            "img-overlay": "",
+            "img-class-list": "font-babes",
+            "button-text": "BOURNEMOUTH X ODDBALLS",
+            "button_link": "https://superstore.afcb.co.uk/afc-bournemouth/ODDBALLMNBXMC",
+            "button-class-list": "",
+            "background-color": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "collection_block_qY3WM4": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/NORWICH-FRONT.jpg",
+            "img-overlay": "",
+            "img-class-list": "font-babes",
+            "button-text": "Norwich City X Oddballs",
+            "button_link": "https://shop.canaries.co.uk/listing.php?criteria=oddballs",
+            "button-class-list": "",
+            "background-color": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "collection_block_kdWiqr": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/WESTBROM-FRONT_fba2ee7c-56ee-426b-ad51-1a187a8fd837.jpg",
+            "img-overlay": "",
+            "img-class-list": "font-babes",
+            "button-text": "WEST BROM X ODDBALLS",
+            "button_link": "https://shop.wba.co.uk/listing.php?criteria=oddballs",
+            "button-class-list": "",
+            "background-color": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "collection_block_aYt8Nw": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/Buttons-Football_OXFORD_UNITED.jpg",
+            "img-overlay": "",
+            "img-class-list": "font-babes",
+            "button-text": "OXFORD X ODDBALLS",
+            "button_link": "https://www.oufcshop.co.uk/listing.php?criteria=oddballs",
+            "button-class-list": "",
+            "background-color": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "collection_block_8jKGf9": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/WATFORD-FRONT_c03071aa-3fb3-4bfa-bf53-d94d3a44baae.jpg",
+            "img-overlay": "",
+            "img-class-list": "font-babes",
+            "button-text": "WATFORD FC X ODDBALLS",
+            "button_link": "https://www.thehornetsshop.co.uk/fashion/accessories-fashion/underwear/",
+            "button-class-list": "",
+            "background-color": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "collection_block_E8RmLm": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/SAFC.png",
+            "img-overlay": "",
+            "img-class-list": "font-babes",
+            "button-text": "SAFC X ODDBALLS",
+            "button_link": "https://www.safcstore.com/?query=oddballs&_ref=p-DLP:m-SEARCH",
+            "button-class-list": "",
+            "background-color": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "collection_block_6kKdnW": {
+          "type": "collection_block",
+          "disabled": true,
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/WREXHAM_AFC_2.png",
+            "img-overlay": "",
+            "img-class-list": "font-babes",
+            "button-text": "WREXHAM AFC X ODDBALLS",
+            "button_link": "https://shop.wrexhamafc.co.uk/product/oddballs-mens-boxers/",
+            "button-class-list": "",
+            "background-color": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "collection_block_WjMkQM": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/SWANSEA-FRONT_9591310b-ab91-457a-a496-ab69dc4b7d14.jpg",
+            "img-overlay": "",
+            "img-class-list": "font-babes",
+            "button-text": "SWANSEA CITY X ODDBALLS",
+            "button_link": "https://www.store.swanseacity.com/listing.php?criteria=oddballs",
+            "button-class-list": "",
+            "background-color": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "collection_block_Xy93Hz": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/BRADFORD-FRONT_31704820-96b3-415e-bfa3-e399116c269d.jpg",
+            "img-overlay": "",
+            "img-class-list": "font-babes",
+            "button-text": "BRADFORD CITY X ODDBALLS",
+            "button_link": "https://www.bantamsdirect.co.uk/products/oddballs-boxers-black?_pos=1&_sid=838ce1299&_ss=r",
+            "button-class-list": "",
+            "background-color": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "collection_block_BVJCUV": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/MILLWALL.png",
+            "img-overlay": "",
+            "img-class-list": "font-babes",
+            "button-text": "MILLWALL X ODDBALLS",
+            "button_link": "https://shop.millwallfc.co.uk/en/millwall-odd-balls-boxers-navy-mens/p-132201803156438318+z-96-4194160896",
+            "button-class-list": "",
+            "background-color": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "collection_block_xpb3P4": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/PLYMOUTH-FRONT_1d9ff979-e0cd-4dc1-8d2c-b974baff9539.jpg",
+            "img-overlay": "",
+            "img-class-list": "font-babes",
+            "button-text": "PLYMOUTH ARGYLE X ODDBALLS",
+            "button_link": "https://www.pafc.co.uk/news/2020/november/pilgrims-partner-with-oddballs",
+            "button-class-list": "",
+            "background-color": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "collection_block_RPxjAN": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/LEEDS-FRONT_26c58629-2ada-4a36-9d9a-124ef5338046.jpg",
+            "img-overlay": "",
+            "img-class-list": "font-babes",
+            "button-text": "LEEDS LUFC X ODDBALLS",
+            "button_link": "https://shop.leedsunited.com/catalogsearch/result/?q=oddballs",
+            "button-class-list": "",
+            "background-color": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "collection_block_pCyFUW": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/Football_Team_Buttons-02.jpg",
+            "img-overlay": "",
+            "img-class-list": "font-babes",
+            "button-text": "FOREST GREEN ROVERS X ODDBALLS",
+            "button_link": "https://www.fgr.co.uk/shop/fgr-oddballs-multi-crest-boxer-shorts",
+            "button-class-list": "",
+            "background-color": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "collection_block_Ac4GDm": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/KILMARNOCK-FRONT_df6de740-414d-467c-a4c2-2fdb9c18f5ad.jpg",
+            "img-overlay": "",
+            "img-class-list": "font-babes",
+            "button-text": "KILMARNOCK X ODDBALLS",
+            "button_link": "https://www.killieshop.co.uk/browse/q-oddballs",
+            "button-class-list": "",
+            "background-color": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "collection_block_whMnb7": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/BRIGHTON-FRONT_b6180f29-0625-45c1-a267-61896d26afc4.jpg",
+            "img-overlay": "",
+            "img-class-list": "font-babes",
+            "button-text": "BRIGHTON & HOVE X ODDBALLS",
+            "button_link": "https://shop.brightonandhovealbion.com/listing.php?criteria=oddballs",
+            "button-class-list": "",
+            "background-color": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "collection_block_YqbiHy": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/ASTONVILLA-FRONT_a04abbed-e59d-4b41-919e-db3f4f2c0dac.jpg",
+            "img-overlay": "",
+            "img-class-list": "font-babes",
+            "button-text": "ASTON VILLA X ODDBALLS",
+            "button_link": "https://shop.avfc.co.uk/?query=oddballs&_ref=p-TLP:m-SEARCH",
+            "button-class-list": "",
+            "background-color": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_block_NbNXdR",
+        "c4360464-13ae-4a1a-a4e9-70d7893cb2e1",
+        "f2aa6a61-3d15-43d9-a617-47bb5410aa58",
+        "collection_block_gBfAj3",
+        "1081d377-0d9d-44da-abb6-1c5e07708dcc",
+        "collection_block_zn4G3r",
+        "collection_block_VFYebE",
+        "collection_block_MJRGn7",
+        "collection_block_dwwk86",
+        "0d193e51-28ff-4c09-8047-7b02b25e716c",
+        "collection_block_VpJWge",
+        "collection_block_Gb6fJJ",
+        "df51a41f-efdf-48cd-99a4-30b05039a74d",
+        "fb0a193f-6ab9-4fac-bd81-cded0977694a",
+        "collection_block_tiXDVa",
+        "6538bea0-7610-4087-8b56-b2952a8b6f85",
+        "a5ae176a-2a44-43c8-924d-d6ba2f7b60dd",
+        "collection_block_qY3WM4",
+        "collection_block_kdWiqr",
+        "collection_block_aYt8Nw",
+        "collection_block_8jKGf9",
+        "collection_block_E8RmLm",
+        "collection_block_6kKdnW",
+        "collection_block_WjMkQM",
+        "collection_block_Xy93Hz",
+        "collection_block_BVJCUV",
+        "collection_block_xpb3P4",
+        "collection_block_RPxjAN",
+        "collection_block_pCyFUW",
+        "collection_block_Ac4GDm",
+        "collection_block_whMnb7",
+        "collection_block_YqbiHy"
+      ],
+      "custom_css": [
+        ".cover {object-fit: cover; width: 100%; height: 100%;}",
+        ".btn-max-width {max-width: 500px;}",
+        ".z-index-1 {z-index: 1;}",
+        ".z-index-2 {z-index: 2;}"
+      ],
+      "settings": {
+        "mosaic-container": "grid md:grid-cols-4 md:grid-rows-2 gap-1  grid-cols-2",
+        "all-block-outer-class": "",
+        "all-image-class": "cover",
+        "img-overlay": "h-1/2 w-full gradient absolute bottom-0 left-0 z-index-1",
+        "all-button-class": "text-center absolute  bg-white block p-3  backdrop-blur-xl  drop-shadow-lg font-bold   border-black border-2  tracking-wider md:text-md text-xs xl:text-lg bottom-3 left-1/2 rounded w-11/12 transform left-1/2 -translate-x-1/2  uppercase btn-max-width z-index-2 btn-shadow-lg border-solid border-2 hidden"
+      }
+    },
+    "image_text_grid_TRRbrd": {
+      "type": "ob-image-text-grid",
+      "blocks": {
+        "image_and_text_LXD4p4": {
+          "type": "image-and-text",
+          "settings": {
+            "country_iso": "*",
+            "title": "",
+            "block_wrapper_classes": "col-span-12 flex justify-center  px-4 items-center text-center relative",
+            "block_title": "",
+            "title_classes": "text",
+            "description": "<p class=\"text-md lg:text-lg\">\nBrowse our officially <a href=\"https://www.myoddballs.com/collections/collaboration-underwear#patterned\" class=\"link\">licensed and partnership</a> designs, made of high-quality materials, and unique collections inspired by iconic football moments and teams.\n\nCelebrate football’s passion and excitement with our football-inspired underwear. Explore our collections and wear your support with pride!</p>\n\n\n<br>\n<p class=\"text-md lg:text-lg\">\n</p><p class=\"text-md lg:text-lg\">\n\nGet ready for top football competitions with OddBalls range of official England FA inspired products including <a href=\"https://www.myoddballs.com/collections/him-individuals#patterned\" class=\"link\">men’s boxer shorts</a>, <a href=\"https://www.myoddballs.com/collections/his-briefs#patterned\" class=\"link\">briefs</a>, and <a href=\"https://www.myoddballs.com/collections/winter-accessories#patterned\" class=\"link\">bobble hats</a> to support in style.\n\nOur range of <a href=\"https://www.myoddballs.com/collections/ladies-boxer-shorts#patterned\" class=\"link\">women's boxers</a>, <a href=\"https://www.myoddballs.com/collections/her-individuals#patterned\" class=\"link\">briefs</a>,  <a href=\"https://www.myoddballs.com/collections/ladies-thongs#patterned\" class=\"link\">thongs</a>, and <a href=\"https://www.myoddballs.com/collections/bralette#patterned\" class=\"link\">bralettes</a> allow for unmatched comfort, with our underwear bundles offering you significant savings.\n</p>\n\n<br>\n<p class=\"text-md lg:text-lg\">\nLet's bring it home together!\nJoin the excitement and show your support with Oddballs.\n</p>",
+            "description_classes": "",
+            "svg": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_and_text_LXD4p4"
+      ],
+      "settings": {
+        "outer_wrapper_classes": "relative py-10",
+        "inner_wrapper_classes": "col-span-12 flex justify-center  py-3 px-4 items-center text-center",
+        "grid_wrapper_classes": "",
+        "title": "",
+        "title_classes": "text-center text-base font-semibold uppercase text-gray-600 tracking-wider",
+        "section_bg_colour": "",
+        "block_bg_colour": "",
+        "block_bg_colour_hover": "",
+        "block_text_colour": "",
+        "block_text_colour_hover": "",
+        "block_image_classes": "",
+        "block_svg_classes": "",
+        "custom_css": ""
+      }
+    },
+    "tabs_and_blocks_PGgHTQ": {
+      "type": "tabs-and-blocks",
+      "blocks": {
+        "content_faq_mqWjzN": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "my-4 col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "When does the premier league start?",
+            "title_text": "When does the premier league start?",
+            "block_title_classes": "w-full bg-gray-100 px-8 pt-5 pb-3 text-xl md:text-2xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas",
+            "description": "The Premier League season is set to kick off on Friday, 16th August. It will span across 33 weekends, with four midweek rounds and one match week falling on a Bank Holiday.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_n4Dm7a": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "my-4 col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "Premier League vs Champions League",
+            "title_text": "Premier League vs Champions League",
+            "block_title_classes": "w-full bg-gray-100 px-8 pt-5 pb-3 text-xl md:text-2xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas",
+            "description": "The Premier League, a domestic competition, only features teams from England and Wales. Whereas the Champions League is a continental knockout tournament that attracts teams from across Europe.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_4mhjDG": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "my-4 col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "When and where is the Champions League final?",
+            "title_text": "When and where is the Champions League final?",
+            "block_title_classes": "w-full bg-gray-100 px-8 pt-5 pb-3 text-xl md:text-2xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas",
+            "description": "The UEFA Champions League Final 202 is scheduled for 1st June 2024 at 21:00 (20:00 local time) and will be held in Wembley Stadium in London, United Kingdom.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_aVnXat": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "my-4 col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "How many games in the Premier League?",
+            "title_text": "How many games are in the Premier League?",
+            "block_title_classes": "w-full bg-gray-100 px-8 pt-5 pb-3 text-xl md:text-2xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas",
+            "description": "The Premier League season consists of 380 matches. Each of the 20 teams play 38 games (19 home and 19 away).",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_9JYw8D": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "my-4 col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "When does the Premier League end?",
+            "title_text": "When does the Premier League end?",
+            "block_title_classes": "w-full bg-gray-100 px-8 pt-5 pb-3 text-xl md:text-2xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas",
+            "description": "The final round of games in the Premier League will be played on Sunday May 25. All matches will kick off at the same time.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_q9p9a8": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "my-4 col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "How many teams are in the premier league?",
+            "title_text": "How many teams are in the premier league?",
+            "block_title_classes": "w-full bg-gray-100 px-8 pt-5 pb-3 text-xl md:text-2xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas",
+            "description": "The Premier League consists of 20 teams.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_K3W6cf": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "my-4 col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "When is the international break this season?",
+            "title_text": "When is the international break this season?",
+            "block_title_classes": "w-full bg-gray-100 px-8 pt-5 pb-3 text-xl md:text-2xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas",
+            "description": "International breaks will come frequently once the 2024/25 season kicks off, with pauses in September, October, and November as the Nations League begins. Later in the season, the journey to the 2026 World Cup will start as the qualifying competition gets underway.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_YgJgkB": {
+          "type": "content-faq",
+          "disabled": true,
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "my-4 col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "Who will host the 2024 Champions League final?",
+            "title_text": "Who will host the 2024 Champions League final?",
+            "block_title_classes": "w-full bg-gray-100 px-8 pt-5 pb-3 text-xl md:text-2xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas",
+            "description": "The 2024 final will be held at Wembley Stadium in London. This marks the eighth time Wembley has hosted the final of Europe's top club competition and the third time in the Champions League era.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        }
+      },
+      "block_order": [
+        "content_faq_mqWjzN",
+        "content_faq_n4Dm7a",
+        "content_faq_4mhjDG",
+        "content_faq_aVnXat",
+        "content_faq_9JYw8D",
+        "content_faq_q9p9a8",
+        "content_faq_K3W6cf",
+        "content_faq_YgJgkB"
+      ],
+      "settings": {
+        "outer_wrapper_attr": "data-attribute for linking section content",
+        "outer_wrapper_classes": "2xl:mx-auto py-10clg:px-20 md:px-6 px-4 mb-10",
+        "inner_wrapper_classes": "grid grid-cols-12 gap-6",
+        "header_wrapper_classes": "col-span-12 flex flex-col justify-center items-center text-center space-y-4",
+        "all_tabs_wrapper_classes": "",
+        "content_wrapper_classes": "col-span-12  grid grid-cols-12 gap-y-8",
+        "option_menu_selected": false,
+        "title": "FOOTBALL FAQs",
+        "title_classes": "text-3xl lg:text-4xl font-semibold  leading-9 md:leading-7 lg:leading-9 text-gray-800",
+        "description": "",
+        "description_classes": "text-base leading-6 text-center text-gray-600 w-full md:w-10/12"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "ob_text_video_slider_hkPjJH",
+    "260d0e54-27e1-4d94-8a4b-2234abe73b2e",
+    "5d5f3373-9d53-4f8f-92f8-8c045d8301d1",
+    "289ab40a-57e7-4538-a246-879f383aad57",
+    "1b716c4e-2777-4dce-9fde-909f14717745",
+    "three_text_fields_9hkMCY",
+    "ob_collection_slider_old_UfMRtC",
+    "image_text_grid_tBicz8",
+    "mosaic_hero_RKnwcG",
+    "71645e1c-7ee0-4a99-8ab8-e24a0a7ce6fb",
+    "23dddb08-6703-4d0d-a048-d0052e8a9c1d",
+    "image_text_grid_TRRbrd",
+    "tabs_and_blocks_PGgHTQ"
+  ]
+}

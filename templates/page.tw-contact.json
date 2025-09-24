@@ -1,0 +1,78 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "contact-page": {
+      "type": "ob-contact-page",
+      "blocks": {
+        "88b53f17-f22e-4938-aeab-ee312e2df0b2": {
+          "type": "contact-form",
+          "settings": {
+            "title": "GB",
+            "country_iso": "GB",
+            "form_id": "OTg0Njc=",
+            "gorgias_form_id": "vz4d1ge1"
+          }
+        },
+        "8bf2cf19-c381-4283-a008-22a73bb964d1": {
+          "type": "contact-form",
+          "settings": {
+            "title": "US",
+            "country_iso": "US",
+            "form_id": "MTAzMjQ2",
+            "gorgias_form_id": ""
+          }
+        },
+        "ae7eaf9e-b506-4017-b29f-0bf091c85729": {
+          "type": "contact-form",
+          "settings": {
+            "title": "CA",
+            "country_iso": "CA",
+            "form_id": "MTAzMjQ1",
+            "gorgias_form_id": ""
+          }
+        }
+      },
+      "block_order": [
+        "88b53f17-f22e-4938-aeab-ee312e2df0b2",
+        "8bf2cf19-c381-4283-a008-22a73bb964d1",
+        "ae7eaf9e-b506-4017-b29f-0bf091c85729"
+      ],
+      "settings": {
+        "outer_wrapper_classes": "py-10 border-b-2 border-solid",
+        "inner_wrapper_classes": "max-w-7xl px-2 mx-auto sm:pb-24 sm:px-6 lg:px-8",
+        "main_card_wrapper_classes": "relative bg-gray-50 border-2 border-solid rounded-md overflow-hidden",
+        "page_title": "Contact Us",
+        "announcement": "Below will answer some of the most common questions we are receiving. \n<span class=\"block py-3\"></span>\n<b>1) TRACKING MY ORDER:</b> If you are trying to track your order, please find the tracking link in your shipping confirmation email. Unfortunately we don’t get anymore information than the tracking link provided by the courier. Your order will be shipped with Royal Mail or DPD depending on the selected shipping method. We can assure you, if you have received a shipping confirmation email (check your junk or spam folders) your order is with the courier. \n <b></b><p>Please allow time for your tracking to update online and the for the full delivery timeframe before contacting customer service.</p>\n<span class=\"block py-1\"></span>\n<b>2) MY ORDER HASN’T BEEN SHIPPED:</b> Please allow up to 3 days for your order to be dispatched. Please check your junk or spam folders for your shipping confirmation email if you have not received it.\n<span class=\"block py-1\"></span>\n<b>3) INCORRECT PRODUCT RECEIVED:</b> If you have received your order and there is a problem with it, please complete the contact form below and select ‘Incorrect product received'.\n<span class=\"block py-1\"></span>\n<b>4) RETURNS:</b> Any orders placed from the 1st October to the 23rd December can be returned up until the 27th January 2025.\n\n<span class=\"block py-1\"></span>",
+        "announcement_classes": "mb-4 text-sm md:text-base mx-4 md:mx-0",
+        "desktop_map": "shopify://shop_images/oddballs-map-center_1.png",
+        "mobile_map": "shopify://shop_images/oddballs-map-mobile-2_1.png",
+        "company_name": "OddBalls",
+        "company_address": "Unit L3, Intersect 19, <br>\nNorth Shields, NE29 7UT",
+        "directions_text": "Get Directions",
+        "directions_classes": "",
+        "directions_link": "https://www.google.com/maps/place/OddBalls/@55.0085073,-1.4897014,17z/data=!3m1!4b1!4m5!3m4!1s0x487e6e39d52a51b5:0x863e1a153d7ee5c8!8m2!3d55.0084127!4d-1.4874216?hl=en",
+        "display_hours": true,
+        "monday_opening": "9AM - 5PM",
+        "tuesday_opening": "9AM - 5PM",
+        "wednesday_opening": "9AM - 5PM",
+        "thursday_opening": "9AM - 5PM",
+        "friday_opening": "9AM - 2PM",
+        "saturday_opening": "Closed",
+        "sunday_opening": "Closed",
+        "phone_number": "",
+        "email": "lookafter@myoddballs.com"
+      }
+    }
+  },
+  "order": [
+    "contact-page"
+  ]
+}

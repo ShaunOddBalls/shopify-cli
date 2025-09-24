@@ -1,0 +1,311 @@
+{%- if page.handle == 'all-size-guides' -%}
+
+<div class="w-full px-5 ">
+    <!--
+  	<div class=" grid__item one-whole">
+		<div class="block-inner">
+          	<h3>Bralette Size Guide</h3>
+          	<a class="js-size-guide-show cursor-hand text-magenta-500" href="#"><i class="icon icon-ruler"></i>Click here</a> to view our bralette size guide.
+        </div>
+  	</div>-->
+			{% assign has_sizechart = true %}
+  			{% capture popup_content %}
+                {% render 'ob-include-bralette-size-guide' %}
+  			{% endcapture %}
+  
+  
+	{% for block in section.blocks %}
+  	<div id="{{ block.settings.title | replace: " ", "-"}}" class=" grid__item one-whole py-5">
+
+     }}
+	{% if block.type == 'product_type' %}
+        {% if pages[block.settings.page].content != null %}
+		{% if block.settings.product_type != blank %}
+		<div class="block-inner">
+          	<h3 class="font-bebas"><i class="icon icon-ruler"></i><span>{{ block.settings.title }}</span></h3>
+        	{{ pages[block.settings.page].content }}
+        </div>
+        {% endif %}
+      	{% endif %}
+	 {% elsif block.type == 'product_tag' %}
+        {% if pages[block.settings.page].content != null %}
+		{% if block.settings.product_tag != blank %}
+		<div class="block-inner">
+          	<h3 class="font-bebas"><i class="icon icon-ruler"></i><span>{{ block.settings.title }}</span></h3>
+        	{{ pages[block.settings.page].content }}
+        </div>
+        {% endif %}
+      	{% endif %}
+	{% endif %}
+    	<hr />
+  	</div>
+	{% endfor %}
+</div>
+<div id="shopify-section-size-guide-charts" class="hidden-important">          
+{% if has_sizechart == true %}
+{% endif %}
+</div>
+{% else %}
+
+<div id="shopify-section-size-guide-charts">
+{% assign product_tags_string = product.tags | join: ' ' %}
+{% assign has_sizechart = false %}                             
+{% for block in section.blocks %}
+
+	{% if block.type == 'product_type' or  block.type == 'product_type_snippet' %}
+      
+  		<!-- test type "{{block.settings.product_type}}" or "{{ product.type}}" -->
+		{% if block.settings.product_type != blank %}
+        	{% if block.settings.product_type == product.type %}
+			{% assign has_sizechart = true %}
+  			{% capture popup_content %}
+                {% if block.type == 'product_type_snippet' %}
+
+                        {% include block.settings.snippet %}
+
+                {% else %}
+                        <h3 class="">{{product.type}} Size Guide</h3>
+                        {{ pages[block.settings.page].content }}
+
+                {% endif %}
+  			{% endcapture %}
+
+            {% break %}
+			{% endif %}
+        {% endif %}
+
+	 {% elsif block.type == 'product_tag' or block.type == 'product_tag_snippet' %}
+            <!-- block.settings.product_tag = {{ block.settings.product_tag }} -->
+		{% if block.settings.product_tag != blank %}
+             <!-- block.type == 'product_tag' or block.type == 'product_tag_snippet'  block.settings.product_tag = {{ block.settings.product_tag }} -->
+			{% if product.tags contains block.settings.product_tag %}
+			{% assign has_sizechart = true %}
+    		{% capture popup_content %}
+                {% if block.type == 'product_tag_snippet' %}
+
+                        {% include block.settings.snippet %}
+
+                {% else %}
+                    <h3 class="">{{product.type}} Size Guide</h3>
+                	{{ pages[block.settings.page].content }}
+
+                {% endif %}
+  			{% endcapture %}
+            {% break %}
+			{% endif %}
+        {% endif %}
+
+	{% endif %}
+
+{% endfor %}
+
+  
+<!-- has_sizechart = {{ has_sizechart }} -->
+{% if has_sizechart == true %}
+<a class="js-size-guide-show cursor-hand flex items-baseline gap-x-1" href="">
+  <div class="js-size-guide-show cursor-hand flex flex-col typography typography--body-md capitalize ">
+      <span class=" pr-2 " style="text-align: right;">size guide</span>
+      {% if product.type == "Bralette" or product.type == "Thong" or product.type == "Ladies Boxers" %}<span class="text-xxs md:text-xs text-magenta  pr-2">{{ 'ob_quick_buy.size_guide_recomendations' | t }}</span>{% endif %}
+  </div>
+  <svg class="tape-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 157.21 100.22" style="enable-background:new 0 0 157.21 100.22;" xml:space="preserve">
+    <style type="text/css">
+    	.st0{fill:#EC008C;}
+      }
+    </style>
+    <g>
+    	<path class="st0" d="M12.39,43.19v25.58c0,0,8.25,18.73,45.29,18.59c37.04-0.14,48.5-16.07,48.5-16.07l1.68-8.39   c0,0,22.92,10.62,36.48,7.13V44.86l-18.17-1.68l-17.89-5.59c0,0-14.26,21.51-51.58,19.35S12.39,43.19,12.39,43.19z"></path>
+    	<g>
+    		<path d="M59.77,45.78c11.91,0,20.89-4.67,20.89-10.87c0-6.2-8.98-10.87-20.89-10.87c-11.91,0-20.89,4.67-20.89,10.87    C38.88,41.11,47.86,45.78,59.77,45.78z M59.77,28.97c9.75,0,15.97,3.52,15.97,5.95c0,2.43-6.22,5.95-15.97,5.95    c-9.75,0-15.97-3.52-15.97-5.95C43.8,32.49,50.02,28.97,59.77,28.97z"></path>
+    		<path d="M142.61,41.39c-24.83-0.36-31.69-6.19-32.89-7.44c-1.03-13.08-22.56-23.2-49.94-23.2c-28.06,0-50.04,10.61-50.04,24.16    V65.3c0,13.55,21.98,24.16,50.04,24.16c26.79,0,48.04-9.68,49.91-22.35c4.71,2.52,14.11,5.22,32.79,5.56    c1.39,0,2.58-0.48,3.54-1.41c0.95-0.93,1.48-2.18,1.48-3.51V46.31C147.48,43.63,145.3,41.43,142.61,41.39z M59.77,15.67    c26.99,0,45.12,9.95,45.12,19.24c0,5.71-6.86,11.65-18.38,15.4c-0.01,0-0.02,0.01-0.03,0.01c-7.24,2.35-16.3,3.84-26.71,3.84    c-26.99,0-45.12-9.95-45.12-19.25C14.65,25.62,32.78,15.67,59.77,15.67z M59.77,84.55c-26.99,0-45.12-9.95-45.12-19.24V45.47    c1.14,1.16,2.43,2.27,3.92,3.31v13.75c0,1.36,1.1,2.46,2.46,2.46c1.36,0,2.46-1.1,2.46-2.46V51.69c1.89,0.95,3.95,1.82,6.15,2.62    v8.36c0,1.36,1.1,2.46,2.46,2.46c1.36,0,2.46-1.1,2.46-2.46v-6.8c1.97,0.55,4.01,1.03,6.15,1.45v12.95c0,1.36,1.1,2.46,2.46,2.46    c1.36,0,2.46-1.1,2.46-2.46V58.12c2,0.27,4.05,0.48,6.15,0.64v7.79c0,1.36,1.1,2.46,2.46,2.46c1.36,0,2.46-1.1,2.46-2.46v-7.54    c1.02,0.03,2.04,0.07,3.07,0.07c1.04,0,2.05-0.04,3.07-0.07v12.49c0,1.36,1.1,2.46,2.46,2.46c1.36,0,2.46-1.1,2.46-2.46V58.76    c2.1-0.16,4.15-0.36,6.15-0.64v7.23c0,1.36,1.1,2.46,2.46,2.46c1.36,0,2.46-1.1,2.46-2.46v-8.04c2.14-0.41,4.18-0.9,6.15-1.45    v11.7c0,1.36,1.1,2.46,2.46,2.46c1.36,0,2.46-1.1,2.46-2.46V54.3c2.2-0.79,4.26-1.66,6.15-2.62v5.85c0,1.36,1.1,2.46,2.46,2.46    c1.36,0,2.46-1.1,2.46-2.46v-8.76c1.49-1.04,2.78-2.15,3.92-3.31V65.3C104.89,74.6,86.76,84.55,59.77,84.55z M109.81,40.08    c0.99,0.57,2.19,1.15,3.62,1.73v8.74c0,1.36,1.1,2.46,2.46,2.46c1.36,0,2.46-1.1,2.46-2.46v-7.11c1.64,0.45,3.48,0.87,5.53,1.24    v10.85c0,1.36,1.1,2.46,2.46,2.46c1.36,0,2.46-1.1,2.46-2.46V45.43c1.15,0.14,2.35,0.27,3.61,0.38v21.47    c-16.78-1.34-21.56-4.95-22.6-6.01V40.08z M142.56,67.76c-1.85-0.03-3.57-0.1-5.22-0.17V46.14c1.66,0.08,3.39,0.14,5.23,0.17    L142.56,67.76z"></path>
+    	</g>
+    </g>
+    </svg>
+</a>
+    <style>
+    .tape-svg{
+        height: 15px;
+        width: auto;
+      }
+
+      @media (min-width: 768px) {
+        .tape-svg{
+        height: 20px;
+        width: auto;
+      }
+  </style>
+  <div class="size-guide-chart" id="size-chart">
+    {{ popup_content }}
+  </div>
+{% endif %}
+
+{% unless has_sizechart == true %}
+
+<style>
+table{
+    height:100%;
+    width: 100%;
+}
+</style>
+  {% assign product_tags_string = product.tags | join: ' ' %}
+
+  {% if product.type == "Hoody" %}
+      <a class="size-info" href="#"><i class="icon icon-ruler"></i>size guide</a>
+      <div class="">
+          {{ pages['hoodies-size-guide'].content }}
+      </div>
+  {% elsif product.type == "Rugby Tops" or product.type == "Cycling Jersey" or product.type == "Performance Tops" %}
+      <a class="size-info" href="#"><i class="icon icon-ruler"></i>size guide</a>
+      <div class="">
+          {{ pages['tops-size-guide'].content }}
+      </div>
+  {% elsif product.type == "vests" %}
+      <a class="size-info" href="#"><i class="icon icon-ruler"></i>size guide</a>
+      <div class="">
+          {{ pages['vests-size-guide'].content }}
+      </div>
+  {% elsif product_tags_string contains 'size-mens' %}
+      {% unless product.type contains 'Shirt' %}
+      <a class="size-info" href="#"><i class="icon icon-ruler"></i>size guide</a>
+      <div class="">
+          {{ pages['mens-size-chart'].content }}
+      </div>
+      {% endunless %}
+  {% elsif product_tags_string contains 'size-ladies' %}
+      <a class="size-info" href="#"><i class="icon icon-ruler"></i>size guide</a>
+      <div class="">
+          {{ pages['womens-size-chart'].content }}
+      </div>
+  {% endif %}
+
+{% endunless %}   
+</div>
+  <script>
+
+    // Function to move an element to a new parent
+    document.addEventListener('DOMContentLoaded', function() {
+    function moveElementToNewParent(element, newParent) {
+        if (element && newParent) {
+            newParent.appendChild(element);
+        }
+    }
+
+
+    try{
+     
+      // Check for the presence of .size-guide-chart
+      const sizeGuideChart = document.querySelector('.size-guide-chart');
+      const sizeGuideContent = document.getElementById('size-guide-content');
+      
+      if (sizeGuideChart && sizeGuideContent) {
+          moveElementToNewParent(sizeGuideChart, sizeGuideContent);
+      }
+      
+      // Check for the presence of .js-size-guide-show
+      const sizeGuideShow = document.querySelector('.js-size-guide-show');
+      const sizeGuideDestination = document.getElementById('size-guide-destination');
+      
+      if (sizeGuideShow && sizeGuideDestination) {
+          moveElementToNewParent(sizeGuideShow, sizeGuideDestination);
+      }
+    }catch(sizeGuideErr){
+      console.log('error appending size guide: ', sizeGuideErr)
+    }
+
+    });
+  </script>
+
+{% endif %}
+{% schema %}
+  {
+    "name": "Size charts",
+    "class": "size-charts w-full",
+    "blocks": [
+        {
+          "type": "product_type",
+          "name": "Size chart via prod type",
+          "settings": [
+
+          		{
+                  "type": "text",
+                  "id": "title",
+                  "label": "Title"
+          		},
+          		{
+                  "type": "text",
+                  "id": "product_type",
+                  "label": "Product type"
+          		},
+          		{
+                  "type": "page",
+                  "id": "page",
+                  "label": "Page that contains the size chart"
+          		}
+    		]
+  		},
+        {
+          "type": "product_type_snippet",
+          "name": "Size chart snip via type",
+          "settings": [
+
+          		{
+                  "type": "text",
+                  "id": "title",
+                  "label": "Title"
+          		},
+          		{
+                  "type": "text",
+                  "id": "product_type",
+                  "label": "Product type"
+          		},
+          		{
+                  "type": "text",
+                  "id": "snippet",
+                  "label": "Snippet name that contains the size chart"
+          		}
+    		]
+  		},
+        {
+          "type": "product_tag",
+          "name": "Size chart via prod tag",
+          "settings": [
+          		{
+                  "type": "text",
+                  "id": "title",
+                  "label": "Title"
+          		},
+          		{
+                  "type": "text",
+                  "id": "product_tag",
+                  "label": "Product tag"
+          		},
+          		{
+                  "type": "page",
+                  "id": "page",
+                  "label": "Page that contains the size chart"
+          		}
+    		]
+  		},
+        {
+          "type": "product_tag_snippet",
+          "name": "Chart snippet via tag",
+          "settings": [
+          		{
+                  "type": "text",
+                  "id": "title",
+                  "label": "Title"
+          		},
+          		{
+                  "type": "text",
+                  "id": "product_tag",
+                  "label": "Product tag"
+          		},
+          		{
+                  "type": "text",
+                  "id": "snippet",
+                  "label": "Snippet that contains the size chart"
+          		}
+    		]
+  		}
+	]
+}
+{% endschema %}

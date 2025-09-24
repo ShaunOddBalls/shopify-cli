@@ -1,0 +1,740 @@
+{% assign bg_color = section.settings.background-color | color_to_rgb %}       
+{% assign opacity = section.settings.opacity %}       
+{% assign opacity = opacity | divided_by: 100.0 %}       
+
+{% assign opacityWithEndBracket = ', ' | append: opacity | append: ')' %}       
+{% assign rgba = bg_color | replace: 'rgb', 'rgba' | replace:')', opacityWithEndBracket %}      
+
+
+{% comment %}Loop to get the number of options{% endcomment %}
+{% assign step_count = 0 %}
+{% for block in section.blocks %}
+  {% if block.type == "step" %}
+    {% assign step_count = step_count | plus: 1 %}
+  {% endif %}
+{% endfor %}
+
+<div class="relative lg:grid lg:grid-cols-12 relative" style="min-height: calc(100vh - 190px);">
+   <div class="absolute homepage-banner-cover w-full h-full"> 
+     <img src="{{ section.settings.desktop_img | img_url: "800x"}}" alt="{{ section.settings.background_heading }}" class="w-full h-full -z-10 object-position-center object-fit hidden md:block">
+     
+   </div>
+  <!-- Progress bar here if we want one -->
+
+  <!-- Background Image -->
+  <div class="lg:col-span-6 xl:col-span-8 stick-to-bottom h-full">
+   
+    <div id="sub-left-col" class="relative h-full object-position-center flex flex-col justify-center">
+      {% if section.settings.mobile_img or section.settings.desktop_img %}
+        <img id="sub-mobile-svg" src="{{ section.settings.mobile_background_img | img_url: '600x' }}" alt="{{ section.settings.mobile_background_img }}" class="w-full h-full -z-10 object-cover md:hidden block absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+        <img src="{{ section.settings.mobile_img | img_url: '600x' }}" alt="{{ section.settings.background_heading }}" class="w-3/6 mx-auto z-10">
+      {% endif %}
+    {% if section.settings.banner-text %}
+    <h2 class="font-bold lg:text-4xl text-white py-2 text-center uppercase w-3/6 mx-auto font-montserrat-bold z-10">{{ section.settings.banner-text }}</h2>
+    {% endif %}
+    </div>
+  </div>
+  <!-- ./Background Image -->
+
+  <div id="side-panel" class="md:h-full relative xl:col-span-4 lg:col-span-6" style="{% if section.settings.background-color %} background-color: {{ rgba }};{% endif %}backdrop-filter: blur({{ section.settings.backdrop-blur }}px)">
+    {% if section.settings.background_heading %}
+      <h1 class="whitespace-nowrap hidden md:block pointer-events-none absolute text-center leading-4 font-bebas" style="font-size: calc(15vw); top: -8px; opacity: 0.03;">
+        {{ section.settings.background_heading }}
+      </h1>
+    {% endif %}
+
+    <!-- Main Card -->
+    {% if section.settings.info-slider == true %}
+     <div class="relative overflow-hidden reasons-swiper-wrap">
+        <div class="swiper info-slider">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide flex flex-col justify-center items-center text-center h-32">
+              <div><img src="https://cdn.shopify.com/s/files/1/0353/7249/files/Designs.svg?v=1722324793" alt="1. Fun Designs" class="w-24 h-24"></div>
+              <div><h2 class="mx-auto text-lg marujo leading-none">Fun New<br>Designs</h2></div>
+            </div>
+            <div class="swiper-slide flex flex-col justify-center items-center text-center h-32">
+              <div><img src="https://cdn.shopify.com/s/files/1/0353/7249/files/Socks-2.svg?v=1722324793" alt="2. Free Socks" class="w-24 h-24"></div>
+              <div><h2 class="mx-auto text-lg marujo leading-none">Free<br>Socks</h2></div>
+            </div>
+            <div class="swiper-slide flex flex-col justify-center items-center text-center h-32">
+              <div><img src="https://cdn.shopify.com/s/files/1/0353/7249/files/FreeDelivery.svg?v=1722324793" alt="3.Free Delivery" class="w-24 h-24"></div>
+              <div><h2 class="mx-auto text-lg marujo leading-none">Free Delivery<br>On All Orders</h2></div>
+            </div>
+            <div class="swiper-slide flex flex-col justify-center items-center text-center h-32">
+              <div><img src="https://cdn.shopify.com/s/files/1/0353/7249/files/ExclusiveGifts-2.svg?v=1722324793" alt="4.Exclusive Gifts" class="w-24 h-24"></div>
+              <div><h2 class="mx-auto text-lg marujo leading-none">Exclusive<br>Gifts</h2></div>
+            </div>
+            <div class="swiper-slide flex flex-col justify-center items-center text-center h-32">
+              <div><img src="https://cdn.shopify.com/s/files/1/0353/7249/files/VIP.svg?v=1722324793" alt="5.VIP Access" class="w-24 h-24"></div>
+              <div><h2 class="mx-auto text-lg marujo leading-none">VIP<br>Access</h2></div>
+            </div>
+            <div class="swiper-slide flex flex-col justify-center items-center text-center h-32">
+              <div><img src="https://cdn.shopify.com/s/files/1/0353/7249/files/Discounts-2.svg?v=1722324793" alt="6.Exclusive Discounts" class="w-24 h-24"></div>
+              <div><h2 class="mx-auto text-lg marujo leading-none">Exclusive<br>Discounts</h2></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+      
+      <div class="md:w-4/5 md:mb-6 mx-auto col-span-4  max-w-lg overflow-hidden relative" style="min-height: 520px;">
+
+
+      
+      {% for block in section.blocks %}
+        {% case block.type %}
+          
+          {% when 'title' %}
+            <div class="{{ block.settings.wrapper_classes }}">
+              <h2 class="{{ block.settings.text_classes }}">{{ block.settings.text }}</h2>
+            </div>
+          {% when 'paragraph' %}
+            <div class="{{ block.settings.wrapper_classes }}">
+              <h2 class="{{ block.settings.text_classes }}">{{ block.settings.text }}</h2>
+            </div>
+        {% endcase %}
+      {% endfor %}
+
+      <!-- Form -->
+      <div class="w-full px-6" id="sub-and-save-form">
+        
+        <div class="w-full">
+          <p class="my-2 mb-0 typography typography--body-md uppercase mb-2 font-semibold">What would you like to do? </p>
+          <div class="flex justify-center mb-6 load-animate rounded-full" id="option">
+             <div  data-nav-id="gift" data-tags="" class="js-main-tab js-step-1 cursor-pointer border-l uppercase border-t border-b border-solid  font-bold w-1/2 py-2 text-center bg-off-white rounded-tl-full rounded-bl-full  flex justify-center items-center">Gift A Subscription</div>
+             <div data-nav-id="redeem" data-tags="Pre-PaidSubscriptionType" class="js-main-tab js-step-1 cursor-pointer border-l uppercase border-t border-b border-solid  font-bold w-1/2 py-2 text-center bg-off-white rounded-tr-full rounded-br-full border-r-2">Redeem A Subscription</div>
+          </div>
+        </div>
+        <!-- options -->
+        
+    <div id="gift" class="hidden">
+          <div id="gift-options" class="hidden">
+            <div class="w-full hidden">
+              <p class="my-2 mb-0 typography typography--body-md uppercase mb-2 font-semibold">1. Select Card Type</p>
+            </div>
+            <div class="flex justify-center mb-6 option-step-1 hidden">
+               <div data-tags="type-physical-gift-subscription" class="js-sub-card-tab w-full active-selection cursor-pointer border-l uppercase border-t-2 border-b-2 border-solid  font-bold  py-2 text-center bg-off-white rounded-full">Gift Card</div>
+               <div data-tags="type-digital-gift-subscription" class="js-sub-card-tab  hidden cursor-pointer border-l-2 uppercase border-t-2 border-b-2 border-solid  font-bold w-1/2 py-2 text-center bg-off-white rounded-tr-full rounded-br-full border-r-2">Digital Gift Card</div>
+  
+            </div>
+          </div>
+            
+          <div id="gift-options-1" class="">
+            <div class="w-full">
+              <p class="my-2 mb-0 typography typography--body-md uppercase mb-2 font-semibold">1. Select Subscription Type</p>
+            </div>
+            <div class="flex justify-center mb-6 option-step-1">
+               <div data-nav-id="Men's" data-tags="department-mens" class="js-sub-tab js-step-1 cursor-pointer border-l-2 uppercase border-t-2 border-b-2 border-solid  font-bold w-1/2 py-2 text-center bg-off-white rounded-tl-full rounded-bl-full">Men</div>
+               <div data-nav-id="Women's" data-tags="department-womens" class="js-sub-tab js-step-1 cursor-pointer border-l-2 uppercase border-t-2 border-b-2 border-solid  font-bold w-1/2 py-2 text-center bg-off-white">Women</div>
+               <div data-nav-id="Kid's" data-tags="department-kids" class="js-sub-tab js-step-1 cursor-pointer border-l-2 uppercase border-t-2 border-b-2 border-solid  font-bold w-1/2 py-2 text-center bg-off-white rounded-tr-full rounded-br-full border-r-2">Kids</div>
+            </div>
+          </div>
+
+          
+          <div id="gift-options-2" class="hidden">
+           <div class="w-full">
+            <div class="w-full">
+              <p class="my-2 mb-0 typography typography--body-md uppercase mb-2 font-semibold">2. Please select your underwear</p>
+            </div>
+            <div class="flex justify-center mb-6 option-step-2">
+               <div class="flex grid grid-cols-3 gap-1 hidden" data-tab="Men's">
+                 <div class="js-sub-select js-step-2 cursor-pointer flex flex-col uppercase border-2 border-solid  font-bold rounded-md p-1 bg-off-white" data-product-type="gift-sub-type-adult-underwear">         
+                      <img src=""/>
+                    <div class="flex justify-center items-center h-full py-2">
+                        <p class="text-xs text-center">Mens Underwear Gift Subscrition</p>
+                    </div>
+                </div>
+                <div class="js-sub-select js-step-2 cursor-pointer flex flex-col uppercase border-2 border-solid  font-bold rounded-md p-1 bg-off-white" data-product-type="gift-sub-type-socks">         
+                      <img src=""/>
+                    <div class="flex justify-center items-center h-full py-2">
+                      <p class="text-xs text-center">Mens Socks Gift Subscrition</p>
+                    </div>
+                 </div>
+                
+               </div>
+
+              
+               <div class="flex grid grid-cols-3 gap-1 hidden" data-tab="Women's">
+                 <div class="js-sub-select js-step-2 cursor-pointer flex flex-col uppercase border-2 border-solid  font-bold rounded-md p-1 bg-off-white" data-product-type="gift-sub-type-adult-underwear">         
+                      <img src=""/>
+                    <div class="flex justify-center items-center h-full py-2">
+                        <p class="text-xs text-center">Womens Underwear Gift Subscrition</p>
+                    </div>
+                </div>
+                <div class="js-sub-select js-step-2 cursor-pointer flex flex-col uppercase border-2 border-solid  font-bold rounded-md p-1 bg-off-white" data-product-type="gift-sub-type-bralette">         
+                      <img src=""/>
+                  <div class="flex justify-center items-center h-full py-2">
+                        <p class="text-xs text-center">Womens Bralette Gift Subscrition</p>
+                  </div>
+                </div>
+                <div class="js-sub-select js-step-2 cursor-pointer flex flex-col uppercase border-2 border-solid  font-bold rounded-md p-1 bg-off-white" data-product-type="gift-sub-type-socks">         
+                     <img src=""/>
+                    <div class="flex justify-center items-center h-full py-2">
+                          <p class="text-xs text-center">Socks Gift Subscrition</p>
+                    </div>
+               </div>
+              </div>
+
+
+              
+              <div class="flex grid grid-cols-3 gap-1 hidden" data-tab="Kid's">
+                 <div class="js-sub-select js-step-2 cursor-pointer flex flex-col uppercase border-2 border-solid  font-bold rounded-md p-1 bg-off-white" data-product-type="gift-sub-type-kids-underwear">         
+                      <img src=""/>
+                    <div class="flex justify-center items-center h-full py-2">
+                        <p class="text-xs text-center">Kids Underwear Gift Subscrition</p>
+                    </div>
+                </div>
+                
+            
+                <div class="js-sub-select js-step-2 cursor-pointer flex flex-col uppercase border-2 border-solid  font-bold rounded-md p-1 bg-off-white" data-product-type="gift-sub-type-socks">         
+                      <img src=""/>
+                  <div class="flex justify-center items-center h-full py-2">
+                        <p class="text-xs text-center">Sock Subscrition</p>
+                  </div>
+               </div>
+             </div>
+            </div>
+           </div>
+          </div>
+
+          
+          <div id="gift-options-3" class="hidden">
+            <div class="w-full">
+              <p class="my-2 mb-0 typography typography--body-md uppercase mb-2 font-semibold">3. Select Subscription Length</p>
+            </div>
+            <div class="flex justify-center mb-6 option-step-1">
+               <div data-tags="gift-sub-type-6-month" class="js-sub-length-tab  cursor-pointer border-l-2 uppercase border-t-2 border-b-2 border-solid  font-bold w-1/2 py-2 text-center bg-off-white rounded-tl-full rounded-bl-full">6 month</div>
+               <div data-tags="gift-sub-type-12-month" class="js-sub-length-tab  cursor-pointer border-l-2 uppercase border-t-2 border-b-2 border-solid  font-bold w-1/2 py-2 text-center bg-off-white rounded-tr-full rounded-br-full border-r-2">12 month</div>
+  
+            </div>
+          </div>
+          
+          
+      </div>
+        
+        <div id="redeem" class="hidden">
+           <div id="redeem-options-1">
+              <div class="w-full">
+                <p class="my-2 mb-0 typography typography--body-md uppercase mb-2 font-semibold">1.Select Subscription Length</p>
+              </div>
+              <div class="flex justify-center mb-6 option-step-2">
+                 <div data-tags="6monthPrePaidSubscription" class="js-sub-length-tab  cursor-pointer border-l-2 uppercase border-t-2 border-b-2 border-solid  font-bold w-1/2 py-2 text-center bg-off-white rounded-tl-full rounded-bl-full">6 month</div>
+               <div data-tags="12monthPrePaidSubscription" class="js-sub-length-tab  cursor-pointer border-l-2 uppercase border-t-2 border-b-2 border-solid  font-bold w-1/2 py-2 text-center bg-off-white rounded-tr-full rounded-br-full border-r-2">12 month</div>
+              </div>
+            </div>
+            <div id="redeem-options-2" class="hidden" >
+              <div class="w-full">
+                <p class="my-2 mb-0 typography typography--body-md uppercase mb-2 font-semibold">2. Select YourSubscription type</p>
+              </div>
+               <div class="flex justify-center mb-6 option-step-1">
+                 <div data-nav-id="Men's" data-tags="department-mens" class="js-sub-tab js-step-1 cursor-pointer border-l-2 uppercase border-t-2 border-b-2 border-solid  font-bold w-1/2 py-2 text-center bg-off-white rounded-tl-full rounded-bl-full">Men</div>
+                 <div data-nav-id="Women's" data-tags="department-womens" class="js-sub-tab js-step-1 cursor-pointer border-l-2 uppercase border-t-2 border-b-2 border-solid  font-bold w-1/2 py-2 text-center bg-off-white">Women</div>
+                 <div data-nav-id="Kid's" data-tags="department-kids" class="js-sub-tab js-step-1 cursor-pointer border-l-2 uppercase border-t-2 border-b-2 border-solid  font-bold w-1/2 py-2 text-center bg-off-white rounded-tr-full rounded-br-full border-r-2">Kids</div>
+              </div>
+            </div>
+  
+  
+          <div id="redeem-options-3" class="hidden">
+            <div class="w-full">
+                <p class="my-2 mb-0 typography typography--body-md uppercase mb-2 font-semibold">3.Select Your Underwear Type</p>
+              </div>
+            <div class="mb-6 w-full">
+              <div class="" data-tab="Men's">
+                <div class="flex grid grid-cols-3 md:grid-cols-4 gap-1">
+                  <div class="js-sub-select js-step-2 cursor-pointer flex flex-col uppercase border-2 border-solid  font-bold rounded-md p-1 bg-off-white" data-product-type="Product-Type-Mens-Boxer-Shorts" data-add-design="true">
+                    <img src="//www.myoddballs.com/cdn/shop/files/Sub-MensBoxers_1411dfe1-6c83-4fb5-83e1-ebc8f0567444_large.png?v=1721728853" alt="Boxer shorts + Socks">
+                  <div class="flex justify-center items-center h-full py-2">
+                    <p class="text-xs text-center">Boxer shorts + Socks</p>
+                  </div>
+                </div>
+                <div class="js-sub-select js-step-2 cursor-pointer flex flex-col uppercase border-2 border-solid  font-bold rounded-md p-1 bg-off-white" data-product-type="Product-Type-Mens-Briefs" data-add-design="true">
+                    <img src="//www.myoddballs.com/cdn/shop/files/Sub-MensBrief_ee61c0fb-6a5e-4d6a-bfd4-6a67740ffa33_large.png?v=1721728854" alt="Briefs + Socks">
+                  <div class="flex justify-center items-center h-full py-2">
+                    <p class="text-xs text-center">Briefs + Socks</p>
+                  </div>
+                </div>
+                <div class="js-sub-select js-step-2 cursor-pointer flex flex-col uppercase border-2 border-solid  font-bold rounded-md p-1 bg-off-white" data-product-type="Product-Type-Socks" data-add-design="false">
+                    <img src="//www.myoddballs.com/cdn/shop/files/Sub-Socks_large.png?v=1721638708" alt="Socks">
+                  <div class="flex justify-center items-center h-full py-2">
+                    <p class="text-xs text-center">Socks</p>
+                  </div>
+                </div>
+                </div>
+              </div>
+              <div class="hidden" data-tab="Women's">
+                <div class="flex grid grid-cols-3 md:grid-cols-4 gap-1">           
+                <div class="js-sub-select js-step-2 cursor-pointer flex flex-col uppercase border-2 border-solid  font-bold rounded-md p-1 bg-off-white" data-product-type="Product-Type-Ladies-Briefs" data-add-design="true">
+                    <img src="//www.myoddballs.com/cdn/shop/files/Sub-LadiesBrief_52336111-cc0a-479a-a82d-9a0642224947_large.png?v=1721728853" alt="Briefs + Socks">
+                  <div class="flex justify-center items-center h-full py-2">
+                    <p class="text-xs text-center">Briefs + Socks</p>
+                  </div>         
+                </div>
+                <div class="js-sub-select js-step-2 cursor-pointer flex flex-col uppercase border-2 border-solid  font-bold rounded-md p-1 bg-off-white" data-product-type="Product-Type-Ladies-Boxer-Shorts" data-add-design="true">
+                    <img src="//www.myoddballs.com/cdn/shop/files/Sub-LadiesBoxer_f9863f41-c4c4-4012-bc36-08d831194898_large.png?v=1721728853" alt="Boxer Shorts + socks">
+                  <div class="flex justify-center items-center h-full py-2">
+                    <p class="text-xs text-center">Boxer Shorts + socks</p>
+                  </div>
+                </div>
+                <div class="js-sub-select js-step-2 cursor-pointer flex flex-col uppercase border-2 border-solid  font-bold rounded-md p-1 bg-off-white" data-product-type="Product-Type-Seamless" data-add-design="false">
+                    <img src="//www.myoddballs.com/cdn/shop/files/Sub-Seamless_b71f2d6b-bdbd-44e0-9ff3-c4424281e3c4_large.png?v=1721728854" alt="Seamless + socks">
+                  <div class="flex justify-center items-center h-full py-2">
+                    <p class="text-xs text-center">Seamless + socks</p>
+                  </div>
+                </div>
+                <div class="js-sub-select js-step-2 cursor-pointer flex flex-col uppercase border-2 border-solid  font-bold rounded-md p-1 bg-off-white" data-product-type="Product-Type-Bralette" data-add-design="true">
+                    <img src="//www.myoddballs.com/cdn/shop/files/Sub-Bralette_c47aef31-649d-4f69-bf60-8284a1ddcc5b_large.png?v=1721728854" alt="Bralette + socks">
+                  <div class="flex justify-center items-center h-full py-2">
+                    <p class="text-xs text-center">Bralette + socks</p>
+                  </div>
+                </div>
+                <div class="js-sub-select js-step-2 cursor-pointer flex flex-col uppercase border-2 border-solid  font-bold rounded-md p-1 bg-off-white" data-product-type="Product-Type-Thong" data-add-design="true">
+                    <img src="//www.myoddballs.com/cdn/shop/files/Sub-Thong_6d42a715-9f25-4764-8106-61e37deb2c83_large.png?v=1721728854" alt="Thong + socks">
+                  <div class="flex justify-center items-center h-full py-2">
+                    <p class="text-xs text-center">Thong + socks</p>
+                  </div>
+                </div>
+                <!-- <div class="js-sub-select js-step-2 cursor-pointer flex flex-col uppercase border-2 border-solid  font-bold rounded-md p-1 bg-off-white" data-product-type="ladies-bamboo-boxer-shorts-individuals" data-add-design="false">
+                    <img src="//www.myoddballs.com/cdn/shop/files/Sub-LadiesBamboo_eae805fa-55d5-4b09-b0e3-9c1e8ec20cac_large.png?v=1721728854" alt="Bamboo Boxer Shorts + Socks">
+                  <div class="flex justify-center items-center h-full py-2">
+                    <p class="text-xs text-center">Bamboo Boxer Shorts + Socks</p>
+                  </div>
+                </div> -->
+                <div class="js-sub-select js-step-2 cursor-pointer flex flex-col uppercase border-2 border-solid  font-bold rounded-md p-1 bg-off-white" data-product-type="Product-Type-Full-Seamless" data-add-design="false">
+                    <img src="//www.myoddballs.com/cdn/shop/files/Sub-FullSeamless_cd983e7b-c88d-4543-a946-d1cc8afb41ed_large.png?v=1721728854" alt="Full Seamless + Socks">
+                  <div class="flex justify-center items-center h-full py-2">
+                    <p class="text-xs text-center">Full Seamless + Socks</p>
+                  </div>
+                </div>
+                <div class="js-sub-select js-step-2 cursor-pointer flex flex-col uppercase border-2 border-solid  font-bold rounded-md p-1 bg-off-white" data-product-type="Product-Type-Socks" data-add-design="false">
+                    <img src="//www.myoddballs.com/cdn/shop/files/Sub-Socks_large.png?v=1721638708" alt="socks">
+                  <div class="flex justify-center items-center h-full py-2">
+                    <p class="text-xs text-center">Socks</p>
+                  </div>
+                </div>
+                </div>
+              </div>
+              <div class="hidden" data-tab="Kid's">
+                <div class="flex grid grid-cols-3 md:grid-cols-4 gap-1">
+                  <div class="js-sub-select js-step-2 cursor-pointer flex flex-col uppercase border-2 border-solid  font-bold rounded-md p-1 bg-off-white" data-product-type="Product-Type-Goolies" data-add-design="false">
+                      <img src="//www.myoddballs.com/cdn/shop/files/Sub-Goolies_dc5b8961-48d8-4aaa-b13f-b674ade18faf_large.png?v=1721728853" alt="Goolies + Socks">
+                    <div class="flex justify-center items-center h-full py-2">
+                      <p class="text-xs text-center">Goolies + Socks</p>
+                    </div>
+                  </div>
+                  <div class="js-sub-select js-step-2 cursor-pointer flex flex-col uppercase border-2 border-solid  font-bold rounded-md p-1 bg-off-white" data-product-type="Product-Type-Socks" data-add-design="false">
+                    <img src="//www.myoddballs.com/cdn/shop/files/Sub-Socks_large.png?v=1721638708" alt="socks">
+                  <div class="flex justify-center items-center h-full py-2">
+                    <p class="text-xs text-center">Socks</p>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+            
+             <div id="redeem-options-4" class="hidden">
+              <div class="w-full mt-4">
+                <p class="my-2 mb-0 typography typography--body-md uppercase mb-2 font-semibold">4. Please select your design type</p>
+                </div>
+                <div class="flex justify-center mb-6">
+                   <div data-tags="subscription_adventurous" class="js-sub-design ob-bg-gradient cursor-pointer border-l-2 uppercase border-t-2 border-b-2 border-solid  font-bold w-1/2 py-2 text-center bg-off-white rounded-tl-full rounded-bl-full">Patterned</div>
+                   <div data-tags="subscription_classic" class="ob-hover-plain  js-sub-design cursor-pointer border-l-2 uppercase border-t-2 border-b-2 border-solid  font-bold w-1/2 py-2 text-center bg-off-white rounded-tr-full rounded-br-full border-r-2">Classic</div>
+                </div>
+             </div>
+              
+              </div>
+          </div>
+       </div>
+        <!-- ./options -->
+
+          <div id="sas-product-container" class="my-6 ">
+              
+          </div>
+        
+            <div id="intail-product-loader" class="w-full mt-6  hidden">
+              <div class="flex items-center gap-4 border-light rounded-lg shadow-sm w-full p-2">
+                <div class="w-full">
+                  <div class="load-animate h-10 my-2">title</div>
+                  <div class="load-animate mb-2">title</div>
+                </div>
+                <div class="h-28 load-animate w-3/5"></div>
+              </div>
+              <div class="w-full ">
+                <p class="my-2 mb-0 typography typography--body-md uppercase mb-2 font-semibold">2. Please select your size</p>
+                <div class="px-1 grid gap-2 grid-cols-4 md:grid-cols-4 mb-6">
+                  <div class="h-12 w-full load-animate"></div>
+                  <div class="h-12 w-full load-animate"></div>
+                  <div class="h-12 w-full load-animate"></div>
+                  <div class="h-12 w-full load-animate"></div>
+                  <div class="h-12 w-full load-animate"></div>
+                  <div class="h-12 w-full load-animate"></div>
+                  <div class="h-12 w-full load-animate"></div>
+                  <div class="h-12 w-full load-animate"></div>
+                </div>
+              </div>
+              <div class="w-full ">
+                <p class="my-2 mb-0 typography typography--body-md uppercase mb-2 font-semibold">2. Please select your size</p>
+                <div class="px-1 grid gap-2 grid-cols-4 md:grid-cols-4 mb-4">
+                  <div class="h-8 w-full load-animate"></div>
+                  <div class="h-8 w-full load-animate"></div>
+                  <div class="h-8 w-full load-animate"></div>
+                </div>
+              </div>
+            
+              <div class="w-full h-12 load-animate mb-6"></div>
+            </div>
+      </div>
+
+        <!-- ./Form -->
+      <!-- ./Main Card -->
+      
+    </div>
+        </div>
+</div>
+{% schema %}
+{
+  "name": "gift sub selector",
+  "settings": [
+    {
+      "type": "text",
+      "id": "background_heading",
+      "label": "Background Heading",
+      "default": "Title"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_img",
+      "label": "middle svg"
+    },
+    {
+      "type": "image_picker",
+      "id": "desktop_img",
+      "label": "Desktop Background Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_background_img",
+      "label": "Mobile Background Image"
+    },
+    {
+      "type": "text",
+      "id": "banner-text",
+      "label": "Banner Text"
+    },
+    {
+      "type": "text",
+      "id": "step_one_text",
+      "label": "Step One Text",
+    },
+    {
+      "type": "text",
+      "id": "step_two_text",
+      "label": "Step Two Text",
+    },
+    {
+      "type": "text",
+      "id": "step_tree_text",
+      "label": "Step Three Text",
+    },
+    {
+      "type": "text",
+      "id": "card_title_wrapper_classes",
+      "label": "Card Title Wrapper Classes",
+      "default": "text-xs text-center"
+    },
+    {
+      "type": "text",
+      "id": "card_title_classes",
+      "label": "Card Title Classes",
+      "default": "text-xs text-center"
+    },
+    {
+      "type": "color",
+      "id": "background-color",
+      "label": "Background Colour"
+    },
+    {
+      "type": "range",
+      "id": "opacity",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "Background Opacity",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "backdrop-blur",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Back ground blur",
+      "default": 0
+    },
+    {
+      "id": "info-slider",
+      "type": "checkbox",
+      "label": "info Slider On/Off",
+      "default": false
+    }
+    
+  ],
+  "blocks": [
+    {
+      "name": "Title",
+      "type": "title",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Title Text",
+          "default": "title"
+        },
+        {
+          "type": "text",
+          "id": "wrapper_classes",
+          "label": "Wrapper Classes Text",
+          "default": "w-full"
+        },
+        {
+          "type": "text",
+          "id": "text_classes",
+          "label": "Title Classes",
+          "default": "text-lg marujo"
+        }
+      ]
+    },
+    {
+      "name": "Paragraph",
+      "type": "paragraph",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Paragraph Text"
+        },
+        {
+          "type": "text",
+          "id": "wrapper_classes",
+          "label": "Wrapper Classes Text"
+        },
+        {
+          "type": "text",
+          "id": "text_classes",
+          "label": "Paragraph Classes"
+        }
+      ]
+    },
+        {
+        "name": "Info Slider",
+        "type": "info-slider",
+        "settings": [
+        {
+          "type": "header",
+          "content": "Info Slider"
+        },
+  
+  ]
+        }
+          ],
+  "presets": [
+    {
+      "name": "Gift Subscription Selector"
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+  .active-selection{
+    background-color: #f00f83 !important;
+    color: white;
+    font-wieght: bold;
+  }
+
+
+  .active-selection.ob-bg-gradient{
+    background: rgb(3,173,239);
+    background: linear-gradient(136deg, rgba(3,173,239,1) 0%, rgba(14,164,233,1) 7.000000000000001%, rgba(117,88,190,1) 53%, rgba(221,11,146,1) 100%);
+  }
+
+
+  .active-selection.ob-hover-plain{
+    background-color: #000;
+  }
+
+  .active-selection img {
+    filter: brightness(0) invert(1) !important;
+  }
+
+  #sas-product-container .basicLightbox{
+    position: relative !important;
+  }
+  
+  #sas-product-container .product-title{
+   font-size: 1.5em;
+   line-height: 1;
+  }
+  
+ #sas-product-container .loaded,
+ #intail-product-loader .loaded{
+    max-height: 142px;
+    max-width: 142px;
+    display: block !important;
+    width: auto;
+    height: auto;
+    margin: 0.5rem;
+}
+
+.ml-thirty-three-percent{
+  margin-left: 33%;
+}
+
+#sub-left-col{
+  min-height: 225px;
+}
+
+/* #sub-mobile-svg{
+  min-height: 225px;
+  width: 100% !important;
+  height: 100% ! important;
+} */
+  
+
+
+@media only screen and (max-width: 600px) {
+  #intail-product-loader .loaded,
+  #sas-product-container .loaded {
+    max-height: 92px;
+    max-width: 92px;
+    display: block !important;
+    width: auto;
+    height: auto;
+}
+}
+
+  .border-light{
+    border: 2px solid #ddd;
+  }
+
+.load-animate-square,
+.load-animate-mt,
+.load-animate {
+	animation: shimmer 3s;
+	animation-iteration-count: infinite;
+    background-color: transparent !important;
+    background-image: linear-gradient(to right, #e6e6e6 5%, #cccccc 25%, #e6e6e6 35%) !important;
+	background-size: 1000px 100%;
+    color: transparent ! Important;
+    /* width: fit-content; */
+    border-radius: 5px !important;
+    border-color: #cccccc !important;
+	opacity:1 !important;
+
+
+    box-shadow: 0px 0px 0px transparent !important;
+    border-width: 0px !important;
+}
+.load-animate-square *,
+.load-animate * {
+  visibility:hidden !important;
+}
+@keyframes  shimmer {
+	from {
+		background-position: -1000px 0;
+	}
+	to {
+		background-position: 1000px 0;
+	}
+} 
+
+#side-panel::before{
+    content: "";
+    height: 100%;
+    width: 4px;
+    position: absolute;
+    left: -20px;
+    background: rgb(255, 255, 255);
+    background: linear-gradient(85deg, rgb(0 0 0 / 10%) 0%, rgb(0 0 0 / 8%) 94%);
+    width: 20px;
+    top: 0px;
+    filter: blur(10px);
+}
+
+.bg-off-white{
+  background-color: #ffffff;
+}
+
+.reasons-swiper-wrap{
+        background: #ffffff30;
+    padding: 5px 0px 15px 0px;
+}
+
+.reasons-swiper-wrap:before {
+  content: "";
+  height: 1px;
+  width: 100%;
+  background: #03103021;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+}
+
+#info-slider img{
+  width: 80px;
+  height: 80px
+}
+
+@media (min-width: 768px) {
+  .stick-to-bottom{
+    position: sticky;
+    top: 190px;
+    height: calc(100vh - 190px)
+  }
+}
+
+@media (max-width: 768px){
+  .border-light{
+    border: 2px solid #ddd;
+}
+}
+
+ #sub-left-col::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 36%; /* Adjust width as needed */
+    height: 100%;
+    background-image: url('https://cdn.shopify.com/s/files/1/0353/7249/files/MOB_-_GENERIC_HOMEPAGE_BANNER_BACKGROUND-min__2_-removebg-preview.png?v=1724852773');
+    background-size: contain; /* Ensure the image is contained within the element */
+    background-position: left bottom; /* Center the image on the left side */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    z-index: 1;
+  }
+
+  @media (min-width: 1024px) {
+    #sub-left-col::before{
+      width: 43%;
+    }
+  }
+  
+  #sub-left-col::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30%; /* Adjust width as needed */
+    height: 100%;
+    background-image: url('https://cdn.shopify.com/s/files/1/0353/7249/files/MOB_-_GENERIC_HOMEPAGE_BANNER_BACKGROUND-min__1_-removebg-preview.png?v=1724852773');
+    background-size: contain; /* Ensure the image is contained within the element */
+    background-position: right bottom; /* Center the image on the right side */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    z-index: 1;
+  }
+
+  .stay-hidden{
+    display: none !important;
+  }
+</style>

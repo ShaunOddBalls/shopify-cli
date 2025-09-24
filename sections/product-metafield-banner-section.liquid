@@ -1,0 +1,44 @@
+{% schema %}
+  {
+    "name": "Metafield hero section",
+    "settings": [
+    ]
+  }
+{% endschema %}
+{% if  gift_card.product.metafields.custom.hero_banner %}
+<div class="relative">
+  <!-- Desktop Image -->
+  <img
+    loading="lazy"
+    class="object-cover h-full w-full hidden sm:block"
+    src="{{ gift_card.product.metafields.custom.hero_banner | img_url: 'master' }}"
+    alt="Hero Banner"
+  >
+
+  <!-- Mobile Image -->
+  <img
+    loading="lazy"
+    class="object-cover h-full w-full block sm:hidden"
+    src="{{ gift_card.product.metafields.custom.hero_banner_mobile | img_url: 'master' }}"
+    alt="Hero Banner"
+  >
+  
+  <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+    <img
+      loading="lazy"
+      class="w-full h-full"
+      src="{{ gift_card.product.featured_image | img_url: 'master' }}"
+      alt="desktop overlay svg"
+    >
+  </div>
+</div>
+{% else %}
+  <div class="relative">
+      <img
+      loading="lazy"
+      class="w-full h-full"
+      src="{{ gift_card.product.featured_image | img_url: 'master' }}"
+      alt="desktop overlay svg"
+    >
+  </div>
+{% endif %}

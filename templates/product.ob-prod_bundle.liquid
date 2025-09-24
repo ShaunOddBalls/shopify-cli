@@ -1,0 +1,29 @@
+{% layout none %}
+{% assign product_type = product.type %}
+
+{% for bundle_type in shop.metaobjects.build_a_bundles.values %}
+  {% for collection in bundle_type.included_collections.value %}
+
+    {%- comment %}<locksmith:a698>{% endcomment -%}
+      {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: collection, subject_parent: bundle_type.included_collections, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+    {%- comment %}</locksmith:a698>{% endcomment -%}
+
+    {% for product in collection.products %}
+  
+      {%- comment %}<locksmith:a748>{% endcomment -%}
+        {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product, subject_parent: collection, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+      {%- comment %}</locksmith:a748>{% endcomment -%}
+  
+      {% if product_type == product.type %}
+        {% assign current_bundle = bundle_type %}
+        {% endif %}
+    {% endfor %}
+    
+  {% endfor %}
+{% endfor %}
+<div id="buy-1">{{ current_bundle.tier.value.buy_1 }}</div>
+<div id="save-1">{{ current_bundle.tier.value.save_1 }}</div>
+<div id="buy-2">{{ current_bundle.tier.value.buy_2 }}</div>
+<div id="save-2">{{ current_bundle.tier.value.save_2 }}</div>
+<div id="buy-3">{{ current_bundle.tier.value.buy_3 }}</div>
+<div id="save-3">{{ current_bundle.tier.value.save_3 }}</div>

@@ -1,0 +1,130 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "page-content-only": {
+      "type": "ob-page-content-only",
+      "disabled": true,
+      "settings": {}
+    },
+    "1656586824ffa85e32": {
+      "type": "ob-three-text-fields",
+      "blocks": {
+        "113a841c-c785-4960-8c35-3a9243599496": {
+          "type": "text-lines",
+          "settings": {
+            "country_iso": "GB",
+            "text-field-outer-wrapper-classes": "pt-8 pb-5 px-4",
+            "text-field-inner-wrapper-classes": "max-w-7xl mx-auto",
+            "text-field-1": "Downloads",
+            "text-field-1-classes": "marujo text-center text-3xl md:text-5xl text-gray-800",
+            "text-field-2": "",
+            "text-field-2-classes": "",
+            "text-field-3": "",
+            "text-field-3-classes": "",
+            "text-field-4": "",
+            "text-field-4-classes": "",
+            "html-field": "",
+            "html-field-classes": ""
+          }
+        }
+      },
+      "block_order": [
+        "113a841c-c785-4960-8c35-3a9243599496"
+      ],
+      "settings": {}
+    },
+    "1656589830fbc27129": {
+      "type": "ob-download-cards",
+      "blocks": {
+        "85436194-8ba5-4be2-a8c8-d6886bf20501": {
+          "type": "download_card",
+          "settings": {
+            "country_iso": "*",
+            "title": "Design your own socks",
+            "subtitle": "Download the \"Design your own socks\" sheet and get started today",
+            "file": "https://cdn.shopify.com/s/files/1/0353/7249/files/DESIGN-YOUR-OWN-SOCKS.pdf?v=1601897870",
+            "filename": "",
+            "image": "shopify://shop_images/DESIGN-YOUR-OWN-SOCKS_40c5493b-9269-419c-813b-49dce6d970aa.jpg",
+            "backdrop_colour": "bg-white"
+          }
+        },
+        "b4292b6e-b4d8-4020-be17-46d7d1c6b53a": {
+          "type": "download_card",
+          "settings": {
+            "country_iso": "*",
+            "title": "I love my oddballs",
+            "subtitle": "Tell us why you love your pants",
+            "file": "https://cdn.shopify.com/s/files/1/0353/7249/files/WHY-I-Love-My-OddBalls.pdf?v=1600079162",
+            "filename": "",
+            "image": "shopify://shop_images/WHY-I-Love-My-OddBalls_fb0de416-3051-40e5-b436-7395fe678220.png",
+            "backdrop_colour": "bg-white"
+          }
+        },
+        "77c6d17b-3f6d-49a8-ad62-968aaff7f9c0": {
+          "type": "download_card",
+          "settings": {
+            "country_iso": "*",
+            "title": "Design your own oddballs",
+            "subtitle": "Download the \"design your own Oddballs\" sheet and get started today",
+            "file": "https://cdn.shopify.com/s/files/1/0353/7249/files/PANTS.pdf?v=1586091666",
+            "filename": "pants",
+            "image": "shopify://shop_images/PANTS-1_98343498-1e33-43dc-914f-5eff41b05437.jpg",
+            "backdrop_colour": "bg-cyan-500"
+          }
+        },
+        "98bb3a71-7386-45e0-940e-19b7ebf86422": {
+          "type": "download_card",
+          "settings": {
+            "country_iso": "*",
+            "title": "Crossword",
+            "subtitle": "Solve the OddBalls puzzles",
+            "file": "",
+            "filename": "",
+            "image": "shopify://shop_images/Crossword-1_2e955f96-4109-4f1e-b709-0755a98c291d.jpg",
+            "backdrop_colour": "bg-magenta-500"
+          }
+        },
+        "41336a0e-d09c-49a5-9f35-d11df43f78f5": {
+          "type": "download_card",
+          "settings": {
+            "country_iso": "*",
+            "title": "Goolies wordsearch",
+            "subtitle": "Test your OddBalls design knowledge",
+            "file": "https://cdn.shopify.com/s/files/1/0353/7249/files/Crossword.pdf?v=1589363118",
+            "filename": "oddballs-crossword",
+            "image": "shopify://shop_images/Word-Search-1_c90b14ac-bfd7-4c0e-9737-d793768407c8.jpg",
+            "backdrop_colour": "bg-magenta-500"
+          }
+        }
+      },
+      "block_order": [
+        "85436194-8ba5-4be2-a8c8-d6886bf20501",
+        "b4292b6e-b4d8-4020-be17-46d7d1c6b53a",
+        "77c6d17b-3f6d-49a8-ad62-968aaff7f9c0",
+        "98bb3a71-7386-45e0-940e-19b7ebf86422",
+        "41336a0e-d09c-49a5-9f35-d11df43f78f5"
+      ],
+      "settings": {
+        "outer_wrapper_classes": "px-4 pb-10",
+        "inner_wrapper_classes": "grid md:grid-cols-3 gap-10 max-w-7xl mx-auto",
+        "card_wrapper_classes": "relative border-2 border-black border-solid rounded-md overflow-hidden",
+        "card_title_classes": "marujo text-2xl text-center",
+        "card_subtitle_classes": "text-sm text-center px-10",
+        "card_button_classes": "rounded-full  btn-shadow-lg block bg-magenta  relative font-semibold text-center py-2 px-5 text-white hover:bg-magenta-700 transition-colors duration-200"
+      }
+    }
+  },
+  "order": [
+    "page-content-only",
+    "1656586824ffa85e32",
+    "1656589830fbc27129"
+  ]
+}

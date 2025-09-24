@@ -1,0 +1,920 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "ob_header" :{
+    "icons": {
+      "account": "https://cdn.shopify.com/s/files/1/0353/7249/files/German-Account_100x.png?v=1741879466",
+      "alert": "https://cdn.shopify.com/s/files/1/0353/7249/files/meldungen_100x.png?v=1741879466",
+      "basket": "https://cdn.shopify.com/s/files/1/0353/7249/files/German-Basket_100x.png?v=1741879466",
+      "menu": "https://cdn.shopify.com/s/files/1/0353/7249/files/menu_german.png?v=1742481677"
+      
+    }
+  },
+  "ob_cart": {
+    "empty_cart": "Ihr Warenkorb ist leer",
+    "empty_message": "Ihr Warenkorb fühlt sich einsam – lassen Sie ihn nicht allein!",
+    "other_items": "Ihre weiteren Artikel",
+    "shop_mens": "Herren einkaufen",
+    "shop_womens": "Damen einkaufen",
+    "top_picks": "Top-Empfehlungen, die Ihr Warenkorb lieben wird",
+    "subtotal_shipping_and_taxes_message": "Versand und Steuern werden an der Kasse berechnet",
+    "have_a_discount_code_message": "Haben Sie einen Rabattcode? Bewerben Sie sich an der Kasse",
+    "subtotal": "Zwischensumme",
+        "extra_message_html": "20 % Ihres Zwischenbetrags werden dieses Wochenende an die Oddballs Foundation gespendet",
+    "cart_savings": "Ersparnis im Warenkorb angewendet",
+    "order_value": "Bestellwert (UVP)",
+    "upsell": {
+      "select_size_below": "Wähle unten eine Größe"
+    }
+  },
+  "collection_page": {
+    "show_filters": "Filter anzeigen",
+    "sort_by": "Sortieren nach",
+    "see_more": "Mehr anzeigen",
+    "viewing": "Anzeigen",
+    "low_to_high": "Niedrig - Hoch",
+    "high_to_low": "Hoch - Niedrig",
+    "most_relevant": "Am relevantesten",
+    "quick_buy": "Schnellkauf",
+    "view_more_count_html": "{{ count }} von {{ total }} Produkten werden angezeigt"
+  },
+  "ob_quick_buy": {
+    "atc": "In den Warenkorb",
+    "title": "Schnell hinzufügen",
+    "size_guide": "Größentabelle",
+    "size_guide_recomendations": "Wir empfehlen, eine Größe größer zu wählen.",
+    "select_size": "Größe wählen",
+    "out_of_stock_html": "<div class=\"tw-text-xs tw-mt-4\"> Größe nicht auf Lager? <a class=\"tw-text-magenta-500 out-of-stock-message2 klaviyo-bis-trigger\" style=\"color:#f00f83 !important;\" href=\"#\">Hier klicken</a>, um benachrichtigt zu werden, wenn sie wieder verfügbar ist </div>"
+  },
+    "ob_about_us": {
+    "paragraph_1_html": "Mit über 300 einzigartigen <a href=\"/pages/shop-by-design\" class=\"text-magenta-500\">Unterwäsche-Designs</a>, <a href=\"/collections/all-sportswear\" class=\"text-magenta-500\">Sportbekleidung</a>, Kleidung und <a href=\"/collections/accessories\" class=\"text-magenta-500\">Accessoires</a> haben wir für jeden etwas dabei!",
+    "paragraph_2_html": "OddBalls wurde ursprünglich gegründet, um nicht nur großartige Unterwäsche zu produzieren, sondern auch das Bewusstsein für Hodenkrebs zu schärfen. Wir spenden jetzt an, unterstützen und stellen Unterwäsche für einige großartige Wohltätigkeitsorganisationen her – und haben seit 2014 über {%- include 'ob-multilang' with '{{totalraised}}' -%}&nbsp;gespendet. Erfahren Sie mehr in unserem Charity-Bereich, indem Sie <a href=\"/pages/our-charities\" class=\"text-magenta-500\">hier</a> klicken.",
+    "paragraph_3_html": "In den letzten 6 Jahren haben wir Partnerschaften mit einigen der größten Sportverbände und Teams der Welt aufgebaut, darunter: <a href=\"https://www.myoddballs.com/collections/design-british-and-irish-lions\" class=\"text-magenta-500 no-underline\">Die British & Irish Lions</a>, <a href=\"https://www.myoddballs.com/collections/design-england-rugby\" class=\"text-magenta-500 no-underline\">England Rugby</a>, <a href=\"https://www.myoddballs.com/collections/design-welsh-rugby-union\" class=\"text-magenta-500 no-underline\">Welsh Rugby Union</a>, <a href=\"https://www.myoddballs.com/collections/design-england-fa\" class=\"text-magenta-500 no-underline\">England Football</a>, <a href=\"https://www.myoddballs.com/collections/design-ecb\" class=\"text-magenta-500 no-underline\">England Cricket</a>, <a href=\"https://www.myoddballs.com/collections/design-welsh-fa\" class=\"text-magenta-500 no-underline\">Welsh FA</a> und Hunderte von Profi-Clubs im Vereinigten Königreich und auf der ganzen Welt.",
+    "paragraph_4_html": "Worauf warten Sie noch? Machen Sie mit und bestellen Sie Ihre OddBalls noch heute!"
+  },
+  "ob_product_page": {
+    "in_the": "im",
+    "other_items": "Weitere Artikel",
+    "other_items_in_the": "Weitere Artikel im",
+    "design": "Design",
+    "get_yours_from": "Erhalten Sie Ihres ab",
+    "patterned": "Gemustert",
+    "partnerships": "Partnerschaften",
+    "plain": "Einfarbig",
+    "show_more": "Mehr Designs anzeigen",
+    "show_less": "Weniger Designs anzeigen",
+    "recommendations": "Empfehlungen",
+    "reviews": "Bewertungen",
+    "pack": "-er pack"
+  },
+  "ob_search": {
+    "popular_searches": "Beliebte Suchanfragen",
+    "popular_products": "Unsere beliebten Produkte",
+    "suggestions": "Vorschläge",
+    "related_products": "Produkte zu",
+    "results_for": "Ergebnisse für",
+    "try_again": "Versuche Sie es mit einer anderen Suche",
+    "search_suggestions": "Suchvorschläge",
+    "see_all_results": "Alle Ergebnisse anzeigen",
+    "products_found_for": "Gefundene Produkte für",
+    "show_filters": "Filter anzeigen",
+    "sort_by": "sortieren nach",
+    "search": "Suche",
+    "search_products": "Produkte suchen",
+    "back_to_menu": "Zurück zum Menü"
+  },
+  "ob_popup": {
+    "continue_shopping_html": "Oder <span href=\"\" class=\"font-bold\">weiter einkaufen...</span>",
+    "you_have_chosen_html": "Ihr <b>Gratisprodukt</b> wurde hinzugefügt!<br> <small> (Sie haben gewählt ⬇️)</small>",
+    "congratulations": "Herzlichen Glückwunsch, Sie haben sich qualifiziert für",
+    "free_tracked_uk_shipping_html": "<b>Kostenlosen</b> Versand mit Sendungsverfolgung innerhalb des Vereinigten Königreichs",
+    "learn_more": "Mehr erfahren",
+    "checkout": "Zur Kasse",
+    "items": "Artikel",
+    "basket": "Warenkorb",
+    "size_guide": "Größentabelle",
+    "description": "Produktbeschreibung",
+    "patterned": "gemustert",
+    "plain": "einfarbig",
+    "sign_up": "Anmelden",
+    "bis_sign_up": "Benachrichtigung bei Wiederverfügbarkeit",
+    "select_size": "Größe wählen",
+    "finish_multibuy": "Multibuy abschließen",
+    "finding_products": "Produkte werden gesucht",
+    "item_added_to_cart": "Artikel wurde zum Warenkorb hinzugefügt",
+    "add_another_product": "Möchten Sie ein weiteres Produkt hinzufügen?",
+    "away_from_html": "Nur noch <b class=\"text-magenta-500\"><span id=\"cmb-to-next\">1 </span> entfernt</b> vom Sparen <span id=\"cmb-next-saving\" class=\"text-magenta-500 font-bold\"></span>",
+    "free_tracked_shipping_html": "Sie haben sich für <b class=\"capitalize\">kostenlosen Versand mit Sendungsverfolgung</b> qualifiziert",
+    "to_free_tracked_shipping_html": "Fügen Sie <span id=\"to-shipping-threshold-span\" class=\"mx-1\"></span> mehr hinzu, um <span id=\"from-shipping-span\" class=\"ml-1\"> <b class=\"capitalize\">kostenlosen Versand mit Sendungsverfolgung</b> zu erhalten</span>",
+    "to_free_gift_html": "Fügen Sie <span id=\"to-gift-threshold-span\" class=\"mx-1\"></span> mehr hinzu, um ein<b id=\"from-gift-span\" class=\"mx-1 capitalize\"> kostenloses Produkt</b> <span>(im Wert von bis zu £20)</span> zu erhalten",
+    "free_gift_qualified_html": "Sie haben sich für ein <b>kostenloses Produkt</b> im Wert von bis zu £20.00 qualifiziert. <small>(Bitte unten auswählen)</small>",
+    "choose_free_product": "Kostenloses Produkt auswählen",
+    "add_free_gift": "Kostenloses Geschenk hinzufügen",
+    "select": "Auswählen",
+    "email": "E-Mail",
+    "yes": "Ja",
+    "back_to_cart": "Zurück zum Warenkorb",
+    "empty_message": "Ihr Warenkorb ist leer – lassen Sie ihn nicht allein!",
+    "other_items": "Ihre weiteren Artikel",
+    "upsells": {
+      "matching_product_title_html": "Das passende hinzufügen {{ type }}", 
+      "matching_product_paragraph": "Vervollständige deinen Look mit diesen {{ product }}",
+      "cart_sub_and_save_title": "Wechsle zu einem monatlichen Abonnement",
+      "cart_more_info": "Mehr Infos",
+      "sub_quickbuy_reason_one": "Kostenlose Socken bei jeder Abonnement-Bestellung",
+      "sub_quickbuy_reason_two": "Kostenloser Standardversand für alle OddBalls-Bestellungen!",
+      "sub_quickbuy_reason_three": "Jeden Monat ein brandneues Design erhalten",
+      "sub_quickbuy_reason_four": "Jederzeit kündbar – keine Verpflichtung!",
+      "sub_quickbuy_size": "Größen",
+      "ctl_matching_pair": "Passendes Paar hinzufügen",
+      "ctl_matching_bralette": "Passendes Bralette hinzufügen",
+      "ctl_matching_towel": "Passendes Handtuch hinzufügen",
+      "ctl_matching_sock": "Passende Socke hinzufügen"
+    }
+  },
+  "ob_footer": {
+    "newletter_heading": "Abonnieren Sie unseren Newsletter",
+    "newletter_subheading": "Melden Sie sich für unseren Newsletter an und erhalten Sie exklusive Angebote und Rabatte!"
+  },
+   "ob_label": {
+    "save": "sparen",
+    "off_sale": "im Angebot"
+  },
+  "js": {
+    "collection": {
+      "see_more": "mehr sehen",
+      "quick_buy": "schnell kaufen",
+      "add_another": "noch eins hinzufügen",
+      "percent_saving": "% RABATTANGEBOT",
+      "value_saving": "Spare $",
+      "filters": {
+        "price": "Preis",
+        "size": "Größe",
+        "material": "Material",
+        "bundle": "Paket",
+        "print": "Druck",
+        "pattern": "Muster",
+        "product_type": "Produkttyp",
+        "primary_color": "Hauptfarbe",
+        "3XL": "3XL",
+        "2xL": "2XL",
+        "xL": "XL",
+        "large": "Groß",
+        "medium": "Mittel",
+        "small": "Klein",
+        "xs": "XS",
+        "2xs": "2XS",
+        "bamboo": "Bambus",
+        "cotton": "Baumwolle",  
+        "individual": "Einzeln",
+        "partnership": "Partnerschaft",
+        "patterned": "Gemustert",
+        "plain": "Einfarbig",
+        "bamboo_boxer_shorts": "Bambus-Boxershorts",
+        "boxer_shorts": "Boxershorts",
+        "boxer_shorts_bundle": "Boxershorts-Paket",
+        "dad_and_lad_bundle": "Vater-und-Sohn-Paket",
+        "loose_fit_boxer_shorts": "Locker sitzende Boxershorts",
+        "mens_bamboo_boxer_shorts_bundle": "Herren-Bambus-Boxershorts-Paket",
+        "subscription": "Abonnement",
+        "teen_boys_boxer_shorts": "Boxershorts für Teenager-Jungen",
+        "black": "Schwarz",
+        "blue": "Blau",
+        "brown": "Braun",
+        "green": "Grün",
+        "grey": "Grau",
+        "orange": "Orange",
+        "pink": "Rosa",
+        "red": "Rot",
+        "violet": "Violett",
+        "white": "Weiß",
+        "yellow": "Gelb"
+      }
+    },
+    "perfect_pair": {
+        "see_more": "Meer zien",
+        "quick_buy": "Snel kopen",
+        "add_another": "Voeg een andere toe",
+         "set_price": "Setprijs",
+         "remove": "verwijderen"
+      },
+    "bab": {
+      "empty_button": "bitte wählen Sie eine Größe",
+      "full_button": "erstellen Sie Ihr Bundle",
+      "select_prints": "bitte wählen Sie Drucke",
+      "add_to_cart": "Bundle in den Warenkorb legen"
+    },
+    "search" : {
+      "search_terms": {
+      "fat_cow": "fat cow",
+      "neon_lava": "neon lava",
+      "mens_boxers": "mens boxers",
+      "hippy_jungle" :  "hippy jungle",
+      },
+      "or_maybe" : "oder vielleicht ",
+      "try": "versuchen ",
+      "search_for_products": "nach Produkten suchen",
+      "see_more": "mehr sehen",
+      "quick_buy": "schnell kaufen"
+
+    },
+    "collections": {
+      "see_more": "mehr sehen",
+      "quick_buy": "schnell kaufen",
+      "add_another": "noch eins hinzufügen",
+      "percent_saving": "% RABATTANGEBOT",
+      "value_saving": "Spare $"
+    },
+    "custom": {
+      "add_to_basket": "In den Warenkorb legen",
+      "item": "Artikel",
+      "items": "Artikel",
+      "please_select_size_html": "Bitte {{ size }} auswählen"
+    },
+    "cart" :{
+      "upsells": {
+        "1": "Bestelle 1 weitere Artikel ",
+        "2": "Bestelle 2 weitere Artikel ",
+        "3": "Bestelle 3 weitere Artikel ",
+        "4": "Bestelle 4 weitere Artikel ",
+        "and_save_x" : "und spare £x",
+        "missed_offer": "verpasstes Angebot",
+        "mens": "Herren-",
+        "womens": "Damen-",
+        "ladies": "Damen-",
+        "boxers": "Boxershorts ",
+        "briefs": "Slips ",
+        "bamboo": "Bambus ",
+        "thong": "Strings ",
+        "seamless": "Nahtlos ",
+        "full_seamless": "Vollständig nahtlos",
+        "bundle": "pac ",
+        "youve_saved_x": "Du hast £x gespart!",
+        "upgrade_and_save": "Upgrade und sparen"
+      }
+    }
+  },
+  "ob_bab":{
+  "bab_intro": "Wählen Sie die Designs, die SIE möchten, indem Sie Ihr eigenes Bundle erstellen. Wählen Sie Ihren Unterwäschetyp und Ihre Größe aus, dann können Sie Ihre MUSTER auswählen!",
+  "bab_save_up_to": "Sparen Sie bis zu 33%!",
+  "bab_title": "Erstelle ein Bundle",
+  "mens": "Herren",
+  "womens": "Damen",
+  "continue": "Weiter einkaufen",
+  "checkouta": "Zur Kasse",
+  "checkout": "Sie können unten zur Kasse gehen oder weiter einkaufen.",
+  "your_saving": "Sie sparen",
+  "boxers": "Boxershorts",
+  "bundle_added": "Ihr Bundle wurde zu Ihrem Warenkorb hinzugefügt!",
+  "alternatively": "oder alternativ",
+  "briefs": "Slips",
+  "add_to_bundle": "Zum Bundle hinzufügen",
+  "thongs": "Strings",
+  "pairs": "Paare",
+  "edit_selection": "Auswahl bearbeiten",
+  "please_select_pairs": "Bitte wählen Sie Muster aus",
+  "bundle_price": "Bundle-Preis",
+  "another": "Ein weiteres Bundle erstellen",
+  "start_again": "Neu beginnen",
+  "seamless": "Nahtlos",
+  "items_in_bundle": "Artikel in Ihrem Bundle",
+  "bamboo": "Bambus",
+  "empty": "Das Bundle ist leer, fügen Sie einige Artikel hinzu",
+  "patterned": "Gemustert",
+  "plain": "Einfarbig",
+  "empty_button": "Bitte wählen Sie eine Größe",
+  "current_size": "Aktuelle Größe",
+  "sizes": "Größen",
+  "add_more_to_save_html": "Fügen Sie <b class=\"green\"><span id=\"saver-bar-number-of-pairs\" class=\"saver-bar-number-of-pairs\">{{ current_bundle.tier.value.buy_1 }}</span> weitere hinzu</b> und sparen Sie <b class=\"green\">£<span class=\"saver-progress-savings\"></span> !</b>",
+  "price_per_pair": "Preis pro Paar",
+  "fun_part": "Jetzt kommt der spaßige Teil!",
+  "instructions": "Wählen Sie Designs aus, um Einsparungen zu sehen. Klicken Sie auf 'Zum Bundle hinzufügen', wenn Sie fertig sind!",
+  "loading_message": "Wir suchen Ihre Unterwäsche",
+  "full_seamless": "Vollständig nahtlos",
+  "select_type": "Wählen Sie eine Produktart"
+},
+  "ob_perfect_pair": {
+    "back": "zurück",
+    "loose_fit_boxers": "lockere Passform",
+    "home_slide": {
+      "free_shipping_text": "Kostenloser Versand im Vereinigten Königreich bei allen Bestellungen über £35",
+      "intro_text": "Finde das perfekte Paar mit unserem Matchmaking-Unterwäsche-Service. Kaufe passende Unterwäsche für dich und jemanden Besonderen!",
+      "1st_pair_heading": "1. Paar",
+      "department_intoduction": "Zuerst du, welche Art von Unterwäsche trägst du?",
+      "mens": "Herren",
+      "womens": "Damen",
+      "prod_type_introduction": "Wähle eine Produktart",
+      "boxers": "Boxershorts",
+      "briefs": "Slips",
+      "bamboo": "Bambus",
+      "thongs": "Strings",
+      "seamless": "Nahtlos",
+      "full_seamless": "Vollständig nahtlos",
+      "size_heading": "Größen",
+      "size_guide": "Größentabelle",
+      "unavailable_button": "Bitte wähle eine Größe aus",
+      "available_button": "Weiter zum nächsten Paar"
+    },
+    "slide_2": {
+      "2nd_pair_heading": "2. Paar",
+      "department_intoduction": "Welche Art von Unterwäsche tragen sie?",
+      "mens": "Herren",
+      "womens": "Damen",
+      "prod_type_introduction": "Wähle eine Produktart",
+      "boxers": "Boxershorts",
+      "briefs": "Slips",
+      "bamboo": "Bambus",
+      "thongs": "Strings",
+      "seamless": "Nahtlos",
+      "full_seamless": "Vollständig nahtlos",
+      "size_heading": "Größen",
+      "size_guide": "Größentabelle",
+      "unavailable_button": "Bitte wähle eine Größe aus",
+      "available_button": "Sieh dir deine Ergebnisse an"
+    },
+    "loading_screen": {
+      "loading": "Finde deine Paare"
+    },
+    "results_screen": {
+      "title": "Was für ein perfektes Paar!",
+      "selected_print": "Der ausgewählte Druck ist",
+      "patterned": "gemustert",
+      "plain": "einfarbig",
+      "no_plain": "kein Einfarbiges verfügbar",
+      "prints_available_in": "Drucke verfügbar in",
+      "add_bralette": "Passendes Bralette hinzufügen",
+      "add_socks": "Passende Socken hinzufügen",
+      "no_socks": "Keine Socken verfügbar",
+      "show_more": "Mehr anzeigen",
+      "show_less": "Weniger anzeigen",
+      "set_price": "Set Preis",
+      "add_to_cart": "In den Warenkorb legen",
+      "back": "Zurück",
+      "pair_1": "Paar 1",
+      "pair_2": "Paar 2"
+    }
+  },
+  "general": {
+    "breadcrumb": {
+      "homepage": "Startseite",
+      "collections": "Kollektionen",
+      "search": "Suchergebnisse für \"{{ terms }}\"",
+      "blog": "Blog",
+      "account": "Konto",
+      "cart": "Warenkorb",
+      "product_type": {
+        "boxer_shorts": "Boxershorts",
+        "bamboo_boxer_shorts": "Bambus-Boxershorts",
+        "briefs": "Slips",
+        "socks": "Socken",
+        "bralette": "Bralette",
+        "ladies_boxers": "Damen-Boxershorts",
+        "low_rise_briefs": "Tief sitzende Slips",
+        "thong": "Tanga",
+        "seamless": "Nahtlos",
+        "ladies_bamboo_boxers": "Damen-Bambus-Boxershorts",
+        "goolies": "Goolies",
+        "boxer_shorts_bundle": "Boxershorts-Bundle",
+        "mens_bamboo_boxer_shorts_bundle": "Herren-Bambus-Boxershorts-Bundle",
+        "mens_brief_bundle": "Herren-Slip-Bundle",
+        "ankle_socks_bundle": "Knöchelsocken-Bundle",
+        "bralette_bundle": "Bralette-Bundle",
+        "ladies_brief_bundle": "Damen-Slip-Bundle",
+        "ladies_seamless_bundle": "Damen-Nahtlos-Bundle",
+        "ladies_bamboo_boxer_shorts_bundle": "Damen-Bambus-Boxershorts-Bundle",
+        "ladies_thong_bundle": "Damen-Tanga-Bundle"
+      }  
+    },
+    "password_page": {
+      "login_form_heading": "Shop mit Passwort betreten:",
+      "login_password_button": "Mit Passwort betreten",
+      "login_form_password_label": "Passwort",
+      "login_form_password_placeholder": "Dein Passwort",
+      "login_form_error": "Falsches Passwort!",
+      "login_form_submit": "Eingeben",
+      "admin_link_html": "Bist du der Shop-Inhaber? <a href=\"/admin\" class=\"link underlined-link\">Hier einloggen</a>",
+      "powered_by_shopify_html": "Dieser Shop wird unterstützt von {{ shopify }}"
+    },
+    "social": {
+      "alt_text": {
+        "share_on_facebook": "Auf Facebook teilen",
+        "share_on_twitter": "Auf X teilen",
+        "share_on_pinterest": "Auf Pinterest pinnen"
+      },
+      "links": {
+        "twitter": "X (Twitter)",
+        "facebook": "Facebook",
+        "pinterest": "Pinterest",
+        "instagram": "Instagram",
+        "tumblr": "Tumblr",
+        "snapchat": "Snapchat",
+        "youtube": "YouTube",
+        "vimeo": "Vimeo",
+        "tiktok": "TikTok"
+      }
+    },
+    "continue_shopping": "Weiter shoppen",
+    "pagination": {
+      "label": "Seitennummerierung",
+      "page": "Seite {{ number }}",
+      "next": "Nächste Seite",
+      "previous": "Vorherige Seite"
+    },
+    "search": {
+      "search": "Suchen",
+      "reset": "Suchbegriff zurücksetzen"
+    },
+    "cart": {
+      "view": "Warenkorb ansehen ({{ count }})",
+      "item_added": "Artikel wurde in den Warenkorb gelegt",
+      "view_empty_cart": "Warenkorb ansehen"
+    },
+    "share": {
+      "copy_to_clipboard": "Link kopieren",
+      "share_url": "Link",
+      "success_message": "Link in die Zwischenablage kopiert",
+      "close": "Teilen schließen"
+    },
+    "slider": {
+      "of": "von",
+      "next_slide": "Nach rechts schieben",
+      "previous_slide": "Nach links schieben",
+      "name": "Slider"
+    }
+  },
+  "newsletter": {
+    "label": "E-Mail",
+    "email_placeholder": "E-Mail-Adresse",
+    "success": "Danke für deine Anmeldung",
+    "button_label": "Abonnieren"
+  },
+  "accessibility": {
+    "skip_to_text": "Direkt zum Inhalt",
+    "close": "Schließen",
+    "unit_price_separator": "pro",
+    "vendor": "Anbieter:",
+    "error": "Fehler",
+    "refresh_page": "Wenn du dich für eine Auswahl entscheidest, wird die Seite komplett aktualisiert.",
+    "link_messages": {
+      "new_window": "Wird in einem neuen Fenster geöffnet.",
+      "external": "Öffnet externe Webseite."
+    },
+    "loading": "Wird geladen ...",
+    "skip_to_product_info": "Zu Produktinformationen springen",
+    "total_reviews": "Bewertungen insgesamt",
+    "star_reviews_info": "{{ rating_value }} von {{ rating_max }} Sternen",
+    "collapsible_content_title": "Einklappbarer Inhalt",
+    "complementary_products": "Ergänzende Produkte"
+  },
+  "blogs": {
+    "article": {
+      "blog": "Blog",
+      "read_more_title": "Weiterlesen: {{ title }}",
+      "comments": {
+        "one": "{{ count }} Kommentar",
+        "other": "{{ count }} Kommentare"
+      },
+      "moderated": "Bitte beachte, dass Kommentare vor der Veröffentlichung freigegeben werden müssen.",
+      "comment_form_title": "Hinterlasse einen Kommentar",
+      "name": "Name",
+      "email": "E-Mail",
+      "message": "Kommentar",
+      "post": "Kommentar posten",
+      "back_to_blog": "Zurück zum Blog",
+      "share": "Diesen Artikel teilen",
+      "success": "Dein Kommentar wurde erfolgreich gepostet! Vielen Dank!",
+      "success_moderated": "Dein Kommentar wurde erfolgreich gepostet. Da unser Blog moderiert wird, werden wir ihn erst kurze Zeit später veröffentlichen."
+    }
+  },
+  "onboarding": {
+    "product_title": "Beispiel für Produkttitel",
+    "collection_title": "Name deiner Kollektion"
+  },
+  "products": {
+    "product": {
+      "add_to_cart": "In den Warenkorb legen",
+      "description": "Beschreibung",
+      "on_sale": "Sale",
+      "quantity": {
+        "label": "Anzahl",
+        "input_label": "Anzahl von {{ product }}",
+        "increase": "Erhöhe die Menge für {{ product }}",
+        "decrease": "Verringere die Menge für {{ product }}",
+        "minimum_of": "Mindestens {{ quantity }}",
+        "maximum_of": "Maximal {{ quantity }}",
+        "multiples_of": "In {{ quantity }}er Schritten",
+        "in_cart_html": "<span class=\"quantity-cart\">{{ quantity }}</span> im Warenkorb",
+        "note": "Mengenregeln anzeigen",
+        "min_of": "Mindestens {{ quantity }}",
+        "max_of": "Höchstens {{ quantity }}"
+      },
+      "price": {
+        "from_price_html": "Von {{ price }}",
+        "regular_price": "Normaler Preis",
+        "sale_price": "Verkaufspreis",
+        "unit_price": "Stückpreis"
+      },
+      "share": "Dieses Produkt teilen",
+      "sold_out": "Ausverkauft",
+      "unavailable": "Nicht verfügbar",
+      "vendor": "Anbieter",
+      "video_exit_message": "{{ title }} öffnet das Video auf derselben Seite im Vollbildmodus.",
+      "xr_button": "In deinem Bereich ansehen",
+      "xr_button_label": "\"Ansicht in deinem Raum\" lädt den Artikel in ein Augmented-Reality-Fenster",
+      "pickup_availability": {
+        "view_store_info": "Shop-Informationen anzeigen",
+        "check_other_stores": "Verfügbarkeit in anderen Shops überprüfen",
+        "pick_up_available": "Abholung verfügbar",
+        "pick_up_available_at_html": "Abholung bei <span class=\"color-foreground\">{{ location_name }}</span> verfügbar",
+        "pick_up_unavailable_at_html": "Abholung bei <span class=\"color-foreground\">{{ location_name }}</span> derzeit nicht verfügbar",
+        "unavailable": "Verfügbarkeit für Abholungen konnte nicht geladen werden",
+        "refresh": "Aktualisieren"
+      },
+      "media": {
+        "open_media": "Medien {{ index }} in Modal öffnen",
+        "play_model": "3D-Viewer abspielen",
+        "play_video": "Video abspielen",
+        "gallery_viewer": "Galerie-Viewer",
+        "load_image": "Bild {{ index }} in Galerieansicht laden",
+        "load_model": "3D-Modell {{ index }} in Galerieansicht laden",
+        "load_video": "Video {{ index }} in Galerieansicht abspielen",
+        "image_available": "Bild {{ index }} ist nun in der Galerieansicht verfügbar"
+      },
+      "view_full_details": "Vollständige Details anzeigen",
+      "include_taxes": "inkl. MwSt.",
+      "shipping_policy_html": "<a href=\"{{ link }}\">Versand</a> wird beim Checkout berechnet",
+      "choose_options": "Optionen auswählen",
+      "choose_product_options": "Optionen für {{ product_name }} auswählen",
+      "value_unavailable": "{{ option_value }} – nicht verfügbar",
+      "variant_sold_out_or_unavailable": "Variante ausverkauft oder nicht verfügbar",
+      "inventory_in_stock": "Auf Lager",
+      "inventory_in_stock_show_count": "{{ quantity }} auf Lager",
+      "inventory_low_stock": "Niedriger Lagerbestand",
+      "inventory_low_stock_show_count": "Niedriger Lagerbestand: {{ quantity }} verbleibend",
+      "inventory_out_of_stock": "Nicht vorrätig",
+      "inventory_out_of_stock_continue_selling": "Auf Lager",
+      "sku": "SKU",
+      "volume_pricing": {
+        "title": "Volumenabhängige Preisgestaltung",
+        "note": "Volumenabhängige Preisgestaltung verfügbar",
+        "minimum": "{{ quantity }}+",
+        "price_at_each": "bei {{ price }}/Stück",
+        "price_range": "{{ minimum }}–{{ maximum }}"
+      },
+      "product_variants": "Produktvarianten"
+    },
+    "modal": {
+      "label": "Medien-Galerie"
+    },
+    "facets": {
+      "apply": "Anwenden",
+      "clear": "Löschen",
+      "clear_all": "Alle entfernen",
+      "from": "Von",
+      "filter_and_sort": "Filtern und sortieren",
+      "filter_by_label": "Filter:",
+      "filter_button": "Filter",
+      "filters_selected": {
+        "one": "{{ count }} ausgewählt",
+        "other": "{{ count }} ausgewählt"
+      },
+      "max_price": "Der höchste Preis ist {{ price }}",
+      "product_count": {
+        "one": "{{ product_count }} von {{ count }} Produkt",
+        "other": "{{ product_count }} von {{ count }} Produkten"
+      },
+      "product_count_simple": {
+        "one": "{{ count }} Produkt",
+        "other": "{{ count }} Produkte"
+      },
+      "reset": "Zurücksetzen",
+      "sort_button": "Sortieren",
+      "sort_by_label": "Sortieren nach:",
+      "to": "Bis",
+      "clear_filter": "Filter entfernen",
+      "filter_selected_accessibility": "{{ type }} ({{ count }} Filter ausgewählt)",
+      "show_more": "Mehr anzeigen",
+      "show_less": "Weniger anzeigen",
+      "filter_and_operator_subtitle": "Allen entsprechen"
+    }
+  },
+  "templates": {
+    "search": {
+      "no_results": "Keine Ergebnisse gefunden für \"{{ terms }}\". Überprüfe die Schreibweise oder versuche es mit einer anderen Suchanfrage.",
+      "results_with_count": {
+        "one": "{{ count }} Ergebnis",
+        "other": "{{ count }} Ergebnisse"
+      },
+      "title": "Suchergebnisse",
+      "page": "Seite",
+      "products": "Produkte",
+      "search_for": "Nach \"{{ terms }}\" suchen",
+      "results_with_count_and_term": {
+        "one": "{{ count }} Ergebnis für \"{{ terms }}\" gefunden",
+        "other": "{{ count }} Ergebnisse für \"{{ terms }}\" gefunden"
+      },
+      "results_pages_with_count": {
+        "one": "{{ count }} Seite",
+        "other": "{{ count }} Seiten"
+      },
+      "results_suggestions_with_count": {
+        "one": "{{ count }} Vorschlag",
+        "other": "{{ count }} Vorschläge"
+      },
+      "results_products_with_count": {
+        "one": "{{ count }} Produkt",
+        "other": "{{ count }} Produkte"
+      },
+      "suggestions": "Vorschläge",
+      "pages": "Seiten"
+    },
+    "cart": {
+      "cart": "Warenkorb"
+    },
+    "contact": {
+      "form": {
+        "name": "Name",
+        "email": "E-Mail",
+        "phone": "Telefonnummer",
+        "comment": "Kommentar",
+        "send": "Senden",
+        "post_success": "Danke, dass du uns kontaktiert hast. Wir werden uns so schnell wie möglich bei dir melden.",
+        "error_heading": "Bitte passe Folgendes an:",
+        "title": "Kontaktformular"
+      }
+    },
+    "404": {
+      "title": "Seite nicht gefunden",
+      "subtext": "404",
+      "shop_bestsellers": "Shoppen sie unsere beliebtesten Kollektionen"
+    }
+  },
+  "sections": {
+    "header": {
+      "announcement": "Ankündigung",
+      "menu": "Menü",
+      "cart_count": {
+        "one": "{{ count }} Artikel",
+        "other": "{{ count }} Artikel"
+      }
+    },
+    "cart": {
+      "title": "Dein Warenkorb",
+      "caption": "Artikel im Warenkorb",
+      "remove_title": "{{ title }} entfernen",
+      "note": "Spezielle Bestellanweisungen",
+      "checkout": "Auschecken",
+      "empty": "Dein Warenkorb ist leer",
+      "cart_error": "Beim Aktualisieren deines Warenkorbs ist ein Fehler aufgetreten. Bitte versuche es erneut.",
+      "cart_quantity_error_html": "Du kannst deinem Warenkorb nur {{ quantity }} Stück dieses Artikels hinzufügen.",
+      "taxes_and_shipping_policy_at_checkout_html": "Steuern, Rabatte und <a href=\"{{ link }}\">Versand</a> werden beim Checkout berechnet",
+      "taxes_included_but_shipping_at_checkout": "Inklusive Steuern, Versand und Rabatte werden beim Checkout berechnet",
+      "taxes_included_and_shipping_policy_html": "Inklusive Steuern. <a href=\"{{ link }}\">Versand</a> und Rabatte werden beim Checkout berechnet.",
+      "taxes_and_shipping_at_checkout": "Steuern, Rabatte und Versand werden beim Checkout berechnet",
+      "headings": {
+        "product": "Produkt",
+        "price": "Preis",
+        "total": "Gesamtsumme",
+        "quantity": "Anzahl",
+        "image": "Produktbild"
+      },
+      "update": "Aktualisieren",
+      "login": {
+        "title": "Hast du ein Konto?",
+        "paragraph_html": "<a href=\"{{ link }}\" class=\"link underlined-link\">Logge dich ein</a>, damit es beim Checkout schneller geht."
+      },
+      "estimated_total": "Geschätzte Gesamtkosten",
+      "new_estimated_total": "Neuer geschätzter Gesamtbetrag"
+    },
+    "footer": {
+      "payment": "Zahlungsmethoden"
+    },
+    "featured_blog": {
+      "view_all": "Alle anzeigen",
+      "onboarding_title": "Blog-Beitrag",
+      "onboarding_content": "Verschaffe deinen Kunden eine Übersicht über deinen Blog-Beitrag"
+    },
+    "featured_collection": {
+      "view_all": "Alle anzeigen",
+      "view_all_label": "Alle Produkte in der Kollektion {{ collection_name }} anzeigen"
+    },
+    "collection_list": {
+      "view_all": "Alle anzeigen"
+    },
+    "collection_template": {
+      "title": "Kategorie",
+      "empty": "Keine Produkte gefunden",
+      "use_fewer_filters_html": "Verwende weniger Filter oder <a class=\"{{ class }}\" href=\"{{ link }}\">entferne alle</a>"
+    },
+    "video": {
+      "load_video": "Video laden: {{ description }}"
+    },
+    "slideshow": {
+      "load_slide": "Folie laden",
+      "previous_slideshow": "Vorherige Folie",
+      "next_slideshow": "Nächste Folie",
+      "pause_slideshow": "Slideshow pausieren",
+      "play_slideshow": "Slideshow abspielen",
+      "carousel": "Karussell",
+      "slide": "Folie"
+    },
+    "page": {
+      "title": "Seitentitel"
+    },
+    "announcements": {
+      "previous_announcement": "Vorherige Ankündigung",
+      "next_announcement": "Nächste Ankündigung",
+      "carousel": "Karussell",
+      "announcement": "Ankündigung",
+      "announcement_bar": "Ankündigungsleiste"
+    },
+    "quick_order_list": {
+      "product_total": "Produktzwischensumme",
+      "view_cart": "Warenkorb ansehen",
+      "each": "{{ money }}/Stück",
+      "product": "Produkt",
+      "variant": "Variante",
+      "variant_total": "Varianten insgesamt",
+      "items_added": {
+        "one": "{{ quantity }} Artikel hinzugefügt",
+        "other": "{{ quantity }} Artikel hinzugefügt"
+      },
+      "items_removed": {
+        "one": "{{ quantity }} Artikel entfernt",
+        "other": "{{ quantity }} Artikel entfernt"
+      },
+      "product_variants": "Produktvarianten",
+      "total_items": "Artikel gesamt",
+      "remove_all_items_confirmation": "Alle {{ quantity }} Artikel aus deinem Warenkorb entfernen?",
+      "remove_all": "Alle entfernen",
+      "cancel": "Abbrechen",
+      "remove_all_single_item_confirmation": "1 Artikel aus dem Warenkorb entfernen?",
+      "min_error": "Dieser Artikel hat ein Minimum von {{ min }}",
+      "max_error": "Dieser Artikel hat ein Maximum von {{ max }}",
+      "step_error": "Du kannst diesen Artikel nur in Abstufungen von {{ step }} hinzufügen."
+    }
+  },
+  "localization": {
+    "country_label": "Land/Region",
+    "language_label": "Sprache",
+    "update_language": "Sprache aktualisieren",
+    "update_country": "Land/Region aktualisieren",
+    "search": "Suchen",
+    "popular_countries_regions": "Beliebte Länder/Regionen",
+    "country_results_count": "{{ count }} Länder/Regionen gefunden"
+  },
+  "customer": {
+    "account": {
+      "title": "Konto",
+      "details": "Kontodetails",
+      "view_addresses": "Adressen anzeigen",
+      "return": "Zurück zu Kontodetails"
+    },
+    "account_fallback": "Konto",
+    "activate_account": {
+      "title": "Konto aktivieren",
+      "subtext": "Erstelle ein Passwort, um dein Konto zu aktiveren.",
+      "password": "Passwort",
+      "password_confirm": "Passwort bestätigen",
+      "submit": "Konto aktivieren",
+      "cancel": "Einladung ablehnen"
+    },
+    "addresses": {
+      "title": "Adressen",
+      "default": "Standard",
+      "add_new": "Neue Adresse hinzufügen",
+      "edit_address": "Adresse bearbeiten",
+      "first_name": "Vorname",
+      "last_name": "Nachname",
+      "company": "Unternehmen",
+      "address1": "Adresse 1",
+      "address2": "Adresse 2",
+      "city": "Ort",
+      "country": "Land/Region",
+      "province": "Bundesland/Provinz",
+      "zip": "PLZ",
+      "phone": "Telefonnummer",
+      "set_default": "Als Standard-Adresse festlegen",
+      "add": "Adresse hinzufügen",
+      "update": "Adresse aktualisieren",
+      "cancel": "Abbrechen",
+      "edit": "Bearbeiten",
+      "delete": "Löschen",
+      "delete_confirm": "Bist du sicher, dass du diese Adresse löschen möchtest?"
+    },
+    "log_in": "Einloggen",
+    "log_out": "Abmelden",
+    "login_page": {
+      "cancel": "Abbrechen",
+      "create_account": "Konto erstellen",
+      "email": "E-Mail",
+      "forgot_password": "Hast du dein Passwort vergessen?",
+      "guest_continue": "Fortfahren",
+      "guest_title": "Als Gast fortsetzen",
+      "password": "Passwort",
+      "title": "Login",
+      "sign_in": "Anmelden",
+      "submit": "Senden",
+      "alternate_provider_separator": "oder"
+    },
+    "orders": {
+      "title": "Bestellhistorie",
+      "order_number": "Bestellung",
+      "order_number_link": "Bestellnummer {{ number }}",
+      "date": "Datum",
+      "payment_status": "Zahlungsstatus",
+      "fulfillment_status": "Fulfillmentstatus",
+      "total": "Gesamtsumme",
+      "none": "Du hast noch keine Bestellungen aufgegeben."
+    },
+    "recover_password": {
+      "title": "Setze dein Passwort zurück",
+      "subtext": "Wir werden dir eine E-Mail zum Zurücksetzen deines Passworts schicken",
+      "success": "Wir haben dir eine E-Mail mit einem Link zum Aktualisieren deines Passworts geschickt."
+    },
+    "register": {
+      "sign_in": "Anmelden",
+      "sign_up": "Registrieren",
+      "my_account": "Mein Konto",
+      "sign_in_message": "Melden Sie sich in Ihrem Konto an, um den Checkout-Prozess zu beschleunigen!",
+      "title": "Konto erstellen",
+      "first_name": "Vorname",
+      "last_name": "Nachname",
+      "email": "E-Mail",
+      "password": "Passwort",
+      "submit": "Erstellen"
+    },
+    "reset_password": {
+      "title": "Passwort für Konto zurücksetzen",
+      "subtext": "Neues Passwort eingeben",
+      "password": "Passwort",
+      "password_confirm": "Passwort bestätigen",
+      "submit": "Passwort zurücksetzen"
+    },
+    "order": {
+      "title": "Bestellung {{ name }}",
+      "date_html": "Aufgegeben am {{ date }}",
+      "cancelled_html": "Bestellung storniert am {{ date }}",
+      "cancelled_reason": "Grund: {{ reason }}",
+      "billing_address": "Rechnungsadresse",
+      "payment_status": "Zahlungsstatus",
+      "shipping_address": "Lieferadresse",
+      "fulfillment_status": "Fulfillmentstatus",
+      "discount": "Rabatt",
+      "shipping": "Versand",
+      "tax": "Steuer",
+      "product": "Produkt",
+      "sku": "SKU",
+      "price": "Preis",
+      "quantity": "Menge",
+      "total": "Gesamtsumme",
+      "fulfilled_at_html": "Ausgeführt am {{ date }}",
+      "track_shipment": "Sendung nachverfolgen",
+      "tracking_url": "Tracking-Link",
+      "tracking_company": "Versanddienstleister",
+      "tracking_number": "Trackingnummer",
+      "subtotal": "Zwischensumme",
+      "total_duties": "Zollgebühren",
+      "total_refunded": "Zurückerstattet"
+    }
+  },
+  "gift_cards": {
+    "issued": {
+      "title": "Hier ist dein {{ value }}-Geschenkgutschein für {{ shop }}!",
+      "subtext": "Dein Geschenkgutschein",
+      "gift_card_code": "Gutscheincode",
+      "shop_link": "Onlineshop besuchen",
+      "add_to_apple_wallet": "Zu Apple Wallet hinzufügen",
+      "qr_image_alt": "QR-Code – Scannen, um Geschenkgutschein einzulösen",
+      "copy_code": "Geschenkgutscheincode kopieren",
+      "expired": "Abgelaufen",
+      "copy_code_success": "Code erfolgreich kopiert",
+      "how_to_use_gift_card": "Verwende diesen Geschenkgutscheincode online oder verwende den QR-Code im Shop",
+      "expiration_date": "Gültig bis {{ expires_on }}"
+    }
+  },
+  "recipient": {
+    "form": {
+      "checkbox": "Ich möchte dies als Geschenk senden",
+      "email_label": "Empfänger E-Mail",
+      "email": "E-Mail",
+      "name_label": "Name des Empfängers (optional)",
+      "name": "Name",
+      "message_label": "Nachricht (optional)",
+      "message": "Nachricht",
+      "max_characters": "Maximal {{ max_chars }} Zeichen",
+      "email_label_optional_for_no_js_behavior": "E-Mail-Adresse des Empfängers (optional)",
+      "send_on": "JJJJ-MM-TT",
+      "send_on_label": "Senden am (optional)",
+      "expanded": "Formular für den Empfänger des Geschenkgutscheins erweitert",
+      "collapsed": "Formular für den Empfänger des Geschenkgutscheins minimiert"
+    }
+  }
+}

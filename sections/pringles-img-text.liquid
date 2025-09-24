@@ -1,0 +1,57 @@
+{% schema %}
+  {
+    "name": "Pringles Text Image",
+        "presets": [
+      {
+        "name": "Pringles Text Image"
+      }
+  	],
+    "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+    ],
+    "blocks": [
+        {
+          "type": "text_block",
+          "name": "Text block",
+          "settings": [
+                {
+                  "type": "text",
+                  "id": "text",
+                  "label": "Text Block"
+                },
+                {
+                  "type": "text",
+                  "id": "class_list",
+                  "label": "block class list"
+                },
+          ]
+  }
+    ]
+  }
+{% endschema %}
+<div class="flex justify-center">
+  <div class="md:flex max-w-7xl gap-2 md:gap-4">
+    <div class="md:hidden px-4">
+      {% for block in section.blocks %}
+        <div class="{{ block.settings.class_list }} font-bebas mb-2 md:text-xl">
+          {{ block.settings.text }}
+        </div>
+      {% endfor %}
+    </div>
+    <div>
+      {{ section.settings.image | media_tag: image_size: '400x' }}
+    </div>
+    <div class="max-md:hidden">
+      {% for block in section.blocks %}
+        <div class="{{ block.settings.class_list }} font-bebas mb-2 md:text-xl">
+          {{ block.settings.text }}
+        </div>
+      {% endfor %}
+    </div>
+    
+  </div>
+</div>

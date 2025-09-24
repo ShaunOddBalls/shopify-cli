@@ -1,0 +1,1081 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "ob_text_video_slider_8irFTK": {
+      "type": "ob-text-video-slider",
+      "name": "Hero Slider",
+      "settings": {
+        "handle": "loyalty-lion",
+        "extra-attributes": "",
+        "section_wrapper_classes": "relative  js-loyality-modal",
+        "extra-logged-in": "",
+        "extra-logged-out": "",
+        "cta-setting": false,
+        "position": "start",
+        "title": "Title",
+        "title-text-classes": "text-3xl md:text-6xl capitalize dbl-cta-title pb-1 font-bebas",
+        "title-text-postion": "left",
+        "title-text-size": 18,
+        "title-color": "",
+        "desktop-title-text-size": 32,
+        "paragragh": "My Paragraph",
+        "p-classes": "",
+        "paragraph-text-postion": "left",
+        "paragragh-font-size": 12,
+        "paragraph-color": "",
+        "desktop-paragraph-text-size": 18,
+        "btn-one-text": "button one",
+        "btn-one-classes": "px-8 relative p-2 rounded-md uppercase btn-shadow-lg block border-solid border-2 border-md border-black text-black font-semibold text-center  transition-colors duration-200",
+        "btn-1-url": "",
+        "btn-one-color": "#ffffff",
+        "btn-one-bg-color": "#000000",
+        "btn-two-text": "button two",
+        "btn-two-classes": "px-8 relative p-2 rounded-md uppercase btn-shadow-lg block border-solid border-2 border-md border-black text-black font-semibold text-center  transition-colors duration-200",
+        "btn-2-url": "",
+        "btn-two-color": "#000000",
+        "btn-two-bg-color": "#ffffff",
+        "button-postion": "start"
+      }
+    },
+    "tw_card_section_GCEYMx": {
+      "type": "tw-card-section",
+      "blocks": {
+        "title_iMGQ6C": {
+          "type": "title",
+          "settings": {
+            "text": "GET REWARDED IN 4 EASY STEPS",
+            "wrapper-classes": "",
+            "logged_in": "",
+            "logged_out": "",
+            "classes": "text-2xl md:text-3xl uppercase font-semibold text-center",
+            "btn_attr": ""
+          }
+        },
+        "card_hGzqC9": {
+          "type": "card",
+          "settings": {
+            "classes": "",
+            "title": "1. Copy your code",
+            "title_classes": "text-3xl text-center montserrat text-magenta pb-2",
+            "paragraph": "Grab your 25% discount code and apply it at checkout!",
+            "para_class": "text-center mx-auto  text-base md:text-lg  text-stone-950",
+            "svg": "",
+            "img": "shopify://shop_images/GetCode.svg"
+          }
+        },
+        "card_q7TYjX": {
+          "type": "card",
+          "settings": {
+            "classes": "",
+            "title": "2. Shop",
+            "title_classes": "text-3xl text-center montserrat text-magenta pb-2",
+            "paragraph": "Shop any full-priced item in store!",
+            "para_class": "text-center mx-auto  text-base md:text-lg  text-stone-950",
+            "svg": "",
+            "img": "shopify://shop_images/Basket.svg"
+          }
+        },
+        "card_wntXJ8": {
+          "type": "card",
+          "settings": {
+            "classes": "",
+            "title": "3. Reward",
+            "title_classes": "text-3xl text-center montserrat text-magenta pb-2",
+            "paragraph": "Enter your code at checkout and 25% of the order will be discounted",
+            "para_class": "text-center mx-auto  text-base md:text-lg  text-stone-950",
+            "svg": "",
+            "img": "shopify://shop_images/Rewards.svg"
+          }
+        },
+        "card_A4qwXp": {
+          "type": "card",
+          "settings": {
+            "classes": "",
+            "title": "4. Share",
+            "title_classes": "text-3xl text-center montserrat text-magenta pb-2",
+            "paragraph": "Share your unique code with a friend and earn even more rewards!",
+            "para_class": "text-center mx-auto  text-base md:text-lg  text-stone-950",
+            "svg": "",
+            "img": "shopify://shop_images/Share.svg"
+          }
+        },
+        "button_ajRhpE": {
+          "type": "button",
+          "settings": {
+            "text": "Redeem your code",
+            "wrapper-classes": "rounded-full uppercase bg-magenta px-5 py-2 rounded-full js-loyality-modal inline-block text-white  cursor-pointer mt-6 font-semibold items-center max-w-2xl w-full max-w-lg",
+            "text-classes": "js-loyality-modal",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "title_iMGQ6C",
+        "card_hGzqC9",
+        "card_q7TYjX",
+        "card_wntXJ8",
+        "card_A4qwXp",
+        "button_ajRhpE"
+      ],
+      "name": "card section",
+      "settings": {
+        "section-wrap": "px-3",
+        "grid-classes": "grid grid-cols-2 lg:grid-cols-4 mx-auto"
+      }
+    },
+    "ob_text_and_swiper_EimmVw": {
+      "type": "ob-text-and-swiper",
+      "blocks": {
+        "slide_dWn764": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/ABOUT_US_-__TRUSTPILOT_REVIEW_6.png"
+          }
+        },
+        "slide_UKkxG9": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/ABOUT_US_-__TRUSTPILOT_REVIEW_5.png"
+          }
+        },
+        "slide_gXjyXd": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/ABOUT_US_-__TRUSTPILOT_REVIEW_1.png"
+          }
+        },
+        "slide_BqNjnn": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/ABOUT_US_-__TRUSTPILOT_REVIEW_2.png"
+          }
+        },
+        "slide_AcrPM6": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/ABOUT_US_-__TRUSTPILOT_REVIEW_3.png"
+          }
+        }
+      },
+      "block_order": [
+        "slide_dWn764",
+        "slide_UKkxG9",
+        "slide_gXjyXd",
+        "slide_BqNjnn",
+        "slide_AcrPM6"
+      ],
+      "settings": {
+        "title": "Join the Pants Party...",
+        "heading_classes": "text-2xl md:text-3xl uppercase font-semibold mb-6 text-center md:text-left",
+        "text": "Founded in 2014, OddBalls was created to shake up the boring underwear market with bold, vibrant designs. <br><br>\n\nOur mission has been to bring joy and comfort through colourful prints and top-quality products—whether you wear boxers, briefs, or knickers, there’s something for everyone.\n\n<br><br>Our designs are made to make a statement, with bold prints like Fat Cow, Tartan, and Filthy Animal. Or try our classic range for the same comfort in a subtle look. <br><br>",
+        "image": "shopify://shop_images/ABOUT_US_-__TRUSTPILOT_LOGO.png",
+        "btn-text": "Shop Now",
+        "btn-classes": "rounded-full uppercase px-5 py-2 rounded-full js-loyality-modal text-white  cursor-pointer mt-6 font-semibold items-center max-w-md border-solid border-black border-2 block mx-auto text-center hover:bg-gray-100 font-semibold",
+        "btn-bg-colour": "",
+        "btn-text-color": "#121212",
+        "btn-url": "shopify://collections/new"
+      }
+    },
+    "ob_trustpilot_image_swiper_mobile_f77ffk": {
+      "type": "ob-trustpilot-image-swiper-mobile",
+      "blocks": {
+        "slide_PVRByH": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/ABOUT_US_-__TRUSTPILOT_REVIEW_6.png"
+          }
+        },
+        "slide_xB7yd3": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/ABOUT_US_-__TRUSTPILOT_REVIEW_5.png"
+          }
+        },
+        "slide_3nNTN4": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/ABOUT_US_-__TRUSTPILOT_REVIEW_1.png"
+          }
+        },
+        "slide_XHG6Gm": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/ABOUT_US_-__TRUSTPILOT_REVIEW_2.png"
+          }
+        },
+        "slide_BMWFED": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/ABOUT_US_-__TRUSTPILOT_REVIEW_3.png"
+          }
+        },
+        "slide_89WDfg": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/ABOUT_US_-__TRUSTPILOT_REVIEW_4.png"
+          }
+        }
+      },
+      "block_order": [
+        "slide_PVRByH",
+        "slide_xB7yd3",
+        "slide_3nNTN4",
+        "slide_XHG6Gm",
+        "slide_BMWFED",
+        "slide_89WDfg"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/ABOUT_US_-__TRUSTPILOT_LOGO.png"
+      }
+    },
+    "ob_three_text_fields_XUyjUK": {
+      "type": "ob-three-text-fields",
+      "blocks": {
+        "text_lines_fRXRTT": {
+          "type": "text-lines",
+          "settings": {
+            "country_iso": "*",
+            "text-field-outer-wrapper-classes": "py-4 bg-[#f2f3f5]",
+            "text-field-inner-wrapper-classes": "text-2xl md:text-3xl uppercase font-semibold text-center",
+            "text-field-1": "AS SEEN ON",
+            "text-field-1-classes": "",
+            "text-field-2": "",
+            "text-field-2-classes": "",
+            "text-field-3": "",
+            "text-field-3-classes": "",
+            "text-field-4": "",
+            "text-field-4-classes": "",
+            "html-field": "",
+            "html-field-classes": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_lines_fRXRTT"
+      ],
+      "name": "Three Text Fields",
+      "settings": {}
+    },
+    "ob_conditional_banner_PD9BXt": {
+      "type": "ob-conditional-banner",
+      "blocks": {
+        "collection_banner_UwwRaL": {
+          "type": "collection-banner",
+          "settings": {
+            "block_active": true,
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": "",
+            "banner_background": "",
+            "wrapper_classes": "pb-4",
+            "title": "As seen on",
+            "text": "",
+            "customers": "both",
+            "url_handle": "*",
+            "not_url_handle": "",
+            "country_iso": "*",
+            "banner_link": "",
+            "desktop_image": "shopify://shop_images/AsSeenOn-Desktop.jpg",
+            "mobile_image": "shopify://shop_images/AsSeenOn-Mobile_eb5ecb7e-f11a-4fa2-95d9-6dfd32161f35.jpg",
+            "desktop_image_classes": "mx-auto w-full hidden md:block",
+            "mobile_image_classes": "mx-auto w-full md:hidden",
+            "desktop_svg": "",
+            "mobile_svg": "",
+            "desktop_svg_classes": "absolute inset-0 w-full h-full mx-auto hidden md:block",
+            "mobile_svg_classes": "absolute inset-0 w-full h-full mx-auto md:hidden"
+          }
+        }
+      },
+      "block_order": [
+        "collection_banner_UwwRaL"
+      ],
+      "name": "Conditional Banner",
+      "settings": {
+        "banner_background": "",
+        "wrapper_classes": ""
+      }
+    },
+    "ob_three_text_fields_JpyBeQ": {
+      "type": "ob-three-text-fields",
+      "blocks": {
+        "text_lines_HPEVEe": {
+          "type": "text-lines",
+          "settings": {
+            "country_iso": "*",
+            "text-field-outer-wrapper-classes": "",
+            "text-field-inner-wrapper-classes": "text-2xl md:text-3xl uppercase font-semibold text-center pt-4",
+            "text-field-1": "SHOP BY PRODUCT",
+            "text-field-1-classes": "",
+            "text-field-2": "",
+            "text-field-2-classes": "",
+            "text-field-3": "",
+            "text-field-3-classes": "",
+            "text-field-4": "",
+            "text-field-4-classes": "",
+            "html-field": "",
+            "html-field-classes": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_lines_HPEVEe"
+      ],
+      "name": "Three Text Fields",
+      "settings": {}
+    },
+    "lw_circles_V49dc9": {
+      "type": "loyalty-lion-circles",
+      "blocks": {
+        "image_block_iyAp8N": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/Cirlce-1_df0a856b-58e9-403c-95a1-e2a29c8b1fdc.png",
+            "page": "him-individuals",
+            "url": "",
+            "title": "",
+            "button-classes": "mt-4 text-center shadow-xl rounded-full w-full mx-auto max-w-[175px] bg-black",
+            "text-classes": "text-white px-2 py-1 font-bold text-xs uppercase lw-black rounded-full text-nowrap"
+          }
+        },
+        "image_block_CBy3kF": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/Cirlce-2_6dc30677-6619-4319-b3bc-17305c51d992.png",
+            "page": "ladies-boxer-shorts",
+            "url": "",
+            "title": "",
+            "button-classes": "mt-4 text-center shadow-xl rounded-full w-full mx-auto max-w-[175px] bg-black",
+            "text-classes": "text-white px-2 py-1 font-bold text-xs uppercase lw-black rounded-full text-nowrap"
+          }
+        },
+        "image_block_EKPUJz": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/Cirlce-6_622779d0-7c08-4178-88aa-a4c182e0580e.png",
+            "page": "bralette",
+            "url": "",
+            "title": "",
+            "button-classes": "mt-4 text-center shadow-xl rounded-full w-full mx-auto max-w-[175px] bg-black",
+            "text-classes": "text-white px-2 py-1 font-bold text-xs uppercase lw-black rounded-full text-nowrap"
+          }
+        },
+        "image_block_HpLrgY": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/Cirlce-4_5b228f68-6532-4834-aeac-e0131bf5afb5.png",
+            "page": "seamless-underwear",
+            "url": "",
+            "title": "",
+            "button-classes": "mt-4 text-center shadow-xl rounded-full w-full mx-auto max-w-[175px] bg-black",
+            "text-classes": "text-white px-2 py-1 font-bold text-xs uppercase lw-black rounded-full text-nowrap"
+          }
+        },
+        "image_block_hdkBFr": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/Cirlce-5_d13e00db-ba33-4461-812e-f2c9fed8f4e4.png",
+            "page": "his-briefs",
+            "url": "",
+            "title": "",
+            "button-classes": "mt-4 text-center shadow-xl rounded-full w-full mx-auto max-w-[175px] bg-black",
+            "text-classes": "text-white px-2 py-1 font-bold text-xs uppercase lw-black rounded-full text-nowrap"
+          }
+        },
+        "image_block_KNb3ia": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/Cirlce-3_86ac333a-c2ed-4102-b17b-4b2f66cce826.png",
+            "page": "ladies-thongs",
+            "url": "",
+            "title": "",
+            "button-classes": "mt-4 text-center shadow-xl rounded-full w-full mx-auto max-w-[175px] bg-black",
+            "text-classes": "text-white px-2 py-1 font-bold text-xs uppercase lw-black rounded-full text-nowrap"
+          }
+        }
+      },
+      "block_order": [
+        "image_block_iyAp8N",
+        "image_block_CBy3kF",
+        "image_block_EKPUJz",
+        "image_block_HpLrgY",
+        "image_block_hdkBFr",
+        "image_block_KNb3ia"
+      ],
+      "custom_css": [
+        ".grid.grid-cols-3.my-1.gap-x-10.gap-y-6 {padding: 0 0.75rem;}"
+      ],
+      "settings": {}
+    },
+    "marquee_info_slider_wD6dLH": {
+      "type": "marquee-info-slider",
+      "blocks": {
+        "collection_Uwaq93": {
+          "type": "collection",
+          "settings": {
+            "title": "The OddBalls Foundation",
+            "img": "shopify://shop_images/ABOUT_US_-__CHARITY_SQUARE_1.png",
+            "url": "https://theoddballsfoundation.com/"
+          }
+        },
+        "collection_tCiTMP": {
+          "type": "collection",
+          "settings": {
+            "title": "Dogs Trust",
+            "img": "shopify://shop_images/ABOUT_US_-__CHARITY_SQUARE_2.png",
+            "url": "shopify://collections/dogs-trust"
+          }
+        },
+        "collection_rJGJqn": {
+          "type": "collection",
+          "disabled": true,
+          "settings": {
+            "title": "Movember",
+            "img": "shopify://shop_images/ABOUT_US_-__CHARITY_SQUARE_9.png",
+            "url": "shopify://collections/movember"
+          }
+        },
+        "collection_9xeNbH": {
+          "type": "collection",
+          "settings": {
+            "title": "Bowel Cancer Uk",
+            "img": "shopify://shop_images/ABOUT_US_-__CHARITY_SQUARE_8.png",
+            "url": "shopify://collections/bowel-cancer-uk"
+          }
+        },
+        "collection_h6tyUV": {
+          "type": "collection",
+          "settings": {
+            "title": "Motor Neurones Disease",
+            "img": "shopify://shop_images/ABOUT_US_-__CHARITY_SQUARE_4.png",
+            "url": "shopify://collections/mnd-association"
+          }
+        },
+        "collection_6Wgkbd": {
+          "type": "collection",
+          "settings": {
+            "title": "Prostate Cancer Uk",
+            "img": "shopify://shop_images/ABOUT_US_-__CHARITY_SQUARE_7.png",
+            "url": "shopify://collections/prostate-cancer-uk"
+          }
+        },
+        "collection_4gDVwU": {
+          "type": "collection",
+          "settings": {
+            "title": "The Ambulance Staff",
+            "img": "shopify://shop_images/ABOUT_US_-__CHARITY_SQUARE_5.png",
+            "url": "shopify://collections/the-ambulance-staff-charity"
+          }
+        },
+        "collection_TXAwPV": {
+          "type": "collection",
+          "settings": {
+            "title": "The fire fighter Charity",
+            "img": "shopify://shop_images/ABOUT_US_-__CHARITY_SQUARE_10.png",
+            "url": "shopify://collections/design-firefighters-charity"
+          }
+        },
+        "collection_qUt7zw": {
+          "type": "collection",
+          "settings": {
+            "title": "Alzheimers research uk",
+            "img": "shopify://shop_images/ABOUT_US_-__CHARITY_SQUARE_12.png",
+            "url": "shopify://collections/alzheimers-research"
+          }
+        },
+        "collection_fxRGaU": {
+          "type": "collection",
+          "settings": {
+            "title": "My Name's Doddie",
+            "img": "shopify://shop_images/ABOUT_US_-__CHARITY_SQUARE_6.png",
+            "url": "shopify://collections/doddie-weir"
+          }
+        },
+        "collection_PDjWDw": {
+          "type": "collection",
+          "settings": {
+            "title": "Cat Protection",
+            "img": "shopify://shop_images/ABOUT_US_-__CHARITY_SQUARE_3.png",
+            "url": "shopify://collections/cats-protection"
+          }
+        }
+      },
+      "block_order": [
+        "collection_Uwaq93",
+        "collection_tCiTMP",
+        "collection_rJGJqn",
+        "collection_9xeNbH",
+        "collection_h6tyUV",
+        "collection_6Wgkbd",
+        "collection_4gDVwU",
+        "collection_TXAwPV",
+        "collection_qUt7zw",
+        "collection_fxRGaU",
+        "collection_PDjWDw"
+      ],
+      "custom_css": [
+        ".background-color {background: #00aae9;}"
+      ],
+      "settings": {
+        "mobile_background_image": "shopify://shop_images/MILLIMILLI_03_1.png",
+        "desktop_background_image": "shopify://shop_images/MILLIMILLI_03_1.png",
+        "heading": "£1 Million Donated",
+        "title_classes": "text-5xl md:text-4xl uppercase  text-left font-bold px-6 my-6 text-white max-w-lg  px-6",
+        "top_text": "We are proud to have donated over\n<strong>£1,000,000</strong> to charities since 2014!\n<br><br>\nRecognising our potential to do even\nmore, we decided to use our bright,\nfun underwear to raise awareness for\nseveral charities as well as Testicular\nCancer. We’re proud to have worked\nwith amazing charities through\npartnerships with organisations like\nThe OddBalls Foundation,\nMovember, Prostate UK, My Name’5\nDoddie Foundation, Alzheimer’s\nResearch UK and more.",
+        "top_text_classes": "text-left l text-white max-w-lg",
+        "bottom_text": "To learn more about the impactful\nwork of The OddBalls Foundation,\nclick below.",
+        "bottom_text_classes": "text-left text-white max-w-lg",
+        "button_style": "primary",
+        "button_text": "VISIT THE ODDBALLS FOUNDATION",
+        "button_link": "https://theoddballsfoundation.com/",
+        "is_rounded": false,
+        "extra_classes": "text-cyan-500 py-2 font-semibold text-white w-full text-center block rounded-full text-nowrap max-w-lg bg-white",
+        "button_id": "",
+        "custom_attributes": ""
+      }
+    },
+    "ob_collection_slider_old_PjRTMt": {
+      "type": "ob-collection-slider-old",
+      "name": "Collection Products",
+      "settings": {
+        "collection": "best-sellers-homepage",
+        "product_list": [],
+        "title": "Men's Bestsellers",
+        "wrapper_class": "",
+        "text_class": "text-2xl md:text-3xl uppercase font-semibold text-center  mt-6 -mb-3",
+        "show_on_all_markets": true,
+        "markets_to_show_on": "",
+        "markets_to_exclude_on": ""
+      }
+    },
+    "ob_three_text_fields_VhdiCW": {
+      "type": "ob-three-text-fields",
+      "blocks": {
+        "text_lines_ATc8HE": {
+          "type": "text-lines",
+          "settings": {
+            "country_iso": "*",
+            "text-field-outer-wrapper-classes": "",
+            "text-field-inner-wrapper-classes": "",
+            "text-field-1": "",
+            "text-field-1-classes": "",
+            "text-field-2": "",
+            "text-field-2-classes": "",
+            "text-field-3": "",
+            "text-field-3-classes": "",
+            "text-field-4": "",
+            "text-field-4-classes": "",
+            "html-field": "<div class=\"mb-6 -mt-6 flex justify-center px-4\">\n<a href=\"/pages/mens-underwear\" class=\"hover:opacity-75 rounded-full uppercase bg-magenta px-5 py-2 rounded-full js-loyality-modal inline-block text-white  cursor-pointer mt-6 font-semibold items-center max-w-2xl w-full max-w-lg text-center\">Shop Mens </a>\n</div>",
+            "html-field-classes": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_lines_ATc8HE"
+      ],
+      "name": "Three Text Fields",
+      "settings": {}
+    },
+    "ob_text_video_slider_rmyDpp": {
+      "type": "ob-text-video-slider",
+      "disabled": true,
+      "name": "Hero Slider",
+      "settings": {
+        "handle": "home-page",
+        "extra-attributes": "",
+        "section_wrapper_classes": "relative",
+        "extra-logged-in": "",
+        "extra-logged-out": "",
+        "cta-setting": false,
+        "position": "start",
+        "title": "Title",
+        "title-text-classes": "text-3xl md:text-6xl capitalize dbl-cta-title pb-1 font-bebas",
+        "title-text-postion": "left",
+        "title-text-size": 18,
+        "title-color": "",
+        "desktop-title-text-size": 32,
+        "paragragh": "My Paragraph",
+        "p-classes": "",
+        "paragraph-text-postion": "left",
+        "paragragh-font-size": 12,
+        "paragraph-color": "",
+        "desktop-paragraph-text-size": 18,
+        "btn-one-text": "button one",
+        "btn-one-classes": "px-8 relative p-2 rounded-md uppercase btn-shadow-lg block border-solid border-2 border-md border-black text-black font-semibold text-center  transition-colors duration-200",
+        "btn-1-url": "",
+        "btn-one-color": "#ffffff",
+        "btn-one-bg-color": "#000000",
+        "btn-two-text": "button two",
+        "btn-two-classes": "px-8 relative p-2 rounded-md uppercase btn-shadow-lg block border-solid border-2 border-md border-black text-black font-semibold text-center  transition-colors duration-200",
+        "btn-2-url": "",
+        "btn-two-color": "#000000",
+        "btn-two-bg-color": "#ffffff",
+        "button-postion": "start"
+      }
+    },
+    "student_discount_with_ticks_gJyxPU": {
+      "type": "student-discount-with-ticks",
+      "blocks": {
+        "block_QFFjJD": {
+          "type": "block",
+          "settings": {
+            "background_image": "shopify://shop_images/Seamless_85da71a6-972d-491c-9c8e-87326815defc.jpg",
+            "title": "Seamless",
+            "button_text": "SHOP NOW",
+            "one_check": "Comfortable & No VPL",
+            "two_check": "Brazilian & Full Brief Styles",
+            "three_check": "Colourful Prints",
+            "button_link": "https://www.myoddballs.com/collections/seamless-underwear"
+          }
+        },
+        "block_TAPbXF": {
+          "type": "block",
+          "settings": {
+            "background_image": "shopify://shop_images/Bamboo_9897ee37-40e7-49bb-a8c2-933a3685438d.jpg",
+            "title": "Bamboo",
+            "button_text": "SHOP NOW",
+            "one_check": "Soft Bamboo Viscose",
+            "two_check": "Anti Chafe Panels",
+            "three_check": "Breathable Fabric",
+            "button_link": "https://www.myoddballs.com/collections/bamboo-boxer-shorts"
+          }
+        }
+      },
+      "block_order": [
+        "block_QFFjJD",
+        "block_TAPbXF"
+      ],
+      "name": "Student discount tick block",
+      "settings": {}
+    },
+    "student_discount_dual_block_RBbDr4": {
+      "type": "student-discount-dual-block",
+      "blocks": {
+        "block_yfMDCV": {
+          "type": "block",
+          "settings": {
+            "background_image": "shopify://shop_images/Mens_Bestsellers.jpg",
+            "title": "Men's Bestsellers",
+            "button_text": "SHOP NOW",
+            "button_link": "https://www.myoddballs.com/#temp-tp-wrapper",
+            "button_classes": "px-4 py-1 text-center text-white uppercase font-bold border-2 border-solid border-white rounded-full",
+            "content_position": "left"
+          }
+        }
+      },
+      "block_order": [
+        "block_yfMDCV"
+      ],
+      "disabled": true,
+      "name": "Student discount dual block",
+      "settings": {}
+    },
+    "ob_collection_slider_old_jwkbnz": {
+      "type": "ob-collection-slider-old",
+      "name": "Collection Products",
+      "settings": {
+        "collection": "womens-best-sellers-homepage",
+        "product_list": [],
+        "title": "Women's Bestsellers",
+        "wrapper_class": "",
+        "text_class": "text-2xl md:text-3xl uppercase font-semibold text-center  mt-6 -mb-3",
+        "show_on_all_markets": true,
+        "markets_to_show_on": "",
+        "markets_to_exclude_on": ""
+      }
+    },
+    "ob_three_text_fields_fJL4QW": {
+      "type": "ob-three-text-fields",
+      "blocks": {
+        "text_lines_BY9XKj": {
+          "type": "text-lines",
+          "settings": {
+            "country_iso": "*",
+            "text-field-outer-wrapper-classes": "",
+            "text-field-inner-wrapper-classes": "",
+            "text-field-1": "",
+            "text-field-1-classes": "",
+            "text-field-2": "",
+            "text-field-2-classes": "",
+            "text-field-3": "",
+            "text-field-3-classes": "",
+            "text-field-4": "",
+            "text-field-4-classes": "",
+            "html-field": "<div class=\"mb-6 -mt-6 flex justify-center px-4\">\n<a href=\"/pages/womens-underwear\" class=\"hover:opacity-75 rounded-full uppercase bg-magenta px-5 py-2 rounded-full js-loyality-modal inline-block text-white  cursor-pointer mt-6 font-semibold items-center max-w-2xl w-full max-w-lg text-center\">Shop Women's </a>\n</div>",
+            "html-field-classes": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_lines_BY9XKj"
+      ],
+      "name": "Three Text Fields",
+      "settings": {}
+    },
+    "ob_text_image_grid_BnH4pA": {
+      "type": "ob-text-image-grid",
+      "blocks": {
+        "image_hcm46z": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/ABOUT_US_-__PARTNERSHIPS_SQUARE_12.png",
+            "link": "shopify://collections/gas-monkey"
+          }
+        },
+        "image_UBAtUh": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/ABOUT_US_-__PARTNERSHIPS_SQUARE_5.png",
+            "link": "shopify://collections/the-rolling-stones"
+          }
+        },
+        "image_pmGazc": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/ABOUT_US_-__PARTNERSHIPS_SQUARE_7.png",
+            "link": "shopify://collections/emoji"
+          }
+        },
+        "image_CTqt84": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/ABOUT_US_-__PARTNERSHIPS_SQUARE_6.png",
+            "link": "shopify://collections/rocky-horror"
+          }
+        },
+        "image_eCnCmy": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/ABOUT_US_-__PARTNERSHIPS_SQUARE_9.png",
+            "link": "shopify://collections/pringles"
+          }
+        },
+        "image_BHbHQC": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/ABOUT_US_-__PARTNERSHIPS_SQUARE_2.png",
+            "link": "shopify://collections/frosties"
+          }
+        },
+        "image_6bwamq": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/ABOUT_US_-__PARTNERSHIPS_SQUARE_3.png",
+            "link": "shopify://collections/coco-pops"
+          }
+        },
+        "image_iXYkNe": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/ABOUT_US_-__PARTNERSHIPS_SQUARE_4.png",
+            "link": "shopify://collections/acdc"
+          }
+        },
+        "image_94CnCa": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/ABOUT_US_-__PARTNERSHIPS_SQUARE_11.png",
+            "link": "shopify://collections/grease"
+          }
+        },
+        "image_N3wn8N": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Partnerships_-_extra-03.png",
+            "link": "shopify://collections/design-england-fa"
+          }
+        },
+        "image_gW37dB": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/ABOUT_US_-__PARTNERSHIPS_SQUARE_8.png",
+            "link": "shopify://collections/teenage-mutant-ninja-turtles"
+          }
+        },
+        "image_KtDper": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Partnerships_-_extra-01.png",
+            "link": "shopify://collections/top-gun"
+          }
+        }
+      },
+      "block_order": [
+        "image_hcm46z",
+        "image_UBAtUh",
+        "image_pmGazc",
+        "image_CTqt84",
+        "image_eCnCmy",
+        "image_BHbHQC",
+        "image_6bwamq",
+        "image_iXYkNe",
+        "image_94CnCa",
+        "image_N3wn8N",
+        "image_gW37dB",
+        "image_KtDper"
+      ],
+      "disabled": true,
+      "custom_css": [
+        "p {text-align: center;}"
+      ],
+      "name": "Text and Image Grid",
+      "settings": {
+        "image": "shopify://shop_images/ABOUT_US_-__MOBILE_-_PARTNERSHIPS_HEADER_BACKGROUND.png",
+        "title": "Underwear  partnerships",
+        "heading_classes": "text-2xl md:text-3xl uppercase font-semibold text-center px-4 mt-4",
+        "text": "Our partnerships celebrate your most-loved brands and icons, creating unique designs that let fans showcase their favourites.<br><br> They allow us to bring your favourite teams, characters, and organisations to life in a fun, wearable way. From collaborations with <a class=\"font-semibold text-magenta\" href=\"https://www.myoddballs.com/collections/design-england-rugby\">England Rugby</a>, <a class=\"font-semibold text-magenta\" href=\"https://www.myoddballs.com/collections/design-england-rugby\">Welsh Rugby Union</a>, and <a class=\"text-magenta font-semibold\" href=\"https://www.myoddballs.com/collections/team-gb\">Team GB</a> to iconic names like <a class=\"font-semibold text-magenta\" href=\"https://www.myoddballs.com/collections/acdc\">ACDC</a>, <a class=\"font-semibold text-magenta\" href=\"https://www.myoddballs.com/collections/emoji\">Emoji</a>, and <a class=\"font-semibold text-magenta\" href=\"https://www.myoddballs.com/collections/teenage-mutant-ninja-turtles%20text-magenta\">Teenage Mutant Ninja Turtles</a>, OddBalls has something for everyone.",
+        "button_text": "view all partnerships",
+        "btn_url": "https://www.myoddballs.com/pages/shop-by-design#partnerships"
+      }
+    },
+    "custom_liquid_rAMDWf": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "custom_liquid": "<input type-hidden id=\"ll-popup-text\" type=\"hidden\" value=\"{{ settings.ll-popup-text }}\">\n<input type=\"hidden\" id=\"ll-modal-text\" value=\"{{ settings.ll-modal-text }}\">\n<input id=\"ll-collection\" type=\"hidden\" value=\"{{ settings.ll-collection }}\">\n<input type=\"hidden\" id=\"ll-success-discount-message\"  value=\"{{ settings.ll-success-discount-message }}\" >",
+        "color_scheme": "",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "tabs_and_blocks_EqDnP4": {
+      "type": "tabs-and-blocks",
+      "blocks": {
+        "content_faq_Y3zKQX": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "How does the refer-a-friend scheme work?",
+            "title_text": "How does the refer-a-friend scheme work?",
+            "block_title_classes": "w-full  px-8 pt-5 pb-5 text-l md:text-2xl font-medium leading-7 md:leading-5 text-left",
+            "description": "<br> Refer a friend and they’ll get 25% off their first order (excluding custom items, gift cards, sale items, and subscriptions). Once they’ve checked out, we’ll send you a 25% off discount code via email!",
+            "block_description_classes": "px-8 pb-5 text-md leading-6"
+          }
+        },
+        "content_faq_6PK76U": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "How do I invite a friend?",
+            "title_text": "How do I invite a friend?",
+            "block_title_classes": "w-full  px-8 pt-5 pb-5 text-l md:text-2xl font-medium leading-7 md:leading-5 text-left",
+            "description": "<br>Simply share your unique referral link with your friends. They’ll need to click your link and complete a purchase for you to receive your reward.",
+            "block_description_classes": "px-8 pb-5 text-md leading-6"
+          }
+        },
+        "content_faq_qm6biD": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "How many people can I refer to OddBalls?",
+            "title_text": "How many people can I refer to OddBalls?",
+            "block_title_classes": "w-full  px-8 pt-5 pb-5 text-l md:text-2xl font-medium leading-7 md:leading-5 text-left",
+            "description": "<br>There’s no limit on the number of friends you can refer - as long as they are new to OddBalls! The more friends you refer, the more rewards you can earn. Each time a referred friend makes their first purchase using your referral link, you will receive a 25% discount off your next order. So, keep sharing and enjoy the benefits.",
+            "block_description_classes": "px-8 pb-5 text-md leading-6"
+          }
+        },
+        "content_faq_AAiMUw": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "Can I invite a friend who has already shopped at OddBalls?",
+            "title_text": "Can I invite a friend who has already shopped at OddBalls?",
+            "block_title_classes": "w-full  px-8 pt-5 pb-5 text-l md:text-2xl font-medium leading-7 md:leading-5 text-left",
+            "description": "<br> No, this promotional offer is reserved for new customers only.",
+            "block_description_classes": "px-8 pb-5 text-md leading-6"
+          }
+        },
+        "content_faq_PDL8AH": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "I’ve been referred by a friend. How do I get my reward?",
+            "title_text": "I’ve been referred by a friend. How do I get my reward?",
+            "block_title_classes": "w-full  px-8 pt-5 pb-5 text-l md:text-2xl font-medium leading-7 md:leading-5 text-left",
+            "description": "<br> Click the unique link sent by your friend and shop as usual. Add items to your basket and checkout,  your 25% off discount code will be automatically applied to your order.",
+            "block_description_classes": "px-8 pb-5 text-md leading-6"
+          }
+        },
+        "content_faq_ppmXde": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "Does the voucher apply to multipacks or bundles?",
+            "title_text": "Does the voucher apply to multipacks or bundles?",
+            "block_title_classes": "w-full  px-8 pt-5 pb-5 text-l md:text-2xl font-medium leading-7 md:leading-5 text-left",
+            "description": "<br>Yes, the voucher can be applied on any of our multipacks or bundles.",
+            "block_description_classes": "px-8 pb-5 text-md leading-6"
+          }
+        },
+        "content_faq_fGcJYg": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "Can I combine my voucher with other discounts or promotions?",
+            "title_text": "Can I combine my voucher with other discounts or promotions?",
+            "block_title_classes": "w-full  px-8 pt-5 pb-5 text-l md:text-2xl font-medium leading-7 md:leading-5 text-left",
+            "description": "<br> No, the voucher cannot be used in conjunction with other offers, discounts, promotional codes or during sitewide sales.",
+            "block_description_classes": "px-8 pb-5 text-md leading-6"
+          }
+        },
+        "content_faq_7KLtbX": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "Can I use the voucher on sale items?",
+            "title_text": "Can I use the voucher on sale items?",
+            "block_title_classes": "w-full  px-8 pt-5 pb-5 text-l md:text-2xl font-medium leading-7 md:leading-5 text-left",
+            "description": "<br> No, the voucher is only valid on full-priced items or multipacks and bundles. It cannot be applied to sale and discounted individual products.",
+            "block_description_classes": "px-8 pb-5 text-md leading-6"
+          }
+        },
+        "content_faq_e7AMTP": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "How long is my voucher valid for?",
+            "title_text": "How long is my voucher valid for?",
+            "block_title_classes": "w-full  px-8 pt-5 pb-5 text-l md:text-2xl font-medium leading-7 md:leading-5 text-left",
+            "description": "<br> The voucher is valid for 90 days from the date of issue. Be sure to use it before it expires!",
+            "block_description_classes": "px-8 pb-5 text-md leading-6"
+          }
+        },
+        "content_faq_YQXyzj": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "I have received my voucher! Can I use it more than once?",
+            "title_text": "I have received my voucher! Can I use it more than once?",
+            "block_title_classes": "w-full  px-8 pt-5 pb-5 text-l md:text-2xl font-medium leading-7 md:leading-5 text-left",
+            "description": "<br>No, the voucher is single-use only.",
+            "block_description_classes": "px-8 pb-5 text-md leading-6"
+          }
+        },
+        "content_faq_eR3wQE": {
+          "type": "content-faq",
+          "disabled": true,
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "Can I use the voucher more than once?",
+            "title_text": "Can I use the voucher more than once?",
+            "block_title_classes": "w-full  px-8 pt-5 pb-5 text-l md:text-2xl font-medium leading-7 md:leading-5 text-left",
+            "description": "<br> No, the voucher is single-use only and can be redeemed once per customer.",
+            "block_description_classes": "px-8 pb-5 text-md leading-6"
+          }
+        },
+        "content_faq_bmy6z9": {
+          "type": "content-faq",
+          "disabled": true,
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "How do I use my 25% off voucher?",
+            "title_text": "How do I use my 25% off voucher?",
+            "block_title_classes": "w-full  px-8 pt-5 pb-5 text-l md:text-2xl font-medium leading-7 md:leading-5 text-left",
+            "description": "<br> Your voucher can be redeemed when purchasing full-priced items (excluding custom items, gift cards, sale items, and subscriptions). Simply enter the code at checkout, and 25% will be deducted from your total.",
+            "block_description_classes": "px-8 pb-5 text-md leading-6"
+          }
+        }
+      },
+      "block_order": [
+        "content_faq_Y3zKQX",
+        "content_faq_6PK76U",
+        "content_faq_qm6biD",
+        "content_faq_AAiMUw",
+        "content_faq_PDL8AH",
+        "content_faq_ppmXde",
+        "content_faq_fGcJYg",
+        "content_faq_7KLtbX",
+        "content_faq_e7AMTP",
+        "content_faq_YQXyzj",
+        "content_faq_eR3wQE",
+        "content_faq_bmy6z9"
+      ],
+      "settings": {
+        "outer_wrapper_attr": "data-attribute for linking section content",
+        "outer_wrapper_classes": "2xl:mx-auto  py-12 lg:px-20 md:px-6 px-4",
+        "inner_wrapper_classes": "grid grid-cols-12 gap-6",
+        "header_wrapper_classes": "col-span-12 flex flex-col justify-center items-center text-center space-y-4",
+        "all_tabs_wrapper_classes": "",
+        "content_wrapper_classes": "col-span-12 mt-16 grid grid-cols-12",
+        "option_menu_selected": false,
+        "title": "Refer a friend FAQs",
+        "title_classes": "text-2xl md:text-3xl uppercase font-semibold text-center  mt-6 -mb-3",
+        "description": "Got questions about how our referral scheme works? From discounts to eligibility and everything in between, you’ll find all the answers right here.",
+        "description_classes": "text-base leading-6 text-center text-gray-600 w-full md:w-10/12"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "ob_text_video_slider_8irFTK",
+    "tw_card_section_GCEYMx",
+    "ob_text_and_swiper_EimmVw",
+    "ob_trustpilot_image_swiper_mobile_f77ffk",
+    "ob_three_text_fields_XUyjUK",
+    "ob_conditional_banner_PD9BXt",
+    "ob_three_text_fields_JpyBeQ",
+    "lw_circles_V49dc9",
+    "marquee_info_slider_wD6dLH",
+    "ob_collection_slider_old_PjRTMt",
+    "ob_three_text_fields_VhdiCW",
+    "ob_text_video_slider_rmyDpp",
+    "student_discount_with_ticks_gJyxPU",
+    "student_discount_dual_block_RBbDr4",
+    "ob_collection_slider_old_jwkbnz",
+    "ob_three_text_fields_fJL4QW",
+    "ob_text_image_grid_BnH4pA",
+    "custom_liquid_rAMDWf",
+    "tabs_and_blocks_EqDnP4"
+  ]
+}

@@ -1,0 +1,81 @@
+{% schema %}
+{
+  "name": "Coffee Slidey Thing",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Autoplay UGC Video Section"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "section",
+      "name": "Section",
+      "settings": [
+        {
+          "type": "text",
+          "id": "header_text",
+          "label": "Header Text"
+        },
+        {
+          "type": "textarea",
+          "id": "content_text",
+          "label": "Content Text",
+        },
+        {
+          "type": "image_picker",
+          "id": "content_image",
+          "label": "Content Image",
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Coffee Slidey Thing",
+      "settings": {
+        "title": "Coffee Slidey Thing Section"
+      }
+    }
+  ]
+}
+{% endschema %}
+
+<script src="jquery-3.7.1.min.js"></script>
+<script type="text/javascript" src="{{'coffee-slider.js'| asset_url}}" defer></script>
+<div class="flex gap-2 px-2 w-full justify-center">
+  <div class="flex gap-2 w-full md:w-1/2">
+  {% for block in section.blocks %}
+    <div class="flex-1 header-wrapper cursor-pointer" data-number="{{ forloop.index }}">
+      <div class="p-2 text-center js-slider-header rounded-md {% if forloop.first %} coffee-active {% endif %}">{{ block.settings.header_text }}</div>
+    </div>
+  {% endfor %}
+  </div>
+</div>
+<div id="coffee-content-wrapper" class="flex overflow-x-hidden">
+{% for block in section.blocks %}
+    <div class="content-wrapper w-screen flex justify-center" data-number="{{ forloop.index }}" style="min-width:100vw;">
+      <div class="md:flex w-full md:w-2/3">
+        <div class=" md:w-1/2 flex flex-col items-start justify-center">
+          <div class="px-4 py-2 text-center rounded-md font-bold">{{ block.settings.header_text }}</div>
+          <div class="px-4">{{ block.settings.content_text }}</div>
+        </div>
+        <div class="md:w-1/2">
+          <div class="w-full h-full md:px-20 md:py-4">
+            {{ block.settings.content_image | media_tag :image_size: '600x', class:"w-full h-full px-12 py-2 md:p-0" }}
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+  
+</div>
+
+<style>
+  .coffee-active{
+    background-color:#f00f83;
+    color:white
+  }
+</style>

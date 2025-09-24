@@ -1,0 +1,683 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "ob_conditional_banner_rUm9Yj": {
+      "type": "ob-conditional-banner",
+      "blocks": {
+        "page_banner_eU9mmg": {
+          "type": "page-banner",
+          "settings": {
+            "block_active": true,
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": "",
+            "banner_background": "",
+            "wrapper_classes": "",
+            "title": "",
+            "text": "",
+            "text_wrapper_classes": "",
+            "customers": "both",
+            "url_handle": "*",
+            "not_url_handle": "",
+            "country_iso": "*",
+            "banner_link": "",
+            "desktop_image": "shopify://shop_images/Desktop-BG_d479546d-1368-4ef3-8089-c944aa9a60b9.webp",
+            "mobile_image": "shopify://shop_images/Mobile-BG_4ade8eaa-aeaa-4562-93d8-a2afcf455347.webp",
+            "desktop_image_classes": "mx-auto w-full hidden md:block",
+            "mobile_image_classes": "mx-auto w-full md:hidden",
+            "desktop_svg": "Desktop-FG_ec1172b1-d7e2-4ec9-9ba9-384beef7b039.svg",
+            "mobile_svg": "Mobile-FG_475ebf9b-d723-40bc-9bcc-339b8caab5ec.svg",
+            "desktop_svg_classes": "absolute inset-0 w-full h-full mx-auto hidden md:block",
+            "mobile_svg_classes": "absolute inset-0 w-full h-full mx-auto md:hidden"
+          }
+        }
+      },
+      "block_order": [
+        "page_banner_eU9mmg"
+      ],
+      "name": "Conditional Banner",
+      "settings": {
+        "banner_background": "",
+        "wrapper_classes": ""
+      }
+    },
+    "ob_three_text_fields_TjaQa7": {
+      "type": "ob-three-text-fields",
+      "blocks": {
+        "text_lines_APpQq4": {
+          "type": "text-lines",
+          "settings": {
+            "country_iso": "*",
+            "text-field-outer-wrapper-classes": "pt-4",
+            "text-field-inner-wrapper-classes": "text-center text-black relative max-w-4xl mx-auto py-2",
+            "text-field-1": "🌴Welcome to the OddBalls Summer Shop🌴",
+            "text-field-1-classes": "font-bebas md:text-2xl  text-xl font-bold",
+            "text-field-2": "Summer’s here – and our OddBalls Summer Shop is your one-stop destination for all your holiday essentials!",
+            "text-field-2-classes": "px-4 md:text-l mt-2",
+            "text-field-3": "",
+            "text-field-3-classes": "",
+            "text-field-4": "",
+            "text-field-4-classes": "",
+            "html-field": "",
+            "html-field-classes": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_lines_APpQq4"
+      ],
+      "name": "Three Text Fields",
+      "settings": {}
+    },
+    "summer_shop_3_buttons_8FGwPc": {
+      "type": "summer-shop-3-buttons",
+      "blocks": {
+        "image_block_RqDxeg": {
+          "type": "image_block",
+          "settings": {
+            "image": "shopify://shop_images/Mesh-Desktop.jpg",
+            "mobile_image": "shopify://shop_images/Mesh-Mobile_427d7494-7cb8-4560-a3a1-31a25b05cd96.jpg",
+            "page": "swimming-shorts",
+            "url": "https://www.myoddballs.com/collections/mens-classic-swim-shorts",
+            "button_text": "Classic Swim Shorts",
+            "bottom_text": "Classic fit with mesh lining for all-day comfort.",
+            "vertical_position": "middle"
+          }
+        },
+        "image_block_WLMYYx": {
+          "type": "image_block",
+          "settings": {
+            "image": "shopify://shop_images/MensBoxers-Desktop.jpg",
+            "mobile_image": "shopify://shop_images/MensBoxers-Mobile.jpg",
+            "page": "him-individuals",
+            "url": "",
+            "button_text": "Men's Boxer Shorts",
+            "bottom_text": "Shop comfy, cotton men's boxer shorts.",
+            "vertical_position": "middle"
+          }
+        },
+        "image_block_GUUELd": {
+          "type": "image_block",
+          "settings": {
+            "image": "shopify://shop_images/Kids-Desktop_91159500-a8ad-4a13-9222-0b0205cc9ed5.jpg",
+            "mobile_image": "shopify://shop_images/Kids-Mobile_5a3d5704-4aea-4664-b827-e78ea31a381f.jpg",
+            "page": "goolies-swimming-shorts",
+            "url": "https://www.myoddballs.com/collections/swimming-shorts-kids",
+            "button_text": "Kids Swim Shorts",
+            "bottom_text": "Bright, bold, and made for fun in the sun.",
+            "vertical_position": "middle"
+          }
+        }
+      },
+      "block_order": [
+        "image_block_RqDxeg",
+        "image_block_WLMYYx",
+        "image_block_GUUELd"
+      ],
+      "name": "Summer Shop 3 Buttons",
+      "settings": {
+        "title": "Fancy a Dip?"
+      }
+    },
+    "summer_shop_4_button_VxwTy9": {
+      "type": "summer-shop-4-button",
+      "blocks": {
+        "image_block_Grj9CD": {
+          "type": "image_block",
+          "settings": {
+            "image": "shopify://shop_images/Button-3_3d078cc9-f433-4ffb-bf2c-842aecf6dd30.jpg",
+            "page": "bamboo-underwear",
+            "url": "https://www.myoddballs.com/collections/bamboo-underwear",
+            "button_text": "Bamboo Boxers",
+            "bottom_text": "Shop anti-chafing, sweat-wicking bamboo boxers.",
+            "vertical_position": "middle",
+            "square": "no"
+          }
+        },
+        "image_block_fc8giR": {
+          "type": "image_block",
+          "settings": {
+            "image": "shopify://shop_images/Loose_fit_couple.png",
+            "page": "mens-loose-fit-boxers",
+            "url": "https://www.myoddballs.com/collections/him-individuals",
+            "button_text": "Loose Boxer Shorts",
+            "bottom_text": "Shop comfy, cotton loose boxer shorts.",
+            "vertical_position": "middle",
+            "square": "no"
+          }
+        },
+        "image_block_NcnfCL": {
+          "type": "image_block",
+          "settings": {
+            "image": "shopify://shop_images/Button-2_ac6d31e9-f25d-4199-ae8d-01d70e377284.jpg",
+            "page": "all-towels",
+            "url": "https://www.myoddballs.com/collections/all-towels",
+            "button_text": "Beach Towels",
+            "bottom_text": "Shop ultra-soft beach towels.",
+            "vertical_position": "middle",
+            "square": "no"
+          }
+        },
+        "image_block_PymaBk": {
+          "type": "image_block",
+          "settings": {
+            "image": "shopify://shop_images/Button-5_f09542b7-4f44-4ea5-a34f-e320ef3d79f8.png",
+            "page": "bralette",
+            "url": "",
+            "button_text": "Bralettes",
+            "bottom_text": "Shop comfortable, stretch cotton bralettes.",
+            "vertical_position": "middle",
+            "square": "no"
+          }
+        }
+      },
+      "block_order": [
+        "image_block_Grj9CD",
+        "image_block_fc8giR",
+        "image_block_NcnfCL",
+        "image_block_PymaBk"
+      ],
+      "name": "Summer Shop 4 Buttons",
+      "settings": {
+        "title": "Get Summer Ready"
+      }
+    },
+    "ob_collection_slider_old_U6HgPi": {
+      "type": "ob-collection-slider-old",
+      "name": "Collection Products",
+      "settings": {
+        "collection": "best-sellers-homepage",
+        "product_list": [],
+        "title": "Men's Summer Bestsellers",
+        "wrapper_class": "",
+        "text_class": "typography--title-five mx-auto text-center md:text-4xl mt-8 mb-4",
+        "slider_enabled": true,
+        "autoplay": false,
+        "loop": false,
+        "slides_mobile": 2,
+        "slides_md": 3,
+        "slides_lg": 5,
+        "slide_gap": 10,
+        "slide_by": "all",
+        "drag_scroll": true,
+        "show_dots": true,
+        "dots_container_classes": "relative ob-dots w-full justify-center items-center flex gap-2 z-10 my-4",
+        "dot_classes": "ob-dot w-2 h-2 rounded-full bg-neutral-300 transition-colors duration-300 ease-in-out",
+        "show_on_all_markets": true,
+        "markets_to_show_on": "",
+        "markets_to_exclude_on": ""
+      }
+    },
+    "summer_shop_video_cQ44GA": {
+      "type": "summer-shop-video",
+      "name": "Summer Shop 3 Buttons",
+      "settings": {
+        "desktop_video": "shopify://files/videos/Summer Shop Banner Desktop.mp4",
+        "mobile_video": "shopify://files/videos/Summer Shop Banner Mobile.mp4"
+      }
+    },
+    "summer_shop_squished_three_iFQrgt": {
+      "type": "summer-shop-squished-three",
+      "blocks": {
+        "image_block_W8bqKj": {
+          "type": "image_block",
+          "settings": {
+            "image": "shopify://shop_images/WashBags_copy.jpg",
+            "page": "wash-bags",
+            "url": "https://www.myoddballs.com/collections/wash-bags",
+            "title": "Wash Bags",
+            "sub_title": "Free on orders <br> over £40",
+            "text_classes": "",
+            "button_text": "Shop Now"
+          }
+        },
+        "image_block_FM9rnd": {
+          "type": "image_block",
+          "settings": {
+            "image": "shopify://shop_images/Sunglasses_copy.jpg",
+            "page": "sunglasses",
+            "url": "https://www.myoddballs.com/collections/sunglasses",
+            "title": "Sunglasses",
+            "sub_title": "Free on orders <br>over £40",
+            "text_classes": "text-white",
+            "button_text": "Shop Now"
+          }
+        },
+        "image_block_WhLYRR": {
+          "type": "image_block",
+          "settings": {
+            "image": "shopify://shop_images/PicnicBlankets_e10a7e97-fa2f-4eea-ae43-9d4ba12dddd0.jpg",
+            "page": "picnic-blankets",
+            "url": "https://www.myoddballs.com/collections/picnic-blankets",
+            "title": "Picnic Blankets",
+            "sub_title": "Free on orders  over £40",
+            "text_classes": "",
+            "button_text": "Shop Now"
+          }
+        }
+      },
+      "block_order": [
+        "image_block_W8bqKj",
+        "image_block_FM9rnd",
+        "image_block_WhLYRR"
+      ],
+      "name": "Summer Shop Small Buttons",
+      "settings": {
+        "title": "Holiday Essentials"
+      }
+    },
+    "ob_collection_slider_old_jn4pfK": {
+      "type": "ob-collection-slider-old",
+      "name": "Collection Products",
+      "settings": {
+        "collection": "womens-best-sellers-homepage",
+        "product_list": [],
+        "title": "Women's Summer Bestsellers",
+        "wrapper_class": "",
+        "text_class": "typography--title-five mb-2 mx-auto text-center md:text-4xl mt-8",
+        "slider_enabled": true,
+        "autoplay": false,
+        "loop": false,
+        "slides_mobile": 2,
+        "slides_md": 3,
+        "slides_lg": 5,
+        "slide_gap": 10,
+        "slide_by": "all",
+        "drag_scroll": true,
+        "show_dots": true,
+        "dots_container_classes": "relative ob-dots w-full justify-center items-center flex gap-2 z-10 my-4",
+        "dot_classes": "ob-dot w-2 h-2 rounded-full bg-neutral-300 transition-colors duration-300 ease-in-out",
+        "show_on_all_markets": true,
+        "markets_to_show_on": "",
+        "markets_to_exclude_on": ""
+      }
+    },
+    "summer_shop_4_button_giYptE": {
+      "type": "summer-shop-4-button",
+      "blocks": {
+        "image_block_eVpAcj": {
+          "type": "image_block",
+          "settings": {
+            "image": "shopify://shop_images/Square-3_62efc51c-7806-4b5e-bcff-6018ae7a64b8.jpg",
+            "page": "swimmers",
+            "url": "",
+            "button_text": "Swimming Briefs",
+            "bottom_text": "",
+            "vertical_position": "bottom",
+            "square": "yes"
+          }
+        },
+        "image_block_dCypgn": {
+          "type": "image_block",
+          "settings": {
+            "image": "shopify://shop_images/Square-1_006bf096-7bc0-4c7c-bd56-f5d143ca22d8.jpg",
+            "page": "grooming-sets",
+            "url": "",
+            "button_text": "Grooming Sets",
+            "bottom_text": "",
+            "vertical_position": "bottom",
+            "square": "yes"
+          }
+        },
+        "image_block_d7qdqN": {
+          "type": "image_block",
+          "settings": {
+            "image": "shopify://shop_images/Square-2_6f64beda-80bf-4d89-badc-9161bca7545e.jpg",
+            "page": "water-bottle",
+            "url": "",
+            "button_text": "Water Bottles",
+            "bottom_text": "",
+            "vertical_position": "bottom",
+            "square": "yes"
+          }
+        },
+        "image_block_4XxFYA": {
+          "type": "image_block",
+          "settings": {
+            "image": "shopify://shop_images/Square-4_2b23f159-7195-4787-b811-429f4a84611d.jpg",
+            "page": "",
+            "url": "https://www.myoddballs.com/pages/perfect-pair",
+            "button_text": "Matching Sets",
+            "bottom_text": "",
+            "vertical_position": "bottom",
+            "square": "yes"
+          }
+        }
+      },
+      "block_order": [
+        "image_block_eVpAcj",
+        "image_block_dCypgn",
+        "image_block_d7qdqN",
+        "image_block_4XxFYA"
+      ],
+      "name": "Summer Shop 4 Buttons",
+      "settings": {
+        "title": "Treat Yourself for Summer"
+      }
+    },
+    "summer_shop_product_banner_TYQyQf": {
+      "type": "summer-shop-product-banner",
+      "disabled": true,
+      "name": "Summer Shop Prod Banner",
+      "settings": {
+        "image": "shopify://shop_images/Desktop-BG_fadac616-3b7a-4ce9-ae65-59ee338f9f12.jpg",
+        "mobile_image": "shopify://shop_images/Mobile-BG_4dd5a652-cc31-4937-b53d-21d91ffed3e1.jpg",
+        "page": "mens-briefs-socks-monthly-subscription",
+        "title": "Quick Dry Towels",
+        "sub_title": "No time to wait for a towel to dry? Neither do we. Grab a quick dry beach must-have from our towels collection.",
+        "button_text": "SHOP NOW"
+      }
+    },
+    "summer_shop_qd_towel_J4MjbE": {
+      "type": "summer-shop-qd-towel",
+      "name": "Summer Shop QD towels",
+      "settings": {
+        "image": "shopify://shop_images/Desktop-BG_dc0260c5-3e69-4661-bb98-12c4e648db7a.jpg",
+        "mobile_image": "shopify://shop_images/Mobile-BG_c84ac25d-76af-404b-9189-4af96194fbfd.jpg",
+        "page": "quick-dry-towels",
+        "url": "",
+        "title_text": "Quick Dry Towels",
+        "mid_text": "Dries Fast, Packs Small",
+        "button_text": "Shop Now"
+      }
+    },
+    "ob_conditional_banner_Dpehdt": {
+      "type": "ob-conditional-banner",
+      "blocks": {
+        "page_banner_pN9T66": {
+          "type": "page-banner",
+          "disabled": true,
+          "settings": {
+            "block_active": true,
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": "",
+            "banner_background": "",
+            "wrapper_classes": "",
+            "title": "",
+            "text": "",
+            "text_wrapper_classes": "",
+            "customers": "both",
+            "url_handle": "*",
+            "not_url_handle": "",
+            "country_iso": "*",
+            "banner_link": "https://www.myoddballs.com/collections/quick-dry-towels",
+            "desktop_image": "shopify://shop_images/Desktop-BG_085cac72-5fc1-4472-b731-8450c7973a98.jpg",
+            "mobile_image": "shopify://shop_images/Mobile-BG_ef4c939c-ec18-497b-a438-38f2492e1fd4.jpg",
+            "desktop_image_classes": "mx-auto w-full hidden md:block",
+            "mobile_image_classes": "mx-auto w-full md:hidden",
+            "desktop_svg": "Desktop-FG_a11407aa-2d26-46b1-be6a-7417fd282312.svg",
+            "mobile_svg": "Mobile-FG_02d5c016-b9d8-4dff-91cd-b181af60c918.svg",
+            "desktop_svg_classes": "absolute inset-0 w-full h-full mx-auto hidden md:block",
+            "mobile_svg_classes": "absolute inset-0 w-full h-full mx-auto md:hidden"
+          }
+        }
+      },
+      "block_order": [
+        "page_banner_pN9T66"
+      ],
+      "disabled": true,
+      "name": "Conditional Banner",
+      "settings": {
+        "banner_background": "",
+        "wrapper_classes": ""
+      }
+    },
+    "ob_image_text_grid_AGA9xL": {
+      "type": "ob-image-text-grid",
+      "blocks": {
+        "image_and_text_xUTCJW": {
+          "type": "image-and-text",
+          "settings": {
+            "country_iso": "*",
+            "title": "",
+            "block_wrapper_classes": "col-span-12 flex justify-center  px-4 items-center text-center relative",
+            "block_title": "",
+            "title_classes": "text",
+            "description": "<h2 class=\"text-center font-bebas text-2xl lg:text-4xl\">☀️Made for Summer Adventures☀️</h2>\n<br>\n<p class=\"text-md lg:text-lg\">\nWhether you’re heading to the beach, jetting off on holiday, or just soaking up sun in the garden, we’ve got everything you need for the ultimate summer. \n</p> <br> \n<p class=\"text-md lg:text-lg\">\nFirst up, underwear. Stock up on our summer underwear bestsellers – from breathable <a href=\"https://www.myoddballs.com/collections/bamboo-boxer-shorts\" class=\"link\">Men’s Bamboo Boxers</a> and <a href=\"https://www.myoddballs.com/collections/womens-bamboo\" class=\"link\">Women’s Bamboo Boxers</a> (perfect for sweaty days) to our classic <a href=\"https://www.myoddballs.com/collections/mens-loose-fit-boxers\" class=\"link\">Men’s Loose Fit Boxers</a>, <a href=\"https://www.myoddballs.com/collections/his-briefs\" class=\"link\">Briefs</a>, and Women’s <a href=\"https://www.myoddballs.com/collections/ladies-thongs\" class=\"link\">Thongs</a>, <a href=\"https://www.myoddballs.com/collections/her-individuals\" class=\"link\">Briefs</a>, and <a href=\"https://www.myoddballs.com/collections/seamless-underwear\" class=\"link\">Seamless</a> styles. And don’t miss our brand-new summer prints like <a href=\"https://www.myoddballs.com/collections/hibiscus\" class=\"link\">Hibiscus</a>, <a href=\"https://www.myoddballs.com/collections/hawaii\" class=\"link\">Hawaii</a>, and <a href=\"https://www.myoddballs.com/collections/oddballs-subscriptions\" class=\"link\">Calypso</a>.\n\n</p> <br> \n<p class=\"text-md lg:text-lg\">\nPlanning your summer holiday? Grab one of our NEW <a href=\"https://www.myoddballs.com/collections/quick-dry-towels\" class=\"link\">Quick Dry Towels</a> – lightweight, microfibre and fast-drying, they’re a game-changer for beach trips, poolside lounging, or even festivals. If you prefer a classic style, we’ve still got cotton <a href=\"https://www.myoddballs.com/collections/cotton-towel\" class=\"link\">Beach Towels</a> left too – but be quick!\n\n</p> <br> \n<p class=\"text-md lg:text-lg\">\nOur summer accessories are designed to go wherever you do. <a href=\"https://www.myoddballs.com/collections/socks/style-trainer\" class=\"link\">Trainer Socks</a> keep things cool and comfy under trainers or sliders. <a href=\"https://www.myoddballs.com/collections/sunglasses\" class=\"link\">Sunglasses</a>,  <a href=\"https://www.myoddballs.com/collections/beach-bag\" class=\"link\">Beach Bags</a>, and <a href=\"https://www.myoddballs.com/collections/wash-bags\" class=\"link\">Travel Wash Bags</a> are the ultimate add-ons – and you can even get them as a <a href=\"https://www.myoddballs.com/collections/free-gift\" class=\"link\">free product</a> when you spend over £40! Throw in a <a href=\"https://www.myoddballs.com/collections/water-bottle\" class=\"link\">water bottle</a> and one of our <a href=\"https://www.myoddballs.com/collections/fleece-blanket\" class=\"link\">cosy blankets</a> for those colder evenings and you’re set. \n\n</p> <br> \n<p class=\"text-md lg:text-lg\">\n\nWant to keep things simple? Use our Summer Bundle Builder to mix and match your favourite <a href=\"https://www.myoddballs.com/pages/shop-by-design#popular\" class=\"link\">summer underwear</a> in one easy, holiday-ready haul. Choose from <a href=\"https://www.myoddballs.com/collections/swimming-shorts\" class=\"link\">classic mesh-lined swim shorts</a>, <a href=\"https://www.myoddballs.com/collections/mens-swim-shorts-with-compression-liner\" class=\"link\">compression-lined swim shorts</a> for extra support, or go streamlined with our <a href=\"https://www.myoddballs.com/collections/swimmers\" class=\"link\">men’s swim briefs</a>. Pair them with underwear and accessories to build your ultimate summer bundle in just a few clicks.\n\n</p> <br> \n<p class=\"text-md lg:text-lg\">\nHowever you're spending summer 2025 — whether it's a weekend escape, a family holiday, a sunny getaway, or a wild one with friends - do it the bold way. Make it a summer to remember with OddBalls! \n\n</p>",
+            "description_classes": "",
+            "svg": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_and_text_xUTCJW"
+      ],
+      "name": "Image Text Grid",
+      "settings": {
+        "outer_wrapper_classes": "relative pb-6 boxing-day-bottom-text",
+        "inner_wrapper_classes": "col-span-12 flex justify-center  py-3 px-4 items-center text-center",
+        "grid_wrapper_classes": "",
+        "title": "",
+        "title_classes": "text-center text-base font-semibold uppercase text-gray-600 tracking-wider",
+        "section_bg_colour": "",
+        "block_bg_colour": "",
+        "block_bg_colour_hover": "",
+        "block_text_colour": "",
+        "block_text_colour_hover": "",
+        "block_image_classes": "",
+        "block_svg_classes": "",
+        "custom_css": ""
+      }
+    },
+    "tabs_and_blocks_ytcbxC": {
+      "type": "tabs-and-blocks",
+      "blocks": {
+        "content_faq_eA3H6N": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "What are the best underwear styles for summer?",
+            "title_text": "What are the best underwear styles for summer?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "For warmer weather, we recommend our bamboo boxer shorts for men and women – they're ultra-breathable, moisture-wicking, and super soft. If you prefer something lighter, try our cotton briefs or thong styles for all-day comfort in the heat.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_bqHwfJ": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "What swimwear styles do you offer?",
+            "title_text": "What swimwear styles do you offer?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "We offer a range of colourful and comfortable men’s swimwear styles, including our brand-new compression-lined swim shorts – perfect for added support with anti-chafing qualities and quick drying after a swim. We also have our classic mesh-lined swim shorts, available in a variety of bright, patterned designs. Whether you're heading to the beach, pool, or on holiday, our swimwear is designed for all-day comfort and style.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_6m3kxN": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "Are your swim shorts suitable for active holidays?",
+            "title_text": "Are your swim shorts suitable for active holidays?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "Yes! Our new compression-lined swim shorts are designed for both style and performance – perfect for swimming, beach games, or lounging poolside. They dry quickly, provide anti-chafe and extra support, making them ideal for active summer days. Or why not try our classic mesh-lined swim shorts or swim briefs for a different stlye.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_LKW8gd": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "Do you offer summer bundles or multi-buy deals?",
+            "title_text": "Do you offer summer bundles or multi-buy deals?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "Absolutely. Our Summer Bundle Builder lets you handpick your holiday essentials – from underwear to towels and accessories – all at great value. It's perfect for topping up your suitcase with colourful summer basics.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_thkJYQ": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "What towels are best for summer?",
+            "title_text": "What towels are best for summer?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "Our quick-dry microfibre towels and classic beach towels are lightweight, compact, and super absorbent – ideal for beach trips, pool days, or even gym sessions. Plus, the colourful designs mean you'll never lose sight of your sunbathing spot.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_ayCtBH": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "Can I get free gifts with summer products?",
+            "title_text": "Can I get free gifts with summer products?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "Yes – spend over £40 and get free sunglasses, wash bags, or beach/travel bags. Look out for these limited-time offers across the Summer Shop.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_CWrFe4": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "What are the best accessories for travelling?",
+            "title_text": "What are the best accessories for travelling?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "Our summer accessories range includes wash bags, grooming sets, beach bags, water bottles, and ankle socks – everything you need for a weekend trip, summer holiday, or festival adventure.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_pKFFWC": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "How can I keep cool and comfortable this summer?",
+            "title_text": "How can I keep cool and comfortable this summer?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "Start with our bamboo underwear – it’s anti-chafe, breathable, and temperature-regulating. Next, pair with our famous ball-deodorant to keep you fresh and dry all day long. Why not slip on our lightweight ankle socks and pack a quick-dry towel for maximum comfort on the go.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_pcHtcH": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "What underwear material is best for hot and sweaty summer days?",
+            "title_text": "What underwear material is best for hot and sweaty summer days?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "When the temperature rises, breathable bamboo underwear is your best bet. Our bamboo boxer shorts are moisture-wicking, super soft, and naturally breathable – making them ideal for keeping cool, dry, and comfortable all day long. Bamboo is also hypoallergenic and sustainable, so it’s a win for your skin and the planet.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_mKdhRw": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "What’s the best underwear for summer sports and outdoor activities?",
+            "title_text": "What’s the best underwear for summer sports and outdoor activities?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "For summer workouts, hikes, or beach activities, opt for our bamboo boxers or cotton briefs. They're designed for active comfort – lightweight, breathable, and with a snug fit that moves with you. Prefer a looser style? Our loose-fit boxers also offer great airflow for relaxed summer comfort.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_4QtLjL": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "What boxers are best for summer travel?",
+            "title_text": "What boxers are best for summer travel?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "Our classic cotton and bamboo boxers are perfect for summer holidays. They’re lightweight, packable, and designed to stay fresh throughout the day – whether you're on a city break, beach trip, or festival weekend. Pair them with our travel-ready wash bags and quick-dry towels for your ultimate holiday bundle.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        }
+      },
+      "block_order": [
+        "content_faq_eA3H6N",
+        "content_faq_bqHwfJ",
+        "content_faq_6m3kxN",
+        "content_faq_LKW8gd",
+        "content_faq_thkJYQ",
+        "content_faq_ayCtBH",
+        "content_faq_CWrFe4",
+        "content_faq_pKFFWC",
+        "content_faq_pcHtcH",
+        "content_faq_mKdhRw",
+        "content_faq_4QtLjL"
+      ],
+      "name": "Tabs and Blocks",
+      "settings": {
+        "outer_wrapper_attr": "data-attribute for linking section content",
+        "outer_wrapper_classes": "2xl:mx-auto  py-12 lg:px-20 md:px-6 px-4",
+        "inner_wrapper_classes": "grid grid-cols-12 gap-6",
+        "header_wrapper_classes": "col-span-12 flex flex-col justify-center items-center text-center space-y-4",
+        "all_tabs_wrapper_classes": "",
+        "content_wrapper_classes": "col-span-12 mt-16 grid grid-cols-12",
+        "option_menu_selected": false,
+        "title": "Summer Shop FAQs",
+        "title_classes": "text-3xl lg:text-4xl font-semibold  leading-9 md:leading-7 lg:leading-9 text-gray-800",
+        "description": "",
+        "description_classes": "text-base leading-6 text-center text-gray-600 w-full md:w-10/12"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "ob_conditional_banner_rUm9Yj",
+    "ob_three_text_fields_TjaQa7",
+    "summer_shop_3_buttons_8FGwPc",
+    "summer_shop_4_button_VxwTy9",
+    "ob_collection_slider_old_U6HgPi",
+    "summer_shop_video_cQ44GA",
+    "summer_shop_squished_three_iFQrgt",
+    "ob_collection_slider_old_jn4pfK",
+    "summer_shop_4_button_giYptE",
+    "summer_shop_product_banner_TYQyQf",
+    "summer_shop_qd_towel_J4MjbE",
+    "ob_conditional_banner_Dpehdt",
+    "ob_image_text_grid_AGA9xL",
+    "tabs_and_blocks_ytcbxC"
+  ]
+}

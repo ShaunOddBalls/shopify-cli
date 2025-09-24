@@ -1,0 +1,127 @@
+{% include 'ob-include-set-current-country' %}
+
+{% for block in section.blocks %}
+{% include 'ob-include-country-ok-to-proceed', thingObj:block %}
+  {% if country_ok_to_proceed == 'yes' %}
+    <div class="{{ block.settings.text-field-outer-wrapper-classes }}">
+      <div class="{{ block.settings.text-field-inner-wrapper-classes }}">
+        {% if block.settings.text-field-1 != blank %}
+        <div class="{{ block.settings.text-field-1-classes }}">{{ block.settings.text-field-1 }}</div>
+        {% endif %}
+        {% if block.settings.text-field-2 != blank %}
+        <div class="{{ block.settings.text-field-2-classes }}">{{ block.settings.text-field-2 }}</div>
+        {% endif %}
+        {% if block.settings.text-field-3 != blank %}
+        <div class="{{ block.settings.text-field-3-classes }}">{{ block.settings.text-field-3 }}</div>
+        {% endif %}
+        {% if block.settings.text-field-4 != blank %}
+        <div class="{{ block.settings.text-field-4-classes }}">{{ block.settings.text-field-4 }}</div>
+        {% endif %}
+        {% if block.settings.html-field != blank %}
+        <div class="{{ block.settings.html-field-classes }}">{{ block.settings.html-field }}</div>
+        {% endif %}       
+      </div>
+    </div>
+  {% endif %}
+{% endfor %}
+
+{% schema %}
+{
+	"name": "Three Text Fields",
+	"presets": [
+      {
+        "name": "Three Text Fields"
+      }
+	],
+	"settings": [
+
+	],
+	"blocks": [
+        {
+          "type": "text-lines",
+          "name": "Text Lines",
+          "limit": 50,
+          "settings": [
+                {
+                  "type": "html",
+                  "id": "country_iso",
+                  "label": "Only display if current iso is (* for all)",
+                  "info": "Comma seperated",
+                  "default":"*"
+                },   
+                {
+                  "id": "text-field-outer-wrapper-classes",
+                  "type": "text",
+                  "label": "Text Field Outer Wrapper Classes",
+                  "info": "relative px-4"
+                },
+                {
+                  "id": "text-field-inner-wrapper-classes",
+                  "type": "text",
+                  "label": "Text Field Inner Wrapper Classes",
+                  "info": "text-center text-black z-20 relative max-w-4xl mx-auto py-8 pt-24 sm:pt-8"
+                },
+                {
+                  "id": "text-field-1",
+                  "type": "text",
+                  "label": "Text Field 1"
+                },
+                {
+                  "id": "text-field-1-classes",
+                  "type": "text",
+                  "label": "Text Field 1 Classes",
+                  "info": "text-magenta-500 uppercase font-semibold text-4xl md:text-5xl"
+                },
+                {
+                  "id": "text-field-2",
+                  "type": "text",
+                  "label": "Text Field 2"
+                },
+                {
+                  "id": "text-field-2-classes",
+                  "type": "text",
+                  "label": "Text Field 2 Classes",
+                  "info": "h-1 text-transparent py-0.5 bg-magenta-500 w-1/2 mx-auto mt-1 mb-2"
+
+                },
+                {
+                  "id": "text-field-3",
+                  "type": "text",
+                  "label": "Text Field 3"
+                },
+                {
+                  "id": "text-field-3-classes",
+                  "type": "text",
+                  "label": "Text Field 3 Classes"
+                },
+                {
+                  "id": "text-field-4",
+                  "type": "text",
+                  "label": "Text Field 4"
+                },
+                {
+                  "id": "text-field-4-classes",
+                  "type": "text",
+                  "label": "Text Field 4 Classes"
+                },
+                {
+                  "id": "html-field",
+                  "type": "html",
+                  "label": "HTML"
+                },
+                {
+                  "id": "html-field-classes",
+                  "type": "text",
+                  "label": "HTML Field Classes"
+                }
+			]	
+		}
+	]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

@@ -1,0 +1,802 @@
+{% assign show_timer = "true" %}
+{% if section.settings.show_certain_days == "yes" %}
+  {% assign show_timer = "false" %}
+{% endif %}
+
+{% capture current_day %}{{ "now" | date: "%d" }}{% endcapture %}
+{% capture current_month %}{{ "now" | date: "%m" }}{% endcapture %}
+
+{% capture show_day %}{{ section.settings.show_certain_days_days }}{% endcapture %}
+{% capture show_month %}{{ section.settings.show_certain_days_months }}{% endcapture %}
+
+{% assign show_days = show_day | split:',' %}
+{% assign show_months = show_month | split:',' %}
+
+
+{% for day in show_days %}
+  {% assign day = day | strip %}
+  {% if current_day == day %}
+    {% for month in show_months %}
+      {% assign month = month | strip %}
+      {% if current_month == month %}
+        {% assign show_timer = "true" %}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+{% endfor %}
+
+{% if show_timer == "true" %}
+
+{% capture timer_html %}<div id="timer_{{ section.id }}" data-day="{{ section.settings.countdown_dd }}" data-month="{{ section.settings.countdown_mm }}" data-year="{{ section.settings.countdown_yyyy }}" data-time="{{ section.settings.countdown_time }}" class="js-countdown hidden status {{ section.settings.wrapper_classes }}" id="section_{{ section.id }}" style="display:flex;max-height:140px; min-height:140px; background:{{ section.settings.wrapper_background_color }}">
+{% if section.settings.timer_type == 'skinny' %}
+  <div class="md:flex-roww flex flex-col gap-x-5 max-w-sm mx-auto">
+    {% if section.settings.timer_message != blank %}
+    <div class="md:text-left flex flex-col justify-center text-center">
+      <div class="{{ section.settings.title_classes }}" style="font-family:{{ section.settings.title_font }}; color:{{ section.settings.title_color }}">
+          {{ section.settings.timer_message }}
+          {%  if section.settings.learn_more_active and section.settings.lean_more_text %}
+          <button id="countdown_learn_more" style="    vertical-align: middle;
+    color: #008cff;
+    padding: 6px 10px;
+    margin-left: 10px;
+    line-height: 1em;
+    font-family: 'Helvetica Neue', Helvetica, Arial, 'sans-serif';
+    font-size: 9px;
+    font-weight: 700;
+    border: 1px solid #0f72c2;
+    border-radius: 5px;" class="js-learn-more inline bg-white text-xxs uppercase px-2 py-0.5 border border-solid rounded-md block" data-title-url="{{ section.settings.lean_more_title }}" data-content-url="{{ section.settings.lean_more_content }}">{{ section.settings.lean_more_text }}</button>
+          {% endif %}
+      </div>
+      <div class="{{ section.settings.sub_message_classes }}" style="font-family:{{ section.settings.sub_title_font }}; color:{{ section.settings.title_color }}">{{ section.settings.timer_sub_message }}</div>	  
+    </div>
+    {% endif %}
+    <div style="min-height:48px;">
+      <div class="{{ section.settings.timer_classes }}" style="color:{{ section.settings.timer_color }}">
+        <div class="col-span-1 grid grid-cols-1"><span class="countdown-days col-span-1 {{ section.settings.timer_numbers_classes }}" style="color:{{ section.settings.countdown_numbers_colour }}; font-family:{{ section.settings.timer_numbers_font }};"></span> <span class="countdown-days-text col-span-1 {{ section.settings.timer_words_classes }}" style="font-family:{{ section.settings.timer_text_font }};"></span></div>
+        <div class="col-span-1 grid grid-cols-1"><span class="countdown-hours col-span-1 {{ section.settings.timer_numbers_classes }}" style="color:{{ section.settings.countdown_numbers_colour }}; font-family:{{ section.settings.timer_numbers_font }};"></span> <span class="countdown-hours-text col-span-1 {{ section.settings.timer_words_classes }}" style="font-family:{{ section.settings.timer_text_font }};"></span></div>
+        <div class="col-span-1 grid grid-cols-1"><span class="countdown-minutes col-span-1 {{ section.settings.timer_numbers_classes }}" style="color:{{ section.settings.countdown_numbers_colour }}; font-family:{{ section.settings.timer_numbers_font }};"></span> <span class="countdown-minutes-text col-span-1 {{ section.settings.timer_words_classes }}" style="font-family:{{ section.settings.timer_text_font }};"></span></div>
+        <div class="col-span-1 grid grid-cols-1"><span class="countdown-seconds col-span-1 {{ section.settings.timer_numbers_classes }}" style="color:{{ section.settings.countdown_numbers_colour }}; font-family:{{ section.settings.timer_numbers_font }};"></span> <span class="countdown-seconds-text col-span-1 {{ section.settings.timer_words_classes }}" style="font-family:{{ section.settings.timer_text_font }};"></span></div>     
+      </div>      
+    </div>
+  </div>
+{% elsif section.settings.timer_type == 'chonky' %}
+  <div id="timer_message">
+    <div id="timer_product">
+        <div class='timer-product-inner'>
+          <div class="{{ section.settings.title_classes }}" style="font-family:{{ section.settings.title_font }}; color:{{ section.settings.title_color }}">
+              {{ section.settings.timer_message }}
+              {%  if section.settings.learn_more_active and section.settings.lean_more_text %}
+              <button id="countdown_learn_more" style="    vertical-align: middle;
+    color: #008cff;
+    padding: 6px 10px;
+    margin-left: 10px;
+    line-height: 1em;
+    font-family: 'Helvetica Neue', Helvetica, Arial, 'sans-serif';
+    font-size: 9px;
+    font-weight: 700;
+    border: 1px solid #0f72c2;
+    border-radius: 5px;" class="js-learn-more inline bg-white text-xxs uppercase px-2 py-0.5 border border-solid rounded-md block" data-title-url="{{ section.settings.lean_more_title }}" data-content-url="{{ section.settings.lean_more_content }}">{{ section.settings.lean_more_text }}</button>
+              {% endif %}
+          </div>         
+          
+          <div class="{{ section.settings.timer_classes }}" style="font-family:{{ section.settings.timer_font }}; color:{{ section.settings.timer_color }}">
+            <div class="col-span-1 grid grid-cols-1"><span class="countdown-days col-span-1 {{ section.settings.timer_numbers_classes }}" style="color:{{ section.settings.countdown_numbers_colour }}"></span> <span class="countdown-days-text col-span-1 {{ section.settings.timer_words_classes }}"></span></div>
+            <div class="col-span-1 grid grid-cols-1"><span class="countdown-hours col-span-1 {{ section.settings.timer_numbers_classes }}" style="color:{{ section.settings.countdown_numbers_colour }}"></span> <span class="countdown-hours-text col-span-1 {{ section.settings.timer_words_classes }}"></span></div>
+            <div class="col-span-1 grid grid-cols-1"><span class="countdown-minutes col-span-1 {{ section.settings.timer_numbers_classes }}" style="color:{{ section.settings.countdown_numbers_colour }}"></span> <span class="countdown-minutes-text col-span-1 {{ section.settings.timer_words_classes }}"></span></div>
+            <div class="col-span-1 grid grid-cols-1"><span class="countdown-seconds col-span-1 {{ section.settings.timer_numbers_classes }}" style="color:{{ section.settings.countdown_numbers_colour }}"></span> <span class="countdown-seconds-text col-span-1 {{ section.settings.timer_words_classes }}"></span></div>     
+          </div>
+          {% if section.settings.button_text != blank %}
+          <div class="{{ section.settings.button_wrapper_classes }}">
+            <a class="{{ section.settings.button_classes }}" style="color:{{ section.settings.button_color }}; border-color:{{ section.settings.button_color }}; font-family:'{{ section.settings.button_font }}'" href="{{ section.settings.button_link}}">
+              {{ section.settings.button_text }}
+            </a>
+          </div>
+          {% endif %}
+        </div>
+    </div>
+  </div>
+{%endif %} 
+</div>{% endcapture %}
+
+{% include 'include-set-current-country' %}	
+  
+    {% assign ok_to_proceed = 'no' %}
+    {% assign customer_ok_to_proceed = 'no' %}
+    {% assign handle_ok_to_proceed = 'no' %}
+  
+  
+    {% if customer %}
+      {% assign customer_ok_to_proceed = 'yes' %}
+    {% endif %}
+  
+  
+    {% assign current_handle = '' %}
+    
+    {% case template.name %}
+    {% when 'page' %}
+    {% assign current_handle = page.handle %}
+    {% when 'blog' %}
+    {% assign current_handle = blog.handle %}
+    {% when 'article' %}
+    {% assign current_handle = blog.handle %}
+    {% when 'collection' %}
+    {% assign current_handle = collection.handle %}
+    {% when 'product' %}
+    {% assign current_handle = product.handle %}
+    {% endcase %}
+  
+    {% if section.settings.customers != 'not customer' %}
+      {% assign customer_ok_to_proceed = 'yes' %}
+    {% endif %}
+
+
+      {% include 'include-country-ok-to-proceed', thingObj:section %}
+      {% if country_ok_to_proceed == 'yes' %}
+        {% if template.name == 'product' %}
+          {% assign product_types = section.settings.product_types %}
+          {% assign product_type = product.type | downcase %}
+          {% assign product_types_arr = section.settings.product_types | downcase | split: ',' %}   
+
+          {% assign customer_ok_to_proceed = 'yes' %}
+          {% if is_customer %}
+            {% assign is_customer = 'yes' %}
+          {% else %}
+            {% assign is_customer = 'no' %}
+          {% endif %}
+          
+          {% assign customers_section_check = section.settings.customers %}
+          {% unless customer_check == 'both' or section.settings.customers == blank %}
+            {% if is_customer == 'yes' and customers_section_check == 'not customer' %}
+              {% assign customer_ok_to_proceed = 'no' %}           
+            {% endif %}
+
+            {% if is_customer == 'no' and customers_section_check == 'customer' %}
+              {% assign customer_ok_to_proceed = 'no' %}            
+            {% endif %}
+          {% endunless%}
+
+          {% if product_types_arr contains product_type and customer_ok_to_proceed == 'yes' %}
+
+          {{ timer_html }}
+           
+          {% endif %}
+        {% else %}
+          {% assign collection_handle = collection.handle | downcase %}
+          {% assign section_handles_arr = section.settings.url_handle | downcase | replace: ' ', '' | split: ',' %}
+          {% assign section_not_handles_arr = section.settings.not_url_handle | downcase | replace: ' ', '' | split: ',' %}
+
+          {% if section_handles_arr contains '*' %}
+            {% assign handle_ok_to_proceed = 'yes' %}
+          {% endif%}
+          {% if section_handles_arr contains current_handle %}
+            {% assign handle_ok_to_proceed = 'yes' %}
+          {% endif%}
+          {% if section_not_handles_arr contains current_handle %}
+            {% assign handle_ok_to_proceed = 'no' %}
+          {% endif %}
+          
+          {% assign customer_ok_to_proceed = 'yes' %}
+          {% if customer %}
+            {% assign is_customer = 'yes' %}
+          {% else %}
+            {% assign is_customer = 'no' %}
+          {% endif %}
+          
+          {% assign customers_section_check = section.settings.customers %}
+          {% unless customer_check == 'both' or section.settings.customers == blank %}
+            {% if is_customer == 'yes' and customers_section_check == 'not customer' %}
+              {% assign customer_ok_to_proceed = 'no' %}           
+            {% endif %}
+
+            {% if is_customer == 'no' and customers_section_check == 'customer' %}
+              {% assign customer_ok_to_proceed = 'no' %}            
+            {% endif %}
+          {% endunless%}
+            
+          {% if handle_ok_to_proceed == 'yes' and customer_ok_to_proceed == 'yes' %}
+            {{ timer_html }}
+          {% endif %}
+        {% endif %}
+      {% endif %}
+
+{% endif %}
+{% comment %}
+      <div id="timer_{{ section.id }}" data-day="{{ section.settings.countdown_dd }}" data-month="{{ section.settings.countdown_mm }}" data-year="{{ section.settings.countdown_yyyy }}" data-time="{{ section.settings.countdown_time }}" class="js-countdown hidden status {{ section.settings.wrapper_classes }}" id="section_{{ section.id }}" style="background:{{ section.settings.wrapper_background_color }}">
+      {% if section.settings.timer_type == 'skinny' %}
+        <div class="md:flex-row flex flex-col gap-x-5 gap-y-2">
+          {% if section.settings.timer_message != blank %}
+          <div class="md:text-left flex flex-col justify-center text-center">
+            <div class="{{ section.settings.title_classes }}" style="font-family:{{ section.settings.title_font }}; color:{{ section.settings.title_color }}">{{ section.settings.timer_message }}</div>
+            <div class="{{ section.settings.sub_message_classes }}" style="font-family:{{ section.settings.sub_title_font }}; color:{{ section.settings.title_color }}">{{ section.settings.timer_sub_message }}</div>	  
+          </div>
+          {% endif %}
+          <div>
+            <div class="{{ section.settings.timer_classes }}" style="color:{{ section.settings.timer_color }}">
+              <div class="col-span-1 grid grid-cols-1"><span class="countdown-days col-span-1 {{ section.settings.timer_numbers_classes }}" style="color:{{ section.settings.countdown_numbers_colour }}; font-family:{{ section.settings.timer_numbers_font }};"></span> <span class="countdown-days-text col-span-1 {{ section.settings.timer_words_classes }}" style="font-family:{{ section.settings.timer_text_font }};"></span></div>
+              <div class="col-span-1 grid grid-cols-1"><span class="countdown-hours col-span-1 {{ section.settings.timer_numbers_classes }}" style="color:{{ section.settings.countdown_numbers_colour }}; font-family:{{ section.settings.timer_numbers_font }};"></span> <span class="countdown-hours-text col-span-1 {{ section.settings.timer_words_classes }}" style="font-family:{{ section.settings.timer_text_font }};"></span></div>
+              <div class="col-span-1 grid grid-cols-1"><span class="countdown-minutes col-span-1 {{ section.settings.timer_numbers_classes }}" style="color:{{ section.settings.countdown_numbers_colour }}; font-family:{{ section.settings.timer_numbers_font }};"></span> <span class="countdown-minutes-text col-span-1 {{ section.settings.timer_words_classes }}" style="font-family:{{ section.settings.timer_text_font }};"></span></div>
+              <div class="col-span-1 grid grid-cols-1"><span class="countdown-seconds col-span-1 {{ section.settings.timer_numbers_classes }}" style="color:{{ section.settings.countdown_numbers_colour }}; font-family:{{ section.settings.timer_numbers_font }};"></span> <span class="countdown-seconds-text col-span-1 {{ section.settings.timer_words_classes }}" style="font-family:{{ section.settings.timer_text_font }};"></span></div>     
+            </div>      
+          </div>
+        </div>
+      {% elsif section.settings.timer_type == 'chonky' %}
+        <div id="timer_message">
+          <div id="timer_product">
+              <div class='timer-product-inner'>
+                <div class="{{ section.settings.title_classes }}" style="font-family:{{ section.settings.title_font }}; color:{{ section.settings.title_color }}">{{ section.settings.timer_message }}</div>          
+                <div class="{{ section.settings.timer_classes }}" style="font-family:{{ section.settings.timer_font }}; color:{{ section.settings.timer_color }}">
+                  <div class="col-span-1 grid grid-cols-1"><span class="countdown-days col-span-1 {{ section.settings.timer_numbers_classes }}" style="color:{{ section.settings.countdown_numbers_colour }}"></span> <span class="countdown-days-text col-span-1 {{ section.settings.timer_words_classes }}"></span></div>
+                  <div class="col-span-1 grid grid-cols-1"><span class="countdown-hours col-span-1 {{ section.settings.timer_numbers_classes }}" style="color:{{ section.settings.countdown_numbers_colour }}"></span> <span class="countdown-hours-text col-span-1 {{ section.settings.timer_words_classes }}"></span></div>
+                  <div class="col-span-1 grid grid-cols-1"><span class="countdown-minutes col-span-1 {{ section.settings.timer_numbers_classes }}" style="color:{{ section.settings.countdown_numbers_colour }}"></span> <span class="countdown-minutes-text col-span-1 {{ section.settings.timer_words_classes }}"></span></div>
+                  <div class="col-span-1 grid grid-cols-1"><span class="countdown-seconds col-span-1 {{ section.settings.timer_numbers_classes }}" style="color:{{ section.settings.countdown_numbers_colour }}"></span> <span class="countdown-seconds-text col-span-1 {{ section.settings.timer_words_classes }}"></span></div>     
+                </div>
+                {% if section.settings.button_text != blank %}
+                <div class="{{ section.settings.button_wrapper_classes }}">
+                  <a class="{{ section.settings.button_classes }}" style="color:{{ section.settings.button_color }}; border-color:{{ section.settings.button_color }}; font-family:'{{ section.settings.button_font }}'" href="{{ section.settings.button_link}}">
+                    {{ section.settings.button_text }}
+                  </a>
+                </div>
+                {% endif %}
+              </div>
+          </div>
+        </div>
+      {%endif %} 
+      </div>
+{% endcomment %}
+
+
+
+<style>
+  #timer_message {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.4em;
+    text-align: center;
+    border-radius: 5px;
+  }
+
+  .font-bebas {
+   
+    font-family: 'Bebas Neue';
+    
+  }
+  
+  .font-gold {
+    
+  	color: #fff;
+    
+  }
+  
+  .bg-magenta-500 {
+  
+  	background-color: #F00F83;
+  
+  }
+  
+ 
+  
+</style>
+
+<script>
+
+
+
+</script>
+
+{% schema %}
+  {
+    "name": "Countdown Timer New",
+  	"presets": [
+     	{
+       		"name": "Countdown Timer New"
+		}
+	],
+    "settings": [
+        {
+            "type": "header",
+            "content": "Timer"
+        },
+        {
+          "id": "title",
+          "type": "text",
+          "label": "Title for block",
+          "info": "Used for identification only"
+        },      
+        {
+            "type": "html",
+            "id": "country_iso",
+            "label": "Only display if current iso is (* for all)",
+            "info": "Comma seperated",
+            "default":"*"
+        },
+        {
+          "id": "customers",
+          "type": "select",
+          "default": "both",            
+          "options": [
+            {
+              "value": "both",
+              "label": "both"
+            },
+            {
+              "value": "customer",
+              "label": "customer"
+            },
+            {
+              "value": "not-customer",
+              "label": "not customer"
+            } 
+          ],
+          "label": "Customer (optional)"
+        }, 
+        {
+          "id": "product_types",
+          "type": "textarea",
+          "label": "Product types to display",
+          "info": "List separated with commas"			
+        },
+        {
+          "type": "textarea",
+          "id": "url_handle",
+          "label": "Only display if url contains this handle (* for all)",
+          "info": "One per line",
+          "default":"*"
+        },
+        {
+          "type": "textarea",
+          "id": "not_url_handle",
+          "label": "Dont display if url contains this handle",
+          "info": "One per line"
+        },      
+		{
+			"type": "checkbox",
+			"id": "timer_active",
+			"label": "Timer Active?"
+		},
+        {
+          "type": "select",
+          "id": "timer_type",
+          "label": "Timer Type",
+          "options": [
+            {
+              "value": "skinny",
+              "label": "Skinny"
+            },
+            {
+              "value": "chonky",
+              "label": "Chonky"
+            }
+		  ],
+  		  "default": "skinny"
+		},
+        {
+          "type": "select",
+          "id": "countdown_dd",
+          "label": "Day",
+          "options": [
+            {
+              "value": "01",
+              "label": "1"
+            },
+            {
+              "value": "02",
+              "label": "2"
+            },
+            {
+              "value": "03",
+              "label": "3"
+            },
+            {
+              "value": "04",
+              "label": "4"
+            },
+            {
+              "value": "05",
+              "label": "5"
+            },
+            {
+              "value": "06",
+              "label": "6"
+            },
+            {
+              "value": "07",
+              "label": "7"
+            },
+            {
+              "value": "08",
+              "label": "8"
+            },
+            {
+              "value": "09",
+              "label": "9"
+            },
+            {
+              "value": "10",
+              "label": "10"
+            },
+            {
+              "value": "11",
+              "label": "11"
+            },
+            {
+              "value": "12",
+              "label": "12"
+            },
+            {
+              "value": "13",
+              "label": "13"
+            },
+            {
+              "value": "14",
+              "label": "14"
+            },
+            {
+              "value": "15",
+              "label": "15"
+            },
+            {
+              "value": "16",
+              "label": "16"
+            },
+            {
+              "value": "17",
+              "label": "17"
+            },
+            {
+              "value": "18",
+              "label": "18"
+            },
+            {
+              "value": "19",
+              "label": "19"
+            },
+            {
+              "value": "20",
+              "label": "20"
+            },
+            {
+              "value": "21",
+              "label": "21"
+            },
+            {
+              "value": "22",
+              "label": "22"
+            },
+            {
+              "value": "23",
+              "label": "23"
+            },
+            {
+              "value": "24",
+              "label": "24"
+            },
+            {
+              "value": "25",
+              "label": "25"
+            },
+            {
+              "value": "26",
+              "label": "26"
+            },
+            {
+              "value": "27",
+              "label": "27"
+            },
+            {
+              "value": "28",
+              "label": "28"
+            },
+            {
+              "value": "29",
+              "label": "29"
+            },
+            {
+              "value": "30",
+              "label": "30"
+            },
+            {
+              "value": "31",
+              "label": "31"
+            }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "countdown_mm",
+          "label": "Month",
+          "options": [
+            {
+              "value": "January",
+              "label": "January"
+            },
+            {
+              "value": "February",
+              "label": "February"
+            },
+            {
+              "value": "March",
+              "label": "March"
+            },
+            {
+              "value": "April",
+              "label": "April"
+            },
+            {
+              "value": "May",
+              "label": "May"
+            },
+            {
+              "value": "June",
+              "label": "June"
+            },
+            {
+              "value": "July",
+              "label": "July"
+            },
+            {
+              "value": "August",
+              "label": "August"
+            },
+            {
+              "value": "September",
+              "label": "September"
+            },
+            {
+              "value": "October",
+              "label": "October"
+            },
+            {
+              "value": "November",
+              "label": "November"
+            },
+            {
+              "value": "December",
+              "label": "December"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "countdown_yyyy",
+          "label": "Year"
+        },
+        {
+          "type": "text",
+          "id": "countdown_time",
+          "label": "E.g. 0:00:00 GMT+00:00"
+        },
+        {
+            "type": "header",
+            "content": "Classes"
+        },
+       	{
+            "type": "text",
+            "id": "wrapper_classes",
+            "label": "Wrapper",
+			"default": "flex justify-center mx-auto"
+        },
+       	{
+            "type": "text",
+            "id": "title_classes",
+            "label": "Message",
+			"default": "text-2xl"
+        },
+       	{
+            "type": "text",
+            "id": "sub_message_classes",
+            "label": "Sub Message",
+			"default": "text-xl"
+        },
+       	{
+            "type": "text",
+            "id": "timer_classes",
+            "label": "Timer Wrapper",
+			"default": "grid grid-cols-4 gap-x-5 pr-3"
+        },
+       	{
+            "type": "text",
+            "id": "timer_numbers_classes",
+            "label": "Timer Numbers",
+			"default": "font-bold text-2xl"
+        },
+       	{
+            "type": "text",
+            "id": "timer_words_classes",
+            "label": "Timer Words",
+			"default": "text-xs sm:text-sm"
+        },
+       	{
+            "type": "text",
+            "id": "button_wrapper_classes",
+            "label": "Button Wrapper",
+			"default": "flex justify-center mt-6"
+        },
+       	{
+            "type": "text",
+            "id": "button_classes",
+            "label": "Button",
+			"default": "border border-solid px-10 py-3"
+        },
+        {
+            "type": "header",
+            "content": "Colours"
+        },
+        {
+            "type": "color_background",
+            "id": "wrapper_background_color",
+            "label": "Background Colour"
+        },
+        {
+            "type": "color",
+            "id": "title_color",
+            "label": "Title Colour"
+        },        
+        {
+            "type": "color",
+            "id": "timer_color",
+            "label": "Timer Colour"
+        }, 
+        {
+            "type": "color",
+            "id": "button_color",
+            "label": "Button Colour"
+        },
+        {
+            "type": "header",
+            "content": "Text"
+        },        
+        {
+            "type": "text",
+            "id": "timer_message",
+            "label": "Timer Message"
+        },
+        {
+            "type": "text",
+            "id": "timer_sub_message",
+            "label": "Timer Sub Message"
+        }, 
+        {
+            "type": "text",
+            "id": "button_text",
+            "label": "Button Text"
+        },
+        {
+            "type": "url",
+            "id": "button_link",
+            "label": "Button Link"
+        },                  
+        {
+            "type": "select",
+            "id": "title_font",
+            "label": "Title Font",
+            "options": [
+              {
+                "value": "Bebas Neue",
+                "label": "Bebas"
+              },
+              {
+                "value": "Mulish",
+                "label": "Mulish (Default)"
+              }
+            ]
+        },
+        {
+            "type": "select",
+            "id": "sub_title_font",
+            "label": "Sub Title Font",
+            "options": [
+              {
+                "value": "Bebas Neue",
+                "label": "Bebas"
+              },
+              {
+                "value": "Mulish",
+                "label": "Mulish (Default)"
+              }
+            ]
+        },
+        {
+            "type": "select",
+            "id": "timer_text_font",
+            "label": "Timer Text Font",
+            "options": [
+              {
+                "value": "Bebas Neue",
+                "label": "Bebas"
+              },
+              {
+                "value": "Mulish",
+                "label": "Mulish (Default)"
+              }
+            ]
+        },
+        {
+            "type": "select",
+            "id": "timer_numbers_font",
+            "label": "Timer Numbers Font",
+            "options": [
+              {
+                "value": "Bebas Neue",
+                "label": "Bebas"
+              },
+              {
+                "value": "Mulish",
+                "label": "Mulish (Default)"
+              }
+            ]
+        },
+        {
+            "type": "select",
+            "id": "button_font",
+            "label": "Button Font",
+            "options": [
+              {
+                "value": "Bebas Neue",
+                "label": "Bebas"
+              },
+              {
+                "value": "Mulish",
+                "label": "Mulish (Default)"
+              }
+            ]
+        },
+		{
+			"type": "checkbox",
+			"id": "learn_more_active",
+			"label": "Learn more active?",
+			"default": false
+		},
+        {
+          "type": "text",
+          "id": "lean_more_text",
+          "label": "Learn more btn text"
+        },
+        {
+          "type": "text",
+          "id": "lean_more_title",
+          "label": "Small cart upsell lean more title",
+          "info": "eg. pages/faqs #current_offers_faq .faq-title"
+        },
+        {
+          "type": "text",
+          "id": "lean_more_content",
+          "label": "Small cart upsell lean more content",
+          "info": "eg. pages/faqs #current_offers_faq .faq-answer-content"
+        },
+      {
+          "type": "select",
+          "id": "show_certain_days",
+          "label": "Only Show On Certain Days?",
+          "options": [
+            {
+              "value": "yes",
+              "label": "Yes"
+            },
+            {
+              "value": "no",
+              "label": "No"
+            }
+		  ],
+  		  "default": "no"
+		},
+      {
+          "type": "text",
+          "id": "show_certain_days_days",
+          "label": "Which Days?",
+          "info": "eg 24,25,26"
+		},
+      {
+          "type": "text",
+          "id": "show_certain_days_months",
+          "label": "Which Months?",
+          "info": "eg 09,10,11"
+		}
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

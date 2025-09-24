@@ -1,0 +1,503 @@
+{% assign market_code = localization.language.root_url %}
+{% if market_code == '/' %}
+  {% assign market_code = 'uk' %}
+{% else %}
+  {% assign market_code = market_code | remove: '/' %}
+{% endif %}
+
+{% if market_code == 'en-eu' and settings.cart_free_shipping_banner %}
+  <!-- Do something for EU English market -->
+  <div style="background-color: #f00f8314;"
+    class="w-full p-2 flex justify-center flex-col gap-2 items-center js-open-generic-banner pointer-event text-xs mt-2"
+    {% comment %} data-metaobjecthandle="eu-popup" {% endcomment %}
+  >
+    <div class="font-semibold text-sm">Free Shipping On Orders Over €35</div>
+    <div class="text-sm text-center font-semibold">No EU Custom or duty Fees on orders UNDER €150</div>
+    {% comment %} <div
+      style="border: 1px solid #f00f83;font-size: 12px;padding: 3px 10px;"
+      class="font-semibold  cursor-pointer text-magenta   border-solid-1 block text-xs  p-2 text-center max-w-[120px] py-1 uppercase rounded-full "
+    >
+      <span id="gift-text">Learn More</span>
+      <svg class="circular-loader relative hidden" viewBox="25 25 50 50">
+        <circle class="loader-path" stroke="#f00f83" cx="50" cy="50" r="20" fill="none" stroke-width="4"></circle>
+      </svg>
+    </div> {% endcomment %}
+  </div>
+{% endif %}
+
+{% capture free_gift_and_shipping_isos %}
+  {% render "ob-show-feature-check", metaobject_handle: "free-gift-free-shipping" %} 
+{% endcapture %}
+
+{% capture free_gift_isos %}
+  {% render "ob-show-feature-check", metaobject_handle: "free-gift-only" %} 
+{% endcapture %}
+
+{% capture free_shipping_isos %}
+  {% render "ob-show-feature-check", metaobject_handle: "free-shipping-only" %} 
+{% endcapture %}
+
+{% assign show_free_gift = false %}
+{% assign show_free_ship = false %}
+
+{% if free_gift_and_shipping_isos contains 'true' %}
+  {% assign show_free_gift = true %}
+  {% assign show_free_ship = true %}
+{% endif %}
+
+{% if free_gift_isos contains 'true' %}
+  {% assign show_free_gift = true %}
+{% endif %}
+
+{% if free_shipping_isos contains 'true' %}
+  {% assign show_free_ship = true %}
+{% endif %}
+
+{% assign show_bar = false %}
+
+{% if show_free_ship == true %}
+  {% assign show_bar = true %}
+{% endif %}
+
+{% if show_free_gift == true %}
+  {% assign show_bar = true %}
+{% endif %}
+<input id="show_free_ship" type="hidden" value="{{ show_free_ship }}">
+<input id="show_free_gift" type="hidden" value="{{ show_free_gift }}">
+
+<div
+  id="cart-info"
+  class="px-4 shadow-sm my-3 pt-2 mx-5 mb-5 py-3 px-5 border border-solid border-gray-300  rounded-lg relative"
+  style="{% if show_bar == false %} display:none;{% endif %}"
+>
+  <div
+    id="cart-info-loading-backdrop"
+    class="absolute w-full h-full z-20 top-0 left-0 flex justify-center items-center"
+  ></div>
+  <div id="cart-info-loading" class="absolute w-full h-full z-20 top-0 left-0 flex justify-center items-center">
+    <div class="w-12">
+      <svg class="loading-ele-outer" viewBox="25 25 50 50">
+        <circle class="loading-ele-inner" cx="50" cy="50" r="20" fill="none" stroke-width="4"></circle>
+      </svg>
+    </div>
+  </div>
+
+  <ul
+    id="progress-bar-wrapper"
+    class="progress-bar mt-2"
+    style="--progress: 100%; --background: linear-gradient(to right, #009fe2, #d0288d, #e41087);"
+  >
+    <li data-text="£0" class="completed" style="--progress-color: #009fe2;">
+      <span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 1 24 24" fill="currentColor">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M16.5285 6C16.5098 5.9193 16.4904 5.83842 16.4701 5.75746C16.2061 4.70138 15.7904 3.55383 15.1125 2.65C14.4135 1.71802 13.3929 1 12 1C10.6071 1 9.58648 1.71802 8.88749 2.65C8.20962 3.55383 7.79387 4.70138 7.52985 5.75747C7.50961 5.83842 7.49016 5.9193 7.47145 6H5.8711C4.29171 6 2.98281 7.22455 2.87775 8.80044L2.14441 19.8004C2.02898 21.532 3.40238 23 5.13777 23H18.8622C20.5976 23 21.971 21.532 21.8556 19.8004L21.1222 8.80044C21.0172 7.22455 19.7083 6 18.1289 6H16.5285ZM8 11C8.57298 11 8.99806 10.5684 9.00001 9.99817C9.00016 9.97438 9.00044 9.9506 9.00084 9.92682C9.00172 9.87413 9.00351 9.79455 9.00718 9.69194C9.01451 9.48652 9.0293 9.18999 9.05905 8.83304C9.08015 8.57976 9.10858 8.29862 9.14674 8H14.8533C14.8914 8.29862 14.9198 8.57976 14.941 8.83305C14.9707 9.18999 14.9855 9.48652 14.9928 9.69194C14.9965 9.79455 14.9983 9.87413 14.9992 9.92682C14.9996 9.95134 14.9999 9.97587 15 10.0004C15 10.0004 15 11 16 11C17 11 17 9.99866 17 9.99866C16.9999 9.9636 16.9995 9.92854 16.9989 9.89349C16.9978 9.829 16.9957 9.7367 16.9915 9.62056C16.9833 9.38848 16.9668 9.06001 16.934 8.66695C16.917 8.46202 16.8953 8.23812 16.8679 8H18.1289C18.6554 8 19.0917 8.40818 19.1267 8.93348L19.86 19.9335C19.8985 20.5107 19.4407 21 18.8622 21H5.13777C4.55931 21 4.10151 20.5107 4.13998 19.9335L4.87332 8.93348C4.90834 8.40818 5.34464 8 5.8711 8H7.13208C7.10465 8.23812 7.08303 8.46202 7.06595 8.66696C7.0332 9.06001 7.01674 9.38848 7.00845 9.62056C7.0043 9.7367 7.00219 9.829 7.00112 9.89349C7.00054 9.92785 7.00011 9.96221 7 9.99658C6.99924 10.5672 7.42833 11 8 11ZM9.53352 6H14.4665C14.2353 5.15322 13.921 4.39466 13.5125 3.85C13.0865 3.28198 12.6071 3 12 3C11.3929 3 10.9135 3.28198 10.4875 3.85C10.079 4.39466 9.76472 5.15322 9.53352 6Z"></path>
+        </svg>
+      </span>
+    </li>
+    <li
+      id="free-ship-marker"
+      data-text="£30"
+      class="completed"
+      style="--progress-color: #d0288d; align-items: flex-end; {% unless show_free_ship == true %} display:none; {% endunless %}"
+    >
+      <span style="transform:translateX(20%)">
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor"
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+        >
+          <path d="M5 18h-1c-.552 0-1-.448-1-1v-2h12v-9h4.667c1.117 0 1.6.576 1.936 1.107.594.94 1.536 2.432 2.109 3.378.188.312.288.67.288 1.035v4.48c0 1.121-.728 2-2 2h-1c0 1.656-1.344 3-3 3s-3-1.344-3-3h-4c0 1.656-1.344 3-3 3s-3-1.344-3-3zm3-1.2c.662 0 1.2.538 1.2 1.2 0 .662-.538 1.2-1.2 1.2-.662 0-1.2-.538-1.2-1.2 0-.662.538-1.2 1.2-1.2zm10 0c.662 0 1.2.538 1.2 1.2 0 .662-.538 1.2-1.2 1.2-.662 0-1.2-.538-1.2-1.2 0-.662.538-1.2 1.2-1.2zm-10-8.8h-8v-2h8v-1h-5v-1c0-.552.448-1 1-1h9c.552 0 1 .448 1 1v10h-11v-3h-2v-2h7v-1zm9 0v3h4.715l-1.427-2.496c-.178-.312-.509-.504-.868-.504h-2.42z"></path>
+        </svg>
+      </span>
+    </li>
+    <li
+      id="free-gift-marker"
+      data-text="£35"
+      class="completed"
+      style="--progress-color: #e41087; align-items: flex-end; {% unless show_free_gift == true %} display:none; {% endunless %}"
+    >
+      <span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="-0.5 0 24 24" fill="currentColor">
+          <path d="M11 24h-9v-12h9v12zm0-18h-11v4h11v-4zm2 18h9v-12h-9v12zm0-18v4h11v-4h-11zm4.369-6c-2.947 0-4.671 3.477-5.369 5h5.345c3.493 0 3.53-5 .024-5zm-.796 3.621h-2.043c.739-1.121 1.439-1.966 2.342-1.966 1.172 0 1.228 1.966-.299 1.966zm-9.918 1.379h5.345c-.698-1.523-2.422-5-5.369-5-3.506 0-3.469 5 .024 5zm.473-3.345c.903 0 1.603.845 2.342 1.966h-2.043c-1.527 0-1.471-1.966-.299-1.966z"></path>
+        </svg>
+      </span>
+    </li>
+    <div
+      id="progress-bar"
+      style="height:10px; z-index:-1; left:0px; bottom:10px;"
+      class="absolute progress-bar-bar"
+    ></div>
+    <div
+      id="progress-bar-bg"
+      style="height:10px; z-index:-2; left:0px; bottom:10px; background-color:#dedede; width:100%;"
+      class="absolute progress-bar-bg"
+    ></div>
+  </ul>
+
+  <div class="flex wrapper hidden">
+    <input class="px-1 border border-solid border-black" type="text">
+    <div id="test-progress-bar" class="bg-red-500 text-white p-1">test number</div>
+  </div>
+  <div id="cart-message" class="text-xs mt-2 text-gray-900 flex">
+    <div id="under-free-gift-threshold-cart-message">
+      <div id="shipping-messages" style="{% unless show_free_ship == true %} display:none; {% endunless %}">
+        <div id="no-free-ship" class="flex flex-nowrap items-center md:py-2 py-0.5 ">
+          <div>
+            <svg
+              style="height: 15px; width:15px; margin-right:0.25rem;"
+              xmlns="http://www.w3.org/2000/svg"
+              id="Layer_1"
+              data-name="Layer 1"
+              viewBox="0 0 122.88 111.54"
+            >
+              <defs><style>.cls-1{fill:#d10808;}.cls-2{fill:#ffffff;fill-rule:evenodd;}</style></defs><title>caution</title><path class="cls-1" d="M2.35,84.42,45.28,10.2l.17-.27h0A23,23,0,0,1,52.5,2.69,17,17,0,0,1,61.57,0a16.7,16.7,0,0,1,9.11,2.69,22.79,22.79,0,0,1,7,7.26q.19.32.36.63l42.23,73.34.24.44h0a22.48,22.48,0,0,1,2.37,10.19,17.63,17.63,0,0,1-2.17,8.35,15.94,15.94,0,0,1-6.93,6.6c-.19.1-.39.18-.58.26a21.19,21.19,0,0,1-9.11,1.75v0H17.61c-.22,0-.44,0-.65,0a18.07,18.07,0,0,1-6.2-1.15A16.42,16.42,0,0,1,3,104.24a17.53,17.53,0,0,1-3-9.57,23,23,0,0,1,1.57-8.74,7.66,7.66,0,0,1,.77-1.51Z"></path><path class="cls-2" d="M9,88.75,52.12,14.16c5.24-8.25,13.54-8.46,18.87,0l42.43,73.69c3.39,6.81,1.71,16-9.33,15.77H17.61C10.35,103.8,5.67,97.43,9,88.75Z"></path><path class="cls-1" d="M57.57,82.69A5.48,5.48,0,0,1,61,81.11a5.66,5.66,0,0,1,4.42,1.66,5.53,5.53,0,0,1,1.62,3.54A5.6,5.6,0,0,1,67,87.72a6,6,0,0,1-.42,1.34,5.53,5.53,0,0,1-2.92,2.84,5.79,5.79,0,0,1-4.57-.1,5.51,5.51,0,0,1-2.81-2.94,5.31,5.31,0,0,1-.36-1.27,5.9,5.9,0,0,1-.06-1.32h0a6.45,6.45,0,0,1,.57-2,4.6,4.6,0,0,1,1.14-1.56Zm8.15-10.24c-.19,4.79-8.31,4.8-8.49,0-.82-8.21-2.92-27.7-2.86-35.42.07-2.38,2-3.78,4.56-4.32a11.19,11.19,0,0,1,2.49-.24,11.77,11.77,0,0,1,2.5.25c2.61.55,4.65,2,4.65,4.44v.24L65.72,72.45Z"></path>
+            </svg>
+          </div>
+          <p class="tw-leading py-2">
+            {{ 'ob_popup.to_free_tracked_shipping_html' | t }}
+          </p>
+        </div>
+        <div id="with-free-ship" class="hidden md:py-2 py-0.5 items-center">
+          <div id="free-shipping-list-item" class="">
+            <svg
+              fill="#488848"
+              height="15px"
+              width="15px"
+              version="1.1"
+              id="Layer_1"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              viewBox="0 0 512 512"
+              enable-background="new 0 0 512 512"
+              xml:space="preserve"
+              style="    width: 15px;    height: 15px;"
+            >
+              <polygon points="437.3,30 202.7,339.3 64,200.7 0,264.7 213.3,478 512,94 "></polygon>
+            </svg>
+          </div>
+          <p class="free-shipping py-2">
+            {{ 'ob_popup.free_tracked_shipping_html' | t }}
+          </p>
+        </div>
+      </div>
+
+      <div
+        class="flex flex-nowrap items-center md:pb-2 pb-0.5"
+        style="{% unless show_free_gift == true %} display:none; {% endunless %}"
+      >
+        <div>
+          <svg
+            style="height: 15px; width:15px; margin-right:0.25rem;"
+            xmlns="http://www.w3.org/2000/svg"
+            id="Layer_1"
+            data-name="Layer 1"
+            viewBox="0 0 122.88 111.54"
+          >
+            <defs><style>.cls-1{fill:#d10808;}.cls-2{fill:#ffffff;fill-rule:evenodd;}</style></defs><title>caution</title><path class="cls-1" d="M2.35,84.42,45.28,10.2l.17-.27h0A23,23,0,0,1,52.5,2.69,17,17,0,0,1,61.57,0a16.7,16.7,0,0,1,9.11,2.69,22.79,22.79,0,0,1,7,7.26q.19.32.36.63l42.23,73.34.24.44h0a22.48,22.48,0,0,1,2.37,10.19,17.63,17.63,0,0,1-2.17,8.35,15.94,15.94,0,0,1-6.93,6.6c-.19.1-.39.18-.58.26a21.19,21.19,0,0,1-9.11,1.75v0H17.61c-.22,0-.44,0-.65,0a18.07,18.07,0,0,1-6.2-1.15A16.42,16.42,0,0,1,3,104.24a17.53,17.53,0,0,1-3-9.57,23,23,0,0,1,1.57-8.74,7.66,7.66,0,0,1,.77-1.51Z"></path><path class="cls-2" d="M9,88.75,52.12,14.16c5.24-8.25,13.54-8.46,18.87,0l42.43,73.69c3.39,6.81,1.71,16-9.33,15.77H17.61C10.35,103.8,5.67,97.43,9,88.75Z"></path><path class="cls-1" d="M57.57,82.69A5.48,5.48,0,0,1,61,81.11a5.66,5.66,0,0,1,4.42,1.66,5.53,5.53,0,0,1,1.62,3.54A5.6,5.6,0,0,1,67,87.72a6,6,0,0,1-.42,1.34,5.53,5.53,0,0,1-2.92,2.84,5.79,5.79,0,0,1-4.57-.1,5.51,5.51,0,0,1-2.81-2.94,5.31,5.31,0,0,1-.36-1.27,5.9,5.9,0,0,1-.06-1.32h0a6.45,6.45,0,0,1,.57-2,4.6,4.6,0,0,1,1.14-1.56Zm8.15-10.24c-.19,4.79-8.31,4.8-8.49,0-.82-8.21-2.92-27.7-2.86-35.42.07-2.38,2-3.78,4.56-4.32a11.19,11.19,0,0,1,2.49-.24,11.77,11.77,0,0,1,2.5.25c2.61.55,4.65,2,4.65,4.44v.24L65.72,72.45Z"></path>
+          </svg>
+        </div>
+        <p class="tw-leading">
+          {{ 'ob_popup.to_free_gift_html' | t }}
+        </p>
+      </div>
+      <div
+        id="free-gift-learn-more"
+        class="pl-0.5 font-semibold  cursor-pointer text-black bg-gray-200 free-gift-learn-more block text-xs text-center max-w-[120px] py-1 uppercase rounded-full mt-2"
+      >
+        <span id="gift-text">{{ 'ob_popup.learn_more' | t }}</span>{% render 'ob-circular-loader' %}
+      </div>
+    </div>
+    <div id="over-free-gift-threshold-cart-message" class="w-full" style="display:none;">
+      <ul class="v-progress">
+        <li>
+          <div id="free-shipping-list-item" class="">
+            <svg
+              fill="#488848"
+              height="15px"
+              width="15px"
+              version="1.1"
+              id="Layer_1"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              viewBox="0 0 512 512"
+              enable-background="new 0 0 512 512"
+              xml:space="preserve"
+              style="    width: 15px;    height: 15px;"
+            >
+              <polygon points="437.3,30 202.7,339.3 64,200.7 0,264.7 213.3,478 512,94 "></polygon>
+            </svg>
+          </div>
+          <p class="free-shipping tw-leading-tight">
+            {{ 'ob_popup.free_tracked_shipping_html' | t }}
+          </p>
+        </li>
+        <li style="{% unless show_free_gift == true %} display:none; {% endunless %}">
+          <div id="free-gift-list-item" class="completed">
+            <svg
+              fill="#488848"
+              height="15px"
+              width="15px"
+              version="1.1"
+              id="Layer_1"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              viewBox="0 0 512 512"
+              enable-background="new 0 0 512 512"
+              xml:space="preserve"
+              style="    width: 15px;    height: 15px;"
+            >
+              <polygon points="437.3,30 202.7,339.3 64,200.7 0,264.7 213.3,478 512,94 "></polygon>
+            </svg>
+          </div>
+          <p class="free-gift tw-leading-tight">
+            {{ 'ob_popup.free_gift_qualified_html' | t }}
+          </p>
+        </li>
+      </ul>
+      <div
+        id="open-free-gift-selector"
+        class="relative inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-4 py-2 my-1 mt-3 justify-between text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-400 hover:bg-gray-50"
+      >
+        <p class="text-sm font-semibold capitalize">
+          {{ 'ob_popup.choose_free_product' | t }}
+        </p>
+        <svg
+          class="-mr-1 h-5 w-5 text-gray-500"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+          aria-hidden="true"
+          data-slot="icon"
+        >
+          <path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"></path>
+        </svg>
+
+        <div
+          id="free-gift-selector"
+          class="mt-3 hs-accordion-content hidden absolute top-12 w-full max-h-[340px] overflow-y-auto bg-white z-10 border border-[#111] rounded-md p-2 transition-[height] duration-300"
+          style="display:none; top:100%; left:0px;"
+        >
+          {% assign collection_handle = 'fpc' %}
+          {% assign collection = collections[collection_handle] %}
+          {%- comment %}<locksmith:1cee>{% endcomment -%}
+            {%- assign locksmith_43f0_forloop__size = 0 %}{% for product in collection.products %}{% capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product, subject_parent: collection, variable: 'transparent' %}{% endcapture %}{% if var == 'true' %}{% assign locksmith_43f0_forloop__size = locksmith_43f0_forloop__size | plus: 1 %}{% endif %}{% endfor %}{% assign locksmith_43f0_forloop__index = nil -%}
+          {%- comment %}</locksmith:1cee>{% endcomment -%}
+          {% for product in collection.products %}
+            {%- comment %}<locksmith:d526>{% endcomment -%}
+              {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product, subject_parent: collection, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% if locksmith_43f0_forloop__index == nil %}{% assign locksmith_43f0_forloop__index = 1 %}{% assign locksmith_43f0_forloop__index0 = 0 %}{% else %}{% assign locksmith_43f0_forloop__index = locksmith_43f0_forloop__index | plus: 1 %}{% assign locksmith_43f0_forloop__index0 = locksmith_43f0_forloop__index0 | plus: 1 %}{% endif %}{% if locksmith_43f0_forloop__index == 1 %}{% assign locksmith_43f0_forloop__first = true %}{% else %}{% assign locksmith_43f0_forloop__first = false %}{% endif %}{% if locksmith_43f0_forloop__index == locksmith_43f0_forloop__size %}{% assign locksmith_43f0_forloop__last = true %}{% else %}{% assign locksmith_43f0_forloop__last = false %}{% endif %}{% assign locksmith_43f0_forloop__rindex = locksmith_43f0_forloop__size | minus: locksmith_43f0_forloop__index | minus: 1 %}{% assign locksmith_43f0_forloop__rindex0 = locksmith_43f0_forloop__size | minus: locksmith_43f0_forloop__index0 | minus: 1 %}{% else %}{% continue %}{% endif -%}
+            {%- comment %}</locksmith:d526>{% endcomment -%}
+            {% assign product_as_stock = false %}
+            {% if product.available %}
+              {% assign product_as_stock = true %}
+            {% endif %}
+
+            {% if product_as_stock %}
+              {% assign product_form_class = 'flex h-full flex-col divide-y divide-gray-200 bg-white product-form' %}
+              {% capture product_form_id %}product-form-{{ product.id }}{% endcapture %}
+              {%- form 'product',
+                product,
+                data-product-id: product.id,
+                id: product_form_id,
+                class: product_form_class,
+                novalidate: 'novalidate',
+                data-type: 'add-to-cart-form'
+              -%}
+                <input
+                  type="hidden"
+                  id="product-json-{{ product.id }}"
+                  value="{{ product | json | escape }}"
+                  data-product-id="{{ product.id }}"
+                >
+                {% render 'ob-product-form-attributes', product: product %}
+                {% assign title_parts = product.title | split: '-' %}
+                {% assign title = title_parts[0] %}
+                {% assign sub_title = title_parts[1] %}
+                <div class="mb-2 js-free-product-wrapper" data-handle="{{ product.handle }}">
+                  <div class="flex flex-col w-full">
+                    <div class="flex flex-col gap-y-4">
+                      <div class="grid grid-cols-[auto_1fr] gap-3">
+                        <img
+                          loading="lazy"
+                          class="w-[90px] h-[90px] object-cover"
+                          src="{{ product.featured_image | img_url: 'small' }}"
+                          width="90px"
+                          height="90px"
+                          alt="{{ product.title }}"
+                        >
+                        <div class="flex flex-col items-start justify-between flex-1">
+                          <div class="flex flex-col w-full gap-y-1">
+                            <p class="typography typography--body-md text-base-primary font-semibold">{{ title }}</p>
+                            <div class="grid grid-cols-1 grid-flow-dense [&>*]:col-start-1 gap-1">
+                              <p class="typography typography--body-sm text-[#7D7D7D]">{{ sub_title }}</p>
+                            </div>
+                          </div>
+                          {% if product.variants.size == 1 %}
+                            <input
+                              type="hidden"
+                              class="product-selected-variant-id"
+                              name="id"
+                              data-product-id="{{ product.id }}"
+                              value="{{ product.variants[0].id }}"
+                            >
+                            <!-- <input type="hidden" name="properties[_cg]" value="{{ variant.id }}" /> -->
+                            <input type="hidden" name="properties[_cg]" value="free product">
+                            <!--
+                              <div class=" free-gift-variant button button--size-sm js-free-gift-add-wrapper" data-var-id="{{ product.variants.first.id }}">Add Free Product</div>
+                            -->
+                            <button
+                              id=""
+                              type="submit"
+                              class="add-to-cart-button button button--size-sm single-option-free-gift"
+                              style="bottom:0px; top:0px"
+                            >
+                              <div id="add-to-cart-loaded" class="pointer-events-none button-text ahahsafh">
+                                {{ 'ob_popup.add_free_gift' | t }}
+                              </div>
+                              <div
+                                id="add-to-cart-loading"
+                                class="pointer-events-none w-full absolute flex justify-center loading-button-loader items-center h-full"
+                                style="display:none;"
+                              >
+                                <svg class="loading-ele-outer h-6 w-6" viewBox="25 25 50 50">
+                                  <circle class="loading-ele-inner" style="stroke: white;" cx="50" cy="50" r="20" fill="none" stroke-width="4"></circle>
+                                </svg>
+                              </div>
+                            </button>
+
+                          {% else %}
+                            <div class="js-free-gift-add-wrapper">
+                              <div class="js-placeholder-free-gift-add button button--size-sm" id="free-gift-quick-buy-{{ locksmith_43f0_forloop__index }}>
+                                {% if product.variants.size == 1 %}
+                                  {{ 'ob_popup.select' | t }}
+                                {% else %}
+                                  {{ 'ob_popup.select_size' | t }}
+
+                                  <svg
+                                    class="tw-size-4 tw-shrink-0 tw-rotate-180 rotatable tw-absolute tw-right-2"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="24"
+                                    height="24"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                  >
+                                    <path d="m18 15-6-6-6 6"></path>
+                                  </svg>
+                                {% endif %}
+                              </div>
+                              <div
+                                class="free-gift-mutiple-variants flex grid grid-cols-3 gap-1 absolute bg-white border border-solid rounded-md mt-2 p-2 right-4"
+                                style="display:none; min-width:max-content;"
+                              >
+                                {% for variant in product.variants %}
+                                  <div
+                                    class=" free-gift-variant flex items-center justify-center rounded-md border-2 py-1 px-1 text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 cursor-pointer bg-white text-gray-900 shadow-sm opacity-0"
+                                    data-var-id="{{ variant.id }}"
+                                  >
+                                    {{ variant.title }}
+                                  </div>
+                                {% endfor %}
+                              </div>
+                            </div>
+                          {% endif %}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <hr class="divider mt-3" aria-orientation="horizontal">
+                  <div
+                    class="hidden absolute left-1/2 top-1/2 w-1/5 h-1/5 loader"
+                    style="transform: translate(-50%, -50%); z-index: 1;"
+                  >
+                    <svg class="loading-ele-outer" viewBox="25 25 50 50">
+                      <circle class="loading-ele-inner" cx="50" cy="50" r="20" fill="none" stroke-width="4"></circle>
+                    </svg>
+                  </div>
+                </div>
+              {% endform %}
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    <div id="free-gift-selected-div" style="display:none;">
+      <div id="free-gift-selected-text" class=" pb-3 text-base">
+        <h3
+          style="
+            font-weight: bold;
+            margin-bottom: 10px;
+          "
+        >
+          {{ 'ob_popup.congratulations' | t }}
+        </h3>
+        <ul class="v-progress">
+          <li>
+            <div>
+              <svg
+                fill="#488848"
+                height="15px"
+                width="15px"
+                version="1.1"
+                id="Layer_1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                viewBox="0 0 512 512"
+                enable-background="new 0 0 512 512"
+                xml:space="preserve"
+                style="
+                  width: 15px;
+                  height: 15px;
+                "
+              >
+                <polygon points="437.3,30 202.7,339.3 64,200.7 0,264.7 213.3,478 512,94 "></polygon>
+              </svg>
+            </div>
+            <p class="">
+              {{ 'ob_popup.free_tracked_uk_shipping_html' | t }}
+            </p>
+          </li>
+          <li>
+            <div>
+              <svg
+                fill="#488848"
+                height="15px"
+                width="15px"
+                version="1.1"
+                id="Layer_1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                viewBox="0 0 512 512"
+                enable-background="new 0 0 512 512"
+                xml:space="preserve"
+                style="
+                  width: 15px;
+                  height: 15px;
+                "
+              >
+                <polygon points="437.3,30 202.7,339.3 64,200.7 0,264.7 213.3,478 512,94 "></polygon>
+              </svg>
+            </div>
+            <p class="leading-tight">
+              {{ 'ob_popup.you_have_chosen_html' | t }}
+            </p>
+          </li>
+        </ul>
+        <div
+          id="free-gift-loader"
+          class="hidden flex items-left justify-left border rounded-md p-4 w-full relative bg-gray-50 pr-20"
+          style=""
+        >
+          <svg class="circular-loader" viewBox="25 25 50 50">
+            <circle class="loader-path" cx="50" cy="50" r="20" fill="none" stroke-width="4"></circle>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

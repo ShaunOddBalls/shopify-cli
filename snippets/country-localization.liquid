@@ -1,0 +1,227 @@
+{%- comment -%}
+  Renders the country picker for the localization form
+
+  Accepts:
+    - localPosition: pass in the position in which the form is coming up to create specific IDs
+{%- endcomment -%}
+
+{%- liquid
+  assign currencies = localization.available_countries | map: 'currency' | map: 'iso_code' | uniq
+  assign popular_countries = localization.available_countries | where: 'popular?' | sort: 'name'
+
+  if countrys_to_add != blank
+    assign extra_country_codes = countrys_to_add | remove: ' ' | split: ','
+    for code in extra_country_codes
+      assign country = localization.available_countries | where: 'iso_code', code
+      if country != blank
+        assign popular_countries = popular_countries | concat: country | uniq | sort: 'name'
+      endif
+    endfor
+  endif
+
+  assign show_country_filter = false
+  if localization.available_countries.size > 9
+    assign show_country_filter = true
+  endif
+
+  assign show_popular_countries = false
+  if localization.available_countries.size > 9 and popular_countries.size > 1
+    assign show_popular_countries = true
+  endif
+
+  assign show_currencies = false
+  if currencies.size > 1
+    assign show_currencies = true
+  endif
+-%}
+
+<div class="disclosure">
+  <button
+    type="button"
+    class="localization-form__select localization-selector link link--text caption-large !bg-white !px-2 !py-0.5 text-sm rounded-md border border-solid flex items-center gap-2"
+    aria-expanded="false"
+    aria-controls="{{ localPosition }}-country-results"
+    aria-describedby="{{ localPosition }}Label"
+  >
+    {% if localization.market.handle == "eu" or localization.market.handle == "gb" %}
+        <img
+          src="https://flagcdn.com/w40/{{ localization.market.handle | downcase }}.png"
+          alt="{{ localization.country.name }} flag"
+          class="w-5 h-5 object-cover rounded-full"
+          width="20"
+          height="20"
+        >
+        <span class="py-2 text-xs">
+          {{ localization.market.handle | upcase }}
+        </span>
+    {% render 'icon-caret' %}
+    {% else %}
+          <img
+          src="https://flagcdn.com/w40/{{ localization.country.iso_code | downcase }}.png"
+          alt="{{ localization.country.name }} flag"
+          class="w-5 h-5 object-cover rounded-full"
+          width="20"
+          height="20"
+        >
+        <span class="py-2 text-xs">
+          {{ localization.country.iso_code | upcase }}
+        </span>
+    {% endif %}
+  </button>
+
+  <div
+    class="disclosure__list-wrapper country-selector !bg-white !border-[#e5e7eb] !border-solid !border rounded-md rounded-t-lg fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[90%] min-h-[400px] max-h-[80vh] max-w-[838px] overflow-hidden shadow-2xl"
+    hidden
+  >
+    <div class="absolute top-2 right-2 bg-gray-200 rounded-full h-6 w-6">
+      <button
+        class="country-selector__close-button button--small w-full h-full p-2"
+        type="button"
+        aria-label="{{ 'accessibility.close' | t }}"
+      >
+        {% render 'icon-close' %}
+      </button>
+    </div>
+    <div class="country-filter md:border-b-solid border {% unless show_country_filter %} country-filter--no-padding{% endunless %}">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 pt-4 md:py-4 md:px-8 ">
+        <h2 class="text-center md:text-left text-lg font-medium w-full">Select your location</h2>
+        {% if show_country_filter %}
+          <div class="field w-full flex border-t-solid md:border-b-solid border px-2 md:rounded-full">
+            <svg
+              class="icon"
+              height="16"
+              viewBox="0 0 24 24"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+              class="px-4"
+            >
+              <path clip-rule="evenodd" d="M19.6 10.5C19.6 15.5258 15.5258 19.6 10.5 19.6C5.47421 19.6 1.4 15.5258 1.4 10.5C1.4 5.47421 5.47421 1.4 10.5 1.4C15.5258 1.4 19.6 5.47421 19.6 10.5ZM17.4222 18.3953C15.5741 20.0169 13.1519 21 10.5 21C4.70101 21 0 16.299 0 10.5C0 4.70101 4.70101 0 10.5 0C16.299 0 21 4.70101 21 10.5C21 13.1519 20.0169 15.5741 18.3953 17.4222C18.4304 17.4462 18.4638 17.4739 18.495 17.505L23.495 22.505C23.7683 22.7784 23.7683 23.2216 23.495 23.495C23.2216 23.7683 22.7784 23.7683 22.505 23.495L17.505 18.495C17.4739 18.4638 17.4462 18.4304 17.4222 18.3953Z" fill-rule="evenodd"></path>
+            </svg>
+            <input
+              class="country-filter__input field__input w-full py-4 w-100 md:rounded-md"
+              id="country-filter-input"
+              type="search"
+              name="country_filter"
+              value=""
+              placeholder="  {{ 'localization.search' | t }}"
+              role="combobox"
+              aria-owns="country-results"
+              aria-controls="country-results"
+              aria-haspopup="listbox"
+              aria-autocomplete="list"
+              autocorrect="off"
+              autocomplete="off"
+              autocapitalize="off"
+              spellcheck="false"
+            >
+            <label class="field__label hidden" for="country-filter-input">{{ 'localization.search' | t }}</label>
+            <button
+              type="reset"
+              class="country-filter__reset-button field__button hidden"
+              aria-label="{{ 'general.search.reset' | t }}"
+            >
+              <svg class="icon icon-close" aria-hidden="true" focusable="false">
+                <use xlink:href="#icon-reset">
+              </svg>
+            </button>
+            <div class="country-filter__search-icon field__button motion-reduce">
+              <svg class="icon icon-search" aria-hidden="true" focusable="false">
+                <use xlink:href="#icon-search">
+              </svg>
+            </div>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+    <div id="sr-country-search-results" class="visually-hidden" aria-live="polite"></div>
+    <div
+      class="disclosure__list country-selector__list overflow-y-auto h-full w-full bg-white flex flex-col{% if show_currencies %} country-selector__list--with-multiple-currencies{% endif %}"
+      id="{{ localPosition }}-country-results"
+    >
+      <div class="flex flex-col h-full">
+        {% if show_popular_countries %}
+          <ul
+            role="list"
+            class="list-unstyled popular-countries bg-white px-4 grid grid-cols-1 md:grid-cols-3  gap-4"
+            aria-label="{{ 'localization.popular_countries_regions' | t }}"
+          >
+            {%- for country in popular_countries -%}
+              <li class="disclosure__item flex items-center gap-2" tabindex="-1">
+                <a
+                  class="link link--text disclosure__link text-xs focus-inset flex items-center gap-2 hover:bg-gray-100 transition-colors duration-200"
+                  href="#"
+                  {% if country.iso_code == localization.country.iso_code %}
+                    aria-current="true"
+                  {% endif %}
+                  data-value="{{ country.iso_code }}"
+                  id="{{ country.name }}"
+                >
+                  <img
+                    src="https://flagcdn.com/w40/{{ country.iso_code | downcase }}.png"
+                    alt="{{ country.name }} flag"
+                    class="w-5 h-5 object-cover rounded-full border border-solid"
+                    width="20"
+                    height="20"
+                  >
+                  <span class="country">{{- country.name }}</span>
+                  <span class="localization-form__currency motion-reduce{% unless show_currencies %} hidden{% endunless %}">
+                    {{ country.currency.iso_code }}
+                    {{ country.currency.symbol -}}
+                  </span>
+                </a>
+              </li>
+            {%- endfor -%}
+          </ul>
+        {% endif %}
+        <div class="w-full bg-gray text-xs py-2 px-2 col-span-full text-center hidden">Rest of the world</div>
+        <ul
+          role="list"
+          class="list-unstyled countries country text-xs px-4 grid grid-cols-1 md:grid-cols-3 gap-4"
+        >
+          {%- for country in localization.available_countries -%}
+            <li class="disclosure__item flex items-center gap-2" tabindex="-1">
+              <a
+                class="link link--text disclosure__link caption-large focus-inset flex items-center gap-2 hover:bg-gray-100 transition-colors duration-200 [&[aria-current='true']]:bg-gray-100"
+                href="#"
+                {% if country.iso_code == localization.country.iso_code %}
+                  aria-current="true"
+                {% endif %}
+                data-value="{{ country.iso_code }}"
+                id="{{ country.name }}"
+              >
+                <img
+                  src="https://flagcdn.com/w40/{{ country.iso_code | downcase }}.png"
+                  alt="{{ country.name }} flag"
+                  class="w-5 h-5 object-cover rounded-full border border-solid"
+                  width="20"
+                  height="20"
+                >
+                <span class="country">{{- country.name }}</span>
+                <span class="localization-form__currency motion-reduce{% unless show_currencies %} hidden{% endunless %}">
+                  {{ country.currency.iso_code }}
+                  {{ country.currency.symbol -}}
+                </span>
+              </a>
+              <span
+                {% if country.iso_code != localization.country.iso_code %}
+                  class="hidden"
+                {% else %}
+                  class="text-green-500"
+                {% endif %}
+              >
+                {%- render 'icon-checkmark' -%}
+              </span>
+            </li>
+          {%- endfor -%}
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="country-selector__overlay fixed inset-0 bg-black bg-opacity-50 w-full h-full"
+    hidden
+  ></div>
+</div>
+
+<input type="hidden" name="country_code" value="{{ localization.country.iso_code }}">

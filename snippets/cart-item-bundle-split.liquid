@@ -1,0 +1,14 @@
+    <!-- Trigger -->
+    <div class="popover-toggle py text-xs text-black text-magenta cursor-pointer" data-popover="cart-item-popover-{{ easy_bundle_item_count }}">
+      View Bundle
+    </div>
+    
+    <!-- Popover -->
+    <div class="popover-content hidden z-20 absolute mt-2 p-4 bg-white border border-gray-200 rounded-lg shadow-lg w-64 text-sm text-gray-700"
+         data-popover="cart-item-popover-{{ easy_bundle_item_count }}">
+      <h3 class="font-semibold text-gray-900 mb-2">{{ title }}</h3>
+      {% for bundle_item in easy_bundle_items %}
+             <p class="text-xs ">{{ bundle_item }}</p>
+      {% endfor %}
+    </div>
+    

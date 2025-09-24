@@ -1,0 +1,23 @@
+{% comment %}
+  Processes all URLs in an HTML string and returns the modified version
+  Parameters:
+    - html_text: The HTML content containing URLs to process
+{% endcomment %}
+
+{% assign start_quote = '"' %}
+{% assign href_start = 'href=' | append: start_quote %}
+{% assign modified_text = html_text %}
+
+{% assign href_index = html_text | split: href_start | size | minus: 1 %}
+{% if href_index > 0 %}
+  {% assign parts = html_text | split: href_start %}
+  {% for part in parts offset: 1 %}
+    {% assign url = part | split: start_quote | first %}
+    {% assign old_url = href_start | append: url | append: start_quote %}
+    {% capture processed_url %}{% render 'ob-process-international-link', url: url %}{% endcapture %}
+    {% assign new_url = href_start | append: processed_url | append: start_quote %}
+    {% assign modified_text = modified_text | replace: old_url, new_url %}
+  {% endfor %}
+{% endif %}
+
+{{- modified_text -}}

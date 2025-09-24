@@ -1,0 +1,542 @@
+<script type="text/javascript" src="{{'product-page.js'| asset_url}}" defer></script>
+{% schema %}
+{
+  "name": "ob Main Product",
+  "settings": [
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Product"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "title",
+      "name": "Product Title",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "show_title",
+          "label": "Show product title",
+          "default": true
+        }
+      ]
+    },
+    {
+      "type": "price",
+      "name": "Price",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "show_price",
+          "label": "Show price",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "show_compare_at_price",
+          "label": "Show compare at price",
+          "default": true
+        }
+      ]
+    },
+    {
+		"type": "designs",
+		"name": "Designs",
+		"limit": 1
+	  },
+    {
+      "type": "variant_selector",
+      "name": "Variant Selector",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "select",
+          "id": "picker_type",
+          "options": [
+            { "value": "dropdown", "label": "Dropdown" },
+            { "value": "button", "label": "Button" }
+          ],
+          "default": "button",
+          "label": "Picker type"
+        }
+      ]
+    },
+    {
+      "type": "quantity_selector",
+      "name": "Quantity Selector",
+      "limit": 1
+    },
+    {
+      "type": "buy_buttons",
+      "name": "Buy Buttons",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "show_dynamic_checkout",
+          "label": "Show dynamic checkout button",
+          "info": "Using the payment methods available on your store, customers see their preferred option, like PayPal or Apple Pay. [Learn more](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)",
+          "default": true
+        }
+      ]
+    },
+    {
+      "type": "description",
+      "name": "Description",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "show_description",
+          "label": "Show description",
+          "default": true
+        }
+      ]
+    },
+    {
+      "type": "description-accordion",
+      "name": "Description Accordion",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "accordion_title",
+          "label": "Accordion title"
+        }
+      ]
+    },
+    {
+      "type": "share",
+      "name": "Share",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "share_label",
+          "label": "Share label",
+          "default": "Share"
+        }
+      ]
+    },
+    {
+      "type": "custom",
+      "name": "Custom HTML",
+      "settings": [
+        {
+          "type": "html",
+          "id": "custom_html",
+          "label": "Custom HTML"
+        }
+      ]
+    },
+    {
+		"type": "product-form-open",
+		"name": "Product Form Open",
+		"settings": [
+		  {
+			"type": "text",
+			"id": "attributes",
+			"label": "Attributes"
+		  }
+		]
+	},
+    {
+		"type": "product-form-close",
+		"name": "Product Form Closr",
+		"settings": [
+		  {
+			"type": "text",
+			"id": "attributes",
+			"label": "Attributes"
+		  }
+		]
+	},
+    {
+      "type": "badge",
+      "name": "Badge",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "badge_text",
+          "label": "Badge text",
+          "default": "15% Off"
+        }
+      ]
+    },
+    {
+      "type": "prints_selector",
+      "name": "Prints Selector",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "prints_label",
+          "label": "Prints label",
+          "default": "Prints"
+        }
+      ]
+    },
+    {
+      "type": "size_selector",
+      "name": "Size Selector",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "size_label",
+          "label": "Size label",
+          "default": "Size"
+        }
+      ]
+    },
+    {
+      "type": "upsells",
+      "name": "Upsells",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "upsells_title",
+          "label": "Upsells title",
+          "default": "Complete the look"
+        },
+        {
+          "type": "collection",
+          "id": "upsells_collection",
+          "label": "Upsells collection"
+        },
+        {
+          "type": "range",
+          "id": "upsells_count",
+          "min": 2,
+          "max": 4,
+          "step": 1,
+          "default": 2,
+          "label": "Number of upsell products"
+        }
+      ]
+    },
+    {
+      "type": "accordion",
+      "name": "Accordion",
+      "settings": [
+        {
+          "type": "text",
+          "id": "accordion_title",
+          "label": "Accordion title"
+        },
+        {
+          "type": "richtext",
+          "id": "accordion_content",
+          "label": "Accordion content"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+{% comment %}
+if possible add tag logic here
+{% endcomment %}
+{% assign show_print_swap = "false" %}
+
+{% for tag in product.tags %}
+  {% assign d_tag = tag | downcase %}
+  {% if d_tag == "feature-design-selector" %}
+    {% assign show_print_swap = "true" %}
+  {% endif %}
+{% endfor %}
+{% comment %}
+end tag logic
+{% endcomment %}
+
+{% capture label %}
+  {% render "label-generator" %}
+{% endcapture %}
+    <div id="product-page-wrapper" class="md:wrapper sm:wrapper sm:mt-6 sm:mb-10">
+      <div id="product-page-inner-wrapper" class="relative flex flex-col flex-1 sm:mb-16 sm:flex-row gap-x-0 md:gap-x-7 xl:gap-x-14 z-1">
+		<!-- Product images  -->
+        <div id="product-images" class="product-images hidden sm:grid grid-cols-1 xl:grid-cols-2 gap-3 self-start flex-1 sticky top-[var(--header-height)]">
+			{% for media in product.media limit: 6 %}
+			  <div class="w-full relative">
+				{% if forloop.first %}
+				  <button class="button button--variant-outline button--icon product-card__favourite product-card__favourite--off" aria-label="Add product to favourites">
+					<svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 1024 1024">
+					  <path fill="currentColor" d="M923 283.6a260.04 260.04 0 0 0-56.9-82.8a264.4 264.4 0 0 0-84-55.5A265.34 265.34 0 0 0 679.7 125c-49.3 0-97.4 13.5-139.2 39c-10 6.1-19.5 12.8-28.5 20.1c-9-7.3-18.5-14-28.5-20.1c-41.8-25.5-89.9-39-139.2-39c-35.5 0-69.9 6.8-102.4 20.3c-31.4 13-59.7 31.7-84 55.5a258.44 258.44 0 0 0-56.9 82.8c-13.9 32.3-21 66.6-21 101.9c0 33.3 6.8 68 20.3 103.3c11.3 29.5 27.5 60.1 48.2 91c32.8 48.9 77.9 99.9 133.9 151.6c92.8 85.7 184.7 144.9 188.6 147.3l23.7 15.2c10.5 6.7 24 6.7 34.5 0l23.7-15.2c3.9-2.5 95.7-61.6 188.6-147.3c56-51.7 101.1-102.7 133.9-151.6c20.7-30.9 37-61.5 48.2-91c13.5-35.3 20.3-70 20.3-103.3c.1-35.3-7-69.6-20.9-101.9zM512 814.8S156 586.7 156 385.5C156 283.6 240.3 201 344.3 201c73.1 0 136.5 40.8 167.7 100.4C543.2 241.8 606.6 201 679.7 201c104 0 188.3 82.6 188.3 184.5c0 201.2-356 429.3-356 429.3z"></path>
+					  <path fill="currentColor" fill-opacity="0" d="M679.7 201c-73.1 0-136.5 40.8-167.7 100.4C480.8 241.8 417.4 201 344.3 201c-104 0-188.3 82.6-188.3 184.5c0 201.2 356 429.3 356 429.3s356-228.1 356-429.3C868 283.6 783.7 201 679.7 201z"></path>
+					</svg>
+				  </button>
+				{% endif %}
+				<button class="swiper-thumb w-full h-full relative bg-background-primary-default overflow-hidden" data-toggle="collapse" data-target=".modal-gallery" data-overflow="true">
+                  {% render 'ob-product-media',
+                    media: media,
+                    alt: media.alt | default: product.title, 
+                    classes: 'w-full h-full aspect-square object-cover' 
+                    default_size: '600'
+                  %}
+				  <!-- <img class="w-full h-full aspect-square object-cover" src="{{ image | img_url: 'large' }}" loading="lazy" alt="{{ image.alt | escape }}" /> -->
+				</button>
+			  </div>
+			{% endfor %}
+		</div>
+		<div id="modal-images" class="modal-gallery sm:fixed sm:inset-0 w-full sm:h-full sm:bg-[#070707] z-50 hidden max-sm:!block">
+			<div class="sm:flex sm:justify-center sm:h-full relative">
+				<div class="swiper swiper-gallery bg-white">
+    				<div class="swiper-wrapper">
+                      {% assign current_month = "now" | date: "%b" %}
+                      {% assign current_month = current_month | downcase %}
+                    
+          
+             
+                       <!-- current_month {{ current_month }} -->
+                      {%- for media in product.media -%}
+                      {% assign media_ok_to_proceed = 'yes' %}
+               
+                        {% if product.type == 'Subscription' or product.type == 'Pre-Paid Subscription' %}
+                        {% assign media_ok_to_proceed = 'no' %}
+                        {% assign temp_img_str =  media | downcase %}
+                        
+                        {% if temp_img_str contains 'month-' %}
+                            {% if temp_img_str contains current_month %}
+                                {% assign media_ok_to_proceed = 'yes' %}
+                            {% endif %}
+                        {% endif %}
+                        {% endif %}
+                     
+                     {% if media_ok_to_proceed == 'yes' %}
+
+					<div class="swiper-slide">
+                          {% render 'ob-product-media',
+                            media: media,
+                            alt: media.alt | default: product.title, 
+                            classes: 'w-full sm:h-full object-cover' 
+                            default_size: '600'
+                          %}
+					</div>
+                    {% endif %}
+					{% endfor %}
+				</div>
+				<div class="swiper-scrollbar !w-full !h-[5px] !left-0 !right-0 !bottom-0 sm:hidden bg-white border-y rounded-none [&_.swiper-scrollbar-drag]:rounded-none [&_.swiper-scrollbar-drag]:bg-black"></div>
+				</div>
+				<div class="hidden md:flex absolute z-10 bottom-6 max-w-screen-md">
+				<div class="flex items-center justify-center max-h-full overflow-auto gap-x-2">
+					{% for media in product.media limit: 6 %}
+					<button class="swiper-thumb aspect-[5/7] border border border-transparent rounded-md overflow-hidden relative after:content-empty after:absolute after:inset-0 after:bg-white after:opacity-50">
+						<img class="w-[72px] h-full object-cover bg-white" src="{{ media | img_url: 'small' }}" loading="lazy" alt="{{ image.alt | escape }}" />
+					</button>
+					{% endfor %}
+				</div>
+				</div>
+			</div>
+			<button class="button button--variant-ghost button--icon !bg-[#F5F5F5] !text-black !w-6 !h-6 absolute top-10 right-10 max-sm:hidden" data-toggle="collapse" data-target=".modal-gallery" aria-label="Close">
+				<svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 14 14" fill="none">
+				<rect width="16.9705" height="1.13137" rx="0.565684" transform="matrix(0.707106 -0.707108 0.707106 0.707108 0.600586 12.6001)" fill="currentColor"></rect>
+				<rect width="16.9705" height="1.13137" rx="0.565684" transform="matrix(-0.707106 -0.707107 0.707106 -0.707108 12.6006 13.4001)" fill="currentColor"></rect>
+				</svg>
+			</button>
+		</div>
+        <!-- product info -->
+		<div id="product-content" class="sm:flex-[0_0_322px] sm:max-w-[322px] lg:flex-[0_0_400px] lg:max-w-[400px] px-6 py-4 md:py-0 md:px-0">
+			<div id="product-content-wrapper" class="sticky top-[calc(var(--header-height)+24px)]">
+              {% assign accordion_count = 0 %}
+			  {% for block in section.blocks %}
+				{% case block.type %}
+				  {% when 'product-label' %}
+                  <div id="label-wrapper" class="w-max mt-1">
+                    {{ label }}
+                  </div>
+				  {% when 'product-form-open' %}
+					
+				  {% when 'product-form-close' %}
+					{% if block.settings.badge_text != blank %}
+					  <div class="badge badge--color-critical badge--size-sm mb-1 md:mb-2">{{ block.settings.badge_text }}</div>
+					{% endif %}
+				  {% when 'title' %}
+					{% if block.settings.show_title %}
+					  <h1 id="product-title" class="typography typography--title-six sm:typography--title-five marujo">
+                        {{ product.title }}
+                      </h1>
+					{% endif %}
+				  {% when 'price' %}
+					{% if block.settings.show_price %}
+					  <div id="product-price" class="flex justify-between py-2">
+						<div class="flex">
+    						<div id="prod-price" class="typography typography--title-six">{{ product.price | money }}</div>
+    						<div id="prod-comp-price" class="{% if block.settings.show_compare_at_price and product.compare_at_price > product.price %}{%  else %} hidden {% endif %} %} %}typography typography--body-lg pl-2 line-through text-[#7D7D7D]">{{ product.compare_at_price | money }}</div>
+						</div>
+					  </div>
+					{% endif %}
+				  {% when 'designs' %}
+					{% render 'ob-product-designs' %}
+                    {% if show_print_swap == "true" %}
+                      {% render 'print-swap' %}
+                    {% endif %}
+				  {% when 'variant_selector' %}
+                    <form id="product-form-{{ product.id }}" class="product-form" action="/cart/add" method="post" data-product-id="{{ product.id }}">
+                      <div id="product-variants" class="mb-2">
+                        {%- unless product.has_only_default_variant -%}
+                          <div class="product-options">
+                            {%- for option in product.options_with_values -%}
+                              <div class="product-option">
+                                <h3 class="typography typography--body-lg mb-3 font-semibold leading-sm">{{ option.name | escape }}</h3>
+                                <div class="product-variants flex flex-col gap-3">
+                                  {% assign option_count = option.values.size %}
+                                  {% assign columns = 2 %}
+                                  {% if option_count > 4 %}
+                                    {% assign columns = 3 %}
+                                  {% endif %}
+                                  {% if option_count > 6 %}
+                                    {% assign columns = 4 %}
+                                  {% endif %}
+
+                                  <div role="group" class="choice-chips grid grid-cols-{{ columns }} gap-2" aria-label="{{ option.name }}">
+                                    {%- for value in option.values -%}
+                                      <div data-option-index="{{ forloop.parentloop.index0 }}" data-value="{{ value | escape }}" class="product-variant relative">
+                                        <label data-active="ring ring-magenta" class="option-value group relative flex items-center justify-center rounded-md border py-4 px-4 text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 cursor-pointer bg-white text-gray-900">
+                                          <input type="radio" name="option{{ forloop.parentloop.index }}" value="{{ value | escape }}" class="peer sr-only" />
+                                          <span class="peer-checked:border-transparent items-center flex justify-center peer-checked:bg-magenta-500 peer-checked:text-white peer-checked:hover:bg-pink-700 peer-checked:ring peer-checked:ring-magenta-500 peer-checked:ring-offset border-transparent pointer-events-none absolute -inset-px rounded-md" aria-hidden="true"></span>
+                                          <span class="option-value relative peer-checked:text-white">{{ value }}</span>
+                                        </label>
+                                        <div class="out-of-stock-marker absolute z-10 hidden" style="right:5%; bottom:10%;">
+                                          <svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="15" height="15" viewBox="0 0 24 24" stroke="#f00f83" xmlns="http://www.w3.org/2000/svg"><path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path></svg>
+                                        </div>
+                                      </div>
+                                    {%- endfor -%}
+                                  </div>
+                                </div>
+                              </div>
+                            {%- endfor -%}
+                          </div>
+                        {%- endunless -%}
+                      </div>
+
+                      <div class="product-price" data-price-wrapper>
+                        <span data-product-price>{{ product.price | money }}</span>
+                      </div>
+
+                      <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+                      <button type="submit" class="add-to-cart-button" data-add-to-cart>
+                        Select {{ product.options_with_values.first.name }}
+                      </button>
+
+                      <script type="application/json" id="ProductJson-{{ product.id }}">
+                        {{ product.variants | json }}
+                      </script>
+                    </form>
+
+				  {% when 'quantity_selector' %}
+					<div class="quantity mb-6">
+					  <p class="typography typography--body-lg mb-3 font-semibold leading-sm">Quantity</p>
+					  <div class="flex gap-x-3">
+						<button class="btn-minus button button--variant-ghost button--icon w-7 h-7 border border-gray-200 rounded-full">
+						  <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 16 16"><path d="M16 7.9999C16 8.29446 15.7761 8.53324 15.5 8.53324L0.500001 8.53322C0.223859 8.53322 3.25878e-07 8.29444 0 7.99989V7.99989C-3.25878e-07 7.70533 0.223856 7.46655 0.499998 7.46655L15.5 7.46657C15.7761 7.46657 16 7.70535 16 7.9999V7.9999Z" fill="#000"></path></svg>
+						</button>
+						<input class="w-14 border rounded-full text-center pointer-events-none" type="text" name="quantity" value="1" readonly />
+						<button class="btn-plus button button--variant-ghost button--icon w-7 h-7 border border-gray-200 rounded-full">
+						  <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 18 18"><path d="M9 17V9M9 9V1M9 9H17M9 9H1" stroke="#000" stroke-width="1.33333" stroke-linecap="round"></path></svg>
+						</button>
+					  </div>
+					</div>
+				  {% when 'buy_buttons' %}
+					<button class="add-to-cart button button--size-lg w-full mb-6" type="submit">Add to Cart</button>
+					{% if block.settings.show_dynamic_checkout %}
+					  {{ form | payment_button }}
+					{% endif %}
+				  {% when 'description' %}
+					{% if block.settings.show_description %}
+					  <div class="product-description">
+						{{ product.description }}
+					  </div>
+					{% endif %}
+				  {% when 'share' %}
+					// Implement share buttons
+				  {% when 'custom' %}
+					{{ block.settings.custom_html }}
+				  {% when 'upsells' %}
+					{% if block.settings.upsells_collection != blank %}
+					  <div class="upsells">
+						<div class="flex justify-between w-full mb-3">
+						  <p class="typography typography--body-lg font-semibold">{{ block.settings.upsells_title }}</p>
+						</div>
+						<div class="grid gap-5 relative grid-cols-{{ block.settings.upsells_count }} mb-6">
+						  {% for product in block.settings.upsells_collection.products limit: block.settings.upsells_count %}
+							{%- comment %}<locksmith:39d9>{% endcomment -%}
+							  {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product, subject_parent: block.settings.upsells_collection, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+							{%- comment %}</locksmith:39d9>{% endcomment -%}
+							<div class="flex gap-y-2 gap-x-3 max-w-full items-start items-start flex-col">
+							  <a href="{{ product.url }}" class="w-full flex-1 bg-background-primary-default border hover:border-black grid [&>*]:col-start-1 [&>*]:row-start-1">
+								<img class="w-full h-full aspect-square object-cover" src="{{ product.featured_image | img_url: 'medium' }}" loading="lazy" alt="{{ product.featured_image.alt | escape }}" />
+								{% if product.images[1] != blank %}
+								  <img class="w-full h-full aspect-square object-cover opacity-0 hover:opacity-100 duration-200" src="{{ product.images[1] | img_url: 'medium' }}" loading="lazy" alt="{{ product.images[1].alt | escape }}" />
+								{% endif %}
+							  </a>
+							  <div class="flex-[2_1_auto] flex flex-col gap-y-3 w-full">
+								<a href="{{ product.url }}" class="flex-1">
+								  <p class="typography typography--body-sm font-semibold">{{ product.title }}</p>
+								  <p class="typography typography--body-md text-[#7D7D7D]">{{ product.first_available_variant.title }}</p>
+								  <div class="flex flex-wrap overflow-hidden h-[20px] truncate">
+									<p class="typography typography--body-md font-semibold">{{ product.price | money }}</p>
+								  </div>
+								</a>
+							  </div>
+							  <form class="w-full flex gap-3" action="/cart/add" method="post">
+								<div class="flex flex-1 flex-col gap-3">
+								  <div class="select select--size-sm">
+									<select aria-label="Size" name="id">
+									  {% for variant in product.variants %}
+										<option value="{{ variant.id }}">{{ variant.title }}</option>
+									  {% endfor %}
+									</select>
+								  </div>
+								</div>
+								<button class="button rounded-lg aspect-square p-0" type="submit" aria-label="Add to Bag">
+								  <svg xmlns="http://www.w3.org/2000/svg" width="16" class="icon" fill="none" viewBox="0 0 16 16" height="16"><path d="M5 5.5V4.5C5 3.70435 5.31607 2.94129 5.87868 2.37868C6.44129 1.81607 7.20435 1.5 8 1.5C8.79565 1.5 9.55871 1.81607 10.1213 2.37868C10.6839 2.94129 11 3.70435 11 4.5V5.5M2.5 5.5C2.36739 5.5 2.24021 5.55268 2.14645 5.64645C2.05268 5.74021 2 5.86739 2 6V12.75C2 13.695 2.805 14.5 3.75 14.5H12.25C13.195 14.5 14 13.7341 14 12.7891V6C14 5.86739 13.9473 5.74021 13.8536 5.64645C13.7598 5.55268 13.6326 5.5 13.5 5.5H2.5Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+								</button>
+							  </form>
+							</div>
+						  {% endfor %}
+						</div>
+					  </div>
+					{% endif %}
+				  {% when 'accordion' %}
+						{% if accordion_count == 0 %}
+						{% assign accordion_count = 1 %}
+						<div class="hs-accordion-group">
+							{% for block in section.blocks %}
+							{% if block.type == 'accordion' %}
+								<div class="hs-accordion flex flex-col border-b [&:last-child]:border-0" id="hs-heading-{{ block.id }}">
+									<button type="button" class="hs-accordion-toggle flex items-center justify-between m-0 gap-3 px-0 py-3 border-0 bg-transparent" aria-controls="hs-collapse-{{ block.id }}">
+										<p class="typography typography--heading-six text-sm">{{ block.settings.accordion_title }}</p>
+										<div class="[&_svg]:max-w-full [&_svg]:h-full [&_svg]:transition-transform" aria-hidden="true">
+											<svg xmlns="http://www.w3.org/2000/svg" width="20px" class="hs-accordion-active:rotate-0 icon -rotate-180 w-3 h-3" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 8 8" color="#7D7D7D">
+												<path d="M0.29387 5.95502C0.235377 5.89506 0.235377 5.79783 0.29387 5.73787L3.89479 2.04617C3.95328 1.9862 4.04812 1.9862 4.10661 2.04617C4.1651 2.10614 4.1651 2.20336 4.10661 2.26333L0.505688 5.95502C0.447196 6.01499 0.352362 6.01499 0.29387 5.95502Z" fill="currentColor"></path>
+												<path d="M3.89339 2.04498C3.95189 1.98501 4.04672 1.98501 4.10521 2.04498L7.70613 5.73667C7.76462 5.79664 7.76462 5.89387 7.70613 5.95383C7.64764 6.0138 7.5528 6.0138 7.49431 5.95383L3.89339 2.26213C3.8349 2.20217 3.8349 2.10494 3.89339 2.04498Z" fill="currentColor"></path>
+												<path fill-rule="evenodd" clip-rule="evenodd" d="M0.505688 5.95502C0.447196 6.01499 0.352362 6.01499 0.29387 5.95502C0.235377 5.89506 0.235377 5.79783 0.29387 5.73787L3.87816 2.06322C3.8827 2.05684 3.88778 2.05073 3.89339 2.04498C3.89337 2.045 3.89342 2.04495 3.89339 2.04498C3.94885 1.98821 4.03699 1.9852 4.09581 2.03611C4.09907 2.03887 4.10213 2.04189 4.10521 2.04498C4.10564 2.04541 4.10618 2.04573 4.10661 2.04617L4.1115 2.05142L7.70613 5.73667C7.76462 5.79664 7.76462 5.89387 7.70613 5.95383C7.64764 6.0138 7.5528 6.0138 7.49431 5.95383L4.00058 2.37203L0.505688 5.95502ZM4.00058 2.73006L0.684651 6.12959C0.528049 6.29014 0.271508 6.29014 0.114906 6.12959C-0.0383019 5.97252 -0.0383019 5.72037 0.114906 5.5633L3.68877 1.89934C3.69678 1.88939 3.70534 1.87973 3.71443 1.87041C3.86258 1.71853 4.10017 1.71033 4.25797 1.84582C4.26747 1.8539 4.27668 1.86249 4.28557 1.87161C4.2883 1.8744 4.29097 1.87722 4.2936 1.88007L7.88509 5.56211C8.0383 5.71918 8.0383 5.97132 7.88509 6.12839C7.72849 6.28894 7.47195 6.28894 7.31535 6.12839L4.00058 2.73006ZM4.00058 2.73006L0.684651 6.12959C0.528049 6.29014 0.271508 6.29014 0.114906 6.12959C-0.0383019 5.97252 -0.0383019 5.72037 0.114906 5.5633L3.68877 1.89934C3.69678 1.88939 3.70534 1.87973 3.71443 1.87041C3.86258 1.71853 4.10017 1.71033 4.25797 1.84582C4.26747 1.8539 4.27668 1.86249 4.28557 1.87161C4.2883 1.8744 4.29097 1.87722 4.2936 1.88007L7.88509 5.56211C8.0383 5.71918 8.0383 5.97132 7.88509 6.12839C7.72849 6.28894 7.47195 6.28894 7.31535 6.12839L4.00058 2.73006Z" fill="currentColor"></path>
+											</svg>
+										</div>
+									</button>
+									<div id="hs-collapse-{{ block.id }}" class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300" aria-labelledby="hs-heading-{{ block.id }}">
+										<div class="pb-4">
+											{% if block.settings.accordion_content == "{description}" %}
+												{{ product.description }}
+											{% else %}
+												{{ block.settings.accordion_content }}
+											{% endif %}
+										</div>
+									</div>
+								</div>
+							{% endif %}
+							{% endfor %}
+						</div>
+						{% endif %}
+				  {% endcase %}
+			  {% endfor %}
+			</div>
+		</div>
+      </div>
+    </div>
+    <input id="product-json" type="hidden" value='{{ product | json | escape }}' />

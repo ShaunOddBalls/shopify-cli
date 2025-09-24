@@ -1,0 +1,66 @@
+{% comment %}
+  
+                  
+                  {% assign ok_to_proceed = "ok" %}
+                  {% assign productType = product.type %}
+                  {% assign collectionName = "" %}
+                                          
+                  {% assign productsToShowOn = "Bralette,Ladies Boxers,Low Rise Briefs,seamless,Thong,Teen Girls Bralette,Teen Girls Boxers,Teen Girls Thong,Teen Girls Seamless,Teen Girls Low Rise Briefs,Ladies Bamboo Boxers" | split: "," %}
+                  {% unless productsToShowOn contains productType %}
+                    {% assign ok_to_proceed = "no" %}
+                  {% endunless %}
+                    
+                 
+                  {% assign Designtag = "" %}
+                    {% for tag in product.tags %}
+                      {% if tag contains  "design-" and tag != "feature-design-selector" %}
+                        {% assign Designtag = tag %}
+                      {% endif %}
+                    {% endfor %}
+                   {% assign parts = Designtag | split: "-" %}
+                    
+                      {% for part in parts %}
+                        {% if forloop.first == false %}
+                          {% assign formatted_part = part | downcase %}
+                          {% capture collectionName %}{{collectionName}}-{{ formatted_part }}{% endcapture %}
+                        {% endif %}
+                      {% endfor %}
+                      {% assign assign collectionName = collectionName | slice: 1, collectionName.size %}
+                      {% assign collectionName = collectionName | strip %}
+            
+                  {% assign colection_products = collections[collectionName].products | where: "available", true %}
+                 
+                    {% if colection_products.size == 0 %}
+                            {% capture collectionName %}{{ Designtag }}{% endcapture %}
+                            {% assign colection_products = collections[collectionName].products | where: "available", true %}
+                    {% endif %}
+
+                    {% if colection_products.size == 0 %}
+                      {%  assign ok_to_proceed = "no" %}
+                    {% endif %}
+                    
+                      
+                  {% assign this_type_array = colection_products | where: "type", productType %}
+
+                  
+                  {% if colection_products.size == this_type_array.size %}
+                    {%  assign ok_to_proceed = "no" %}
+                  {% endif %}                    
+                  {% if ok_to_proceed == "ok"  %}
+                    {% capture ajax_url %}/collections/{{ collectionName }}?view=product-page-upsell-grid{% endcapture %}
+                    <div id="complete-the-look-ajax" class="w-full max-w-full">
+                      <div class="complete-the-look-container " id="complete-the-look" data-ctl-type="{{ product.type }}"> 
+                          <div class="mb-4"><span class="uppercase text-sm md:text-base "><b>Add Your Matching{% if productType == "Bralette" %} Pair{% else %} Bralette{% endif %}</b></span></div>
+                            <div class="related-products" id="related-products-{{ block.id }}">
+                              <div id="complete-the-look-injection-container">
+                              <upsell-product-recommendations class="upsell product-upsell-recomendations" id="{{ section.id }}-{{ url.handle }}-2" class=" m-6" url="{{ ajax_url }}" type="{{ productType }}">
+                                
+                                </upsell-product-recommendations>
+                           </div>
+                       </div>
+                  </div>
+                  
+                  </div>
+                  {% endif %}
+
+{% endcomment %}

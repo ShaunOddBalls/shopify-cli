@@ -1,0 +1,303 @@
+<style>
+  
+  .py-4-5 {
+   
+    padding-top: 1.2rem;
+    padding-bottom: 1.2rem;
+    
+  }
+
+  .font-arial {
+    
+   font-family: 'Arial' !important;
+    
+  }
+  
+  .min-h-50px {
+    
+   min-height: 50px; 
+    
+  }
+  
+  
+</style>
+
+{% assign has_codes = 'no' %}
+{% for block in section.blocks %}
+	{% if block.type == 'discount_block' %}
+		{% assign has_codes = 'yes' %}
+		{% break %}
+	{% endif %}
+{% endfor %}
+
+<div id="codes_column">
+  {% if section.blocks.length and has_codes == 'no' %}
+  <span>We don't currently have any discount codes to offer!</span>
+  {% else %}
+  <ul>
+  {% render 'ob-include-set-current-country' %}	
+  {% for block in section.blocks %}
+    
+    {% if block.type == 'discount_block' %}
+      {% assign ok_to_proceed = 'no' %}
+    {% if customer %}
+      {% assign customer_ok_to_proceed = 'yes' %}
+    {% endif %}  
+
+    {% if block.settings.customers != 'not customer' %}
+      {% assign customer_ok_to_proceed = 'yes' %}
+    {% endif %}
+    {% if block.settings.block_active %}
+      
+      {% assign country_ok_to_proceed = 'no' %}
+      {% if block.settings.country_iso != blank %}
+      	{% assign country_ok_to_proceed = 'yes' %}
+      {% endif %}
+      {% assign block_iso_arr = block.settings.country_iso  | uppercase | replace: ' ', '' | strip_html %}
+      {% if block_iso_arr contains '*' or block_iso_arr contains current_country  %}
+      	{% assign country_ok_to_proceed = 'yes' %}
+      {% else %}
+      	{% assign country_ok_to_proceed = 'no' %}
+      {%  endif %}
+      {% if country_ok_to_proceed == 'yes' %}
+  
+          {% assign customer_ok_to_proceed = 'yes' %}
+          {% if is_customer %}
+            {% assign is_customer = 'yes' %}
+          {% else %}
+            {% assign is_customer = 'no' %}
+          {% endif %}
+          
+          {% assign customers_block_check = block.settings.customers %}
+          {% unless customer_check == 'both' or block.settings.customers == blank %}
+            {% if is_customer == 'yes' and customers_block_check == 'not customer' %}
+              {% assign customer_ok_to_proceed = 'no' %}           
+            {% endif %}
+
+            {% if is_customer == 'no' and customers_block_check == 'customer' %}
+              {% assign customer_ok_to_proceed = 'no' %}            
+            {% endif %}
+          {% endunless%}
+       
+          {% if customer_ok_to_proceed == 'yes' %}
+
+            <li id="{{ block.id }}" class="relative bg-white rounded-md p-1 px overflow-hidden mb-4 sm:mb-5 pl-l border-2 border-solid {% if block.settings.embellishment_bar_active %} box-shadow-green-yellow {% else %} box-shadow-pink {% endif %}" data-discount-code="{{ block.settings.discount_code }}" data-discount-title="{{ block.settings.discount_title }}" >      
+              {% if block.settings.embellishment_bar_activee %}
+                <div class="absolute inset-0 w-full rounded-t rounded-lg" style="background-image: url('{{ block.settings.embellishment_background | img_url: 'master' }}');"></div>
+              {% endif %}
+              {% if block.settings.exclusive_embellishment_bar_text != blank %}
+                <div class="py-1 px-5 relative {{ block.settings.embellishment_bar_font_colour }}">{{ block.settings.exclusive_embellishment_bar_text }}</div>
+              {% endif %}      
+              <div class="grid grid-cols-1 relative z-100 bg-white py-5 rounded-b-lg">
+                <div class="md:grid-cols-3 grid grid-cols-1 px-5 items-center">
+                  <div class="col-span-2">
+                    <h3  class="font-normal break-words text-xl md:text-2xl text-black cursor-pointer font-bebas" style="word-break: break-word">
+                      {% if block.settings.label_text != blank %}
+                      <span class=" px-2 py-1 rounded text-sm text-{{ block.settings.label_text_colour }}" style="border:1px solid {{ block.settings.label_colour }}">{{ block.settings.label_text }}</span> 
+                      {% endif %}
+                      {{ block.settings.discount_title }}             
+                    </h3>
+                    {% if block.settings.discount_description != blank %}
+                    <span class="text-xs text-gray-700 w-full block mb-2 md:mb-0">
+                      {{ block.settings.discount_description }}
+                    </span>
+                    {% endif %}
+                    {% if block.settings.discount_end_active %}
+                    <span class="block font-semibold text-magenta text-xs mb-2 md:mb-0">Ends {{ block.settings.discount_end_date }}</span>
+                    {% endif %}
+                  </div>
+                  <div class="col-span-1">
+                    <div class="relative overflow-hidden">
+                      {% if block.settings.discount_code != blank %}
+                      <div class="js-code-button-wrap flex flex-col flex-grow ml-auto mb-3">
+                        <button class="{% if customer %}js-code-reveal {% else %}js-authenticate-user {% endif %}flex overflow-y-visible focus:outline-none" data-popup-title="Please sign in to reveal code">
+                          <div class="flex-1 btn bg-cyan-500 hover:bg-cyan-700 transition-colors rounded px-4 py-5 text-white font-medium flex items-center justify-around relative">
+                            <span class="my-auto">
+                              Get Code
+                            </span>
+                          </div>
+                          <span class="flex items-center border-2 rounded-r border-green bg-yellow-100 font-bold py-4-5 pl-2 pr-1 text-gray-800">
+                            <span class="block tracking-wide leading-tight">
+                              {{ block.settings.discount_code_end }}
+                            </span>
+                          </span>
+                        </button>
+                        <button id="code-shown-button_{{ block.id }}" class="js-copy-discount-code relative mb-1 hidden js-code-shown w-full flex btn-shadow border-2 bg-yellow-200 overflow-y-visible focus:outline-none rounded-md border border-solid border-black" data-clipboard-text="{{ block.settings.discount_code }}">
+                          <div class="flex-1 rounded-md w-full px-4 py-3 flex items-center justify-around relative text-xl font-semibold">
+                            {% if block.settings.discount_code != blank %}
+                            {{ block.settings.discount_code }}
+                            {% else %}
+                            <a class="text-sm" href="{{ block.settings.discount_link }}">{{ block.settings.discount_link_text }}</a>
+                            {% endif %}
+                          </div>
+                          {% if block.settings.discount_code != blank %}
+                          <div class="js-copied-slide-in hidden absolute inset-0 w-full rounded bg-green-300 uppercase text-white px-4 py-3 flex items-center justify-around text-xl font-semibold">
+                              <span class="">Copied!</span>                                      
+                          </div>
+                          {% endif %}
+                        </button>
+                      </div>
+                      {% elsif block.settings.discount_link %}
+                        <button id="code-shown-button_{{ block.id }}" class="js-copy-discount-code w-full mb-1 relative js-code-shown flex btn-shadow border-2 bg-yellow-200 overflow-y-visible focus:outline-none rounded-md border border-solid border-black" data-clipboard-text="{{ block.settings.discount_code }}">
+                          <div class="flex-1 rounded-md px-4 py-3 flex items-center justify-around relative text-xl font-semibold">
+                            <a class="text-sm" href="{{ block.settings.discount_link }}">{{ block.settings.discount_link_text }}</a>
+                          </div>
+                        </button>
+                      {% elsif block.settings.discount_information != blank %}
+                        <button id="code-shown-button_{{ block.id }}" class="js-view-info-toggle w-full mb-1 relative flex btn-shadow border-2 bg-yellow-200 overflow-y-visible focus:outline-none rounded-md border border-solid border-black" data-discount-information="{{ block.settings.discount_information }}" data-clipboard-text="{{ block.settings.discount_code }}">
+                          <div class="flex-1 rounded-md px-4 py-3 flex items-center justify-around relative text-xl font-semibold">
+                            <span class="text-sm">{{ block.settings.info_button_text }}</span>
+                          </div>
+                        </button>              
+                      {% endif %}
+                    </div>
+                  </div>
+                </div>
+                {% if block.settings.discount_terms != blank or block.settings.date_added != blank %}
+                <div class="flex justify-between border-t border-gray-300 pt-3 px-5 mt-4" style="border-top: 1px solid #eaedf0">
+                  {% if block.settings.discount_terms != blank %}
+                  <div class="code-terms-toggle cursor-pointer">
+                    <span class="text-xs text-gray-400">Terms</span>
+                    <span class="terms-arrow inline-block cursor-pointer">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class=" fill-current h-3.5 inline text-gray-400 w-3">
+                        <path d="M168.5 164.2l148 146.8c4.7 4.7 4.7 12.3 0 17l-19.8 19.8c-4.7 4.7-12.3 4.7-17 0L160 229.3 40.3 347.8c-4.7 4.7-12.3 4.7-17 0L3.5 328c-4.7-4.7-4.7-12.3 0-17l148-146.8c4.7-4.7 12.3-4.7 17 0z"/>
+                      </svg>
+                    </span>
+                  </div>
+                  {% endif %}
+                  {% if block.settings.date_added != blank %}
+                  <span class="text-xs text-gray-400">Added: {{ block.settings.date_added }}</span>
+                  {% endif %}
+                </div>
+                <div class="hidden discount-code-terms pt-2 text-xs px-5 text-gray-400 transform transition-all duration-500 ease-in-out">
+                  {% if block.settings.discount_terms != '' %}
+      
+                  {{ block.settings.discount_terms }}
+      
+                  {% endif %}
+                </div>
+                {% endif %}
+              </div>
+            </li>
+          {% endif %}
+        {% endif %}
+      {% endif %}
+      {% endif %}
+    {% endfor %}
+  </ul>
+  {% endif %}
+
+  <div id="info_popup" class="hidden z-101 fixed inset-0 overlay">
+	<div class="lg:w-1/3 md:w-1/2 -translate-x-1/2 -translate-y-1/2 bg-white fixed flex flex-col justify-evenly left-1/2 rounded-md text-center top-1/2 transform w-11/12 xl:w-1/4 xs:w-3/4">
+	  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" id="info_popup_close" class="absolute h-10 right-4 top-2 w-6 cursor-pointer">
+        <path d="M207.6 256l107.72-107.72c6.23-6.23 6.23-16.34 0-22.58l-25.03-25.03c-6.23-6.23-16.34-6.23-22.58 0L160 208.4 52.28 100.68c-6.23-6.23-16.34-6.23-22.58 0L4.68 125.7c-6.23 6.23-6.23 16.34 0 22.58L112.4 256 4.68 363.72c-6.23 6.23-6.23 16.34 0 22.58l25.03 25.03c6.23 6.23 16.34 6.23 22.58 0L160 303.6l107.72 107.72c6.23 6.23 16.34 6.23 22.58 0l25.03-25.03c6.23-6.23 6.23-16.34 0-22.58L207.6 256z"/>
+      </svg>
+      <div id="discount_popup_title" class="text-3xl text-black font-semibold font-bebas pb-2"></div>      
+      <div id="info_popup_content" class="text-left px-10 py-10"></div>
+    </div>
+  </div>
+
+</div>
+
+
+<style>
+  
+  
+  
+  	.copied-animate
+  
+      .delay-250 {
+    animation-delay: .25s;
+    }
+    .delay-500 {
+    animation-delay: .5s;
+    }
+    .delay-750 {
+    animation-delay: .75s;
+    }
+    .delay-1000 {
+    animation-delay: 1s;
+    }
+  
+  
+  .slide-in-left {
+	-webkit-animation: slide-in-left 0.5s ease-in-out both;
+	        animation: slide-in-left 0.5s ease-in-out both;
+   }
+  
+  
+  .overlay {
+    
+    background-color:rgba(0,0,0,0.7);
+    
+  }
+  
+  .z-101 {
+   
+    z-index: 101;
+    
+  }
+  
+  .font-mulish {
+    
+   font-family: 'Mulish' !important; 
+    
+  }
+  
+  
+  .p-1px {
+    
+   	padding: 1px;
+    
+  }
+  
+  
+  
+  	.btn:after, .btn:before {
+    	display: block;
+    	content: " ";
+    	position: absolute;
+	}
+  
+  .btn:before {
+    width: 23px;
+    height: 10px;
+    background-color: #007BAF;
+    z-index: 2;
+    right: -14px;
+    bottom: 0;
+    --transform-translate-x: 0;
+    --transform-translate-y: 0;
+    --transform-rotate: 0;
+    --transform-skew-x: 0;
+    --transform-skew-y: 0;
+    --transform-scale-x: 1;
+    --transform-scale-y: 1;
+    -webkit-transform: translateX(var(--transform-translate-x)) translateY(var(--transform-translate-y)) rotate(var(--transform-rotate)) skewX(var(--transform-skew-x)) skewY(var(--transform-skew-y)) scaleX(var(--transform-scale-x)) scaleY(var(--transform-scale-y));
+    transform: translateX(var(--transform-translate-x)) translateY(var(--transform-translate-y)) rotate(var(--transform-rotate)) skewX(var(--transform-skew-x)) skewY(var(--transform-skew-y)) scaleX(var(--transform-scale-x)) scaleY(var(--transform-scale-y));
+    --transform-skew-x: 12deg;
+}
+  
+  
+  .btn:after {
+    width: 3.5rem;
+    height: 100%;
+    border-radius: 0 0 4px 4px;
+    right: -38px;
+    top: 0;
+    margin-top: .5rem;
+    -webkit-transform: rotate(
+20deg) translateY(-10px) scaleX(.8);
+    transform: rotate(
+20deg) translateY(-10px) scaleX(.8);
+    background: -webkit-linear-gradient(
+52deg,#16BAFF,#16BAFF 49%,rgba(202,235,137,0) 50%,hsla(0,0%,100%,0));
+    background: linear-gradient(
+38deg,#16BAFF,#16BAFF 49%,rgba(202,235,137,0) 50%,hsla(0,0%,100%,0));
+    background-position: 0 4px;
+    background-repeat: no-repeat;
+    z-index: 3;
+}
+  
+  
+</style>

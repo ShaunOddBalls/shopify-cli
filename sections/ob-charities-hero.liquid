@@ -1,0 +1,153 @@
+<div class="relative inline-block w-full blend-divide {{ section.settings.hero-outer-class }}">
+    <div class="{{ section.settings.hero-frame-class }}">
+        <div class="relative shadow-xl sm:rounded-2xl sm:overflow-hidden">
+            {% if section.settings.hero_url %}
+            <a class="h-full w-full absolute inset-0 cursor-pointer z-10 block" href="{{ section.settings.hero_url }}"></a>
+            {% endif %}
+            <div class="absolute inset-0 z-1">
+                <img class="h-full w-full object-cover" src="{{ section.settings.logo | img_url:'1000x' }}" alt="{{ section.settings.title }}">          
+            </div>
+            <div class="relative px-4 py-16 sm:px-6 sm:py-24 lg:py-32 lg:px-8  z-2 {{ section.settings.hero-image-outer-class }}">
+                <h1 class="text-center text-4xl font-extrabold sm:text-5xl lg:text-6xl">
+                    <span class="block text-white font-bebas">
+                        {{ section.settings.title }}                                                     
+                    </span>
+                </h1>
+                {% if section.settings.subtitle_description != blank %}
+                <div class="{{ section.settings.subtitle_description_class }}">
+                    {{ section.settings.subtitle_description }}
+                </div>
+                {% endif %}
+                {% if section.settings.title_description != blank %}
+                <div class="{{ section.settings.title_description_class }}">
+                    {{ section.settings.title_description }}
+                </div>
+                {% endif %}
+                {% if section.settings.title_description != blank %}
+                <div class="{{ section.settings.title_description_class }}">
+                    {{ section.settings.title_description }}
+                </div>
+                {% endif %}
+                {% if section.settings.button_text != blank %}
+                <div class="flex justify-center mt-3">
+                    <div class="{{ section.settings.button_class }}">
+                        {{ section.settings.button_text }}
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>  
+    <div class="relative responsive-slider-wrap-1 max-w-7xl mx-auto mt-3 mb-3">
+      <div class="relative block ">
+          <div id="charity_logos" class="responsive-slider-1 py-5 max-w-7xl mx-auto px-2"> <!--slick wrapper-->
+                {% for block in section.blocks %}
+                  {% if block.type == 'logo' %}
+                    <div class="p-2 slick-slide">
+                        <a href="{{ block.settings.url }}"><img class="rounded-md mx-auto md:h-20 border-2 border-black border-solid" src="{{ block.settings.logo | img_url: '1000x' }}" alt=""></a>
+                    </div>                     
+                  {% endif %}
+                {% endfor %}
+          </div>
+      </div>
+    </div>    
+</div>  
+
+
+{% schema %}
+  {
+    "name": "charities-hero-with-logos",
+    "settings": [
+      {
+        "type": "text",
+        "id": "hero-outer-class",
+        "label": "hero-outer-class",
+        "info": "bg-magenta"
+      },
+      {
+        "type": "text",
+        "id": "hero-frame-class",
+        "label": "hero-frame-class",
+        "info": "max-w-7xl mx-auto sm:px-6 lg:px-8 bg-magenta pt-4 sm:pt-6 lg:pt-8"
+      },
+      {
+        "type": "text",
+        "id": "hero-image-outer-class",
+        "label": "hero-image-outer-class",
+        "info": "bg-magenta"
+      },
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Logo"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title text"
+      },
+      {
+        "type": "richtext",
+        "id": "subtitle_description",
+        "label": "Sub title"
+      },
+      {
+        "type": "text",
+        "id": "button_text",
+        "label": "Button text"
+      },
+      {
+        "type": "text",
+        "id": "button_class",
+        "label": "button class",
+        "info": "px-8 rounded-md uppercase btn-shadow-lg block bg-magenta border-solid border-2 border-md border-black relative font-semibold text-center p-4 text-white hover:bg-magenta-700 transition-colors duration-200"
+      },
+      {
+        "type": "text",
+        "id": "hero_url",
+        "label": "Hero URL"
+      },
+      {
+        "type": "text",
+        "id": "subtitle_description_class",
+        "label": "subtitle class",
+        "info": "mt-6 max-w-lg mx-auto text-center text-xl text-white sm:max-w-3xl"
+      },
+      {
+        "type": "richtext",
+        "id": "title_description",
+        "label": "Title description"
+      },
+      {
+        "type": "text",
+        "id": "title_description_class",
+        "label": "description class",
+        "info": "mt-6 max-w-lg mx-auto text-center text-xl text-white sm:max-w-3xl"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "logo",
+        "name": "Logo",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "logo",
+            "label": "Logo"
+          },
+          {
+            "type": "url",
+            "id": "url",
+            "label": "URL"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

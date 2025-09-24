@@ -1,0 +1,254 @@
+{% comment %}
+  Image Size Testing Template
+  Tests different sizes of the Mens Boxers GIF
+{% endcomment %}
+
+{% assign image_filename = 'Mens_Boxers_GIF_7ae32d57-7c4a-429a-aafa-95fc19ef7480.gif' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Size Testing - Mens Boxers GIF</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .image-card {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .image-card h3 {
+            margin: 0 0 10px 0;
+            color: #333;
+        }
+        .image-card img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .size-info {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #666;
+        }
+        .original {
+            grid-column: 1 / -1;
+            text-align: center;
+        }
+        .original img {
+            max-width: 600px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🩲 Mens Boxers GIF - Size Testing</h1>
+        <p>Testing different sizes of the animated GIF for optimal display and performance.</p>
+
+        <!-- Original Size -->
+        <div class="image-card original">
+            <h3>🎯 Original Size</h3>
+            <img src="{{ image_filename | file_img_url }}" alt="Mens Boxers GIF - Original" loading="lazy">
+            <div class="size-info">
+                <strong>Original dimensions</strong><br>
+                URL: {{ image_filename | file_img_url }}
+            </div>
+        </div>
+
+        <div class="image-grid">
+            <!-- Small Sizes -->
+            <div class="image-card">
+                <h3>📱 Small (100x100px)</h3>
+                <img src="{{ image_filename | file_img_url: 'small' }}" alt="Mens Boxers GIF - Small" loading="lazy">
+                <div class="size-info">
+                    <strong>Size:</strong> small (100x100px)<br>
+                    <strong>Use case:</strong> Thumbnails, mobile cards<br>
+                    <strong>Filter:</strong> file_img_url: 'small'
+                </div>
+            </div>
+
+            <div class="image-card">
+                <h3>🖼️ Medium (240x240px)</h3>
+                <img src="{{ image_filename | file_img_url: 'medium' }}" alt="Mens Boxers GIF - Medium" loading="lazy">
+                <div class="size-info">
+                    <strong>Size:</strong> medium (240x240px)<br>
+                    <strong>Use case:</strong> Product cards, grid layouts<br>
+                    <strong>Filter:</strong> file_img_url: 'medium'
+                </div>
+            </div>
+
+            <div class="image-card">
+                <h3>🖥️ Large (480x480px)</h3>
+                <img src="{{ image_filename | file_img_url: 'large' }}" alt="Mens Boxers GIF - Large" loading="lazy">
+                <div class="size-info">
+                    <strong>Size:</strong> large (480x480px)<br>
+                    <strong>Use case:</strong> Featured products, hero sections<br>
+                    <strong>Filter:</strong> file_img_url: 'large'
+                </div>
+            </div>
+
+            <!-- Custom Sizes -->
+            <div class="image-card">
+                <h3>📐 Custom 300x200</h3>
+                <img src="{{ image_filename | file_img_url: '300x200' }}" alt="Mens Boxers GIF - Custom 300x200" loading="lazy">
+                <div class="size-info">
+                    <strong>Size:</strong> 300x200px<br>
+                    <strong>Use case:</strong> Custom dimensions<br>
+                    <strong>Filter:</strong> file_img_url: '300x200'
+                </div>
+            </div>
+
+            <div class="image-card">
+                <h3>📏 Custom 400x300</h3>
+                <img src="{{ image_filename | file_img_url: '400x300' }}" alt="Mens Boxers GIF - Custom 400x300" loading="lazy">
+                <div class="size-info">
+                    <strong>Size:</strong> 400x300px<br>
+                    <strong>Use case:</strong> Prominent display<br>
+                    <strong>Filter:</strong> file_img_url: '400x300'
+                </div>
+            </div>
+
+            <div class="image-card">
+                <h3>📱 Custom 250x250</h3>
+                <img src="{{ image_filename | file_img_url: '250x250' }}" alt="Mens Boxers GIF - Custom 250x250" loading="lazy">
+                <div class="size-info">
+                    <strong>Size:</strong> 250x250px<br>
+                    <strong>Use case:</strong> Square format<br>
+                    <strong>Filter:</strong> file_img_url: '250x250'
+                </div>
+            </div>
+        </div>
+
+        <!-- More Size Testing -->
+        <h2>🔧 Additional Shopify Sizes</h2>
+        <div class="image-grid">
+            <div class="image-card">
+                <h3>📏 Compact (160x160px)</h3>
+                <img src="{{ image_filename | file_img_url: 'compact' }}" alt="Mens Boxers GIF - Compact" loading="lazy">
+                <div class="size-info">
+                    <strong>Size:</strong> compact (160x160px)<br>
+                    <strong>Use case:</strong> Compact layouts<br>
+                    <strong>Filter:</strong> file_img_url: 'compact'
+                </div>
+            </div>
+
+            <div class="image-card">
+                <h3>📐 Grande (600x600px)</h3>
+                <img src="{{ image_filename | file_img_url: 'grande' }}" alt="Mens Boxers GIF - Grande" loading="lazy">
+                <div class="size-info">
+                    <strong>Size:</strong> grande (600x600px)<br>
+                    <strong>Use case:</strong> Large displays<br>
+                    <strong>Filter:</strong> file_img_url: 'grande'
+                </div>
+            </div>
+
+            <div class="image-card">
+                <h3>🖼️ Master (2048x2048px)</h3>
+                <img src="{{ image_filename | file_img_url: 'master' }}" alt="Mens Boxers GIF - Master" style="max-width: 300px;" loading="lazy">
+                <div class="size-info">
+                    <strong>Size:</strong> master (2048x2048px max)<br>
+                    <strong>Use case:</strong> Highest quality<br>
+                    <strong>Filter:</strong> file_img_url: 'master'
+                </div>
+            </div>
+        </div>
+
+        <!-- Performance Testing -->
+        <h2>⚡ Performance & Loading</h2>
+        <div class="image-grid">
+            <div class="image-card">
+                <h3>🚀 Eager Loading (Medium)</h3>
+                <img src="{{ image_filename | file_img_url: 'medium' }}" alt="Mens Boxers GIF - Eager" loading="eager">
+                <div class="size-info">
+                    <strong>Loading:</strong> eager<br>
+                    <strong>Size:</strong> medium (240x240px)<br>
+                    <strong>Use case:</strong> Above-the-fold content
+                </div>
+            </div>
+
+            <div class="image-card">
+                <h3>⏳ Lazy Loading (Large)</h3>
+                <img src="{{ image_filename | file_img_url: 'large' }}" alt="Mens Boxers GIF - Lazy" loading="lazy">
+                <div class="size-info">
+                    <strong>Loading:</strong> lazy<br>
+                    <strong>Size:</strong> large (480x480px)<br>
+                    <strong>Use case:</strong> Below-the-fold content
+                </div>
+            </div>
+
+            <div class="image-card">
+                <h3>🎭 With Placeholder (Compact)</h3>
+                <div style="width: 250px; height: 200px; background: linear-gradient(45deg, #f0f0f0 25%, transparent 25%), linear-gradient(-45deg, #f0f0f0 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #f0f0f0 75%), linear-gradient(-45deg, transparent 75%, #f0f0f0 75%); background-size: 20px 20px; background-position: 0 0, 0 10px, 10px -10px, -10px 0px; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
+                    <img src="{{ image_filename | file_img_url: 'compact' }}" alt="Mens Boxers GIF - Placeholder" style="width: 100%; height: 100%; object-fit: contain;" loading="lazy">
+                </div>
+                <div class="size-info">
+                    <strong>Background:</strong> Placeholder pattern<br>
+                    <strong>Size:</strong> compact (160x160px)<br>
+                    <strong>Use case:</strong> Better UX during load
+                </div>
+            </div>
+        </div>
+
+        <!-- Code Examples -->
+        <h2>💻 Shopify Liquid Code Examples</h2>
+        <div style="background: white; padding: 20px; border-radius: 8px; margin: 20px 0;">
+            <h3>Basic file_img_url Filter</h3>
+            <pre style="background: #f5f5f5; padding: 10px; border-radius: 4px; overflow-x: auto;"><code>&lt;img src="{{ '{{ image_filename | file_img_url }}' }}" alt="Mens Boxers GIF" loading="lazy"&gt;</code></pre>
+
+            <h3>With Size Parameter</h3>
+            <pre style="background: #f5f5f5; padding: 10px; border-radius: 4px; overflow-x: auto;"><code>&lt;img src="{{ '{{ image_filename | file_img_url: \'medium\' }}' }}" alt="Mens Boxers GIF" loading="lazy"&gt;</code></pre>
+
+            <h3>Custom Dimensions</h3>
+            <pre style="background: #f5f5f5; padding: 10px; border-radius: 4px; overflow-x: auto;"><code>&lt;img src="{{ '{{ image_filename | file_img_url: \'400x300\' }}' }}" alt="Mens Boxers GIF" loading="lazy"&gt;</code></pre>
+
+            <h3>Available Size Options</h3>
+            <ul style="margin: 10px 0; padding-left: 20px;">
+                <li><strong>small</strong> - 100x100px</li>
+                <li><strong>compact</strong> - 160x160px</li>
+                <li><strong>medium</strong> - 240x240px</li>
+                <li><strong>large</strong> - 480x480px</li>
+                <li><strong>grande</strong> - 600x600px</li>
+                <li><strong>master</strong> - 2048x2048px (max original size)</li>
+                <li><strong>Custom</strong> - e.g., '300x200', '400x300'</li>
+            </ul>
+        </div>
+
+        <div style="text-align: center; margin: 40px 0; color: #666;">
+            <p>🧪 Use this page to test how the GIF performs at different sizes and loading conditions.</p>
+            <p>📊 Monitor network tab to see loading behavior and file size impact.</p>
+        </div>
+    </div>
+
+    <script>
+        // Add loading time tracking
+        document.addEventListener('DOMContentLoaded', function() {
+            const images = document.querySelectorAll('img');
+            images.forEach((img, index) => {
+                const startTime = performance.now();
+                img.addEventListener('load', function() {
+                    const loadTime = performance.now() - startTime;
+                    console.log(`Image ${index + 1} loaded in ${loadTime.toFixed(2)}ms`);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

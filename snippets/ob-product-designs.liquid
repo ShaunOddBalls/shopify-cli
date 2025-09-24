@@ -1,0 +1,277 @@
+{% comment %} print swap {% endcomment %}
+<script type="text/javascript" src="{{'print-swap.js'| asset_url}}" defer></script>
+{% assign banned_handles = "vodafone,ideal-heating," %}
+{% assign banned_handles_arr = banned_handles | split: "," %}
+{% assign product_type = product.type %}
+{% assign adventurous_prints = "" %}
+{% assign classic_prints = "" %}
+  {% assign style = "" %}
+  {% for tag in product.tags %}
+    {% if tag == "style-adventurous" %}
+      {% assign style = "patterned" %}
+    {% endif %}
+    {% if tag == "style-classic" %}
+      {% assign style = "plain" %}
+    {% endif %}
+  {% endfor %}
+  
+  <div id="print-swap-style-selector" class="relative rounded-full  p-1 mb-4 mt-2 bg-gray-200">
+      <div class="relative grid grid-cols-2 rounded-full bg-opacity-40">
+          <div style="z-index:1" class="js-patterned-plain-selector text-center p-2 cursor-pointer active">Patterned</div>
+          <div style="z-index:1" class="js-patterned-plain-selector text-center p-2 cursor-pointer">Plain</div>
+          <div id="print-swap-slider" class="w-1/2 h-full absolute top-0 biottom-0  rounded-full bg-white patterned-active"></div>
+      </div>
+  </div>
+  {% for object in shop.metaobjects.design_list.values %}
+    {% paginate object.design.value by 500 %}
+      {% for design in object.design.value %}
+            
+        {% assign collection_handle = design.collection %}
+        {% assign collection = collections[collection_handle] %}
+        {% if collection != nil %}
+          {% for prod in collection.products %}
+            {%- comment %}<locksmith:b654>{% endcomment -%}
+              {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: prod, subject_parent: collection, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+            {%- comment %}</locksmith:b654>{% endcomment -%}
+            {% if prod.type == product_type %}
+              {% assign continue = "true" %}
+              {% for handle in banned_handles_arr %}
+                {% if prod.handle contains handle %}
+                  {% assign continue = "false" %}
+                {% endif %}
+              {% endfor %}
+              {% if continue == "true" %}
+                {% for tag in prod.tags %}
+                  {% if tag == "style-adventurous" %}
+                    {% capture adventurous_prints %}
+                      {{ adventurous_prints }}
+                      <div class="js-print-swap relative rounded-full shadow-sm border border-solid border-gray-300">
+                      <div class="w-full pt-full">
+                        <img loading = "lazy" class="absolute w-full h-full rounded-full top-0 left-0" width="40" height="40" alt="{{ design.title }} print swap" src="{{ design.img_url | replace: ".png", "_small.png" | replace: ".jpg", "_small.jpg"}}" />
+                      </div>   
+                      <div class="js-prod-json" style="display:none;">{{ prod | json }} </div>
+                    </div>
+                   {% endcapture %}
+                  {% endif %}
+                  {% if tag == "style-classic" %}
+                    {% capture classic_prints %}
+                      {{ classic_prints }}
+                      <div class="js-print-swap relative rounded-md shadow-sm border border-solid border-gray-300">
+                      <div class="w-full pt-full">
+                        <img class="absolute w-full h-full top-0 left-0 rounded-md" width="40px" height="40px" src="{{ design.img_url }}" />
+                      </div>   
+                      <div class="js-prod-json" style="display:none;">{{ prod | json }} </div>
+                    </div>
+                   {% endcapture %}
+                  {% endif %}
+                {% endfor %}
+              {% endif %}
+
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+
+      {% endfor %}
+    {% endpaginate %}
+  {% endfor %}
+<div class="relative">
+  <div id="print-swap-patterned-container" class="js-print-container grid grid-cols-6 lg:grid-cols-8 gap-2" style="{% unless style == "patterned" %}display:none{% endunless %}">
+    {{ adventurous_prints }}
+  </div>
+  <div id="print-swap-plain-container" class="js-print-container grid grid-cols-6 lg:grid-cols-8 gap-2" style="{% unless style == "plain" %}display:none{% endunless %}">
+    {{ classic_prints }}
+  </div>
+  <div id="show-more-prints-btn" ><div> Show More Prints</div></div>
+  <div id="show-less-prints-btn" class="hidden"> Show less Prints</div>
+</div>
+
+<style>
+  #show-more-prints-btn{
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.75) 50%, rgba(255, 255, 255, 1) 75%, rgba(255, 255, 255, 1) 100%);
+    position: absolute;
+    bottom: -1px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    align-items: end;
+    height: 40%;
+  }
+  #show-less-prints-btn{
+    width:100%;
+    text-align:center;
+    justify-content:center;
+  }
+    .js-print-container{
+      max-height:6rem;
+      transition: max-height 1s;
+      overflow: hidden;
+    }
+  .pt-full{
+    padding-top:100%;
+  }
+  #print-swap-style-selector .active{
+    pointer-events:none;
+    font-weight:bold;
+  }
+  #print-swap-slider{
+    transition: transform .25s;
+  }
+  .plain-active{
+    transform:translateX(100%)
+  }
+  
+  
+</style>
+
+			
+			
+			
+			
+			<div id="print-swap" style="display:none;">
+				<div style="margin:5px 18px; display:block; ">
+					<div class="relative grid grid-cols-2 rounded-full bg-opacity-40 mb-4 mt-2 bg-magenta-50">
+						<button id="adventurous" type="button" class="switcher relative z-10 flex items-center p-3 uppercase justify-center active text-sm font-semibold text-magenta-500""  data-grid="2">
+							Patterned
+						</button>
+						<button id="classic" type="button" class="switcher relative z-10 flex items-center p-3 uppercase justify-center text-sm font-semibold text-magenta-500" data-grid="1">
+							Plain
+						</button>
+						<span class="grid-indicator pointer-events-none absolute left-0 top-0 h-full w-1/2 p-1 duration-300 switcher-left">
+							<span class="block h-full rounded-full bg-magenta-500"></span>
+						</span>
+					</div>
+					<div class="animate-mt" id="print-container">
+						<div id="adventurous-container" class="js-swap-print-container" style="padding:4px; display: grid; grid-template-columns: repeat(6, 1fr); max-height: 7.5rem; overflow: hidden; position: relative; gap:0.75rem;">
+							{{ adventurous_prints }}
+						</div>
+						<div id="classic-container" class="js-swap-print-container grid" style="padding:4px; display: grid; grid-template-columns: repeat(6, 1fr);display:none; max-height: 7.5rem; overflow: hidden; position: relative; gap:0.75rem;">
+							{{ classic_prints }}
+						</div>
+						<div id="" class="js-show-less-prints" style="text-align:center; width: 100%; padding-top: 2rem; display: flex; justify-content: center; z-index: 10; cursor: pointer;font-size: 0.75rem;text-transform: uppercase; align-items: flex-end; position: relative; display:none;"><b>Show Less</b></div> 
+							
+						
+					</div> 
+				</div>
+			</div>
+   {% comment %}
+            <div class="prints relative max-h-[110px] overflow-y-clip -mb-4">
+              <div id="patterned-prints" class="options-prints grid grid-cols-5 md:grid-cols-6 gap-3">
+                <button class="border-2 border-black rounded-md overflow-hidden shadow-5" data-design="patterned-1" data-url="/products/patterned-1">
+                  <img class="w-full h-full aspect-square object-cover" src="img/patterns/1.avif" loading="lazy" alt="" />
+                </button>
+                <button class="border-2 rounded-md overflow-hidden" data-design="patterned-2" data-url="/products/patterned-2">
+                  <img class="w-full h-full aspect-square object-cover" src="img/patterns/2.webp" loading="lazy" alt="" />
+                </button>
+                <button class="border-2 rounded-md overflow-hidden" data-design="patterned-3" data-url="/products/patterned-3">
+                  <img class="w-full h-full aspect-square object-cover" src="img/patterns/3.avif" loading="lazy" alt="" />
+                </button>
+                <button class="border-2 rounded-md overflow-hidden" data-design="patterned-4" data-url="/products/patterned-4">
+                  <img class="w-full h-full aspect-square object-cover" src="img/patterns/4.avif" loading="lazy" alt="" />
+                </button>
+                <button class="border-2 rounded-md overflow-hidden" data-design="patterned-5" data-url="/products/patterned-5">
+                  <img class="w-full h-full aspect-square object-cover" src="img/patterns/5.avif" loading="lazy" alt="" />
+                </button>
+                <button class="border-2 rounded-md overflow-hidden" data-design="patterned-6" data-url="/products/patterned-6">
+                  <img class="w-full h-full aspect-square object-cover" src="img/patterns/6.avif" loading="lazy" alt="" />
+                </button>
+                <button class="border-2 rounded-md overflow-hidden" data-design="patterned-7" data-url="/products/patterned-7">
+                  <img class="w-full h-full aspect-square object-cover" src="img/patterns/7.avif" loading="lazy" alt="" />
+                </button>
+                <button class="border-2 rounded-md overflow-hidden" data-design="patterned-8" data-url="/products/patterned-8">
+                  <img class="w-full h-full aspect-square object-cover" src="img/patterns/8.avif" loading="lazy" alt="" />
+                </button>
+                <button class="border-2 rounded-md overflow-hidden" data-design="patterned-9" data-url="/products/patterned-9">
+                  <img class="w-full h-full aspect-square object-cover" src="img/patterns/9.avif" loading="lazy" alt="" />
+                </button>
+                <button class="border-2 rounded-md overflow-hidden" data-design="patterned-10" data-url="/products/patterned-10">
+                  <img class="w-full h-full aspect-square object-cover" src="img/patterns/10.avif" loading="lazy" alt="" />
+                </button>
+                <button class="border-2 rounded-md overflow-hidden" data-design="patterned-11" data-url="/products/patterned-11">
+                  <img class="w-full h-full aspect-square object-cover" src="img/patterns/11.avif" loading="lazy" alt="" />
+                </button>
+                <button class="border-2 rounded-md overflow-hidden" data-design="patterned-12" data-url="/products/patterned-12">
+                  <img class="w-full h-full aspect-square object-cover" src="img/patterns/12.avif" loading="lazy" alt="" />
+                </button>
+              </div>
+              <div id="plain-prints" class="options-prints grid grid-cols-5 md:grid-cols-6 gap-3 hidden">
+                <button class="border-2 border-black rounded-md overflow-hidden shadow-5" data-design="plain-1" data-url="/products/plain-1">
+                  <img class="w-full h-full aspect-square object-cover" src="img/plain/1.avif" loading="lazy" alt="" />
+                </button>
+                <button class="border-2 rounded-md overflow-hidden" data-design="plain-2" data-url="/products/plain-2">
+                  <img class="w-full h-full aspect-square object-cover" src="img/plain/2.avif" loading="lazy" alt="" />
+                </button>
+                <button class="border-2 rounded-md overflow-hidden" data-design="plain-3" data-url="/products/plain-3">
+                  <img class="w-full h-full aspect-square object-cover" src="img/plain/3.avif" loading="lazy" alt="" />
+                </button>
+                <button class="border-2 rounded-md overflow-hidden" data-design="plain-4" data-url="/products/plain-4">
+                  <img class="w-full h-full aspect-square object-cover" src="img/plain/4.avif" loading="lazy" alt="" />
+                </button>
+                <button class="border-2 rounded-md overflow-hidden" data-design="plain-5" data-url="/products/plain-5">
+                  <img class="w-full h-full aspect-square object-cover" src="img/plain/5.avif" loading="lazy" alt="" />
+                </button>
+                <button class="border-2 rounded-md overflow-hidden" data-design="plain-6" data-url="/products/plain-6">
+                  <img class="w-full h-full aspect-square object-cover" src="img/plain/6.avif" loading="lazy" alt="" />
+                </button>
+                <button class="border-2 rounded-md overflow-hidden" data-design="plain-7" data-url="/products/plain-7">
+                  <img class="w-full h-full aspect-square object-cover" src="img/plain/7.avif" loading="lazy" alt="" />
+                </button>
+                <button class="border-2 rounded-md overflow-hidden" data-design="plain-8" data-url="/products/plain-8">
+                  <img class="w-full h-full aspect-square object-cover" src="img/plain/8.avif" loading="lazy" alt="" />
+                </button>
+                <button class="border-2 rounded-md overflow-hidden" data-design="plain-9" data-url="/products/plain-9">
+                  <img class="w-full h-full aspect-square object-cover" src="img/plain/9.avif" loading="lazy" alt="" />
+                </button>
+                <button class="border-2 rounded-md overflow-hidden" data-design="plain-10" data-url="/products/plain-10">
+                  <img class="w-full h-full aspect-square object-cover" src="img/plain/10.avif" loading="lazy" alt="" />
+                </button>
+                <button class="border-2 rounded-md overflow-hidden" data-design="plain-11" data-url="/products/plain-11">
+                  <img class="w-full h-full aspect-square object-cover" src="img/plain/11.avif" loading="lazy" alt="" />
+                </button>
+                <button class="border-2 rounded-md overflow-hidden" data-design="plain-12" data-url="/products/plain-12">
+                  <img class="w-full h-full aspect-square object-cover" src="img/plain/12.avif" loading="lazy" alt="" />
+                </button>
+              </div>
+              <div id="partnerships-prints" class="options-prints grid grid-cols-5 md:grid-cols-6 gap-3 hidden">
+                <button class="border-2 border-black rounded-md overflow-hidden shadow-5" data-design="partnership-1" data-url="/products/partnership-1">
+                  <img class="w-full h-full aspect-square object-cover" src="img/brands/1.avif" loading="lazy" alt="" />
+                </button>
+                <button class="border-2 rounded-md overflow-hidden" data-design="partnership-2" data-url="/products/partnership-2">
+                  <img class="w-full h-full aspect-square object-cover" src="img/brands/2.avif" loading="lazy" alt="" />
+                </button>
+                <button class="border-2 rounded-md overflow-hidden" data-design="partnership-3" data-url="/products/partnership-3">
+                  <img class="w-full h-full aspect-square object-cover" src="img/brands/3.avif" loading="lazy" alt="" />
+                </button>
+                <button class="border-2 rounded-md overflow-hidden" data-design="partnership-4" data-url="/products/partnership-4">
+                  <img class="w-full h-full aspect-square object-cover" src="img/brands/4.avif" loading="lazy" alt="" />
+                </button>
+                <button class="border-2 rounded-md overflow-hidden" data-design="partnership-5" data-url="/products/partnership-5">
+                  <img class="w-full h-full aspect-square object-cover" src="img/brands/5.avif" loading="lazy" alt="" />
+                </button>
+                <button class="border-2 rounded-md overflow-hidden" data-design="partnership-6" data-url="/products/partnership-6">
+                  <img class="w-full h-full aspect-square object-cover" src="img/brands/6.avif" loading="lazy" alt="" />
+                </button>
+                <button class="border-2 rounded-md overflow-hidden" data-design="partnership-7" data-url="/products/partnership-7">
+                  <img class="w-full h-full aspect-square object-cover" src="img/brands/7.avif" loading="lazy" alt="" />
+                </button>
+                <button class="border-2 rounded-md overflow-hidden" data-design="partnership-8" data-url="/products/partnership-8">
+                  <img class="w-full h-full aspect-square object-cover" src="img/brands/8.avif" loading="lazy" alt="" />
+                </button>
+                <button class="border-2 rounded-md overflow-hidden" data-design="partnership-9" data-url="/products/partnership-9">
+                  <img class="w-full h-full aspect-square object-cover" src="img/brands/9.avif" loading="lazy" alt="" />
+                </button>
+                <button class="border-2 rounded-md overflow-hidden" data-design="partnership-10" data-url="/products/partnership-10">
+                  <img class="w-full h-full aspect-square object-cover" src="img/brands/10.avif" loading="lazy" alt="" />
+                </button>
+                <button class="border-2 rounded-md overflow-hidden" data-design="partnership-11" data-url="/products/partnership-11">
+                  <img class="w-full h-full aspect-square object-cover" src="img/brands/11.avif" loading="lazy" alt="" />
+                </button>
+                <button class="border-2 rounded-md overflow-hidden" data-design="partnership-12" data-url="/products/partnership-12">
+                  <img class="w-full h-full aspect-square object-cover" src="img/brands/12.avif" loading="lazy" alt="" />
+                </button>
+              </div>
+              <div class="show-more-gradient absolute bottom-0 w-full h-12 z-10 pointer-events-none"></div>
+            </div>
+            <button class="show-more w-full text-xs text-center font-semibold uppercase py-2 mt-2">Show More</button>
+            {% endcomment %}
+            <hr class="divider my-4" aria-orientation="horizontal" />

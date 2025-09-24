@@ -1,0 +1,112 @@
+{% schema %}
+{
+  "name": "SD-ticks",
+  "blocks": [{
+    "type": "block",
+    "name": "block",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "background_image",
+        "label": "Background Image"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title Text"
+      },
+      {
+        "type": "text",
+        "id": "button_text",
+        "label": "Button Text"
+      },
+      {
+        "type": "text",
+        "id": "one_check",
+        "label": "1st Check"
+      },
+      {
+        "type": "text",
+        "id": "two_check",
+        "label": "2nd Check"
+      },
+      {
+        "type": "text",
+        "id": "three_check",
+        "label": "3rd Check"
+      },
+      {
+        "type": "text",
+        "id": "button_link",
+        "label": "Button Link"
+      },
+
+    ]
+  }],
+  "presets": [
+    {
+      "name": "Student discount tick block",
+      "blocks": [
+        {
+          "type": "block"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<div class="student-blocks-section block md:grid md:grid-cols-2 md:gap-2 ">
+  {% for block in section.blocks %}
+    <div  class="student-custom-block-ticks w-full max-md:mb-2" {{ block.shopify_attributes }}>
+      {% if block.settings.background_image %}
+        <div class="background-image w-full h-full relative py-8  md:py-20 " style="background-image: url('{{ block.settings.background_image | img_url: 'master' }}');">
+          <div class="w-min h-full flex flex-col justify-center pl-12">
+            {% if block.settings.title %}
+              <div class="">
+                <h2 class="text-2xl md:text-4xl font-bold text-wrap text-start">{{ block.settings.title }}</h2>
+              </div>
+            {% endif %}
+            <div class="my-1" style="background-color:black; width:70px; height:2px;"></div>
+            {% if block.settings.one_check %}
+              <div class="flex items-center">
+                <svg width="10px" height="10px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title></title> <g id="Complete"> <g id="tick"> <polyline fill="none" points="3.7 14.3 9.6 19 20.3 5" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></polyline> </g> </g> </g></svg>
+                <div class="whitespace-nowrap">{{ block.settings.one_check }}</div>
+              </div>
+            {% endif %}
+            {% if block.settings.two_check %}
+              <div class="flex items-center">
+                <svg width="10px" height="10px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title></title> <g id="Complete"> <g id="tick"> <polyline fill="none" points="3.7 14.3 9.6 19 20.3 5" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></polyline> </g> </g> </g></svg>
+                <div class="whitespace-nowrap">{{ block.settings.two_check }}</div>
+              </div>
+            {% endif %}
+            {% if block.settings.three_check %}
+              <div class="flex items-center">
+                <svg width="10px" height="10px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title></title> <g id="Complete"> <g id="tick"> <polyline fill="none" points="3.7 14.3 9.6 19 20.3 5" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></polyline> </g> </g> </g></svg>
+               <div class="whitespace-nowrap"> {{ block.settings.three_check }}</div>
+              </div>
+            {% endif %}
+            {% if block.settings.button_text %}
+              <div class="w-full flex justify-center">
+                <a href="{{ block.settings.button_link }}" class="w-full mt-4 px-4 py-1 text-center uppercase font-bold border-2 border-solid border-black rounded-full">{{ block.settings.button_text }}</a>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      {% endif %}
+    </div>
+  {% endfor %}
+</div>
+
+<style>
+  .student-custom-block-ticks {
+    width: 100%;
+  }
+
+  .background-image {
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+  }
+  
+</style>

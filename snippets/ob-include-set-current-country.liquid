@@ -1,0 +1,27 @@
+{% assign current_country = localization.country.iso_code | upcase  %}
+{% assign current_market = localization.market.handle | upcase  %}
+{% if current_market == 'US' %}
+  {% assign register_form_id = 'xPtjOM'  %}
+  {% assign register_form_potp_id = '8btqQb'  %}
+  {% assign additional_details_id = 'kntGWq'  %}
+  {% assign current_country = 'US' %}
+{% elsif current_market == 'CA' %}
+  {% assign register_form_id = 'WBt8OW'  %}
+  {% assign register_form_potp_id = 'qOtQD9'  %}
+  {% assign additional_details_id = 'Jmt3x7'  %}
+  {% assign current_country = 'CA' %}
+{% else %}
+  {% assign register_form_id = '0ktYLd'  %}
+  {% assign register_form_potp_id = 'M6tPYa'  %}
+  {% assign additional_details_id = 'Y8t2O7'  %}
+  {% assign current_country = 'GB' %}
+{% comment %} 
+{% assign supported_countries_arr = linklists.theme-countries.links | where: "url", current_country %} 
+<!-- iso_code {{ localization.country.iso_code }}--->
+<!-- supported_countries_array.size == {{ supported_countries_arr.size }}--->
+{% comment %}{% if supported_countries_arr.size < 1 %}
+	{% assign current_countryy = linklists.theme-countries.links[0].url %}
+<!-- supported_countries_arr.size < 1 {{ current_country }} --->
+{% endif %}{% endcomment %}{% assign current_country = current_country | replace: '#' %}
+<!-- current_country  {{ current_country }} --->  {% endcomment %} 
+{% endif %}<!-- current_country  {{ current_country }} --->

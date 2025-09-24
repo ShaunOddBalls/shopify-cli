@@ -1,0 +1,80 @@
+{% if product.tags contains "feature-recipient-form"  and settings.e_gift_active == true %}
+<recipient-form class="recipient-form w-full {% unless template contains 'qb' %}border-gray-300  border-solid border {% endunless %} rounded-md p-3 mt-3 {% if template contains 'qb' %} qb-gift-card-form {% endif %}"> 
+  <div class="space-y-5">
+    <div class="flex gap-3">
+      <div class="flex h-6 shrink-0 items-center">
+        <div class="group grid size-4 grid-cols-1">
+          <input id="recipient-checkbox" aria-describedby="recipient-checkbox-description" name="properties[__shopify_send_gift_card_to_recipient]" type="checkbox" class="recipient-checkbox col-start-1 row-start-1 appearance-none rounded border border-gray-300 bg-white checked:border-pink-600 checked:bg-pink-600 indeterminate:border-pink-600 indeterminate:bg-pink-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600 disabled:border-gray-300 disabled:bg-gray-100 disabled:checked:bg-gray-100 forced-colors:appearance-auto">
+          <svg class="pointer-events-none col-start-1 row-start-1 size-3.5 self-center justify-self-center stroke-white group-has-[:disabled]:stroke-gray-950/25" viewBox="0 0 14 14" fill="none">
+            <path class="opacity-0 group-has-[:checked]:opacity-100" d="M3 8L6 11L11 3.5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            <path class="opacity-0 group-has-[:indeterminate]:opacity-100" d="M3 7H11" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </div>
+      </div>
+      <div class="text-sm/6">
+        <label for="recipient-checkbox" class="font-semibold text-gray-900">Is this a gift?</label>
+        <p id="recipient-checkbox-description" class="text-gray-500">Click here to add the recipient information</p>
+      </div>
+    </div>
+  </div>
+
+  {% capture form-input-classes %}block w-full block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 placeholder:text-gray-400 sm:max-w-xs sm:text-sm/6 border-gray-300 border-solid border placeholder:text-gray-400 hover:outline-1 hover:-outline-offset-1 hover:outline-pink-600 focus:outline-1 focus:-outline-offset-1 focus:outline-pink-600{% endcapture %}
+  {% capture form-textarea-classes %}block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 placeholder:text-gray-400 sm:text-sm/6 border-gray-300 border-solid border placeholder:text-gray-400 hover:outline-1 hover:-outline-offset-1 hover:outline-pink-600 focus:outline-1 focus:-outline-offset-1 focus:outline-pink-600{% endcapture %}
+
+  <div class="recipient-fields p-5 m-2 border-gray-300 border-solid border rounded-md">
+    <h3 class="text-md text-magenta pb-2 font-bold">Please add the recipients details below</h3>
+    <div class="field py-2">
+      <label class="field_label pb-2 block text-xs uppercase font-semibold text-gray-700">Recipient Email</label>
+      <input class="field_input {{ form-input-classes }} recipient-email" type="email" placeholder="Email" name="properties[Recipient email]" aria-invalid="false" disabled> 
+      <p class="error-message text-red-600 text-sm hidden">Please enter a valid email.</p>
+    </div>
+    
+    <div class="field py-2">
+      <label class="field_label pb-2 block text-xs uppercase font-semibold text-gray-700">Recipient Name</label>
+      <input class="field_input {{ form-input-classes }} recipient-name" type="text" placeholder="Recipient Name" autocomplete="name" name="properties[Recipient name]" aria-invalid="false" disabled> 
+      <p class="error-message text-red-600 text-sm hidden">Please enter the recipient's name.</p>
+    </div>
+    
+    <div class="field py-2">
+      <label class="field_label pb-2 block text-xs uppercase font-semibold text-gray-700">Message (Optional)</label>
+      <textarea class="text-area w-full field_input {{ form-textarea-classes }} recipient-message" name="properties[Message]" maxlength="200" aria-invalid="false" disabled></textarea>
+      <!-- No mandatory validation needed here, so no error message -->
+    </div>
+    
+    <div class="field py-2">
+      <label class="field_label pb-2 block text-xs uppercase font-semibold text-gray-700">Send on (optional)</label>
+      <input class="field_input min-w-0 grow full grow {{ form-input-classes }} recipient-date" type="date" pattern="\d{4}-\d{2}-\d{2}" name="properties[Send on]" aria-invalid="false" disabled> 
+      <!-- Optional field, so no mandatory validation message -->
+    </div>
+  </div>
+</recipient-form>
+{% endif %}
+
+<style>
+  .outline-1 {
+    outline-style: var(--tw-outline-style);
+    outline-width: 1px;
+  }
+  .outline-2 {
+    outline-style: var(--tw-outline-style);
+    outline-width: 2px;
+  }
+
+  .recipient-fields {
+   
+    overflow: hidden; /* Prevent content spilling during animation */
+    height: 0; /* Collapsed height */
+    transition: height 0.3s ease; /* Smooth slide animation */
+    display:none;
+  }
+
+   .error-message {
+    display: block;
+  }
+
+  .error-message.hidden{
+    display: none;
+  }
+
+ 
+</style>

@@ -1,0 +1,133 @@
+{% schema %}
+{
+  "name": "Text Image Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "UP TO 60% OFF"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "SUMMER BEST SELLERS"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "SHOP NOW"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "select",
+      "id": "button_style",
+      "label": "Button Style",
+      "options": [
+        { "value": "primary", "label": "Primary" },
+        { "value": "secondary", "label": "Secondary" },
+        { "value": "outline", "label": "Outline" }
+      ],
+      "default": "primary"
+    },
+    {
+      "type": "text",
+      "id": "extra_classes",
+      "label": "Extra Classes",
+      "info": "Add any additional classes, separated by spaces"
+    },
+    {
+      "type": "checkbox",
+      "id": "is_rounded",
+      "label": "Use rounded style",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "custom_attributes",
+      "label": "Custom Attributes",
+      "info": "Add custom attributes to the button (e.g., data-custom='value')"
+    },
+    {
+      "type": "text",
+      "id": "button_id",
+      "label": "Button ID",
+      "info": "Add a unique ID to the button"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_desktop",
+      "label": "Desktop Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "Mobile Image"
+    },
+    {
+      "type": "text",
+      "id": "image_alt",
+      "label": "Image Alt Text",
+      "default": "Featured Image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Text Image Section",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
+
+<div class="media-content media-content--width-full media-content--align-right spacer--size-none">
+  <div class="media-content__wrapper">
+    <div class="media-content__media aspect-[1/1] md:aspect-[7/5] md:block ">
+      <a class="w-full h-full inline-block" href="{{ section.settings.button_link }}">
+        <picture>
+          {% if section.settings.image_desktop %}
+            {{ section.settings.image_desktop | image_url: width: 1000 | image_tag: 
+              class: 'object-cover object-top w-full h-full hidden md:block', 
+              alt: section.settings.image_alt
+            }}
+          {% else %}
+            {{ 'image' | placeholder_svg_tag: 'object-cover object-top w-full h-full hidden md:block' }}
+          {% endif %}
+
+          {% if section.settings.image_mobile %}
+            {{ section.settings.image_mobile | image_url: width: 767 | image_tag: 
+              class: 'object-cover object-top w-full h-full md:hidden', 
+              alt: section.settings.image_alt
+            }}
+          {% else %}
+            {{ 'image' | placeholder_svg_tag: 'object-cover object-top w-full h-full md:hidden' }}
+          {% endif %}
+        </picture>
+      </a>
+    </div>
+    <div class="media-content__body">
+      <div class="flex-1">
+        <p class="typography--body-md mb-1">{{ section.settings.subtitle }}</p>
+        <h2 class="typography--title-three mb-4"><span>{{ section.settings.title }}</span></h2>
+        <div class="button-group">
+          {% render 'ob-include-button',
+            type: section.settings.button_style,
+            text: section.settings.button_text,
+            link: section.settings.button_link,
+            extra_classes: section.settings.extra_classes,
+            section_id: section.id,
+            is_rounded: section.settings.is_rounded,
+            custom_attributes: section.settings.custom_attributes,
+            button_id: section.settings.button_id
+          %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

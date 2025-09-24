@@ -1,0 +1,268 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "ob_collection_product_slider_QWXXcq": {
+      "type": "ob-collection-product-slider",
+      "disabled": true,
+      "name": "vodafone 25 banner",
+      "settings": {
+        "collection": "",
+        "product_list": [],
+        "title": "",
+        "wrapper_class": "",
+        "text_class": "justify-center border-t-0 mx-6 border-color border-solid pb-1 text-center text-lg lg:text-2xl uppercase",
+        "show_on_all_markets": true,
+        "markets_to_show_on": "",
+        "markets_to_exclude_on": ""
+      }
+    },
+    "vodafone_banner_mhRcGi": {
+      "type": "Vodafone-banner",
+      "name": "vodafone 25 banner",
+      "settings": {
+        "desktop_image": "shopify://shop_images/Perfectly_Imperfect_DESK_BANNER_-_UPDATED.png",
+        "mobile_image": "shopify://shop_images/Perfectly_Imperfect_MOB_BANNER_1d3cbf04-a62c-457b-9ce1-c0b153dad955.png",
+        "desktop_svg": "shopify://shop_images/Perfectly_Imperfect_-_ASSETS_MOB_BANNER_bca57bae-3eba-4362-aeab-26e0796bb700.svg",
+        "mobile_svg": "shopify://shop_images/Perfectly_Imperfect_-_ASSETS_MOB_BANNER_bca57bae-3eba-4362-aeab-26e0796bb700.svg"
+      }
+    },
+    "vodafone_difference_V9DfXG": {
+      "type": "Vodafone-difference",
+      "name": "Vodafone Difference",
+      "settings": {
+        "header": "Embracing 'Difference'",
+        "body": "When we received a slightly WONKY batch of underwear, we decided to EMBRACE its uniqueness. No two bodies are the same - and neither are two pairs of Perfectly Imperfect.",
+        "image": "shopify://shop_images/Perfectly_Imperfect_IMPERFECTION_IMAGE.png"
+      }
+    },
+    "vodafone_skew_HjHQDX": {
+      "type": "Vodafone-skew",
+      "name": "Vodafone-25-shape-1",
+      "settings": {}
+    },
+    "vodafone_25_products_ePMVrG": {
+      "type": "Vodafone-25-products",
+      "blocks": {
+        "a_TE4DfX": {
+          "type": "a",
+          "settings": {
+            "product": "perfectly-imperfect-mboxer",
+            "image": "shopify://shop_images/Perfectly_Imperfect_MENS_BOXER.png"
+          }
+        },
+        "a_6aK6De": {
+          "type": "a",
+          "settings": {
+            "product": "perfectly-imperfect-fbralette",
+            "image": "shopify://shop_images/Perfectly_Imperfect_LADIES_BRALETTE.png"
+          }
+        },
+        "a_33GkEp": {
+          "type": "a",
+          "settings": {
+            "product": "perfectly-imperfect-mbrief",
+            "image": "shopify://shop_images/Perfectly_Imperfect_MENS_BRIEF.png"
+          }
+        },
+        "a_C3JUpE": {
+          "type": "a",
+          "settings": {
+            "product": "perfectly-imperfect-m-bamboo-boxer",
+            "image": "shopify://shop_images/Perfectly_Imperfect_MENS_BAMBOO.png"
+          }
+        },
+        "a_ewpFVX": {
+          "type": "a",
+          "settings": {
+            "product": "perfectly-imperfect-fboxer",
+            "image": "shopify://shop_images/Perfectly_Imperfect_LADIES_BOXER.png"
+          }
+        },
+        "a_4Gt6xq": {
+          "type": "a",
+          "settings": {
+            "product": "perfectly-imperfect-kids-boxer-shorts-goolies",
+            "image": "shopify://shop_images/Perfectly_Imperfect_GOOLIES.png"
+          }
+        },
+        "a_DERKta": {
+          "type": "a",
+          "settings": {
+            "product": "perfectly-imperfect-fbrief",
+            "image": "shopify://shop_images/Perfectly_Imperfect_LADIES_BRIEF.png"
+          }
+        },
+        "a_aDRhkA": {
+          "type": "a",
+          "settings": {
+            "product": "perfectly-imperfect-fthong",
+            "image": "shopify://shop_images/Perfectly_Imperfect_THONG.png"
+          }
+        },
+        "a_4MJki3": {
+          "type": "a",
+          "settings": {
+            "product": "perfectly-imperfect-f-bamboo-boxer",
+            "image": "shopify://shop_images/Perfectly_Imperfect_LADIES_BAMBOO.png"
+          }
+        }
+      },
+      "block_order": [
+        "a_TE4DfX",
+        "a_6aK6De",
+        "a_33GkEp",
+        "a_C3JUpE",
+        "a_ewpFVX",
+        "a_4Gt6xq",
+        "a_DERKta",
+        "a_aDRhkA",
+        "a_4MJki3"
+      ],
+      "name": "Vodafone-25-prods",
+      "settings": {
+        "heading": ""
+      }
+    },
+    "vodafone_skew_fkNEd3": {
+      "type": "Vodafone-skew",
+      "name": "Vodafone-25-shape-1",
+      "settings": {}
+    },
+    "vodafone_matters_HizPGd": {
+      "type": "Vodafone-matters",
+      "blocks": {
+        "a_DEkic3": {
+          "type": "a",
+          "settings": {
+            "title": "SUSTAINABLE MINDSET",
+            "body": "Less waste, more meaning",
+            "image": "shopify://shop_images/Perfectly_Imperfect_SUSTAINABLE_ICON_5fe92764-08c8-4875-a12b-34c484342cf6.png"
+          }
+        },
+        "a_AXEy6f": {
+          "type": "a",
+          "settings": {
+            "title": "ONE OF A KIND",
+            "body": "Each piece is slightly different",
+            "image": "shopify://shop_images/Perfectly_Imperfect_ONE_OF_A_KIND_ICON_e42d4467-f7bd-403e-9e57-58a679d829c9.png"
+          }
+        },
+        "a_YhCzdp": {
+          "type": "a",
+          "settings": {
+            "title": "EXCLUSIVE",
+            "body": "Not available anywhere else!",
+            "image": "shopify://shop_images/Perfectly_Imperfect_UNIQUE_ICON_b220d85d-3eee-4b0e-9810-1b616f5b3df4.png"
+          }
+        }
+      },
+      "block_order": [
+        "a_DEkic3",
+        "a_AXEy6f",
+        "a_YhCzdp"
+      ],
+      "name": "Vodafone-25-matters",
+      "settings": {
+        "heading": ""
+      }
+    },
+    "ob_mosaic_hero_iaTQFd": {
+      "type": "ob-mosaic-hero",
+      "blocks": {
+        "collection_block_aH9jiK": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "col-span-2 md:block hidden",
+            "image": "shopify://shop_images/Perfectly_Imperfect_-_MODELS_-_DESKTOP.jpg",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "",
+            "button_link": "",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "collection_block_mVHciN": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "col-span-2 md:hidden",
+            "image": "shopify://shop_images/Perfectly_Imperfect_-_MODELS_-_MOB.jpg",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "",
+            "button_link": "",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "collection_block_m9JFd9": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "",
+            "image": "shopify://shop_images/Perfectly_Imperfect_-_MODELS_-_SQUARE-24.jpg",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "",
+            "button_link": "",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "collection_block_pagEL9": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "",
+            "image": "shopify://shop_images/Perfectly_Imperfect_-_MODELS_-_SQUARE-25.jpg",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "",
+            "button_link": "",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_block_aH9jiK",
+        "collection_block_mVHciN",
+        "collection_block_m9JFd9",
+        "collection_block_pagEL9"
+      ],
+      "name": "Mosaic Hero ",
+      "settings": {
+        "mosaic-container": "grid grid-cols-2 gap-2 md:gap-2 mb-2",
+        "all-block-outer-class": "w-full h-full",
+        "all-image-class": "w-full h-full",
+        "img-overlay": "",
+        "all-button-class": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "ob_collection_product_slider_QWXXcq",
+    "vodafone_banner_mhRcGi",
+    "vodafone_difference_V9DfXG",
+    "vodafone_skew_HjHQDX",
+    "vodafone_25_products_ePMVrG",
+    "vodafone_skew_fkNEd3",
+    "vodafone_matters_HizPGd",
+    "ob_mosaic_hero_iaTQFd"
+  ]
+}

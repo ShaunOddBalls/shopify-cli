@@ -1,0 +1,111 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "ob_collection_slider_old_RGJpnU": {
+      "type": "ob-collection-slider-old",
+      "settings": {
+        "collection": "england-rugby-competition",
+        "product_list": [],
+        "title": "England Rugby Union Bundle",
+        "wrapper_class": "",
+        "text_class": "typography--title-five uppercase mb-8 mx-auto text-center"
+      }
+    },
+    "rich_text_rdPG9W": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_mhABkh": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Terms and Conditions for the \"Signed England Rugby Shirt - Buy to Enter Competition\"</strong>",
+            "heading_size": "h1"
+          }
+        },
+        "text_xTptQJ": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>1. Promoter - </strong>This competition is organized and promoted by OddBalls, whose registered office is at Unit L3 Intersect 19, Tyne Tunnel Trading Estate, North Shields, England, NE29 7UT (\"the Promoter\").</p><p><strong>2. Eligibility - </strong>2.1. This competition is open to residents of the UK, aged 18 years or older at the time of entry. 2.2. Employees, agents, or affiliates of the Promoter, and their immediate families, are not eligible to enter.</p><p><strong>3. How to Enter - </strong>3.1. Purchase any England Rugby Union Bundle from the Promoter during the promotional period to gain one automatic entry into the prize draw. 3.2. Only one entry per person is permitted. 3.3. Multiple purchases of England Rugby Union Bundles by the same individual will not result in additional entries. 3.4. Entrants must provide accurate contact information, including a valid email address, at the time of purchase.</p><p><strong>4. Promotional Period - </strong>4.1. The competition opens at 2:00 PM GMT November 22nd, 2024 and closes at 11:59 PM GMT on December 31st, 2024.  4.2. Entries received after the closing date will not be included in the prize draw.</p><p><strong>5. Prize - </strong>5.1. The prize consists of one (1) signed England Rugby Shirt with a certificate of authenticity. 5.2. The prize is non-transferable, non-exchangeable, and cannot be redeemed for cash or any other alternative. 5.3. The Promoter reserves the right to substitute the prize with another of equal or greater value if circumstances beyond its control make it necessary.</p><p><strong>6. Winner Selection and Notification - </strong>6.1. The winner will be selected at random from all eligible entries. 6.2. The prize draw will take place on or before January 10th, 2025. 6.3. The winner will be contacted via the email address provided at the time of purchase. 6.4. The winner must respond within seven (7) days of being contacted. If the winner does not respond within this time frame, they forfeit their prize, and an alternative winner will be selected at random.</p><p><strong>7. General - </strong>7.1. The Promoter's decision regarding any aspect of the competition is final and binding. No correspondence will be entered into. 7.2. The Promoter reserves the right to disqualify any entrant who breaches these terms and conditions or provides false information. 7.3. The Promoter accepts no responsibility for entries that are lost, delayed, misdirected, or incomplete due to technical or other reasons beyond the Promoter's control.</p><p><strong>8. Data Protection - </strong>8.1. Any personal data provided by entrants will be processed in accordance with the Promoter’s <a href=\"https://www.myoddballs.com/pages/privacy-policy\" target=\"_blank\" title=\"https://www.myoddballs.com/pages/privacy-policy\">Privacy Policy</a> and used solely for the administration of this competition, including contacting the winner. 8.2. The winner's name may be announced on the Promoter’s website or social media channels unless the winner objects to this at the time of accepting the prize.</p><p><strong>9. Liability - </strong>9.1. To the extent permitted by law, the Promoter accepts no liability for any damage, loss, injury, or disappointment suffered by entrants as a result of entering the competition or accepting the prize. 9.2. Nothing in these terms and conditions shall exclude the Promoter’s liability for death or personal injury caused by its negligence or for fraud or fraudulent misrepresentation.</p><p><strong>10. Governing Law - </strong>This competition and these terms and conditions are governed by the laws of England and Wales, and any disputes will be subject to the exclusive jurisdiction of the courts of England.</p><p><strong>11. Contact - </strong>For any questions or inquiries regarding this competition, please contact the Promoter at <a href=\"mailto:lookafter@myoddballs.com\" title=\"mailto:lookafter@myoddballs.com\">lookafter@myoddballs.com</a>.</p><p>By participating in this competition, entrants are deemed to have read, understood, and agreed to these terms and conditions as well as the Promoter's general <a href=\"https://www.myoddballs.com/pages/terms-conditions\" target=\"_blank\" title=\"https://www.myoddballs.com/pages/terms-conditions\">Terms</a>.</p>"
+          }
+        },
+        "button_7Hne4D": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_mhABkh",
+        "text_xTptQJ",
+        "button_7Hne4D"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "ob_text_video_slider_ncQtTm": {
+      "type": "ob-text-video-slider",
+      "settings": {
+        "handle": "england-rugby-competition",
+        "section_wrapper_classes": "relative",
+        "cta-setting": false,
+        "position": "start",
+        "title": "Title",
+        "title-text-classes": "text-3xl md:text-6xl capitalize dbl-cta-title pb-1 font-bebas",
+        "title-text-postion": "left",
+        "title-text-size": 18,
+        "title-color": "",
+        "desktop-title-text-size": 32,
+        "paragragh": "My Paragraph",
+        "p-classes": "",
+        "paragraph-text-postion": "left",
+        "paragragh-font-size": 12,
+        "paragraph-color": "",
+        "desktop-paragraph-text-size": 18,
+        "btn-one-text": "button one",
+        "btn-one-classes": "px-8 relative p-2 rounded-md uppercase btn-shadow-lg block border-solid border-2 border-md border-black text-black font-semibold text-center  transition-colors duration-200",
+        "btn-1-url": "",
+        "btn-one-color": "#fff",
+        "btn-one-bg-color": "#000000",
+        "btn-two-text": "button two",
+        "btn-two-classes": "px-8 relative p-2 rounded-md uppercase btn-shadow-lg block border-solid border-2 border-md border-black text-black font-semibold text-center  transition-colors duration-200",
+        "btn-2-url": "",
+        "btn-two-color": "#000000",
+        "btn-two-bg-color": "#ffffff",
+        "button-postion": "start"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "ob_text_video_slider_ncQtTm",
+    "ob_collection_slider_old_RGJpnU",
+    "rich_text_rdPG9W"
+  ]
+}

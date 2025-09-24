@@ -1,0 +1,118 @@
+ <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-10 content-center z-20">
+            <!-- Desktop menu items -->
+            {% for link in section.settings.menu.links %}
+                {%- comment %}<locksmith:a901>{% endcomment -%}
+                  {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: link, subject_parent: section.settings.menu, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+                {%- comment %}</locksmith:a901>{% endcomment -%}
+                {% assign hasSubLinks = false %}
+                {% if link.links.size > 0 %}
+                    {% assign hasSubLinks = true %}
+                {% endif %}
+                {% assign hasSubSubLinks = false %}
+                {% assign canHaveImage = false %}
+                {% if hasSubLinks %}
+                    {% for sublink in link.links %}
+                        {%- comment %}<locksmith:7918>{% endcomment -%}
+                          {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: sublink, subject_parent: link, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+                        {%- comment %}</locksmith:7918>{% endcomment -%}
+                        {% if sublink.links.size < 2 %}
+                          {% assign canHaveImage = true %}
+                        {% endif %}
+                        {% if sublink.links.size > 0 %}
+                            {% assign hasSubSubLinks = true %}
+                            {% break %}
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+                <div x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false" class="inline-block text-left">
+                    <button @click="open = !open" class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-900 focus:outline-none focus:border-indigo-500 transition duration-150 ease-in-out">
+                        {{ link.title }}
+                    </button>
+                    {% if hasSubLinks %}
+                        <div x-show="open" x-cloak class="absolute left-0 z-10 mt-2 w-screen left-0 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
+                          <div class="max-w-5xl w-full mx-auto py-4 ">
+                            <div class="py-1 w-full flex justify-between">
+                              
+                              {% unless hasSubSubLinks %}<div class="no sublinks">{% endunless %}  
+                              {% unless hasSubSubLinks %}<div class="font-bold px-4 py-2 uppercase">{{ link.title }}</div> {% endunless %}
+                                {% for sublink in link.links %}
+                                    
+                                    {%- comment %}<locksmith:2f7c>{% endcomment -%}
+                                      {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: sublink, subject_parent: link, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+                                    {%- comment %}</locksmith:2f7c>{% endcomment -%}
+                                    
+                                    <div class="relative">
+                                        {% if hasSubSubLinks %}<div class="font-bold px-4 py-2 uppercase">{{ sublink.title }}</div> 
+                                        {% else %}
+                                          
+                                            <a href="{{ sublink.url }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 uppercase">
+                                                        {{ sublink.title }}
+                                                    </a>
+                                        {% endif %}
+                                        
+                                        {% if sublink.links.size > 0 %}
+                                            <div class="mt-2">
+                                                {% for subsub in sublink.links %}
+                                                    {%- comment %}<locksmith:298d>{% endcomment -%}
+                                                      {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: subsub, subject_parent: sublink, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+                                                    {%- comment %}</locksmith:298d>{% endcomment -%}
+                                                    <a href="{{ subsub.url }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                                        {{ subsub.title }}
+                                                    </a>
+                                                {% endfor %}
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                {% endfor %}
+
+                                <!-- Desktop Nav Images -->
+            
+                              {% unless hasSubSubLinks %}</div>{% endunless %} 
+                                {% if canHaveImage %}
+                              {% for block in section.blocks %}
+                                {% assign  linkTitleLowercase = link.title | downcase %}
+                                {% assign  displayOnToLowerCase = block.settings.title | downcase %}
+                              {% if linkTitleLowercase == displayOnToLowerCase %}
+                              <div class="flex justify-end">
+                                <div class="grid flex-1 gap-2 grid-cols-2">
+                              
+                                  <a class="relative" href="{{ block.settings.url }}">
+                                    <div class="w-80 h-80 ">
+                                      <div class="absolute left-0 top-0 dark-overlay w-80 h-80 z-10 bg-black opacity-10"></div>
+                                      <picture>
+                                        <img class="transition duration-100 ease-in-out opacity-100 aspect-1/1 w-80 h-80 object-fill" src="{{ block.settings.image | img_url: "large" }}">
+                                      </picture>
+                                    </div>
+                                    <div class="absolute bottom-2 p-4 z-20">
+                                      <p class="text-white text-2xl font-bold">{{ block.settings.text }}</p>
+                                    </div>
+                                  </a>
+                                  <a class="relative" href="{{ block.settings.url-2 }}">
+                                    <div class="w-80 h-80">
+                                      <div class="absolute left-0 top-0 dark-overlay w-80 h-80 z-10 bg-black opacity-10"></div>
+                                      <picture>
+                                        <img class="transition duration-100 ease-in-out opacity-100 aspect-1/1 w-80 h-80 object-fill" src="{{ block.settings.image-2 | img_url: "large" }}">
+                                      </picture>
+                                    </div>
+                                    <div class="absolute bottom-2 p-4 z-20">
+                                      <p class="text-white text-2xl font-bold">{{ block.settings.text }}</p>
+                                    </div>
+                                  </a>
+                                </div>
+                              
+                              </div>
+                                {% endif %}
+                                {% endfor %}
+                            {% endif %}
+                            <!-- ./Desktop Nav images -->
+                             
+                            </div>
+                            
+                          </div>
+                        </div>
+                      {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>

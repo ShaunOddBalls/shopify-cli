@@ -1,0 +1,37 @@
+<div class="reasons-accordian hs-accordion flex flex-col border-t" 
+  id="hs-heading-{{ section_id }}"
+  {% if target_slide1 != blank %}data-target-slide1="{{ target_slide1 }}"{% endif %}
+  {% if target_slide2 != blank %}data-target-slide2="{{ target_slide2 }}"{% endif %}
+  {% render 'ob-ga-event-attributes', ga-type:"event", ga-category:"button",ga-action:"click",ga-label:"Reasons To Buy Button" %}>
+  
+  <button type="button" 
+    class="hs-accordion-toggle flex items-center justify-between m-0 gap-3 px-0 py-3 border-0 bg-transparent" 
+    aria-controls="hs-collapse-{{ section_id }}">
+    <div class="typography typography--heading-six text-sm">
+      {{ expandable_message }}
+    </div>
+    <div class="[&_svg]:max-w-full [&_svg]:h-full [&_svg]:transition-transform" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg" 
+        width="20px" 
+        class="hs-accordion-active:rotate-0 icon -rotate-180 w-3 h-3" 
+        fill="currentColor" 
+        fill-rule="evenodd" 
+        clip-rule="evenodd" 
+        viewBox="0 0 8 8" 
+        color="#7D7D7D">
+        <path d="M0.29387 5.95502C0.235377 5.89506 0.235377 5.79783 0.29387 5.73787L3.89479 2.04617C3.95328 1.9862 4.04812 1.9862 4.10661 2.04617C4.1651 2.10614 4.1651 2.20336 4.10661 2.26333L0.505688 5.95502C0.447196 6.01499 0.352362 6.01499 0.29387 5.95502Z" fill="currentColor"></path>
+        <path d="M3.89339 2.04498C3.95189 1.98501 4.04672 1.98501 4.10521 2.04498L7.70613 5.73667C7.76462 5.79664 7.76462 5.89387 7.70613 5.95383C7.64764 6.0138 7.5528 6.0138 7.49431 5.95383L3.89339 2.26213C3.8349 2.20217 3.8349 2.10494 3.89339 2.04498Z" fill="currentColor"></path>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M0.505688 5.95502C0.447196 6.01499 0.352362 6.01499 0.29387 5.95502C0.235377 5.89506 0.235377 5.79783 0.29387 5.73787L3.87816 2.06322C3.8827 2.05684 3.88778 2.05073 3.89339 2.04498C3.89337 2.045 3.89342 2.04495 3.89339 2.04498C3.94885 1.98821 4.03699 1.9852 4.09581 2.03611C4.09907 2.03887 4.10213 2.04189 4.10521 2.04498C4.10564 2.04541 4.10618 2.04573 4.10661 2.04617L4.1115 2.05142L7.70613 5.73667C7.76462 5.79664 7.76462 5.89387 7.70613 5.95383C7.64764 6.0138 7.5528 6.0138 7.49431 5.95383L4.00058 2.37203L0.505688 5.95502ZM4.00058 2.73006L0.684651 6.12959C0.528049 6.29014 0.271508 6.29014 0.114906 6.12959C-0.0383019 5.97252 -0.0383019 5.72037 0.114906 5.5633L3.68877 1.89934C3.69678 1.88939 3.70534 1.87973 3.71443 1.87041C3.86258 1.71853 4.10017 1.71033 4.25797 1.84582C4.26747 1.8539 4.27668 1.86249 4.28557 1.87161C4.2883 1.8744 4.29097 1.87722 4.2936 1.88007L7.88509 5.56211C8.0383 5.71918 8.0383 5.97132 7.88509 6.12839C7.72849 6.28894 7.47195 6.28894 7.31535 6.12839L4.00058 2.73006Z" fill="currentColor"></path>
+      </svg>
+    </div>
+  </button>
+  
+  <div id="hs-collapse-{{ section_id }}" 
+    class="hs-accordion-content {{ target_slide1 | replace: '.','' | replace: '#','' }} hidden w-full overflow-hidden transition-[height] duration-300" 
+    aria-labelledby="hs-heading-{{ section_id }}">
+    <div class="pb-4">
+      {{ expandable_content }}
+    </div>
+  </div>
+</div>
+          

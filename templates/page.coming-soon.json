@@ -1,0 +1,40 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "maindvdsfgsd": {
+      "type": "coming-soon",
+      "settings": {
+        "alignment": "text-center",
+        "max_width": "max-w-3xl",
+        "bg_color": "bg-transparent",
+        "title_size": "text-4xl",
+        "body_style": "",
+        "title_padding_y": "py-0",
+        "title_padding_x": "px-4",
+        "content_padding_y": "py-0",
+        "content_padding_x": "px-0"
+      }
+    },
+    "ob_conditional_banner_KQrtaV": {
+      "type": "ob-conditional-banner",
+      "disabled": true,
+      "name": "Conditional Banner",
+      "settings": {
+        "banner_background": "",
+        "wrapper_classes": ""
+      }
+    }
+  },
+  "order": [
+    "maindvdsfgsd",
+    "ob_conditional_banner_KQrtaV"
+  ]
+}

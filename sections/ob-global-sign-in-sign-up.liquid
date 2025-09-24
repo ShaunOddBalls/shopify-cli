@@ -1,0 +1,281 @@
+<div id="account-modal-content" class="w-full h-full">
+  <h2 id="popup-header" class="text-2xl font-bold text-center mb-4 marujo text-center w-full">
+    {{ section.settings.welcome_title }}
+  </h2>
+  <div id="popup-content" class="p-6">
+    <!-- Initial Buttons View -->
+    <div id="initial-buttons" class="flex flex-col gap-4">
+      <div id="info" class="text-center px-6 py-4">{{ section.settings.info }}</div>
+      <div class="flex flex-col lg:flex-row gap-2">
+        <button
+          class="w-full py-3 px-6 rounded-full bg-magenta text-white font-semibold text-lg transition-all hover:opacity-90"
+          onclick="showForm('login')"
+        >
+          {{ section.settings.login_button_text }}
+        </button>
+        <button
+          class="w-full py-3 px-6 rounded-full border-2 border-magenta text-magenta font-semibold text-lg transition-all hover:bg-magenta hover:text-white"
+          onclick="showForm('register')"
+        >
+          {{ section.settings.register_button_text }}
+        </button>
+      </div>
+    </div>
+
+    <!-- Login Form -->
+    <div id="login-form" class="hidden">
+      <button
+        onclick="showInitialButtons()"
+        class="mb-4 flex items-center text-white  uppercase bg-[#4babeb] p-2 rounded-full"
+      >
+        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+        Back
+      </button>
+      <h2 class="text-2xl font-bold text-center mb-6">{{ section.settings.login_title }}</h2>
+      <form method="post" class="flex flex-col gap-4" action="/account/login">
+        <input type="hidden" name="form_type" value="customer_login">
+        <input type="hidden" name="utf8" value="✓">
+        <input type="email" name="customer[email]" placeholder="Email" class="w-full p-3 border rounded-lg">
+        <input type="password" name="customer[password]" placeholder="Password" class="w-full p-3 border rounded-lg">
+        <input
+          type="hidden"
+          name="return_to"
+          value="pages/refer-a-friend?sign-in=modal"
+        >
+        <div class="h-captcha" data-sitekey="f06e6c50-85a8-45c8-87d0-21a2b65856fe" data-size="invisible"></div>
+        <button type="submit" class="w-full py-3 px-6 rounded-full bg-magenta text-white font-semibold text-lg">
+          {{ section.settings.login_submit_text }}
+        </button>
+        <a
+          href="#recover"
+          class="text-center text-magenta hover:underline js-forgot-password text-xs text-gray underline"
+          onclick="showForm('recover')"
+        >
+          {{- section.settings.forgot_password_text -}}
+        </a>
+      </form>
+    </div>
+
+    <!-- Recover Password Form -->
+    <div id="recover-form" class="hidden">
+      <button
+        onclick="showForm('login')"
+        class="mb-4 flex items-center text-white rounded-full font-semibold uppercase bg-[#4babeb] p-2"
+      >
+        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+        Back
+      </button>
+      <h2 class="text-2xl font-bold text-center mb-6">Reset Password</h2>
+      {%- form 'recover_customer_password', class: 'flex flex-col gap-4' -%}
+        {%- if form.posted_successfully? -%}
+          <div class="bg-green-50 p-4 rounded-lg text-green-700">
+            {{ 'customer.recover_password.success' | t }}
+          </div>
+        {%- endif -%}
+        {%- if form.errors -%}
+          <div class="bg-red-50 p-4 rounded-lg text-red-700">
+            {{ form.errors | default_errors }}
+          </div>
+        {%- endif -%}
+        <input
+          type="email"
+          name="email"
+          placeholder="Email"
+          class="w-full p-3 border rounded-lg"
+          required
+        >
+        <input
+          type="hidden"
+          name="return_to"
+          value="pages/refer-a-friend?view=refer-a-friend-loyaltylion&sign-in=modal"
+        >
+        <div class="h-captcha" data-sitekey="f06e6c50-85a8-45c8-87d0-21a2b65856fe" data-size="invisible"></div>
+        <button type="submit" class="w-full py-3 px-6 rounded-full bg-magenta text-white font-semibold text-lg">
+          Send Reset Link
+        </button>
+      {%- endform -%}
+    </div>
+
+    <!-- Register Form -->
+    <div id="register-form" class="hidden">
+      <button
+        onclick="showInitialButtons()"
+        class="mb-4 flex items-center text-white rounded-full font-semibold uppercase bg-[#4babeb] p-2"
+      >
+        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+        Back
+      </button>
+
+      <h2 class="text-2xl font-bold text-center mb-6">{{ section.settings.register_title }}</h2>
+
+      {%- form 'create_customer', novalidate: 'novalidate' -%}
+        <!-- Error Handling -->
+        {%- if form.errors -%}
+          <h2 class="form__message" tabindex="-1" autofocus>
+            <svg aria-hidden="true" focusable="false">
+              <use href="#icon-error" />
+            </svg>
+            {{ 'templates.contact.form.error_heading' | t }}
+          </h2>
+          <ul>
+            {%- for field in form.errors -%}
+              <li>
+                {%- if field == 'form' -%}
+                  {{ form.errors.messages[field] }}
+                {%- else -%}
+                  <a href="#RegisterForm-{{ field }}">
+                    {{ form.errors.translated_fields[field] | capitalize }}
+                    {{ form.errors.messages[field] }}
+                  </a>
+                {%- endif -%}
+              </li>
+            {%- endfor -%}
+          </ul>
+        {%- endif -%}
+
+        <!-- Customer Name Fields -->
+        <input
+          type="text"
+          name="customer[first_name]"
+          placeholder="First Name"
+          class="w-full p-3 border rounded-lg"
+          required
+        >
+        <input
+          type="text"
+          name="customer[last_name]"
+          placeholder="Last Name"
+          class="w-full p-3 border rounded-lg mt-4"
+          required
+        >
+
+        <!-- Customer Email -->
+        <input
+          type="email"
+          name="customer[email]"
+          placeholder="Email"
+          class="w-full p-3 border rounded-lg mt-4"
+          required
+        >
+
+        <!-- Customer Password -->
+        <input
+          type="password"
+          name="customer[password]"
+          placeholder="Password"
+          class="w-full p-3 border rounded-lg mt-4"
+          required
+        >
+
+        <!-- reCAPTCHA -->
+        <div class="h-captcha" data-sitekey="f06e6c50-85a8-45c8-87d0-21a2b65856fe" data-size="invisible"></div>
+
+        <!-- Hidden Return-to Field for Redirect -->
+        <input
+          type="hidden"
+          name="return_to"
+          value="pages/refer-a-friend?view=refer-a-friend-loyaltylion&sign-in=modal"
+        >
+
+        <!-- Submit Button -->
+        <button type="submit" class="w-full py-3 px-6 rounded-full bg-magenta text-white font-semibold text-lg mt-4">
+          {{ section.settings.register_submit_text }}
+        </button>
+      {%- endform -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Global Login and Sign in",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Welcome Screen"
+    },
+    {
+      "type": "header",
+      "content": "popup header"
+    },
+    {
+      "type": "text",
+      "id": "welcome_title",
+      "label": "Welcome Title",
+      "default": "Welcome to Oddballs"
+    },
+    {
+      "type": "header",
+      "content": "popup content"
+    },
+    {
+      "type": "text",
+      "id": "info",
+      "label": "info paragraph",
+      "default": "Please Log in or create an account"
+    },
+    {
+      "type": "text",
+      "id": "login_button_text",
+      "label": "Sign In Button Text",
+      "default": "Sign In"
+    },
+    {
+      "type": "text",
+      "id": "register_button_text",
+      "label": "Register Button Text",
+      "default": "Create Account"
+    },
+    {
+      "type": "header",
+      "content": "Login Form"
+    },
+    {
+      "type": "text",
+      "id": "login_title",
+      "label": "Login Form Title",
+      "default": "Welcome Back"
+    },
+    {
+      "type": "text",
+      "id": "login_submit_text",
+      "label": "Login Submit Button Text",
+      "default": "Sign In"
+    },
+    {
+      "type": "text",
+      "id": "forgot_password_text",
+      "label": "Forgot Password Text",
+      "default": "Forgot your password?"
+    },
+    {
+      "type": "header",
+      "content": "Register Form"
+    },
+    {
+      "type": "text",
+      "id": "register_title",
+      "label": "Register Form Title",
+      "default": "Create Your Account"
+    },
+    {
+      "type": "text",
+      "id": "register_submit_text",
+      "label": "Register Submit Button Text",
+      "default": "Create Account"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Global Login and Sign in",
+      "category": "Account"
+    }
+  ]
+}
+{% endschema %}

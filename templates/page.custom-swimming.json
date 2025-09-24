@@ -1,0 +1,291 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "charities-hero": {
+      "type": "ob-charities-hero",
+      "settings": {
+        "hero-outer-class": "",
+        "hero-frame-class": "max-w-7xl mx-auto sm:px-6 lg:px-8  pt-0 pb-0  -mb-12",
+        "hero-image-outer-class": "bg-black bg-opacity-30",
+        "logo": "shopify://shop_images/swimming-boat.jpg",
+        "title": "Custom Swimming Briefs",
+        "subtitle_description": "<p>Get Your Custom Swimming Briefs Here</p>",
+        "button_text": "Get IN TOUCH",
+        "button_class": "px-8 rounded-full uppercase btn-shadow-lg block bg-magenta  border-md relative font-semibold text-center p-4 text-white hover:bg-magenta-700 transition-colors duration-200",
+        "hero_url": "#contact_form_wrapper",
+        "subtitle_description_class": "mt-6 max-w-lg mx-auto text-center text-xl text-white sm:max-w-3xl",
+        "title_description": "",
+        "title_description_class": "mt-6 max-w-lg mx-auto text-center text-xl text-white sm:max-w-3xl"
+      }
+    },
+    "ob_custom_page_slider_nav_UrmxEe": {
+      "type": "ob-custom-page-slider-nav",
+      "custom_css": [
+        ".scrollable-nav {background-color: white;}"
+      ],
+      "settings": {
+        "handle": "new-custom-nav-list",
+        "slides_per_view": "auto",
+        "space_between": 0,
+        "grab_cursor": true,
+        "mousewheel": false,
+        "allow_touch_move": true,
+        "keyboard_enabled": false,
+        "autoplay_delay": 5000,
+        "disable_autoplay_on_interaction": false,
+        "loop": true,
+        "looped_slides": 10,
+        "transition_speed": 1000,
+        "desktop_slides_per_view": 7,
+        "desktop_allow_touch_move": true,
+        "desktop_autoplay": false,
+        "desktop_gap": 30,
+        "wrapper-classes": "w-full -mt-16 max-w-7xl mx-auto",
+        "swiper_class_list": "mx-auto max-w-7xl",
+        "slide_classes": "w-1/4 lg:w-auto",
+        "title": "",
+        "title-classes": "text-2xl md:text-4xl uppercase  mx-auto text-center marujo",
+        "image-classes": "rounded-full",
+        "text": "text-xs md:text-sm lg:text-base text-black text-wrap text-center py-2 uppercase marujo",
+        "background-image": ""
+      }
+    },
+    "custom_html_98c7QT": {
+      "type": "ob-custom-html",
+      "settings": {}
+    },
+    "16551193883dbf260d": {
+      "type": "ob-trust-pilot-widget",
+      "settings": {
+        "outer_wrapper_classes": "border-b border-solid border-gray-300",
+        "wrapper_classes": "max-w-7xl mx-auto pb-6 px-2",
+        "widget_header": "We'd be nowhere without our amazing customers!",
+        "widget_header_classes": "marujo text-center text-4xl md:text-5xl uppercase pb-3",
+        "widget_subheader": "",
+        "widget_subheader_classes": "",
+        "widget_code": "<!-- TrustBox widget - Slider -->\n<div class=\"trustpilot-widget\" data-locale=\"en-GB\" data-template-id=\"54ad5defc6454f065c28af8b\" data-businessunit-id=\"5c7f9459871dac0001ea0238\" data-style-height=\"240px\" data-style-width=\"100%\" data-theme=\"light\" data-stars=\"5\" data-review-languages=\"en\">\n<a href=\"https://uk.trustpilot.com/review/myoddballs.com\" target=\"_blank\" rel=\"noopener\">Trustpilot</a>\n</div>\n<!-- End TrustBox widget -->",
+        "widget_wrapper_classes": "",
+        "use_microcombo": false
+      }
+    },
+    "cfe52b2f-0696-4d62-8ec1-d36fdb17f10d": {
+      "type": "ob-tailwind-image-and-text-with-phone",
+      "blocks": {
+        "image_HJmKft": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/CORE_KITS_10.png",
+            "title": ""
+          }
+        },
+        "image_P9tX6c": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/CORE_KITS_12.png",
+            "title": ""
+          }
+        },
+        "image_AfegFG": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/swimmers-3.png",
+            "title": ""
+          }
+        },
+        "image_RR8KKq": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/swimmers-1.png",
+            "title": ""
+          }
+        },
+        "image_Cnj6H6": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/swimmers-2.png",
+            "title": ""
+          }
+        },
+        "image_hzXA7j": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/C37_28.jpg",
+            "title": ""
+          }
+        },
+        "image_7jdfjz": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/CORE_KITS_13.png",
+            "title": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_HJmKft",
+        "image_P9tX6c",
+        "image_AfegFG",
+        "image_RR8KKq",
+        "image_Cnj6H6",
+        "image_hzXA7j",
+        "image_7jdfjz"
+      ],
+      "settings": {
+        "static_image": true,
+        "section-class": "bg-white",
+        "hero-frame-class": "",
+        "image-block-class": "px-3 hidden md:block",
+        "title": "Our Custom Swimming Briefs",
+        "text-block-class": "",
+        "intro": "",
+        "content": "<p></p><p></p><p>Whether you call them swimming briefs, swimmers, trunks or, god forbid… budgies smugglers, our UK made swimming briefs are an ideal addition to your kit bag. Wear them during training and matches or flaunt them on trip somewhere sunny, they look good everywhere!</p><p>We have a minimum order of only 10 pairs and pricing from £20, with only a 4-week production time! The comfort of these custom swimmers is unmatched, and with the ability to design your very own with logos and colours to match your club, school, or brand, they couldn’t get any better!</p><p> Send us your logo and colours today to design your very own bespoke OddBalls swimmers!</p>",
+        "images_per_slide": 4,
+        "row_height": 250,
+        "row_height_mobile": 250,
+        "caption": "",
+        "button_text": "Get In Touch",
+        "button_class": "px-8 rounded-full uppercase btn-shadow-lg block bg-magenta relative font-semibold text-center p-4 text-white hover:bg-magenta-700 transition-colors duration-200 w-full  sm:w-48 w-full  sm:w-48",
+        "button_text_2": "Call Me Back",
+        "button_class_2": "js-callback px-8 rounded-full uppercase btn-shadow-lg block border-solid border-2 border-md  relative font-semibold text-center p-4 text-black transition-colors duration-200 w-full  sm:w-48 w-full  sm:w-48",
+        "hero_url": "#contact_form_wrapper"
+      }
+    },
+    "ob_full_page_width_swiper_jAFmEg": {
+      "type": "ob-full-page-width-swiper",
+      "blocks": {
+        "image_KxqKnJ": {
+          "type": "image",
+          "settings": {
+            "img": "shopify://shop_images/IMG_0302_JPG.jpg"
+          }
+        },
+        "image_iBaDJa": {
+          "type": "image",
+          "settings": {
+            "img": "shopify://shop_images/swimming-boat.jpg"
+          }
+        },
+        "image_qWi6j9": {
+          "type": "image",
+          "settings": {
+            "img": "shopify://shop_images/swimming-beach-2.jpg"
+          }
+        },
+        "image_Qtec6L": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "img": "shopify://shop_images/swimming-header.jpg"
+          }
+        },
+        "image_YagFLA": {
+          "type": "image",
+          "settings": {
+            "img": "shopify://shop_images/IMG_0609_JPEG.jpg"
+          }
+        },
+        "image_aYrqM4": {
+          "type": "image",
+          "settings": {
+            "img": "shopify://shop_images/IMG_7799_JPG.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "image_KxqKnJ",
+        "image_iBaDJa",
+        "image_qWi6j9",
+        "image_Qtec6L",
+        "image_YagFLA",
+        "image_aYrqM4"
+      ],
+      "settings": {
+        "title": "Our Custom OddBalls in Action",
+        "wrapper_classes": "",
+        "bg_color": ""
+      }
+    },
+    "9d21fc79-b694-45b7-94ed-13b90ab76a91": {
+      "type": "ob-custom-html",
+      "disabled": true,
+      "settings": {}
+    },
+    "callback_form": {
+      "type": "ob-custom-html",
+      "disabled": true,
+      "settings": {}
+    },
+    "tailwind-image-and-text2": {
+      "type": "ob-tailwind-image-and-text",
+      "blocks": {
+        "d77764eb-a4aa-4d33-a5a6-8b4f288783fc": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/GROUPS_6.png",
+            "title": ""
+          }
+        },
+        "b8c404cf-327d-49a2-bfd9-567b21e535f7": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/ZEBRA_CROSSING_4.png",
+            "title": ""
+          }
+        }
+      },
+      "block_order": [
+        "d77764eb-a4aa-4d33-a5a6-8b4f288783fc",
+        "b8c404cf-327d-49a2-bfd9-567b21e535f7"
+      ],
+      "custom_css": [
+        ".scrollable-nav {background-color: white;}"
+      ],
+      "settings": {
+        "section-class": "md:px-8",
+        "hero-frame-class": "",
+        "image-block-class": "order-1 md:px-3",
+        "title": "More about us",
+        "title-classes": "marujo mt-2 text-3xl leading-8 font-extrabold tracking-tight sm:text-4xl text-magenta",
+        "text-block-class": "order-2 md:px-3",
+        "intro": "",
+        "content": "<p>So why choose OddBalls? Our underwear is made from premium cotton, making it SUPER comfy and built to last!</p><p>We have hundreds of designs to choose from, meaning you can support your favourite team, pick your favourite pattern, or chill in something plain.</p><p><br/>We’re proud to support some amazing charities and have donated over £1,000,000 to them since 2014</p>",
+        "images_per_slide": 1,
+        "row_height": 350,
+        "row_height_mobile": 350,
+        "caption": "dsdsd",
+        "button_text": "",
+        "button_class": "",
+        "hero_url": ""
+      }
+    },
+    "ob_snippet_holder_exGt7p": {
+      "type": "ob-snippet-holder",
+      "name": "Snippet Holder",
+      "settings": {
+        "outer_wrapper_classes": "relative z-20",
+        "inner_wrapper_classes": "",
+        "snippet_name": "custom-products-jotform"
+      }
+    }
+  },
+  "order": [
+    "charities-hero",
+    "ob_custom_page_slider_nav_UrmxEe",
+    "custom_html_98c7QT",
+    "16551193883dbf260d",
+    "cfe52b2f-0696-4d62-8ec1-d36fdb17f10d",
+    "ob_full_page_width_swiper_jAFmEg",
+    "9d21fc79-b694-45b7-94ed-13b90ab76a91",
+    "ob_snippet_holder_exGt7p",
+    "callback_form",
+    "tailwind-image-and-text2"
+  ]
+}

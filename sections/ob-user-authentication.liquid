@@ -1,0 +1,257 @@
+	<div class="login-wrap md:grid md:grid-cols-2 gap-8 lg:gap-20 max-w-4xl mx-auto p-8 lg:px-14 md:py-24">
+			<div>
+
+                {% if request.path contains '/login' %}
+                <div id="loginForm">      
+                  <h1 class="font-semibold fz-19 mt-1 mb-2.5">{{ section.settings.login_title }}</h1>
+                  {% form 'customer_login' %}
+                      <div class="grid__item one-whole mt-2 rounded-md overflow-hidden">{%- render 'ob-form-errors', form: form -%}</div>              
+                      <div class="relative mt-5">
+                          <span class="absolute top-1.5 left-3 text-xs text-gray">Email</span>
+                          <input type="email" name="customer[email]" id="CustomerEmail" class="w-full h-12 px-3 pt-5 text-sm border-2  rounded-md focus:border-magenta-500 focus:outline-none hover:magenta-500 focus:ring-magenta-500 focus:border-magenta-500 focus:outline-none{% if form.errors contains 'email' %} error{% endif %}" autocorrect="off" autocapitalize="off">
+                      </div>
+                      <div class="relative mt-5">
+                          <span class="absolute top-1.5 left-3 text-xs text-gray">Password</span>
+                          <input type="password" value="" name="customer[password]" id="CustomerPassword" class="w-full h-12 px-3 pt-5 text-sm border-2  rounded-md focus:border-magenta-500 focus:outline-none hover:magenta-500 focus:ring-magenta-500 focus:border-magenta-500 focus:outline-none{% if form.errors contains 'password' %} error{% endif %}">
+                      </div>
+                      <div class="flex items-center justify-between mt-1">
+                          <a class="js-forgot-password text-xs text-gray underline" href="#">Forgot password</a>
+                      </div>
+                      <button type="submit" class="w-full h-12 p-3  mt-5 rounded-full uppercase btn-shadow-lg block bg-magenta  relative font-semibold text-center p-4 text-white hover:bg-magenta-700 transition-colors duration-200">{{ section.settings.login_button_text }}</button>
+                  {% endform %}
+                  <div class="text-center mt-3">
+                     <a style="color:#fff" class="w-full h-12 p-3  mt-5 text-white rounded-full uppercase btn-shadow-lg block bg-cyan  relative font-semibold text-center p-4 text-white hover:bg-cyan-700 transition-colors duration-200" href="/tools/recurring/get-subscription-access">Passwordless sign in</a>
+                  </div>
+                  <div class="text-center mt-6">
+                      <a class="text-xs underline" href="/account/register">Don't have an account? Join now.</a>
+                  </div>
+              	</div>
+                <div id="forgotPasswordForm" class="hidden">      
+                  <h1 class="font-semibold fz-19 mt-1 mb-2.5">{{ section.settings.recover_title }}</h1>
+                  
+                  {%- form 'recover_customer_password' -%}
+                      <div class="grid__item one-whole mt-2 rounded-md overflow-hidden">{%- render 'ob-form-errors', form: form -%}</div>
+
+                      {%- if form.posted_successfully? -%}
+                        {%- assign resetPassword = true -%}
+                      {%- endif -%}    
+                      <p class="bg-cyan-50 px-3 py-1 shadow mt-2.5 rounded-md bg-opacity-50 text-sm">We'll send a reset link to your email. Please follow the instructions in the email to reset your password.</p>
+                      <div class="relative mt-5">
+                          <span class="absolute top-1.5 left-3 text-xs text-gray">Email</span>
+                          <input type="email" value="" name="email" id="RecoverEmail" class="w-full h-12 px-3 pt-5 text-sm border-2  rounded-md focus:border-magenta-500 focus:outline-none hover:magenta-500 focus:ring-magenta-500 focus:border-magenta-500 focus:outline-none{% if form.errors contains 'email' %} error{% endif %}" autocorrect="off" autocapitalize="off" autofocus>
+                      </div>
+                      <div class="flex items-center justify-between mt-1">
+                          <a class="js-forgot-password text-xs text-gray underline" href="#">Sign In</a>
+                      </div>
+                      <button type="submit" class="w-full h-12 p-3 mt-5 rounded-full uppercase btn-shadow-lg block bg-magenta  relative font-semibold text-center p-4 text-white hover:bg-magenta-700 transition-colors duration-200">{{ section.settings.recover_button_text }}</button>
+                   
+
+                  {% endform %}
+                  <div class="text-center mt-3">
+                      <a class="text-xs underline" href="/account/register">Don't have an account? Join now.</a>
+                  </div>
+              	</div>                           
+           
+                {% elsif request.path contains '/register'%}
+
+                  <h1 class="font-semibold fz-19 mt-1 mb-2.5">{{ section.settings.register_title }}</h1>
+                  <p class="text-xs">{{ section.settings.register_subtitle }}</p>
+                  {%- form 'create_customer' -%}
+              	  	  <div class="grid__item one-whole mt-2 rounded-md overflow-hidden">{%- render 'ob-form-errors', form: form -%}</div>  
+                      <div class="relative mt-5">
+                          <span class="absolute top-1.5 left-3 text-xs text-gray" >First Name</span>
+                          <input type="text" name="customer[first_name]" id="FirstName" class="w-full h-12 px-3 pt-5 text-sm border-2  rounded-md focus:border-magenta-500 focus:outline-none hover:magenta-500 focus:ring-magenta-500 focus:border-magenta-500 focus:outline-none" {% if form.first_name %}value="{{ form.first_name }}"{% endif %} autocapitalize="words" autofocus>
+                      </div>
+                      <div class="relative mt-5">
+                          <span class="absolute top-1.5 left-3 text-xs text-gray">Last Name</span>
+                          <input type="text" name="customer[last_name]" id="LastName" class="w-full h-12 px-3 pt-5 text-sm border-2  rounded-md focus:border-magenta-500 focus:outline-none hover:magenta-500 focus:ring-magenta-500 focus:border-magenta-500 focus:outline-none" {% if form.last_name %}value="{{ form.last_name }}"{% endif %} autocapitalize="words">
+                      </div>
+                      <div class="relative mt-5">
+                          <span class="absolute top-1.5 left-3 text-xs text-gray">Email</span>
+                          <input type="email" name="customer[email]" id="Email" class="w-full h-12 px-3 pt-5 text-sm border-2  rounded-md focus:border-magenta-500 focus:outline-none hover:magenta-500 focus:ring-magenta-500 focus:border-magenta-500 focus:outline-none{% if form.errors contains 'email' %} error{% endif %}" {% if form.email %} value="{{ form.email }}"{% endif %} autocorrect="off" autocapitalize="off">
+                      </div>
+                      <div class="relative mt-5">
+                          <span class="absolute top-1.5 left-3 text-xs text-gray">Password</span>
+                          <input type="password" name="customer[password]" id="CreatePassword" class="w-full h-12 px-3 pt-5 text-sm border-2  rounded-md focus:border-magenta-500 focus:outline-none hover:magenta-500 focus:ring-magenta-500 focus:border-magenta-500 focus:outline-none{% if form.errors contains 'password' %} error{% endif %}">
+                      </div>
+                      <button type="submit" class="w-full h-12 p-3 mt-5 rounded-full uppercase btn-shadow-lg block bg-magenta  relative font-semibold text-center p-4 text-white hover:bg-magenta-700 transition-colors duration-200">{{ section.settings.register_button_text }}</button>
+                   {%- endform -%}
+                  <div class="text-center mt-3">
+                      <a class="text-xs underline" href="/account/login">Already have an account? Sign In.</a>
+                  </div>
+				
+				{% elsif request.path contains '/reset' %}
+                
+ 
+ 
+                <h1 class="font-semibold fz-19 mt-1 mb-2.5">{{ section.settings.reset_title }}</h1>
+                <p class="text-xs">{{ section.settings.reset_subtitle }}</p>
+                {% form 'reset_customer_password' %}
+                  <div class="grid__item one-whole mt-2 rounded-md overflow-hidden">{%- render 'ob-form-errors', form: form -%}</div>              
+                  <div class="relative mt-5">
+                      <span class="absolute top-1.5 left-3 text-xs text-gray">Password</span>
+                      <input type="password" value="" name="customer[password]" id="ResetPassword" class="w-full h-12 px-3 pt-3 text-sm border-2 border-solid  rounded-lg focus:border-magenta-500 focus:outline-none{% if form.errors contains 'password' %} error{% endif %}">
+                  </div>
+                  <div class="relative mt-5">
+                      <span class="absolute top-1.5 left-3 text-xs text-gray">Repeat Password</span>
+                      <input type="password" value="" name="customer[password_confirmation]" id="PasswordConfirmation" class="w-full h-12 px-3 pt-3 text-sm border-2 border-solid  rounded-lg focus:border-magenta-500 focus:outline-none{% if form.errors contains 'password_confirmation' %} error{% endif %}">
+                  </div>              
+                  <button type="submit" class="w-full rounded-md uppercase btn-shadow-lg block bg-magenta  relative font-semibold text-center p-4 text-white hover:bg-magenta-700 transition-colors duration-200 h-12 p-3 pt-2.5 mt-5">Submit</button>
+                {% endform %}
+                <div class="mt-3">
+                  <span class="text-xs">Already know your password? <a class="text-xs underline" href="/account/login">Sign In</a>
+                </div>
+                <div class="mt-4">
+                  <p class="text-xs md:mr-1">This site is protected by reCAPTCHA and the Google <a class="underline" href="https://policies.google.com/privacy" target="_blank">Privacy Policy</a> and <a class="underline" href="https://policies.google.com/terms" target="_blank">Terms of Service</a> apply.</p>
+                </div>
+
+              	{% endif %}              
+              
+			</div>
+           
+			<div id="login_reasons" class="px-8 pt-10 pb-14 -mx-8 mt-14 md:m-0 {{ section.settings.reasons_wrapper_classes }}">
+				<h2 class="font-medium fz-19 text-center tracking-tighter">{{ section.settings.reasons_title }}</h2>
+				<ul class="text-base border-t mt-6 border-solid border-gray-300">
+                  	{% for block in section.blocks %}
+					<li class="flex items-center gap-4 py-3.5 border-b border-solid border-gray-300">
+						{{  block.settings.svg_icon }} {{ block.settings.title }}
+					</li>
+                  	{% endfor %}
+				</ul>
+			</div>
+		</div> 
+
+
+<script>
+
+  function showRecoverPasswordForm() {
+    document.getElementById('RecoverPasswordForm').style.display = 'block';
+    document.getElementById('CustomerLoginForm').style.display='none';
+  }
+
+  function hideRecoverPasswordForm() {
+    document.getElementById('RecoverPasswordForm').style.display = 'none';
+    document.getElementById('CustomerLoginForm').style.display = 'block';
+  }
+
+  if (window.location.hash == '#recover') { showRecoverPasswordForm() }
+
+</script>
+
+{%- if resetPassword -%}
+  <style type="text/css">
+    #ResetSuccess { 
+      display: block !important;
+      margin-bottom: 30px;
+    }
+  </style>
+{%- endif -%}
+{% schema %}
+  {
+    "name": "User Authentication",
+    "class": "site-box-container container--fullscreen box--can-stick px-2",
+    "settings": [
+		{
+			"type": "header",
+			"content": "Login"	
+		},
+		{
+			"id": "login_title",
+			"type": "text",
+			"label": "Login title"
+		},
+		{
+			"id": "login_button_text",
+			"type": "text",
+			"label": "Login button text"
+		},
+		{
+			"id": "recover_title",
+			"type": "text",
+			"label": "Recover title"
+		},
+		{
+			"id": "recover_button_text",
+			"type": "text",
+			"label": "Recover button text"
+		},
+
+
+
+		{
+			"type": "header",
+			"content": "Register"	
+		},
+		{
+			"id": "register_title",
+			"type": "text",
+			"label": "Register title"
+		},
+		{
+			"id": "register_subtitle",
+			"type": "text",
+			"label": "Register subtitle"
+		},
+		{
+			"id": "register_button_text",
+			"type": "text",
+			"label": "Register button text"
+		},
+		{
+			"type": "header",
+			"content": "Reasons & Icons"	
+		},
+		{
+			"id": "reasons_title",
+			"type": "text",
+			"label": "Reasons title"
+		},
+		{
+			"id": "reasons_wrapper_classes",
+			"type": "text",
+			"label": "Reasons additional styles"
+		},
+		{
+			"type": "header",
+			"content": "Reset Password"	
+		},
+		{
+			"id": "reset_title",
+			"type": "text",
+			"label": "Reset password title"
+		},
+		{
+			"id": "reset_subtitle",
+			"type": "text",
+			"label": "Reset password subtitle"
+		}
+	],
+	"blocks": [
+      {
+        "type": "reason",
+        "name": "Reason",
+        "settings": [
+         	{
+				"id": "title",
+				"type": "text",
+				"label": "Title"
+			},
+         	{
+				"id": "svg_icon",
+				"type": "html",
+				"label": "SVG icon"
+			}
+		]
+	 }
+	],
+  "presets": [
+    {"name": "User Authentication"}
+  ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

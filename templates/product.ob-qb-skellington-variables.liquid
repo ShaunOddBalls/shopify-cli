@@ -1,0 +1,36 @@
+{% capture cart_attributes %}
+
+{% endcapture %}
+
+<div id="cart-attributes-container">
+<input type="hidden" data-cro-feature-loaded="quick-buy-popup"     data-cro-feature-viewed="quick-buy-popup"      data-cro-feature-clicked="quick-buy-popup">
+{% render 'ob-product-form-attributes', cart_attributes:cart_attributes, product:product %}
+</div>
+
+<div id="selling-plan-container">
+    <!-- Selling Plans -->
+    {% if product.selling_plan_groups.size > 0 %}
+        <div class="selling-plan-group {% if product.selling_plan_groups.size == 1 %}hidden{% endif %}">
+            <div class="selling-plan-title">Subscription Options</div>
+            <select name="selling_plan" class="selling-plan-select">
+                    {% assign first_option_selected = false %}
+                    {% if product.requires_selling_plan == false %}
+                        <option value="" {% unless first_option_selected %}selected{% endunless %}>One-time purchase</option>
+                        {% assign first_option_selected = true %}
+                    {% endif %}
+                    {% for selling_plan_group in product.selling_plan_groups %}
+                        {% for selling_plan in selling_plan_group.selling_plans %}
+                            <option value="{{ selling_plan.id }}" {% unless first_option_selected %}selected{% endunless %}>
+                                {{ selling_plan.name }}
+                            </option>
+                        {% assign first_option_selected = true %}
+                    {% endfor %}
+                    {% endfor %}
+                </select>
+            </div>
+    {% endif %}
+</div>
+
+<div id="gift-card-form-container" class="qb-gift-card-form px-6">
+    {% render "ob-gift-card-form" %}
+</div>

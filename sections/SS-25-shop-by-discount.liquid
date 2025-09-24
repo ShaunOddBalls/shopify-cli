@@ -1,0 +1,59 @@
+{% schema %}
+  {
+    "name": "SS-25-shop-by-discount",
+    "settings": [{
+      "type": "text",
+      "id": "heading",
+      "label": "Heading Text"
+    }],
+    "blocks":[
+      {
+        "type":"a",
+        "name": "discount block",
+        "settings":[
+          {
+          "type": "text",
+          "label": "Text",
+          "id": "text"
+        },
+          {
+            "type":"collection",
+            "id": "collection",
+            "label": "collection"
+          },
+          {
+          "type": "color",
+          "label": "Text Colour",
+          "id": "textcolor"
+        },
+          {
+          "type": "color",
+          "label": "Background Colour",
+          "id": "backgroundcolor"
+        },
+        ]
+      }
+    ],
+    "presets": [{"name":"SS-25-shop-by-discount"}]
+  }
+{% endschema %}
+
+<div class="discount-block-wrapper w-full">
+  <div class="font-bold w-full text-center">
+    {{ section.settings.heading }}
+  </div>
+  <div class="grid-cols-3 gap-2 grid md:gap-4">
+    {% for block in section.blocks %}
+      {%- comment %}<locksmith:8b6f>{% endcomment -%}
+        {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: block.settings.collection, subject_parent: section, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+      {%- comment %}</locksmith:8b6f>{% endcomment -%}
+      <a href="{{ block.settings.collection }}" class="block">
+        
+      <div class="text-xl md:text-3xl text-center uppercase font-bold py-2 md:py-4" style="color:{{ block.settings.textcolor }};background:{{ block.settings.backgroundcolor }}">
+        {{ block.settings.text }}
+      </div>
+      </a>
+    {% endfor %}
+  </div>
+  
+</div>

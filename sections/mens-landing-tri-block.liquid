@@ -1,0 +1,125 @@
+{% schema %}
+{
+  "name": "Mens Landing tri blocks",
+  "settings": [
+      {
+        "type": "image_picker",
+        "id": "image_1",
+        "label": "Small Image 1"
+      },
+      {
+        "type": "text",
+        "id": "text_1",
+        "label": "Small Image Text 1"
+      },
+      {
+        "type": "text",
+        "id": "button_1",
+        "label": "Small Image Button Text 1"
+      },
+      {
+        "type": "text",
+        "id": "button_1_link",
+        "label": "Small Image Button Link 1"
+      },
+      {
+        "type": "image_picker",
+        "id": "image_2",
+        "label": "Small Image 2"
+      },
+      {
+        "type": "text",
+        "id": "text_2",
+        "label": "Small Image Text 2"
+      },
+      {
+        "type": "text",
+        "id": "button_2",
+        "label": "Small Image Button Text 2"
+      },
+      {
+        "type": "text",
+        "id": "button_2_link",
+        "label": "Small Image Button Link 2"
+      },
+    {
+      "type": "text",
+      "id": "text_classes",
+      "label": "Text Classes"
+    },
+    {
+      "type": "text",
+      "id": "button_classes",
+      "label": "Button Classes"
+    },
+      {
+        "type": "image_picker",
+        "id": "image_3",
+        "label": "Large Image"
+      },
+    {
+      "type": "text",
+      "id": "large_text",
+      "label": "Large Image Text"
+    },
+    {
+      "type": "text",
+      "id": "large_button",
+      "label": "Large Image Button Text"
+    },
+    {
+      "type": "text",
+      "id": "large_button_link",
+      "label": "Large Image Button Link"
+    },
+    {
+      "type": "text",
+      "id": "large_classes",
+      "label": "Large Text Classes"
+    },
+    {
+      "type": "text",
+      "id": "large_button_classes",
+      "label": "Large Image Button Classes"
+    }
+    
+],
+  "presets": [
+    {
+      "name": "Mens Landing tri blocks",
+    }
+  ]
+}
+{% endschema %}
+<div class="mens-landing-tri-block">
+  <div class="md:grid grid-cols-2">
+    <div class="grid grid-cols-2">
+      <div class="w-full relative">
+        <img class="w-full " height="200px" width="200px" src="{{ section.settings.image_1 | img_url : "master" }}" />
+        <div class="absolute flex items-center justify-center w-full h-full top-0 left-0">
+          <div class="{{ section.settings.text_classes }}">{{ section.settings.text_1 }}</div>
+          <a href="{{ button_1_link }}" class="absolute bottom-2 {{ section.settings.button_classes }}" style="left:50%; transform:translateX(-50%)">{{ section.settings.button_1 }}</a>
+        </div>
+      </div>
+      <div class="w-full  relative">
+        <img class="w-full " height="200px" width="200px" src="{{ section.settings.image_2 | img_url : "master" }}" />
+        <div class="absolute top-0 left-0 flex items-center justify-center w-full h-full">
+          <div class="{{ section.settings.text_classes }}">{{ section.settings.text_2 }}</div>
+          <a href="{{ button_2_link }}" class="absolute bottom-2 {{ section.settings.button_classes }}" style="left:50%; transform:translateX(-50%)">{{ section.settings.button_2 }}</a>
+        </div>
+      </div>
+    </div>
+    <div class="w-full relative">
+      <img style="height:100%; object-fit:cover;" class="w-full" height="200px" width="400px" src="{{ section.settings.image_3 | img_url : "master" }}" />
+      <div class="w-full h-full absolute top-0 left-0 flex flex-col items-center justify-center">
+        <div class="{{ section.settings.large_classes }}">
+          {{ section.settings.large_text }}
+        </div>
+        <a href="{{ section.settings.large_button_link }}" class="{{ section.settings.large_button_classes }}">
+          {{ section.settings.large_button }}
+        </a>
+      </div>
+    </div>
+  </div>
+  
+</div>

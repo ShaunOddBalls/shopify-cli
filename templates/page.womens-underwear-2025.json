@@ -1,0 +1,859 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "f7b8470c-5dfc-4a80-84f9-a574d9391aa9": {
+      "type": "ob-conditional-banner",
+      "blocks": {
+        "ec5cc587-bdfd-4da4-92ca-d4c38e687df6": {
+          "type": "page-banner",
+          "settings": {
+            "block_active": true,
+            "banner_background": "",
+            "wrapper_classes": "",
+            "title": "",
+            "text": "",
+            "text_wrapper_classes": "",
+            "customers": "both",
+            "url_handle": "*",
+            "not_url_handle": "",
+            "country_iso": "*",
+            "banner_link": "",
+            "desktop_image": "shopify://shop_images/Desktop-BG_72681956-4bc5-4abc-bc3d-59cae42dcd9e.webp",
+            "mobile_image": "shopify://shop_images/Mobile-BG_6f0129a8-77d5-4f7f-aa79-e10dd8514339.webp",
+            "desktop_image_classes": "mx-auto w-full hidden md:block",
+            "mobile_image_classes": "mx-auto w-full md:hidden",
+            "desktop_svg": "Desktop-FG_ed589f53-9fd9-44e9-ad61-cbaaac338d61.svg",
+            "mobile_svg": "Mobile-FG_4f25e6e6-f9e6-4b5e-b03b-ae474a2144d6.svg",
+            "desktop_svg_classes": "absolute inset-0 w-full h-full mx-auto hidden md:block",
+            "mobile_svg_classes": "absolute inset-0 w-full h-full mx-auto md:hidden"
+          }
+        }
+      },
+      "block_order": [
+        "ec5cc587-bdfd-4da4-92ca-d4c38e687df6"
+      ],
+      "settings": {
+        "banner_background": "",
+        "wrapper_classes": ""
+      }
+    },
+    "free_card_banner_section_M3FTEM": {
+      "type": "free-card-banner-section",
+      "disabled": true,
+      "settings": {
+        "text": "my text",
+        "free_card_metaobject": "free-card-popup-1"
+      }
+    },
+    "260d0e54-27e1-4d94-8a4b-2234abe73b2e": {
+      "type": "ob-three-text-fields",
+      "blocks": {
+        "f5e55140-37b6-45d6-8eb9-b72896d55d92": {
+          "type": "text-lines",
+          "settings": {
+            "country_iso": "*",
+            "text-field-outer-wrapper-classes": "",
+            "text-field-inner-wrapper-classes": "text-center text-black relative max-w-4xl mx-auto py-2",
+            "text-field-1": "Discover OddBalls Valentine’s Day Collection",
+            "text-field-1-classes": "font-bebas md:text-2xl  text-xl",
+            "text-field-2": "",
+            "text-field-2-classes": "",
+            "text-field-3": "",
+            "text-field-3-classes": "",
+            "text-field-4": "",
+            "text-field-4-classes": "",
+            "html-field": "",
+            "html-field-classes": ""
+          }
+        }
+      },
+      "block_order": [
+        "f5e55140-37b6-45d6-8eb9-b72896d55d92"
+      ],
+      "disabled": true,
+      "settings": {}
+    },
+    "lw_circles_V49dc9": {
+      "type": "ob-tw-circles",
+      "blocks": {
+        "image_block_iyAp8N": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/Boxers_8c6926b0-6dbe-4dea-93a2-213379c78de0.png",
+            "page": "ladies-boxer-shorts",
+            "title": "",
+            "button-classes": "mt-4 text-center shadow-xl rounded-full w-full mx-auto max-w-[175px] bg-black",
+            "text-classes": "text-white px-2 py-1 font-bold text-xs uppercase lw-black rounded-full text-nowrap"
+          }
+        },
+        "image_block_CBy3kF": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/Briefs.png",
+            "page": "her-individuals",
+            "title": "",
+            "button-classes": "mt-4 text-center shadow-xl rounded-full w-full mx-auto max-w-[175px] bg-black",
+            "text-classes": "text-white px-2 py-1 font-bold text-xs uppercase lw-black rounded-full text-nowrap"
+          }
+        },
+        "image_block_EKPUJz": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/Seamless_d5a71a0c-ddc0-4209-b3e0-55ddecb604bb.png",
+            "page": "seamless-underwear",
+            "title": "",
+            "button-classes": "mt-4 text-center shadow-xl rounded-full w-full mx-auto max-w-[175px] bg-black",
+            "text-classes": "text-white px-2 py-1 font-bold text-xs uppercase lw-black rounded-full text-nowrap"
+          }
+        },
+        "image_block_HpLrgY": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/Bralettes_20796ab7-1226-46e2-878d-e725f5b06946.png",
+            "page": "bralette",
+            "title": "",
+            "button-classes": "mt-4 text-center shadow-xl rounded-full w-full mx-auto max-w-[175px] bg-black",
+            "text-classes": "text-white px-2 py-1 font-bold text-xs uppercase lw-black rounded-full text-nowrap"
+          }
+        },
+        "image_block_hdkBFr": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/Bamboo_be1d82d3-2831-4c81-ba82-d30a295b59c4.png",
+            "page": "womens-bamboo",
+            "title": "",
+            "button-classes": "mt-4 text-center shadow-xl rounded-full w-full mx-auto max-w-[175px] bg-black",
+            "text-classes": "text-white px-2 py-1 font-bold text-xs uppercase lw-black rounded-full text-nowrap"
+          }
+        },
+        "image_block_KNb3ia": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/Thongs_072c905e-4e36-4a0d-9216-d1d55288887c.png",
+            "page": "ladies-thongs",
+            "title": "",
+            "button-classes": "mt-4 text-center shadow-xl rounded-full w-full mx-auto max-w-[175px] bg-black",
+            "text-classes": "text-white px-2 py-1 font-bold text-xs uppercase lw-black rounded-full text-nowrap"
+          }
+        }
+      },
+      "block_order": [
+        "image_block_iyAp8N",
+        "image_block_CBy3kF",
+        "image_block_EKPUJz",
+        "image_block_HpLrgY",
+        "image_block_hdkBFr",
+        "image_block_KNb3ia"
+      ],
+      "custom_css": [
+        ".grid.grid-cols-3.my-1.gap-x-10.gap-y-6 {padding: 0 0.75rem;}"
+      ],
+      "settings": {}
+    },
+    "289ab40a-57e7-4538-a246-879f383aad57": {
+      "type": "ob-trust-pilot-widget",
+      "settings": {
+        "outer_wrapper_classes": "border-blackblend-divide mt-3 mb-2 md:mb-1",
+        "wrapper_classes": "max-w-7xl mx-auto",
+        "widget_header": "",
+        "widget_header_classes": "",
+        "widget_subheader": "",
+        "widget_subheader_classes": "",
+        "widget_code": "<!-- TrustBox widget - Micro Combo -->\n<div class=\"trustpilot-widget\" data-locale=\"en-GB\" data-template-id=\"5419b6ffb0d04a076446a9af\" data-businessunit-id=\"5c7f9459871dac0001ea0238\" data-style-height=\"40px\" data-style-width=\"100%\" data-theme=\"light\">\n  <a href=\"https://uk.trustpilot.com/review/myoddballs.com\" target=\"_blank\" rel=\"noopener\">Trustpilot</a>\n</div>\n<!-- End TrustBox widget -->",
+        "widget_wrapper_classes": "",
+        "use_microcombo": false
+      }
+    },
+    "ob_tailwind_image_text_video_swiper_eA3i6X": {
+      "type": "ob-tailwind-image-text-video-swiper",
+      "blocks": {
+        "multi_use_image_block_B4iBYr": {
+          "type": "multi_use_image_block",
+          "settings": {
+            "block_active": true,
+            "country_iso": "*",
+            "url_handle": "*",
+            "not_url_handle": "",
+            "title": "Valentines Day Video",
+            "block_link": "",
+            "link_classes": "block",
+            "block_wrap": "col-span-6 relative",
+            "block_image_desktop": "shopify://shop_images/Screenshot_2025-02-04_100532.png",
+            "block_image_desktop_class": "object-cover h-full w-full hidden sm:block",
+            "placeholder_desktop": "medium",
+            "block_image_mobile": "shopify://shop_images/Screenshot_2025-02-04_100548.png",
+            "block_image_mobile_class": "object-cover h-full w-full block sm:hidden",
+            "placeholder_mobile": "medium",
+            "video_wrap": "col-span-12 absolute inset-0 w-full h-full",
+            "block_video_desktop": "Womens Landing Page 2025 Desktop.mp4",
+            "block_video_desktop_class": "object-cover h-full w-full",
+            "block_video_mobile": "Womens Landing Page 2025 Mobile.mp4",
+            "block_video_mobile_class": "object-cover h-full w-full",
+            "video_title": "",
+            "video_addon_class": "z-50 justify-center absolute text-white w-full h-full flex flex-col items-center p-5",
+            "video_title_class": "text-4xl",
+            "video_text": "",
+            "video_text_class": "",
+            "video_button_text": "",
+            "video_button_class": "",
+            "video_button_url": "",
+            "svg_wrap": "absolute w-full h-full inset-0",
+            "block_svg_desktop": "",
+            "block_svg_desktop_class": "w-full h-full hidden sm:block",
+            "block_svg_mobile": "",
+            "block_svg_mobile_class": "w-full h-full block sm:hidden"
+          }
+        }
+      },
+      "block_order": [
+        "multi_use_image_block_B4iBYr"
+      ],
+      "settings": {
+        "country_iso": "*",
+        "section_wrapper_classes": "border-solid  top-hero-wrapper my-6",
+        "is_swiper": "true",
+        "lazy_images": "true",
+        "text_wrap": "absolute bottom-10 right-20",
+        "title": "",
+        "text_header_classes": "text-5xl pb-1",
+        "description": "",
+        "text_description": "text-xl",
+        "swiper_classes": "",
+        "swiper_wrapper_classes": "",
+        "custom_css": "",
+        "custom_options": "",
+        "slides_per_view_mobile": 1,
+        "space_between_mobile": 0,
+        "slides_per_view_640": 1,
+        "space_between_640": 0,
+        "slides_per_view_768": 1,
+        "space_between_768": 0,
+        "slides_per_view_1024": 1,
+        "space_between_1024": 0,
+        "slides_per_view_1280": 1,
+        "space_between_1280": 0,
+        "pagination_checked": false,
+        "navigation_checked": false,
+        "scrollbar_checked": false,
+        "effect": "slide",
+        "autoplay_checked": false,
+        "autoplay_delay": 3000,
+        "autoplay_loop_checked": false
+      }
+    },
+    "collection_product_slider_PrRd86": {
+      "type": "ob-collection-slider-old",
+      "settings": {
+        "collection": "womens-best-sellers-homepage",
+        "product_list": [],
+        "title": "Womens Bestsellers",
+        "wrapper_class": "",
+        "text_class": "marujo  text-3xl md:text-5xl text-center col-span-2 md:col-span-3"
+      }
+    },
+    "womens_underwear_image_text_hFQ4aK": {
+      "type": "womens-underwear-image-text",
+      "settings": {
+        "image": "shopify://shop_images/HeroImage-Womens.webp",
+        "header": "OddBalls",
+        "subHeading": "Underwear That Feels as Good as It Looks",
+        "text-block": "<div>Comfortable, supportive, and designed to fit just right—our lingerie is all about bold colours and standout prints. Prefer something different? Explore our licensed partnerships and sports collections—perfect for gifting or treating yourself!</div>\n<div class=\"my-2\">\nMade from super-soft cotton, breathable bamboo viscose, and sexy seamless fabrics, every pair is designed for all-day comfort. So what’re you waiting for? Shop the bestsellers that are on everyone's bums!\n</div>"
+      }
+    },
+    "23dddb08-6703-4d0d-a048-d0052e8a9c1d": {
+      "type": "ob-mosaic-hero",
+      "blocks": {
+        "89d8e02b-ef40-43d4-b96c-04d9285923b2": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative row-span-6 col-span-2 md:row-span-2",
+            "image": "shopify://shop_images/Womens_Patterned.jpg",
+            "img-overlay": "",
+            "img-class-list": "cover",
+            "button-text": "Patterned Underwear",
+            "button_link": "https://www.myoddballs.com/pages/shop-by-design#patterned",
+            "button-class-list": "absolute border border-solid border-black rounded-full bg-white w-4/5 text-center py-2 bottom-2 center-horizontal-absolute",
+            "background-color": ""
+          }
+        },
+        "collection_block_FHj4pD": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/Full_Seamless_Briefs.jpg",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "Full Seamless",
+            "button_link": "https://www.myoddballs.com/collections/seamless-full-briefs",
+            "button-class-list": "absolute border border-solid border-black rounded-full bg-white w-4/5 text-center py-2 bottom-2 center-horizontal-absolute",
+            "background-color": ""
+          }
+        },
+        "collection_block_TMtpax": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/Boxers.jpg",
+            "img-overlay": "",
+            "img-class-list": "font-babes",
+            "button-text": "Boxer Shorts",
+            "button_link": "https://www.myoddballs.com/collections/ladies-boxer-shorts",
+            "button-class-list": "absolute border border-solid border-black rounded-full bg-white w-4/5 text-center py-2 bottom-2 center-horizontal-absolute",
+            "background-color": ""
+          }
+        },
+        "0d193e51-28ff-4c09-8047-7b02b25e716c": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/Briefs.jpg",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "Briefs",
+            "button_link": "https://www.myoddballs.com/collections/her-individuals",
+            "button-class-list": "absolute border border-solid border-black rounded-full bg-white w-4/5 text-center py-2 bottom-2 center-horizontal-absolute",
+            "background-color": ""
+          }
+        },
+        "f2aa6a61-3d15-43d9-a617-47bb5410aa58": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/Bralettes_073a3f39-b67f-4149-80aa-1f003a35896b.jpg",
+            "img-overlay": "",
+            "img-class-list": "font-babes",
+            "button-text": "Bralettes",
+            "button_link": "https://www.myoddballs.com/collections/bralette",
+            "button-class-list": "absolute border border-solid border-black rounded-full bg-white w-4/5 text-center py-2 bottom-2 center-horizontal-absolute",
+            "background-color": ""
+          }
+        }
+      },
+      "block_order": [
+        "89d8e02b-ef40-43d4-b96c-04d9285923b2",
+        "collection_block_FHj4pD",
+        "collection_block_TMtpax",
+        "0d193e51-28ff-4c09-8047-7b02b25e716c",
+        "f2aa6a61-3d15-43d9-a617-47bb5410aa58"
+      ],
+      "custom_css": [
+        ".cover {object-fit: cover; width: 100%; height: 100%;}",
+        ".btn-max-width {max-width: 500px;}",
+        ".z-index-1 {z-index: 1;}",
+        ".z-index-2 {z-index: 2;}"
+      ],
+      "settings": {
+        "mosaic-container": "grid md:grid-cols-4 md:grid-rows-2 grid-cols-2 mb-6 gap-2 p-3",
+        "all-block-outer-class": "",
+        "all-image-class": "cover",
+        "img-overlay": "h-1/2 w-full gradient absolute bottom-0 left-0 z-index-1",
+        "all-button-class": ""
+      }
+    },
+    "collection_product_slider_xdKxWb": {
+      "type": "ob-collection-slider-old",
+      "disabled": true,
+      "settings": {
+        "collection": "best-sellers-homepage",
+        "product_list": [],
+        "title": "Mens Bestsellers",
+        "wrapper_class": "mt-6",
+        "text_class": "marujo  text-3xl md:text-5xl text-center col-span-2 md:col-span-3"
+      }
+    },
+    "conditional_banner_dfDmqb": {
+      "type": "ob-conditional-banner",
+      "blocks": {
+        "page_banner_V3DJkq": {
+          "type": "page-banner",
+          "settings": {
+            "block_active": true,
+            "banner_background": "",
+            "wrapper_classes": "",
+            "title": "",
+            "text": "",
+            "text_wrapper_classes": "",
+            "customers": "both",
+            "url_handle": "*",
+            "not_url_handle": "",
+            "country_iso": "*",
+            "banner_link": "https://www.myoddballs.com/collections/free-gift",
+            "desktop_image": "shopify://shop_images/Desktop-BG_f03a9a1f-d94e-46ec-a6e7-60d70d3682cb.jpg",
+            "mobile_image": "shopify://shop_images/Mobile-BG_e0c97356-aaaa-4f89-a023-bec8ea7a1319.jpg",
+            "desktop_image_classes": "mx-auto w-full hidden md:block",
+            "mobile_image_classes": "mx-auto w-full md:hidden",
+            "desktop_svg": "Desktop-FG_24ad197a-dc03-4976-8858-246889604a3e.svg",
+            "mobile_svg": "Mobile-FG_a6594006-7e6f-4b3a-8455-d49c3d9ad385.svg",
+            "desktop_svg_classes": "absolute inset-0 w-full h-full mx-auto hidden md:block",
+            "mobile_svg_classes": "absolute inset-0 w-full h-full mx-auto md:hidden"
+          }
+        },
+        "page_banner_4LqyDw": {
+          "type": "page-banner",
+          "disabled": true,
+          "settings": {
+            "block_active": true,
+            "banner_background": "",
+            "wrapper_classes": "",
+            "title": "",
+            "text": "",
+            "text_wrapper_classes": "",
+            "customers": "both",
+            "url_handle": "*",
+            "not_url_handle": "",
+            "country_iso": "*",
+            "banner_link": "",
+            "desktop_image": "shopify://shop_images/Desktop-BG-Friday.jpg",
+            "mobile_image": "shopify://shop_images/Mobile-BG-Friday.jpg",
+            "desktop_image_classes": "mx-auto w-full hidden md:block",
+            "mobile_image_classes": "mx-auto w-full md:hidden",
+            "desktop_svg": "Desktop-FG_2_f4cdcdb2-9f2e-4196-b5e3-9e0e49bd5b82.svg",
+            "mobile_svg": "Mobile-FG_5a2c384a-5ab7-434d-a5a2-a5933b68b0ae.svg",
+            "desktop_svg_classes": "absolute inset-0 w-full h-full mx-auto hidden md:block",
+            "mobile_svg_classes": "absolute inset-0 w-full h-full mx-auto md:hidden"
+          }
+        }
+      },
+      "block_order": [
+        "page_banner_V3DJkq",
+        "page_banner_4LqyDw"
+      ],
+      "disabled": true,
+      "settings": {
+        "banner_background": "",
+        "wrapper_classes": ""
+      }
+    },
+    "ob_conditional_banner_QpMBjz": {
+      "type": "ob-conditional-banner",
+      "blocks": {
+        "page_banner_jVtAVm": {
+          "type": "page-banner",
+          "settings": {
+            "block_active": true,
+            "banner_background": "",
+            "wrapper_classes": "",
+            "title": "",
+            "text": "",
+            "text_wrapper_classes": "",
+            "customers": "both",
+            "url_handle": "*",
+            "not_url_handle": "",
+            "country_iso": "*",
+            "banner_link": "https://www.myoddballs.com/pages/perfect-pair",
+            "desktop_image": "shopify://shop_images/Desktop-BG_7ce68b89-8ab8-43c7-a147-e1487a77021d.jpg",
+            "mobile_image": "shopify://shop_images/Mobile-BG_a2dbfd58-397e-4efa-9feb-038a6075c020.jpg",
+            "desktop_image_classes": "mx-auto w-full hidden md:block",
+            "mobile_image_classes": "mx-auto w-full md:hidden",
+            "desktop_svg": "Desktop-FG_1de1a65b-38c8-4ded-a527-6a0c2995a236.svg",
+            "mobile_svg": "Mobile-FG_4364006f-d982-4118-acd1-35f4fdcdad5a.svg",
+            "desktop_svg_classes": "absolute inset-0 w-full h-full mx-auto hidden md:block",
+            "mobile_svg_classes": "absolute inset-0 w-full h-full mx-auto md:hidden"
+          }
+        }
+      },
+      "block_order": [
+        "page_banner_jVtAVm"
+      ],
+      "settings": {
+        "banner_background": "",
+        "wrapper_classes": ""
+      }
+    },
+    "mosaic_hero_CqKhhC": {
+      "type": "ob-mosaic-hero",
+      "blocks": {
+        "collection_block_4htyii": {
+          "type": "collection_block",
+          "disabled": true,
+          "settings": {
+            "class-list": "relative row-span-6 col-span-2 md:row-span-2",
+            "image": "shopify://shop_images/Artboard_1_copy_2_259cfd1b-f2e5-4582-90eb-f22b3b6f52a1.jpg",
+            "img-overlay": "",
+            "img-class-list": "cover",
+            "button-text": "",
+            "button_link": "",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "collection_block_kWT4En": {
+          "type": "collection_block",
+          "disabled": true,
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/Artboard_1_copy_3_ead76124-ca81-4835-aa6c-55dba435165a.jpg",
+            "img-overlay": "",
+            "img-class-list": "font-babes",
+            "button-text": "",
+            "button_link": "https://www.myoddballs.com/collections/pyjamas",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "collection_block_Jknrhr": {
+          "type": "collection_block",
+          "disabled": true,
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/Artboard_1_copy_4_a1ff16eb-f983-4536-922c-26466064a1d5.jpg",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "",
+            "button_link": "https://www.myoddballs.com/collections/ladies-boxer-shorts",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "collection_block_AX73WR": {
+          "type": "collection_block",
+          "disabled": true,
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/Artboard_1_copy_5_91ae0133-9ea0-409a-a413-3bff44a7f615.jpg",
+            "img-overlay": "",
+            "img-class-list": "font-babes",
+            "button-text": "",
+            "button_link": "https://www.myoddballs.com/collections/bralette",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "collection_block_H7N7Uk": {
+          "type": "collection_block",
+          "disabled": true,
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/Artboard_1_copy_6_31f009e0-3686-4dac-8887-7abbff827f3c.jpg",
+            "img-overlay": "",
+            "img-class-list": "font-babes",
+            "button-text": "",
+            "button_link": "https://www.myoddballs.com/collections/bamboo-underwear",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "collection_block_kbgHE8": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/Thongs_80c620d3-5342-4637-b511-b147cc6ae2ff.jpg",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "Thongs",
+            "button_link": "https://www.myoddballs.com/collections/ladies-thongs",
+            "button-class-list": "absolute border border-solid border-black rounded-full bg-white w-4/5 text-center py-2 bottom-2 center-horizontal-absolute",
+            "background-color": ""
+          }
+        },
+        "collection_block_VpyKPP": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/Seamless_cdd7268f-38fa-42fa-a996-baca6418c2d6.jpg",
+            "img-overlay": "",
+            "img-class-list": "font-babes",
+            "button-text": "Brazilian Seamless",
+            "button_link": "https://www.myoddballs.com/collections/brazilian-seamless-briefs",
+            "button-class-list": "absolute border border-solid border-black rounded-full bg-white w-4/5 text-center py-2 bottom-2 center-horizontal-absolute",
+            "background-color": ""
+          }
+        },
+        "collection_block_X34gJx": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative row-span-6 col-span-2 md:row-span-2",
+            "image": "shopify://shop_images/Classics_eaa5b2ff-782b-4d42-a156-1f0d01d0eed2.jpg",
+            "img-overlay": "",
+            "img-class-list": "cover",
+            "button-text": "Classics",
+            "button_link": "https://www.myoddballs.com/pages/shop-by-design#plain",
+            "button-class-list": "absolute border border-solid border-black rounded-full bg-white w-4/5 text-center py-2 bottom-2 center-horizontal-absolute",
+            "background-color": ""
+          }
+        },
+        "collection_block_3RwQKm": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/Bamboo_boxers.png",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "Bamboo Boxer Shorts",
+            "button_link": "https://www.myoddballs.com/collections/womens-bamboo",
+            "button-class-list": "absolute border border-solid border-black rounded-full bg-white w-4/5 text-center py-2 bottom-2 center-horizontal-absolute",
+            "background-color": ""
+          }
+        },
+        "collection_block_Qbbxhe": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/SBS-Womens.jpg",
+            "img-overlay": "",
+            "img-class-list": "font-babes",
+            "button-text": "Sale by Size",
+            "button_link": "https://www.myoddballs.com/pages/sale-by-size",
+            "button-class-list": "absolute border border-solid border-black rounded-full bg-white w-4/5 text-center py-2 bottom-2 center-horizontal-absolute",
+            "background-color": ""
+          }
+        },
+        "collection_block_EbKbT6": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/Ankle_Socks.jpg",
+            "img-overlay": "",
+            "img-class-list": "font-babes",
+            "button-text": "Socks",
+            "button_link": "https://www.myoddballs.com/collections/socks",
+            "button-class-list": "absolute border border-solid border-black rounded-full bg-white w-4/5 text-center py-2 bottom-2 center-horizontal-absolute",
+            "background-color": ""
+          }
+        },
+        "collection_block_tpHCUh": {
+          "type": "collection_block",
+          "disabled": true,
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/WomensBundles.jpg",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "",
+            "button_link": "https://www.myoddballs.com/collections/bralette/bralette-bundle",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "collection_block_wBHqkb": {
+          "type": "collection_block",
+          "disabled": true,
+          "settings": {
+            "class-list": "relative row-span-6 col-span-2 md:row-span-2",
+            "image": "shopify://shop_images/Blankets_315cde1c-9884-4329-8d7a-bb90113e0b56.jpg",
+            "img-overlay": "",
+            "img-class-list": "cover",
+            "button-text": "",
+            "button_link": "https://www.myoddballs.com/collections/fleece-blanket",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "collection_block_jP36yR": {
+          "type": "collection_block",
+          "disabled": true,
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/Mystery_ab86d3e6-123a-432d-947b-fa64ba5dd0f2.jpg",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "",
+            "button_link": "https://www.myoddballs.com/collections/mystery-bundles",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "collection_block_agArLn": {
+          "type": "collection_block",
+          "disabled": true,
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/Towels_db10afaa-ea1c-4e3f-8a5f-0610aca933e9.jpg",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "",
+            "button_link": "https://www.myoddballs.com/collections/all-towels",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "collection_block_3r7rag": {
+          "type": "collection_block",
+          "disabled": true,
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/BobbleHats.jpg",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "",
+            "button_link": "https://www.myoddballs.com/collections/obble",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_block_4htyii",
+        "collection_block_kWT4En",
+        "collection_block_Jknrhr",
+        "collection_block_AX73WR",
+        "collection_block_H7N7Uk",
+        "collection_block_kbgHE8",
+        "collection_block_VpyKPP",
+        "collection_block_X34gJx",
+        "collection_block_3RwQKm",
+        "collection_block_Qbbxhe",
+        "collection_block_EbKbT6",
+        "collection_block_tpHCUh",
+        "collection_block_wBHqkb",
+        "collection_block_jP36yR",
+        "collection_block_agArLn",
+        "collection_block_3r7rag"
+      ],
+      "settings": {
+        "mosaic-container": "grid md:grid-cols-4 md:grid-rows-2 grid-cols-2 gap-2 p-3",
+        "all-block-outer-class": "",
+        "all-image-class": "cover",
+        "img-overlay": "h-1/2 w-full gradient absolute bottom-0 left-0 z-index-1",
+        "all-button-class": ""
+      }
+    },
+    "image_text_grid_UKLi6d": {
+      "type": "ob-image-text-grid",
+      "blocks": {
+        "image_and_text_gKGmDW": {
+          "type": "image-and-text",
+          "disabled": true,
+          "settings": {
+            "country_iso": "*",
+            "title": "",
+            "block_wrapper_classes": "col-span-1 flex justify-center py-8 px-8 gap-x-5 items-center cursor-pointer",
+            "block_title": "",
+            "title_classes": "text",
+            "description": "",
+            "description_classes": "",
+            "svg": ""
+          }
+        },
+        "image_and_text_a6CfCe": {
+          "type": "image-and-text",
+          "settings": {
+            "country_iso": "*",
+            "title": "",
+            "block_wrapper_classes": "col-span-12 flex justify-center  px-4 items-center text-center relative",
+            "block_title": "",
+            "title_classes": "text",
+            "description": "<h2 class=\"text-center font-bebas text-2xl lg:text-4xl\">Women’s Underwear Essentials</h2>\n<br>\n<p class=\"text-md lg:text-lg\">\nWhether you're refreshing your underwear drawer or stocking up on everyday essentials, our lingerie collection has everything you need—from bralettes and knickers in multiple styles to accessories and socks.\n</p>\n<br> \n<p class=\"text-md lg:text-lg\">\nFind your <a href=\"https://www.myoddballs.com/pages/perfect-pair%20\"> perfect match </a> with a wide range of styles, shapes, and fabrics. From <a href=\"https://www.myoddballs.com/collections/ladies-boxer-shorts\" class=\"link\"> ultra-comfy boxers </a> to <a href=\"https://www.myoddballs.com/collections/ladies-thongs\" class=\"link\"> no-show thongs</a>, we’ve got you covered for every occasion. Choose from breathable cotton and <a href=\"https://www.myoddballs.com/pages/bamboo-underwear\" class=\"link\">soft bamboo viscose </a> for all-day comfort, or opt for <a href=\"https://www.myoddballs.com/collections/seamless-underwear\" class=\"link\"> silky seamless </a> styles like our <a href=\"https://www.myoddballs.com/collections/brazilian-seamless-briefs\" class=\"link\"> no-show Brazilian </a> or <a href=\"https://www.myoddballs.com/collections/seamless-full-briefs\" class=\"link\"> full-coverage briefs</a> —designed to keep you comfortable with zero visible lines. Pair with a matching bralette for lightweight support that’s perfect for lounging or layering. And let’s not forget your feet! Whether you need <a href=\"https://www.myoddballs.com/collections/socks/style-trainer\" class=\"link\"> ankle</a>, <a href=\"https://www.myoddballs.com/collections/socks/style-crew%20\" class=\"link\">crew</a>, or <a href=\"https://www.myoddballs.com/collections/socks/style-sports%20\" class=\"link\"> supportive sports socks</a>, we’ve got the perfect pair to keep you going through your busiest days.\n</p>\n<br> \n<p class=\"text-md lg:text-lg\">\nAt OddBalls, we love bold colours and <a href=\"https://www.myoddballs.com/pages/shop-by-design#patterned\" class=\"link\"> standout prints</a>, but if you prefer a <a href=\"https://www.myoddballs.com/pages/shop-by-design#plain\" class=\"link\"> classic</a>, understated look, we’ve got you covered there too. Whether you call them briefs, panties, knickers, or undies, we have you covered.  Shop now and stock up on all your OddBalls favourites, because nothing great was ever achieved in boring knickers!\n</p>",
+            "description_classes": "",
+            "svg": ""
+          }
+        },
+        "image_and_text_pizeH9": {
+          "type": "image-and-text",
+          "disabled": true,
+          "settings": {
+            "country_iso": "*",
+            "title": "",
+            "block_wrapper_classes": "",
+            "block_title": "",
+            "title_classes": "text",
+            "description": "",
+            "description_classes": "",
+            "svg": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_and_text_gKGmDW",
+        "image_and_text_a6CfCe",
+        "image_and_text_pizeH9"
+      ],
+      "settings": {
+        "outer_wrapper_classes": "relative pb-6 boxing-day-bottom-text",
+        "inner_wrapper_classes": "col-span-12 flex justify-center  py-3 px-4 items-center text-center",
+        "grid_wrapper_classes": "",
+        "title": "",
+        "title_classes": "text-center text-base font-semibold uppercase text-gray-600 tracking-wider",
+        "section_bg_colour": "",
+        "block_bg_colour": "",
+        "block_bg_colour_hover": "",
+        "block_text_colour": "",
+        "block_text_colour_hover": "",
+        "block_image_classes": "",
+        "block_svg_classes": "",
+        "custom_css": ""
+      }
+    },
+    "image_with_text_hFaFXE": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_kXxHpP": {
+          "type": "heading",
+          "settings": {
+            "heading": "Image with text",
+            "heading_size": "h1"
+          }
+        },
+        "text_9V6Eaw": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "text_style": "body"
+          }
+        },
+        "button_L4JKaC": {
+          "type": "button",
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_kXxHpP",
+        "text_9V6Eaw",
+        "button_L4JKaC"
+      ],
+      "disabled": true,
+      "settings": {
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "main",
+    "f7b8470c-5dfc-4a80-84f9-a574d9391aa9",
+    "free_card_banner_section_M3FTEM",
+    "260d0e54-27e1-4d94-8a4b-2234abe73b2e",
+    "lw_circles_V49dc9",
+    "289ab40a-57e7-4538-a246-879f383aad57",
+    "ob_tailwind_image_text_video_swiper_eA3i6X",
+    "collection_product_slider_PrRd86",
+    "womens_underwear_image_text_hFQ4aK",
+    "23dddb08-6703-4d0d-a048-d0052e8a9c1d",
+    "collection_product_slider_xdKxWb",
+    "conditional_banner_dfDmqb",
+    "ob_conditional_banner_QpMBjz",
+    "mosaic_hero_CqKhhC",
+    "image_text_grid_UKLi6d",
+    "image_with_text_hFaFXE"
+  ]
+}

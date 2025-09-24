@@ -1,0 +1,30 @@
+{% schema %}
+{
+  "name": "Title With Text",
+  "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "title"
+      },
+      {
+        "type": "textarea",
+        "id": "text",
+        "label": "text"
+      }
+],
+  "presets": [
+    {
+      "name": "Title With Text",
+    }
+  ]
+}
+{% endschema %}
+<div class="flex justify-center items-center flex-col py-4">
+  <h1 class="text-center text-3xl font-bold marujo">
+    {{ section.settings.title }}
+  </h1>
+  <div class="w-full h-full mb-4 px-4 md:text-center max-w-7xl">
+    {{ section.settings.text }}
+  </div>
+</div>

@@ -1,0 +1,86 @@
+{% layout none %}
+{% if  product.metafields.custom.hero_banner %}
+<div class="relative mb-8 min-h-[250px]">
+  <!-- Desktop Image -->
+  <img
+    loading="lazy"
+    class="object-cover h-full w-full hidden sm:block max-h-[500px] min-h-[250px] brightness-75"
+    src="{{ product.metafields.custom.hero_banner | img_url: 'master' }}"
+    alt="Hero Banner"
+  >
+
+  <!-- Mobile Image -->
+  <img
+    loading="lazy"
+    class="object-cover h-full w-full block sm:hidden brightness-75 min-h-[250px]"
+    src="{{ product.metafields.custom.hero_banner_mobile | img_url: 'master' }}"
+    alt="Hero Banner"
+  >
+  
+  <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+    <img
+      loading="lazy"
+      class="w-full h-full md:max-h-[150px] rounded-2xl shadow-2xl"
+      src="{{ product.featured_image | img_url: 'master' }}"
+      alt="desktop overlay svg"
+    >
+  </div>
+</div>
+{% else %}
+  <div class="relative p-6">
+      <img
+      loading="lazy"
+      class="mx-auto h-full max-h-[300px]"
+      src="{{ product.featured_image | img_url: 'master' }}"
+      alt="desktop overlay svg"
+    >
+  </div>
+{% endif %}
+
+<div class="gift-card__image-wrapper">
+        {%- if settings.logo != blank -%}
+          {%- assign logo_alt = settings.logo.alt | default: shop.name | escape -%}
+          {{ settings.logo | image_url: width: 250 | image_tag: class: 'gift-card__image mx-auto', alt: logo_alt }}
+        {%- else %}
+          <img
+            class="gift-card__image mx-auto"
+            src="{{ 'gift-card/card.svg' | shopify_asset_url }}"
+            alt=""
+            height="{{ 570 | divided_by: 1.5 }}"
+            width="300"
+            loading="eager"
+          >
+        {%- endif %}
+      </div>
+
+
+
+<div class="w-full max-w-7xl mx-auto text-center px-6 mt-8">
+  <p class="text-base"><span id="name">Great news.</span>! You've been sent an e-gift card from {% if customer.name %}{{ customer.name }}{% else %}*Your Name*{% endif %} to spend at OddBalls worth</p>
+  <p class="font-bold text-base my-6 text-2xl"><span id="price">£0.00</span> GBP</p>
+  <div class="gift-card__qr-code" data-identifier="{{ gift_card.qr_identifier }}"></div>
+  <div class="my-4">
+  <p>
+    <blockquote class="p-3 quote EN">
+      <span id="message" class="italic font-bold text-base">*Your Message Here*</span>
+    </blockquote>
+  </p>
+  </div>
+
+  <p class="text-base ">You can redeem your e-gift card by entering your code at checkout on <span class="text-magenta">OddBalls</span> online store</p>
+  <p id="gift-card-code" class="gift-card__number my-6 text-2xl">#### #### #### ####</p>
+  <div class="gift-card__qr-code mx-auto my-12 flex justify-center hidden" data-identifier="shopify-giftcard-v1-BEA239GA8B6GHEEA"><canvas width="72" height="72" style="display: none;"></canvas><img alt="QR code — scan to redeem gift card" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAYAAABV7bNHAAAAAXNSR0IArs4c6QAABEtJREFUeF7tnOuWozAMg+H9H7p7mJZuSCN/cgLndIbsv51CLrIsyyl0XZblsST/PR7PW9Z1te6sr1f3b3/fx9yv2Sdw/16vKbvWekPbDh/1YtSu60W6i1Hjq01HqKs5ayD3/6vgUGT3eSZAAqkmQCplKAo9TKAIEiNclqsUdfd6YJB7k6sPLggjKfWhGS9dpDW6ex0CiESamNcChjRGMaseawIEFfSrAMpWKVUNozJPmkTMowqsqt4pKXYbgEhUo8iX97ra1BJYlRquryFvlvV8p/gg2hQJaJk+NBYJ/yUAEXPUBolRPZ9TWzL6eXavPwzK3jS6yOj+K8fO7nO7frUbsZ7RX/dQhXGGdlPnjLkOejoBisPTZJB7tJC1+cSUUqB79Kscn6wH6eq7cLQYNAH6D18o0hQFOoxy7X5rHFesicXZYH8wN6piE6BXFXOdr3sdaU3dVznaQ5rhspUceb3HH5F2N+5e9+cAcjekOuo6Kr3jtVKaNIQYMbqWLqNIp3GjizoYNTghvBygUqRHG0G1WBewlhYpdrqO2Q2muu5Q5idAn6E8pBidutFZCkXLccfkrVy9o7UoPa3nnwBVZ9shQFSlyIu40Y00ibRFVTU1JlkT0riwWSVxVelAqfirACq/myeNiBzw9pmb95T/TpkntpOWURv1Hn8CdORzqtWgA3SVKmQXoui7XTyxfZTN7zVGvdgEaFmaRpE04qzz4VaUSfhdr+YyjEgwAXo9LadIkTpRJI9Sa1I22i1NI01S3sz1RVTtwu/mqRS6YqzsQWT66JjDXRt5OZSTVpknR0z5TdFzgP0qgGpAelPDjSpt3ok6pR6Jr0sC67iDqpY7GTHH7Zu2+b4SIIoK9WCZ1KSmlIygW1BoTSkG3RKg8ptV0h4qqRS1jPb0pqOrg1RZD62Ge/HtASJPoIxgtmkl/YiOO9x7ic2KFB97jB5ecKvTnwYoepmFNMkttRT1qGl1PNF2DVaj6vs1m2EToGcIpLi3zoNUOXcrBEUzampdszhqOUhP39kxAXpCJbsF54U6yteMv2m1CVQMwg1c8NZjOZ/1IPmtASpTLKsxKvLEKHLJLR+kTCo10r16enDSbmNI58VkvrLi3UqtOiiXA9R6/EU5arU4ihIFoJyPjkCJfW4VJN3bx0kd2t8SoJEn7V2HTJ6l1JesO3cZR75HBb/rEbyzUrDVRnwdQCNv+yigstWwBMUtBNSjUUGgPvO9twlQ/DMbllF0y7dbglX0S03LVkZiTNT/lXbiY16n1ZgAwa+5uN6Dok5ARw6atMnVFOXI1dqGXgunDbstRyvlyCGTJ3MNIwV1CCB3EdRHtaqYjKjo3mmj5IMUQydAL+QuAag3KpQeTsqpXor6PmJ9DdQQg24HUNad9rYckQArF05z0dqpEktvdoUPohT6dQAR+uQdKLoZVmQ6/23ekb6vdX8dvKGfpiANUkIa3fdtAP0D+Os6N6Cr+dEAAAAASUVORK5CYII=" style="display: none;"></div>
+  <span class="block mx-auto max-w-md rounded-full py-2 capitalize bg-magenta px-4 text-white font-semibold mb-4 !uppercase">Redeem e-gift card</span>
+  <span class="block mx-auto max-w-md !uppercase rounded-full py-2 w-full capitalize  px-4  font-semibold mb-4 rounded-full uppercase text-black semi-bold bg-gray-200 border-0 flex justify-center" target="_blank" rel="noopener" aria-describedby="a11y-new-window-message">
+          Visit online store
+        </span>
+  <p class="gift-card-message text-base">Your e-gift card is valid for 1 years from <span id="date">dd/mm/yyyy</span>.</p>
+
+  
+</div>
+
+<hr class="w-full mx-auto max-w-5xl my-8">
+<p class="disclaimer__subtext text-xs max-w-7xl mx-auto text-center px-6">This is not Your gift card. Please click view gift card to redeem your e-gift card</p>                     
+<p class="disclaimer__subtext text-xs max-w-7xl mx-auto text-center px-6 mb-10">If you have any questions, reply to this email or contact us at <span class="text-magenta"{{ shop.email }}">{{ shop.email }}</span></p>
+                      
+                            

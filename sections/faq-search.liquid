@@ -1,0 +1,141 @@
+{%- assign blog = blogs[section.settings.blog_handle] -%}
+
+<div class="py-8 px-4 bg-white border-b border-gray-200 md:py-12">
+  <div class="max-w-2xl mx-auto">
+    <div class="relative">
+      <input type="text" 
+             id="faq-search-input" 
+             class="faq-search-input text-black w-full py-4 px-6 text-lg border border-gray-300 rounded-full outline-none transition-all duration-300 shadow focus:border-blue-500 focus:shadow"
+             placeholder="{{ section.settings.placeholder_text }}"
+             autocomplete="off">
+      <div id="faq-search-results" class="faq-search-results absolute top-full left-0 right-0 bg-white border border-gray-300 border-t-0 rounded-b-xl shadow-xl max-h-80 overflow-y-auto z-50 hidden"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+   
+  console.log('search spcript running')
+  const searchInput = document.getElementById('faq-search-input');
+  const searchResults = document.getElementById('faq-search-results');
+  
+  // Build search data from blog articles
+  const faqData = [
+    {%- for article in blog.articles -%}
+      {
+        title: {{ article.title | json }},
+        content: {{ article.content | strip_html | truncate: 200 | json }},
+        tags: [
+          {%- for tag in article.tags -%}
+            {{ tag | json }}{% unless forloop.last %},{% endunless %}
+          {%- endfor -%}
+        ],
+        id: "faq-{{ article.id }}"
+      }{% unless forloop.last %},{% endunless %}
+    {%- endfor -%}
+  ];
+  
+  let debounceTimer;
+  
+  searchInput.addEventListener('input', function() {
+    const query = this.value.trim().toLowerCase();
+    
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(() => {
+      if (query.length < 2) {
+        searchResults.classList.add('hidden');
+        return;
+      }
+      
+      const results = faqData.filter(item => 
+        item.title.toLowerCase().includes(query) ||
+        item.content.toLowerCase().includes(query) ||
+        item.tags.some(tag => tag.toLowerCase().includes(query))
+      ).slice(0, 5);
+      
+      if (results.length > 0) {
+        displayResults(results);
+      } else {
+        searchResults.classList.add('hidden');
+      }
+    }, 300);
+  });
+  
+  function displayResults(results) {
+    searchResults.innerHTML = '';
+    
+    results.forEach(result => {
+      const resultItem = document.createElement('div');
+      resultItem.className = 'py-4 px-6 border-b border-gray-100 cursor-pointer transition-colors duration-200 hover:bg-gray-50 last:border-b-0';
+      
+      const category = result.tags.length > 0 ? result.tags[0] : 'General';
+      
+      resultItem.innerHTML = `
+        <div class="font-semibold text-gray-900 mb-1">${result.title}</div>
+        <div class="text-sm text-gray-500 font-medium">${category}</div>
+      `;
+      
+      resultItem.addEventListener('click', () => {
+        scrollToFAQ(result.id);
+        searchInput.value = result.title;
+        searchResults.classList.add('hidden');
+      });
+      
+      searchResults.appendChild(resultItem);
+    });
+    
+    searchResults.classList.remove('hidden');
+  }
+  
+  function scrollToFAQ(faqId) {
+    const faqElement = document.getElementById(faqId);
+    if (faqElement) {
+      faqElement.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+      
+      // Highlight the FAQ temporarily
+      faqElement.classList.add('bg-yellow-100');
+      setTimeout(() => {
+        faqElement.classList.remove('bg-yellow-100');
+      }, 2000);
+    }
+  }
+  
+  // Hide results when clicking outside
+  document.addEventListener('click', function(e) {
+    if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
+      searchResults.classList.add('hidden');
+    }
+  });
+});
+</script>
+
+{% schema %}
+{
+  "name": "FAQ Search",
+  "class": "faq-search-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "placeholder_text",
+      "label": "Search Placeholder Text",
+      "default": "Search for help..."
+    },
+    {
+      "type": "blog",
+      "id": "blog_handle",
+      "label": "FAQ Blog",
+      "info": "Select the blog containing your FAQ articles"
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ Search",
+      "category": "FAQ"
+    }
+  ]
+}
+{% endschema %}

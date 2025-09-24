@@ -1,0 +1,77 @@
+<div class="w-full flex scrolling-container uppercase my-2" style="background-color: {{ section.settings.background_color }};color: {{ section.settings.text_color }};">
+  <div class="content py-2" style="width:200vw;">
+    {% for i in (0..27) %}
+      <div class="flex items-center">
+         <div class="whitespace-nowrap ml-4">   {{ section.settings.text }}</div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+
+<style>
+
+.scrolling-container {
+  width: 100%;
+  overflow: hidden;
+}
+@media(max-width:720px){
+  
+.content {
+  display: flex;
+  animation: scroll 60s linear infinite;
+}
+}
+@media(min-width:720px){
+  
+.content {
+  display: flex;
+  animation: scroll 120s linear infinite;
+}
+}
+
+.item {
+  display: inline-block;
+  margin-right: 20px; 
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-200%);
+  }
+}
+
+</style>
+
+{% schema %}
+  {
+    "name": "SS 25 Rotating banner",
+    "settings": [
+      {
+        "id": "text",
+        "type": "text",
+        "label": "Title Text"			
+      },
+       {
+      "type": "color",
+          "id": "background_color",
+          "label": "Banner Background Color",
+          "default": "#fff"
+        },
+      {
+      "type": "color",
+          "id": "text_color",
+          "label": "Text Color",
+          "default": "#fff"
+        }
+    ],
+    "presets": [
+      {
+        "name": "SS 25 Rotating banner"
+      }
+    ],
+  }
+{% endschema %}

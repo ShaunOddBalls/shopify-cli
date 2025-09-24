@@ -1,0 +1,124 @@
+{% case template.name %}
+{% when 'page' %}
+{% assign template_type = page %}
+{% when 'blog' %}
+{% assign template_type = blog %}
+{% when 'collection' %}
+{% assign template_type = collection %}
+{% when 'product' %}
+{% assign template_type = product %}
+{% else %}
+{% assign template_type = page %}
+{% endcase %}
+
+{% assign replace_title_seo = 'no' %}
+
+      {% if template contains 'collection' and current_tags and collection.metafields.custom.seo_h1_logic %}
+          {% assign replace_title_seo = 'yes' %}
+      {% endif %}
+
+<div class="{{ section.settings.outer_wrapper_classes }}">
+  <div class="{{ section.settings.wrapper_classes }}">
+    {% if section.settings.title != blank or section.settings.collection_title != blank %}
+    <h1 class="{{ section.settings.title_classes }}">
+ 
+      {%  capture collection_title %}
+        {% if  replace_title_seo == 'yes' and section.settings.collection_title_seo == true %}
+          {% render 'seo-collection-title', tags: current_tags, collection: collection, title: collection.metafields.custom.seo_h1_logic %}
+          {% else %}
+          {% if section.settings.title != blank %}{{ section.settings.title }}
+            {% elsif section.settings.collection_title %}
+              {{ template_type.title }}{% endif %}
+          {% endif %}
+        {%  endcapture %}
+      {{ collection_title | remove_first: 'US-'  | remove_first: 'CAD-' }}
+
+      
+
+    </h1>
+    {% endif %}
+	{% if section.settings.widget_code != blank %}    
+    <div class="{{ section.settings.widget_wrapper_classes }}">
+        {{ section.settings.widget_code }}
+    </div>
+    {% endif %}
+	{% if section.settings.collection_description != blank %}    
+    <div class="{{ section.settings.description_wrapper_classes }}">
+        {{ collection.description }}
+    </div>
+    {% endif %}    
+  </div>
+</div>
+
+
+{% schema %}
+  {
+    "name": "Collection Title",
+	"presets": [
+		{
+			"name": "Collection Title"
+		}
+	],
+    "settings": [
+		{
+			"type": "text",
+			"id": "outer_wrapper_classes",
+			"label": "Outer Wrapper Classes"
+		},
+		{
+			"type": "text",
+			"id": "wrapper_classes",
+			"label": "Wrapper Classes",
+			"default": "tw-max-w-7xl tw-mx-auto tw-py-10"
+		},
+		{
+			"type": "text",
+			"id": "title",
+			"label": "Title"
+		},
+		{
+			"type": "checkbox",
+			"id": "collection_title",
+			"label": "Use collection title?"
+		},     
+		{
+			"type": "checkbox",
+			"id": "collection_title_seo",
+			"label": "Use collection seo title",
+            "default": false
+		},     
+		{
+			"type": "text",
+			"id": "title_classes",
+			"label": "Title Classes"
+		},
+		{
+			"type": "html",
+			"id": "widget_code",
+			"label": "Widget Code",
+			"info": "Paste in the widget code from Trust Pilot here. You do not need to paste the script code."
+		},
+		{
+			"type": "text",
+			"id": "widget_wrapper_classes",
+			"label": "Widget Wrapper Classes"
+		},
+		{
+			"type": "checkbox",
+			"id": "collection_description",
+			"label": "Add collection description content?"
+		},
+        {
+			"type": "text",
+			"id": "description_wrapper_classes",
+			"label": "Description Wrapper Classes"
+		}
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

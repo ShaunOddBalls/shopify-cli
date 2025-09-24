@@ -1,0 +1,6 @@
+{% layout none %}
+{% comment %} --------------- SUB SELECTOR QUICKBUY --------------- {% endcomment %}
+{% capture cart_attributes %}
+<input type="hidden" name="attributes[ _Subscription Page]" value="{{ product.id }}">
+{% endcapture %}
+{% render 'ob-product-qb', cart_attributes:cart_attributes, product:product %}

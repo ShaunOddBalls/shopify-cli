@@ -1,0 +1,535 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "ob_text_video_slider_icNwqD": {
+      "type": "ob-text-video-slider",
+      "settings": {
+        "handle": "team-gb-hero-banner",
+        "section_wrapper_classes": "relative",
+        "cta-setting": true,
+        "position": "start",
+        "title": "Team GB",
+        "title-text-classes": "text-3xl md:text-6xl capitalize dbl-cta-title pb-1 marujo",
+        "title-text-postion": "left",
+        "title-text-size": 40,
+        "title-color": "#ffffff",
+        "desktop-title-text-size": 55,
+        "paragragh": "Be Extraordinary Everyday",
+        "p-classes": "",
+        "paragraph-text-postion": "left",
+        "paragragh-font-size": 23,
+        "paragraph-color": "#ffffff",
+        "desktop-paragraph-text-size": 18,
+        "btn-one-text": "Shop White",
+        "btn-one-classes": "px-8 relative p-2 rounded-md  btn-shadow-lg block border-md  text-black font-semibold text-center  transition-colors duration-200 rounded-3xl",
+        "btn-1-url": "",
+        "btn-one-color": "#ffffff",
+        "btn-one-bg-color": "#f00f83",
+        "btn-two-text": "Shop Blue",
+        "btn-two-classes": "px-8 relative p-2 rounded-md  btn-shadow-lg block border-md  text-black font-semibold text-center  transition-colors duration-200 rounded-3xl",
+        "btn-2-url": "",
+        "btn-two-color": "#012ded",
+        "btn-two-bg-color": "#B1EBFE",
+        "button-postion": "start"
+      }
+    },
+    "image_text_grid_WktByh": {
+      "type": "ob-image-text-grid",
+      "blocks": {
+        "image_and_text_pcP7HA": {
+          "type": "image-and-text",
+          "settings": {
+            "country_iso": "*",
+            "title": "",
+            "block_wrapper_classes": "col-span-12 flex justify-center  px-4 items-center text-center relative",
+            "block_title": "",
+            "title_classes": "text",
+            "description": "<p class=\"typography--title-five  px-4  mx-auto text-center text-magenta\">\n<br> Don’t just cheer for Team GB – wear it! Get ready to roar on Team GB and unleash your inner champion with OddBalls official Team GB collection. \n</p>",
+            "description_classes": "",
+            "svg": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_and_text_pcP7HA"
+      ],
+      "settings": {
+        "outer_wrapper_classes": "relative pb-6",
+        "inner_wrapper_classes": "col-span-12 flex justify-center  py-3 px-4 items-center text-center",
+        "grid_wrapper_classes": "",
+        "title": "",
+        "title_classes": "text-center text-base font-semibold uppercase text-gray-600 tracking-wider",
+        "section_bg_colour": "",
+        "block_bg_colour": "",
+        "block_bg_colour_hover": "",
+        "block_text_colour": "",
+        "block_text_colour_hover": "",
+        "block_image_classes": "",
+        "block_svg_classes": "",
+        "custom_css": ""
+      }
+    },
+    "klaviyo_forms_eGaQYL": {
+      "type": "ob-klaviyo-forms",
+      "blocks": {
+        "form_GCiDWU": {
+          "type": "form",
+          "settings": {
+            "country_iso": "*",
+            "slide_active": true,
+            "title": "Black Friday Sign Up",
+            "klaviyo_id": "SJGfXA",
+            "html_id": "",
+            "wrapper_classes": "",
+            "url_handle": "black-friday",
+            "not_url_handle": "",
+            "domains": "*",
+            "device": "all",
+            "customers": "all"
+          }
+        }
+      },
+      "block_order": [
+        "form_GCiDWU"
+      ],
+      "settings": {
+        "section_width": "full",
+        "custom_width": ""
+      }
+    },
+    "1b716c4e-2777-4dce-9fde-909f14717745": {
+      "type": "ob-mosaic-hero",
+      "blocks": {
+        "338cb97d-a620-4e1f-8352-1286cfc2d41b": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/MENS_BOXERS_b1a5822a-9f9e-4558-b58e-e4d9326841c9.png",
+            "img-overlay": "",
+            "img-class-list": "cover",
+            "button-text": "",
+            "button_link": "shopify://products/team-gb-white-mens-boxer-shorts",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "collection_block_HEkifX": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/womens_bralette_52790684-60a5-475a-a51b-b0a0610017fe.png",
+            "img-overlay": "",
+            "img-class-list": "cover",
+            "button-text": "",
+            "button_link": "shopify://products/team-gb-navy-ladies-bralette",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "collection_block_4Lt3CY": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/womens_boxers_79e21923-580e-4923-bb66-5cabbc11753e.png",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "",
+            "button_link": "shopify://products/team-gb-navy-ladies-boxers",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "collection_block_DFttRV": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/MENS_Briefs_1df91a80-1f8e-403b-96dd-01477daef9f6.png",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "",
+            "button_link": "shopify://products/team-gb-white-mens-briefs",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        }
+      },
+      "block_order": [
+        "338cb97d-a620-4e1f-8352-1286cfc2d41b",
+        "collection_block_HEkifX",
+        "collection_block_4Lt3CY",
+        "collection_block_DFttRV"
+      ],
+      "custom_css": [
+        ".cover {object-fit: cover; width: 100%; height: 100%;}",
+        ".btn-max-width {max-width: 500px;}",
+        ".z-index-1 {z-index: 1;}",
+        ".z-index-2 {z-index: 2;}",
+        ".gradient {background: linear-gradient( 0deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0) 100% );}",
+        ".grid-item {min-width: 45vw;}",
+        "@media (min-width: 1080px) {.grid-item {min-width: 24vw; }}",
+        ".gradient {display: none;}"
+      ],
+      "settings": {
+        "mosaic-container": "grid grid-cols-2 md:grid-cols-4 justify-items-center   overflow-y-hidden  md:gap-2 gap-2 pb-12",
+        "all-block-outer-class": "relative inline-block w-  lg:w-60 lg:h-60 xl:w-full xl:h-full md:w-full md:h-full",
+        "all-image-class": "cover",
+        "img-overlay": "h-1/2 w-full gradient absolute bottom-0 left-0 z-index-1",
+        "all-button-class": "hidden"
+      }
+    },
+    "mosaic_hero_PGfkhF": {
+      "type": "ob-mosaic-hero",
+      "blocks": {
+        "collection_block_MLNtEf": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative row-span-6 col-span-2 md:row-span-2",
+            "image": "shopify://shop_images/KILTY.png",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "",
+            "button_link": "",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "collection_block_NYy47D": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "",
+            "image": "shopify://shop_images/milly_tanner.png",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "",
+            "button_link": "",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "collection_block_cmQW4z": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "",
+            "image": "shopify://shop_images/rhys.png",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "",
+            "button_link": "",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "collection_block_RDqMQw": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "",
+            "image": "shopify://shop_images/dave_ellis.png",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "",
+            "button_link": "",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        },
+        "collection_block_niyVWy": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "",
+            "image": "shopify://shop_images/sophie.png",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "",
+            "button_link": "",
+            "button-class-list": "",
+            "background-color": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_block_MLNtEf",
+        "collection_block_NYy47D",
+        "collection_block_cmQW4z",
+        "collection_block_RDqMQw",
+        "collection_block_niyVWy"
+      ],
+      "custom_css": [
+        ".cover {object-fit: cover; width: 100%; height: 100%;}",
+        ".btn-max-width {max-width: 500px;}",
+        ".z-index-1 {z-index: 1;}",
+        ".z-index-2 {z-index: 2;}",
+        ".gradient {background: linear-gradient( 0deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0) 100% );}",
+        ".grid-item {position: relative;}",
+        ".gradient {display: none;}"
+      ],
+      "settings": {
+        "mosaic-container": "grid md:grid-cols-4 md:grid-rows-2 gap-1  grid-cols-2",
+        "all-block-outer-class": "",
+        "all-image-class": "",
+        "img-overlay": "h-1/2 w-full gradient absolute bottom-0 left-0 z-index-1",
+        "all-button-class": ""
+      }
+    },
+    "ob_collection_slider_old_BRTYAY": {
+      "type": "ob-collection-slider-old",
+      "settings": {
+        "collection": "team-gb",
+        "product_list": [],
+        "title": "Shop our Team GB Best Sellers",
+        "wrapper_class": "py-12",
+        "text_class": "typography--title-five uppercase mb-8 mx-auto text-center"
+      }
+    },
+    "ob_text_video_slider_WVyBBR": {
+      "type": "ob-text-video-slider",
+      "settings": {
+        "handle": "team-gb-mid-page-banner",
+        "section_wrapper_classes": "relative",
+        "cta-setting": true,
+        "position": "start",
+        "title": "Shop the Look",
+        "title-text-classes": "text-3xl md:text-6xl capitalize dbl-cta-title pb-1 marujo",
+        "title-text-postion": "left",
+        "title-text-size": 40,
+        "title-color": "#ffffff",
+        "desktop-title-text-size": 55,
+        "paragragh": "",
+        "p-classes": "",
+        "paragraph-text-postion": "left",
+        "paragragh-font-size": 23,
+        "paragraph-color": "#ffffff",
+        "desktop-paragraph-text-size": 18,
+        "btn-one-text": "Shop Men",
+        "btn-one-classes": "px-8 relative p-2 rounded-md  btn-shadow-lg block border-md  text-black font-semibold text-center  transition-colors duration-200 rounded-3xl",
+        "btn-1-url": "",
+        "btn-one-color": "#012ded",
+        "btn-one-bg-color": "#B1EBFE",
+        "btn-two-text": "Shop Women",
+        "btn-two-classes": "px-8 relative p-2 rounded-md  btn-shadow-lg block border-md  text-black font-semibold text-center  transition-colors duration-200 rounded-3xl",
+        "btn-2-url": "",
+        "btn-two-color": "#ffffff",
+        "btn-two-bg-color": "#f00f83",
+        "button-postion": "start"
+      }
+    },
+    "tabs_and_blocks_EqDnP4": {
+      "type": "tabs-and-blocks",
+      "blocks": {
+        "content_faq_Y3zKQX": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "my-4 col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-white overflow-hidden bg-white",
+            "id": "",
+            "title": "What is Team GB",
+            "title_text": "What is Team GB?",
+            "block_title_classes": "w-full  bg-white px-8 pt-5 pb-3 text-l md:text-2xl font-medium leading-7 md:leading-5 text-left text-cyan montserrat-black font-bold",
+            "description": "<br>The Great Britain Olympic Team \n\n<br>\nThe sportsmen and women who are selected for the Olympic Games become members of the Great Britain Olympic team - Team GB.",
+            "block_description_classes": "px-8 pb-5 text-l leading-6 text-cyan0 montserrat bg-white"
+          }
+        },
+        "content_faq_6PK76U": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "my-4 col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-white overflow-hidden bg-white",
+            "id": "",
+            "title": "How is Team GB selected",
+            "title_text": "How is Team GB selected?",
+            "block_title_classes": "w-full  bg-white px-8 pt-5 pb-3 text-l md:text-2xl font-medium leading-7 md:leading-5 text-left text-cyan montserrat-black font-bold",
+            "description": "<br>Team GB, representing the United Kingdom at the Olympic Games, is selected through a process managed by the British Olympic Association (BOA).",
+            "block_description_classes": "px-8 pb-5 text-l leading-6 text-lunar-green-700 montserrat bg-white"
+          }
+        },
+        "content_faq_YQXyzj": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "my-4 col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-white overflow-hidden bg-white",
+            "id": "",
+            "title": "How is Team GB funded",
+            "title_text": "How is Team GB funded?",
+            "block_title_classes": "w-full  bg-white px-8 pt-5 pb-3 text-l md:text-2xl font-medium leading-7 md:leading-5 text-left text-cyan montserrat-black font-bold",
+            "description": "<br>The British Olympic Association (BOA) is independent and privately funded, therefore it has the responsibility for raising funds for Team GB.",
+            "block_description_classes": "px-8 pb-5 text-l leading-6 text-lunar-green-700 montserrat bg-white"
+          }
+        },
+        "content_faq_PDL8AH": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "my-4 col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-white overflow-hidden bg-white",
+            "id": "",
+            "title": "How many athletes are in Team GB",
+            "title_text": "How many athletes are in Team GB?",
+            "block_title_classes": "w-full  bg-white px-8 pt-5 pb-3 text-l md:text-2xl font-medium leading-7 md:leading-5 text-left text-cyan montserrat-black font-bold",
+            "description": "<br>The number of athletes in Team GB varies for each Olympic Games depending on the qualification of athletes and teams in various sports. There are 327 athletes competing in Team GB in Paris, with 162 female competitors and 155 male.",
+            "block_description_classes": "px-8 pb-5 text-l leading-6 text-lunar-green-700 montserrat bg-white"
+          }
+        },
+        "content_faq_qm6biD": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "my-4 col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-white overflow-hidden bg-white",
+            "id": "",
+            "title": "How many Olympic sports are there",
+            "title_text": "How many Olympic sports are there?",
+            "block_title_classes": "w-full  bg-white px-8 pt-5 pb-3 text-l md:text-2xl font-medium leading-7 md:leading-5 text-left text-cyan montserrat-black font-bold",
+            "description": "<br>The total number of Olympic Sports varies from game to game. A total of 40 sports are in the Olympics, including 32 in the upcoming Paris 2024 Summer Olympics and 8 in the Winter Olympics in 2026.",
+            "block_description_classes": "px-8 pb-5 text-l leading-6 text-lunar-green-700 montserrat bg-white"
+          }
+        },
+        "content_faq_9qBeVh": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "my-4 col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-white overflow-hidden bg-white",
+            "id": "",
+            "title": "How many countries are there in the Olympics",
+            "title_text": "How many countries are there in the Olympics?",
+            "block_title_classes": "w-full  bg-white px-8 pt-5 pb-3 text-l md:text-2xl font-medium leading-7 md:leading-5 text-left text-cyan montserrat-black font-bold",
+            "description": "<br>The 2024 Paris Olympics will have around 206 nations, similar to the Tokyo Olympics.",
+            "block_description_classes": "px-8 pb-5 text-l leading-6 text-lunar-green-700 montserrat bg-white"
+          }
+        },
+        "content_faq_pCTzBG": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "my-4 col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-white overflow-hidden bg-white",
+            "id": "",
+            "title": "When is the 2024 Olympics",
+            "title_text": "When and where is the 2024 Olympics?",
+            "block_title_classes": "w-full  bg-white px-8 pt-5 pb-3 text-l md:text-2xl font-medium leading-7 md:leading-5 text-left text-cyan montserrat-black font-bold",
+            "description": "<br>The 2024 Paris Olympics takes place from 28th July to 8th August in Paris, France. The opening ceremony takes place on 26th July (Paris time), with the closing ceremony two weeks later on 11th August in Paris.",
+            "block_description_classes": "px-8 pb-5 text-l leading-6 text-lunar-green-700 montserrat bg-white"
+          }
+        },
+        "content_faq_yVqNNV": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "my-4 col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-white overflow-hidden bg-white",
+            "id": "",
+            "title": "Where is the Team GB house",
+            "title_text": "Where is the Team GB house?",
+            "block_title_classes": "w-full  bg-white px-8 pt-5 pb-3 text-l md:text-2xl font-medium leading-7 md:leading-5 text-left text-cyan montserrat-black font-bold",
+            "description": "<br>The Team GB house is situated in the Pavillion D'Armenonville, a few minutes away from centre of Paris.",
+            "block_description_classes": "px-8 pb-5 text-l leading-6 text-lunar-green-700 montserrat bg-white"
+          }
+        },
+        "content_faq_CxYaDL": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "my-4 col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-white overflow-hidden bg-white",
+            "id": "",
+            "title": "Where will the 2024, 2028 and 2032 Olympics be held",
+            "title_text": "Where will the 2024, 2028 and 2032 Olympics be held?",
+            "block_title_classes": "w-full  bg-white px-8 pt-5 pb-3 text-l md:text-2xl font-medium leading-7 md:leading-5 text-left text-cyan montserrat-black font-bold",
+            "description": "<br>The four cities chosen to host the upcoming Summer Olympic Games are: \n\n<br>\n2024 - Paris \n\n<br>\n2028 - Los Angeles \n\n<br>\n2032 - Brisbane",
+            "block_description_classes": "px-8 pb-5 text-l leading-6 text-lunar-green-700 montserrat bg-white"
+          }
+        }
+      },
+      "block_order": [
+        "content_faq_Y3zKQX",
+        "content_faq_6PK76U",
+        "content_faq_YQXyzj",
+        "content_faq_PDL8AH",
+        "content_faq_qm6biD",
+        "content_faq_9qBeVh",
+        "content_faq_pCTzBG",
+        "content_faq_yVqNNV",
+        "content_faq_CxYaDL"
+      ],
+      "settings": {
+        "outer_wrapper_attr": "data-attribute for linking section content",
+        "outer_wrapper_classes": "2xl:mx-auto py-12 lg:px-20 md:px-6 px-4 bg-summer-pink",
+        "inner_wrapper_classes": "grid grid-cols-12 gap-6",
+        "header_wrapper_classes": "col-span-12 flex flex-col justify-center items-center text-center space-y-4 text-white",
+        "all_tabs_wrapper_classes": "",
+        "content_wrapper_classes": "col-span-12 mt-16 grid grid-cols-12 gap-y-8",
+        "option_menu_selected": false,
+        "title": "TEAM GB FAQs",
+        "title_classes": "text-3xl lg:text-4xl leading-9 md:leading-7 lg:leading-9 text-lunar-green-700  montserrat-black",
+        "description": "",
+        "description_classes": "text-base leading-6 text-centertext-lunar-green-700  w-full md:w-10/12"
+      }
+    },
+    "image_text_grid_q7yWcA": {
+      "type": "ob-image-text-grid",
+      "blocks": {
+        "image_and_text_VyQWm4": {
+          "type": "image-and-text",
+          "settings": {
+            "country_iso": "*",
+            "title": "",
+            "block_wrapper_classes": "col-span-12 flex justify-center  px-4 items-center text-center relative",
+            "block_title": "",
+            "title_classes": "text",
+            "description": "<h2 class=\"text-center montserrat-black text-2xl lg:text-4xl text-cyan \">\nGear up for Paris 2024 and show your true colours with our official Team GB Underwear\n</h2><p class=\"text-md lg:text-lg\">\n\n<br>\n</p><p class=\"text-md lg:text-lg montserrat-black \">\n</p>\n\n<p class=\"text-md lg:text-lg montserrat \">\n\nBrowse our men’s underwear collection featuring a collection of <a href=\"https://www.myoddballs.com/collections/him-individuals#patterned\" class=\"link\">men’s boxer shorts</a> and <a href=\"https://www.myoddballs.com/collections/his-briefs#patterned\" class=\"link\">briefs</a> in classic navy and white options that scream \"CHAMPION!\". Alongside our <a href=\"https://www.myoddballs.com/collections/ladies-boxer-shorts#patterned\" class=\"link\">women's boxer shorts</a>, <a href=\"https://www.myoddballs.com/collections/her-individuals#patterned\" class=\"link\"> briefs</a>, <a href=\"https://www.myoddballs.com/collections/ladies-thongs#patterned\" class=\"link\">thongs</a> and matching <a href=\"https://www.myoddballs.com/collections/bralette#patterned\" class=\"link\">bralettes</a> to have you geared up like a gold medallist. Or why not shop our Team GB bundles to get the best in style and savings. Our durable designs are sure to keep up with your active lifestyle, all whilst making sure you both feel and look great. \n\n</p>\n\n<br>\n<p class=\"text-md lg:text-lg montserrat \">\n\nWith a variety of styles and designs inspired by your favourite sports, our range features classic navy and white options that ensure you stay comfortable and stylish all day long. Whether you’re supporting from home or training yourself, our Team GB collection offers the perfect underwear for every occasion. Support the future of British sports with OddBalls X Team GB, because champions are made from the inside out!\n</p>\n\n<br>\n<p class=\"text-md lg:text-lg montserrat-black\">\nShop now!</p>",
+            "description_classes": "",
+            "svg": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_and_text_VyQWm4"
+      ],
+      "settings": {
+        "outer_wrapper_classes": "relative pb-6",
+        "inner_wrapper_classes": "col-span-12 flex justify-center  py-3 px-4 items-center text-center",
+        "grid_wrapper_classes": "",
+        "title": "",
+        "title_classes": "text-center text-base font-semibold uppercase text-gray-600 tracking-wider",
+        "section_bg_colour": "",
+        "block_bg_colour": "",
+        "block_bg_colour_hover": "",
+        "block_text_colour": "",
+        "block_text_colour_hover": "",
+        "block_image_classes": "",
+        "block_svg_classes": "",
+        "custom_css": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "ob_text_video_slider_icNwqD",
+    "image_text_grid_WktByh",
+    "klaviyo_forms_eGaQYL",
+    "1b716c4e-2777-4dce-9fde-909f14717745",
+    "mosaic_hero_PGfkhF",
+    "ob_collection_slider_old_BRTYAY",
+    "ob_text_video_slider_WVyBBR",
+    "tabs_and_blocks_EqDnP4",
+    "image_text_grid_q7yWcA"
+  ]
+}

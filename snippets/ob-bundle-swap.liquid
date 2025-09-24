@@ -1,0 +1,294 @@
+<style>
+  .bundle-discount-label{
+    min-width:85px;
+  }
+  #pack-size-dropdown{
+    z-index: 10000;
+  }
+
+</style>
+<script type="text/javascript" src="{{'ob-print-swap.js'| asset_url}}" defer></script>
+
+{% if product.tags contains 'feature-bundle-selector' %}
+  {% assign prod_type = product.type %}
+  {% assign bundle_pack = "" %}
+  {% assign prod_hand = product.handle  %}
+  {% for tag in product.tags %}
+    {% if tag contains "bundle-selector-" %}
+      {% assign bundle_pack = tag %}
+    {% endif %}
+  {% endfor %}
+<div class="js-print-swap-section border-color mt-6 border-solid border rounded-md p-4 pt-4 bg-gray-50" style="pointer-events:auto">
+  <div id="perm-bundle-name" class="hidden" style="display:none;">{{ product.title | split: " - " | first}}</div>
+  <div id="perm-bundle-img" class="hidden" style="display:none;">{{ product.featured_image | image_url}}</div>
+
+
+
+{% assign no_of_bundles_float = 8.0 %}
+{% assign no_of_bundles = 8 %}
+{% assign total_prints = 0 %}
+
+  {% assign two_pack  = "" %}
+  {% assign three_pack  = "" %}
+  {% assign four_pack  = "" %}
+  {% assign five_pack  = "" %}
+  {% assign six_pack  = "" %}
+  {% assign seven_pack  = "" %}
+  {% assign eight_pack  = "" %}
+  {% assign nine_pack  = "" %}
+{% for object in shop.metaobjects.bundle_list.values %}
+    {%- paginate object.product.value by 500 -%}
+  {% for product in object.product.value %}
+    
+    {% if product.type == prod_type %}
+      {% for tag in product.tags %}
+        {% if tag contains "bundle-selector-" %}
+          {% if tag == "bundle-selector-2-pack" %}
+            {% capture two_pack %}
+              {{ two_pack }}
+               {% assign total_prints = total_prints | plus: 1 %}
+              
+                <a class="   js-bundle-swap js-print-swap  h-10 min-w-10 w-10 pr-2 {% if product.handle == prod_hand %}active order-first{% endif %}" style="min-width:7rem; min-height:7rem;">
+                <div class="border border-solid border-gray-300 bg-white cursor-pointer rounded-md relative">
+                    <div style="width:100%; padding-top:100%;"></div>
+                  <div class="absolute top-0 left-0">
+                    <img class="rounded-md" src="{{ product.featured_image | image_url}}" />
+                  </div>
+                  <span aria-hidden="true" class="bundle-oos-marker pointer-events-none absolute inset-px rounded-md border-2 border-gray-200"> <svg class="absolute inset-0 h-full w-full stroke-2 text-gray-200"  viewBox="0 0 100 100" preserveAspectRatio="none" stroke="currentColor"> <line x1="0" y1="100" x2="100" y2="0" vector-effect="non-scaling-stroke"></line> </svg> </span>
+                </div>
+              <div class="hidden js-prod-json">{{ product | json }}</div>
+              </a>
+
+                    {% endcapture %}
+          {% elsif tag == "bundle-selector-3-pack" %}
+              {% capture three_pack %}
+              {{ three_pack }}
+                 {% assign total_prints = total_prints | plus: 1 %}
+                       <a class="   js-bundle-swap js-print-swap  h-10 min-w-10 w-10 pr-2 {% if product.handle == prod_hand %}active order-first{% endif %}" style="min-width:7rem; min-height:7rem;">
+                <div class="border border-solid border-gray-300 bg-white cursor-pointer rounded-md relative">
+                    <div style="width:100%; padding-top:100%;"></div>
+                  <div class="absolute top-0 left-0">
+                    <img class="rounded-md" src="{{ product.featured_image | image_url}}" />
+                  </div>
+                                    <span aria-hidden="true" class="bundle-oos-marker pointer-events-none absolute inset-px rounded-md border-2 border-gray-200"> <svg class="absolute inset-0 h-full w-full stroke-2 text-gray-200"  viewBox="0 0 100 100" preserveAspectRatio="none" stroke="currentColor"> <line x1="0" y1="100" x2="100" y2="0" vector-effect="non-scaling-stroke"></line> </svg> </span>
+
+                </div>
+              <div class="hidden js-prod-json">{{ product | json }}</div>
+              </a>
+
+                    {% endcapture %}
+          {% elsif tag == "bundle-selector-4-pack" %}
+                {% capture four_pack %}
+              {{ four_pack }}
+                   {% assign total_prints = total_prints | plus: 1 %}
+                     <a class="   js-bundle-swap js-print-swap  h-10 min-w-10 w-10 pr-2 {% if product.handle == prod_hand %}active order-first{% endif %}" style="min-width:7rem; min-height:7rem;">
+                <div class="border border-solid border-gray-300 bg-white cursor-pointer rounded-md relative">
+                    <div style="width:100%; padding-top:100%;"></div>
+                  <div class="absolute top-0 left-0">
+                    <img class="rounded-md" src="{{ product.featured_image | image_url}}" />
+                  </div>
+                                    <span aria-hidden="true" class="bundle-oos-marker pointer-events-none absolute inset-px rounded-md border-2 border-gray-200"> <svg class="absolute inset-0 h-full w-full stroke-2 text-gray-200"  viewBox="0 0 100 100" preserveAspectRatio="none" stroke="currentColor"> <line x1="0" y1="100" x2="100" y2="0" vector-effect="non-scaling-stroke"></line> </svg> </span>
+
+                </div>
+              <div class="hidden js-prod-json">{{ product | json }}</div>
+              </a>
+
+                    {% endcapture %}
+          {% elsif tag == "bundle-selector-5-pack" %}
+       
+                  {% capture five_pack %}
+              {{ five_pack }}
+                     {% assign total_prints = total_prints | plus: 1 %}
+                     <a class="   js-bundle-swap js-print-swap  h-10 min-w-10 w-10 pr-2 {% if product.handle == prod_hand %}active order-first{% endif %}" style="min-width:7rem; min-height:7rem;">
+                <div class="border border-solid border-gray-300 bg-white cursor-pointer rounded-md relative">
+                    <div style="width:100%; padding-top:100%;"></div>
+                  <div class="absolute top-0 left-0">
+                    <img class="rounded-md" src="{{ product.featured_image | image_url}}" />
+                  </div>
+                                    <span aria-hidden="true" class="bundle-oos-marker pointer-events-none absolute inset-px rounded-md border-2 border-gray-200"> <svg class="absolute inset-0 h-full w-full stroke-2 text-gray-200"  viewBox="0 0 100 100" preserveAspectRatio="none" stroke="currentColor"> <line x1="0" y1="100" x2="100" y2="0" vector-effect="non-scaling-stroke"></line> </svg> </span>
+
+                </div>
+              <div class="hidden js-prod-json">{{ product | json }}</div>
+              </a>
+
+                    {% endcapture %}
+          {% elsif tag == "bundle-selector-6-pack" %}
+            
+                    {% capture six_pack %}
+              {{ six_pack }}
+                       {% assign total_prints = total_prints | plus: 1 %}
+                      <a class="   js-bundle-swap js-print-swap  h-10 min-w-10 w-10 pr-2 {% if product.handle == prod_hand %}active order-first{% endif %}" style="min-width:7rem; min-height:7rem;">
+                <div class="border border-solid border-gray-300 bg-white cursor-pointer rounded-md relative">
+                    <div style="width:100%; padding-top:100%;"></div>
+                  <div class="absolute top-0 left-0">
+                    <img class="rounded-md" src="{{ product.featured_image | image_url}}" />
+                  </div>
+                                    <span aria-hidden="true" class="bundle-oos-marker pointer-events-none absolute inset-px rounded-md border-2 border-gray-200"> <svg class="absolute inset-0 h-full w-full stroke-2 text-gray-200"  viewBox="0 0 100 100" preserveAspectRatio="none" stroke="currentColor"> <line x1="0" y1="100" x2="100" y2="0" vector-effect="non-scaling-stroke"></line> </svg> </span>
+
+                </div>
+              <div class="hidden js-prod-json">{{ product | json }}</div>
+              </a>
+
+                    {% endcapture %}
+            {% elsif tag == "bundle-selector-7-pack" %}
+            
+                    {% capture seven_pack %}
+              {{ seven_pack }}
+                       {% assign total_prints = total_prints | plus: 1 %}
+                     <a class="   js-bundle-swap js-print-swap  h-10 min-w-10 w-10 pr-2 {% if product.handle == prod_hand %}active order-first{% endif %}" style="min-width:7rem; min-height:7rem;">
+                <div class="border border-solid border-gray-300 bg-white cursor-pointer rounded-md relative">
+                    <div style="width:100%; padding-top:100%;"></div>
+                  <div class="absolute top-0 left-0">
+                    <img class="rounded-md" src="{{ product.featured_image | image_url}}" />
+                  </div>
+                                    <span aria-hidden="true" class="bundle-oos-marker pointer-events-none absolute inset-px rounded-md border-2 border-gray-200"> <svg class="absolute inset-0 h-full w-full stroke-2 text-gray-200"  viewBox="0 0 100 100" preserveAspectRatio="none" stroke="currentColor"> <line x1="0" y1="100" x2="100" y2="0" vector-effect="non-scaling-stroke"></line> </svg> </span>
+
+                </div>
+              <div class="hidden js-prod-json">{{ product | json }}</div>
+              </a>
+
+                    {% endcapture %}
+            {% elsif tag == "bundle-selector-8-pack" %}
+            
+                    {% capture eight_pack %}
+              {{ eight_pack }}
+                       {% assign total_prints = total_prints | plus: 1 %}
+                    <a class="   js-bundle-swap js-print-swap  h-10 min-w-10 w-10 pr-2 {% if product.handle == prod_hand %}active order-first{% endif %}" style="min-width:7rem; min-height:7rem;">
+                <div class="border border-solid border-gray-300 bg-white cursor-pointer rounded-md relative">
+                    <div style="width:100%; padding-top:100%;"></div>
+                  <div class="absolute top-0 left-0">
+                    <img class="rounded-md" src="{{ product.featured_image | image_url}}" />
+                  </div>
+                                    <span aria-hidden="true" class="bundle-oos-marker pointer-events-none absolute inset-px rounded-md border-2 border-gray-200"> <svg class="absolute inset-0 h-full w-full stroke-2 text-gray-200"  viewBox="0 0 100 100" preserveAspectRatio="none" stroke="currentColor"> <line x1="0" y1="100" x2="100" y2="0" vector-effect="non-scaling-stroke"></line> </svg> </span>
+
+                </div>
+              <div class="hidden js-prod-json">{{ product | json }}</div>
+              </a>
+                    {% endcapture %}
+            {% elsif tag == "bundle-selector-9-pack" %}
+            
+                    {% capture nine_pack %}
+              {{ nine_pack }}
+                       {% assign total_prints = total_prints | plus: 1 %}
+                     <a class="   js-bundle-swap js-print-swap  h-10 min-w-10 w-10 pr-2 {% if product.handle == prod_hand %}active order-first{% endif %}" style="min-width:7rem; min-height:7rem;">
+                <div class="border border-solid border-gray-300 bg-white cursor-pointer rounded-md relative">
+                    <div style="width:100%; padding-top:100%;"></div>
+                  <div class="absolute top-0 left-0">
+                    <img class="rounded-md" src="{{ product.featured_image | image_url}}" />
+                  </div>
+                                    <span aria-hidden="true" class="bundle-oos-marker pointer-events-none absolute inset-px rounded-md border-2 border-gray-200"> <svg class="absolute inset-0 h-full w-full stroke-2 text-gray-200"  viewBox="0 0 100 100" preserveAspectRatio="none" stroke="currentColor"> <line x1="0" y1="100" x2="100" y2="0" vector-effect="non-scaling-stroke"></line> </svg> </span>
+
+                </div>
+              <div class="hidden js-prod-json">{{ product | json }}</div>
+              </a>
+
+                    {% endcapture %}
+          {% endif %}
+           
+        {% endif %}
+      {% endfor %}
+
+    {% endif %}
+  {% endfor %}
+      {% endpaginate %}
+{% endfor %}
+  {% if two_pack == "" %} {% assign no_of_bundles = no_of_bundles | minus: 1 %}{% assign no_of_bundles_float = no_of_bundles_float | minus: 1 %}{% endif %}
+  {% if three_pack == "" %} {% assign no_of_bundles = no_of_bundles | minus: 1 %}{% assign no_of_bundles_float = no_of_bundles_float | minus: 1 %}{% endif %}
+  {% if four_pack == "" %} {% assign no_of_bundles = no_of_bundles | minus: 1 %}{% assign no_of_bundles_float = no_of_bundles_float | minus: 1 %}{% endif %}
+  {% if five_pack == "" %} {% assign no_of_bundles = no_of_bundles | minus: 1 %}{% assign no_of_bundles_float = no_of_bundles_float | minus: 1 %}{% endif %}
+  {% if six_pack == "" %} {% assign no_of_bundles = no_of_bundles | minus: 1 %}{% assign no_of_bundles_float = no_of_bundles_float | minus: 1 %}{% endif %}
+  {% if seven_pack == "" %} {% assign no_of_bundles = no_of_bundles | minus: 1 %}{% assign no_of_bundles_float = no_of_bundles_float | minus: 1 %}{% endif %}
+  {% if eight_pack == "" %} {% assign no_of_bundles = no_of_bundles | minus: 1 %}{% assign no_of_bundles_float = no_of_bundles_float | minus: 1 %}{% endif %}
+  {% if nine_pack == "" %} {% assign no_of_bundles = no_of_bundles | minus: 1 %}{% assign no_of_bundles_float = no_of_bundles_float | minus: 1 %}{% endif %}
+  {% assign width = 100 | divided_by: no_of_bundles %}
+  <input id="no-of-bundles-input" type="hidden" value="{{ no_of_bundles }}" />
+
+  <div class="">
+  <div id="bundle-dropdown-toggle" class="relative text-magenta-500  items-center">
+    <div class="flex w-full rounded-md border-0 py-2 px-4 text-gray-900 bg-white  shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+        <span id="bundle-pack-size-number">
+          {% if bundle_pack contains 2 %}2 {{ "ob_product_page.pack" | t }}{% endif %}  
+          {% if bundle_pack contains 3 %}3 {{ "ob_product_page.pack" | t }}{% endif %}  
+          {% if bundle_pack contains 4 %}4 {{ "ob_product_page.pack" | t }}{% endif %}  
+          {% if bundle_pack contains 5 %}5 {{ "ob_product_page.pack" | t }}{% endif %}  
+          {% if bundle_pack contains 6 %}6 {{ "ob_product_page.pack" | t }}{% endif %}  
+          {% if bundle_pack contains 7 %}7 {{ "ob_product_page.pack" | t }}{% endif %}  
+          {% if bundle_pack contains 8 %}8 {{ "ob_product_page.pack" | t }}{% endif %}  
+          {% if bundle_pack contains 9 %}9 {{ "ob_product_page.pack" | t }}{% endif %}  
+        
+        
+        
+        </span>
+      <span id="bundle-swap-toggle-label" class="right-1 text-xs ml-4">
+        <div class="text-center bundle-discount-label rounded-md bg-magenta-500 text-white p-1">Save <span class="uppercase font-bold bundle-swap-toggle-label-saving">{% if bundle_pack contains 2 %}2 Pack{% endif %}  
+          {% comment %}
+          {% if bundle_pack contains 3 %}£6.00{% endif %}  
+          {% if bundle_pack contains 4 %}£8.00{% endif %}  
+          {% if bundle_pack contains 5 %}£15.00{% endif %}  
+          {% if bundle_pack contains 6 %}£18.00{% endif %}  
+          {% if bundle_pack contains 7 %}£21.00{% endif %}  
+          {% if bundle_pack contains 8 %}£24.00{% endif %}  
+          {% if bundle_pack contains 9 %}£32.40{% endif %} 
+        {% endcomment %}
+        {% if bundle_pack contains 3 %}25%{% endif %}  
+          {% if bundle_pack contains 4 %}25%{% endif %}  
+          {% if bundle_pack contains 5 %}25%{% endif %}  
+          {% if bundle_pack contains 6 %}30%{% endif %}  
+          {% if bundle_pack contains 7 %}30%{% endif %}  
+          {% if bundle_pack contains 8 %}£24.00{% endif %}  
+          {% if bundle_pack contains 9 %}£32.40{% endif %} 
+        </span></div>
+      </span>
+        <svg class="absolute right-3" style="top:50%; transform:translateY(-50%)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 9l6 6 6-6" />
+        </svg>
+    </div>
+    <div id="pack-size-dropdown" class="absolute border-gray-200 border-solid border shadow-xl rounded-md  bg-white w-full " style=" display:none;">
+            {% assign position = 0 %}
+      {% assign found = "false" %} 
+      
+      {% unless two_pack == "" %} {% assign position = position | plus: 1 %} <div data-bundle_size = "2" class="px-3 js-bundle-size leading-none capitalise relative text-gray-500 rounded-md cursor-pointer  items-center  text-sm py-3 border-b  border-gray-200 border-solid flex{% if bundle_pack contains 2 %} active {% assign found = "true" %} {% endif %}">2 Pack <div class="ml-4 bundle-discount-loc text-xs px-1"></div></div>{% endunless %}
+      {% unless three_pack == "" %}{% unless found =="true" %}{% assign position = position | plus: 1 %} {% endunless %} <div data-bundle_size = "3" class="px-3 js-bundle-size leading-none capitalise relative text-gray-500 rounded-md cursor-pointer  items-center  text-sm py-3 border-b  border-gray-200 border-solid flex {% if bundle_pack contains 3 %} active {% assign found = "true" %} {% endif %}">3 Pack <div class="ml-4 bundle-discount-loc text-xs px-1"></div></div>{% endunless %}
+      {% unless four_pack == "" %}{% unless found =="true" %}{% assign position = position | plus: 1 %} {% endunless %} <div data-bundle_size = "4" class="px-3 js-bundle-size leading-none capitalise relative text-gray-500 rounded-md cursor-pointer  items-center  text-sm py-3 border-b  border-gray-200 border-solid flex{% if bundle_pack contains 4 %} active {% assign found = "true" %} {% endif %}">4 Pack<div class=" ml-4 bundle-discount-loc text-xs px-1"></div></div>{% endunless %}
+      {% unless five_pack == "" %}{% unless found =="true" %}{% assign position = position | plus: 1 %} {% endunless %} <div data-bundle_size = "5" class="px-3 js-bundle-size leading-none capitalise relative text-gray-500 rounded-md cursor-pointer  items-center  text-sm py-3 border-b  border-gray-200 border-solid flex{% if bundle_pack contains 5 %} active {% assign found = "true" %} {% endif %}">5 Pack<div class=" ml-4 bundle-discount-loc text-xs px-1"></div></div>{% endunless %}
+      {% unless six_pack == "" %}{% unless found =="true" %}{% assign position = position | plus: 1 %} {% endunless %} <div data-bundle_size = "6" class="px-3 js-bundle-size leading-none capitalise relative text-gray-500 rounded-md cursor-pointer  items-center  text-sm py-3 border-b  border-gray-200 border-solid flex{% if bundle_pack contains 6 %} active {% assign found = "true" %}{% endif %}">6 Pack<div class=" ml-4 bundle-discount-loc text-xs px-1"></div></div>{% endunless %}
+      {% unless seven_pack == "" %}{% unless found =="true" %}{% assign position = position | plus: 1 %} {% endunless %} <div data-bundle_size = "7" class="px-3 js-bundle-size leading-none capitalise relative text-gray-500 rounded-md cursor-pointer  items-center  text-sm py-3 border-b  border-gray-200 border-solid flex{% if bundle_pack contains 7 %} active {% assign found = "true" %}{% endif %}">7 Pack<div class=" ml-4 bundle-discount-loc text-xs px-1"></div></div>{% endunless %}
+      {% unless eight_pack == "" %}{% unless found =="true" %}{% assign position = position | plus: 1 %} {% endunless %} <div data-bundle_size = "8" class="px-3 js-bundle-size leading-none capitalise relative text-gray-500 rounded-md cursor-pointer  items-center  text-sm py-3 border-b  border-gray-200 border-solid flex{% if bundle_pack contains 8 %} active {% assign found = "true" %}{% endif %}">8 Pack<div class=" ml-4 bundle-discount-loc text-xs px-1"></div></div>{% endunless %}
+      {% unless nine_pack == "" %}{% unless found =="true" %}{% assign position = position | plus: 1 %} {% endunless %} <div data-bundle_size = "9" class="px-3 js-bundle-size leading-none capitalise relative text-gray-500 rounded-md cursor-pointer  items-center  text-sm py-3 border-gray-200 border-solid flex {% if bundle_pack contains 9 %} active {% assign found = "true" %}{% endif %}">9 Pack<div class="ml-4 bundle-discount-loc text-xs px-1"></div></div>{% endunless %}
+  
+    
+    </div>
+    
+  </div> 
+
+</div>
+  
+
+  
+  <nav  style="{% unless bundle_pack contains 2 %}display:none;{% endunless %} " data-bundle_size="2" class=" w-full mt-4    flex  js-bundle-swap-section overflow-x-auto relative " >{{ two_pack }}</nav>
+  <nav style="{% unless bundle_pack contains 3 %}display:none;{% endunless %} " data-bundle_size="3" class=" w-full mt-4    flex  js-bundle-swap-section overflow-x-auto relative " >{{ three_pack }}</nav>
+  <nav style="{% unless bundle_pack contains 4 %}display:none;{% endunless %} " data-bundle_size="4" class=" w-full mt-4    flex  js-bundle-swap-section overflow-x-auto relative " >{{ four_pack }}</nav>
+  <nav style="{% unless bundle_pack contains 5 %}display:none;{% endunless %} " data-bundle_size="5" class=" w-full mt-4    flex  js-bundle-swap-section overflow-x-auto relative " >{{ five_pack }}</nav>
+  <nav style="{% unless bundle_pack contains 6 %}display:none;{% endunless %} " data-bundle_size="6" class=" w-full mt-4    flex  js-bundle-swap-section overflow-x-auto relative " >{{ six_pack }}</nav>
+  <nav style="{% unless bundle_pack contains 7 %}display:none;{% endunless %} " data-bundle_size="7" class=" w-full mt-4    flex  js-bundle-swap-section overflow-x-auto relative " >{{ seven_pack }}</nav>
+  <nav style="{% unless bundle_pack contains 8 %}display:none;{% endunless %} " data-bundle_size="8" class=" w-full mt-4    flex  js-bundle-swap-section overflow-x-auto relative " >{{ eight_pack }}</nav>
+  <nav style="{% unless bundle_pack contains 9 %}display:none;{% endunless %} " data-bundle_size="9" class=" w-full mt-4    flex  js-bundle-swap-section overflow-x-auto relative " >{{ nine_pack }}</nav>
+  <div id="bundle-name" class="mt-2  text-sm md:text-sm font-normal hidden md:block">Bundle Name: <span id="bundle-name-s" class="font-bold  capitalize">{{  product.title | split: " - " | first }}</span></div>
+
+ {% comment %} 
+  {%  if total_prints > 6 %}
+    <div id="" class="pointer-events-none w-full absolute z-10 h-10  justify-center bundle-show-more-gradient show-more-gradient " style="align-items:end">
+      <div class="js-show-more-bundles pointer-events-auto">
+        Show More
+      </div>
+                                  
+                              </div>
+  {%  endif  %}
+  {% endcomment %}
+    {%  if total_prints > 6 %}
+      <div class="show-less-bundles w-full text-center" style="display:none;">
+        Show Less
+      </div>
+    {% endif %}
+</div>
+{% endif %}

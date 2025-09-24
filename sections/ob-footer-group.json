@@ -1,0 +1,82 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "footer",
+  "name": "Footer Group",
+  "sections": {
+    "ob_footer_nav_wDgm9t": {
+      "type": "ob-footer-nav",
+      "blocks": {
+        "linklist_jH3Bgb": {
+          "type": "linklist",
+          "settings": {
+            "title": "Popular",
+            "menu_linklist": "footer-popular-new"
+          }
+        },
+        "linklist_N9ntfX": {
+          "type": "linklist",
+          "settings": {
+            "title": "Support",
+            "menu_linklist": "footer-support-new"
+          }
+        },
+        "linklist_R7abG3": {
+          "type": "linklist",
+          "settings": {
+            "title": "Info",
+            "menu_linklist": "footer-info-new"
+          }
+        },
+        "currency_xkziBE": {
+          "type": "currency",
+          "settings": {
+            "title": "Currency and Payment"
+          }
+        },
+        "newsletter_bh4kDm": {
+          "type": "newsletter",
+          "settings": {
+            "title": "Subscribe to our newsletter",
+            "text": "Sign up to our newsletter for exclusive offers and discounts!"
+          }
+        }
+      },
+      "block_order": [
+        "linklist_jH3Bgb",
+        "linklist_N9ntfX",
+        "linklist_R7abG3",
+        "currency_xkziBE",
+        "newsletter_bh4kDm"
+      ],
+      "settings": {}
+    },
+    "ob_footer_nav_Fjg4P8": {
+      "type": "ob-footer-nav",
+      "blocks": {
+        "newsletter_t89GGz": {
+          "type": "newsletter",
+          "settings": {
+            "title": "Subscribe to our newsletter",
+            "text": "Sign up to our newsletter for exclusive offers and discounts!"
+          }
+        }
+      },
+      "block_order": [
+        "newsletter_t89GGz"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "ob_footer_nav_wDgm9t",
+    "ob_footer_nav_Fjg4P8"
+  ]
+}

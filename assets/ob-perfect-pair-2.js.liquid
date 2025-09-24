@@ -1,0 +1,1820 @@
+$(document).ready(function () {
+  console.log("######################")
+  console.log("{{ settings.multibuy_variant }}")
+  let language = document.body.getAttribute("language");
+
+let bannedHandlesArr = ["vodafone", "tapcart"];
+  let currentBralettes = [];
+  let currentPants;
+  let globProds;
+  let globBralettes;
+  let chosenDesign;
+
+  const prodMap = new Map ([
+      ["mens-boxer-shorts-individuals","fat-cow-mens-boxer-shorts"],
+      ["mens-briefs-individuals", "fat-cow-mens-briefs"],
+      ["mens-bamboo-boxer-shorts-individuals", "fat-cow-mens-bamboo-boxer-shorts"],
+      ["ladies-boxer-shorts-individuals", "fat-cow-ladies-boxers"],
+      ["ladies-briefs-individuals","fat-cow-ladies-brief"],
+      ["ladies-thongs-individuals","fat-cow-ladies-thongs"],
+      ["seamless-individuals", "seamless-brazilian-briefs-fat-cow"],
+      ["full-seamless-individuals", "fat-cow-seamless-full-briefs"],
+      ["ladies-bamboo-boxer-shorts-individuals", "fat-cow-ladies-bamboo-boxers"]
+      ])
+
+  const collIdMap = new Map([
+    ["mens-boxer-shorts-individuals", "278855811133"],
+    ["mens-briefs-individuals","278857777213"],
+    ["ladies-boxer-shorts-individuals","278856073277"],
+    ["ladies-briefs-individuals","278857809981"],
+    ["ladies-thongs-individuals", "278857875517"],
+    ["seamless-individuals", "278858072125"]
+  ])
+  const designMap = new Map();
+  var design_list = []; 
+  function get_designs(){
+  var design_list_url = `https://oddballs-data--development.gadget.app/apps/oddballs-data/metaobject?handle=design_list_with_extras`;
+  var design_url = `https://oddballs-data--development.gadget.app/apps/oddballs-data/metaobject?handle=design`;
+
+  var params1 = { type: 'GET', url: design_list_url, dataType: 'html' };
+  var params2 = { type: 'GET', url: design_url, dataType: 'html' };
+
+        Promise.all([$.ajax(params1), $.ajax(params2)])
+        .then(([response1, response2]) => {
+          
+          const jsonData = JSON.parse(response1);
+          const designValue = jsonData[0].node.fields.find(field => field.key === 'list').value;
+          const designArray = JSON.parse(designValue);
+
+          const jsonData2 = JSON.parse(response2);
+          for(design_id of designArray){
+            for(node of jsonData2){
+              if(node.node.id == design_id){
+                design_list.push(node)
+                for(each of node.node.fields){
+                  if(each.key == "tag"){
+                    designMap.set(each.value, node.node);
+                  }
+                }
+              }
+            }
+          }
+        })
+   
+  }
+  get_designs();
+
+
+  var match_step = 0; //current step in the proceess
+   var step_1_gender = ""; 
+    var temp_step_1_gender = ""; 
+    var step_2_gender = "";
+    var temp_step_2_gender = "";
+    var step_1_type = "";
+    var temp_step_1_type = "";
+    var step_2_type = "";
+    var temp_step_2_type = "";
+    var step_1_size = "";
+    var temp_step_1_size = "";
+    var step_2_size = "";
+    var temp_step_2_size = "";
+    var step_1_size_plain = "";
+    var temp_step_1_size_plain = "";
+    var step_2_size_plain = "";
+    var temp_step_2_size_plain = "";
+    var current_bralette;
+    var selected_barlette_var_id = "";
+    var selected_barlette_var_id_2 = "";
+    var selected_bralette_size = "";
+    var selected_bralette_size_2 = "";
+    var match_brallete_added = false;
+    var match_brallete_added_2 = false;
+    var match_ids_to_add = [];
+    var temp_size = "";
+    var temp_id = "";
+    var match_price1 = 0;
+    var match_price2 = 0;
+    var match_comp_price1 = 0;
+    var match_comp_price2 = 0;
+    var match_bralette_in = false;
+    var match_bralette_in_2 = false;
+
+    var men_boxer_img_url = "https://cdn.shopify.com/s/files/1/0353/7249/files/VALENTINES_96_500x.png?v=1705915662";
+    var men_brief_img_url = "https://cdn.shopify.com/s/files/1/0353/7249/files/VALENTINES_113_500x.png?v=1705917679";
+    var women_brief_img_url = 'https://cdn.shopify.com/s/files/1/0353/7249/files/VALENTINES_102_500x.png?v=1705916854';
+    var women_seamless_img_url = 'https://cdn.shopify.com/s/files/1/0353/7249/files/women-seamless-actually_500x.png?v=1704457677';
+    var women_thong_img_url = 'https://cdn.shopify.com/s/files/1/0353/7249/files/VALENTINES_105_500x.png?v=1705916911';
+    var women_boxer_img_url = "https://cdn.shopify.com/s/files/1/0353/7249/files/VALENTINES_90_500x.png?v=1705915808";
+    var cover_img_url = "https://cdn.shopify.com/s/files/1/0353/7249/files/VALENTINES_17_500x.png?v=1705916990";
+    var cover_img_url_2 = "https://cdn.shopify.com/s/files/1/0353/7249/files/VALENTINES_14.png?v=1706530611";
+     let match_balls_visited_steps = [];
+
+  let match_prods_to_add = [];
+  
+    function isDesktop() {
+    return window.innerWidth <= 1024;
+  }
+  
+  function scrollToStep1() {
+      if (isDesktop()) {
+          $('#match-balls-img-container').addClass("md:block");
+          var element = document.getElementById("step-1-marker");
+          element.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+  }
+  
+  function scrollToStep2() {
+      if (isDesktop()) {
+          $('#match-balls-img-container').addClass("md:block");
+          var element = document.getElementById("match-balls-wrapper");
+          element.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+  }
+    
+  function scrollToStep3() {
+    if (isDesktop()) {
+      setTimeout(() => {
+        var element = document.getElementById("match-me-final-nav");
+        window.scrollTo({
+          top: element.offsetTop - 100,
+          behavior: "smooth"
+        });
+      }, 10);
+    }
+  }
+    function processMatchNav(step){
+    //function to update the nav bar adding the correct classes to indicate visited current upcoming
+      
+      replaceMatchImg(step);//update the image
+      step -= 1;
+      $('.js-match-balls-nav-wrapper').each(function(){//add correct class to each nav section
+        $(this).find('.js-match-nav-step').each(function(){
+          $(this).removeClass("match-completed");
+          $(this).removeClass("match-current");
+          $(this).removeClass("match-upcoming");
+        })
+        for(let i=0;i<step;i++){
+          $(this).find('.js-match-nav-step').eq(i).addClass("match-completed");
+          
+        }
+        $(this).find('.js-match-nav-step').eq(step).addClass("match-current");
+        for(let i=step+1;i<=3;i++){
+          $(this).find('.js-match-nav-step').eq(i).addClass("match-upcoming");
+          
+        }   
+      })
+  
+    }
+
+  async function getMatchingPairs() {
+
+      match_balls_visited_steps.push('3'); // add final stage to visited list
+      match_step = 3;
+      processMatchNav(3); // update nav
+  
+      // show/hide required elements
+      $('#match-balls-wrapper').removeClass("md:grid");
+      $('#match-me-loading-results').removeClass("hidden");
+      $('match-balls-img-container').addClass("hidden");
+      $('#match-balls-wrapper').addClass("hidden");
+      $('#results-div').html("finding your pairs...");
+      let step1Id = collIdMap.get(step_1_type);
+      let step2Id = collIdMap.get(step_2_type);
+      // var url1 = `https://oddballs-data--development.gadget.app/apps/oddballs-data/matching-prods?pair1Type=${step_1_type}&pair2Type=${step2Id}&pair1Size=${step_1_size_plain}&pair2Size=${step_2_size_plain}`;
+      var url3 = `https://oddballs-data--development.gadget.app/apps/oddballs-data/matching-prods-2?pair1Type=${step_1_type}&pair2Type=${step_2_type}&pair1Size=${step_1_size_plain}&pair2Size=${step_2_size_plain}`;
+      // var url2 = `https://oddballs-data--development.gadget.app/apps/oddballs-data/collection?handle=bralettes-individuals`;
+      var url4 = `https://oddballs-data--development.gadget.app/apps/oddballs-data/product-by-type?type=Bralette`;
+    
+   try {
+        const [response1, response2] = await Promise.all([
+          fetch(url3, {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }),
+          fetch(url4, {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }),
+        ]);
+
+  if (!response1.ok) {
+    throw new Error(`Error with url3: ${response1.status} - ${response1.statusText}`);
+  }
+  if (!response2.ok) {
+    throw new Error(`Error with url4: ${response2.status} - ${response2.statusText}`);
+  }
+
+  const data1 = await response1.json();
+  const data2 = await response2.json();
+
+
+      globProds = data1;
+      globBralettes = data2;
+
+
+bralette_arr = data2.prods.products.map(prod => {
+
+  return {
+    product: {
+      id: prod.product.id.replace("gid://shopify/Product/", ""),
+      image: prod.product.image ? prod.product.image: null,
+      price: prod.product.variants[0].price,
+      compare_at_price: prod.product.variants[0].compare_at_price,
+      design: prod.product.tags.split(",").filter(tag => tag.includes("design-") && !tag.includes("feature-design")),
+      handle: prod.product.handle,
+      variants: prod.product.variants.map(variant => ({
+        availableForSale: variant.availableForSale,
+        id: variant.id,
+        title: variant.title,
+        price: variant.price,
+        sku: variant.sku,
+        compare_at_price: variant.compare_at_price ? variant.compare_at_price : null,
+        inventory_quantity: variant.inventory_quantity,
+      })),
+    },
+  };
+});
+
+if(data1.matchingProds?.length == 0){
+  $('#match-me-loading-results').addClass("hidden");
+
+  document.getElementById("match-me-final-no-matches").classList.remove("hidden");
+}else{ 
+       processMatchingPrints(data1);
+}
+     }catch(error){
+       console.error(error);
+     }
+  }
+
+    function processMatchingPrints(data) {
+
+      let seenSet = new Set();
+      $('#match-me-loading-results').hide()
+      var req_images = []
+      $('#results-div').html("");
+      var total_adventurous = 0;
+      var total_plain = 0;
+      $('#match-me-result-designs-patterned').empty();
+      $('#match-me-result-designs-plain').empty();
+
+      let matchingProds = data.matchingProds.filter((item) =>{
+        let bannedHandleFound = false;
+        bannedHandlesArr.forEach((handle) =>{
+          if(item.product1.handle.includes(handle) || item.product2.handle.includes(handle)){
+            bannedHandleFound = true;
+          }
+        })
+       return item.product1.design.length > 0 && !bannedHandleFound;
+     });
+      let matchingProdsSet = new Set(matchingProds);
+      
+      let pair_found = false;
+      let totalPlain = 0;
+      let totalPatterned = 0;
+    design_list.forEach((design) => {
+      
+      
+                let currentPrintDesign = design.node.fields.find(key => key.key === "tag")?.value || null;
+      
+                let currentPrintUrl = design.node.fields.find(key => key.key === "img_url")?.value || null;
+            for(print of matchingProdsSet){
+         
+                  let currentDesign = print.product1.design[0].replace("design-", "");
+                    if(currentPrintDesign == currentDesign && !seenSet.has(currentDesign)){
+                      seenSet.add(currentDesign)
+                      pair_found = true; //note that there is a pair
+                      let designName = print.product1.design[0].replace("design-","");
+                      if(print.product1.style[0] == "style-adventurous"){ //if the design type is adventurous
+                        totalPatterned += 1;
+                        $('#match-me-adventurous').removeClass("hidden"); //show adventurous prints
+                        $('#match-me-result-designs-patterned').append( //create the print with relevant information for the matching pair
+                          `
+                          <div class="js-add-match-balls-to-cart cursor-pointer w-full"   data-prod1_id="${print.product1.id.replace("gid://shopify/Product/","")}" data-prod2_id="${print.product2.id.replace("gid://shopify/Product/","")}" data-print_name="${designName}" data-img-1="${print.product1.image}" data-img-2="${print.product2.image}" data-handle-1="${print.product1.handle}" data-handle-2="${print.product2.handle}" data-variant-1="${print.product1.variants[0].id.replace("gid://shopify/ProductVariant/", "")}" data-variant-2="${print.product2.variants[0].id.replace("gid://shopify/ProductVariant/", "")}" data-price-1="${print.product1.variants[0].price}" data-price-2="${print.product2.variants[0].price}" data-comp-price-1="${print.product1.variants[0].compare_at_price}" data-comp-price-2="${print.product2.variants[0].compare_at_price}" data-matching-sock="${print.product1.matchingSocks}"> <img  class="rounded-md" style="box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;" src="${currentPrintUrl}"/> </div>
+                          `
+                        )
+                        total_adventurous += 1;
+                      }else if(print.product1.style[0] == "style-classic"){//as above
+                        totalPlain += 1;
+                        $('#match-me-plain').removeClass("unavailable");
+                        $('#match-me-result-designs-plain').append(
+                          `
+                         <div class="js-add-match-balls-to-cart cursor-pointer w-full" data-prod1_id="${print.product1.id.replace("gid://shopify/Product/","")}" data-prod2_id="${print.product2.id.replace("gid://shopify/Product/","")}" data-print_name="${designName}" data-img-1="${print.product1.image}" data-img-2="${print.product2.image}" data-handle-1="${print.product1.handle}" data-handle-2="${print.product2.handle}" data-variant-1="${print.product1.variants[0].id.replace("gid://shopify/ProductVariant/", "")}" data-variant-2="${print.product2.variants[0].id.replace("gid://shopify/ProductVariant/", "")}" data-price-1="${print.product1.variants[0].price}" data-price-2="${print.product2.variants[0].price}" data-comp-price-1="${print.product1.variants[0].compare_at_price}" data-comp-price-2="${print.product2.variants[0].compare_at_price}"> <img  class="rounded-md" style="box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;" src="${currentPrintUrl}"/> </div>
+                          `
+                        )
+                        total_plain += 1;
+                      }
+                    }
+                    
+                  
+                    
+              }
+    })
+
+      const type1 = toTitleCase(getCollectionHandle(step_1_type).replace(/-/g,' '))
+      const type2 = toTitleCase(getCollectionHandle(step_2_type).replace(/-/g,' '))
+
+      $('.found-prints-size-2').each(function(){
+        $(this).html(step_2_size_plain)
+      })
+      $('.found-prints-size-1').each(function(){
+        $(this).html(step_1_size_plain)
+      })
+      $('#plain-found-prints-total').html(totalPlain);
+      $('#patterned-found-prints-total').html(totalPatterned);
+      $('.found-prints-type-1').each(function(){
+        $(this).html(type1)
+      })
+      $('.found-prints-type-2').each(function(){
+        $(this).html(type2)
+      })
+      if(step_1_type == step_2_type && step_1_size_plain == step_2_size_plain){
+        $(".found-prints-total-info").each(function(){
+          $(this).hide();
+        })
+      }else{
+         $(".found-prints-total-info").each(function(){
+          $(this).show();
+        })
+      }
+
+      if(total_adventurous <= 5){
+        $('.adv-show-more-gradient').each(function(){
+          $(this).addClass("hidden");
+        })
+      }else{
+        $('.adv-show-more-gradient').each(function(){
+          $(this).removeClass("hidden");
+        })
+      }
+      if(total_plain <= 5){
+        $('.plain-show-more-gradient').each(function(){
+          $(this).addClass("hidden");
+        })
+      }else{
+        $('.plain-show-more-gradient').each(function(){
+          $(this).removeClass("hidden");
+        })
+      }
+      $('.js-show-less-prints').addClass("hidden");
+      
+      let designFound = false;
+      $('.js-add-match-balls-to-cart').each(function(){
+        if($(this).data('print_name') == chosenDesign){
+          designFound = $(this);
+        }
+      })
+      if(designFound){
+        designFound.trigger("click")
+      }else{
+        $('.js-add-match-balls-to-cart:eq(0)').trigger('click');//click the first item once all are added to populate cards
+      }
+      for(each of bralette_arr){
+        req_images.push(each[4]);
+      }
+      //preload(req_images);
+      req_images = [];
+      if(pair_found == true){//if there is a pair found create cards 
+        $('#match-me-title1').html(`<div class="text-sm flex text-magenta-500"><div class="text-black font-bold mr-1">Pair 1:</div> ${step_1_size_plain}</div> <div class="text-xs mb-1 whitespace-nowrap"> ${toTitleCase(getCollectionHandle(step_1_type).replace(/-/g,' '))}</div>`);
+        $('#match-me-title2').html(`<div class="text-sm flex text-magenta-500"><div class="text-black font-bold mr-1">Pair 2:</div> ${step_2_size_plain}</div> <div class="text-xs mb-1 whitespace-nowrap">${toTitleCase(getCollectionHandle(step_2_type).replace(/-/g,' '))}</div>`);
+        $('#match-me-final').removeClass("hidden");
+        scrollToStep3();
+        $('#match-me-final-nav').removeClass("hidden");
+        $('#match-me-final').addClass("md:flex");
+        $('#match-me-final-no-matches').addClass("hidden");
+        if(step_1_gender == "women" || step_2_gender == "women"){
+          if(selected_barlette_var_id.length == 0 || selected_barlette_var_id == false){
+            $('#match-bralette-wrapper').removeClass("hidden");
+          }
+          // else{
+          //   $('#match-bralette-wrapper').addClass("hidden");
+          // }
+        }else{
+          $('#match-bralette-wrapper').addClass("hidden");
+        }
+      }else{
+         $('#match-me-final-no-matches').removeClass("hidden");
+      }
+    }
+      
+    function addToCartRecursive(index) {
+      
+            if (index >= match_ids_to_add.length) {
+              $('#add-match-to-cart').html("Add To Cart")
+              $('body').trigger('refreshDrawer');        
+              updateCart()
+              return;
+            }
+            
+            var variant_id = match_ids_to_add[index];
+            var data = {
+                quantity: 1,
+                id: variant_id,
+                properties: {}
+                }
+              data.properties['_Perfect Pair'] = variant_id;
+              data.properties['_freeshp'] = "{{ settings.vv_handle }}";
+              {% if settings.ab_cohort != blank  %}
+              data.properties['_cohort'] = "{{ settings.ab_cohort }}";
+              {% endif %}
+            $.ajax({
+                type: 'POST',
+                url: '/cart/add.js',
+                data: data,
+                dataType: 'json',
+                success: function(response) {
+                  if(match_prods_to_add[index]){
+                        atc_track(match_prods_to_add[index]);
+                  }
+                    addToCartRecursive(index + 1);
+                },
+                error: function(error) {
+                    console.error('Error adding product to cart:', error);
+                    addToCartRecursive(index + 1);
+                },
+            });
+        }
+
+
+
+  function preload(arrayOfImages) {
+      $.each(arrayOfImages, function(index, value) {
+          $('<img/>').attr('src', value).appendTo('body').css('display', 'none');
+      });
+  }
+
+  function getCollectionHandle(collection){//find the collection name from collection passed in
+      var suffix = "";
+      if (collection == "mens-boxer-shorts-individuals"){
+        suffix = "-mens-boxer-shorts";
+      }else if (collection == "mens-briefs-individuals"){
+        suffix = "-mens-briefs";
+      }else if (collection =="ladies-boxer-shorts-individuals"){
+        suffix = "-ladies-boxers";
+      }else if (collection =="ladies-briefs-individuals"){
+        suffix ="-ladies-brief";
+      }else if (collection == "ladies-thongs-individuals"){
+        suffix ="-ladies-thong";
+      }else if (collection == "seamless-individuals"){
+        suffix = "-seamless-brazilian-briefs";
+      }else if (collection == "mens-bamboo-boxer-shorts-individuals"){
+        suffix = "-bamboo-boxer-shorts"
+      }else if (collection == "20mens-bamboo-boxer-shorts-individuals"){
+        suffix = "-womens-bamboo-boxer-shorts"
+      }else if (collection == "full-seamless-individuals"){
+        suffix = "-womens-full-seamless"
+      }else if (collection == "mens-loose-fit-boxers"){
+        suffix = "-mens-loose-fit-boxers"
+      }
+      return(suffix);
+    }
+
+ function toTitleCase(str) {//Make Text Look Like This
+    return str.replace(
+      /\w\S*/g,
+      function(txt) {
+        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+      }
+    );
+  } 
+
+  function modifyUrlWithResolutions(url) { // used to return a source set with multiple resolutions
+      var resolutions = [100, 200, 320, 480, 640, 840, 1080, 1280];
+      var parts = url.split('.');
+      var fileName = parts.slice(0, -1).join('.'); 
+      var fileExtension = parts[parts.length - 1];
+      var modifiedUrls = [];
+    
+      for (var i = 0; i < resolutions.length; i++) {
+        var resolution = resolutions[i];
+        var modifiedUrl = fileName + "_" + resolution/2 + "x." + fileExtension + " " + resolution + "w";
+        modifiedUrls.push(modifiedUrl);
+      }
+    
+      var result = '';
+      for (var j = 0; j < modifiedUrls.length; j++) {
+        result += modifiedUrls[j];
+        if (j !== modifiedUrls.length - 1) {
+          result += ',';
+        }
+        
+      }
+      //return("")
+      return result;
+    }
+
+  function replaceMatchImg(){};
+
+  function createAddAnother(type){
+    let add_another_text = translations.perfect_pair.add_another
+   const $container =  $('<div>', {
+                         
+                          class: `${type=="socks"?"js-match-socks-intro":"js-match-balls-get-brallete-intro"} flex mb-2 justify-start w-full rounded-lg h-full p-1 mt-2 text-black font-display text-xs border-0 border-gray-300 border-dashed`,
+                          css: {
+                              alignItems: 'center',
+                          },
+                      });
+                  
+                      const $innerDiv = $('<div>', {
+                          class: 'flex items-center',
+                      });
+                  
+                      const $textDiv = $('<div>', {
+                          class: 'w-max mx-auto mt-1',
+                          text: add_another_text + "?",
+                      });
+                  
+                      const $svg = $(`
+                          <svg style="height:40px; margin-top:2px;" class="w-max mx-auto max-h-4 mr-3 md:mx-h-full" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" fill="#9ca3af">
+                              <g stroke-width="0"></g>
+                              <g stroke-linecap="round" stroke-linejoin="round"></g>
+                              <g>
+                                  <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+                                      <g id="Icon-Set" sketch:type="MSLayerGroup" transform="translate(-464.000000, -1087.000000)" fill="#9ca3af">
+                                          <path d="M480,1117 C472.268,1117 466,1110.73 466,1103 C466,1095.27 472.268,1089 480,1089 C487.732,1089 494,1095.27 494,1103 C494,1110.73 487.732,1117 480,1117 L480,1117 Z M480,1087 C471.163,1087 464,1094.16 464,1103 C464,1111.84 471.163,1119 480,1119 C488.837,1119 496,1111.84 496,1103 C496,1094.16 488.837,1087 480,1087 L480,1087 Z M486,1102 L481,1102 L481,1097 C481,1096.45 480.553,1096 480,1096 C479.447,1096 479,1096.45 479,1097 L479,1102 L474,1102 C473.447,1102 473,1102.45 473,1103 C473,1103.55 473.447,1104 474,1104 L479,1104 L479,1109 C479,1109.55 479.447,1110 480,1110 C480.553,1110 481,1109.55 481,1109 L481,1104 L486,1104 C486.553,1104 487,1103.55 487,1103 C487,1102.45 486.553,1102 486,1102 L486,1102 Z" id="plus-circle" sketch:type="MSShapeGroup"></path>
+                                      </g>
+                                  </g>
+                              </g>
+                          </svg>
+                      `);
+                  
+                      $innerDiv.append($svg,$textDiv);
+                      $container.append($innerDiv);
+                      return $container
+  }
+
+
+      function updateUI(){
+              
+          
+              var match_total_price = 0;
+              $('#match-balls-bralettes-selected').empty()
+              for(i=0; i<=1; i++){
+                if(currentBralettes[i]){
+                // Create the outer container div
+                  let $braletteToAdd = $("<div>", {
+                    class: "bralette-to-add bg-white relative rounded-md flex shadow-sm  p-2 border border-gray-200 border-solid w-full my-1",
+                    style: ""
+                  });
+                  $braletteToAdd.attr("data-size", currentBralettes[i])
+                  // Create the image container and image
+                  let $braletteToAddImg = $("<div>", {
+                    id: "bralette-to-add-img",
+                    class: "mx-2 max-w-[60px]"
+                  }).append(
+                    $("<img>", {
+                      style: "",
+                      src: current_bralette.product.image
+                    })
+                  );
+                  
+                  // Create the content container
+                  let $braletteToAddContent = $("<div>", { id: "bralette-to-add-content" });
+                  let $braletteToAddContentInnerWrap = $("<div>", { class: "flex flex-col items-center" });
+                  // Title
+                  let $braletteToAddTitle = $("<div>", {
+                    id: "bralette-to-add-title",
+                    class: "w-full font-semibold",
+                    text: toTitleCase(current_bralette.product.handle.replace(/-/g, ' '))
+                  });
+                  
+                  // Size
+                  let $braletteSizeContainer = $("<div>", {
+                    class: "flex text-xs w-full",
+                    html: 'Size: '
+                  }).append(
+                    $("<div>", {
+                      id: "bralette-to-add-size",
+                      class: "ml-1 text-xs mr-2 text-magenta-500 font-semibold",
+                      text: currentBralettes[i]
+                    })
+                  );
+                  
+                  // Out of stock notice
+                  let $braletteOutOfStock = $("<div>", {
+                    class: "match-bralette-out-of-stock bg-cyan-500 text-white px-2 py-1 z-100 whitespace-nowrap text-xs ml-2 hidden",
+                    style: "",
+                    text: "Out of Stock"
+                  });
+                  
+                  // Quantity
+                  let $braletteQuantity = $("<div>", { id: "bralette-to-add-quantity" });
+                  
+                  // Remove button
+                  let $braletteRemove = $("<div>", {
+                    class: "bralette-to-add-remove border border-red border-solid rounded-md text-xs px-1",
+                    style: "position: absolute; top: 10px;",
+                    text: translations.perfect_pair.remove
+                  });
+                  $braletteToAddContentInnerWrap.append(
+                    $braletteToAddTitle,
+                    $braletteSizeContainer
+                  );
+                  // Append all components to the content container
+                  $braletteToAddContent.append(
+                    $braletteToAddContentInnerWrap,
+                    $braletteOutOfStock,
+                    $braletteQuantity,
+                    $braletteRemove
+                  );
+                  
+                  // Append image and content to the outer container
+                  $braletteToAdd.append($braletteToAddImg, $braletteToAddContent);
+                  $('#match-balls-bralettes-selected').append($braletteToAdd);
+                }else{
+                      const $container = createAddAnother("bralette");
+                      $('#match-balls-bralettes-selected').append($container);
+                      break;
+                }
+              }
+
+              if(currentBralettes.length == 0){
+                $('#match-balls-get-brallete-intro').show();
+                $('#match-balls-bralettes-selected').hide()
+              }else{
+                $('#match-balls-get-brallete-intro').hide();
+                $('#match-balls-bralettes-selected').show();
+              }
+
+        $('#match-socks-selected').empty();
+        for(let i = 0; i <= 1; i++){
+          
+              if(selectedSocks[i]){
+                // Create the outer container div
+                  let $sockToAdd = $("<div>", {
+                    class: "sock-to-add bg-white relative rounded-md flex shadow-sm  p-2 border border-gray-200 border-solid w-full my-1",
+                    style: ""
+                  });
+                  $sockToAdd.attr("data-size", selectedSocks[i])
+                  // Create the image container and image
+                  let $sockToAddImg = $("<div>", {
+                    id: "sock-to-add-img",
+                    class: "mx-2 max-w-[60px]"
+                  }).append(
+                    $("<img>", {
+                      style: "",
+                      src: currentFoundSock.featuredMedia.file.image.originalSrc
+                    })
+                  );
+                  
+                  // Create the content container
+                  let $sockToAddContent = $("<div>", { class: "bralette-to-add-content flex items-center" });
+                  let $sockToAddContentInnerWrap = $("<div>", { class: "flex flex-col items-center" });
+                  // Title
+                  let $sockToAddTitle = $("<div>", {
+                    id: "sock-to-add-title",
+                    class: "w-full font-semibold",
+                    text: toTitleCase(currentFoundSock.handle.replace(/-/g, ' '))
+                  });
+                  
+                  // Size
+                  let $sockSizeContainer = $("<div>", {
+                    class: "flex text-xs w-full",
+                    html: 'Size: '
+                  }).append(
+                    $("<div>", {
+                      id: "sock-to-add-size",
+                      class: "ml-1 text-xs mr-2 text-magenta-500 font-semibold",
+                      text: selectedSocks[i]
+                    })
+                  );
+                  
+                  // Out of stock notice
+                  let $sockOutOfStock = $("<div>", {
+                    class: "match-bralette-out-of-stock bg-cyan-500 text-white px-2 py-1 z-100 whitespace-nowrap text-xs ml-2 hidden",
+                    style: "",
+                    text: "Out of Stock"
+                  });
+                  
+                  // Quantity
+                  let $sockQuantity = $("<div>", { class: "sock-to-add-quantity" });
+                  
+                  // Remove button
+                  let $sockRemove = $("<div>", {
+                    class: "sock-to-add-remove border border-red border-solid rounded-md text-xs px-1 right-0",
+                    style: "position: absolute; top: 10px;",
+                    text: translations.perfect_pair.remove
+                  });
+                  
+                  // Append all components to the content container
+                  $sockToAddContentInnerWrap.append(
+                    $sockToAddTitle,
+                    $sockSizeContainer
+                  );
+                  $sockToAddContent.append(
+                    $sockToAddContentInnerWrap,
+                    $sockOutOfStock,
+                    $sockQuantity,
+                    $sockRemove
+                  );
+                  
+                  // Append image and content to the outer container
+                  $sockToAdd.append($sockToAddImg, $sockToAddContent);
+                  $('#match-socks-selected').append($sockToAdd);
+                }else{
+                      const $container = createAddAnother("socks")
+                      $('#match-socks-selected').append($container);
+                      break;
+                }
+        }
+
+
+        if(selectedSocks.length > 0){
+          $('#match-socks-selected').show();
+          $('#match-socks-intro').hide();
+        }else{
+          $('#match-socks-selected').hide();
+          $('#match-socks-intro').show();
+        }
+
+
+
+
+
+
+        
+              $('#pair-price').html("");
+              var handle1 = toTitleCase(currentPants.data('handle-1').replace(/-/g, ' '));
+              var handle2 = toTitleCase(currentPants.data('handle-2').replace(/-/g, ' '));
+              
+              match_price1 = currentPants.data('price-1');
+              match_price2 = currentPants.data('price-2');
+              match_comp_price1 = currentPants.data('comp-price-1');
+              match_comp_price2 = currentPants.data('comp-price-2');
+              $('#match-me-handle-1').html(handle1);
+              $('#match-me-handle-2').html(handle2);
+              match_total_price = parseFloat(match_price1) + parseFloat(match_price2);
+              let comp_price = parseFloat(currentPants.data("comp-price-1")) + parseFloat(currentPants.data("comp-price-2"));
+              for(bralette of currentBralettes){
+                match_total_price += parseFloat(current_bralette.product.price);
+                comp_price += parseFloat(current_bralette.product.compare_at_price);
+              }
+              if(printHasSocks){
+                for(sock of selectedSocks){
+                  match_total_price += parseFloat(currentFoundSock.variants.edges[0].node.price);
+                  comp_price += parseFloat(currentFoundSock.variants.edges[0].node.compareAtPrice);
+                }
+              }
+
+        let set_price_text = translations.perfect_pair.set_price
+            
+              $('#pair-price').html(set_price_text + ": <div style=\"color:#f00f83; margin-left:4px;\"> £" + (parseFloat(match_total_price)).toFixed(2) + "</div>");
+        if(match_total_price != comp_price){
+              $('#pair-price').html(set_price_text + ": <div style=\"color:#f00f83; margin-left:4px;\"> £" + (parseFloat(match_total_price)).toFixed(2) + "</div><del class='ml-2 text-gray-500'>£"+ comp_price +"</del>");
+          
+        }
+          
+      }
+
+
+      function showSocks(){
+        $('#match-socks-wrapper').show();
+        getSocks();
+      }
+
+      function hideSocks(){
+        $('#match-socks-wrapper').hide();
+      }
+      let currentFoundSock;
+    async function getSocks(){
+        const url = 'https://oddballs-data--development.gadget.app/apps/oddballs-data/matching-socks';
+          try {
+            const response = await fetch(url, {
+              method: 'GET',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+            });
+        
+            if (!response.ok) {
+              throw new Error(`HTTP error! status: ${response.status}`);
+            }
+        
+            const data = await response.json();
+            currentFoundSock = data.products.find((prod) =>{
+              return prod.tags.includes("design-" + currentPants.data("print_name"))
+            })
+            $('#match-found-sock-img img').attr("src",currentFoundSock.featuredMedia.file.image.originalSrc);
+            $('#match-found-sock-title').html(toTitleCase(currentFoundSock.handle.replace(/-/g,' ')));
+            $('#match-found-sock-price').html("£" + currentFoundSock.variants.edges[0].node.price);
+            const currentSockVariants = currentFoundSock.variants.edges.map(({ node: variant }) => ({
+				availableForSale: variant.inventoryQuantity > 0,
+				id: variant.id,
+				title: variant.title,
+				price: variant.price,
+				sku: variant.sku,
+				position: variant.position,
+				inventory_policy: variant.inventoryPolicy,
+				compare_at_price: variant.compareAtPrice,
+				fulfillment_service: "manual",
+				inventory_management: "shopify",
+				option1: variant.option1,
+				option2: variant.option2,
+				option3: variant.option3,
+				created_at: variant.shopifyCreatedAt,
+				updated_at: variant.shopifyUpdatedAt,
+				taxable: variant.taxable,
+				barcode: variant.barcode,
+				inventory_quantity: variant.inventoryQuantity,
+				requires_shipping: true,
+				tax_code: variant.taxCode || "",
+				quantity_rule: {
+					min: 1,
+					max: null,
+					increment: 1
+				},
+				quantity_price_breaks: []
+			}))
+           $('#match-found-sock-variants .product-variant').each(function(){
+            for(each of currentSockVariants){
+              if(each.title.toLowerCase() == $(this).find('input').val().toLowerCase()){
+                $(this).attr('var_id',each.id.replace("gid://shopify/ProductVariant/", ""))
+                if(each.availableForSale == true){
+                  $(this).removeClass("pointer-events-none");
+                  $(this).find('input').removeAttr('disabled');
+                }else{
+                  if(selected_bralette_size == $(this).find('input').val()){
+                    $('#add-sock-to-match').addClass("pointer-events-none");
+                    $('#add-sock-to-match').removeClass("bg-magenta-500 text-white");
+                    $('#add-sock-to-match').html("Select a Size")
+                  }
+                  //$(this).find('label').removeClass("matchballs-active");
+                  $(this).find('input').attr('disabled','disabled');
+                  $(this).find('input').prop('checked', false);
+                  $(this).addClass("pointer-events-none match-bralette-oos");
+                }
+              }
+            }
+          })
+         $('#match-found-sock-variants-2 .product-variant').each(function(){
+            for(each of currentSockVariants){
+              if(each.title.toLowerCase() == $(this).find('input').val().toLowerCase()){
+                $(this).attr('var_id',each.id.replace("gid://shopify/ProductVariant/", ""))
+                if(each.availableForSale == true){
+                  $(this).removeClass("pointer-events-none");
+                  $(this).find('input').removeAttr('disabled');
+                }else{
+                  if(selected_bralette_size == $(this).find('input').val()){
+                    $('#add-sock-to-match').addClass("pointer-events-none");
+                    $('#add-sock-to-match').removeClass("bg-magenta-500 text-white");
+                    $('#add-sock-to-match').html("Select a Size")
+                  }
+                  //$(this).find('label').removeClass("matchballs-active");
+                  $(this).find('input').attr('disabled','disabled');
+                  $(this).find('input').prop('checked', false);
+                  $(this).addClass("pointer-events-none match-bralette-oos");
+                }
+              }
+            }
+          })
+        
+            return data;
+          } catch (error) {
+            console.error('Error fetching data:', error);
+          }
+        
+        
+      }
+
+
+  /****
+  *
+  * Click Listners
+  *
+  */
+
+      $('body').on('click' ,'.js-match-socks-intro', function(){
+        $('#match-found-sock').show()
+      })
+      
+      $('body').on('click', '.js-step-1-gender', function () {
+        
+        $('.js-step-2-size.small-size').each(function(){
+          $(this).removeClass("unavailable");
+        })
+        //clicking men/women button on 1st step
+        scrollToStep1();
+    
+        //show options for gender such as size/type
+        $('.js-match-select-a-product-1').removeClass("hidden");
+        $(this).closest('.js-perfect-step').find('#step-1-finish').removeClass("hidden");
+    
+        
+        $(this).closest('.js-perfect-step').find('#step-1-finish').removeClass("matchballs-active");//make next step button inactive
+    
+        //makes all genders/sizes/types inactive essentially resetting the users choices when changing gender
+        $('.js-step-1-gender').each(function(){
+          $(this).removeClass("matchballs-active");
+        })
+        $('.js-step-1-type').each(function(){
+          $(this).removeClass("matchballs-active");
+        })
+        $('.js-step-1-size').each(function(){
+          $(this).removeClass("matchballs-active");
+        })
+        $(this).closest('.js-perfect-step').find('#step-1-finish').removeClass("continue");
+        $(this).closest('.js-perfect-step').find('#step-1-finish').addClass("pointer-events-none")
+    
+        
+        $(this).addClass("matchballs-active");//adds active class to current gender
+    
+        //hides choices/sizes for all genders
+        $('.js-step-1-type-choice').each(function () {
+          $(this).addClass("hidden");
+        });
+        $('.js-step-1-size-choice').each(function () {
+          $(this).addClass("hidden");
+        });
+    
+        //show correct sizes/types, update the image and set variables for the user's choice
+        if ($(this).data('gender') == "men") {
+          console.log($(this))
+          $('.js-quick-buy-size-guide-show').each(function(){
+            $(this).attr("href","fat-cow-mens-boxer-shorts");
+          })
+          $(this).closest('.js-perfect-step').find('#1-men-boxer').addClass("matchballs-active");
+          temp_step_1_type = "mens-boxer-shorts-individuals";
+          temp_step_1_gender = "men";
+          $(this).closest('.js-perfect-step').find('#1-men-choice').removeClass("hidden");
+          $(this).closest('.js-perfect-step').find('#step-1-men-size').removeClass("hidden");
+          
+        }
+        if ($(this).data('gender') == "women") {
+          console.log($(this))
+          $('.js-quick-buy-size-guide-show').each(function(){
+            $(this).attr("href","fat-cow-ladies-boxers");
+          })
+          $(this).closest('.js-perfect-step').find('#1-women-boxer').addClass("matchballs-active");
+          temp_step_1_type = "ladies-boxer-shorts-individuals";
+          temp_step_1_gender = "women";
+          $(this).closest('.js-perfect-step').find('#1-women-choice').removeClass("hidden");
+          $(this).closest('.js-perfect-step').find('#step-1-women-size').removeClass("hidden");
+        }
+    
+        $(this).closest('.js-perfect-step').find('#1-size-choice').removeClass("hidden"); //show choices
+        $('.js-step-1-size.small-size').each(function(){
+            $(this).removeClass("unavailable");
+        })
+    });
+
+      $('body').on('click', '.js-step-1-type', function () {
+        
+        if($(this).hasClass("no-small")){
+
+
+          $('.matchballs-active.small-size').each(function(){
+            $(this).removeClass("matchballs-active");
+            $('#step-1-finish').removeClass("continue");
+            $('#step-1-finish').removeClass("matchballs-active");
+            $('#step-1-finish').addClass("pointer-events-none");
+            
+          })
+          
+          $('.js-step-1-size.small-size').each(function(){
+            
+            $(this).addClass("unavailable");
+          })
+        }else{
+          $('.js-step-1-size.small-size').each(function(){
+            $(this).removeClass("unavailable");
+          })
+        }
+        //click on type selection
+    
+        
+        $('.js-step-1-type').each(function(){//remove active class from all types
+          $(this).removeClass("matchballs-active");
+        })
+        $(this).addClass("matchballs-active");//add active class to current type
+        
+      temp_step_1_type = $(this).data('type');//update variable for user's choice
+        replaceMatchImg(1);
+
+        const type = $(this).data('type');
+        const url = prodMap.get(type);
+        $('#step-1 .js-quick-buy-size-guide-show').attr("href", url);
+        
+    });
+    $('body').on('click', '.js-step-1-size', function () {
+      //click on size choice
+      
+      $(this).closest('.js-perfect-step').find('#step-1-finish').removeClass("pointer-events-none");//allow user to progress to next step
+      $('.js-step-1-size').each(function(){//remove active class from all size options
+        $(this).removeClass("matchballs-active");
+      })
+      $(this).addClass("matchballs-active") //add active class to selected size
+  
+      //update variables for step 1 choice
+      temp_step_1_size = $(this).data('size');
+      temp_step_1_size_plain = $(this).html();
+  
+      //change button to allow user to continue
+      $(this).closest('.js-perfect-step').find('#step-1-finish').addClass("continue");
+      $(this).closest('.js-perfect-step').find('#step-1-finish').addClass("matchballs-active");
+      
+  });
+  $('body').on('click','#step-1-finish',function(){
+      $('#2-men').click()
+      $('#match-balls-img-container').removeClass("hidden");
+      step_1_gender = temp_step_1_gender;
+      step_1_size = temp_step_1_size;
+      step_1_size_plain = temp_step_1_size_plain;
+      step_1_type = temp_step_1_type;
+      // button at the end of step 1
+      processMatchNav(2);//update nav bar
+      match_balls_visited_steps.push('1'); //user has visited step 2
+      match_balls_visited_steps.push('2'); //user has visited step 2
+      match_step = 2;//current step
+      $('#match-me-back-button').removeClass("hidden");//show back button
+      $('#step-1-wrapper').addClass("hidden");//hide step 1
+      $('#step-2-wrapper').removeClass("hidden");//show step 2
+      scrollToStep2();
+      if(step_2_gender.length > 0){//if user had previously selected a type update the image with the correct type, else use default image
+        replaceMatchImg(match_step)
+      }else{
+        /**
+         $('.perfect-pair-image').each(function(){
+            $(this).addClass("hidden");
+            })
+            $('#cover_img_url_2').removeClass("hidden");**/
+        
+      }
+    })
+     $('body').on('click','#match-me-back-button',function(){ //clicking the back arrow
+       if(match_step != 1){//prevent user from going too far back
+         match_step -= 1;
+       }
+       if(match_step == 1){//hide back button if user should not go further back
+         $('#match-me-back-button').addClass("hidden")
+       }
+       replaceMatchImg(match_step);//update image
+       processMatchNav(match_step);//update progress bar
+       $('#step-1-wrapper').removeClass("hidden");
+       $('#step-2-wrapper').addClass("hidden");
+     })
+
+      //same as step 1 functions
+    $('body').on('click', '.js-step-2-gender', function () {
+      $('.js-step-2-size.small-size').each(function(){
+        $(this).removeClass("unavailable");
+      })
+      $('.js-match-select-a-product-2').removeClass("hidden");
+      $(this).closest('.js-perfect-step').find('#step-2-finish').removeClass("matchballs-active");
+      $(this).closest('.js-perfect-step').find('#step-2-finish').removeClass("hidden");
+        $('.js-step-2-gender').each(function(){
+          $(this).removeClass("matchballs-active");
+        })
+        $('.js-step-2-type').each(function(){
+          $(this).removeClass("matchballs-active");
+        })
+      $('.js-step-2-size').each(function(){
+          $(this).removeClass("matchballs-active");
+        })
+        $(this).closest('.js-perfect-step').find('#step-2-finish').removeClass("continue");
+        $(this).closest('.js-perfect-step').find('#step-2-finish').addClass("pointer-events-none")
+        $(this).addClass("matchballs-active");
+        $('.js-step-2-type-choice').each(function () {
+          $(this).addClass("hidden");
+        });
+        $('.js-step-2-size-choice').each(function () {
+          $(this).addClass("hidden");
+        });
+        if ($(this).data('gender') == "men") {
+          $(this).closest('.js-perfect-step').find('#2-men-boxer').addClass("matchballs-active");
+          temp_step_2_type = "mens-boxer-shorts-individuals";
+          temp_step_2_gender = "men";
+          $(this).closest('.js-perfect-step').find('#2-men-choice').removeClass("hidden");
+          $('.js-quick-buy-size-guide-show').each(function(){
+            $(this).attr("href","fat-cow-mens-boxer-shorts");
+          })
+          
+          /**
+          $('.perfect-pair-image').each(function(){
+            $(this).addClass("hidden");
+            })
+            $('#men_boxer_img_url').removeClass("hidden");
+            **/
+          $(this).closest('.js-perfect-step').find('#step-2-men-size').removeClass("hidden");
+          
+        }
+        if ($(this).data('gender') == "women") {
+          $(this).closest('.js-perfect-step').find('#2-women-boxer').addClass("matchballs-active");
+          temp_step_2_type = "ladies-boxer-shorts-individuals";
+          temp_step_2_gender = "women";
+          $(this).closest('.js-perfect-step').find('#2-women-choice').removeClass("hidden");
+          $('.js-quick-buy-size-guide-show').each(function(){
+            $(this).attr("href","fat-cow-ladies-boxers");
+          })
+          /**
+          $('.perfect-pair-image').each(function(){
+            $(this).addClass("hidden");
+            })
+            $('#women_boxer_img_url').removeClass("hidden");**/
+          $(this).closest('.js-perfect-step').find('#step-2-women-size').removeClass("hidden");
+        }
+          $(this).closest('.js-perfect-step').find('#2-size-choice').removeClass("hidden");
+    });
+  
+    $('body').on('click', '.js-step-2-type', function () {
+
+
+        if($(this).hasClass("no-small")){
+
+          $('.matchballs-active.small-size').each(function(){
+            $(this).removeClass("matchballs-active");
+            $('#step-2-finish').removeClass("continue");
+            $('#step-2-finish').removeClass("matchballs-active");
+            $('#step-2-finish').addClass("pointer-events-none");
+            
+          })
+          
+          $('.js-step-2-size.small-size').each(function(){
+            $(this).addClass("unavailable");
+          })
+        }else{
+          $('.js-step-2-size.small-size').each(function(){
+            $(this).removeClass("unavailable");
+          })
+        }
+
+      
+      $('.js-step-2-type').each(function(){
+        $(this).removeClass("matchballs-active");
+      })
+      $(this).addClass("matchballs-active")
+      temp_step_2_type = $(this).data('type');
+      $(this).closest('.js-perfect-step').find('#2-size-choice').removeClass("hidden");
+      $('.js-step-2-size-choice').each(function () {
+        $(this).addClass("hidden");
+      });
+      if (temp_step_2_gender == "men") {
+        $(this).closest('.js-perfect-step').find('#step-2-men-size').removeClass("hidden");
+      }
+      if (temp_step_2_gender == "women") {
+        $(this).closest('.js-perfect-step').find('#step-2-women-size').removeClass("hidden");
+      }
+      replaceMatchImg(2);
+      const type = $(this).data('type');
+      const url = prodMap.get(type);
+      $('#step-1 .js-quick-buy-size-guide-show').attr("href", url);
+    });
+  
+     $('body').on('click', '.js-step-2-size', function () {
+       $(this).closest('.js-perfect-step').find('#step-2-finish').addClass("matchballs-active");
+       $(this).closest('.js-perfect-step').find('#step-2-finish').removeClass("pointer-events-none");
+        $('.js-step-2-size').each(function(){
+          $(this).removeClass("matchballs-active");
+        })
+        $(this).addClass("matchballs-active")
+        temp_step_2_size = $(this).data('size');
+        temp_step_2_size_plain = $(this).html();
+        $(this).closest('.js-perfect-step').find('#step-2-finish').addClass("continue");
+      
+    });
+
+    $('body').on('click','#step-2-finish',function(){
+      step_2_gender = temp_step_2_gender;
+      step_2_size = temp_step_2_size;
+      step_2_size_plain = temp_step_2_size_plain;
+      step_2_type = temp_step_2_type;
+      //click on the get pairs button
+      getMatchingPairs();
+  
+    })
+
+      $('body').on('click', '.js-add-match-balls-to-cart', function () { //matchballssearch
+        currentPants = $(this);
+            try{
+              fbq('track', 'ViewContent', {
+                content_ids: [$(this).data("prod1_id"),$(this).data("prod2_id")],
+                content_name: [$(this).data("handle-1"),$(this).data("handle-2")],
+                content_type: 'product_group'
+              });
+      }catch(error){
+        console.error(error)
+      }
+     var print_name = $(this).data('print_name');
+        chosenDesign =  print_name;
+        
+      $('#match-selected-print').html(toTitleCase(print_name.replace(/-/g,' ')))
+        for(each of bralette_arr){
+          if(each.product?.design[0]?.trim().replace("design-","") == $(this).data('print_name')){
+            current_bralette = each;
+            break;
+          }
+        }
+        //update cards with info about selected cards
+        var img1_url = $(this).data('img-1');
+        var img2_url = $(this).data('img-2');
+        var srcset1 = modifyUrlWithResolutions(img1_url);
+        var srcset2 = modifyUrlWithResolutions(img2_url);
+        $('#match-me-img1').fadeOut(500, function() {
+            $(this).html("<img style='position: absolute; z-index: 2; width: 100%; top:0px; left:0px;' src='" + img1_url + "' srcset='" + srcset1 + "'/>");
+            $(this).fadeIn(500);
+        });
+        $('#match-me-img2').fadeOut(500, function() {
+            $(this).html("<img style='position: absolute; z-index: 2; width: 100%; top:0px; left:0px;' src='" + img2_url + "' srcset='" + srcset2 + "'/>");
+            $(this).fadeIn(500);
+        });
+
+        $('.js-add-match-balls-to-cart').each(function(){//remove active class from all prints
+          $(this).find('img').removeClass('active');
+        });
+    
+        $(this).find('img').addClass("active");//add active to the clicked item
+        if($(this).data("matching-sock") == true){
+          printHasSocks = true;
+        }else{
+          printHasSocks = false;
+        }
+
+        updateUI();
+        
+        if($(this).data("matching-sock") == true){
+          $('#match-socks-unavailable').hide();
+          showSocks();
+        }else if(selectedSocks.length > 0){
+          printHasSocks = false;
+          $('#match-socks-selected').hide();
+          $('#match-socks-unavailable').show();
+        }else{
+          hideSocks();
+        }
+  
+    });
+    let printHasSocks = false;
+      $('body').on('click','#match-me-results-back-button', function(){
+      //click on back button o the results page
+      match_step = 2;
+      replaceMatchImg(match_step);
+      processMatchNav(2)
+      final_arr = [];//empty array of matching pairs
+  
+      //show/hide appropriate sections
+      $('#match-me-final-no-matches').addClass("hidden");
+      $('#match-me-back-button').removeClass("hidden");
+      $('#step-1-wrapper').addClass("hidden");
+      $('#match-balls-wrapper').addClass("md:grid");
+      $('#match-me-result-designs-patterned').html("");
+      $('#match-me-result-designs-plain').html("");
+      $('#match-me-final').addClass("hidden");
+      $('#match-me-final-nav').addClass("hidden");
+      $('#match-me-final').removeClass("md:flex");
+      $('#match-balls-wrapper').removeClass("hidden");
+    })
+  
+    $('body').on('click','.js-match-safety-screen', function(){
+      $('body').removeClass("body-no-scroll");
+      $('#match-found-sock').hide();
+      $('#match-found-bralette').addClass("hidden");
+      $('#match-found-bralette-2').addClass("hidden");
+    })
+
+
+    $('body').on('click','#add-match-to-cart',function(){
+      match_ids_to_add = [];
+      match_prods_to_add = [];
+      let prodsAddingToCart = [];
+      let prod1VarId = currentPants.data("variant-1");
+      let prod1Id = currentPants.data("prod1_id");
+      let prod2VarId = currentPants.data("variant-2");
+      let prod2Id = currentPants.data("prod2_id");
+      const prod1 = globProds.matchingProds.find((item) => {
+        return item.product1.variants[0].id.includes(prod1VarId)
+      })
+      const prod2 = globProds.matchingProds.find((item) => {
+        return item.product2.variants[0].id.includes(prod2VarId)
+      })
+      prod1.product1.ppForm = true;
+      prod1.product1.id = prod1Id;
+      prod2.product2.id = prod2Id;
+      prod2.product2.ppForm = true;
+      let product1 = {
+        name: prod1.product1.title,
+        price: prod1.product1.variants[0].price,
+        varId: prod1VarId,
+        prodId: prod1Id,
+        size: prod1.product1.variants[0].title
+      }
+      let product2 = {
+        name: prod2.product2.title,
+        price: prod2.product2.variants[0].price,
+        varId: prod2VarId,
+        prodId: prod2Id,
+        size: prod2.product2.variants[0].title
+      }
+      prodsAddingToCart.push({
+                                product: product1,
+                                prodId: prod1Id,
+                                varId: prod1VarId
+                             
+                             },
+                             {
+                                product: product2,
+                                prodId: prod2Id,
+                                varId: prod2VarId
+                             
+                             }
+                            )
+
+      // const var1 = currentPants.data("variant-1");
+      // const var2 = currentPants.data("variant-2");
+      // match_ids_to_add.push(var1, var2);
+      
+      // const id1 = currentPants.data("prod1_id");
+      // const id2 = currentPants.data("prod2_id");
+      // match_prods_to_add.push(id1, id2)
+      if(current_bralette){
+        
+      current_bralette.ppForm = true;
+      }
+      for(each of currentBralettes){
+        current_bralette.product.variants.forEach((variant)=>{
+          if(variant.title.toLowerCase() == each.toLowerCase()){
+            match_ids_to_add.push(variant.id.replace("gid://shopify/ProductVariant/", ""));
+            match_prods_to_add.push(current_bralette.product.id);
+            prodsAddingToCart.push({
+              product: current_bralette,
+              prodId: current_bralette.product.id,
+              varId: variant.id.replace("gid://shopify/ProductVariant/", "")
+            })
+          }
+        })
+      }
+    if(printHasSocks){
+      if(currentFoundSock){ 
+        currentFoundSock.ppForm = true;
+      }
+      for(sock of selectedSocks){
+        for(variant of currentFoundSock.variants.edges){
+          if(variant.node.title == sock){
+            match_ids_to_add.push(variant.node.id);
+            match_prods_to_add.push(currentFoundSock.id);
+            prodsAddingToCart.push({
+              product: currentFoundSock,
+              prodId: currentFoundSock.id,
+              varId: variant.node.id
+            })
+          }
+        }
+      }
+    }
+
+      //click on add to cart 
+      $('#add-match-to-cart').html(`<svg class="circular-loader relative w-8 h-8" viewBox="25 25 50 50"><circle class="loader-path" cx="50" cy="50" r="20" fill="none" stroke-width="4"></circle></svg>`)//add loading gif to button
+      // addToCartRecursive(0);
+      document.getElementById("match-balls-form-container").innerHTML = "";
+      for(product of prodsAddingToCart){
+              const form = document.createElement('form');
+                form.method = 'post';
+                form.action = '/cart/add';
+                form.id = `product-form-${product.prodId}`;
+                form.acceptCharset = 'UTF-8';
+                form.classList.add('flex', 'h-full', 'flex-col', 'border-t', 'bg-white', 'product-form', "hidden");
+                form.enctype = 'multipart/form-data';
+                form.setAttribute('data-product-id', product.prodId);
+                form.setAttribute('novalidate', 'novalidate');
+                form.setAttribute('data-type', 'add-to-cart-form');
+                const hiddenInputs = [
+                    { name: 'form_type', value: 'product' },
+                    { name: 'utf8', value: '✓' },
+                    { name: 'id', value: product.varId, class: 'product-selected-variant-id', 'data-product-id': product.prodId },
+                    { name: 'quantity', value: '1', class: 'product__quantity', id: 'qty-template--16162885926973__main' },
+                    { name: 'attributes[_freeshp]', value: '' },
+                    { name: 'properties[_co]', value: '{{ settings.mutlibuy_variant | json }}' },
+                    { name: 'product-id', value: product.prodId },
+                    { name: 'properties[_Perfect Pair]', value: product.prodId }
+                ];
+                hiddenInputs.forEach(inputData => {
+                    const input = document.createElement('input');
+                    input.type = 'hidden';
+                    input.name = inputData.name;
+                    input.value = inputData.value;
+                    if (inputData.class) input.classList.add(inputData.class);
+                    if (inputData.id) input.id = inputData.id;
+                    if (inputData['data-product-id']) input.setAttribute('data-product-id', inputData['data-product-id']);
+                    
+                    form.appendChild(input);
+                });
+                  const atcButton = document.createElement('button');
+                  atcButton.type = 'submit';
+                  atcButton.classList.add('add-to-cart-button', 'hidden');
+                  form.appendChild(atcButton);
+                  const prodData = document.createElement('input');
+                  prodData.classList.add("js-prod-data")
+                  prodData.value = JSON.stringify(product.product);
+                  prodData.setAttribute("type", "hidden");
+                  prodData.id = "product-json-" + product.prodId;
+                  form.append(prodData);
+                  form.addEventListener('submit', function(event) {
+                      event.preventDefault();
+                  });
+
+        document.getElementById("match-balls-form-container").append(form);
+        
+      }
+
+    addFormsToCart(0);
+      
+    })
+
+     async function addFormsToCart(index) {
+          const forms = document.querySelectorAll('#match-balls-form-container .product-form');
+          for (let form of forms) {
+              const addToCartButton = form.querySelector('.add-to-cart-button');
+              addToCartButton.click();
+              await ppAddToCart(form, form.querySelector('.product-selected-variant-id').value);
+          }
+       $('#add-match-to-cart').html("Add To Cart")
+    }
+
+  function ppAddToCart(form, currentVariant) {
+    return new Promise((resolve, reject) => {
+        const productData = JSON.parse(form.querySelector('.js-prod-data').value);
+
+        const formData = new FormData(form);
+        const dataString = new URLSearchParams(formData).toString();
+        fetch('/cart/add.js', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'Accept': 'application/json',
+            },
+            body: dataString,
+        })
+        .then(response => {
+            console.log('Cart add response:', response);
+            if (response.ok) {
+                return response.json();
+            } else {
+                return response.json().then((json) => {
+                    throw new Error(json.description || 'Failed to add to cart');
+                });
+            }
+        })
+        .then(cartItem => {
+            console.log('Item added to cart:', cartItem);
+            const event = new CustomEvent('itemAddedToCart', {
+                detail: {
+                    variant: currentVariant,
+                    product: productData,
+                    formData: formData,
+                },
+            });
+            document.dispatchEvent(event);
+            const quantityDiv = document.getElementById("cart-items-number");
+            const resetRevent = new CustomEvent('revertToCart');
+            document.dispatchEvent(resetRevent);
+
+            const cartevent = new CustomEvent('updateCart');
+            document.dispatchEvent(cartevent);
+
+            resolve(cartItem); // Resolve the promise when item is successfully added
+        })
+        .catch(error => {
+           $('#add-match-to-cart').html("Add To Cart")
+                  const errDiv = document.createElement("div");
+                  errDiv.className="fixed top-2 right-2 bg-red-500 text-white rounded-md px-2 py-1"
+                  errDiv.innerHTML = "Error adding to cart";
+                  errDiv.style.zIndex = "999999999999";
+                  document.body.append(errDiv);
+                  setTimeout(() =>{
+                    errDiv.remove();
+                  }, 2500)
+            console.error('ATC: Error adding to cart:', error);
+            reject(error); // Reject the promise if there's an error
+        });
+    });
+}
+
+    $('body').on('click','.js-match-size-guide-safety-screen', function(){ 
+      $('#match-size-guide-wrapper').addClass("hidden");
+      $('body').removeClass("body-no-scroll");
+    })
+
+    $('body').on('click','.js-match-size-guide-show', function(){
+         $('#match-size-guide-wrapper').removeClass("hidden");
+          $('body').addClass("body-no-scroll");
+          $('#match-size-guide-content').html(`<div class="mx-auto w-32 whitepsace-nowrap" style="position: absolute; left: 50%; transform: translateX(-50%);"><div class="whitespace-nowrap">Getting Size Guide</div>
+        <svg class="circular-loader relative" viewBox="25 25 50 50"><circle class="loader-path" cx="50" cy="50" r="20" fill="none" stroke-width="4"></circle></svg>
+        </div>`);
+          if(temp_step_1_gender == "men"){
+            $('#match-size-guide-content').load('/pages/all-size-guides #Mens-Underwear-Size-Guide');
+          }else{
+            $('#match-size-guide-content').load('/pages/all-size-guides #Womens-Underwear-Size-Guide');
+          }
+          
+        })
+  
+      $('body').on('click','.js-match-size-guide-show-2', function(){ 
+            $('#match-size-guide-wrapper').removeClass("hidden");
+          $('#match-size-guide-content').html(`<div class="mx-auto w-32 whitepsace-nowrap" style="position: absolute; left: 50%; transform: translateX(-50%);"><div class="whitespace-nowrap">Getting Size Guide</div>
+        <svg class="circular-loader relative" viewBox="25 25 50 50"><circle class="loader-path" cx="50" cy="50" r="20" fill="none" stroke-width="4"></circle></svg>
+        </div>`);
+          if(temp_step_2_gender == "men"){
+            $('#match-size-guide-content').load('/pages/all-size-guides #Mens-Underwear-Size-Guide');
+          }else{
+            $('#match-size-guide-content').load('/pages/all-size-guides #Womens-Underwear-Size-Guide');
+          }
+          
+          
+      })
+
+  $('body').on('click','.js-match-size-guide-show-3', function(){ 
+      $('#match-size-guide-wrapper').removeClass("hidden");
+      $('#match-size-guide-content').html(`<div class="mx-auto w-32 whitepsace-nowrap" style="position: absolute; left: 50%; transform: translateX(-50%);"><div class="whitespace-nowrap">Getting Size Guide</div>
+    <svg class="circular-loader relative" viewBox="25 25 50 50"><circle class="loader-path" cx="50" cy="50" r="20" fill="none" stroke-width="4"></circle></svg>
+    </div>`);
+      $('#match-size-guide-content').load('/pages/all-size-guides #Bralette-Size-Guide');
+      
+    })
+
+  $('body').on('click','#match-me-adventurous', function(){
+      //click on the patterned sub title on final page
+      $('.js-matchballs-design-results').each(function(){//hide all designs
+        $(this).addClass("hidden");
+      })
+      $('#match-me-result-designs-patterned-wrapper').removeClass("hidden");//show appropriate designs
+  
+      //add selected-tab class to appropriate class
+      $('.js-matchballs-tab').each(function(){
+        $(this).removeClass("selected-tab");
+      })
+      $(this).addClass("selected-tab");
+      
+    })
+    $('body').on('click','#match-me-plain', function(){//as above
+      $('.js-matchballs-design-results').each(function(){
+        $(this).addClass("hidden");
+      })
+      $('#match-me-result-designs-plain-wrapper').removeClass("hidden");
+      $('.js-matchballs-tab').each(function(){
+        $(this).removeClass("selected-tab");
+      })
+      $(this).addClass("selected-tab");
+    })
+
+$('body').on('click', '#match-me-res1', function() {
+    $('#match-change-1-content').html("");
+    const $wrapperContents = $('#step-1').clone();
+    $wrapperContents.attr('id', 'step-1-change-contents');
+    const freeShipMessage = $wrapperContents.find("#free-shipping-message");
+    freeShipMessage.remove();
+    $wrapperContents.css('transform', 'none');
+    $wrapperContents.css('width', 'auto');
+    $wrapperContents.appendTo('#match-change-1-content');
+    $wrapperContents.find('#step-1-finish').attr('id', 'step-1-change');
+    $wrapperContents.find('#step-1-change').html('Update Choices');
+    $wrapperContents.find('.product-title').remove();
+    $wrapperContents.find('#perfect-pair-copy').remove();
+    $wrapperContents.find('.js-step-2-type').each(function() {
+        $(this).removeClass("py-4");
+        $(this).addClass("py-1");
+    });
+
+    $('#match-change-1-wrapper').removeClass("hidden");
+});
+  
+    $('body').on('click','#match-change-1-safety-screen',function(){
+      $('#match-change-1-wrapper').addClass("hidden");
+    })
+    $('body').on('click','#step-1-change',function(){
+      step_1_gender = temp_step_1_gender;
+      step_1_size = temp_step_1_size;
+      step_1_size_plain = temp_step_1_size_plain;
+      step_1_type = temp_step_1_type;
+      $('#match-me-final').addClass("hidden");
+      $('#match-me-final-nav').addClass("hidden");
+      $('#match-me-final').removeClass("md:flex");
+      $('#match-change-1-wrapper').addClass("hidden");
+      final_arr = [];
+      getMatchingPairs();
+    })
+    $('body').on('click', '#match-me-res2', function() {
+      $('#match-change-2-content').html("");
+      const $wrapperContents = $('#step-2').clone();
+      $wrapperContents.attr('id', 'step-2-change-contents');
+      const svg = $wrapperContents.find("#Layer_1");
+      svg.remove();
+      $wrapperContents.css('transform', 'none');
+      $wrapperContents.removeClass("pt-6")
+      $wrapperContents.css('width', 'auto');
+      $wrapperContents.appendTo('#match-change-2-content');
+      $wrapperContents.find('#step-2-finish').attr('id', 'step-2-change');
+      $wrapperContents.find('#step-2-change').html('Update Choices');
+      $wrapperContents.find('#match-me-back-button').remove();
+      $wrapperContents.find('.js-step-2-type').each(function(){
+          $(this).removeClass("py-4");
+          $(this).addClass("py-1");
+      });
+
+      $('#match-change-2-wrapper').removeClass("hidden");
+    });
+    
+    $('body').on('click', '#match-change-2-safety-screen', function() {
+        $('#match-change-2-wrapper').addClass("hidden");
+    });
+    
+    $('body').on('click', '#step-2-change', function() {
+        step_2_gender = temp_step_2_gender;
+        step_2_size = temp_step_2_size;
+        step_2_size_plain = temp_step_2_size_plain;
+        step_2_type = temp_step_2_type;
+        $('#match-me-final').addClass("hidden");
+        $('#match-me-final-nav').addClass("hidden");
+        $('#match-me-final').removeClass("md:flex");
+        $('#match-change-2-wrapper').addClass("hidden");
+        final_arr = [];
+        getMatchingPairs();
+    });
+
+      $('body').on('click','.js-match-change-safety-screen', function(){
+      $('#match-change-2-wrapper').addClass("hidden");
+      $('#match-change-1-wrapper').addClass("hidden");
+    })
+
+  $('body').on('click','.js-show-less-prints', function(){
+    $('#match-me-result-designs-patterned').css('max-height','6.5rem')
+    $('#match-me-result-designs-plain').css('max-height','6.5rem')
+    $('.js-show-less-prints').each(function(){
+      $(this).addClass("hidden");
+    })
+    $('.js-show-more-prints').each(function(){
+      $(this).show();
+    })
+  })
+  $('body').on('click','.js-show-more-prints', function(){
+    $('#match-me-result-designs-patterned').css('max-height','')
+    $('#match-me-result-designs-plain').css('max-height','')
+    $('.js-show-less-prints').each(function(){
+      $(this).removeClass("hidden");
+    })
+    $('.js-show-more-prints').each(function(){
+      $(this).hide();
+    })
+  })
+
+        $('body').on('click', '.slider-control', function () {
+  
+        var position = $(this).index()
+        var text = $(this).text()
+        var translatePositionX = ((position) * 100) + "%"
+        var slider = $(this).siblings('.selection-tab-selection')
+        slider.css('transform', `translate(${translatePositionX}, -50%)`);
+
+        (position > 0)? slider.css('left', '-1%') : slider.css('left', '1%')
+        
+          
+        
+        
+         if (slider.hasClass("hidden")) {
+            slider.removeClass('hidden');
+          }
+    });
+
+    $('body').on('click','#add-bralette-to-match', function(){
+      currentBralettes.push(temp_size)
+      $('#bralette-to-add').removeClass("match_out_of_stock");
+      match_bralette_in = true;
+      $('#match-bralette-simple').addClass("hidden");
+      $('#match-balls-get-brallete').removeClass("hidden");
+      $('#match-found-bralette').addClass("hidden");
+      // $('#match-bralette-wrapper').addClass("hidden");
+      $('body').removeClass("body-no-scroll");
+      updateUI();
+      
+      
+    })
+  
+     $('body').on('click','.js-match-balls-get-brallete-intro', function(){
+      if(current_bralette){
+        
+      $('#match-found-bralette').removeClass("hidden");
+      $('body').addClass("body-no-scroll");
+      $('#match-found-bralette-img').find('img').attr('src', current_bralette.product.image);
+      $('#match-found-bralette-title').html(toTitleCase(current_bralette.product.handle.replace(/-/g, ' ')));
+      $('#match-found-bralette-price').html(`<div class="flex">Price: <div class="ml-1" style="color:#f00f83">£${parseFloat((current_bralette.product.price)).toFixed(2)}</div>${current_bralette.product.compare_at_price > current_bralette.product.price ? `<del class="text-gray-500 ml-2">£${parseFloat((current_bralette.product.compare_at_price)).toFixed(2)}</del>` : ''}</div>`);
+      $('.match-variant').each(function(){
+        for(each of current_bralette.product.variants){
+          if(each.title.toLowerCase() == $(this).find('input').val().toLowerCase()){
+            $(this).attr('var_id',each.id.replace("gid://shopify/ProductVariant/", ""))
+            if(each.availableForSale == true){
+              $(this).removeClass("pointer-events-none");
+              $(this).find('input').removeAttr('disabled');
+            }else{
+              if(selected_bralette_size == $(this).find('input').val()){
+                $('#add-bralette-to-match').addClass("pointer-events-none");
+                $('#add-bralette-to-match').removeClass("bg-magenta-500 text-white");
+                $('#add-bralette-to-match').html("Select a Size")
+              }
+              //$(this).find('label').removeClass("matchballs-active");
+              $(this).find('input').attr('disabled','disabled');
+              $(this).find('input').prop('checked', false);
+              $(this).addClass("pointer-events-none match-bralette-oos");
+            }
+          }
+        }
+      })
+      }
+      
+    })
+
+  
+    $('body').on('click','#match-balls-get-brallete-intro-2', function(){
+      $('#match-found-bralette-2').removeClass("hidden");
+      $('body').addClass("body-no-scroll");
+      $('#match-found-bralette-img-2').find('img').attr('src', current_bralette.product.image);
+      $('#match-found-bralette-title-2').html(toTitleCase(current_bralette.product.handle.replace(/-/g, ' ')));
+      $('#match-found-bralette-price-2').html(`<div class=\"flex\" >Price: <div class=\"ml-1\" style=\"color:#f00f83\">£${parseFloat((current_bralette.product.price)).toFixed(2)}</div><del class="text-gray-500 ml-2">£${parseFloat((current_bralette.product.compate_at_price)).toFixed(2)}</del></div>`);
+      $('.match-variant-2').each(function(){
+        for(each of current_bralette.product.variants){
+          if(each.title.toLowerCase() == $(this).find('input').val().toLowerCase()){
+            $(this).attr('var_id',each.id.replace("gid://shopify/ProductVariant/", ""))
+            if(each.availableForSale == true){
+              $(this).removeClass("pointer-events-none");
+              $(this).find('input').removeAttr('disabled');
+            }else{
+              if(selected_bralette_size == $(this).find('input').val()){
+                $('#add-bralette-to-match').addClass("pointer-events-none");
+                $('#add-bralette-to-match').removeClass("bg-magenta-500 text-white");
+                $('#add-bralette-to-match').html("Select a Size")
+              }
+              //$(this).find('label').removeClass("matchballs-active");
+              $(this).find('input').attr('disabled','disabled');
+              $(this).find('input').prop('checked', false);
+              $(this).addClass("pointer-events-none match-bralette-oos");
+            }
+          }
+        }
+      })
+      
+    })
+
+     $('body').on('click','.match-variant-2', function(){
+      $('.match-variant-2').each(function(){
+        $(this).find('label').removeClass("matchballs-active");
+      })
+      $('#add-bralette-to-match-2').addClass("bg-magenta-500 text-white");
+      $('#add-bralette-to-match-2').removeClass("pointer-events-none");
+      $('#add-bralette-to-match-2').html("Add To Set");
+      $(this).find('label').addClass("matchballs-active");
+      temp_id = $(this).attr('var_id');
+      temp_size = $(this).find('input').val();
+    })
+  
+    $('body').on('click','#match-found-bralette-variants .match-variant', function(){
+      $('#add-bralette-to-match').addClass("bg-magenta-500 text-white");
+      $('#add-bralette-to-match').removeClass("pointer-events-none");
+      $('#add-bralette-to-match').html("Add To Set");
+      temp_id = $(this).attr('var_id');
+      temp_size = $(this).find('input').val();
+      
+    })
+  
+  $('body').on('click', '.sock-to-add-remove', function(){
+    const size = $(this).closest(".sock-to-add").data("size");
+     const index = selectedSocks.indexOf(size);
+    if (index !== -1) {
+        selectedSocks.splice(index, 1);
+    }
+    updateUI();
+  })
+  
+  $('body').on('click', '.bralette-to-add-remove', function(){
+    const size = $(this).closest(".bralette-to-add").data("size");
+     const index = currentBralettes.indexOf(size);
+    if (index !== -1) {
+        currentBralettes.splice(index, 1);
+    }
+    updateUI();
+  })
+      let selectedSock;
+      let selectedSocks = []
+      $('body').on('click', '#match-found-sock-variants .product-variant', function(){
+        selectedSock = $(this).data("option-value");
+         $('#add-sock-to-match').addClass("bg-magenta-500 text-white");
+          $('#add-sock-to-match').removeClass("pointer-events-none");
+          $('#add-sock-to-match').html("Add To Set");
+        
+      })
+      $('body').on('click', '#match-found-sock-add-to-bundle', function(){
+        selectedSocks = []
+        selectedSocks.push(selectedSock);
+        $('#match-found-sock').hide();
+        const secondSock = $('#match-found-sock-variants-2 input:checked').val();
+        if(secondSock){
+          selectedSocks.push(secondSock);
+        }
+        updateUI();
+      })
+
+  
+
+  
+        $('#1-men').click()
+})
+

@@ -1,0 +1,228 @@
+  <!--- complete your look  ------>
+{% capture show_ctl_upsell %}
+  {% render "ob-show-feature-check", metaobject_handle: "cart-complete-the-look" %}
+{% endcapture %} 
+
+ {% assign proceed = settings.matching_pairs_upsell %}
+              {% if proceed %}
+                  {% assign ok_to_proceed = "ok" %}
+                  {% assign formatted_part = "" %}
+                  {% assign productType = item.product.type %}
+                  {% assign collectionName = "" %}
+                  {% assign towelUpsell = "no" %}
+                  {% assign sockUpsell = 'on' %}
+                  {% assign bundleUpsell = 'off' %}
+                  {% assign subscriptionUpsell = "no" %}
+                  {% assign has_matching_sub_product = false %}
+                                          
+                  {% assign productsToShowOn = "Bralette,Low Rise Briefs,seamless,Ladies Bamboo Boxers,Seamless Full Briefs,Ladies Boxers,Thong," | split: "," %}
+                  {% assign towelUpsellList = "Cycling Tops,Rugby Tops,Running Vests,Sports Bras,Sports Shorts,Swimmers,Swimming Shorts,Training T-Shirt,Training T-Shirt (Womens)," | split: "," %}
+                  {% assign sockUpsellList = "Briefs,Boxer Shorts,Loose Fit Boxer Shorts,Bamboo Boxers," | split: "," %}
+                  {% assign subsUpsell = "Boxer Shorts" | split: "," %}
+
+                  {% if towelUpsellList contains productType %}
+                    {% assign towelUpsell = "yes" %}
+                  {% endif %}
+
+                  {% for prop in item.properties %}
+                    {% if prop.first == '_sub_and_save_product' %}
+                      {% assign has_matching_sub_product = true %}
+                       {% assign matching_sub_id = prop.last %}
+                    {% endif %}
+                  {% endfor %}
+             
+                  {% if subsUpsell contains productType and item.product.metafields.custom.subscription_equivalent != blank and has_matching_sub_product == false %}
+                    {% assign subscriptionUpsell = "yes" %}
+                  {% endif %}
+                
+                  {% if sockUpsellList contains productType %}
+                    {% assign sockUpsell = "yes" %}
+                  {% endif %}
+
+                  {% unless productsToShowOn contains productType or towelUpsell == "yes" or sockUpsell == "yes" %}
+                    {% assign ok_to_proceed = "no" %}
+                  {% endunless %}    
+      
+                  {% assign Designtag = "" %}
+                    {% for tag in item.product.tags %}
+                      {% if tag contains  "design-" and tag != "feature-design-selector" %}
+                        {% assign Designtag = tag %}
+                      {% endif %}
+                    {% endfor %}
+                   {% assign parts = Designtag | split: "-" %}
+                    
+                      {% for part in parts %}
+                        {% if forloop.first == false %}
+                          {% assign formatted_part = part | downcase %}
+                          {% capture collectionName %}{{collectionName}}-{{ formatted_part }}{% endcapture %}
+                        {% endif %}
+                      {% endfor %}
+                      {% assign assign collectionName = collectionName | slice: 1, collectionName.size %}
+                      {% assign collectionName = collectionName | strip %}
+                  {% assign colection_products = collections[collectionName].products | where: "available", true %}
+                  {% if colection_products.size == 0 %}
+                      {% capture collectionName %}{{ Designtag }}{% endcapture %}
+                      {% assign colection_products = collections[collectionName].products | where: "available", true %}
+                  {% endif %}
+                    
+                    {% if colection_products.size == 0 %}
+                      {%  assign ok_to_proceed = "no" %}
+                    {% endif %}
+                    
+                      
+                  {% assign this_type_array = colection_products | where: "type", productType %}
+
+                  {% comment %}Check to see if Bralette is avaiable{% endcomment %}
+                  {% assign url = "" %}
+                  {% if productType != "Bralette" %}
+                    {% assign productToSearch = "" %}
+                    {% if towelUpsell == "yes" %}
+                      {% assign productToSearch = "Towel" %}
+                    {% elsif sockUpsell == "yes" %}
+                      {% assign productToSearch = "Socks" %}
+                    {% else %}
+                      {% assign productToSearch = "Bralette" %}
+                    {% endif %}
+
+                      
+                    {% assign search_for = productToSearch %}
+                    {% assign search_for_lowercase = search_for | downcase | strip %}
+
+                    {% assign upsell_prod = "" %}
+                    {% for prod in colection_products %}
+                    {%- comment %}<locksmith:8a6b>{% endcomment -%}
+                      {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: prod, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+                    {%- comment %}</locksmith:8a6b>{% endcomment -%}
+                    {% assign prod_type_lowercase = prod.type | downcase | strip %}
+                      {% if prod_type_lowercase == search_for_lowercase %}
+                        {% capture quick_buy_url %}{{ prod.url}}{% endcapture %}
+                        {% assign upsell_prod = prod %}
+                        {% assign url = quick_buy_url %}
+                        {% break %}
+                      {% endif %}
+                    {% endfor %}
+                  {% else %}
+                    {% assign url = "Underwear" %}
+                  {% endif %}                  
+                    
+                  {% if colection_products.size == this_type_array.size or url == "" %}
+                    {%  assign ok_to_proceed = "no" %}
+                  {% endif %}
+
+                  {% comment %}Check to see if user already has the matching Bralette{% endcomment %}
+                  {% if ok_to_proceed == "ok" and productType != "Bralette" or towelUpsell == "yes" or sockUpsell == "yes"  %}
+          
+                    {% for item in cart.items %}
+                      {% assign lowercaseTitle = item.title | downcase  %}
+
+                      {% unless sockUpsell == "yes" %}
+                        {% if lowercaseTitle contains formatted_part and item.product.type == 'Bralette' or lowercaseTitle contains formatted_part and item.product.type == 'Towel' %}
+                          {%  assign ok_to_proceed = "no" %}
+                          {% break %}
+                        {% endif %}
+                      {% else %}
+                       {% if item.product.type == 'Socks' and item.product.tags contains Designtag %}
+                         {%  assign ok_to_proceed = "no" %}
+                      {% endif %}
+                      {% endunless %}
+                    {% endfor %}
+                  {% endif %}
+              
+                  {% if ok_to_proceed == "ok" and show_ctl_upsell contains 'true'  %}
+                  {% capture ajax_url %}/collections/{{ collectionName }}?view=ob-upsell-grid-items{% endcapture %}
+                  {% if productType == "Bralette" %}
+                  <div class="relative ctl-wrapper">
+                    <div class="ctl-popup" style="display:none;">
+                      <div class="fixed w-screen h-screen ctl-safety" style="position: fixed; top: 0; right: 0; width: 100%; height: 100vh; z-index: 1; background-color: #000; transition: opacity .25s; opacity: 0; "></div>
+                        <div class="fixed top-1/2 p-4 w-full h-80" style="transform:translateY(-50%); z-index:2;">
+                          <div class="rounded-md bg-white w-full h-full shadow-md overflow-y-auto p-2">
+                            <div class="complete-the-look-loc"></div>
+                          </div>
+                          </div>
+                      </div>
+
+                  <div class="ctl-cart-click ctl-cart-to-replace rounded full  flex cursor-pointer mt-2  px-4" data-url="{% render "ob-process-international-link", url: ajax_url %}" data-type="{{ item.product.type }}{% if towel-upsell == yes %}-towel-Upsell{% endif %}" data-collection="{{ collectionName }}" data-cro-feature-loaded="cart-matching-pair-upsell-message" data-cro-feature-viewed="cart-matching-pair-upsell-message" data-cro-feature-clicked="cart-matching-pair-upsell-message">
+                    
+                    <img width="30px" height="30px" class="mr-3 shadow-lg" src="https://cdn.shopify.com/s/files/1/0353/7249/files/Silhouettes-Ladies-underware_2.png?v=1713342616" style=" border: 1px solid #ddd;"> 
+                     <div class="align-center flex flex-col justify-center">
+                        <span class="text-size--smallest font-bold  text-magenta-500 block leading-tight mt-1"><span class="mr-1 text-sm">&plus;</span> <span>{{ 'ob_popup.upsells.ctl_matching_pair' | t }}</span></span>
+                    </div>
+                    </div>
+                    </div>
+
+                    {% else %}
+                    <div class="flex  cursor-pointer mt-2 ctl-wrapper px-4">
+                    <quick-view-product class="product-card" data-cro-feature-loaded="cart-matching-pair-upsell-message" data-cro-feature-viewed="cart-matching-pair-upsell-message" data-cro-feature-clicked="cart-matching-pair-upsell-message">
+                        <div class="quick-add-to-cart-button" style="pointer-events: auto;">
+                          <a class="product__add-to-cart px- flex ctl-click ctl-cart-to-replace"  view="upsell" tabindex="-1">
+                            <span class="visually-hidden">Add to cart</span>
+                            {% unless towelUpsell == 'yes' %} 
+                            <img width="30px" height="30px" class="mr-3 shadow-lg" src="{% if sockUpsell == 'yes' %}https://cdn.shopify.com/s/files/1/0353/7249/files/sock_grey_image.png?v=1732528302{% else %}https://cdn.shopify.com/s/files/1/0353/7249/files/Bralette-gray.png?v=1706090535{% endif %}" style=" border: 1px solid #ddd;">
+                            {% endunless %}
+                             <div class="align-center flex flex-col justify-center">
+                            <span class="text-size--smallest font-bold  text-magenta-500 block leading-tight mt-1"><span class="text-sm">&plus;</span>  {% if towelUpsell == "yes" %}{{ 'ob_popup.upsells.ctl_matching_towel' | t }}{% elsif sockUpsell == 'yes' %}{{ 'ob_popup.upsells.ctl_matching_sock' | t }}{% else %}{{ 'ob_popup.upsells.ctl_matching_bralette' | t }}{% endif %}</span>
+                          </div>
+                            </a>
+                        </div>
+                      </quick-view-product>
+                      <input class="prod-json" type="hidden" value='{{ upsell_prod | json | escape }}' />
+                  </div>
+                    {% endif %}
+                  
+                  {% endif %}
+
+
+                {%  comment %} Render subscription upsell or upsold line Item {% endcomment %}
+
+                {% capture show_sub_and_save %}
+                  {% render "ob-show-feature-check", metaobject_handle: "cart-sub-and-save" %}
+                {% endcapture %}
+
+                  {% if subscriptionUpsell == "yes" and settings.cart_sub_and_save and show_sub_and_save contains "true" %}
+                    <div class="flex justify-between cursor-pointer mt-2 ctl-wrapper px-4 items-center" class="product-card" data-cro-feature-loaded="cart-ss-matching-pair-upsell" data-cro-feature-viewed="cart-ss-matching-pair-upsell" data-cro-feature-clicked="cart-ss-matching-pair-upsell">
+                      <div class="flex justify-start items-center gap-2">
+                      <img height="" width="" class="w-[30px] h-[30px] mr-3 shadow-lg object-cover border border-solid border-100" src="//www.myoddballs.com/cdn/shop/files/MensBoxers_63d98ab2-94dd-4e05-b80a-92b0117bfc05.svg?v=1716973968" alt="">
+                      <div class="text-size--smallest font-bold  text-magenta-500 block leading-tight mt-1  cursor-pointer js-quick-buy-scu">{{ 'ob_popup.upsells.cart_sub_and_save_title' | t }}</div>
+                    </div>
+                      <div class="js-open-generic-banners cursor-pointer" data-metaobjecthandle="subscription-upsell" data-metaobjecttype="popup_content">
+                        <div class="font-semibold flex px-2 text-nowrap justify-center items-center cursor-pointer text-black text-xs text-center max-w-[200px] py-0.5 uppercase rounded-full mt-0.5 text-magenta border border-solid border-magenta"><svg xmlns="http://www.w3.org/2000/svg" class="mr-1" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#f00f83" height="12px" width="12px" version="1.1" id="Capa_1" viewBox="0 0 27.963 27.963" xml:space="preserve"> <g> 	<g id="c129_exclamation"> 		<path d="M13.983,0C6.261,0,0.001,6.259,0.001,13.979c0,7.724,6.26,13.984,13.982,13.984s13.98-6.261,13.98-13.984    C27.963,6.259,21.705,0,13.983,0z M13.983,26.531c-6.933,0-12.55-5.62-12.55-12.553c0-6.93,5.617-12.548,12.55-12.548    c6.931,0,12.549,5.618,12.549,12.548C26.531,20.911,20.913,26.531,13.983,26.531z"></path> 		<polygon points="15.579,17.158 16.191,4.579 11.804,4.579 12.414,17.158   "></polygon> 		<path d="M13.998,18.546c-1.471,0-2.5,1.029-2.5,2.526c0,1.443,0.999,2.528,2.444,2.528h0.056c1.499,0,2.469-1.085,2.469-2.528    C16.441,19.575,15.468,18.546,13.998,18.546z"></path> 	</g> 	<g id="Capa_1_207_"> 	</g> </g> </svg>{{ 'ob_popup.upsells.cart_more_info' | t }}</div></div>
+                    </div>
+                  {% endif %}
+
+                  {% if matching_sub_id %}
+                  
+                  {% for sub_prod in subs_array %}
+                    {% assign sub_prod_details = sub_prod | split: '~' %}
+                    {% assign sub_id = sub_prod_details[0] %}
+                    {% assign matching_sub_id = matching_sub_id | strip %}
+                    {% assign sub_id = sub_id | strip %}
+                    {% if sub_id == matching_sub_id %}
+                      {% assign temp = sub_prod_details[3] | split: '-' %}
+                       {% assign sub_header = temp[0] %}
+                       {% assign sub_sub_header = temp[1] %}
+                      <div class="px-4">
+                      <div class="shadow-base rounded-md w-full flex w-full relative gap-3 p-2" style="    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;">
+                        <input type="hidden" value="{{ sub_id }}" name="sub_SaS_id" />
+                        <div class="mr-2 items-top w-8 mr-2  flex justify-center items-center w-8" style="width: 4rem;">{{ sub_prod_details[4] }} </div>     
+                        <div class="text-sm mr-8">
+                          <div class="font-bold" style="max-width: 90%;">{{ sub_header }} </div>
+                          <div class="text-sm">{{ sub_sub_header }}</div>
+                          <div class="text-xs text-cyan-500" > {{ 'ob_popup.upsells.sub_quickbuy_size' | t }}: {{ sub_prod_details[1] }}</div>
+                        </div>
+                        <div class="js-remove-sub-from-save text-xs cursor-pointer ml-2 p-2 absolute right-2" style="    border: 1px solid #ddd;
+                          padding: 5px;
+                          border-radius: 999px;
+                          margin-top: -2px;" data-key="{{ sub_prod_details[2] }}"> <svg xmlns="http://www.w3.org/2000/svg" class="pointer-events-none" width="16px" class="icon" fill="currentColor" height="16px" viewBox="0 0 17 16"><path d="M4.50065 12.6665C4.50065 13.0202 4.64113 13.3593 4.89118 13.6094C5.14122 13.8594 5.48036 13.9999 5.83398 13.9999H11.1673C11.5209 13.9999 11.8601 13.8594 12.1101 13.6094C12.3602 13.3593 12.5007 13.0202 12.5007 12.6665V4.66654H4.50065V12.6665ZM5.83398 5.99988H11.1673V12.6665H5.83398V5.99988ZM10.834 2.66654L10.1673 1.99988H6.83398L6.16732 2.66654H3.83398V3.99988H13.1673V2.66654H10.834Z" fill="currentColor"></path></svg></div>
+                                  </div>
+                      </div>
+                    {% endif %}
+                  {% endfor %}
+                {% endif %}
+
+           
+                  
+
+                  
+                  {% endif %}
+                  <!-------- ./complete your look ---------------------->
+    

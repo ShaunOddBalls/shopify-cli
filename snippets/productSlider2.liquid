@@ -1,0 +1,223 @@
+
+{% assign current_month = 'now' | date: '%b' %}
+  {% assign current_month = current_month | downcase %}
+
+  {% assign media_count = 0 %}
+{% capture images %}
+  {%- for media in product.media limit: 18 -%}
+    {% assign media_ok_to_proceed = 'yes' %}
+
+    {% if product.type == 'Subscription' or product.type == 'Pre-Paid Subscription' %}
+      {% assign temp_img_str = media | downcase %}
+
+        {% assign media_ok_to_proceed = 'no' %}
+        {% if temp_img_str contains current_month %}
+          {% assign media_ok_to_proceed = 'yes' %}
+        {% endif %}
+      {% endif %}
+
+    {% if media_ok_to_proceed == 'yes' %}
+      <div class="flex-shrink-0 w-full h-full relative" data-slide-index="{{ media_count }}">
+        <div style="width:100vw; padding-top:100%;">
+        </div>
+        {% capture classes_to_pass %}w-full h-full object-contain absolute top-0 left-0 {{ product.type | replace: " ", "-" | downcase }} {% endcapture %}
+        {%
+          render 'ob-product-media',
+          media: media,
+          alt: media.alt | default: product.title,
+          media_count: media_count,
+          classes: classes_to_pass
+          default_size: '600'
+        %}
+      </div>
+      {% assign media_count = media_count | plus: 1 %}
+    {% endif %}
+  {% endfor %}
+{% endcapture %}
+{% capture thumbnails %}
+    <div class="flex w-full absolute bottom-0 thumbnails" style="backdrop-filter: blur(1px); width:100%; justify-content:center;{% if media_count > 7 %}justify-content:start;{% endif %}  gap:0.5rem; background: #ffffff4f; padding:0.25rem 0; max-width:100vw; overflow:auto;">
+    {% assign thumbnail_index = 1 %}
+      {%- for media in product.media limit: 18 -%}
+    {% assign media_ok_to_proceed = 'yes' %}
+
+    {% if product.type == 'Subscription' or product.type == 'Pre-Paid Subscription' %}
+      {% assign temp_img_str = media | downcase %}
+
+        {% assign media_ok_to_proceed = 'no' %}
+        {% if temp_img_str contains current_month %}
+          {% assign media_ok_to_proceed = 'yes' %}
+        {% endif %}
+      {% endif %}
+
+    {% if media_ok_to_proceed == 'yes' %}
+      <div style="width:45px; min-width:45px; padding-top:45px; " class="flex items-center text-justify-center relative product-thumbnail rounded-md {% if forloop.first %}active-thumb{% endif %}" data-slideindex="{{ thumbnail_index }}">
+        <div >
+        </div>
+        {% capture classes_to_pass %}'object-contain '{% endcapture %}
+      <div class="absolute top-0 left-0 flex justify-center items-center  w-full h-full">
+        {%
+          render 'ob-product-media',
+          media: media,
+          alt: media.alt | default: product.title,
+          media_count: media_count,
+          classes: classes_to_pass
+          default_size: '40'
+        %}
+      </div>
+      </div>
+      {% assign thumbnail_index = thumbnail_index | plus: 1 %}
+    {% endif %}
+  {% endfor %}
+
+  </div>
+{% endcapture %}
+<div class="relative mobile-images-wrapper">
+  
+  <div id="mobile-product-images" style="display:flex; overflow:auto; max-width:100vw; ">
+    {{ images }}
+    {{ images }}
+    {{ images }}
+  </div>
+  <div>
+      {{ thumbnails }}
+  </div>
+
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const container = document.getElementById('mobile-product-images');
+  const outerWrapper = container.closest(".mobile-images-wrapper");
+  let thumbnails = Array.from(outerWrapper.querySelectorAll(".product-thumbnail"));
+  let totalSlides = {{ media_count }};
+  let screenWidth = window.innerWidth;
+  const SWIPE_THRESHOLD = 50;
+
+  if (!container) return;
+
+  if(!thumbnails) return
+
+  thumbnails.forEach((thumbnail) =>{
+    thumbnail.addEventListener("click", ()=>{
+      const newIndex = Number(thumbnail.dataset.slideindex);
+       if(currentIndex < totalSlides){
+         currentIndex = currentIndex + totalSlides
+         goToSlide(currentIndex, false, true)
+       }
+       if(currentIndex >= totalSlides*2){
+         currentIndex = currentIndex - totalSlides
+         goToSlide(currentIndex, false,true)
+       }
+         currentIndex = newIndex - 1 + totalSlides
+         goToSlide(currentIndex)
+    })
+  })
+  let currentIndex = totalSlides;
+  let touchStartX = 0;
+  let touchEndX = 0;
+  container.style.overflowX = 'hidden';
+  container.style.touchAction = 'pan-y'; 
+
+  const goToSlide = (index, isSmooth = true, repo=false) => {
+    console.log(index)
+    currentIndex = index;
+   if(index < totalSlides && !repo){
+     currentIndex = ((totalSlides * 2))
+     goToSlide(currentIndex, false, true)
+     currentIndex = (totalSlides * 2) -1
+   }
+   if(index >= totalSlides*2&& !repo){
+     currentIndex = ((totalSlides -1))
+     goToSlide(currentIndex, false,true)
+     currentIndex = (totalSlides) 
+   }
+    
+    container.scrollTo({
+      left: currentIndex * screenWidth,
+      behavior: isSmooth? 'smooth' : 'instant'
+    });
+    const prevThumb = thumbnails.find((thumb) =>
+      thumb.classList.contains("active-thumb")
+    );
+    if (prevThumb) {
+      prevThumb.classList.remove("active-thumb");
+    }
+    const toHighlight =currentIndex + 1 - totalSlides 
+
+    const currentThumb = thumbnails.find(
+      (thumb) => thumb.dataset.slideindex == toHighlight
+    );
+    if (currentThumb) {
+      currentThumb.classList.add("active-thumb");
+    }
+  };
+
+  container.addEventListener('touchstart', (e) => {
+    touchStartX = e.touches[0].clientX;
+  });
+
+  container.addEventListener('touchmove', (e) => {
+    touchEndX = e.touches[0].clientX;
+  });
+
+  container.addEventListener('touchend', () => {
+    const deltaX = touchEndX - touchStartX;
+    if (Math.abs(deltaX) > SWIPE_THRESHOLD) {
+      if (deltaX < 0 ) {
+        goToSlide(currentIndex + 1);
+      } else if (deltaX > 0) {
+        goToSlide(currentIndex - 1);
+      }
+    } else {
+      goToSlide(currentIndex);
+    }
+    touchStartX = 0;
+    touchEndX = 0;
+  });
+
+  window.addEventListener('resize', () => {
+    screenWidth = window.innerWidth;
+    goToSlide(currentIndex);
+  });
+
+  goToSlide(currentIndex, false);
+
+    const observer = new MutationObserver(() => {
+    resetSlider();
+  });
+
+  observer.observe(container, { childList: true, subtree: true });
+
+  function resetSlider() {
+
+    totalSlides = outerWrapper.querySelectorAll(".product-thumbnail").length;
+    thumbnails = Array.from(outerWrapper.querySelectorAll(".product-thumbnail"));
+      thumbnails.forEach((thumbnail) =>{
+        thumbnail.addEventListener("click", ()=>{
+          const newIndex = Number(thumbnail.dataset.slideindex) - 1;
+          console.log(newIndex)
+             currentIndex = newIndex  + totalSlides
+             goToSlide(currentIndex)
+        })
+      })
+
+    if (currentIndex >= totalSlides) {
+      currentIndex = totalSlides - 1; 
+    }
+
+    goToSlide(totalSlides , false, true);
+  }
+});
+
+
+
+</script>
+<style>
+  .active-thumb{
+    border: 2px solid #5e5e5e
+  }
+  .product-thumbnail{
+    background: #ffffffc9;
+    border-radius:0.305rem;
+  }
+</style>

@@ -1,0 +1,296 @@
+<style>
+.mosaic {
+  width: 100%;
+}
+
+{% capture image-classes %}
+"{{ block.settings.img-class-list }}"
+{% endcapture %}}
+
+
+
+  
+</style>
+
+{% assign market_code = localization.language.root_url %}
+{% if market_code == '/' %}
+  {% assign market_code = 'uk' %}
+{% else %}
+  {% assign market_code = market_code | remove: '/' %}
+{% endif %}
+
+
+<div class="{{ section.settings.mosaic-container }} mosaic";>
+{% for block in section.blocks %}
+
+          {% assign show_block = true %}
+          {% if block.settings.show_on_all_markets == false %}
+            {% assign markets_to_show = block.settings.markets_to_show_on | split: ',' %}
+            {% assign markets_to_exclude_on = block.settings.markets_to_exclude_on | split: ',' %}
+
+            {% if markets_to_exclude_on != blank %}
+            {% for market in markets_to_exclude_on %}
+              {% assign market_strip = market | strip %}
+              {% assign market_downcase = market_strip | downcase %}
+              {% if market_code == market_downcase %}
+                {% assign show_block = false %}
+                {% break %}
+              {% endif %}
+            {% endfor %}
+            {% endif %}
+            
+            {% if markets_to_show != blank and show_block  %}
+              
+              {% assign show_block = false %}
+              {% for market in markets_to_show %}
+      
+                {% assign market_strip = market | strip %}
+                {% assign market_downcase = market_strip | downcase %}
+                {% if market_code == market_downcase %}
+                  {% assign show_block = true %}
+                  {% break %}
+                {% endif %}
+              {% endfor %}
+            {% endif %}
+          {% else %}
+            {% assign show_block = true %}
+          {% endif %}
+
+
+
+
+
+    {% if show_block %}
+
+      {% if block.type == "video_collection_block" %}
+          <div class="grid-item {{ block.settings.class-list }} {{ section.settings.all-block-outer-class }}" style="background-color: {{ block.settings.background-color }}">
+        <a href="{{ block.settings.button_link }}">
+          {{ block.settings.video | video_tag: autoplay: true, loop: true }}
+          <h3 class="{{ block.settings.button-class-list }} {{ section.settings.all-button-class }}">{{ block.settings.button-text }}</h3>
+
+        </a> 
+      </div>
+        {% else %}
+      <div class="grid-item {{ block.settings.class-list }} {{ section.settings.all-block-outer-class }}" style="background-color: {{ block.settings.background-color }}">
+        <a href="{{ block.settings.button_link }}">
+          {% render 'ob-lazy-image', image: block.settings.image , id: section.id, class: section.settings.all-image-class,  sizes: '360w' %} 
+          <h3 class="{{ block.settings.button-class-list }} {{ section.settings.all-button-class }}">{{ block.settings.button-text }}</h3>
+        <div class="{{ block.settings.img-overlay }} {{ section.settings.img-overlay }}"></div>
+        </a> 
+      </div>
+      {% endif %}
+    {% endif %}
+{% endfor %}
+</div>
+
+{% schema %}
+  {
+    "name": "Mosaic Hero",
+    "presets": [
+      {
+        "name": "Mosaic Hero "
+      }
+  	],
+    "settings": [
+      {
+        "type": "text",
+        "id": "mosaic-container",
+        "label": "add container settings here"
+      },
+      {
+        "type": "header",
+        "content": "Block settings"
+      },
+      {
+        "type": "text",
+        "id": "all-block-outer-class",
+        "label": "add classes to all blocks outer wrapper"
+      },
+      {
+        "type": "header",
+        "content": "Block image setiings"
+      },
+      {
+        "type": "text",
+        "id": "all-image-class",
+        "label": "add classes to all blocks images"
+      },
+      {
+        "type": "text",
+        "id": "img-overlay",
+        "label": "image overlay settings"
+      },
+      {
+        "type": "header",
+        "content": "Block Buttons"
+      },
+      {
+        "type": "text",
+        "id": "all-button-class",
+        "label": "add classes to all block buttons"
+      }
+    ],
+    "blocks": [
+        {
+          "type": "collection_block",
+          "name": "Collection block",
+          "settings": [
+                {
+                  "type": "text",
+                  "id": "class-list",
+                  "label": "block class list"
+                },
+                {
+                  "type": "header",
+                  "content": "IMAGES"
+                },
+                {
+                  "type": "image_picker",
+                  "id": "image",
+                  "label": "Image"
+                },
+                {
+                  "type": "text",
+                  "id": "img-overlay",
+                  "label": "block image overlay settings"
+                },
+                {
+                  "type": "text",
+                  "id": "img-class-list",
+                  "label": "image class list"
+                },
+                {
+                  "type": "header",
+                  "content": "BUTTON"
+                },
+                {
+                  "type": "text",
+                  "id": "button-text",
+                  "label": "button text"
+                },
+                {
+                  "type": "url",
+                  "id": "button_link",
+                  "label": "block link"
+                },
+                {
+                  "type": "text",
+                  "id": "button-class-list",
+                  "label": "button-class-list"
+                },
+                {
+                  "type": "header",
+                  "content": "Block color settings"
+                },
+                {
+                  "type": "color",
+                  "id": "background-color",
+                  "label": "Background colour"
+                },
+                {
+                "type": "checkbox",
+                "id": "show_on_all_markets",
+                "default": true,
+                "label": "Show On All Markets",
+                "info": "on to show on all"
+              },
+              {
+                "type": "text",
+                "id": "markets_to_show_on",
+                "label": "Markets to show on",
+                "info": "Example would look like: uk, en-eu (shows on UK and EU markets)"
+              },
+              {
+                "type": "text",
+                "id": "markets_to_exclude_on",
+                "label": "Markets to Exclude on",
+                "info": "Example would look like: uk, en-eu (Would not show on UK and EU markets)"
+              }
+    		]
+  		},    
+        {
+          "type": "video_collection_block",
+          "name": "Video Collection block",
+          "settings": [
+                {
+                  "type": "text",
+                  "id": "class-list",
+                  "label": "block class list"
+                },
+                {
+                  "type": "header",
+                  "content": "IMAGES"
+                },
+                {
+                  "type": "video",
+                  "id": "video",
+                  "label": "Video"
+                },
+                {
+                  "type": "text",
+                  "id": "img-overlay",
+                  "label": "block image overlay settings"
+                },
+                {
+                  "type": "text",
+                  "id": "img-class-list",
+                  "label": "image class list"
+                },
+                {
+                  "type": "header",
+                  "content": "BUTTON"
+                },
+                {
+                  "type": "text",
+                  "id": "button-text",
+                  "label": "button text"
+                },
+                {
+                  "type": "url",
+                  "id": "button_link",
+                  "label": "block link"
+                },
+                {
+                  "type": "text",
+                  "id": "button-class-list",
+                  "label": "button-class-list"
+                },
+                {
+                  "type": "header",
+                  "content": "Block color settings"
+                },
+                {
+                  "type": "color",
+                  "id": "background-color",
+                  "label": "Background colour"
+                },
+                              {
+                "type": "checkbox",
+                "id": "show_on_all_markets",
+                "default": true,
+                "label": "Show On All Markets",
+                "info": "on to show on all"
+              },
+              {
+                "type": "text",
+                "id": "markets_to_show_on",
+                "label": "Markets to show on",
+                "info": "Example would look like: uk, en-eu (shows on UK and EU markets)"
+              },
+              {
+                "type": "text",
+                "id": "markets_to_exclude_on",
+                "label": "Markets to Exclude on",
+                "info": "Example would look like: uk, en-eu (Would not show on UK and EU markets)"
+              }
+    		]
+  		}    
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

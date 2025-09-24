@@ -1,0 +1,488 @@
+{% unless product.tags contains 'hide-me' %}
+
+{% assign image_count = 0 %}
+{% assign current_month = "now" | date: "%b" %}
+{% assign current_month = current_month | downcase %}
+
+{% assign month_string = 'month-' | append: current_month %}
+{% assign front_image = product.featured_image %}
+{% assign back_image = product.media[1] %}
+{%  if product.metafields.custom.collection_image != blank %}
+    {% assign front_image = product.metafields.custom.collection_image %}
+    {% assign back_image = product.featured_image %}
+{%  endif %}
+{% assign chirstmas_delivery = 'no' %}
+{% assign christmas_delivery_class = '' %}
+{% if product.tags contains 'feature-christmas-delivery' and settings.christmas_delivery == "yes" %}
+  {% assign christmas_delivery_class = 'christmas-delivery-grid' %}
+  {% assign chirstmas_delivery = 'yes' %}
+{%  endif %}
+{% if product.type == 'Subscription' or product.type == 'Pre-Paid Subscription' %}
+
+
+  {% for media in product.media %}
+    {% assign temp_media_str =  media | downcase %}
+      {% if temp_media_str contains month_string %}
+        {% assign image_count = image_count | plus: 1 %}
+        {% if image_count == 1 %}
+          {% assign front_image = media %}
+        {% elsif image_count > 1 %}
+          {% assign back_image = media %}
+        {% endif %}
+      {% endif %}
+  {% endfor %}
+  {% if back_image contains month_string %}
+  {% else %}
+      {% assign back_image = front_image %}
+  {% endif %}
+  
+{% endif %}
+{% assign shoppable = false %}
+{% assign svg_banner = 'false' %}
+{% assign labelTags = ""%}
+{%- capture labelTags -%}{%- for tag in product.tags -%}
+{%- assign dTag = tag | downcase -%}
+{%- if dTag =="feature-shoppable" -%}
+  {%- assign shoppable = true -%}
+{%- endif -%}
+
+{% if dTag == 'feature-seasonal-svg' %}
+  {% assign svg_banner = 'true' %}
+{% endif %}
+{%- if dTag contains 'label-' -%}
+{{- dTag -}},
+  {%- endif -%}
+
+{%- endfor -%}{%- endcapture -%}
+{% capture label_dataTags %}{% if labelTags != blank %}data-label_tags="{{ labelTags | strip_newlines }}"{% endif %}{% endcapture %}
+
+{% comment %}{% if product.type == 'Mid-Collection Banners' %}<div style ="height:100%; width:100%; position:absolute; filter: blur(4px); overflow:hidden;"><img class="top--1/2 overflow-hidden absolute" style="height:200%; width:200%;" src="{{ product.media[0] |image_url}}"/></div>{% endif %}{% endcomment %}
+ <div {{ month_string }} {{ label_dataTags }} {% if product.metafields.custom.collection_mid_banner_url != blank %}data-collection_url="{{ product.metafields.custom.collection_mid_banner_url }}"{% endif %} {% if product.metafields.custom.shop_the_look != blank %}data-product_url="{{ product.url }}"{% endif %} {% if product.metafields.custom.shop_the_look_description != blank %}data-product_description="{{ product.metafields.custom.shop_the_look_description }}"{% endif %} class="product-item-{{ template.name | handle }} product-item  relative {% if chirstmas_delivery == 'yes' %}{{ christmas_delivery_class }} {% endif %} relative h-full flex-col flexx {%  if product.type == 'Mid-Collection Banners' %}{% if shoppable %} js-shoppable cursor-pointer {% endif %} border-8 border-solid border-white {% endif %} justify-between style--{{ settings.product_animation }} {% if large %} lap--box--small-lg {% endif %} {% if settings.product_show_secondary and product.images.size >= 2 %} with-secondary-image {% endif %}">
+
+
+ <div class="-translate-y-1/2 relative self-center h-full top-1/2 transform">  
+
+       <div class="tag absolute top-0 right-0 font-mulish sticker-positioning z-10">
+            
+ {% render 'label-generator' product:product, labelTags:labelTags %}
+       </div>
+  
+    {% assign svg_banner = 'false' %}
+      {% if product.type == 'Mid-Collection Banners' %}
+       {% if svg_banner =='true' %}
+        {% for object in shop.metaobjects.sv_gs.values %}
+          {% if object.title == "Black friday" %}
+            <div style ="height:100%; width:100%; position:absolute; overflow:hidden; z-index:10;"><img class="svg-overlay"src="{{ object.file_location | image_url}}"/></div>
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+        
+        {% assign product_media = product.media %}
+        {% assign month_product_media = "" %}
+        
+        {% assign current_month = "now" | date: "%b" %}
+        {% assign current_month = current_month | downcase %}
+        
+        {% assign has_change_monthly_tag = false %}
+        
+        {% for tag in product.tags %}
+          {% assign lower_tag = tag | downcase %}
+        
+          {% if lower_tag == "feature-change-monthly" %}
+            {% assign has_change_monthly_tag = true %}
+          {% endif %}
+        {% endfor %}
+        
+        {% if has_change_monthly_tag %}
+          {% for media in product_media %}
+            {% assign temp_img_str = media | downcase %}
+            {% if temp_img_str contains 'month-' %}
+              {% if temp_img_str contains current_month %}
+                {% capture month_product_media %}{{ month_product_media }}{{ media | append: "," }}{% endcapture %}
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+          {% assign month_product_media = month_product_media | replace:'files/','' %}
+        {% assign product_media = month_product_media | split: "," %}
+    
+        {% endif %}
+        
+
+
+                    {% assign title_cohort = theme.name | split: "[" %}
+                    {% assign title_cohort = title_cohort[1] | split: "]" %}
+                    {% assign title_cohort = title_cohort[0] %}
+
+    
+        {% assign has_banner = 'no' %}
+        {% assign has_svg = 'no' %}
+        {% for media in product_media %}
+          {% assign cohort_tag = "" %}
+        {% if media.alt == "cohort-a" %}
+          {% assign cohort_tag = "shippingBannerA" %}
+          {% endif %}
+          {% if media.alt == "cohort-b" %}
+            {% assign cohort_tag = "shippingBannerB" %}
+          {% endif %}
+
+
+            {% assign temp_media_str =  media | downcase %}
+          {% if media.alt contains 'mobile' %}
+           {% if media.media_type == 'video' %}
+             {% capture mobile_video %}
+               <div class="w-full h-full md:hidden">
+                 {{ media | video_tag: autoplay: true, loop: true, muted: true, class: "object-contain w-full h-full" }}
+               </div>
+             {% endcapture %}
+            {% endif %}
+          {% endif %}
+          {% if media.alt contains 'desktop' %}
+           {% if media.media_type == 'video' %}
+             {% capture desktop_video %}
+               <div class="w-full h-full hidden lg:block">
+                 {{ media | video_tag: autoplay: true, loop: true, muted: true, class: "object-contain w-full h-full" }}
+               </div>
+             {% endcapture %}
+            {% endif %}
+          {% endif %}
+            {% if temp_media_str contains '.svg' and temp_media_str contains 'desktop' and has_svg == 'no'  %}
+              
+              {% assign has_svg = 'yes' %}
+              {% capture desktop_svg_img %}{% render 'lazy-image', image: media, preload: preload, sizes: sizes, class:'image-fill-space absolute inset-0 w-full h-full mx-auto hidden lg:block object-fit', extra_class: cohort_tag %}{% render 'preloader' %}{% endcapture %}
+           {% if cohort_tag == "shippingBannerB" %}
+               {% capture desktop_svg_img_2 %}{% render 'lazy-image', image: media, preload: preload, sizes: sizes, class:'image-fill-space absolute inset-0 w-full h-full mx-auto hidden lg:block object-fit', extra_class: cohort_tag %}{% render 'preloader' %}{% endcapture %}
+           {% endif %}
+              {% elsif has_banner == 'no' or cohort_tag == "shippingBannerB" %}
+              {% if temp_media_str contains 'desktop' %}
+              {% assign has_banner = 'yes' %}
+
+              {% if has_change_monthly_tag %}
+              {% unless cohort_tag == "shippingBannerB" %}
+                  {% capture desktop_banner_img %}{% render 'lazy-image-file', image: media, preload: preload, sizes: sizes, class:'mx-auto hidden lg:block w-full h-full  object-fit', extra_class: cohort_tag %}{% endcapture %}
+              {% endunless %}
+                {% if cohort_tag == "shippingBannerB" %}
+                  {% capture desktop_banner_img_2 %}{% render 'lazy-image-file', image: media, preload: preload, sizes: sizes, class:'mx-auto hidden lg:block w-full h-full  object-fit hello', extra_class: cohort_tag %}{% endcapture %}
+                {% endif %}
+                {% else %}
+                {% unless cohort_tag == "shippingBannerB"%}
+                  {% capture desktop_banner_img %}{% render 'lazy-image', image: media, preload: preload, sizes: sizes, class:'mx-auto hidden lg:block w-full h-full  object-fit', extra_class: cohort_tag %}{% endcapture %}
+                {% endunless %}
+                {% if cohort_tag == "shippingBannerB" %}
+                  {% capture desktop_banner_img_2 %}{% render 'lazy-image', image: media, preload: preload, sizes: sizes, class:'mx-auto hidden lg:block w-full h-full  object-fit', extra_class: cohort_tag %}{% endcapture %}
+                {% endif %}
+                {% endif %}
+              
+              {% endif %}
+{% endif %}
+        {% endfor %}
+        {% assign has_banner = 'no' %}
+        {% assign has_svg = 'no' %}
+
+    
+        {% for media in product_media %}
+          {% assign cohort_tag = "" %}
+        {% if media.alt == "cohort-a" %}
+          {% assign cohort_tag = "shippingBannerA" %}
+          {% endif %}
+          {% if media.alt == "cohort-b" %}
+            {% assign cohort_tag = "shippingBannerB" %}
+          {% endif %}
+            {% assign temp_media_str =  media | downcase %}
+            {% if temp_media_str contains '.svg' and temp_media_str contains 'mobile' and has_svg == 'no'  %}
+              {% assign has_svg = 'yes' %}
+              {% capture mobile_svg_img %}{% render 'lazy-image', image: media, preload: preload, sizes: sizes, class:'image-fill-space absolute inset-0 w-full h-full mx-auto block lg:hidden object-cover', extra_class: cohort_tag %}{% render 'preloader' %}{% endcapture %}
+            
+              
+              {% elsif has_banner == 'no' or cohort_tag == "shippingBannerB" %}
+              {% if temp_media_str contains 'mobile' %}
+              {% assign has_banner = 'yes' %}
+
+              {% if has_change_monthly_tag %}
+                {% unless cohort_tag == "shippingBannerB" %}
+                  {% capture mobile_banner_img %}{% render 'lazy-image-file', image: media, preload: preload, sizes: sizes, class:'mx-auto block lg:hidden w-full h-full mobile-mid-collection object-cover', extra_class: cohort_tag %}{% endcapture %}
+               {% endunless %}
+                {% else %}
+                {% unless cohort_tag == "shippingBannerB" %}
+                  {% capture mobile_banner_img %}{% render 'lazy-image', image: media, preload: preload, sizes: sizes, class:'mx-auto block lg:hidden w-full h-full mobile-mid-collection object-cover', extra_class: cohort_tag %}{% endcapture %}
+                {% endunless %}
+                {% endif %}
+                {% endif %}
+                {% endif %}
+          
+        {% endfor %}
+            {% if product.metafields.custom.collection_mid_banner_url != blank %}
+            <a cohort="{{ cohort_tag }}" href="{{ product.metafields.custom.collection_mid_banner_url }}">
+            {%  endif %}
+                {{ desktop_video }}
+                {{ mobile_video }}
+                {{ desktop_banner_img }} 
+                {{ desktop_banner_img_2 }} 
+                {{ desktop_svg_img }}
+                {{ desktop_svg_img_2 }}
+                {{ mobile_banner_img }}
+                {{ mobile_banner_img_2 }}
+                {{ mobile_svg_img }}
+                {{ mobile_svg_img_2 }}
+            {% if product.metafields.custom.collection_mid_banner_url != blank %}
+            </a>
+            {%  endif %}
+      {%  else %}
+      
+      {% unless product.available %}
+      <span id="out_of_stock" class="absolute top-0 left-0 bg-cyan-500 text-white px-3 py-1 z-100">
+        Out of Stock
+      </span>
+      {% endunless %}
+      <a href="{% if collection.handle contains 'teen-girls-thong' and product.url contains 'ladies-thong' %}{{ product.url | within: collection }}{%  else  %}{{ product.url }}{%  endif %}" class="collection-product-link">
+        <div class="js-product-item-img box--product-image primary relative image-wrapper-position product-image-wrapper" href="{{ product.url }}">
+          {%- liquid
+      
+            if settings.thumb_resize == "fill"
+              if large 
+                assign sizes = '(max-width: 768px) 80vw, (max-width: 1024px) and (orientation: portrait) 80vw, max(50vw, 60vh)'
+              elsif slider
+                assign sizes = '(max-width: 768px) 80vw, (max-width: 1024px) and (orientation: portrait) 80vw, max(33vw, 50vh)'
+              else 
+                assign sizes = '(max-width: 768px) max(50vw, 50vh), (max-width: 1024px) and (orientation: portrait) max(50vw, 50vh), max(25vw, 50vh)'
+              endif
+            else
+              if large 
+                assign sizes = '(max-width: 768px) 80vw, (max-width: 1024px) and (orientation: portrait) 80vw, 50vw'
+              elsif slider
+                assign sizes = '(max-width: 768px) 80vw, (max-width: 1024px) and (orientation: portrait) 80vw, 33vw'
+              else 
+                assign sizes = '(max-width: 768px) 50vw, (max-width: 1024px) and (orientation: portrait) 50vw, 25vw'
+              endif
+            endif
+      
+            render 'ob-lazy-image', image: front_image, preload: preload, sizes: sizes, class:'image-fill-space' 
+      
+            if settings.show_preloader
+              render 'preloader'
+            endif
+      
+          -%}
+      
+        </div>
+      
+        {%- if settings.product_show_secondary and product.images.size >= 2 -%}
+      
+          <div class="js-product-item-img box--product-image secondary relative image-wrapper-position">
+            {%- render 'lazy-image', image: back_image, sizes: sizes, class:'image-fill-space'  -%}
+          </div>  
+        
+        {%- endif -%}
+      </a>
+    
+      {%- assign variant = product.selected_or_first_available_variant -%}
+    
+      <div class="caption collection-item flex flex-col">
+          <div class="flex w-full justify-between text-center mb-3">
+          {% unless product.tags contains 'feature-not-for-sale' %}
+          {%- if settings.enable_quick_buy and product.available -%}  
+          <a href="{% if collection.handle contains 'teen-girls-thong' and product.url contains 'ladies-thong' %}{{ product.url | within: collection }}{%  else  %}{{ product.url }}{%  endif %}" class="see-more border-2 border-r-0 border-solid leading-9 px-2 rounded-bl-md rounded-tl-md text-xxs uppercase w-full max-w-50">See <span class="pt-1 md:pt-0 block sm:inline">More</span></a>     
+            {%- if product.has_only_default_variant or product.variants.size == 1 -%}
+              <quick-add-to-cart class="quick-add-to-cart qatc-button border-2 border-l-2 border-black border-solid leading-9 rounded-br-md rounded-tr-md text-xxs uppercase w-1/2">
+                <product-form data-ajax-cart>
+                  <div class="quick-add-to-cart-button px-10">
+                    {%- form 'product', product, data-productid: product.id -%}
+                      <input type="hidden" name="id" data-productid="{{ product.id }}" value="{{ variant.id }}">
+                          {% render 'freeshipping-threshold-attribute' %}
+                      <button class="product__add-to-cart" type="submit" name="add" aria-label="{{ 'product.add_to_cart' | t }}" tabindex="-1">
+                        <div class="quickbuy-text">QUICK <span class="pt-1 md:pt-0 block sm:inline">BUY</span></div>
+                        <span class="visually-hidden">{{ 'product.add_to_cart' | t }}</span>
+                        <span class="add-to-cart__text hidden md:inline-block" style="height:26px" role="img">{%- render 'theme-symbols', icon: 'cart_icon_plus' -%}</span>
+                        {%- render 'preloader', class: 'add-to-cart__preloader' -%}
+                      </button>
+                    {%- endform -%} 
+                  </div>
+                </product-form>
+              </quick-add-to-cart>
+            {%- else -%}
+              <quick-view-product data-prod-id="{{ product.id }}" class="quick-add-to-cart qatc-button border-2 border-l-2 border-black border-solid leading-9 rounded-br-md rounded-tr-md text-xxs uppercase w-full">
+                <div class="quick-add-to-cart-button">
+                  <a class="product__add-to-cart px-2" href="{% if collection.handle contains 'teen-girls-thong' and product.url contains 'ladies-thong' %}{{ product.url | within: collection }}{%  else  %}{{ product.url }}{%  endif %}" view="{% if product.type == "Digital Gift Subscription" %}digital{% else %}simple{% endif %}" tabindex="-1">
+                    <div class="quickbuy-text">Quick <span class="pt-1 md:pt-0 block sm:inline">Buy</span></div>
+                    <span class="visually-hidden">{{ 'product.add_to_cart' | t }}</span>
+                    <span class="add-to-cart__text hidden md:inline-block" style="height:26px" role="img">{%- render 'theme-symbols', icon: 'cart_icon_plus' -%}</span>
+                    {%- render 'preloader', class: 'add-to-cart__preloader' -%}
+                  </a>
+                </div>
+              </quick-view-product>
+            {%- endif -%}
+          {% else %}
+              {% if product.tags contains 'show-out-of-stock-sold-out' %}
+                {% assign back_in_stock_text = 'SOLD OUT' %}
+              {% else %}
+                {% assign back_in_stock_text = 'Sign Up To Back In Stock' %}
+              {% endif %}
+            
+              <div class="border-2 border-black border-solid leading-3 rounded-br-md rounded-md text-xxs uppercase w-full">
+                <div class="sign-up-to-stock-button">
+                  <a class="px-2" href="{{ product.url }}">
+                    <div class="">{{ back_in_stock_text }}</div>
+                    <span class="visually-hidden">{{ back_in_stock_text }}</span>
+                  </a>
+                </div>
+              </div>        
+          {%- endif -%}
+          {%  endunless %}
+        </div>
+        <div class="flex-col flex justify-between w-full pr-6 ">
+        
+        {%  unless page.handle == "wishlist" %}
+               {% if customer %}
+                {% if customer.metafields.odd_wishlist contains product.handle %}
+                <div data-product_handle="{{ product.handle }}" data-user_email="{{ customer.email }}" class="product-heart absolute card-section cursor-pointer bg-white p-2 rounded-full top-5 z-100 hidden right-3" {% render 'ga-event-attributes', ga-type:"event", ga-category:"product",ga-action:"click",ga-label:"Wishlist Button" %}>
+                    <div rel="unlike" id="like1" class="heart loggedin icon-heart liked" unlike="//www.myoddballs.com/a/odd/wishlist.php?ui={{customer.id}}&d_ph={{product.handle}}&uh={{ customer.id | append: '8no3m0yb6s2ft92uexj1c8kp0tan135u' | md5 }}" like="//www.myoddballs.com/a/odd/wishlist.php?ui={{customer.id}}&ph={{product.handle}}&uh={{ customer.id | append: '8no3m0yb6s2ft92uexj1c8kp0tan135u' | md5 }}" >
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-magenta-500 fill-current heartIcon" viewBox="0.55 0 22.9 20.23"><path fill="magenta" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.84 2.61a5.5 5.5 0 0 0-7.78 0L12 3.67l-1.06-1.06a5.501 5.501 0 0 0-7.78 7.78l1.06 1.06L12 19.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                      <svg class="circular-loader hidden w-5 relative" viewBox="25 25 50 50"><circle class="loader-path" cx="50" cy="50" r="20" fill="none" stroke-width="4"></circle></svg>
+                    </div>
+                </div>
+                {% else %}
+                <div data-product_handle="{{ product.handle }}" data-user_email="{{ customer.email }}" class="product-heart  absolute card-section absolute cursor-pointer bg-white p-2 rounded-full top-5 z-100 hidden right-3 bottom-3" {% render 'ga-event-attributes', ga-type:"event", ga-category:"product",ga-action:"click",ga-label:"Wishlist Button" %}>
+                    <div rel="like" id="like1" class="heart loggedin icon-heart" unlike="//www.myoddballs.com/a/odd/wishlist.php?ui={{customer.id}}&d_ph={{product.handle}}&uh={{ customer.id | append: '8no3m0yb6s2ft92uexj1c8kp0tan135u' | md5 }}" like="//www.myoddballs.com/a/odd/wishlist.php?ui={{customer.id}}&ph={{product.handle}}&uh={{ customer.id | append: '8no3m0yb6s2ft92uexj1c8kp0tan135u' | md5 }}">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-400 fill-current heartIcon" viewBox="0.55 0 22.9 20.23"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.84 2.61a5.5 5.5 0 0 0-7.78 0L12 3.67l-1.06-1.06a5.501 5.501 0 0 0-7.78 7.78l1.06 1.06L12 19.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>      
+                      <svg class="circular-loader hidden w-5 relative" viewBox="25 25 50 50"><circle class="loader-path" cx="50" cy="50" r="20" fill="none" stroke-width="4"></circle></svg>
+                    </div>
+                </div>
+                {% endif %}
+              {% else %}
+                <div data-product_handle="{{ product.handle }}" data-user_email="{{ customer.email }}" class="card-section notloggedin product-heart bg-white cursor-pointer absolute p-2 rounded-full top-5 z-100 hidden right-3 bottom-0" {% render 'ga-event-attributes', ga-type:"event", ga-category:"product",ga-action:"click",ga-label:"Wishlist Button" %}>
+                  <div class="heart icon-heart login-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-400 fill-current" viewBox="0.55 0 22.9 20.23"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.84 2.61a5.5 5.5 0 0 0-7.78 0L12 3.67l-1.06-1.06a5.501 5.501 0 0 0-7.78 7.78l1.06 1.06L12 19.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>          
+                  </div>         
+                </div>
+              {% endif %}	
+            
+          {% endunless %}
+        
+          <div class="title">{% render 'ob-include-product-title-logic', product:product %}</div>
+          <div data-price="{{ product.price }}" {% if product.compare_at_price > product.price %} data-compare_at_price="{{ product.compare_at_price }}"{% endif %} class="price text-base font-semibold items-center flex text-magenta-500">
+            {% assign use_normal_pricing_code = 'yes' %}
+            {% if product.handle contains 'valentines-day-card'  %}
+                {% for cart_item in cart.items %}
+                {% if cart_item.product == product %}
+                    {% assign use_normal_pricing_code = 'no' %}
+                    {% break %}
+                {% endif %}
+                {% endfor %}
+            {% endif %}
+            {% if use_normal_pricing_code == 'no' %}
+                          {%- liquid
+                                           assign price = 0.00 | money
+                if product.compare_at_price > product.price
+                  echo price
+                  echo '<del class="text-base text-gray-600 font-medium ml-2">'
+                    echo product.compare_at_price | money
+                  echo '</del>'
+                else 
+                  echo price
+                endif
+
+            -%}      
+            {% else %}
+            {%- liquid
+    
+              assign price = product.price | money
+    
+              if product.price_varies
+                if product.compare_at_price > product.price
+                  echo 'product.on_sale_from_html' | t: price: price
+                else
+                  echo 'product.from_text_html' | t: price: price
+                endif
+              else
+                if product.compare_at_price > product.price
+                  echo price
+                  echo '<del class="text-base text-gray-600 font-medium ml-2">'
+                    echo product.compare_at_price | money
+                  echo '</del>'
+               elsif product.metafields.custom.comp_price > 0 and cart.currency.iso_code == "GBP"
+            
+               echo price
+                 echo '<del class="text-base text-gray-600 font-medium">'
+                 echo product.metafields.custom.comp_price | money
+                 echo '</del>'
+
+                else 
+                  echo price
+                endif
+              endif
+    
+              if variant.unit_price_measurement
+                echo '<span class="unit-price text-size--smallest">'
+                echo variant.unit_price | money
+                echo ' / '
+                if variant.unit_price_measurement.reference_value != 1
+                  echo variant.unit_price_measurement.reference_value
+                endif
+                echo variant.unit_price_measurement.reference_unit
+                echo '</span>'
+              endif
+    
+            -%}
+        
+              {% comment %}
+              {% if product.selling_plan_groups[0].selling_plans[0].id %}
+              <span class="text-xs text-gray-400 font-medium sm:flex block sm:ml-1">
+                  <i>every month</i>
+              </span>
+              {% endif %}
+              {% endcomment %}
+          {% endif %}
+          </div>
+    
+        </div>
+
+      <!-- <div class="caption collection-item flex flex-col" style="">
+             here ...........
+      </div> -->
+
+        
+      </div>
+    
+    
+    
+      
+      {%- if settings.reviews_badge_desktop != "no" or settings.reviews_badge_mobile -%}
+        {%- if product.metafields.reviews.rating.value != blank -%}
+          <span class="product-badge left rating text-size--smallest" 
+            data-desktop-display="{{ settings.reviews_badge_desktop }}"data-mobile-display="{{ settings.reviews_badge_mobile }}"
+          >
+            <span class="visually-hidden">{{ 'general.accessibility_labels.rating_info' | t: rating_value: product.metafields.reviews.rating.value, rating_max: product.metafields.reviews.rating.value.scale_max }}</span>
+            <span class="rating-text" aria-hidden="true">
+              {{ product.metafields.reviews.rating.value.rating | round: 1 | remove: '.0' }} <span class="lap--hide"> / {{ product.metafields.reviews.rating.value.scale_max | round: 2 | remove: '.0' }}</span>
+            </span>
+            <span class="rating-icon" aria-hidden="true">
+              {%- render 'theme-symbols', icon: 'star' -%}
+            </span>
+          </span>
+        {%- endif -%}
+      {%- endif -%}
+
+    
+      {% if customer and customer.email contains '@myoddballs.com' %}
+        {% render 'variant-selectors-view-ob-staff', product:product, section:section %}
+      {% endif %}
+      {% endif %}
+
+
+   
+  </div>
+
+      {% if chirstmas_delivery == 'yes' and settings.christmas_delivery == "yes" %}
+        <div class="xmas-delivery-message font-bold justify-start text-xs md-text-xl md:text-md flex flex-col absolute bottom-0 w-full left-0 xmas">
+          <div class="flex items-start sm:items-center py-3"> 
+            <div class="">
+                {% render 'xmas-tree' %} 
+            </div>
+            <div>
+              Arrives before Christmas with DPD
+            </div>
+          </div>
+        </div>
+      {% endif %}
+   
+</div>
+{% endunless %}

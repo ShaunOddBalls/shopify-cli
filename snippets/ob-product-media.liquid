@@ -1,0 +1,174 @@
+{%- comment -%}
+  ob-product-media.liquid
+  A highly optimized and responsive product media snippet for Shopify with progressive image loading,
+  WebP support (handled automatically by Shopify), and customizable alt text. Supports flexible default sizing based on aspect ratio.
+
+  Usage:
+    {% render 'ob-product-media', 
+      media: product.media.first, 
+      classes: 'custom-class another-class', 
+      default_size: '800x800',    // or '800' to specify only width, or 'x600' to specify only height
+      maintain_aspect_ratio: true, // Optional, defaults to true
+      alt: 'Custom alt text for the image'
+    %}
+
+  Parameters:
+    - media: The media object to display (required)
+    - classes: Optional CSS classes to apply to the media element
+    - default_size: The default image size for the src attribute (e.g., '800x800', '800', 'x600')
+    - maintain_aspect_ratio: Optional boolean to maintain aspect ratio when only one dimension is provided (defaults to true)
+    - alt: Optional alternative text for the image (overrides media.alt)
+{%- endcomment -%}
+
+{%- assign media = media | default: product.featured_media -%}
+{%- assign classes = classes | default: '' -%}
+{%- assign default_size_input = default_size | default: '800x800' -%}
+{%- assign maintain_aspect_ratio = maintain_aspect_ratio | default: true -%}
+{%- assign custom_alt = alt | default: media.alt | escape -%}
+
+{%- if media -%}
+  {%- comment -%}
+    Determine default_width and default_height based on default_size parameter.
+    Supports:
+      - 'WIDTHxHEIGHT'
+      - 'WIDTH'
+      - 'xHEIGHT'
+
+    If only one dimension is provided and maintain_aspect_ratio is true,
+    calculate the missing dimension based on the media's aspect ratio.
+    If aspect ratio cannot be determined, fallback to square.
+  {%- endcomment -%}
+  {%- assign size_parts = default_size_input | split: 'x' -%}
+  {%- assign size_part_count = size_parts.size -%}
+
+  {%- if size_part_count == 2 -%}
+    {%- assign width_part = size_parts[0] -%}
+    {%- assign height_part = size_parts[1] -%}
+    
+    {%- if width_part != '' and height_part != '' -%}
+      {%- assign default_width = width_part | plus: 0 -%}
+      {%- assign default_height = height_part | plus: 0 -%}
+    {%- elsif width_part != '' and height_part == '' and maintain_aspect_ratio -%}
+      {%- assign default_width = width_part | plus: 0 -%}
+      {%- if media.width and media.height and media.width != 0 -%}
+        {%- assign aspect_ratio = media.width | divided_by: media.height -%}
+        {%- assign default_height = default_width | divided_by: aspect_ratio | round -%}
+      {%- else -%}
+        {%- assign default_height = default_width -%}  {% comment %} Fallback to square if aspect ratio unknown {% endcomment %} 
+      {%- endif -%}
+    {%- elsif width_part == '' and height_part != '' and maintain_aspect_ratio -%}
+      {%- assign default_height = height_part | plus: 0 -%}
+      {%- if media.width and media.height and media.height != 0 -%}
+        {%- assign aspect_ratio = media.width | divided_by: media.height -%}
+        {%- assign default_width = default_height | times: aspect_ratio | round -%}
+      {%- else -%}
+        {%- assign default_width = default_height -%}  {% comment %} Fallback to square if aspect ratio unknown {% endcomment %} 
+      {%- endif -%}
+    {%- else -%}
+      {%- assign default_width = 800 -%}
+      {%- assign default_height = 800 -%}
+    {%- endif -%}
+  {%- else -%}
+    {%- if default_size_input contains 'x' -%}
+      {% comment %} Handle invalid format by fallback {% endcomment %}
+      {%- assign default_width = 800 -%}
+      {%- assign default_height = 800 -%}
+    {%- else -%}
+      {% comment %} Only one part, assuming it's width {% endcomment %}
+      {%- assign default_width = default_size_input | plus: 0 -%}
+      {%- if maintain_aspect_ratio and media.width and media.height and media.width != 0 -%}
+        {%- assign aspect_ratio = media.width | divided_by: media.height -%}
+        {%- assign default_height = default_width | divided_by: aspect_ratio | round -%}
+      {%- else -%}
+        {%- assign default_height = default_width -%}
+      {%- endif -%}
+    {%- endif -%}
+  {%- endif -%}
+  
+    {%- case media.media_type -%}
+     {%- when 'image' -%}
+      
+        
+        {%- comment -%}
+        Output an <img> element with srcset for progressive JPEGs.
+        WebP is handled automatically by Shopify.
+        {%- endcomment -%}
+        {%- assign size = default_width | append: 'x' | append: default_height -%}
+        {% assign gif = false %}
+        {% assign filename = media.src | split: '/' | last %}
+     
+        {% if filename contains '.gif' %}
+          <!-- This is a GIF -->
+          {% assign gif = true %}
+        {% endif %}
+        <img
+          {% unless gif %}
+          src="{{ media | img_url: size, format: 'pjpg' }}"
+          srcset="
+            {{ media | img_url: '100x100', format: 'pjpg' }} 100w,
+            {{ media | img_url: '200x200', format: 'pjpg' }} 200w,
+            {{ media | img_url: '300x300', format: 'pjpg' }} 300w,
+            {{ media | img_url: '600x600', format: 'pjpg' }} 600w,
+            {{ media | img_url: '900x900', format: 'pjpg' }} 900w,
+            {{ media | img_url: '1200x1200', format: 'pjpg' }} 1200w,
+            {{ media | img_url: '1500x1500', format: 'pjpg' }} 1500w
+          "
+          {% else %}
+            src="{{ media | img_url: size }}"
+          srcset="
+            {{ media | img_url: '100x100' }} 100w,
+            {{ media | img_url: '200x200' }} 200w,
+            {{ media | img_url: '300x300' }} 300w,
+            {{ media | img_url: '600x600' }} 600w,
+            {{ media | img_url: '900x900' }} 900w,
+            {{ media | img_url: '1200x1200' }} 1200w,
+            {{ media | img_url: '1500x1500' }} 1500w
+          {% endunless %}
+
+          sizes="(max-width: 639px) 100vw, 
+                 33vw"
+          alt="{{ custom_alt }}"
+          {% unless media_count == 0 %}
+          loading="lazy"
+          {% endunless %}
+          decoding="async"
+          width="{{ default_width }}"
+          height="{{ default_height }}"
+          class="ob-product-media__image {{ classes }}"
+        />
+      
+      {%- when 'video' -%}
+        {%- assign video_src = media.sources | first | default: '' -%}
+        {%- if video_src != '' -%}
+          <video
+            controls
+            class="ob-product-media__video {{ classes }}"
+            loading="lazy"
+            width="{{ default_width }}"
+            height="{{ default_height }}"
+            preload="metadata"
+          >
+            <source src="{{ video_src }}" type="{{ media.mime_type }}">
+            Your browser does not support the video tag.
+          </video>
+        {%- else -%}
+          <!-- Video source not available -->
+        {%- endif -%}
+      
+      {%- when 'external_video' -%}
+        {%- assign external_url = media.external_video_url | escape -%}
+        <iframe
+          src="{{ external_url | append: '?rel=0&autoplay=0&mute=1' }}"
+          frameborder="0"
+          allowfullscreen
+          class="ob-product-media__external-video {{ classes }}"
+          loading="lazy"
+          width="{{ default_width }}"
+          height="{{ default_height }}"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        ></iframe>
+      
+      {%- else -%}
+        <!-- Unsupported media type -->
+    {%- endcase -%}
+  {% endif %}

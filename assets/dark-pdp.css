@@ -1,0 +1,291 @@
+body{
+
+background:#0a0e12;
+
+}
+
+.description-div a{
+    color:white;
+}
+#product-page-wrapper,
+#product-page-wrapper #product-header-get-yours-from,
+.breadcrumbb a:not([class]),
+.breadcrumb__current
+{
+
+    color:#fff;
+}
+
+/* .bg-gray-100{
+    border-color: #76787a !important;
+    color: #fff !important;
+}  */
+
+#product_reviews_section.js-ptab-target .bg-gray-100.rounded-md.pt-6.px-5.block{
+    border-color: #76787a !important;
+    color: #fff !important;
+}
+
+#product-page-wrapper form.bg-white {
+    background: #0a0e12;
+    border-color: #76787a;
+}
+
+
+#product-page-wrapper .bg-gray-50 {
+    --tw-bg-opacity: 1;
+    background-color: #0a0e12;
+    border: 1px solid rgba(255,255,255,0.5)
+}
+
+#product-page-wrapper .hs-accordion,
+.breadcrumbb.border-gray-100,
+#product-page-wrapper .border-gray-100 {
+        border-color: rgb(255 255 255 / 44%) !important;
+}
+
+#product-page-wrapper #show-more-prints-btn {
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgb(10 14 18 / 75%) 50%, rgb(10 14 18 / 75%) 75%, rgb(10 14 18) 100%);
+}
+
+#product-page-wrapper #reasons {
+    border:0px;
+}
+
+#product-page-wrapper .js-print-swap label {
+    border-color:#000;
+}
+
+
+#print-swap-style-selector {
+    background: #e7e8e942;
+}
+
+#product-page-wrapper .text-gray-800 {
+    color:#fff;
+}
+
+#product-page-wrapper #show-more-prints-btn > div {
+    background: #00000091;
+    color: #ffffff;
+}
+#product-page-wrapper #sas-product-form-container {
+    border-color:rgba(0,0,0,0.0);
+}
+
+#product-page-wrapper .product-variants .text-gray-900 {
+    color: #ffffff;
+}
+
+#product-page-wrapper .product-variants .bg-white {
+    --tw-bg-opacity: 1;
+    background-color: #0000006e;
+    border-color: #ffffffa1;
+    border-width: 2px;
+    font-weight: 600;
+
+}
+#product-page-wrapper .peer:checked ~ .peer-checked\:ring-2 {
+    --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) #000000c7;
+}
+
+.peer:checked ~ .peer-checked\:ring-offset-2 {
+    --tw-ring-offset-width: 2px;
+    --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) #000000;
+}
+
+#product-page-wrapper #quantity-selector {
+    border-color: #ffffff61;
+}
+    
+}
+#product-page-wrapper .flex-initial.bg-gray-50 {
+    filter: invert(1);
+}
+
+[outer-wrapper] .bg-gray-100 {
+    --tw-bg-opacity: 1;
+    background-color: rgb(0 0 0);
+}
+[outer-wrapper] .bg-gray-100 .slider-control {
+    color~:#fff;
+}
+.selection-tab-selection {
+    background: #fff !important;
+}
+
+.tag-slider-wrap h2 {
+    color~:#fff;
+}
+
+klarna-placement::part(osm-container),
+.klarna-block-wrap .klarna-block {
+    background: #0a0e12 !important;
+    color: #fff !important;
+    border: none !important;
+}
+
+klarna-placement::part(osm-container) button.link {
+    color: #fff !important;
+    border: none !important;
+} 
+
+.container{
+    background: #0a0e12 !important;
+    color: #fff;
+}
+
+.tag-slider-wrap .justify-center.border-t-0.mx-6.border-color.border-solid.pb-1.text-center.uppercase,
+.tag-slider-wrap .product-card__details__title.text-md.px-2.font-bold,
+.tag-slider-wrap .product-card__details__color.text-sm.px-2{
+    color: white;    
+}
+
+.tag-slider-wrap .bg-gray-100.p-2.pb-3.px-4{
+    background: #3d4043 !important;
+    color: #fff;
+}
+
+.tag-slider-wrap .rounded-full.border.border-black.border-solid.grid.grid-cols-2.w-full.bg-white{
+    background: #000 !important;
+    color: #fff;
+    border-color: #ffffffd1;
+
+}
+
+.mt-2.mb-6.px-6.py-8.rounded-md.border.border-solid.border-color.bg-gray-50 svg{
+    filter: invert(1);
+}
+
+.thumbnails{
+    background: #000 !important;
+}
+
+.bg-gray-,
+{
+    background: #3d4043 !important;
+    color: #fff !important;
+}
+
+#trust-recomentations-selector .selection-tab-selection{
+    background: rgba(255,255,255, 0.7) !important;
+    color: #000 !important;
+}
+
+.js-size-guide-show{
+    align-items: center !important;
+}
+
+.js-size-guide-show .tape-svg{
+    filter: invert(0.1);
+    stroke: #fff;
+}
+
+.slider-control.trust-selector{
+    color: #000;
+}
+
+.product-thumbnail,
+.product_reviews_section .bg-gray-100{
+    background: #3d4043 !important;
+    color: #fff !important;
+}
+a.bg-gray-100[href="/pages/testimonials"] {
+    background: #3d4043 !important;  /* dark background */
+    color: #fff !important;           /* text color */
+    display: block;                   /* ensure block layout */
+    border-radius: 0.375rem;          /* match rounded-md */
+    padding-top: 1.5rem;              /* match pt-6 */
+    padding-left: 1.25rem;            /* match px-5 */
+    padding-right: 1.25rem;
+    text-decoration: none;            /* remove underline */
+}
+
+a.bg-gray-100[href="/pages/testimonials"] .text-xl {
+    color: #fff !important;           /* text inside the div */
+}
+
+/* Optional: add hover effect */
+a.bg-gray-100[href="/pages/testimonials"]:hover {
+    background: #2c2d2f !important;
+}
+
+/* Target the product reviews container specifically */
+#product_reviews_section .bg-gray-100 {
+    background: #3d4043 !important; /* dark background */
+    color: #fff !important;          /* text color */
+    border-radius: 0.375rem;         /* match rounded-md */
+    padding-top: 1.5rem;             /* match py-6 */
+    padding-bottom: 1.5rem;
+    padding-left: 1.25rem;           /* match px-5 */
+    padding-right: 1.25rem;
+    margin-top: 1.25rem;             /* match mt-5 */
+    margin-bottom: 1.5rem;           /* match mb-6 */
+}
+
+/* Style the heading inside the container */
+#product_reviews_section .bg-gray-100 .text-xl {
+    color: #fff !important;
+    text-align: center;
+    font-weight: 600; /* match font-semibold */
+    padding-bottom: 1.25rem; /* match pb-5 */
+}
+
+/* Optional: add a subtle shadow around the container */
+#product_reviews_section .bg-gray-100 {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+breadcrumbbs-section{
+    border: 1px solid #ff;
+}
+.label-container div{
+    background-color: #000 !important;
+    color: #fff;
+    border: 2px solid  #000 !important;
+}
+
+.bnpl-container  * {
+  border: none !important;
+}
+.bnpl-container  {
+  border: 1px solid rgba(255,255,255,0.5);
+  border-radius: 5px;
+}
+
+.product-card__image-wrapper .product-card__image{
+    background: #3d4043 !important;
+}
+
+nav.breadcrumbb {
+    border-top: 1px solid #fff !important;
+}
+.ob-product-media__image,
+.bg-background-primary-default {
+    background-position: center;   
+    background-repeat: no-repeat;  
+    background-size: cover;        
+}
+
+.ob-product-media__image.boxer-shorts,
+.bg-background-primary-default.boxer-shorts {
+    background-image: url("https://cdn.shopify.com/s/files/1/0353/7249/files/ProductImage-4-Background.jpg?v=1755783124");   
+}
+
+.ob-product-media__image.boxer-shorts-bundle,
+.bg-background-primary-default.boxer-shorts-bundle {
+    background-image: url("https://cdn.shopify.com/s/files/1/0353/7249/files/ProductImage-5-BundleBackground.jpg?v=1755784625");   
+}
+
+.product-label{
+    background-color: #000 !important;
+    border: 2px solid #f00f83 !important;
+}
+
+.bg-gray-100.w-full.mt-4.px-3.py-2.mb-6{
+    background-image: url("https://cdn.shopify.com/s/files/1/0353/7249/files/Mobile_aa9559fe-02e3-49fe-9657-a4491b413694.jpg?v=1755790781");
+}
+
+.ob-border-dotted{
+    border: 1px dashed #ffffffdb;
+}

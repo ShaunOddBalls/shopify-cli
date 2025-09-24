@@ -1,0 +1,1161 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "ob_text_video_slider_Y64xXk": {
+      "type": "ob-text-video-slider",
+      "settings": {
+        "handle": "ruby-landing-page",
+        "extra-attributes": "",
+        "section_wrapper_classes": "relative",
+        "extra-logged-in": "",
+        "extra-logged-out": "",
+        "show_dots": true,
+        "dots_container_classes": "ob-dots absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10",
+        "dot_classes": "ob-dot w-2 h-2 rounded-full bg-gray-300 transition-colors duration-200",
+        "slider_enabled": true,
+        "autoplay": true,
+        "loop": true,
+        "slides_mobile": 1,
+        "slides_md": 1,
+        "slides_lg": 1,
+        "slide_gap": 0,
+        "cta-setting": false,
+        "position": "start",
+        "title": "Title",
+        "title-text-classes": "text-3xl md:text-6xl capitalize dbl-cta-title pb-1 font-bebas",
+        "title-text-postion": "left",
+        "title-text-size": 18,
+        "title-color": "",
+        "desktop-title-text-size": 32,
+        "paragragh": "My Paragraph",
+        "p-classes": "",
+        "paragraph-text-postion": "left",
+        "paragragh-font-size": 12,
+        "paragraph-color": "",
+        "desktop-paragraph-text-size": 18,
+        "btn-one-text": "button one",
+        "btn-one-classes": "px-8 relative p-2 rounded-md uppercase btn-shadow-lg block border-solid border-2 border-md border-black text-black font-semibold text-center  transition-colors duration-200",
+        "btn-1-url": "",
+        "btn-one-color": "#ffffff",
+        "btn-one-bg-color": "#000000",
+        "btn-two-text": "button two",
+        "btn-two-classes": "px-8 relative p-2 rounded-md uppercase btn-shadow-lg block border-solid border-2 border-md border-black text-black font-semibold text-center  transition-colors duration-200",
+        "btn-2-url": "",
+        "btn-two-color": "#000000",
+        "btn-two-bg-color": "#ffffff",
+        "button-postion": "start"
+      }
+    },
+    "f7b8470c-5dfc-4a80-84f9-a574d9391aa9": {
+      "type": "ob-conditional-banner",
+      "blocks": {
+        "ec5cc587-bdfd-4da4-92ca-d4c38e687df6": {
+          "type": "page-banner",
+          "settings": {
+            "block_active": true,
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": "",
+            "banner_background": "",
+            "wrapper_classes": "",
+            "title": "",
+            "text": "",
+            "text_wrapper_classes": "",
+            "customers": "both",
+            "url_handle": "official-underwear-of-rugby",
+            "not_url_handle": "",
+            "country_iso": "*",
+            "banner_link": "",
+            "desktop_image": "shopify://shop_images/Desktop-BG_a0f634aa-f9cf-4d98-bf5d-43bbfc21c722.webp",
+            "mobile_image": "shopify://shop_images/Mobile-BG_3b012110-5ad8-4b8a-aacc-b72a724eed66.webp",
+            "desktop_image_classes": "mx-auto w-full hidden md:block",
+            "mobile_image_classes": "mx-auto w-full md:hidden",
+            "desktop_svg": "Desktop-FG_3d0d012a-0761-4561-8171-eeb382ea6c5b.svg",
+            "mobile_svg": "Mobile-FG_f81bd3b3-3a50-4ae9-a364-bd024360092e.svg",
+            "desktop_svg_classes": "absolute inset-0 w-full h-full mx-auto hidden md:block",
+            "mobile_svg_classes": "absolute inset-0 w-full h-full mx-auto md:hidden"
+          }
+        },
+        "38dd6c99-8481-4b6b-8d1b-34f3e9048f6f": {
+          "type": "page-banner",
+          "disabled": true,
+          "settings": {
+            "block_active": true,
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": "",
+            "banner_background": "",
+            "wrapper_classes": "",
+            "title": "",
+            "text": "",
+            "text_wrapper_classes": "",
+            "customers": "both",
+            "url_handle": "*",
+            "not_url_handle": "",
+            "country_iso": "*",
+            "banner_link": "",
+            "desktop_image": "shopify://shop_images/Desktop-BG-Friday.jpg",
+            "mobile_image": "shopify://shop_images/Mobile-BG-Friday.jpg",
+            "desktop_image_classes": "mx-auto w-full hidden md:block",
+            "mobile_image_classes": "mx-auto w-full md:hidden",
+            "desktop_svg": "Desktop-FG_2_f4cdcdb2-9f2e-4196-b5e3-9e0e49bd5b82.svg",
+            "mobile_svg": "Mobile-FG_5a2c384a-5ab7-434d-a5a2-a5933b68b0ae.svg",
+            "desktop_svg_classes": "absolute inset-0 w-full h-full mx-auto hidden md:block",
+            "mobile_svg_classes": "absolute inset-0 w-full h-full mx-auto md:hidden"
+          }
+        }
+      },
+      "block_order": [
+        "ec5cc587-bdfd-4da4-92ca-d4c38e687df6",
+        "38dd6c99-8481-4b6b-8d1b-34f3e9048f6f"
+      ],
+      "settings": {
+        "banner_background": "",
+        "wrapper_classes": ""
+      }
+    },
+    "289ab40a-57e7-4538-a246-879f383aad57": {
+      "type": "ob-trust-pilot-widget",
+      "settings": {
+        "outer_wrapper_classes": "border-blackblend-divide mt-2 mb-2 md:mb-2",
+        "wrapper_classes": "max-w-7xl mx-auto",
+        "widget_header": "",
+        "widget_header_classes": "",
+        "widget_subheader": "",
+        "widget_subheader_classes": "",
+        "widget_code": "<!-- TrustBox widget - Micro Combo -->\n<div class=\"trustpilot-widget\" data-locale=\"en-GB\" data-template-id=\"5419b6ffb0d04a076446a9af\" data-businessunit-id=\"5c7f9459871dac0001ea0238\" data-style-height=\"40px\" data-style-width=\"100%\" data-theme=\"light\">\n  <a href=\"https://uk.trustpilot.com/review/myoddballs.com\" target=\"_blank\" rel=\"noopener\">Trustpilot</a>\n</div>\n<!-- End TrustBox widget -->",
+        "widget_wrapper_classes": "",
+        "use_microcombo": false
+      }
+    },
+    "image_text_grid_phfmhK": {
+      "type": "ob-image-text-grid",
+      "blocks": {
+        "image_and_text_h69W4b": {
+          "type": "image-and-text",
+          "settings": {
+            "country_iso": "*",
+            "title": "",
+            "block_wrapper_classes": "col-span-12 flex justify-center  px-4 items-center text-center relative",
+            "block_title": "",
+            "title_classes": "text",
+            "description": "<h2 class=\"text-center font-bebas text-xl lg:text-3xl\">Rugby Underwear</h2>",
+            "description_classes": "",
+            "svg": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_and_text_h69W4b"
+      ],
+      "settings": {
+        "outer_wrapper_classes": "",
+        "inner_wrapper_classes": "relative",
+        "grid_wrapper_classes": "col-span-12 flex justify-center  py-3 px-4 items-center text-center font-bold",
+        "title": "",
+        "title_classes": "typography--title-five uppercase  mx-auto text-center",
+        "section_bg_colour": "",
+        "block_bg_colour": "",
+        "block_bg_colour_hover": "",
+        "block_text_colour": "",
+        "block_text_colour_hover": "",
+        "block_image_classes": "",
+        "block_svg_classes": "",
+        "custom_css": ""
+      }
+    },
+    "260d0e54-27e1-4d94-8a4b-2234abe73b2e": {
+      "type": "ob-three-text-fields",
+      "blocks": {
+        "f5e55140-37b6-45d6-8eb9-b72896d55d92": {
+          "type": "text-lines",
+          "settings": {
+            "country_iso": "*",
+            "text-field-outer-wrapper-classes": "",
+            "text-field-inner-wrapper-classes": "",
+            "text-field-1": "",
+            "text-field-1-classes": "font-bebas text-4xl",
+            "text-field-2": "",
+            "text-field-2-classes": "",
+            "text-field-3": "",
+            "text-field-3-classes": "",
+            "text-field-4": "",
+            "text-field-4-classes": "",
+            "html-field": "",
+            "html-field-classes": ""
+          }
+        }
+      },
+      "block_order": [
+        "f5e55140-37b6-45d6-8eb9-b72896d55d92"
+      ],
+      "settings": {}
+    },
+    "5d5f3373-9d53-4f8f-92f8-8c045d8301d1": {
+      "type": "ob-image-text-grid",
+      "blocks": {
+        "74e7acfa-b82d-4f31-9e04-2ae2c5f93c22": {
+          "type": "image-and-text",
+          "settings": {
+            "country_iso": "*",
+            "title": "",
+            "block_wrapper_classes": "col-span-12 flex justify-center  px-4 items-center text-center relative",
+            "block_title": "",
+            "title_classes": "text",
+            "description": "<p class=\"text-md lg:text-lg\">\nGear up for Rugby season with OddBalls, the underwear brand for ANYONE who plays, supports, follows – or just LOVES rugby; it's a match made in heaven.   \n</p>",
+            "description_classes": "",
+            "svg": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "ec1d7832-34a6-4fc1-88ac-fcd2b3d8a2a1": {
+          "type": "image-and-text",
+          "disabled": true,
+          "settings": {
+            "country_iso": "*",
+            "title": "",
+            "block_wrapper_classes": "",
+            "block_title": "",
+            "title_classes": "text",
+            "description": "",
+            "description_classes": "",
+            "svg": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        }
+      },
+      "block_order": [
+        "74e7acfa-b82d-4f31-9e04-2ae2c5f93c22",
+        "ec1d7832-34a6-4fc1-88ac-fcd2b3d8a2a1"
+      ],
+      "settings": {
+        "outer_wrapper_classes": "relative",
+        "inner_wrapper_classes": "col-span-12 flex justify-center  py-3 px-4 items-center text-center",
+        "grid_wrapper_classes": "",
+        "title": "",
+        "title_classes": "text-center text-base font-semibold uppercase text-gray-600 tracking-wider",
+        "section_bg_colour": "",
+        "block_bg_colour": "",
+        "block_bg_colour_hover": "",
+        "block_text_colour": "",
+        "block_text_colour_hover": "",
+        "block_image_classes": "",
+        "block_svg_classes": "",
+        "custom_css": ".link{\ncolor: #f00f82\n}"
+      }
+    },
+    "f85b1591-1483-46e4-9144-69aa89476845": {
+      "type": "custom-liquid",
+      "disabled": true,
+      "settings": {
+        "custom_liquid": "<div class=\" flex justify-center\"><a style=\"width:50%; min-width: 200px;\" href=\"/pages/black-friday-sale-2023\"><button  type=\"submit\" name=\"add\" data-atc=\"fat-cow-mens-boxer-shorts\" class=\"mb-12 ga-atc-button product__add-to-cart product--add-to-cart-button justify-between w-full tracking-normal rounded-md uppercase btn-shadow-lg block bg-magenta border-solid border-2 border-md border-black relative font-semibold text-center p-4 text-white hover:bg-magenta-700 transition-colors duration-200\" gaevent=\"\" data-type=\"event\" data-category=\"button\" data-action=\"click\" data-label=\"Product Form ATC Button\">\n                                  <span class=\"button-scroll-in add-to-cart__text add-to-cart__text\">Shop Cyber Sale</span></button></a><div>",
+        "color_scheme": "",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "1b716c4e-2777-4dce-9fde-909f14717745": {
+      "type": "ob-mosaic-hero",
+      "blocks": {
+        "338cb97d-a620-4e1f-8352-1286cfc2d41b": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "",
+            "image": "shopify://shop_images/EnglandRugby_97fd0894-24c8-43b2-ac5f-142478fa1955.jpg",
+            "img-overlay": "",
+            "img-class-list": "cover",
+            "button-text": "ENGLAND RUGBY",
+            "button_link": "https://www.myoddballs.com/collections/england-rugby",
+            "button-class-list": "absolute border border-solid border-black rounded-full bg-black w-4/5 text-center py-2 bottom-2 center-horizontal-absolute",
+            "background-color": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "602c4634-18e8-4db8-b3e5-b4c0dec1110a": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "",
+            "image": "shopify://shop_images/WalesRugby_dfd52141-299a-4a01-bac4-fb074cfa1731.jpg",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "WELSH RUGBY UNION",
+            "button_link": "https://www.myoddballs.com/collections/design-welsh-rugby-union",
+            "button-class-list": "absolute border border-solid border-black rounded-full bg-black w-4/5 text-center py-2 bottom-2 center-horizontal-absolute",
+            "background-color": "#cb2147",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "dff9b96c-6826-48aa-90a7-5f34fe388cb0": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "",
+            "image": "shopify://shop_images/Lions.jpg",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "British & Irish Lions",
+            "button_link": "https://www.myoddballs.com/collections/design-british-and-irish-lions",
+            "button-class-list": "absolute border border-solid border-black rounded-full bg-black w-4/5 text-center py-2 bottom-2 center-horizontal-absolute",
+            "background-color": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "6844e7ed-eaea-4ead-9173-0b109212a782": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "",
+            "image": "shopify://shop_images/Bamboo_179e349d-6c31-455b-89b7-d56775e635d3.jpg",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "Bamboo Boxers",
+            "button_link": "https://www.myoddballs.com/collections/bamboo-underwear",
+            "button-class-list": "absolute border border-solid border-black rounded-full bg-black w-4/5 text-center py-2 bottom-2 center-horizontal-absolute",
+            "background-color": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        }
+      },
+      "block_order": [
+        "338cb97d-a620-4e1f-8352-1286cfc2d41b",
+        "602c4634-18e8-4db8-b3e5-b4c0dec1110a",
+        "dff9b96c-6826-48aa-90a7-5f34fe388cb0",
+        "6844e7ed-eaea-4ead-9173-0b109212a782"
+      ],
+      "custom_css": [
+        ".cover {object-fit: cover; width: 100%; height: 100%;}",
+        ".btn-max-width {max-width: 500px;}",
+        ".z-index-1 {z-index: 1;}",
+        ".z-index-2 {z-index: 2;}",
+        ".gradient {background: linear-gradient( 0deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0) 100% );}"
+      ],
+      "settings": {
+        "mosaic-container": "grid grid-cols-2 md:grid-cols-4 justify-items-center   overflow-y-hidden  md:gap-2 gap-2",
+        "all-block-outer-class": "relative inline-block w-  lg:w-60 lg:h-60 xl:w-full xl:h-full md:w-full md:h-full",
+        "all-image-class": "cover",
+        "img-overlay": "h-1/2 w-full gradient absolute bottom-0 left-0 z-index-1",
+        "all-button-class": "text-center absolute  bg-black block p-3  backdrop-blur-xl  drop-shadow-lg font-bold  border-black border-2  md:text-md xl:text-lg bottom-2 left-1/2 rounded-3xl w-11/12 transform left-1/2 -translate-x-1/2  text-xxs uppercase btn-max-width z-index-2 babes leading-none tracking-wide shadow-sm text-white"
+      }
+    },
+    "three_text_fields_9hkMCY": {
+      "type": "ob-three-text-fields",
+      "blocks": {
+        "text_lines_qF3Wzy": {
+          "type": "text-lines",
+          "settings": {
+            "country_iso": "*",
+            "text-field-outer-wrapper-classes": "",
+            "text-field-inner-wrapper-classes": "text-center text-black relative max-w-4xl mx-auto py-2",
+            "text-field-1": "",
+            "text-field-1-classes": "",
+            "text-field-2": "",
+            "text-field-2-classes": "",
+            "text-field-3": "",
+            "text-field-3-classes": "",
+            "text-field-4": "",
+            "text-field-4-classes": "",
+            "html-field": "",
+            "html-field-classes": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_lines_qF3Wzy"
+      ],
+      "settings": {}
+    },
+    "collection_product_slider_z8iJTk": {
+      "type": "ob-collection-product-slider",
+      "disabled": true,
+      "settings": {
+        "collection": "rugby-best-sellers",
+        "product_list": [],
+        "title": "RUGBY Best Sellers",
+        "wrapper_class": "",
+        "text_class": "typography--title-five uppercase  mx-auto text-center pt-10",
+        "show_on_all_markets": true,
+        "markets_to_show_on": "",
+        "markets_to_exclude_on": ""
+      }
+    },
+    "ob_collection_slider_old_HWnaHp": {
+      "type": "ob-collection-slider-old",
+      "settings": {
+        "collection": "rugby-best-sellers",
+        "product_list": [],
+        "title": "Our Rugby Best Sellers:",
+        "wrapper_class": "",
+        "text_class": "bebas  text-3xl md:text-4xl text-center col-span-2 md:col-span-3",
+        "slider_enabled": true,
+        "autoplay": false,
+        "loop": false,
+        "slides_mobile": 2,
+        "slides_md": 3,
+        "slides_lg": 5,
+        "slide_gap": 10,
+        "slide_by": "all",
+        "drag_scroll": true,
+        "show_dots": true,
+        "dots_container_classes": "relative ob-dots w-full justify-center items-center flex gap-2 z-10 my-4",
+        "dot_classes": "ob-dot w-2 h-2 rounded-full bg-neutral-300 transition-colors duration-300 ease-in-out",
+        "show_on_all_markets": true,
+        "markets_to_show_on": "",
+        "markets_to_exclude_on": ""
+      }
+    },
+    "image_text_grid_tBicz8": {
+      "type": "ob-image-text-grid",
+      "blocks": {
+        "image_and_text_4rJxPD": {
+          "type": "image-and-text",
+          "settings": {
+            "country_iso": "*",
+            "title": "",
+            "block_wrapper_classes": "col-span-1 flex justify-center py-8 px-8 gap-x-5 items-center cursor-pointer",
+            "block_title": "",
+            "title_classes": "text",
+            "description": "<h2 class=\"text-center font-bebas text-2xl lg:text-4xl\">\nAs Seen on These Rugby Legends!\n</h2>",
+            "description_classes": "",
+            "svg": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_and_text_4rJxPD"
+      ],
+      "settings": {
+        "outer_wrapper_classes": "",
+        "inner_wrapper_classes": "",
+        "grid_wrapper_classes": "",
+        "title": "",
+        "title_classes": "text-center text-base font-semibold uppercase text-gray-600 tracking-wider",
+        "section_bg_colour": "",
+        "block_bg_colour": "",
+        "block_bg_colour_hover": "",
+        "block_text_colour": "",
+        "block_text_colour_hover": "",
+        "block_image_classes": "",
+        "block_svg_classes": "",
+        "custom_css": ""
+      }
+    },
+    "mosaic_hero_RKnwcG": {
+      "type": "ob-mosaic-hero",
+      "blocks": {
+        "collection_block_ADMjW7": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative row-span-6 col-span-2 md:row-span-2",
+            "image": "shopify://shop_images/IMAGE-7.jpg",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "",
+            "button_link": "https://www.myoddballs.com/products/british-irish-lions-aus-mens-boxer-shorts",
+            "button-class-list": "",
+            "background-color": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "collection_block_ghgBM6": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "",
+            "image": "shopify://shop_images/IMAGE-1_e8864be6-d052-48fd-b153-3f3629c6446d.jpg",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "",
+            "button_link": "https://www.myoddballs.com/products/horizon-mens-boxer-shorts",
+            "button-class-list": "",
+            "background-color": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "collection_block_ziWxm6": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "",
+            "image": "shopify://shop_images/IMAGE-8.jpg",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "",
+            "button_link": "https://www.myoddballs.com/products/british-irish-lions-aus-mens-boxer-shorts",
+            "button-class-list": "",
+            "background-color": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "collection_block_AdxzT3": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "",
+            "image": "shopify://shop_images/IMAGE-6.jpg",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "",
+            "button_link": "",
+            "button-class-list": "",
+            "background-color": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "collection_block_aUcXac": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "",
+            "image": "shopify://shop_images/IMAGE-4.jpg",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "",
+            "button_link": "",
+            "button-class-list": "",
+            "background-color": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_block_ADMjW7",
+        "collection_block_ghgBM6",
+        "collection_block_ziWxm6",
+        "collection_block_AdxzT3",
+        "collection_block_aUcXac"
+      ],
+      "custom_css": [
+        ".cover {object-fit: cover; width: 100%; height: 100%;}",
+        ".btn-max-width {max-width: 500px;}",
+        ".z-index-1 {z-index: 1;}",
+        ".z-index-2 {z-index: 2;}",
+        ".gradient {background: linear-gradient( 0deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0) 100% );}",
+        ".grid-item {position: relative;}",
+        ".gradient {display: none;}"
+      ],
+      "settings": {
+        "mosaic-container": "grid md:grid-cols-4 md:grid-rows-2 gap-1  grid-cols-2",
+        "all-block-outer-class": "",
+        "all-image-class": "cover",
+        "img-overlay": "h-1/2 w-full gradient absolute bottom-0 left-0 z-index-1",
+        "all-button-class": ""
+      }
+    },
+    "71645e1c-7ee0-4a99-8ab8-e24a0a7ce6fb": {
+      "type": "ob-image-text-grid",
+      "blocks": {
+        "7c99cdc2-88bb-4db5-b5c3-bec893bb9eb4": {
+          "type": "image-and-text",
+          "settings": {
+            "country_iso": "*",
+            "title": "",
+            "block_wrapper_classes": "col-span-8 flex justify-center  px-4 items-center text-center relative",
+            "block_title": "",
+            "title_classes": "text",
+            "description": "<br><h2 class=\"text-center font-bebas text-2xl lg:text-4xl\">\nOFFICIALLY LICENSED RUGBY UNDERWEAR\n</h2>\n\n<br>\n\n<p class=\"text-md lg:text-lg\">\nAlongside our own \n <a href=\"https://www.myoddballs.com/pages/shop-by-design#patterned\" class=\"link\">bright & unique patterned underwear</a>, we also produced the official licensed underwear for  <a href=\"https://www.myoddballs.com/collections/england-rugby\" class=\"link\">England Rugby</a>, <a href=\"https://www.myoddballs.com/collections/design-welsh-rugby-union\" class=\"link\">Welsh Rugby Union</a>, <a href=\"https://www.myoddballs.com/collections/design-british-and-irish-lions\" class=\"link\">The British & Irish Lions</a>, and many clubs across the UK. \n</p>\n<br>\n<p class=\"text-md lg:text-lg\"> Since we were\n <a href=\"https://www.myoddballs.com/pages/about-us\" class=\"link\">established in 2014</a>, OddBalls and rugby has been a match made in heaven. We’ve kitted out grassroots teams, top players and thousands of fans.</p>",
+            "description_classes": "",
+            "svg": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        }
+      },
+      "block_order": [
+        "7c99cdc2-88bb-4db5-b5c3-bec893bb9eb4"
+      ],
+      "custom_css": [
+        ".link {color: #f00f83; font-weight: 400;}"
+      ],
+      "settings": {
+        "outer_wrapper_classes": "relative pb-6",
+        "inner_wrapper_classes": "col-span-12 flex justify-center  py-3 px-4 items-center text-center",
+        "grid_wrapper_classes": "",
+        "title": "",
+        "title_classes": "text-center text-base font-semibold uppercase text-gray-600 tracking-wider",
+        "section_bg_colour": "",
+        "block_bg_colour": "",
+        "block_bg_colour_hover": "",
+        "block_text_colour": "",
+        "block_text_colour_hover": "",
+        "block_image_classes": "",
+        "block_svg_classes": "",
+        "custom_css": ""
+      }
+    },
+    "ob_mosaic_hero_QLAzmg": {
+      "type": "ob-mosaic-hero",
+      "blocks": {
+        "collection_block_afii4J": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/LIONS_M.BOXER_FRONT_f0dc6179-e55f-4ddd-a7a7-7ba69f9ff088.png",
+            "img-overlay": "",
+            "img-class-list": "font-babes",
+            "button-text": "BRITISH & IRISH LIONS X ODDBALLS",
+            "button_link": "https://www.myoddballs.com/collections/design-british-and-irish-lions",
+            "button-class-list": "absolute border border-solid border-black rounded-full bg-black w-4/5 text-center py-2 bottom-2 center-horizontal-absolute",
+            "background-color": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "collection_block_B9T4jw": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/SARACENS_M.BOXER_FRONT.png",
+            "img-overlay": "",
+            "img-class-list": "font-babes",
+            "button-text": "SARACENS X ODDBALLS",
+            "button_link": "https://www.myoddballs.com/collections/saracens",
+            "button-class-list": "",
+            "background-color": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "collection_block_F3VwNz": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/LT_CAMO_M._BOXER_FRONT.png",
+            "img-overlay": "",
+            "img-class-list": "font-babes",
+            "button-text": "LEICESTER TIGERS  X ODDBALLS",
+            "button_link": "https://shop.leicestertigers.com/tigers/search/oddballs#",
+            "button-class-list": "",
+            "background-color": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "collection_block_Ppd8pp": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/CASTLEFORDTIGERSM.BOXERFRONT-min.png",
+            "img-overlay": "",
+            "img-class-list": "font-babes",
+            "button-text": "CASTLEFORD TIGERS X ODDBALLS",
+            "button_link": "https://www.myoddballs.com/collections/castleford-tigers",
+            "button-class-list": "",
+            "background-color": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "collection_block_AAhYzA": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/USARUGBYM.BOXERFRONT-min.png",
+            "img-overlay": "",
+            "img-class-list": "font-babes",
+            "button-text": "USA RUGBY X ODDBALLS",
+            "button_link": "https://www.myoddballs.com/collections/usa-rugby",
+            "button-class-list": "",
+            "background-color": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "collection_block_fiPjCX": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/NORTHAMPTON_SAINTS_M.BOXER_FRONT.png",
+            "img-overlay": "",
+            "img-class-list": "font-babes",
+            "button-text": "NORTHAMPTON SAINTS  X ODDBALLS",
+            "button_link": "https://www.myoddballs.com/collections/design-northampton-saints-rugby",
+            "button-class-list": "",
+            "background-color": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "collection_block_Y7zENq": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/ENGLAND-RUGBY-LEAGUE-GREY-MENS-BOXERS.png",
+            "img-overlay": "",
+            "img-class-list": "font-babes",
+            "button-text": "ENGLAND RUGBY  X ODDBALLS",
+            "button_link": "https://www.myoddballs.com/collections/england-rugby-league",
+            "button-class-list": "",
+            "background-color": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_block_afii4J",
+        "collection_block_B9T4jw",
+        "collection_block_F3VwNz",
+        "collection_block_Ppd8pp",
+        "collection_block_AAhYzA",
+        "collection_block_fiPjCX",
+        "collection_block_Y7zENq"
+      ],
+      "custom_css": [
+        ".cover {object-fit: cover; width: 100%; height: 100%;}",
+        ".btn-max-width {max-width: 500px;}",
+        ".z-index-1 {z-index: 1;}",
+        ".z-index-2 {z-index: 2;}"
+      ],
+      "name": "Mosaic Hero ",
+      "settings": {
+        "mosaic-container": "grid md:grid-cols-4 md:grid-rows-2 gap-1  grid-cols-2",
+        "all-block-outer-class": "",
+        "all-image-class": "cover",
+        "img-overlay": "h-1/2 w-full gradient absolute bottom-0 left-0 z-index-1",
+        "all-button-class": "absolute border border-solid border-black rounded-full bg-black w-4/5 text-center text-white  py-2 bottom-2 center-horizontal-absolute"
+      }
+    },
+    "23dddb08-6703-4d0d-a048-d0052e8a9c1d": {
+      "type": "ob-mosaic-hero",
+      "blocks": {
+        "0d193e51-28ff-4c09-8047-7b02b25e716c": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/LIONSFRONT2020M.BOXERCORRECTWEBSITESIZEDIMAGES_f8ea451a-c208-4e2c-88be-df77d3f1b1c3.png",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "british and irish lions",
+            "button_link": "shopify://collections/design-british-and-irish-lions",
+            "button-class-list": "",
+            "background-color": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "c4360464-13ae-4a1a-a4e9-70d7893cb2e1": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/SARACENS_M.BOXER_FRONT.png",
+            "img-overlay": "",
+            "img-class-list": "font-babes",
+            "button-text": "saracens",
+            "button_link": "shopify://collections/saracens",
+            "button-class-list": "",
+            "background-color": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "f2aa6a61-3d15-43d9-a617-47bb5410aa58": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/CASTLEFORD_TIGERS_M.BOXER_FRONT.png",
+            "img-overlay": "",
+            "img-class-list": "font-babes",
+            "button-text": "castleford tigers",
+            "button_link": "shopify://collections/castleford-tigers",
+            "button-class-list": "",
+            "background-color": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "1081d377-0d9d-44da-abb6-1c5e07708dcc": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/USARUGBYM.BOXERFRONT.png",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "usa rugby",
+            "button_link": "shopify://collections/usa-rugby",
+            "button-class-list": "",
+            "background-color": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "collection_block_4dbNfM": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/NORTHAMPTON_SAINTS_M.BOXER_FRONT.png",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "northampton saints",
+            "button_link": "shopify://collections/design-northampton-saints-rugby",
+            "button-class-list": "",
+            "background-color": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "collection_block_pe7jtL": {
+          "type": "collection_block",
+          "settings": {
+            "class-list": "relative",
+            "image": "shopify://shop_images/ENGLAND-RUGBY-LEAGUE-GREY-MENS-BOXERS.png",
+            "img-overlay": "",
+            "img-class-list": "",
+            "button-text": "england rugby league",
+            "button_link": "shopify://collections/england-rugby-league",
+            "button-class-list": "",
+            "background-color": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        }
+      },
+      "block_order": [
+        "0d193e51-28ff-4c09-8047-7b02b25e716c",
+        "c4360464-13ae-4a1a-a4e9-70d7893cb2e1",
+        "f2aa6a61-3d15-43d9-a617-47bb5410aa58",
+        "1081d377-0d9d-44da-abb6-1c5e07708dcc",
+        "collection_block_4dbNfM",
+        "collection_block_pe7jtL"
+      ],
+      "disabled": true,
+      "custom_css": [
+        ".cover {object-fit: cover; width: 100%; height: 100%;}",
+        ".btn-max-width {max-width: 500px;}",
+        ".z-index-1 {z-index: 1;}",
+        ".z-index-2 {z-index: 2;}",
+        ".gradient {background: linear-gradient( 0deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0) 100% );}"
+      ],
+      "settings": {
+        "mosaic-container": "grid md:grid-cols-3 md:grid-rows-2 gap-1  grid-cols-2",
+        "all-block-outer-class": "",
+        "all-image-class": "cover",
+        "img-overlay": "h-1/2 w-full gradient absolute bottom-0 left-0 z-index-1",
+        "all-button-class": "text-center absolute  bg-white block p-3  backdrop-blur-xl  drop-shadow-lg font-bold   border-black border-2  tracking-wider md:text-md text-xs xl:text-lg bottom-3 left-1/2 rounded w-11/12 transform left-1/2 -translate-x-1/2  uppercase btn-max-width z-index-2 btn-shadow-lg border-solid border-2"
+      }
+    },
+    "image_text_grid_TRRbrd": {
+      "type": "ob-image-text-grid",
+      "blocks": {
+        "image_and_text_LXD4p4": {
+          "type": "image-and-text",
+          "settings": {
+            "country_iso": "*",
+            "title": "",
+            "block_wrapper_classes": "col-span-12 flex justify-center  px-4 items-center text-center relative",
+            "block_title": "",
+            "title_classes": "text",
+            "description": "<br><br><h2 class=\"text-center font-bebas text-3xl lg:text-4xl\">Supporting Worthy Causes</h2>\n<br>\n<p class=\"text-md lg:text-lg\">\nAt OddBalls, we are proud that our pants do some good too! We have raised over £1,000,000 for charities since 2014. \n</p>\n<br>\n<p class=\"text-md lg:text-lg\"> We are proud partners of the\n <a href=\"https://www.myoddballs.com/collections/doddie-weir\" class=\"link\">My Name's Doddie Foundation</a>,– helping improve the lives of those affected by Motor Neuron Disease through the sale of our charity branded products.\n</p>\n<br>\n<p class=\"text-md lg:text-lg\"> Join our community of rugby fans who value comfort, individuality, and making a statement.</p>",
+            "description_classes": "",
+            "svg": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_and_text_LXD4p4"
+      ],
+      "disabled": true,
+      "settings": {
+        "outer_wrapper_classes": "relative pb-6",
+        "inner_wrapper_classes": "",
+        "grid_wrapper_classes": "",
+        "title": "",
+        "title_classes": "",
+        "section_bg_colour": "",
+        "block_bg_colour": "",
+        "block_bg_colour_hover": "",
+        "block_text_colour": "",
+        "block_text_colour_hover": "",
+        "block_image_classes": "",
+        "block_svg_classes": "",
+        "custom_css": ""
+      }
+    },
+    "image_text_grid_FrBwW8": {
+      "type": "ob-image-text-grid",
+      "blocks": {
+        "image_and_text_F3hmfT": {
+          "type": "image-and-text",
+          "settings": {
+            "country_iso": "*",
+            "title": "",
+            "block_wrapper_classes": "col-span-12 flex justify-center  px-4 items-center text-center relative",
+            "block_title": "",
+            "title_classes": "text",
+            "description": "<br><br><h2 class=\"text-center font-bebas text-3xl lg:text-4xl\">🏉Rugby Underwear for True Fans🏉</h2>\n<br>\n<p class=\"text-md lg:text-lg\">\n</p><p>\nCelebrate your love for the game with our official rugby collection—featuring home and alternate designs across <a href=\"https://www.myoddballs.com/collections/him-individuals\" class=\"link\"> men’s boxers </a>, <a href=\"https://www.myoddballs.com/collections/his-briefs\" class=\"link\"> briefs </a>, bobble hats, <a href=\"https://www.myoddballs.com/collections/fleece-blanket\" class=\"link\">blankets </a> and more. Whether you're backing <a href=\"https://www.myoddballs.com/collections/england-rugby\" class=\"link\"> England Rugby </a>, <a href=\"https://www.myoddballs.com/collections/design-welsh-rugby-union\" class=\"link\"> Welsh Rugby Union</a>, the <a href=\"https://www.myoddballs.com/collections/design-british-and-irish-lions\" class=\"link\"> British & Irish Lions</a>, or getting ready for the Six Nations, we’ve got your match-day essentials sorted.\n<br>\n</p><p>\n</p><p class=\"text-md lg:text-lg\">\n</p><p>\nWhether you're cheering from the stadium, celebrating at the pub, or watching from your sofa, support your team in ultimate comfort. Our bold designs are matched with breathable, high-quality fabrics that keep you feeling fresh through every match-day. \n<br>\n</p><p>\n</p><p class=\"text-md lg:text-lg\">\n</p><p> \nFrom men's boxers to <a href=\"https://www.myoddballs.com/collections/her-individuals\" class=\"link\"> women’s briefs </a>, <a href=\"https://www.myoddballs.com/collections/ladies-thongs\" class=\"link\"> thongs </a>, and <a href=\"https://www.myoddballs.com/collections/bralette\" class=\"link\"> bralettes </a>—there’s something for every fan in our officially licensed range. Perfect for gifting or cheering your side with pride, on and off the pitch. </p>",
+            "description_classes": "",
+            "svg": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_and_text_F3hmfT"
+      ],
+      "settings": {
+        "outer_wrapper_classes": "relative pb-6",
+        "inner_wrapper_classes": "",
+        "grid_wrapper_classes": "",
+        "title": "",
+        "title_classes": "",
+        "section_bg_colour": "",
+        "block_bg_colour": "",
+        "block_bg_colour_hover": "",
+        "block_text_colour": "",
+        "block_text_colour_hover": "",
+        "block_image_classes": "",
+        "block_svg_classes": "",
+        "custom_css": ""
+      }
+    },
+    "tabs_and_blocks_4683cH": {
+      "type": "tabs-and-blocks",
+      "blocks": {
+        "content_faq_WKFA3Y": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "When is the next British & Irish Lions tour?",
+            "title_text": "When is the next British & Irish Lions tour?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "The next British & Irish Lions tour is set for 2025 in Australia. It’s one of the biggest events in the rugby calendar, and we’ll be ready with fresh, officially licensed Lions gear to help you support the team in style.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_MTTQ8d": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "Doy ou sell England Rugby underwear for the Six Nations?",
+            "title_text": "Do you sell England Rugby underwear for the Six Nations?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "Yes! Our official England Rugby underwear is a fan favourite during the Six Nations, with home and alternate designs in boxers, briefs, and more—perfect for match days.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_fqY44g": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "Can I get Welsh Rugby Union underwear for the next Six Nations?",
+            "title_text": "Can I get Welsh Rugby Union underwear for the next Six Nations?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "Absolutely—our WRU underwear is officially licensed and available all year round, but it’s especially popular during Six Nations season, so don’t wait too long to grab your size.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_QKGRVX": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "What makes your British & Irish Lions underwear official?",
+            "title_text": "What makes your British & Irish Lions underwear official?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "All of our British & Irish Lions underwear is officially licensed, featuring the Lions crest and colours.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_zRipzC": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "What are the best OddBalls gifts for rugby fans?",
+            "title_text": "What are the best OddBalls gifts for rugby fans?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "Rugby fans love our team underwear, bobble hats, socks, and even blankets—they’re bold, comfortable, and make ideal gifts for birthdays, Christmas, or tournament season.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_CyDD3f": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "What is the difference between rugby league and rugby union?",
+            "title_text": "What is the difference between rugby league and rugby union?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "Rugby union teams have 15 players, while rugby league teams have 13. Substitution rules also vary, with rugby league allowing 10 substitutions compared to a maximum of eight in rugby union. Scoring differs as well: a try in rugby union is worth five points, whereas it's four points in rugby league, with an additional two points available for a successful conversion in both codes. In rugby league, a drop goal scores one point and a penalty two, whereas in rugby union, both are worth three points.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_Wwwwci": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "What teams participate in the Six Nations Rugby Championship?",
+            "title_text": "What teams participate in the Six Nations Rugby Championship?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "The Six Nations Championship is an annual international men's rugby competition between the six countries: England, France, Ireland, Italy, Scotland and Wales.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_UEqM9W": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "Who has won the most Six Nations?",
+            "title_text": "Who has won the most Six Nations?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "Using the tournament history as a whole since 1883, Wales has secured 28 wins and 11 shared titles, England boasts 29 outright wins and 10 shared wins. Italy and Scotland are yet to take the title since the number of competing nations expanded to six.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_mMtTXp": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "What are the Positions in Rugby Union?",
+            "title_text": "What are the Positions in Rugby Union?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "Fifteen players play different responsibilities on the pitch. These positions, as recognized by the International Rugby Board, include the full-back, wings (left and right), centres (inside and outside), fly-half, scrum-half, number eight, flankers (openside and blindside), locks, hooker, and props (loosehead and tighthead).",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_LyWjyD": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "When did the women's Six Nations start?",
+            "title_text": "When did the women's Six Nations start?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "Launched in 1996 with four home nations, the women's rugby competition expanded to five with France joining in 1999, and then to six with Spain in 2000. In 2007, it officially became part of the Six Nations, with Italy replacing Spain. England holds the record with 19 wins, followed by France with six, Ireland with two, and Scotland with one.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        }
+      },
+      "block_order": [
+        "content_faq_WKFA3Y",
+        "content_faq_MTTQ8d",
+        "content_faq_fqY44g",
+        "content_faq_QKGRVX",
+        "content_faq_zRipzC",
+        "content_faq_CyDD3f",
+        "content_faq_Wwwwci",
+        "content_faq_UEqM9W",
+        "content_faq_mMtTXp",
+        "content_faq_LyWjyD"
+      ],
+      "name": "Tabs and Blocks",
+      "settings": {
+        "outer_wrapper_attr": "data-attribute for linking section content",
+        "outer_wrapper_classes": "2xl:mx-auto  py-12 lg:px-20 md:px-6 px-4",
+        "inner_wrapper_classes": "grid grid-cols-12 gap-6",
+        "header_wrapper_classes": "col-span-12 flex flex-col justify-center items-center text-center space-y-4",
+        "all_tabs_wrapper_classes": "",
+        "content_wrapper_classes": "col-span-12 mt-16 grid grid-cols-12",
+        "option_menu_selected": false,
+        "title": "Rugby FAQs",
+        "title_classes": "text-3xl lg:text-4xl font-semibold  leading-9 md:leading-7 lg:leading-9 text-gray-800",
+        "description": "From tour dates to team underwear, here are the answers to our most frequently asked rugby questions. Whether you're shopping for match day, gifting for a rugby-fan friend, or wondering when the next big tournament is, we've got everything you need to know right here.",
+        "description_classes": "text-base leading-6 text-center text-gray-600 w-full md:w-10/12"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "ob_text_video_slider_Y64xXk",
+    "f7b8470c-5dfc-4a80-84f9-a574d9391aa9",
+    "289ab40a-57e7-4538-a246-879f383aad57",
+    "image_text_grid_phfmhK",
+    "260d0e54-27e1-4d94-8a4b-2234abe73b2e",
+    "5d5f3373-9d53-4f8f-92f8-8c045d8301d1",
+    "f85b1591-1483-46e4-9144-69aa89476845",
+    "1b716c4e-2777-4dce-9fde-909f14717745",
+    "three_text_fields_9hkMCY",
+    "collection_product_slider_z8iJTk",
+    "ob_collection_slider_old_HWnaHp",
+    "image_text_grid_tBicz8",
+    "mosaic_hero_RKnwcG",
+    "71645e1c-7ee0-4a99-8ab8-e24a0a7ce6fb",
+    "ob_mosaic_hero_QLAzmg",
+    "23dddb08-6703-4d0d-a048-d0052e8a9c1d",
+    "image_text_grid_TRRbrd",
+    "image_text_grid_FrBwW8",
+    "tabs_and_blocks_4683cH"
+  ]
+}

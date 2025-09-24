@@ -1,0 +1,166 @@
+{% capture banner %}
+<div class="px-4 py-2 gap-2 {%  if settings.christmas_banner_metaobject_quickbuy.popup_optional.value.system.handle %}js-open-generic-banner{% endif %} flex items-center" style="color:{{ settings.christmas_banner_metaobject_quickbuy.text_color.value }}; background-color:{{ settings.christmas_banner_metaobject.banner_color.value }}" data-metaobjecthandle="{{ settings.christmas_banner_metaobject.popup_optional.value.system.handle }}">
+  {{ settings.christmas_banner_metaobject_quickbuy.svg_icon_side_html.value }}
+  {{ settings.christmas_banner_metaobject_quickbuy.banner_header.value }}
+</div>                    
+{% endcapture %}
+
+
+{% assign current_size = product.selected_or_first_available_variant %}
+{% assign subscription_upsell = product.metafields.custom.subscription_equivalent.value %}
+
+
+{% assign product_form_class = "flex h-full flex-col  bg-white product-form" %}
+{% capture product_form_id %}product-form-{{ product.id }}{% endcapture %}
+<!-- Start of the Form -->
+
+<div class="sub-cart-upsell-forms relative" data-cart-key="">
+{%- form 'product', product, data-product-id: product.id, id: product_form_id, class: product_form_class, novalidate: 'novalidate', data-type: 'add-to-cart-form' %}
+    {% render 'ob-product-form-attributes', cart_attributes:cart_attributes, product:product  %}
+
+    <div class="h-0 flex-1 overflow-y-auto">
+        <header class="qb-header relative flex items-center justify-between px-6 py-6 border-b">
+          <div class="absolute top-2 right-2">
+           {% render 'label-generator' product:product, labelTags:labelTags %}
+          </div>
+          <div>
+            <div class="flex">
+              <div id="default-quick-buy-image" class="flex-none">
+                <picture>
+                  <img class="transition duration-100 ease-in-out opacity-100 rounded-sm aspect-square object-cover border border-solid borrder-gray-200 rounded-lg" src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}" loading="eager" width="84" height="84" draggable="false">
+                </picture>
+              </div>
+              <div class="flex flex-col justify-center ml-4">
+                <div class="typography typography--body-md">
+                    <div>
+                          <h2 id="default-quick-buy-header-title" class="text-xl lg:text-3xl uppercase font-semibold mb-2">{{ product.title | split: '-' | first }}</h2>
+      
+                      
+                          <h3 id="default-quick-buy-header-sub-title" class="text-[#7D7D7D]">{{ product.title | split: '-' | last }}</h3>
+                    </div>
+                </div>
+                <div class="flex">
+                    <div id="default-quick-buy-prod-price" class="typography typography--body-md font-medium text-magenta-500 text-semibold">
+                      {% assign price = product.variants[0].price %}
+                      {% assign new_price = subscription_upsell.variants[0].price %}
+                      {% assign compare_at_price = product.variants[0].compare_at_price  %}
+                      <span class="font-semibold">{{ new_price | money }}</span><span class="ml-2 text-gray-500 line-through">{{ price | money }}</span>
+                    </div>
+                    
+                    <del id="default-quick-buy-comp-price" class="ml-2" style="{% if price == compare_at_price %}display: none;{% else %}display: block;{% endif %}">
+                      {{ compare_at_price | money }}
+                    </del>
+                </div>
+              </div>
+            </div>
+          </div>
+        </header>
+        <div class="flex flex-1 flex-col justify-between hidden">
+          <div class="divide-y divide-gray-200">
+              <div class="space-y-6 p-6 py-4">
+                  <!-- Variant Options -->
+                  
+                    {% render 'ob-product-variants', cart_properties:cart_properties, product:product, sizeid:  current_size.id, size: current_size.title %}
+             
+              </div>
+          
+          </div>
+      
+          <div class="qb-gift-card-form px-6">
+            {% render "ob-gift-card-form" %}
+          </div>
+        </div>
+
+      {% comment %}
+      <div class="flex flex-shrink-0 justify-end px-6 py-6">
+        <!-- Add to Cart Button -->
+        <div class="grid grid-cols-4 w-full gap-2">
+            {% render 'ob-product-atc-button', product:product %}
+            {% render 'ob-product-atc-quantity', product:product %}
+        </div>
+    </div>
+      {% endcomment %}
+
+    
+    </div>
+    <!-- Include Product Data -->
+    <input type="hidden" class="product-json" data-type="{{ product.type }}" product-id="{{ product.id }}" value="{{ product | json | escape }}"> 
+.{% endform %} 
+
+
+{% assign product_form_class = "flex h-full flex-col   bg-white product-form sub-and-save-product-form" %}
+{% capture product_form_id %}product-form-{{ subscription_upsell.id }}{% endcapture %}
+{%- form 'product', subscription_upsell, data-product-id: subscription_upsell.id, id: product_form_id, class: product_form_class, novalidate: 'novalidate', data-type: 'add-to-cart-form' %}
+
+    {% render 'ob-product-form-attributes-2', cart_attributes:cart_attributes,  product: subscription_upsell  %}
+
+   <div class="sub-and-save-info">
+     <div class="px-3 flex flex-col gap-0.5">
+       <div class="flex gap-2">
+         <div> <svg style="width:20px; height:20px; margin-right:0.5rem;" xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 100 100"> <defs> <style> .sas-als-sock { fill: none; stroke: #000; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2.5px; } .sas-cls-2 { fill: #eb2b8b; stroke-width: 0px; } </style> </defs> <g> <path class="sas-cls-2" d="M24.3823014,67.9713372c1.7754639-1.3862577,3.0220226-3.4499423,3.318717-5.8623272.5932957-4.8240482-2.8363937-9.2156605-7.6604418-9.8089561,0,0-1.712589,7.0497149-.3179397,9.9054774,1.3946493,2.8557625,4.6596645,5.7658059,4.6596645,5.7658059Z"></path> <path class="sas-cls-2" d="M42.6028729,24.1496298l-.5258756,4.2948295-18.8373241-2.3153954.5258756-4.2948295c.0511342-.4674747.474786-.7961693.9422162-.7377238l17.1574286,2.110903c.4674302.0584455.7961247.4820527.7376792.9422162Z"></path> <path class="sas-cls-2" d="M55.8963905,78.2951169c0,2.4469088-.9568387,4.8864619-2.8632048,6.7124933-3.74702,3.6009286-9.7217895,3.4183255-13.2496947-.3944067l13.483432-12.7968424c1.7602747,1.8114089,2.6294674,4.148738,2.6294674,6.4787559Z"></path> <path class="sas-als-sock" d="M22.0230138,36.0182818l1.2166593-9.8892179,18.8373241,2.3153954-3.2649674,26.5139673c-.1314689,1.1175526.2410486,2.2423719,1.0299067,3.0458525l13.4249865,13.812082-13.483432,12.7968424-18.6108979-20.1155906c-1.4900256-1.5996053-2.1912377-3.7835317-1.9209886-5.9528357l2.1580701-17.5411764"></path> <line class="sas-als-sock" x1="23.2396553" y1="26.1290674" x2="23.2323512" y2="26.1290674"></line> <path class="sas-als-sock" d="M24.3823014,67.9713372c1.7754639-1.3862577,3.0220226-3.4499423,3.318717-5.8623272.5932957-4.8240482-2.8363937-9.2156605-7.6604418-9.8089561"></path> <path class="sas-als-sock" d="M42.6028729,24.1496298l-.5258756,4.2948295-18.8373241-2.3153954.5258756-4.2948295c.0511342-.4674747.474786-.7961693.9422162-.7377238l17.1574286,2.110903c.4674302.0584455.7961247.4820527.7376792.9422162Z"></path> <path class="sas-als-sock" d="M55.8963905,78.2951169c0,2.4469088-.9568387,4.8864619-2.8632048,6.7124933-3.74702,3.6009286-9.7217895,3.4183255-13.2496947-.3944067l13.483432-12.7968424c1.7602747,1.8114089,2.6294674,4.148738,2.6294674,6.4787559Z"></path> </g> <g> <path class="sas-cls-2" d="M49.3102156,59.2868163c1.7754639-1.3862577,3.0220226-3.4499423,3.318717-5.8623272.5932957-4.8240482-2.8363937-9.2156605-7.6604418-9.8089561,0,0-1.712589,7.0497149-.3179397,9.9054774s4.6596645,5.7658059,4.6596645,5.7658059Z"></path> <path class="sas-cls-2" d="M67.530787,15.4651089l-.5258756,4.2948295-18.8373241-2.3153954.5258756-4.2948295c.0511342-.4674747.474786-.7961693.9422162-.7377238l17.1574286,2.110903c.4674302.0584455.7961247.4820527.7376792.9422162Z"></path> <path class="sas-cls-2" d="M80.8243046,69.610596c0,2.4469088-.9568387,4.8864619-2.8632048,6.7124933-3.74702,3.6009286-9.7217895,3.4183255-13.2496947-.3944067l13.483432-12.7968424c1.7602747,1.8114089,2.6294674,4.148738,2.6294674,6.4787559Z"></path> <path class="sas-als-sock" d="M74.1738159,58.9948769l4.0210213,4.1369633-13.483432,12.7968424-18.6108979-20.1155906c-1.4900256-1.5996053-2.1912377-3.7835317-1.9209886-5.9528357l3.9880687-32.4157133,18.8373241,2.3153954-3.2649674,26.5139673c-.1314689,1.1175526.2410486,2.2423719,1.0299067,3.0458525l3.2998031,3.3949495"></path> <line class="sas-als-sock" x1="70.230442" y1="54.9325595" x2="71.8648086" y2="56.6224816"></line> <line class="sas-als-sock" x1="48.1675695" y1="17.4445465" x2="48.1602653" y2="17.4445465"></line> <path class="sas-als-sock" d="M49.3102156,59.2868163c1.7754639-1.3862577,3.0220226-3.4499423,3.318717-5.8623272.5932957-4.8240482-2.8363937-9.2156605-7.6604418-9.8089561"></path> <path class="sas-als-sock" d="M67.530787,15.4651089l-.5258756,4.2948295-18.8373241-2.3153954.5258756-4.2948295c.0511342-.4674747.474786-.7961693.9422162-.7377238l17.1574286,2.110903c.4674302.0584455.7961247.4820527.7376792.9422162Z"></path> <path class="sas-als-sock" d="M80.8243046,69.610596c0,2.4469088-.9568387,4.8864619-2.8632048,6.7124933-3.74702,3.6009286-9.7217895,3.4183255-13.2496947-.3944067l13.483432-12.7968424c1.7602747,1.8114089,2.6294674,4.148738,2.6294674,6.4787559Z"></path> </g> </svg></div>
+         <div>{{ 'ob_popup.upsells.sub_quickbuy_reason_one' | t }}</div>
+       </div>
+       <div class="flex gap-2">
+         <div> <svg style="width:20px; height:20px; margin-right:0.5rem;" xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 100 100"> <defs> <style> .sas-als-van { fill: none; stroke: #141414; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 2.5px; } .sas-cls-2 { fill: #eb2b8b; stroke-width: 0px; } </style> </defs> <path class="sas-cls-2" d="M93.046875,51.0799855l-.2940674.6098022h-14.1392822c-4.3597412,0-7.8939819-3.5342407-7.8939819-7.8939819v-5.3330078h14.3096924l-3.3322144-5.2438354c-1.1921387-1.8760376-3.2606201-3.0124512-5.4833984-3.0124512h-14.0450439l-.2397461,39.331543h9.7332153c-.2007446-3.6589966,2.0550537-7.4817505,6.772522-7.4817505,4.7252197,0,6.9766235,3.8227539,6.7720337,7.4817505h6.7391357c.8754272,0,1.585083-.7096558,1.585083-1.585083v-16.1113892l-.4839478-.7615967Z"></path> <g> <g> <g> <path class="sas-als-van" d="M23.5280412,23.3684235h36.815683c.8754307,0,1.5851076.7096768,1.5851076,1.5851076v44.5845671"></path> <line class="sas-als-van" x1="31.6912284" y1="69.5380982" x2="23.5280412" y2="69.5380982"></line> <line class="sas-als-van" x1="70.7925854" y1="69.5380982" x2="47.1788562" y2="69.5380982"></line> <path class="sas-als-van" d="M62.1686027,30.2065467h14.0450274c2.2227798,0,4.2912817,1.1363701,5.4834193,3.0124186l11.8337942,18.6226586v16.1113667c0,.8754307-.7096768,1.5851076-1.5851076,1.5851076h-5.8253851"></path> </g> <path class="sas-als-van" d="M92.7528078,51.6898021h-14.1392554c-4.3597378,0-7.8940095-3.5342266-7.8940095-7.8939644v-5.3330504h13.8806931"></path> </g> <g> <line class="sas-als-van" x1="10.5398036" y1="31.6934153" x2="26.6391906" y2="31.6934153"></line> <line class="sas-als-van" x1="16.0450481" y1="41.572446" x2="29.9076274" y2="41.572446"></line> <line class="sas-als-van" x1="13.4773584" y1="61.3305977" x2="25.5183474" y2="61.3305977"></line> <line class="sas-als-van" x1="6.6684613" y1="51.451567" x2="23.2553854" y2="51.451567"></line> </g> </g> <circle class="sas-als-van" cx="78.4685516" cy="69.1743877" r="7.4571897" transform="translate(-2.3818753 135.5492172) rotate(-80.7825362)"></circle> <circle class="sas-als-van" cx="39.1494335" cy="69.1743877" r="7.4571901" transform="translate(-37.1691526 91.3835633) rotate(-76.7175093)"></circle> </svg></div>
+         <div>{{ 'ob_popup.upsells.sub_quickbuy_reason_two' | t }}</div>
+       </div> 
+       <div class="flex gap-2">
+         <div> <svg style="width:20px; height:20px; margin-right:0.5rem;" xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 100 100"> <defs> <style> .sas-als-print { fill: none; stroke: #000; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2.5px; } .sas-cls-2 { fill: #eb2b8b; stroke-width: 0px; } </style> </defs> <path class="sas-cls-2" d="M89.5990407,27.2594892l-1.1934902-8.9031741c-.2320282-1.2917182-1.2385619-1.9984139-2.3411002-1.9984139H13.9354006c-1.1023362,0-2.1088699.7066958-2.3408981,1.9984139l-1.1934902,8.9031741h79.1980284Z"></path> <line class="sas-als-print" x1="22.7683536" y1="83.6421149" x2="18.9835574" y2="83.6421149"></line> <path class="sas-als-print" d="M14.3459521,83.6421149h-4.0565663c-1.6389791,0-2.9322429-.8438132-2.9322429-4.1237612v-14.3472851c0-6.5190511.560465-14.2459584,1.0800327-23.2605789l3.1572563-23.5541383c.232135-1.2917453,1.2385422-1.9984663,2.3410919-1.9984663h72.1289526c1.1025497,0,2.1089569.706721,2.3411442,1.9984663l3.1572038,23.5541383c.5195677,9.0146204,1.0800327,16.7415277,1.0800327,23.2605789v14.3472851c0,3.279948-1.2932638,4.1237612-2.9322428,4.1237612h-31.5157457c-1.6400263,0-3.3393301-.4224302-3.8598927-3.6604861-.5123937-3.1879423-.4106463-6.9598615-1.3904537-13.9841323-.9522092.2792114-1.9360993.4295519-2.9444963.4295519-1.0084494,0-1.9923395-.1503405-2.9445487-.4295519-.9798056,7.0242708-.8780076,10.79619-1.3904537,13.9841323-.5205626,3.2380558-2.2198664,3.6604861-3.8598927,3.6604861h-14.1155529"></path> <line class="sas-als-print" x1="72.940988" y1="27.2911673" x2="10.5051829" y2="27.2911673"></line> <line class="sas-als-print" x1="89.4958645" y1="27.2911673" x2="80.7335131" y2="27.2911673"></line> <path class="sas-als-print" d="M63.2999539,27.2594863c.8079953,4.3344264,3.4651113,12.297658,3.4211245,17.1035809-.1166173,13.0882157-8.1309048,21.9790972-16.7210525,21.9790972-8.5886292,0-16.6044863-8.8908814-16.719585-21.9790972-.0434631-4.8059229,2.612658-12.7691544,3.420652-17.1035809h26.598861Z"></path> <line class="sas-als-print" x1="50.0000259" y1="27.2809561" x2="50.0000259" y2="66.1805653"></line> </svg>     </div>
+         <div>{{ 'ob_popup.upsells.sub_quickbuy_reason_three' | t }}</div>
+       </div> 
+       <div class="flex gap-4">
+        <div><svg height="20px" width="20px" xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 190.24 190.69"> <defs> <style> .als-arrow { fill: #ec008c; stroke-width: 0px; } </style> </defs> <path class="als-arrow" d="M169.73,39.71h0l-37.55-24.08c-2.76-1.78-6.27-1.91-9.15-.33-2.88,1.57-4.67,4.59-4.67,7.87v14.24h-50.54c-26.79,0-48.58,21.8-48.58,48.59v11.24c0,5.44,4.41,9.85,9.85,9.85s9.85-4.41,9.85-9.85v-11.24c0-15.93,12.96-28.89,28.89-28.89h50.54v14.24c0,3.29,1.79,6.3,4.67,7.88,1.34.73,2.82,1.09,4.29,1.09,1.69,0,3.37-.48,4.84-1.42l37.56-24.09c2.58-1.66,4.13-4.48,4.13-7.55s-1.54-5.9-4.13-7.55Z"></path> <path class="als-arrow" d="M161.16,83.61c-5.44,0-9.85,4.41-9.85,9.85v11.24c0,15.93-12.96,28.89-28.89,28.89h-50.54v-14.24c0-3.28-1.79-6.3-4.67-7.87-2.88-1.58-6.38-1.46-9.14.32l-37.56,24.09c-2.58,1.66-4.13,4.48-4.13,7.55s1.54,5.9,4.13,7.55h0l37.56,24.09c1.47.94,3.16,1.42,4.84,1.42,1.48,0,2.96-.37,4.3-1.1,2.88-1.57,4.67-4.59,4.67-7.87v-14.24h50.54c26.79,0,48.58-21.79,48.58-48.58v-11.24c0-5.44-4.41-9.85-9.85-9.85Z"></path> </svg></div>
+        <div style="line-height:1.3em;">{{ 'ob_popup.upsells.sub_quickbuy_reason_four' | t }}</div>                       
+       </div>
+    </div>
+  </div>
+
+    <div class="h-0 flex-1 overflow-y-auto">
+        <div class="flex flex-1 flex-col justify-between">
+      
+          
+          <div class="divide-y divide-gray-200 sub-and-save-cart-upsell">
+              <div class="space-y-6 p-6 py-4">
+                  <!-- Variant Options -->
+                  {% render 'ob-product-variants', cart_properties:cart_properties, product:subscription_upsell, sizeid: current_size.id, size: current_size.title, wrapper_classes: "", sub_form: true %}
+              </div>
+          
+          </div>
+          <div class="qb-gift-card-form px-6">
+            {% render "ob-gift-card-form" %}
+          </div>
+        </div>
+    
+    </div>
+  {% comment %}
+  <div class="flex flex-shrink-0 justify-end px-6 py-6">
+        <!-- Add to Cart Button -->
+        <div class="grid grid-cols-4 w-full gap-2">
+            {% render 'ob-product-atc-button', product:product %}
+            {% render 'ob-product-atc-quantity', product:product %}
+        </div>
+    </div>
+  {% endcomment %}
+
+    <div></div>
+    <!-- Include Product Data -->
+    <input type="hidden" class="product-json" product-id="{{ subscription_upsell.id }}" value="{{ subscription_upsell | json | escape }}">
+  
+{% endform %}
+    <div class="flex flex-shrink-0 justify-end px-6 py-6 bg-white sticky bottom-0">
+        <!-- Add to Cart Button -->
+        <div class="grid grid-cols-4 w-full gap-2">
+            {% render 'ob-cart-upsell-add-to-cart', product:product %}
+            {% render 'ob-product-atc-quantity', product:product %}
+        </div>
+    </div>
+</div>
+<!-- End of Form -->
+
+
+
+
+
+
+
+  

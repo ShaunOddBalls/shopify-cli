@@ -1,0 +1,14 @@
+{% schema %}
+  {
+    "name": "Collection Title",
+    	"presets": [
+		{
+			"name": "Collection Title 2"
+		}
+	],
+    "settings": []
+  }
+{% endschema %}
+  <div class="min-md:my-6 my-3 flex items-center justify-center">
+	  <h1 class="typography typography--heading-five text-center" {% if collection.title == "emoji" %}style="text-transform: none;"{% endif %}>{{ collection.title }}</h1>
+  </div>

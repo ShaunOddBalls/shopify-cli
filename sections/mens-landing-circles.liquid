@@ -1,0 +1,74 @@
+{% schema %}
+{
+  "name": "mens landing Circles",
+  "settings": [],
+  "presets": [
+    {
+      "name": "mens landing circles"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image_block",
+      "name": "Image Block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "circle_image",
+          "label": "Circle Image"
+        },{
+          "type": "collection",
+          "id": "page",
+          "label": "Page"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Use Url instead of a collection",
+          "info": " ℹ️ Page input must be Blank"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "button text",
+        },
+        {
+          "type": "text",
+          "id": "button-classes",
+          "label": "button classes",
+          "default": "mt-4 text-center shadow-xl rounded-full w-full mx-auto max-w-[175px] bg-black"
+        },
+        {
+          "type": "text",
+          "id": "text-classes",
+          "label": "button text classes",
+          "default": "text-white px-2 py-1 font-bold text-xs uppercase lw-black rounded-full text-nowrap"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+<div class="grid grid-cols-2  md:grid-cols-6 my-1 gap-x-10 gap-y-6">
+  <div class="opacity-0 max-md:hidden">
+  </div>
+  {% for block in section.blocks %}
+      <a href="{% if block.settings.page != blank %}/collections/{{ block.settings.page }}{% endif %}{% if block.settings.url != blank and block.settings.page == blank %}{{ block.settings.url }}{% endif %}" class="flex justify-center lw-circles flex-col ">
+        {{ block.settings.circle_image | media_tag: image_size: '400x' }}
+        {% if block.settings.title != blank %}
+        <div class="{{ block.settings.button-classes }}">
+                    <div
+                      class="{{ block.settings.text-classes }}"
+                    >
+                      {{ block.settings.title }}
+                    </div>
+                  </div>
+        {% endif %}
+      </a>
+  {% endfor %}
+</div>
+<style>
+  .lw-circles img{
+    width:100%;
+  }
+</style>

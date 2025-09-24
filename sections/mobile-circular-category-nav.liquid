@@ -1,0 +1,191 @@
+{% schema %}
+{
+  "name": "Circular Catergorie Nav",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Url Ink Slider Settings"
+    },
+    {
+      "type": "number",
+      "id": "mobile_slides",
+      "default": 4,
+      "label": "Number of slides on mobile"
+    },
+    {
+      "type": "number",
+      "id": "tablet_slides",
+      "default": 5,
+      "label": "Number of slides on tablet"
+    },
+    {
+      "type": "number",
+      "id": "desktop_slides",
+      "default": 6,
+      "label": "Number of slides on desktop"
+    },
+    {
+      "type": "number",
+      "id": "gap",
+      "default": 4,
+      "label": "Gap Between Slides"
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "default": false,
+      "label": "AutoPlay Slides"
+    },
+    {
+      "type": "checkbox",
+      "id": "loop",
+      "default": false,
+      "label": "loop Slides"
+    },
+    {
+      "type": "checkbox",
+      "id": "drags_scroll",
+      "default": true,
+      "label": "Drag Scoll"
+    },
+     {
+          "type": "header",
+          "content": "Title"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "title"
+        },
+        {
+          "type": "text",
+          "id": "title_settings",
+          "label": "title classes",
+          "default": "text-2xl md:text-4xl uppercase  mx-auto text-center marujo"
+        }
+  ],
+  "blocks": [
+    {
+      "name": "top nav link image",
+      "type": "nav-img-link",
+      "settings": [
+        {
+          "type": "checkbox",
+          "default": true,
+          "id": "rounded",
+          "label": "circular images"
+        },
+        {
+          "type": "image_picker",
+          "id": "img",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "link text",
+          "default": "Title"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Url"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Circular Catergorie Nav",
+      "blocks": [
+        {
+          "type": "nav-img-link"
+        },
+        {
+          "type": "nav-img-link"
+        },
+        {
+          "type": "nav-img-link"
+        },
+        {
+          "type": "nav-img-link"
+        },
+        {
+          "type": "nav-img-link"
+        },
+        {
+          "type": "nav-img-link"
+        },
+        {
+          "type": "nav-img-link"
+        },
+        {
+          "type": "nav-img-link"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+<div class="w-full md:hidden cirular-nav-section">
+  <div class="w-full">
+    {% if section.settings.title %}
+      <h2 class="{{ section.settings.title_settings }}">{{ section.settings.title }}</h2>
+    {% endif %}
+  </div>
+  <div class="ob-slider-container w-full overflow-hidden">
+    <div
+      class="ob-slider w-full"
+      data-slides-mobile="{{ section.settings.mobile_slides }}"
+      data-slides-md="{{ section.settings.tablet_slides }}"
+      data-slides-lg="{{ section.settings.desktop_slides }}"
+      data-gap="{{ section.settings.gap }}"
+      data-autoplay="{{ section.settings.autoplay }}"
+      data-loop="{{ section.settings.loop }}"
+      data-drag-scroll="{{ section.settings.drags_scroll }}"
+      data-slider-enabled="true"
+      data-dots="false"
+    >
+      <div class="ob-slides-wrappers w-full pt-2 pb-2 border-b flex">
+        {% for block in section.blocks %}
+          {% case block.type %}
+            {% when 'nav-img-link' %}
+              <div class="ob-slide">
+                <a
+                  class="flex flex-col justify-start items-center transition-colors duration-200 w-full h-full"
+                  href="{{ block.settings.url | default: "#" }}"
+                >
+                  {% if block.settings.img != blank %}
+                    <img
+                      class="w-12 h-12 object-cover {% if block.settings.rounded %}rounded-full{% else %}rounded-lg{% endif %} mb-1"
+                      src="{{ block.settings.img | image_url: width: 200 }}"
+                      alt="{{ block.settings.text }}"
+                    >
+                  {% else %}
+                    <img
+                      class="w-12 h-12 object-cover {% if block.settings.rounded %}rounded-full{% else %}rounded-lg{% endif %} mb-1"
+                      src="https://placehold.co/48x48/dedede/000000/?text=IMG"
+                      alt="{{ block.settings.text }}"
+                    >
+                  {% endif %}
+
+                  <h3 class="text-xs uppercase text-center leading-tight">{{ block.settings.text }}</h3>
+                </a>
+              </div>
+          {% endcase %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  <style>
+    /* Prevent page-level horizontal scroll only */
+    body {
+      overflow-x: hidden;
+    }
+
+    /* Container should contain but not hide slider content */
+    .ob-slider-container {
+      position: relative;
+    }
+  </style>
+</div>

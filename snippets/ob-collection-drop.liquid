@@ -1,0 +1,43 @@
+{%- assign show_block = "true" -%}
+
+{%- if show_on_all_collections == false -%}
+  {%- assign include_handles = "" -%}
+  {%- assign exclude_handles = "" -%}
+
+  {%- comment -%} Include extras {%- endcomment -%}
+  {% for coll in collection_extas_to_show_on %}
+    {% assign include_handles = include_handles | append: coll.handle %}
+    {% assign include_handles = include_handles | append: ","  %}
+  {% endfor %}
+  
+ 
+  {% for collection_list in collection_lists_to_show_on %}
+      {% assign include_handles = include_handles | append: collection_list.handle | append: "," %}
+  {% endfor %}
+
+
+  {%- comment -%} Exclude extras {%- endcomment -%}
+  {% for coll in collection_extas_to_exclude_from %}
+    {% assign exclude_handles = exclude_handles | append: coll.handle | append: "," %}
+  {% endfor %}
+
+  {% for collection_list in collection_lists_to_exclude_from %}
+      {% assign exclude_handles = exclude_handles | append: collection_list.handle | append: "," %}
+  {% endfor %}
+
+  <br><br>include handles: {{ include_handles }}<br><br>
+  {%- assign collection_show_on_handles_array = include_handles | split: "," -%}
+  {%- assign collection_exclude_on_handles_array = exclude_handles | split: "," -%}
+
+  {%- if collection_exclude_on_handles_array contains collection.handle -%}
+    {% assign show_block = "false" %}
+  {% endif %}
+
+  {%- if collection_show_on_handles_array contains collection.handle -%}
+    {% assign show_block = "true" %}
+  {% else %}
+    {% assign show_block = "false" %}
+  {% endif %}
+{%- endif -%}
+
+{{ show_block }}

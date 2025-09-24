@@ -1,0 +1,2388 @@
+let glob_designs = []; // Designs from metaobjects, used for print filter
+let pageSize = 30;
+let labelList;
+let filters = [];
+let currentSort = [];
+const currentPageNumber = document.getElementById("current-product-number");
+const collectionTotalProducts = document.getElementById("collection-total-products");
+const nextPageButton = document.getElementById("coll-see-more");
+const equivelant100 = parseFloat(document.getElementById("100-money").value);
+const currencySymbol = document.body.getAttribute("currency-symbol")
+
+    let language = document.body.getAttribute("language");
+
+
+// Debug function to control logging
+const debug = {
+    enabled: false,
+    log: function(...args) {
+        if (this.enabled) {
+            console.log(...args);
+        }
+    },
+    error: function(...args) {
+        if (this.enabled) {
+            console.error(...args);
+        }
+    }
+};
+
+
+// Only modify pageSize if both elements exist and collectionTotalProducts has a valid value
+if (currentPageNumber && collectionTotalProducts && collectionTotalProducts.innerHTML) {
+  const totalProducts = parseInt(collectionTotalProducts.innerHTML);
+  if (!isNaN(totalProducts) && totalProducts < pageSize) {
+    pageSize = totalProducts;
+  }
+}
+const sizeMap = new Map([ //used to group sizes for size filter
+    ["3XL", ["size-3xl", "title-size-3xl"]],
+    ["2XL", ["size-2xl", "title-size-2xl"]],
+    ["XL", ["size-xl", "title-size-xl"]],
+    ["large", ["size-large", "title-size-large"]],
+    ["medium", ["size-medium", "title-size-medium"]],
+    ["small", ["size-small", "size-s", "title-size-small"]],
+    ["XS", ["size-xs", "title-size-xs"]],
+    ["2XS", ["size-xxs", "title-size-xxs"]],
+    ["1-2", ["size-1-2"]],
+    ["3-6", ["size-3-6"]],
+    ["7-10", ["size-7-10"]],
+    ["11-13", ["size-11-13"]],
+    ["Size 6", ["title-size-6"]],
+    ["Size 8", ["title-size-8"]],
+    ["Size 10", ["title-size-10"]],
+    ["Size 12", ["title-size-12"]],
+    ["Size 14", ["title-size-14"]],
+    ["Size 16", ["title-size-16"]],
+    ["Size 18", ["title-size-18"]],
+    ["Size 20", ["title-size-20"]],
+    ["5-6 yrs", ["size-5-6-yrs"]],
+    ["6-7 yrs", ["size-6-7-yrs"]],
+    ["7-8 yrs", ["size-7-8-yrs"]],
+    ["9-10 yrs", ["size-9-10-yrs"]],
+    ["11-12 yrs", ["size-11-12-yrs"]]
+
+  ]);
+
+async function get_designs() {
+    // Pull print information from metaobjects, store in above array
+    const design_url = 'https://www.myoddballs.com/pages/gift-ideas-for-all-occasions?view=get-designs';
+    try {
+        const response = await fetch(design_url);
+        const data = await response.text();
+        glob_designs = JSON.parse(data).designs
+    } catch (error) {
+        console.error('Error fetching designs:', error);
+    }
+}
+
+async function get_labels() {
+  const countryUrl = document.body.getAttribute("country-url");
+  const url = countryUrl ? `https://www.myoddballs.com${countryUrl}/pages/perfect-pair?view=labels` : "https://www.myoddballs.com/pages/perfect-pair?view=labels";
+  
+  const data12 = await fetch(url);
+  const html = await data12.text();
+
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(html, "text/html");
+let tempLabels = []
+  const inputs = doc.querySelectorAll("input.tag");
+  inputs.forEach(input => {
+    tempLabels.push(JSON.parse(input.value));
+  });
+  labelList = tempLabels;
+}
+
+function waitForNostoJs(callback) {
+    const checkInterval = setInterval(function() {
+        if (typeof window.Nosto !== 'undefined') {
+            clearInterval(checkInterval);
+            callback();
+        }
+    }, 100); // Check every 100 milliseconds
+}
+
+const searchPageInput = document.getElementById('page-search-query');
+  function initNostoDependentFunctions() {
+        if(searchPageInput){//get products for search
+          let query = searchPageInput.value;
+          fetchSearchProducts(query);
+        }else{
+          const pageParam = new URL(window.location.href).searchParams.get('page') || '1';
+            if(pageParam == "1"){
+              fetchCollProducts();
+            }else{
+              nextPageButton.setAttribute("data-page-loc", pageSize * (pageParam - 1));
+              fetchCollPage(false);
+            }
+        }
+    }
+    
+document.addEventListener('DOMContentLoaded', function () {    
+  (async () => {
+      waitForNostoJs(async function() {
+          initNostoDependentFunctions();
+          await Promise.all([get_designs(), get_labels()]);
+          // addLabels();
+      });
+  })();
+})
+let prodsAddedFlag = false;
+
+function addLabels(){
+  const products = document.querySelectorAll('.product-card');
+  if(prodsAddedFlag && labelList){
+       products.forEach(function(card) {
+        try {
+            // Find the input element with class 'prod-info' within the current card
+            let prodInfo = card.querySelector('.prod-info');
+            let prod = JSON.parse(prodInfo.value); // Use the value of the input element
+            let label = generateProductLabel(prod);
+            
+            // Find the element with class 'label-loc' within the current card
+            let labelLoc = card.querySelector('.label-loc');
+            labelLoc.innerHTML = label; // Set the innerHTML to the generated label
+        } catch (error) {
+            console.error("Error adding label: " + error);
+        }
+    });
+  }else{
+    setTimeout(function(){
+      addLabels();
+    }, 300)
+  }
+ 
+
+}
+
+function generateProductLabel(data) {
+        let available = data.available;
+        const current_id = data.productId;
+        const image_url = data.imageUrl;
+        let prod_price = data.price;
+        let comp_price = data.listPrice;
+        const current_title = data.name;
+        const tags = data.tags1;
+      
+        let label_found = false;
+        let savings = 0;
+      
+        for (const label of labelList) {
+          let proceed = false
+
+          if(label.theme_version == "{{ settings.theme_label_version }}"){
+            proceed = true;
+          }
+
+          if(label && proceed){
+           let  labelMatch = label.tag_match;
+           let  bgColor = label.bg_color;
+          let  textColor = label.text_color;
+          let  labelText = label.text;
+          let  labelBorder = label.outline_color
+          let countryUrl = document.body.getAttribute("country-url");
+          const labelDisplay = label.show_hide_class
+        
+            if (!Array.isArray(tags)) continue;
+            for (const tag of tags) {
+              if (tag === labelMatch && !label_found) {
+                if (tag === "label-sale-percent-discount") {
+                  if (parseFloat(comp_price) > parseFloat(prod_price)) {
+                    label_found = true;
+                    savings = ((comp_price - prod_price) / comp_price * 100).toFixed(2);
+                    return `<span class="${labelDisplay} top-2 right-2 rounded px-1.5 py-1 font-display text-3xs lg:!text-md  font-bold uppercase rounded-md" style="z-index:12; background-color: ${bgColor}; color:${textColor}; border: 2px solid ${labelBorder}; box-shadow: 1px 1px 1px rgb(0 0 0 / 30%);">${Math.round(savings)}${translations.collections.percent_saving}</span>`;
+                  }
+                } else if (tag === "label-sale-value-discount") {
+                  if (parseFloat(comp_price) > parseFloat(prod_price)) {
+                    label_found = true;
+                    savings = comp_price - prod_price;
+                    if (savings % 1 !== 0) {
+                        savings = savings.toFixed(2); // Format to 2 decimal places
+                    }
+                    return `<span class="${labelDisplay} top-2 right-2 rounded px-1.5 py-1 font-display text-3xs lg:!text-md  font-bold uppercase rounded-md" style="z-index:12; background-color: ${bgColor}; color:${textColor}; border: 2px solid ${labelBorder}; box-shadow: 1px 1px 1px rgb(0 0 0 / 30%);">Save ${currencySymbol}${savings}</span>`;//1234
+                  }
+                } else {
+                  // default label handling
+                  label_found = true;
+                  return `<span class="${labelDisplay} top-2 right-2 rounded px-1.5 py-1 font-display text-3xs lg:!text-md font-bold uppercase rounded-md" style="z-index:12; background-color: ${bgColor}; color:${textColor}; border: 2px solid ${labelBorder}; box-shadow: 1px 1px 1px rgb(0 0 0 / 30%);">${labelText}</span>`;
+                }
+              }
+            }
+          }
+        }
+        return null; 
+      }
+
+let urlFilterFlag = false || window.location.href.includes("fbclid"); //used to check if collection is already filtered through the url also stops if is facebook add
+let globData;
+
+
+function fetchCollPage(isPage = true){
+
+    const collHandleDiv = document.getElementById("coll-handle");
+    const collHandle = collHandleDiv.value;
+    const currentURL = window.location.href;
+    const urlParts = currentURL.split("/");
+    let filterTag = "";
+    const queryString = window.location.search;
+    const params = new URLSearchParams(queryString);
+    const urlFilters = [];
+    params.forEach((value, key) => {
+        if (key.includes("filter-")) {
+            urlFilters.push({ key, value });
+        }
+    });
+    urlFilters.forEach(({ key, value }) => {
+        console.log(`${key}: ${value}`);
+    });
+
+  const urlFiltersToAdd = urlFilters.map(({key,value})=>{
+    return{ 
+            "field": key.replace("filter-",""), 
+            "value": value
+        };
+  })
+  urlFiltersToAdd.forEach((filter)=>{
+    filters.push(filter)
+  })
+const currentUrl = window.location.href.split('?')[0];
+const newParams = new URLSearchParams(queryString);
+filters.forEach((filter) => {
+    const key = `filter-${filter.field}`;
+    const existingValues = newParams.getAll(key); 
+    if (!existingValues.includes(filter.value)) {
+        newParams.append(key, filter.value);
+    }
+});
+
+const newUrl = `${currentUrl}?${newParams.toString()}`;
+
+  window.history.replaceState(null, "", newUrl);
+    const idInput = document.getElementById("coll-id");
+    const collectionid = idInput.value;
+    let filtersString = '';
+    let sortString = '';
+    let queryObject = {};
+
+    if (filters.length > 0) {
+        // Convert filters to JSON string and adjust field names
+        const filtersJson = JSON.stringify(filters)
+            .replace(/"field":/g, 'field:')
+            .replace(/"lte":/g, 'lte:')
+            .replace(/"gte":/g, 'gte:')
+            .replace(/"range":/g, 'range:')
+            .replace(/"value":/g, 'value:');
+
+        filtersString = `, filter: ${filtersJson}`;
+    } else {
+        // document.getElementById('nosto-filters-wrapper').style.display = 'none';
+        // document.getElementById('nosto-search-active-filters').innerHTML = '';
+    }
+
+    if (currentSort.length > 0) {
+        sortString = ",sort:" + JSON.stringify(currentSort)
+            .replace(/"field":/g, 'field:')
+            .replace(/"order":/g, 'order:')
+            .replace(/"asc"/g, 'asc')
+            .replace(/"desc"/g, 'desc');
+    }
+
+    
+    const currentPageLoc = parseInt(nextPageButton.getAttribute("data-page-loc"));
+    nostojs(api => {
+        api.search({
+            products: {
+                fields: ["name", "price", "listPrice", "imageUrl", "url", "available", "tags1", "categories", "alternateImageUrls", "skus.id", "skus.name", "skus.availability", "skus.customFields.key", "skus.customFields.value", "customFields.key","customFields.value"],
+                size: pageSize,
+                categoryId: collectionid,
+                facets: ['*'],
+                filter: filters,
+                sort: currentSort,
+                from: currentPageLoc
+            },
+            keywords: { fields: ["keyword"] }
+        },
+        {
+            track: 'category',
+        }).then(data => {
+          document.getElementById("coll-see-more").classList.remove("see-more-loading");
+          currentPageNumber.innerHTML = currentPageLoc + pageSize ;
+          globData = data;
+            if (data.products.total <= pageSize) {
+                document.getElementById("coll-see-more").style.display = "none";
+            }
+            const bluredItems = document.querySelectorAll('.nosto-blur');
+            bluredItems.forEach(item => {
+                item.classList.remove('nosto-blur');
+            });
+          const filterDropdowns = document.querySelectorAll('.filter-option-dropdown') ;
+
+            if (filterDropdowns.length == 0) { // Create filters from scratch if there were no previous filters
+                createNostoFilters(data.products.facets, data.products.total);
+                const activeFilters = document.querySelectorAll('.active-filter');
+              activeFilters.forEach(filter =>{
+                filter.classList.remove('active-filter')
+              })
+                sortFilters(data);
+            } else { // Update current filters if already there
+                sortFilters(data);
+            }
+
+            const loadingItems = document.querySelectorAll('.loading-grid-item');
+            loadingItems.forEach(item => item.remove());
+            let products = data.products.hits;
+          if(currentSort != ""){
+            products = products.filter((prod) => {
+                return !prod.name.toLowerCase().includes("mid-collection") && !prod.name.toLowerCase().includes("mid collection");
+            });
+
+          }
+            remLoadingProds();
+            
+            let target = document.getElementById("AjaxinateContainer");
+            document.getElementById("collectionGridWrap").classList.remove("grid-loading")
+            addCollectionItems(products, target, isPage);
+
+        })
+        .catch((error) => {
+            console.error(error);
+        });
+    });
+}
+
+let newFilterFlag = false;
+function fetchCollProducts() {
+
+const collHandleDiv = document.getElementById("coll-handle");
+const collHandle = collHandleDiv?.value;
+const currentURL = window.location.href;
+const urlParts = currentURL.split("/");
+let filterTag = "";
+
+if (!newFilterFlag) {
+  newFilterFlag = true;
+
+  const queryString = window.location.search;
+  const params = new URLSearchParams(queryString);
+  const urlFilters = [];
+
+  params.forEach((value, key) => {
+    if (key.includes("filter-")) {
+      urlFilters.push({ key, value });
+    }
+  });
+
+  const urlFiltersToAdd = urlFilters.map(({ key, value }) => {
+    const field = key.replace("filter-", "");
+    if (field === "price") {
+      const [gte, lte] = value.split("-");
+      console.log(value)
+      return {
+        field,
+        range: { gte, lte },
+      };
+    }
+    return {
+      field,
+      value: value.split(","),
+    };
+  });
+
+  urlFiltersToAdd.forEach((filter) => {
+    filters.push(filter);
+  });
+}
+
+const currentUrl = window.location.href.split('?')[0];
+const newParams = new URLSearchParams();
+
+filters.forEach((filter) => {
+  const key = `filter-${filter.field}`;
+  if (filter.field === "price") {
+    console.log(filter)
+    const { gte, lte } = filter.range;
+    newParams.append(key, `${gte}-${lte}`);
+  } else {
+    newParams.append(key, filter.value.join(","));
+  }
+});
+
+const newUrl = `${currentUrl}?${newParams.toString()}`;
+if(filters.length > 0){
+  
+  window.history.replaceState(null, "", newUrl);
+}
+
+
+
+  
+    if(!urlFilterFlag){
+      for (let i = 0; i < urlParts.length; i++) {
+        if (urlParts[i] === collHandle) {
+          filterTag = urlParts[i + 1] ? urlParts[i + 1] : "";
+          break;
+        }
+      }
+      if(filterTag != ""){
+        filterTag = filterTag.split("?")[0];
+        urlFilterFlag = true;
+        const newFilter = { 
+            "field": "tags1", 
+            "value": filterTag
+        };
+        filters.push(newFilter)
+      }
+      
+    }
+
+  
+    const idInput = document.getElementById("coll-id");
+    const collectionid = idInput.value;
+    let filtersString = '';
+    let sortString = '';
+    let queryObject = {};
+
+    if (filters.length > 0) {
+        // Convert filters to JSON string and adjust field names
+        const filtersJson = JSON.stringify(filters)
+            .replace(/"field":/g, 'field:')
+            .replace(/"lte":/g, 'lte:')
+            .replace(/"gte":/g, 'gte:')
+            .replace(/"range":/g, 'range:')
+            .replace(/"value":/g, 'value:');
+
+        filtersString = `, filter: ${filtersJson}`;
+    } else {
+        // document.getElementById('nosto-filters-wrapper').style.display = 'none';
+        // document.getElementById('nosto-search-active-filters').innerHTML = '';
+    }
+
+    if (currentSort.length > 0) {
+        sortString = ",sort:" + JSON.stringify(currentSort)
+            .replace(/"field":/g, 'field:')
+            .replace(/"order":/g, 'order:')
+            .replace(/"asc"/g, 'asc')
+            .replace(/"desc"/g, 'desc');
+    }
+
+    nostojs(api => {
+        api.search({
+            products: {
+                fields: ["name", "price", "listPrice", "imageUrl", "url", "available", "tags1", "categories", "alternateImageUrls", "skus.id", "skus.name", "skus.availability", "skus.customFields.key", "skus.customFields.value", "customFields.key","customFields.value"],
+                size: pageSize,
+                categoryId: collectionid,
+                facets: ['*'],
+                filter: filters,
+                sort: currentSort
+            },
+            keywords: { fields: ["keyword"] }
+        },
+        {
+            track: 'category',
+        }).then(data => {
+          console.log("############")
+          console.log(data)
+
+
+          const currentPageLoc = parseInt(nextPageButton.getAttribute("data-page-loc"));
+          if(currentPageNumber && currentPageLoc){
+            currentPageNumber.innerHTML = currentPageLoc + pageSize;
+          }
+          globData = data;
+            if (data.products.total <= pageSize) {
+                document.getElementById("coll-see-more").style.display = "none";
+            }
+            const bluredItems = document.querySelectorAll('.nosto-blur');
+            bluredItems.forEach(item => {
+                item.classList.remove('nosto-blur');
+            });
+          const filterDropdowns = document.querySelectorAll('.filter-option-dropdown') ;
+
+            if (filterDropdowns.length == 0) { // Create filters from scratch if there were no previous filters
+                createNostoFilters(data.products.facets, data.products.total);
+                const activeFilters = document.querySelectorAll('.active-filter');
+              activeFilters.forEach(filter =>{
+                console.log("removing filter 2")
+                filter.classList.remove('active-filter')
+              })
+
+                sortFilters(data);
+            } else { // Update current filters if already there
+
+                sortFilters(data);
+            }
+
+            const loadingItems = document.querySelectorAll('.loading-grid-item');
+            loadingItems.forEach(item => item.remove());
+            let products = data.products.hits;
+          if(filtersString != ""){
+            document.querySelectorAll(".nosto-dynamic.product-card").forEach(el => el.style.display="none");
+          }else{
+            // document.querySelectorAll(".nosto-dynamic.product-card").forEach(el => el.style.display="block");
+          }
+          if(currentSort != ""){
+            document.querySelectorAll(".nosto-dynamic.product-card").forEach(el => el.remove()); 
+            products = products.filter((prod) => {
+                return !prod.name.toLowerCase().includes("mid-collection") && !prod.name.toLowerCase().includes("mid collection");
+            });
+
+          }
+            remLoadingProds();
+            let target = document.getElementById("AjaxinateContainer");
+            document.getElementById("collectionGridWrap").classList.remove("grid-loading");
+            addCollectionItems(products, target);
+          if (typeof window.addCollectionSpecificBanners === 'function') {
+              window.addCollectionSpecificBanners(collectionid);
+            }
+        })
+        .catch((error) => {
+            let target = document.getElementById("AjaxinateContainer");
+            target.innerHTML = "Sorry there was an error" + error;
+            console.error(error);
+        });
+    });
+}
+
+function fetchSearchProducts() {
+    const query = document.getElementById("page-search-query").value;
+    let filtersString = '';
+    let sortString = '';
+
+    if (filters.length > 0) {
+        // Convert filters to JSON string and adjust field names
+        const filtersJson = JSON.stringify(filters)
+            .replace(/"field":/g, 'field:')
+            .replace(/"lte":/g, 'lte:')
+            .replace(/"gte":/g, 'gte:')
+            .replace(/"range":/g, 'range:')
+            .replace(/"value":/g, 'value:');
+
+        filtersString = `, filter: ${filtersJson}`;
+    } else {
+        // document.getElementById('nosto-filters-wrapper').style.display = 'none';
+        // document.getElementById('nosto-search-active-filters').innerHTML = '';
+    }
+
+    if (currentSort.length > 0) {
+        sortString = ",sort:" + JSON.stringify(currentSort)
+            .replace(/"field":/g, 'field:')
+            .replace(/"order":/g, 'order:')
+            .replace(/"asc"/g, 'asc')
+            .replace(/"desc"/g, 'desc');
+    }
+
+  const seeMoreButton = document.getElementById("search-see-more");
+  const from = parseInt(seeMoreButton.getAttribute("data-page-loc"));
+    nostojs(api => {
+        api.search({
+            query: query,
+            products: {
+                fields: ["name", "price", "listPrice", "imageUrl", "url", "available", "tags1", "categories", "alternateImageUrls", "skus.id", "skus.name", "skus.availability", "skus.customFields.key", "skus.customFields.value", "customFields.key","customFields.value"],
+                size: pageSize,
+                facets: ['*'],
+                filter: filters,
+                sort: currentSort,
+                from: from
+            },
+            keywords: { fields: ["keyword"] }
+        },
+        {
+            track: 'serp',
+        }).then(data => {
+          globData = data;
+          const blurred = document.querySelectorAll('.nosto-blur'); // Fixed the typo
+          blurred.forEach(item => { // Use forEach instead of each
+              item.classList.remove("nosto-blur"); // Remove the class from each item
+          });
+          const filterDropdowns = document.querySelectorAll('.filter-option-dropdown') ;
+
+            if (filterDropdowns.length == 0) { // Create filters from scratch if there were no previous filters
+                createNostoFilters(data.products.facets, data.products.total);
+                const activeFilters = document.querySelectorAll('.active-filter');
+              activeFilters.forEach(filter =>{
+                filter.classList.remove('active-filter')
+              })
+              sortFilters(data)
+            } else { // Update current filters if already there
+                sortFilters(data);
+            }
+
+            const loadingItems = document.querySelectorAll('.loading-grid-item');
+            loadingItems.forEach(item => item.remove());
+            let products = data.products.hits;
+            products = products.filter((prod) => {
+                  return !prod.name.toLowerCase().includes("mid-collection") && !prod.name.toLowerCase().includes("mid collection");
+              });
+            remLoadingProds();
+            let target = document.getElementById("after-products");
+            addCollectionItems(products, target, undefined, true);
+        })
+        .catch((error) => {
+            console.error(error);
+        });
+    });
+}
+
+function fetchSearchPage() {
+    const query = document.getElementById("page-search-query").value;
+    let filtersString = '';
+    let sortString = '';
+
+    if (filters.length > 0) {
+        // Convert filters to JSON string and adjust field names
+        const filtersJson = JSON.stringify(filters)
+            .replace(/"field":/g, 'field:')
+            .replace(/"lte":/g, 'lte:')
+            .replace(/"gte":/g, 'gte:')
+            .replace(/"range":/g, 'range:')
+            .replace(/"value":/g, 'value:');
+
+        filtersString = `, filter: ${filtersJson}`;
+    } else {
+        // document.getElementById('nosto-filters-wrapper').style.display = 'none';
+        // document.getElementById('nosto-search-active-filters').innerHTML = '';
+    }
+
+    if (currentSort.length > 0) {
+        sortString = ",sort:" + JSON.stringify(currentSort)
+            .replace(/"field":/g, 'field:')
+            .replace(/"order":/g, 'order:')
+            .replace(/"asc"/g, 'asc')
+            .replace(/"desc"/g, 'desc');
+    }
+  const seeMoreButton = document.getElementById("search-see-more");
+  const from = parseInt(seeMoreButton.getAttribute("data-page-loc"));
+    nostojs(api => {
+        api.search({
+            query: query,
+            products: {
+                fields: ["name", "price", "listPrice", "imageUrl", "url", "available", "tags1", "categories", "alternateImageUrls", "skus.id", "skus.name", "skus.availability", "skus.customFields.key", "skus.customFields.value", "customFields.key","customFields.value"],
+                size: pageSize,
+                facets: ['*'],
+                filter: filters,
+                sort: currentSort,
+                from:from
+            },
+            keywords: { fields: ["keyword"] }
+        },
+        {
+            track: 'category',
+        }).then(data => {
+          document.getElementById("search-see-more").classList.remove("see-more-loading")
+          if(from + pageSize > data.products.total){
+            document.getElementById("search-see-more").style.display = "none";
+          }
+          globData = data;
+          const blurred = document.querySelectorAll('.nosto-blur'); // Fixed the typo
+          blurred.forEach(item => { // Use forEach instead of each
+              item.classList.remove("nosto-blur"); // Remove the class from each item
+          });
+          const filterDropdowns = document.querySelectorAll('.filter-option-dropdown') ;
+
+            if (filterDropdowns.length == 0) { // Create filters from scratch if there were no previous filters
+                createNostoFilters(data.products.facets, data.products.total);
+                const activeFilters = document.querySelectorAll('.active-filter');
+              activeFilters.forEach(filter =>{
+                filter.classList.remove('active-filter')
+              })
+              sortFilters(data)
+            } else { // Update current filters if already there
+                sortFilters(data);
+            }
+
+            const loadingItems = document.querySelectorAll('.loading-grid-item');
+            loadingItems.forEach(item => item.remove());
+            let products = data.products.hits;
+            products = products.filter((prod) => {
+                  return !prod.name.toLowerCase().includes("mid-collection") && !prod.name.toLowerCase().includes("mid collection");
+            });
+            remLoadingProds();
+            let target = document.getElementById("after-products");
+            addCollectionItems(products, target, true);
+        })
+        .catch((error) => {
+            console.error(error);
+        });
+    });
+}
+
+function createNostoFilters(facets, total) { // Loops through facets to split them into quantitative/qualitative facets
+  console.log("recreating filters")
+    document.getElementById('nosto-results-filters').innerHTML = "";
+    for (let each of facets) {
+        if (each.type === "stats") {
+            createSlider(each, total);
+        } else {
+          if(each.data.length >= 2){ 
+            createOption(each, total);
+          }
+        }
+    }
+}
+
+function handlise(input) {
+  return input
+    .toLowerCase() 
+    .trim() 
+    .replace(/[^a-z0-9]+/g, '-') 
+    .replace(/^-+|-+$/g, ''); 
+}
+
+// Creates filters from a facet
+function createOption(each, total) {
+    // Handles tags and prints as special cases
+    if (each.field === "tags1") {
+        createSizeOption(each, total);
+    } else if (each.field === "customFields.custom-design") {
+        createPrintOption(each);
+    } else { // All other options
+        const outerWrapper = document.createElement('div');
+        outerWrapper.classList.add("filter-outer-wrapper");
+
+        const dropdown = document.createElement('div');
+        dropdown.textContent = translations.collection.filters[each.name.toLowerCase().replace(" ", "_").replace("&","and")] || each.name;
+        dropdown.classList.add("filter-option-dropdown", "px-5", "py-4", "border-solid", "border-gray-200", "py-2", "shrink-0", "text-xs", "uppercase", "text-black", "border-t");
+        dropdown.setAttribute("data-facet-name", each.field);
+
+        const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+        svg.setAttribute("class", "size-4 shrink-0 rotate-180 rotatable absolute right-2");
+        svg.setAttribute("width", "24");
+        svg.setAttribute("height", "24");
+        svg.setAttribute("viewBox", "0 0 24 24");
+        svg.setAttribute("fill", "none");
+        svg.setAttribute("stroke", "currentColor");
+        svg.setAttribute("stroke-width", "2");
+        svg.setAttribute("stroke-linecap", "round");
+        svg.setAttribute("stroke-linejoin", "round");
+
+        const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+        path.setAttribute("d", "m18 15-6-6-6 6");
+        svg.appendChild(path);
+        dropdown.appendChild(svg);
+
+        const inner_wrapper = document.createElement('div');
+        inner_wrapper.classList.add("nosto-wrapper", "w-full", "grid", "border-b", "border-solid", "border-gray-200", "px-5", "pb-5", "gap-2");
+        inner_wrapper.setAttribute("data-filter-type", each.field);
+        inner_wrapper.style.display = "none";
+
+        outerWrapper.append(dropdown, inner_wrapper);
+
+        each.data.forEach(option => {
+            let ismid = option.value === "Mid-Collection Banners";
+            const opWrapper = document.createElement('a');
+            let url = window.location.href + "/" + handlise( each.name + " " + option.value);
+            
+            opWrapper.href = url;
+            opWrapper.classList.add("nosto-option-wrapper", "flex", "relative", "px-2");
+            opWrapper.setAttribute("data-option-value", option.value.toString());
+            const name = document.createElement('div');
+            name.textContent = translations.collection.filters[option.value.toLowerCase().replace(" ", "_").replace("&","and")] || option.value;
+            name.classList.add("relative", "facet-name", "py-2", "rounded-md", "border", "border-gray-300", "border-solid", "w-full", "text-center", "text-sm");
+
+            const count = document.createElement('div');
+            count.textContent = `(${option.count})`;
+            count.classList.add("text-xxs", "facet-count", "absolute");
+
+            name.appendChild(count);
+            opWrapper.appendChild(name);
+
+            if (!ismid) {
+                inner_wrapper.appendChild(opWrapper);
+            }
+        });
+
+        document.getElementById('nosto-results-filters').appendChild(outerWrapper);
+    }
+}
+
+function createSlider(each) { // Creates a slider for price with all functions to handle updating the filter
+    each.min = 5;
+    each.max = Math.ceil(each.max/5)*5;
+
+    const outerWrapper = document.createElement('div');
+    outerWrapper.classList.add("filter-outer-wrapper");
+
+    const dropdown = document.createElement('div');
+    dropdown.textContent = translations.collection.filters[each.name.toLowerCase().replace(" ", "_").replace("&","and")] || each.name;
+    dropdown.classList.add("filter-option-dropdown", "px-5", "py-4", "border-solid", "border-gray-200", "py-2", "shrink-0", "text-xs", "uppercase", "text-black", "border-t");
+    dropdown.setAttribute("data-facet-name", each.field);
+
+    const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    svg.setAttribute("class", "size-4 shrink-0 rotate-180 rotatable absolute right-2");
+    svg.setAttribute("width", "24");
+    svg.setAttribute("height", "24");
+    svg.setAttribute("viewBox", "0 0 24 24");
+    svg.setAttribute("fill", "none");
+    svg.setAttribute("stroke", "currentColor");
+    svg.setAttribute("stroke-width", "2");
+    svg.setAttribute("stroke-linecap", "round");
+    svg.setAttribute("stroke-linejoin", "round");
+
+    const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    path.setAttribute("d", "m18 15-6-6-6 6");
+    svg.appendChild(path);
+    dropdown.appendChild(svg);
+
+    const inner_wrapper = document.createElement('div');
+    inner_wrapper.classList.add("nosto-wrapper", "px-5", "py-4", "pb-6", "my-2", "mb-3", "px-5", "pb-5", "gap-2");
+    inner_wrapper.setAttribute("data-filter-type", each.field);
+    inner_wrapper.style.display = "none";
+
+    outerWrapper.append(dropdown, inner_wrapper);
+
+    const header = document.createElement('header');
+    header.classList.add("nosto-header");
+    const title = document.createElement('h2');
+    title.textContent = "Price Range";
+    const subtitle = document.createElement('p');
+    subtitle.textContent = "Use slider to change price range";
+    header.append(title, subtitle);
+
+    // Create price input fields
+    const priceInput = document.createElement('div');
+    priceInput.classList.add("nosto-price-input", "hidden");
+    priceInput.style.display = "none";
+
+    const minField = document.createElement('div');
+    minField.classList.add("nosto-field");
+    const minLabel = document.createElement('span');
+    minLabel.textContent = "Min";
+    const minInput = document.createElement('input');
+    minInput.setAttribute('type', 'number');
+    minInput.classList.add('nosto-input-min');
+    minInput.value = each.min;
+
+    minField.append(minLabel, minInput);
+
+    const separator = document.createElement('div');
+    separator.classList.add("nosto-separator");
+    separator.textContent = '-';
+
+    const maxField = document.createElement('div');
+    maxField.classList.add("nosto-field");
+    const maxLabel = document.createElement('span');
+    maxLabel.textContent = "Max";
+    const maxInput = document.createElement('input');
+    maxInput.setAttribute('type', 'number');
+    maxInput.classList.add('nosto-input-max');
+    maxInput.value = each.max;
+
+    maxField.append(maxLabel, maxInput);
+
+    priceInput.append(minField, separator, maxField);
+
+    // Create slider and range inputs
+    const slider = document.createElement('div');
+    slider.classList.add("nosto-slider");
+
+    const progress = document.createElement('div');
+    progress.classList.add("nosto-progress");
+    slider.appendChild(progress);
+
+    // Min/Max indicators
+    const minIndicator = document.createElement('div');
+    minIndicator.classList.add("nosto-indicator", "min-indicator", "absolute", "left-0", "top-full");
+    minIndicator.textContent = currencySymbol + each.min;
+
+    const maxIndicator = document.createElement('div');
+    maxIndicator.classList.add("nosto-indicator", "max-indicator", "absolute", "right-0", "top-full");
+    maxIndicator.textContent = currencySymbol + each.max;
+
+    progress.append(minIndicator, maxIndicator);
+
+    const rangeInput = document.createElement('div');
+    rangeInput.classList.add("nosto-range-input");
+
+    const minRange = document.createElement('input');
+    minRange.setAttribute('type', 'range');
+    minRange.classList.add('nosto-range-min');
+    minRange.min = each.min;
+    minRange.max = each.max;
+    minRange.value = each.min;
+    minRange.step = 1;
+
+    const maxRange = document.createElement('input');
+    maxRange.setAttribute('type', 'range');
+    maxRange.classList.add('nosto-range-max');
+    maxRange.min = each.min;
+    maxRange.max = each.max;
+    maxRange.value = each.max;
+    maxRange.step = 1;
+
+    rangeInput.append(minRange, maxRange);
+
+    // Append everything to the wrapper
+    inner_wrapper.append(priceInput, slider, rangeInput);
+    document.getElementById('nosto-results-filters').prepend(outerWrapper);
+
+    // Function to update the slider's visual state
+    function updateSlider(isInputChange) {
+        const min = Math.floor(parseInt(minRange.value, 10));
+        const max = Math.ceil(parseInt(maxRange.value, 10));
+
+        if (min > max) {
+            minRange.value = max;
+        }
+
+        if (max < min) {
+            maxRange.value = min;
+        }
+
+        minInput.value = minRange.value;
+        maxInput.value = maxRange.value;
+
+        const minPercent = ((min - each.min) / (each.max - each.min)) * 100;
+        const maxPercent = ((max - each.min) / (each.max - each.min)) * 100;
+
+        progress.style.left = minPercent + '%';
+        progress.style.width = (maxPercent - minPercent) + '%';
+
+        minIndicator.textContent = currencySymbol + minRange.value;
+        maxIndicator.textContent = currencySymbol + maxRange.value;
+
+        // Call the debounced function to handle filter updates
+        if (isInputChange) {
+            debouncedUpdateFilter(min, max);
+        }
+    }
+
+    const debouncedUpdateFilter = debounce(function(min, max) {
+        min = Math.floor(min);
+        max = Math.ceil(max);
+        const newFilter = {
+            "field": "price",
+            "range": { gte: `${min}`, lte: `${max}` }
+        };
+
+        filterSearch(newFilter);
+    }, 300); // 300 ms debounce delay for filter updates
+
+    // Event listeners for range inputs
+    minRange.addEventListener('input', function() {
+        updateSlider(true);
+    });
+
+    maxRange.addEventListener('input', function() {
+        updateSlider(true);
+    });
+
+    // Initialize the slider
+    updateSlider(false);
+}
+
+// Debounce function
+function debounce(func, delay) {
+    let timeout;
+    return function(...args) {
+        const context = this;
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func.apply(context, args), delay);
+    };
+}
+
+// Create the size filters in the sidebar from size tags
+function createSizeOption(data) {
+    const sizeSet = new Set();
+    for (const values of sizeMap.values()) {
+        values.forEach(value => sizeSet.add(value));
+    }
+
+    const size_tags = data.data.filter(function(tag) {
+        return sizeSet.has(tag.value);
+    });
+
+    const outerWrapper = document.createElement('div');
+    outerWrapper.classList.add("filter-outer-wrapper");
+
+    const dropdown = document.createElement('div');
+    dropdown.textContent = translations.collection.filters.size || "size"
+    dropdown.classList.add("filter-option-dropdown", "px-5", "py-4", "border-solid", "border-gray-200", "py-2", "shrink-0", "text-xs", "uppercase", "text-black", "border-t");
+    dropdown.setAttribute("data-facet-name", data.field);
+
+    const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    svg.setAttribute("class", "size-4 shrink-0 rotate-180 rotatable absolute right-2");
+    svg.setAttribute("width", "24");
+    svg.setAttribute("height", "24");
+    svg.setAttribute("viewBox", "0 0 24 24");
+    svg.setAttribute("fill", "none");
+    svg.setAttribute("stroke", "currentColor");
+    svg.setAttribute("stroke-width", "2");
+    svg.setAttribute("stroke-linecap", "round");
+    svg.setAttribute("stroke-linejoin", "round");
+
+    const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    path.setAttribute("d", "m18 15-6-6-6 6");
+    svg.appendChild(path);
+    dropdown.appendChild(svg);
+
+    const inner_wrapper = document.createElement('div');
+    inner_wrapper.classList.add("nosto-wrapper", "w-full", "grid", "px-5", "pb-5", "gap-2", "relative", "grid", "border-solid", "border-gray-200", "grid-cols-4");
+    inner_wrapper.setAttribute("data-filter-type", data.field);
+    inner_wrapper.style.display = "none";
+
+    outerWrapper.append(dropdown, inner_wrapper);
+    document.getElementById('nosto-results-filters').appendChild(outerWrapper);
+
+    for (const [key, values] of sizeMap.entries()) {
+        let max_val = 0;
+        const filters = [];
+        let humanReadable = key.replace(/\b\w/g, char => char.toUpperCase());
+
+        for (const each of size_tags) {
+            if (values.includes(each.value)) {
+                max_val = Math.max(max_val, each.count);
+                filters.push(each.value);
+            }
+        }
+        const opWrapper = document.createElement('a');
+        let url = window.location.href + "/" + handlise( "size" + " " + humanReadable);
+        opWrapper.href = url;
+        opWrapper.classList.add("nosto-option-wrapper", "flex", "relative", "py-1");
+        opWrapper.setAttribute("data-option-value", filters.join(', '));
+
+        const name = document.createElement('div');
+        name.textContent = humanReadable;
+        name.classList.add("facet-name", "py-4", "text-center", "items-center", "justify-center", "flex", "rounded-md", "relative", "border", "border-gray-300", "border-solid", "w-full", "text-center", "text-xs", "text-gray-600", "relative");
+
+        const count = document.createElement('div');
+        count.textContent = `(${max_val})`;
+        count.classList.add("text-xxs", "facet-count", "absolute");
+
+        name.appendChild(count);
+        opWrapper.appendChild(name);
+
+        if (max_val !== 0) {
+            inner_wrapper.appendChild(opWrapper);
+        }
+    }
+}
+function createPrintOption(data) {
+  let added = false;
+    const outerWrapper = document.createElement('div');
+    outerWrapper.classList.add("filter-outer-wrapper");
+
+    const dropdown = document.createElement('div');
+    dropdown.textContent = translations.collection.filters.print || "print";
+    dropdown.classList.add("filter-option-dropdown", "px-5", "py-4", "border-solid", "border-gray-200", "py-2", "shrink-0", "text-xs", "uppercase", "text-black", "border-t");
+    dropdown.setAttribute("data-facet-name", data.field);
+
+    const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    svg.setAttribute("class", "size-4 shrink-0 rotate-180 rotatable absolute right-2");
+    svg.setAttribute("width", "24");
+    svg.setAttribute("height", "24");
+    svg.setAttribute("viewBox", "0 0 24 24");
+    svg.setAttribute("fill", "none");
+    svg.setAttribute("stroke", "currentColor");
+    svg.setAttribute("stroke-width", "2");
+    svg.setAttribute("stroke-linecap", "round");
+    svg.setAttribute("stroke-linejoin", "round");
+
+    const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    path.setAttribute("d", "m18 15-6-6-6 6");
+    svg.appendChild(path);
+    dropdown.appendChild(svg);
+
+    const inner_wrapper = document.createElement('div');
+    inner_wrapper.classList.add("nosto-wrapper", "w-full", "grid", "px-5", "pb-5", "gap-2", "relative", "grid", "border-solid", "border-gray-200", "grid-cols-3");
+    inner_wrapper.setAttribute("data-filter-type", data.field);
+    inner_wrapper.style.display = "none";
+
+    document.getElementById('nosto-results-filters').appendChild(outerWrapper);
+
+    const styleTagArr = [];
+    for (const tag of data.data) {
+        styleTagArr.push(tag);
+    }
+    for (const globPrint of glob_designs) {
+        let current_tag = globPrint.tag;
+        let current_url = globPrint.img_url;
+        let current_title = globPrint.title;
+
+        for (const tagPrint of styleTagArr) {
+            if (tagPrint.value.replace("design-", "") === current_tag) {
+                const opWrapper = document.createElement('div');
+                opWrapper.classList.add("nosto-option-wrapper", "flex", "relative", "rounded-full", "flex-col", "items-center", "justify-between", "py-4");
+                opWrapper.setAttribute("data-option-value", tagPrint.value);
+
+                const img = document.createElement('img');
+                img.classList.add("rounded-full");
+                img.setAttribute("src", current_url);
+
+                const padding = document.createElement('div');
+                padding.classList.add("w-full");
+                padding.style.padding = "100% 0 0 0";
+
+                const title = document.createElement('div');
+                title.textContent = current_title;
+                title.classList.add("text-sm", "mt-2", "text-center", "h-full", "flex", "items-center", "facet-name", "px-1", "rounded-md");
+
+                const count = document.createElement('div');
+                count.textContent = `(${tagPrint.count})`;
+                count.classList.add("text-xxs", "facet-count", "absolute");
+
+                opWrapper.append(img, title, count);
+                inner_wrapper.appendChild(opWrapper);
+                added = true;
+            }
+        }
+    }
+  if(added){
+      outerWrapper.append(dropdown, inner_wrapper);
+  }
+}
+
+// Called when clicking an active filter to remove, removes that filter from the array and calls fetchProducts
+//@param field: the field the filter is removed from, tags1, product_type etc...
+//@param value: the value from the field to be removed
+function remFilterSearch(field, value) { 
+    if (value.includes(",")) {
+        value = value.split(",").map(v => v.trim());
+    } else {
+        value = [value];
+    }
+
+    const updatedFilters = filters.map(filter => {
+        if (filter.field === field) {
+            if (Array.isArray(filter.value)) {
+                const updatedValues = filter.value.filter(v => !value.includes(v));
+                if (updatedValues.length === 0) {
+                    return null; 
+                }
+                return { ...filter, value: updatedValues }; 
+            } else if (value.includes(filter.value)) { 
+                return null; 
+            }
+        }
+        return filter; 
+    }).filter(filter => filter !== null); 
+
+    filters = updatedFilters; 
+  
+    const currentUrl = window.location.href.split('?')[0];
+    const newParams = new URLSearchParams(window.location.search);
+
+    value.forEach(val => {
+        const paramKey = `filter-${field}`;
+        const paramValues = newParams.getAll(paramKey); 
+        const newParamValues = paramValues.filter(v => v !== val); 
+        if (newParamValues.length === 0) {
+            newParams.delete(paramKey);
+        } else {
+            newParams.set(paramKey, newParamValues); 
+        }
+    });
+
+    const newUrl = `${currentUrl}?${newParams.toString()}`;
+
+    window.history.replaceState(null, "", newUrl);
+
+    if(searchPageInput){
+        let query = searchPageInput.value;
+        fetchSearchProducts(query);
+    } else {
+        fetchCollProducts(); 
+    }
+}
+
+
+const resetFilters = () => {
+  const  currentUrl = window.location.href.split('?')[0];
+  window.history.replaceState(null, "", currentUrl);
+  
+  filters = [];
+  if(searchPageInput){//get products for search
+      let query = searchPageInput.value;
+      fetchSearchProducts(query);
+    }else{
+        fetchCollProducts(); // Get products on collection load
+    }
+}
+
+
+function remLoadingProds(){
+  const loadingProds = document.querySelectorAll('.loading-prod');
+  loadingProds.forEach(item =>{
+    item.remove();
+  })
+}
+
+function getShopifyProductHandle(url) {
+    debug.log('Getting handle from URL:', url);
+    if (!url) {
+        debug.log('No URL provided');
+        return null;
+    }
+
+    try {
+        // Remove any query parameters
+        const urlWithoutParams = url.split('?')[0];
+        // Split by '/' and get the last segment
+        const segments = urlWithoutParams.split('/');
+        const handle = segments[segments.length - 1];
+        
+        //debug.log('Extracted handle:', handle);
+        return handle;
+    } catch (error) {
+        //debug.error('Error extracting handle:', error);
+        return null;
+    }
+}
+
+// const market = document.body.getAttribute("market") === 'gb' ? 'uk' : document.body.getAttribute("market");
+// const marketTag = `country-${market}`;
+const market = document.body.getAttribute("market") === 'eu' ? 'eu' : 'uk';
+const marketTag = `country-${market}`;
+
+ function restoreBanners(bannerMap) {
+   let count = 0
+    bannerMap.forEach(({ parent, index }, banner) => {
+      if (parent) {
+        const children = Array.from(parent.children);
+        if (index >= children.length) {
+          parent.append(banner);
+        } else {
+          parent.insertBefore(banner, children[index - count]); 
+          count += 1;
+        }
+      }
+    });
+  }
+let midCollectionBanners
+async function addCollectionItems(products, target, isPage = false, searchPage = false) {
+    let bannerMap = new Map();
+      if (!isPage) {
+          midCollectionBanners = document.querySelectorAll(".nosto_element.product-card");
+        
+          // Store the original parent and index
+          midCollectionBanners.forEach((banner) => {
+            const parent = banner.closest("#AjaxinateContainer");
+            if (parent) {
+              const index = Array.from(parent.children).indexOf(banner);
+              bannerMap.set(banner, { parent, index }); 
+            }
+          });
+        
+
+          target.innerHTML = ""; 
+
+      }
+
+  if(products.length == 0){
+    if(!isPage){
+      const oosWrapper = document.createElement("div");
+      oosWrapper.className = "w-full h-full flex items-center justify-center flex-col col-span-2 my-8";
+      const oosMessage = document.createElement("div");
+      oosMessage.innerHTML = "No results for these filters";
+      const resetButton = document.createElement("div");
+      resetButton.className = "button js-reset-filters";
+      resetButton.innerHTML = "Reset Filters";
+      oosWrapper.append(oosMessage, resetButton)
+      target.append(oosWrapper);
+    }
+
+  }
+
+  if(products.length < pageSize){
+    try{
+      document.getElementById("search-see-more").style.display = "none";
+    }catch(error){
+      console.error(error)
+    }
+    try{
+      document.getElementById("coll-see-more").style.display = "none";
+    }catch(error){
+      console.error(error)
+    }
+  }
+    var currentDate = new Date();
+    var currentMonth = currentDate.toLocaleString('en-US', { month: 'short' }).toLowerCase();
+    
+    products.forEach((product,index) => {
+        try {
+          product.price = (product.price)/100*equivelant100
+          product.listPrice = (product.listPrice)/100*equivelant100
+          let proceed = product.available || product.tags1.includes("show-out-of-stock-sold-out");
+          proceed = proceed && !product.tags1.includes("hide-me") && 
+            (product.tags1.includes(marketTag) || !product.tags1.some(tag => tag.startsWith("country-")));
+          let tagsProceed = !product.tags1.includes("hide-me") && 
+            (product.tags1.includes(marketTag) || !product.tags1.some(tag => tag.startsWith("country-")));
+          
+          if(product.alternateImageUrls){
+            product.alternateImageUrls.unshift(product.imageUrl);
+          }
+          const tempProdImages = product.alternateImageUrls? product.alternateImageUrls: [product.imageUrl];
+          
+          let prodImages = tempProdImages.filter((url) => {
+            let matchString = ("month-" + currentMonth);
+            return url.toLowerCase().includes("month-") ? url.toLowerCase().includes(matchString) : true;
+          });
+            if (!product.name.toLowerCase().includes('mid-collection') && !product.name.toLowerCase().includes('mid collection') && proceed) {
+              const productCard = document.createElement('div');
+              // Add unique identifier using product ID
+              productCard.setAttribute('data-product-id', product.productId);
+              productCard.classList.add("product-card", "flex", "flex-col");
+              let tags = product.tags1;
+              if(tags.includes("design-cookie-monster") && false){
+                productCard.classList.add("cookie-monster-product")
+              }
+
+                const imageWrapper = document.createElement('div');
+                imageWrapper.classList.add("product-card__image-wrapper");
+                const favoriteButton = document.createElement('button');
+                favoriteButton.classList.add("button", "button--variant-outline", "button--icon", "product-card__favourite", "product-card__favourite--off", "hidden");
+                favoriteButton.setAttribute("aria-label", "Add product to favourites");
+                favoriteButton.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 1024 1024"><path fill="currentColor" d="M923 283.6a260.04 260.04 0 0 0-56.9-82.8a264.4 264.4 0 0 0-84-55.5A265.34 265.34 0 0 0 679.7 125c-49.3 0-97.4 13.5-139.2 39c-10 6.1-19.5 12.8-28.5 20.1c-9-7.3-18.5-14-28.5-20.1c-41.8-25.5-89.9-39-139.2-39c-35.5 0-69.9 6.8-102.4 20.3c-31.4 13-59.7 31.7-84 55.5a258.44 258.44 0 0 0-56.9 82.8c-13.9 32.3-21 66.6-21 101.9c0 33.3 6.8 68 20.3 103.3c11.3 29.5 27.5 60.1 48.2 91c32.8 48.9 77.9 99.9 133.9 151.6c92.8 85.7 184.7 144.9 188.6 147.3l23.7 15.2c10.5 6.7 24 6.7 34.5 0l23.7-15.2c3.9-2.5 95.7-61.6 188.6-147.3c56-51.7 101.1-102.7 133.9-151.6c20.7-30.9 37-61.5 48.2-91c13.5-35.3 20.3-70 20.3-103.3c.1-35.3-7-69.6-20.9-101.9zM512 814.8S156 586.7 156 385.5C156 283.6 240.3 201 344.3 201c73.1 0 136.5 40.8 167.7 100.4C543.2 241.8 606.6 201 679.7 201c104 0 188.3 82.6 188.3 184.5c0 201.2-356 429.3-356 429.3z"></path><path fill="currentColor" fill-opacity="0" d="M679.7 201c-73.1 0-136.5 40.8-167.7 100.4C480.8 241.8 417.4 201 344.3 201c-104 0-188.3 82.6-188.3 184.5c0 201.2 356 429.3 356 429.3s356-228.1 356-429.3C868 283.6 783.7 201 679.7 201z"></path></svg>';
+                imageWrapper.appendChild(favoriteButton);
+                const productLink = document.createElement('a');
+                productLink.id = "collection-product-link-" + (index + 1)
+                productLink.href = product.url.replace("https://www.myoddballs.com", "");
+                productLink.classList.add("swiper", "swiper-product", "product-card__image", "group", "aspect-square", "swiper-initialized", "swiper-horizontal", "swiper-ios", "swiper-backface-hidden");
+
+                const swiperWrapper = document.createElement('div');
+                swiperWrapper.classList.add("swiper-wrapper");
+                swiperWrapper.setAttribute("aria-live", "polite");
+
+                const imageSlide = document.createElement('div');
+                imageSlide.classList.add("swiper-slide", "swiper-slide-active", "flex", "items-center");
+                imageSlide.setAttribute("role", "group");
+                imageSlide.setAttribute("aria-label", "1 / 1");
+
+              
+                const productImage = document.createElement('img');
+                productImage.classList.add("w-full", "front-image");
+                productImage.src = prodImages[0]? prodImages[0] : product.imageUrl;
+                productImage.sizes = "(min-width: 720px) 25vw, 50vw"
+                productImage.srcset = modifyUrlWithResolutions(prodImages[0]? prodImages[0] : product.imageUrl);
+                if(index > 4){ 
+                  productImage.loading = "lazy";
+                }else{
+                  productImage.loading = "eager";
+                }
+                productImage.alt = product.name;
+                productImage.width = 500;
+                productImage.height = 500;
+
+                let backImg = prodImages[1];
+
+                const backImage = document.createElement('img');
+                backImage.classList.add("w-full","opacity-0", "back-image", "absolute", "top-0", "bottom-0");
+                backImage.src = backImg ? backImg : product.imageUrl;
+                backImage.srcset = modifyUrlWithResolutions(backImg ? backImg : product.imageUrl);
+                backImage.loading = "lazy";
+                backImage.alt = product.name;
+
+                imageSlide.appendChild(productImage);
+                imageSlide.appendChild(backImage);
+                swiperWrapper.appendChild(imageSlide);
+                productLink.appendChild(swiperWrapper);
+                imageWrapper.appendChild(productLink);
+
+                const labelLoc = document.createElement('div');
+                labelLoc.className = "label-loc";
+                labelLoc.classList.add("text-xxs");
+                productCard.appendChild(imageWrapper);
+                productCard.appendChild(labelLoc);
+
+                // Quick add button
+                const quickAddWrapper = document.createElement('div');
+                quickAddWrapper.className = "bg-gray-100 justify-center p-3";
+                const quickAddDiv = document.createElement('div');
+                const bisSignup = document.createElement('div');
+                bisSignup.className = "rounded-full border border-black border-solid flex justify-center items-center text-center w-full bg-white sm:max-w-[90%] mx-auto py-2 text-xxs md:text-xs klaviyo-bis-trigger uppercase";
+                bisSignup.innerHTML = "Sign up to back in stock"
+                if(product.available){
+                  quickAddWrapper.append(quickAddDiv);
+                }else{
+                  quickAddWrapper.append(bisSignup);
+                }
+                quickAddDiv.className = "rounded-full border border-black border-solid grid grid-cols-2 w-full bg-white sm:max-w-[90%] mx-auto";
+                
+                let gridType = (searchPage) ? "search-page-" : "collection-";
+
+                const seeMoreDiv = document.createElement('a');
+                seeMoreDiv.id = gridType + "see-more-" + (index + 1)
+                seeMoreDiv.href = product.url.replace("https://www.myoddballs.com", "");
+                seeMoreDiv.className = "text-xxs md:text-xs items-center text-center uppercase border-r border-solid border-gray-300 py-2 md:py-2 font-semibold md:font-normal";
+                seeMoreDiv.innerText = translations.collections.see_more;
+                quickAddDiv.append(seeMoreDiv);
+
+                const quickAddLoader = document.createElement('div');
+                quickAddLoader.className = "w-4 quick-buy-loader";
+                quickAddLoader.innerHTML = GEBO.helpers.loader;
+
+                const quickAddButton = document.createElement('div');
+                quickAddButton.id = gridType + "quick-buy-" +(index + 1)
+                quickAddButton.className = "event-quickbuy-show quick-add-wrapper text-xxs md:text-xs items-center text-center uppercase coll-quick-add py-2 font-semibold md:font-normal relative md:py-2 flex justify-center";
+                quickAddButton.setAttribute('data-cro-feature-clicked', 'grid-item-quick-buy');
+                const quickBuyDiv = document.createElement('div');
+                quickBuyDiv.className = "quick-buy-text";
+                quickBuyDiv.innerHTML = translations.collections.quick_buy;
+                quickBuyDiv.setAttribute('data-cro-feature-clicked', 'grid-item-quick-buy');
+                quickAddButton.append(quickBuyDiv);
+
+                // Create padding div and append it correctly
+                const qbPadding = document.createElement('div');
+                qbPadding.className = "absolute left-0 coll-quick-add z-2";
+                qbPadding.style.top = "-50%";
+                qbPadding.style.width = "120%";
+                qbPadding.style.height = "195%";
+                qbPadding.setAttribute('data-handle', getShopifyProductHandle(product.url));
+                qbPadding.setAttribute('data-cro-feature-clicked', 'grid-item-quick-buy');
+                quickAddButton.append(qbPadding);
+                quickAddButton.append(quickAddLoader);
+                quickAddDiv.append(quickAddButton);
+
+                // Product details
+                const productDetails = document.createElement('div');
+                productDetails.append(quickAddWrapper);
+                productDetails.classList.add("product-card__details", "sm:px-0", "h-full", "pb-2");
+
+                const productTitleLink = document.createElement('a');
+                productTitleLink.id = "collection-product-title-" + (index + 1)
+                productTitleLink.classList.add("h-full", "flex", "flex-col", "justify-between");
+                productTitleLink.href = product.url.replace("https://www.myoddballs.com", "");
+
+                let titleInfo = titleLogic(product);
+
+                const productTitle = document.createElement('p');
+                productTitle.classList.add("product-card__details__title", "px-2", "text-base", "font-semibold");
+                productTitle.textContent = String(titleInfo['cleanTitle']);
+
+                const productTitleWrap = document.createElement('div');
+
+                const productCategory = document.createElement('p');
+                productCategory.classList.add("product-card__details__color", "px-2");
+                productCategory.textContent = String(titleInfo['subTitle']);
+
+                const productPrice = document.createElement('p');
+                productPrice.classList.add("product-card__details__price", "px-2", "text-magenta-500", "text-md");
+                let price = product.price;
+                let listPrice = product.listPrice;
+                if (listPrice % 1 !== 0) {
+                    listPrice = parseFloat(listPrice).toFixed(2);
+                }
+                if (price % 1 !== 0) {
+                    price = parseFloat(price).toFixed(2);
+                }
+                const normalPrice = currencySymbol + `${price}`;
+                const listPriceElement = product.listPrice > product.price
+                    ? `<del class="ml-1 text-gray-400">${currencySymbol}${listPrice}</del>`
+                    : `<del class="ml-1 text-gray-400 hidden">${currencySymbol}${listPrice}</del>`;
+                productPrice.innerHTML = `${normalPrice}${listPriceElement}`;
+
+                const productPriceWrap = document.createElement('div');
+              
+                productTitleWrap.append(productTitle, productCategory);
+                productPriceWrap.append(productPrice);
+                productTitleLink.append(productTitleWrap, productPriceWrap);
+
+                productDetails.appendChild(productTitleLink);
+                productCard.appendChild(productDetails);
+
+                const prodInfo = document.createElement('input');
+                prodInfo.setAttribute("type", "hidden");
+                prodInfo.setAttribute("value", JSON.stringify(product));
+                prodInfo.classList.add("prod-info");
+                productCard.appendChild(prodInfo);
+                //christmas message
+                const christmas_banner_element = document.getElementById('christmas_banner_metaobject_collection');
+                if (christmas_banner_element) {
+                    const christmas_banner_content = christmas_banner_element.innerHTML; // Use innerHTML for HTML content
+                    // Append HTML content to productCard
+                    productCard.innerHTML += christmas_banner_content;
+                }
+                target.append(productCard);
+            } else if ((product.name.toLowerCase().includes('mid-collection') || product.name.toLowerCase().includes('mid collection')) && tagsProceed){
+              const bannerUrl = product.customFields.find(field => field.key === 'custom-collection_mid_banner_url')?.value;
+                const wrapper_wrapper = document.createElement('div');
+                const wrapper = document.createElement('div');
+                wrapper.classList.add('group', 'relative', 'justify-center', 'bg-white', 'flex', 'flex-col', 'gap-0.5', "w-full", "h-full");
+                wrapper.setAttribute('data-handle', product.handle);
+                if (product.tags1.includes("feature-shoppable")) {
+                    wrapper.classList.add('mcb');
+                }
+                wrapper.classList.add('mid-collection-banner');
+                const padding = document.createElement('div');
+                padding.classList.add('w-full', 'pt-full');
+                let mobileUrl;
+                let desktopUrl;
+                for(image of prodImages){
+                  if(image.toLowerCase().includes("desktop")){
+                    desktopUrl = image;
+                  }
+                  if(image.toLowerCase().includes("mobile")){
+                    mobileUrl = image;
+                  }
+                }
+                const mobileImg = document.createElement('img');
+                mobileImg.srcset = modifyUrlWithResolutions(mobileUrl);
+                mobileImg.setAttribute('src', mobileUrl);
+                mobileImg.classList.add('px-3', 'py-1', 'absolute', 'h-full', 'object-cover', "mobile-mcb");
+                mobileImg.style.left = "50%";
+                mobileImg.style.transform = "translateX(-50%)";
+                wrapper.appendChild(padding);
+                wrapper.appendChild(mobileImg);
+                const desktopImg = document.createElement('img');
+                desktopImg.srcset =  modifyUrlWithResolutions(desktopUrl);
+                desktopImg.setAttribute('src', desktopUrl);
+                desktopImg.classList.add('px-3', 'py-1', 'absolute', 'h-full', 'object-cover', "desktop-mcb");
+                desktopImg.style.left = "50%";
+                desktopImg.style.transform = "translateX(-50%)";
+                wrapper.appendChild(padding);
+                wrapper.appendChild(desktopImg);
+                wrapper_wrapper.appendChild(wrapper);
+                target.append(wrapper_wrapper);
+
+              
+                // element that will be wrapped in bannerUrl
+                if(bannerUrl){
+                  topWrapper = document.createElement('a');
+                  topWrapper.setAttribute('href', bannerUrl.replace("https://www.myoddballs.com", "")); // Set the href to the bannerUrl
+
+                  // insert wrapper before el in the DOM tree
+                  wrapper.parentNode.insertBefore(topWrapper, wrapper);
+                  
+                  // move el into wrapper
+                  topWrapper.appendChild(wrapper);
+                  }
+                
+            }
+
+        } catch (error) {
+            console.error("Error adding: " + product.name);
+            console.error("Error: " + error);
+        }
+    });
+
+
+  restoreBanners(bannerMap)
+  prodsAddedFlag = true;
+  startCookieObserver();
+
+    // Update prices for non-UK markets
+    if (market !== 'uk') {
+        const updatePromises = products.map(product => updateNonUKPrices(product.productId));
+        await Promise.all(updatePromises);
+        console.log("non-UK prices updated");
+        addLabels();
+    }else{
+      addLabels();
+    }
+}
+
+async function updateNonUKPrices(productId) {
+    debug.log('[updateNonUKPrices] Starting updateNonUKPrices for product ID:', productId);
+    try {
+        const card = document.querySelector(`[data-product-id="${productId}"]`);
+        if (!card) {
+            debug.error(`Could not find card for product ID: ${productId}`);
+            return;
+        }
+
+        const prodInfo = card.querySelector('.prod-info');
+        debug.log('[updateNonUKPrices] Found prodInfo:', prodInfo);
+        
+        const product = JSON.parse(prodInfo.value);
+        debug.log('[updateNonUKPrices] Parsed product data:', product);
+        
+        const productHandle = getShopifyProductHandle(product.url);
+        debug.log('[updateNonUKPrices] Extracted handle:', productHandle, 'from URL:', product.url);
+        
+        if (!productHandle) {
+            debug.log('[updateNonUKPrices] No product handle found, skipping');
+            return;
+        }
+
+        debug.log('[updateNonUKPrices] Fetching Shopify data for handle:', productHandle);
+        const url = market === 'eu' 
+            ? `/products/${productHandle}.js?currency=EUR`
+            : `${window.Shopify.routes.root}products/${productHandle}.js`;
+            
+        const response = await fetch(url);
+        debug.log('[updateNonUKPrices] Fetch response:', response);
+        
+        const shopifyProduct = await response.json();
+        debug.log('[updateNonUKPrices] Shopify product data:', shopifyProduct);
+        
+        // Verify we have the correct product by comparing handles
+        const shopifyHandle = shopifyProduct.handle;
+        debug.log('[updateNonUKPrices] Comparing handles:', {shopifyHandle, productHandle});
+        
+        if (shopifyHandle !== productHandle) {
+            debug.error('[updateNonUKPrices] Product handle mismatch:', {shopifyHandle, productHandle});
+            return;
+        }
+
+        // Update price
+        const priceElement = card.querySelector('.product-card__details__price');
+      priceElement.setAttribute("price-updated", "true")
+        debug.log('[updateNonUKPrices] Price element found:', priceElement);
+        
+        if (priceElement) {
+            let price = shopifyProduct.price;
+            let comparePrice = shopifyProduct.compare_at_price;
+            debug.log('[updateNonUKPrices] Raw prices:', {price, comparePrice});
+            
+            if (price % 1 !== 0) {
+                price = parseFloat(price/100).toFixed(2);
+            } else {
+                price = (price/100);
+            }
+            
+            const normalPrice = currencySymbol + `${price}`;
+            debug.log('[updateNonUKPrices] Formatted normal price:', normalPrice);
+            
+            let listPriceElement = '';
+            
+            if (comparePrice && comparePrice > shopifyProduct.price) {
+                if (comparePrice % 1 !== 0) {
+                    comparePrice = parseFloat(comparePrice/100).toFixed(2);
+                } else {
+                    comparePrice = (comparePrice/100);
+                }
+                listPriceElement = `<del class="ml-1 text-gray-400">${currencySymbol}${comparePrice}</del>`;
+            } else {
+                listPriceElement = `<del class="ml-1 text-gray-400 hidden">${currencySymbol}${price}</del>`;
+            }
+            
+            debug.log('[updateNonUKPrices] Setting price HTML to:', `${normalPrice}${listPriceElement}`);
+            priceElement.innerHTML = `${normalPrice}${listPriceElement}`;
+        }
+
+        // Update title and product type
+        const titleElement = card.querySelector('.product-card__details__title');
+        const categoryElement = card.querySelector('.product-card__details__color');
+        debug.log('[updateNonUKPrices] Found elements:', {titleElement, categoryElement});
+        
+        if (titleElement) {
+            const titleLogicInput = {
+                name: shopifyProduct.title,
+                tags1: shopifyProduct.tags,
+                compare_at_price: shopifyProduct.compare_at_price,
+                price: shopifyProduct.price
+            };
+            debug.log('[updateNonUKPrices] Title logic input:', titleLogicInput);
+            
+            const titleInfo = titleLogic(titleLogicInput);
+            debug.log('[updateNonUKPrices] Title logic output:', titleInfo);
+            
+            debug.log('[updateNonUKPrices] Setting title to:', titleInfo.cleanTitle);
+            titleElement.textContent = titleInfo.cleanTitle;
+            
+            if (categoryElement && titleInfo.subTitle) {
+                debug.log('[updateNonUKPrices] Setting category to:', titleInfo.subTitle);
+                categoryElement.textContent = titleInfo.subTitle;
+            }
+        }
+        
+        // Update the stored product info
+        const updatedProduct = {
+            ...product,
+            price: shopifyProduct.price/100,
+            listPrice: shopifyProduct.compare_at_price ? shopifyProduct.compare_at_price/100 : shopifyProduct.price/100,
+            name: shopifyProduct.title,
+            tags1: shopifyProduct.tags
+        };
+        debug.log('[updateNonUKPrices] Updating stored product info to:', updatedProduct);
+        prodInfo.value = JSON.stringify(updatedProduct);
+        
+        debug.log('Successfully updated product:', shopifyHandle);
+        
+    } catch (error) {
+        debug.error('Error updating product info:', error);
+        debug.error('Error stack:', error.stack);
+    }
+}
+
+function titleLogic(product) {
+    try {
+        // Initial validation with detailed error
+        if (!product) {
+            debug.log('titleLogic: Product parameter is undefined or null');
+            return {
+                cleanTitle: '',
+                subTitle: '',
+                onSale: false
+            };
+        }
+
+        if (!product.name) {
+            debug.log('titleLogic: Product name is undefined or null');
+            return {
+                cleanTitle: '',
+                subTitle: '',
+                onSale: false
+            };
+        }
+
+        let title = product.name;
+        let cleanTitle = title;
+        let subTitle = '';
+        let onSale = false;
+
+        try {
+            // Safely check if product is on sale
+            onSale = Boolean(product.compare_at_price > product.price);
+        } catch (priceError) {
+            debug.log('titleLogic: Error comparing prices:', priceError);
+            onSale = false;
+        }
+
+        try {
+            // Handle subscription products
+            if (title.toLowerCase().includes("subscription") && !title.toLowerCase().includes("pre-paid") && false) {
+                try {
+                    let tags = Array.isArray(product.tags1) ? product.tags1 : [];
+                    let temp = title.split("-");
+                    
+                    for (let each of temp) {
+                        if (each && each.toLowerCase().includes("sock")) {
+                            cleanTitle = each.replace("& Sock", "& free sock");
+                        }
+                    }
+
+                    if (tags.includes('subscription_classic')) {
+                        subTitle = 'Plain Monthly Subscription';
+                    } else if (tags.includes('subscription-patterned')) {
+                        subTitle = "Patterned Monthly Subscription";
+                    }
+                } catch (subscriptionError) {
+                    debug.log('titleLogic: Error processing subscription:', subscriptionError);
+                }
+            }
+            // Handle pre-paid products 
+            else if (title.toLowerCase().includes("pre-paid")) {
+                try {
+                    let tags = Array.isArray(product.tags1) ? product.tags1 : [];
+                    
+                    if (tags.includes('subscription_classic')) {
+                        subTitle = '{{sub}} Plain Subscription';
+                    } else if (tags.includes('subscription_adventurous')) {
+                        subTitle = '{{sub}} Patterned Subscription';
+                    }
+
+                    if (title.includes('06 Month Pre-Paid: ')) {
+                        try {
+                            cleanTitle = subTitle.replace('{{sub}}', '6 month pre-paid ');
+                            title = title.replace('06 Month Pre-Paid: ', '')
+                                .replace('CLASSIC Subscription - ', '')
+                                .replace('[G2]', '')
+                                .replace(' monthly subscription', '')
+                                .toLowerCase();
+                        } catch (sixMonthError) {
+                            debug.log('titleLogic: Error processing 6-month pre-paid:', sixMonthError);
+                        }
+                    } else if (title.includes('12 Month Pre-Paid: ')) {
+                        try {
+                            cleanTitle = subTitle.replace('{{sub}}', '12 month pre-paid ');
+                            title = title.replace('12 Month Pre-Paid: ', '')
+                                .replace('CLASSIC Subscription - ', '')
+                                .replace('[G2]', '')
+                                .replace(' monthly subscription', '')
+                                .toLowerCase();
+                        } catch (twelveMonthError) {
+                            debug.log('titleLogic: Error processing 12-month pre-paid:', twelveMonthError);
+                        }
+                    }
+                } catch (prePaidError) {
+                    debug.log('titleLogic: Error processing pre-paid subscription:', prePaidError);
+                }
+            }
+            // Handle regular products
+            else {
+                try {
+                    if (cleanTitle && cleanTitle.includes('-')) {
+                        let cleanTitleArr = cleanTitle.split(' - ');
+                        let cleanTitleFirst = cleanTitleArr[0] + ' - ';
+                        subTitle = cleanTitle.replace(cleanTitleFirst, '');
+                        cleanTitle = cleanTitleFirst.replace(' - ', '');
+                    }
+                } catch (regularProductError) {
+                    debug.log('titleLogic: Error processing regular product:', regularProductError);
+                }
+            }
+        } catch (mainLogicError) {
+            debug.log('titleLogic: Error in main product type logic:', mainLogicError);
+        }
+
+        // Ensure clean return values
+        return {
+            cleanTitle: cleanTitle || '',
+            subTitle: subTitle || '',
+            onSale: Boolean(onSale)
+        };
+
+    } catch (globalError) {
+        console.error('titleLogic: Critical error in title processing:', globalError);
+        return {
+            cleanTitle: product?.name || '',
+            subTitle: '',
+            onSale: false
+        };
+    }
+}
+
+  document.body.addEventListener('click', function(event) {
+  
+    if(event.target.closest('#coll-see-more')){
+      event.preventDefault();
+      const seeMoreButton = document.getElementById("coll-see-more");
+      const from = parseInt(seeMoreButton.getAttribute("data-page-loc"));
+      event.target.closest("#coll-see-more").classList.add("see-more-loading");
+      seeMoreButton.setAttribute("data-page-loc", from + pageSize);
+      fetchCollPage();
+    }
+
+    if(event.target.closest('.js-reset-filters')){
+      resetFilters();
+    }
+    if(event.target.closest('.coll-quick-add')){
+      if(window.ThemeType == "B"){
+        console.log("here1")
+        // NEW SYSTEM: Use buildQb directly
+        const wrapper = event.target.closest('.product-card');
+        const prod = JSON.parse(wrapper.querySelector('.prod-info').value);
+        // Prevent the old system from running by adding a flag
+        wrapper.setAttribute('data-using-new-qb', 'true');
+        console.log(prod)
+        buildQb(prod);
+      } else {
+        console.log("here2")
+        // OLD SYSTEM: Use existing showCollectionQuickBuyPopup
+        const wrapper = event.target.closest('.product-card');
+        // Check if new system is already running
+        if(wrapper.getAttribute('data-using-new-qb') === 'true') {
+          return; // Don't run old system if new one is active
+        }
+        event.target.closest(".quick-add-wrapper").classList.add("qb-loading");
+        const prod = JSON.parse(wrapper.querySelector('.prod-info').value);
+        showCollectionQuickBuyPopup(prod)
+      }
+    }
+
+    if(event.target.closest('#search-see-more')){
+      const seeMoreButton = document.getElementById("search-see-more");
+      const from = parseInt(seeMoreButton.getAttribute("data-page-loc"));
+      event.target.closest("#search-see-more").classList.add("see-more-loading");
+      seeMoreButton.setAttribute("data-page-loc", from + pageSize);
+      fetchSearchPage();
+    }
+
+    
+    // if(event.target.closest('.coll-quick-add')){
+    //   event.target.closest(".quick-add-wrapper").classList.add("qb-loading");
+    //   const wrapper = event.target.closest('.product-card');
+    //   const prod = JSON.parse(wrapper.querySelector('.prod-info').value);
+    //   showCollectionQuickBuyPopup(prod)
+    // }
+
+    
+    
+    if (event.target.closest('.show-filters-button')) {
+                createNostoFilters(globData.products.facets, globData.products.total);
+                const activeFilters = document.querySelectorAll('.active-filter');
+              activeFilters.forEach(filter =>{
+                filter.classList.remove('active-filter')
+              })
+              sortFilters(globData);
+
+    }
+
+    
+    if (event.target.closest('.filter-option-dropdown')) {
+      const filterOptionDropdown = event.target.closest('.filter-option-dropdown');
+      
+      // Toggle the rotation class on the SVG element
+      const svg = filterOptionDropdown.querySelector('svg');
+      svg.classList.toggle('rotate-180');
+      svg.classList.toggle('rotatable');
+
+      // Toggle the visibility of the closest '.nosto-wrapper'
+      const nostoWrapper = filterOptionDropdown.closest('.filter-outer-wrapper').querySelector('.nosto-wrapper');
+      if (nostoWrapper) {
+        nostoWrapper.style.display = (nostoWrapper.style.display === 'none' || nostoWrapper.style.display === '') ? 'grid' : 'none';
+      }
+    }
+
+    if(event.target.closest('.nosto-option-wrapper')){
+      event.preventDefault();
+      const nostoOptionWrapper = event.target.closest('.nosto-option-wrapper');
+          const facetName = nostoOptionWrapper.querySelector('.facet-name');
+          facetName.classList.add("nosto-blur");
+    
+          const filterType = nostoOptionWrapper.closest('.nosto-wrapper').dataset.filterType;
+          const optionValue = nostoOptionWrapper.dataset.optionValue;
+    
+          if (!facetName.classList.contains("active-filter")) { // If the filter isn't already selected
+            const newFilter = { field: filterType, value: optionValue };
+            filterSearch(newFilter);
+          } else { // Otherwise, remove the filter
+            remFilterSearch(filterType, optionValue);
+          }
+    }
+    if(event.target.closest('#nosto-search-active-price')){
+      document.getElementById("nosto-search-active-price").remove();
+      
+      filters = filters.filter((item) =>{
+        return item.field != "price";
+      })
+      fetchCollProducts();
+    }
+    if(event.target.closest('.nosto-active-filter-option')){
+      const nostoOptionWrapper = event.target.closest('.nosto-active-filter-option');
+    
+          const filterType = nostoOptionWrapper.getAttribute("data-facet-cat")
+          const optionValue = nostoOptionWrapper.getAttribute("data-filter-value");
+  
+            remFilterSearch(filterType, optionValue);
+    }
+    if(event.target.closest('.sort-option')){
+      const wrapper = event.target.closest('.sort-option');
+      const sortType = wrapper.getAttribute('data-sort');
+        if(sortType == "relevance"){
+          currentSort = [];
+            if(searchPageInput){//get products for search
+              let query = searchPageInput.value;
+              fetchSearchProducts(query);
+            }else{
+                fetchCollProducts(); // Get products on collection load
+            }
+          }
+        if(sortType == "asc"){
+          currentSort = [{field: "price", order:"asc"}];
+          if(searchPageInput){//get products for search
+            let query = searchPageInput.value;
+            fetchSearchProducts(query);
+          }else{
+              fetchCollProducts(); // Get products on collection load
+          }
+        }
+        if(sortType == "desc"){
+          currentSort = [{field: "price", order:"desc"}];
+              if(searchPageInput){//get products for search
+                let query = searchPageInput.value;
+                fetchSearchProducts(query);
+              }else{
+                  fetchCollProducts(); // Get products on collection load
+              }
+          }
+        
+
+
+      
+    }
+  })
+
+  // Creates the print part of active filters
+function createPrintCard(facet) {
+    const print_tags = facet.data; // all prints in the collection
+    const active_tags = print_tags.filter(function(thing) { // gets prints that have a filter applied to them
+        return thing.selected;
+    });
+
+    for (const globPrint of glob_designs) { // loop through metaobjects
+        let current_tag = globPrint.tag;
+        let current_url = globPrint.img_url;
+        let current_title = globPrint.title;
+
+        for (const tagPrint of active_tags) { // for each active filter, create the element and append it to the active filters section
+            if (tagPrint.value.replace("design-", "") === current_tag) {
+                const opWrapper = document.createElement('span');
+                opWrapper.className = "gap-3 nosto-active-filter-option nosto-active-filter inline-flex items-center px-2 py-2 me-2 text-sm font-medium text-white bg-cyan rounded-full";
+                opWrapper.setAttribute("data-facet-cat", facet.field);
+                opWrapper.setAttribute("data-filter-value", tagPrint.value);
+                const text = document.createElement('div');
+                text.textContent = tagPrint.value.replace("-", " "); // Replace hyphen with space
+                text.className = "h-min";
+                const img = document.createElement('img');
+                img.className = "rounded-full w-4";
+                img.src = current_url.replace(".jpg", "_40x.jpg").replace(".png", "_40x.png"); // Modify the URL as needed
+                const button = document.createElement('button');
+                button.type = "button";
+                button.className = "inline-flex items-center p-1 ms-2 text-sm text-white bg-transparent rounded-sm hover:bg-cyan-600 hover:text-white";
+                button.setAttribute("data-dismiss-target", "#badge-dismiss-default");
+                button.setAttribute("aria-label", "Remove");
+                const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+                svg.className = "w-2 h-2";
+                svg.setAttribute("aria-hidden", "true");
+                svg.setAttribute("fill", "none");
+                svg.setAttribute("viewBox", "0 0 14 14");
+                
+                const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+                path.setAttribute("stroke", "currentColor");
+                path.setAttribute("stroke-linecap", "round");
+                path.setAttribute("stroke-linejoin", "round");
+                path.setAttribute("stroke-width", "2");
+                path.setAttribute("d", "m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6");
+                svg.appendChild(path);
+              svg.classList.add("w-2")
+              svg.classList.add("h-2")
+                const srOnlySpan = document.createElement('span');
+                srOnlySpan.className = "sr-only";
+                srOnlySpan.textContent = "Remove badge";
+                button.appendChild(svg);
+                button.appendChild(srOnlySpan);
+                opWrapper.appendChild(img);
+                opWrapper.appendChild(text);
+                opWrapper.appendChild(button);
+                document.getElementById('nosto-search-active-filters').appendChild(opWrapper);
+
+            }
+        }
+    }
+}
+
+// Creates the size active filters from size tags
+function createSizeCard(facet) {
+    // Create a new Set to store unique size values
+    const sizeSet = new Set();
+
+    // Convert Map values to array before using forEach
+    Array.from(sizeMap.values()).forEach(values => {
+        values.forEach(value => sizeSet.add(value));
+    });
+
+    // Filter the facet data to only include tags that are present in the sizeSet
+    const size_tags = facet.data.filter(function(tag) {
+        return sizeSet.has(tag.value);
+    });
+
+    // Further filter the size_tags to find those that are currently selected
+    const active_tags = size_tags.filter(function(thing) {
+        return thing.selected;
+    });
+
+    // Loop through each entry in the sizeMap
+    Array.from(sizeMap.entries()).forEach(([key, values]) => {
+        const filters = [];
+        let found = false;
+
+        // Create a human-readable version of the size key by replacing dashes with spaces and capitalizing the words
+        let humanReadable = key.replace(/-/g, ' ').replace(/\b\w/g, char => char.toUpperCase());
+
+        // Loop through each active tag to check if it is part of the current size values
+        active_tags.forEach(each => {
+            if (values.includes(each.value)) {
+                // If a match is found, mark it as found and add the value to the filters array
+                found = true;
+                filters.push(each.value);
+            }
+        });
+
+        // If any matching active tags were found for the current size key
+        if (found) {
+            // Create a div element to represent the active filter
+            const active_filter = document.createElement('div');
+            active_filter.setAttribute("data-facet-cat", facet.field);
+            active_filter.setAttribute("data-filter-value", filters);
+            active_filter.textContent = humanReadable; // Use humanReadable for display
+            active_filter.className = "flex border border-solid border-gray-300 w-max rounded-full w-min px-2 nosto-active-filter nosto-active-filter-option text-xs py-2 h-min w-min";
+
+            const closeButton = document.createElement('span');
+            closeButton.textContent = "x";
+            closeButton.className = "ml-1 text-red-500";
+
+            active_filter.appendChild(closeButton);
+            document.getElementById('nosto-search-active-filters').appendChild(active_filter);
+        }
+    });
+}
+
+
+
+  // Adds numbers to each filter to show how many of that option are available and highlights active filters
+//@param response: contains all information returned by a Nosto search
+function sortFilters(response) {
+  // Clear previously applied filters from the UI
+  document.getElementById('nosto-search-active-filters').innerHTML = '';
+
+  // Iterate through each filter dropdown to update available options based on the response
+  document.querySelectorAll('.filter-option-dropdown').forEach(function(dropdown) {
+    let found = false;
+
+    // Loop through facets in the response to match them with the filter dropdowns
+    response.products.facets.forEach(function(facet) {
+      if (dropdown.dataset.facetName === facet.field) {
+        found = true;
+
+        // Update options in the UI for the matching facet
+        const options = dropdown.closest('.filter-outer-wrapper').querySelectorAll('.nosto-option-wrapper');
+        options.forEach(function(option) {
+          let optionFound = false;
+          const optionValue = option.dataset.optionValue;
+
+          // Check if the option matches data from the facet and update its count or mark it as empty
+          facet.data.forEach(function(data) {
+            if (optionValue.includes(data.value)) {
+              option.querySelector('.facet-count').textContent = `(${data.count})`;
+              option.classList.remove('empty-facet');
+              optionFound = true;
+
+              if (data.selected) {
+                console.log(data)
+                console.log(dropdown)
+                console.log("adding filters")
+                option.querySelector('.facet-name').classList.add('active-filter');
+                option.querySelector('.facet-name').classList.add('oogly-boogly');
+              } else {
+                console.log(data)
+                console.log("removing filters 12")
+                option.querySelector('.facet-name').classList.remove('active-filter');
+              }
+            }
+          });
+
+          // If no matching option is found, mark it as an empty facet
+          if (!optionFound) {
+            option.querySelector('.facet-count').textContent = '(0)';
+            option.classList.add('empty-facet');
+          }
+        });
+      }
+    });
+
+    // Show or hide filter dropdowns based on whether a match was found for the facet
+    // dropdown.style.display = found ? 'block' : 'none';
+  });
+
+  // Reset any active filters and remove highlight from previously selected options
+  document.querySelectorAll('.active_filter').forEach(function(active) {
+    console.log("removing filters 321")
+    active.classList.remove('active-filter');
+  });
+
+  // Loop through facets in the response and update the UI based on the selected filters
+  response.products.facets.forEach(function(facet) {
+    const minInputElement = document.querySelector('input.nosto-range-min');
+    const maxInputElement = document.querySelector('input.nosto-range-max');
+    const currentMinElement = document.querySelector('.nosto-input-min');
+    const currentMaxElement = document.querySelector('.nosto-input-max');
+    
+    const checkMin = minInputElement ? parseInt(minInputElement.getAttribute('min')) : null;
+    const checkMax = maxInputElement ? parseInt(maxInputElement.getAttribute('max')) : null;
+    const currentMin = currentMinElement ? parseInt(currentMinElement.value) : null;
+    const currentMax = currentMaxElement ? parseInt(currentMaxElement.value) : null;
+
+
+    // Handle facets of type "terms" (e.g., tags, custom fields) and create size or print cards
+    if (facet.type === 'terms') {
+      if (facet.field === 'tags1') {
+        createSizeCard(facet);
+      } else if (facet.field === 'customFields.custom-design') {
+        createPrintCard(facet);
+      } else {
+        // Highlight selected filters and create UI elements for active filters
+        facet.data.forEach(function(each) {
+          if (each.selected) {
+            document.querySelectorAll('.nosto-option-wrapper').forEach(function(optionWrapper) {
+              if (optionWrapper.dataset.optionValue === each.value) {
+                optionWrapper.querySelector('.facet-name').classList.add('active-filter');
+              }
+            });
+
+            const activeFilter = document.createElement('div');
+            activeFilter.setAttribute('data-facet-cat', facet.field);
+            activeFilter.setAttribute('data-filter-value', each.value);
+            activeFilter.textContent = each.value;
+            activeFilter.className = 'flex border border-solid border-gray-300 w-max rounded-full w-min px-2 nosto-active-filter nosto-active-filter-option text-xs py-2 h-min w-min';
+
+            const closeButton = document.createElement('span');
+            closeButton.textContent = 'x';
+            closeButton.className = 'ml-1 text-red-500';
+
+            activeFilter.appendChild(closeButton);
+            document.getElementById('nosto-search-active-filters').appendChild(activeFilter);
+          }
+        });
+      }
+    } 
+    else if (facet.type === 'stats' && (facet.max !== facet.min) && (currentMin !== checkMin || currentMax !== checkMax)) {
+      const facetWrapper = document.createElement('div');
+      facetWrapper.className = 'nosto-active-filter flex p-1 h-min w-min text-xs px-2 ty-py-1 rounded-full w-max text-white';
+      facetWrapper.style.backgroundColor = '#03adef';
+
+      const title = document.createElement('div');
+      title.textContent = (translations.collection.filters[facet.name.toLowerCase().replace(" ", "_").replace("&","and")] || facet.name) + ': ';
+      title.className = 'mr-1 flex flex-col items-center justify-center';
+
+      const data = document.createElement('div');
+      data.className = 'mr-1 flex flex-col items-center justify-center whitespace-nowrap';
+      data.textContent = formatMoney(parseFloat(document.querySelector('.nosto-input-min').value * 100), `${GEBO.settings.shop_money_format}{{amount}}`) + ' - ' + formatMoney(parseFloat(document.querySelector('.nosto-input-max').value * 100), `${GEBO.settings.shop_money_format}{{amount}}`);
+
+      const cross = document.createElement('span');
+      cross.className = 'text-sm ml-1';
+      cross.textContent = 'x';
+
+      facetWrapper.append(title, data, cross);
+      // document.getElementById('nosto-search-active-price').innerHTML = ''; // Clear previous price filters
+      // document.getElementById('nosto-search-active-price').appendChild(facetWrapper);
+    }
+  });
+}
+
+
+  // Updates current filters to add a new filter
+//@param newFilter: the filter to be added
+function filterSearch(newFilter) {
+  
+  // If newFilter.value is a string and contains commas, split it into an array
+  if (typeof newFilter.value === 'string' && newFilter.value.includes(",")) {
+    newFilter.value = newFilter.value.split(",").map(v => v.trim()); // Trim whitespace
+  } else if (typeof newFilter.value === 'string') {
+    // Ensure single string values are treated correctly
+    newFilter.value = [newFilter.value.trim()];
+  }
+
+  // Initialize filters array
+  let func_filters = [];
+
+  if (filters.length > 0) {
+    // Filter out the existing filters for the same field
+    func_filters = filters.filter(f => f.field !== newFilter.field);
+
+    // Check for previous filters with the same field
+    const prev_filter = filters.filter(f => f.field === newFilter.field);
+
+    if (!newFilter.range) {
+      if (prev_filter.length > 0) {
+        const past_values = prev_filter[0].value;
+        const new_values = newFilter.value;
+
+        // Ensure past_values is always an array
+        const normalized_past_values = Array.isArray(past_values) ? past_values : [past_values];
+
+        // Combine old and new values and remove duplicates
+        const combined_values = [...new Set([...normalized_past_values, ...new_values])];
+
+        newFilter.value = combined_values;
+      }
+    }
+  }
+
+  // Add the new filter
+  func_filters.push(newFilter);
+  filters = func_filters;
+
+  // Perform the search with updated filters
+  // const query = document.getElementById('nosto-search-input').value;
+  // document.getElementById('nosto-search-input').setAttribute("data-query", query);
+
+      if(searchPageInput){//get products for search
+      let query = searchPageInput.value;
+      fetchSearchProducts(query);
+    }else{
+        fetchCollProducts(); // Get products on collection load
+    }
+}
+
+
+  function showCollectionQuickBuyPopup(product, view = "qb"){
+
+  const currency = document.body.getAttribute("currency");
+
+  let countryUrl = document.body.getAttribute("country-url");
+  countryUrl = (countryUrl == "/")? "" :"";
+  product.url = product.url.replace(/^https?:\/\/www\.myoddballs\.com/, "");
+    
+    
+  // Construct view parameter with proper format
+  const viewParam = `?view=${view}&currency=${currency}`;
+  let url = countryUrl + product.url + viewParam;
+    
+  fetch(url)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      
+      return response.text();
+    })
+    .then(data => {
+      const loaders = document.querySelectorAll('.qb-loading');
+      loaders.forEach(item =>{
+        item.classList.remove("qb-loading");
+      })
+      const qbLoc = document.getElementById("default-quick-buy-content");
+      qbLoc.innerHTML = data;
+      const qbPopup = document.getElementById("default-quick-buy-popup-content");
+      openPopup(qbPopup); 
+    })
+
+}
+
+
+function openPopup(target){
+  document.body.classList.add("body-popup-active");
+  let popupZindex = 2;
+  const popupContent = target.closest('.page-popup-content');
+    if (popupContent) {
+        popupContent.style.zIndex = popupZindex;
+    } else {
+        console.error("No matching popup content found.");
+    }
+  target.style.display = "block";
+  setTimeout(function(){target.classList.add('popup-active');},1);
+}
+
+ function modifyUrlWithResolutions(url) { // used to return a source set with multiple resolutions
+    var resolutions = [360, 420, 480, 640, 840, 1080, 1280, 1540, 1860, 1950];
+    var parts = url.split('.');
+    var fileName = parts.slice(0, -1).join('.'); 
+    var fileExtension = parts[parts.length - 1];
+    var modifiedUrls = [];
+  
+    for (var i = 0; i < resolutions.length; i++) {
+      var resolution = resolutions[i];
+      var modifiedUrl = fileName + "_" + (resolution/4) + "x." + fileExtension + " " + resolution/4 + "w";
+      modifiedUrls.push(modifiedUrl);
+    }
+  
+    var result = '';
+    for (var j = 0; j < modifiedUrls.length; j++) {
+      result += modifiedUrls[j];
+      if (j !== modifiedUrls.length - 1) {
+        result += ',';
+      }
+      
+    }
+    //return("")
+    return result;
+  }
+
+function onElementInView(entry) {
+  const cookieMonsterDiv = document.createElement("div");
+  cookieMonsterDiv.style.position="absolute";
+  cookieMonsterDiv.style.left="0px";
+  cookieMonsterDiv.style.top="50%";
+  cookieMonsterDiv.style.pointerEvents= "none";
+  cookieMonsterDiv.style.width="200px";
+
+  const image = document.createElement("img");
+  image.src = "https://cdn.shopify.com/s/files/1/0353/7249/files/Cookie-Monster-GIF-1-_NO-LOOP.gif?v=1758205419";
+  cookieMonsterDiv.appendChild(image)
+  entry.target.appendChild(cookieMonsterDiv)
+  observer.unobserve(entry.target);
+}
+
+// Create the IntersectionObserver
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        onElementInView(entry);
+      }
+    });
+  },
+  {
+    root: null,           // viewport
+    rootMargin: "0px",
+    threshold: 0.1        // trigger when 10% of element is visible
+  }
+);
+
+// Select all elements with the class
+const startCookieObserver = () =>{
+
+  const elements = document.querySelectorAll(".cookie-monster-product");
+  elements.forEach((el) => observer.observe(el));
+}

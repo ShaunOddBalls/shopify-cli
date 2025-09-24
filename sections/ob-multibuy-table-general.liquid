@@ -1,0 +1,201 @@
+{% unless product.vendor == 'OddBalls Subscriptions' or product.tags contains 'style-partnerships' or localization.market.handle == "eu"%}
+{% if section.settings.collection.handle != blank %}
+{% assign selected_handle = section.settings.collection.handle %}
+{% assign collection_array = product.collections %}
+{% if collection_array.size > 0 %}
+{% assign filter_collection = collection_array | where: 'handle', selected_handle  %}
+{% if filter_collection.size > 0 %}
+
+{% assign total_blocks = 0 %}
+{% for block in section.blocks %}
+	{% assign total_blocks = total_blocks | plus: 1 %}
+{% endfor %}
+
+{% include 'ob-include-set-current-country' %}
+
+
+  <!-- General multi buy -->
+{% if section.settings.active %}
+{% if product.price >= product.compare_at_price %}
+{% if product.tags contains 'feature-multi-buy' %}
+<div class="js-multibuy-table-start  my-5 hidden">
+  	<div class="multibuy-table-title uppercase text-sm md:text-base text-black pb-2"><b>Buy more and save</b></div>
+  	<div class="multibuy-table grid grid-cols-2 text-center border border-solid border-color rounded-md">
+        <p class="cell-left col-span-1 border-b border-r border-color border-solid py-2 text-sm md:text-base">{{ section.settings.header_left }}</p>
+        <p class="cell-right col-span-1 border-b border-color border-solid py-2 text-sm md:text-base">{{ section.settings.header_right }}</p>
+        {% assign block_count = 0 %}
+        {% assign total_blocks = 0 %}
+        {% for block in section.blocks %}
+          {% include 'ob-include-country-ok-to-proceed', thingObj:block %}
+          {% if country_ok_to_proceed == 'yes' %}           
+            {% assign total_blocks = total_blocks | plus: 1 %}
+          {% endif %}
+        {% endfor %}
+        {% for block in section.blocks %}
+          {% include 'ob-include-country-ok-to-proceed', thingObj:block %}
+          {% if country_ok_to_proceed == 'yes' %}  
+            {% if block.type == "row" %}
+              {% assign block_count = block_count | plus: 1 %}
+              {% if block_count == 1 %}
+                {% assign block_padding = 'py-1.5 pt-3' %}
+              {% elsif block_count == total_blocks %}
+                {% assign block_padding = 'py-1.5 pb-3' %}
+              {% else %}
+                {% assign block_padding = 'py-1.5' %}
+              {% endif %}              
+              <p class="cell-left col-span-1 border-r border-color border-solid flex justify-center items-center {{ block_padding }} text-sm md:text-base flex items-center">{% if block.settings.left_extra != blank %}<span class="line-through text-xxs pr-1">{{ block.settings.left_extra }}</span>{% endif %} {{ block.settings.left_cell }}</p>
+              <p class="cell-right col-span-1 border-color border-solid flex justify-center items-center {{ block_padding }} text-sm md:text-base flex items-center">{% if block.settings.right_extra != blank %}<span class="line-through text-xxs pr-1">{{ block.settings.right_extra }}</span>{% endif %}{{ block.settings.right_cell }}</p>
+            {% elsif block.type == "wide_row" %}
+              <p class="col-span-2 border border-solid {{ block_padding }} text-xs font-semibold {{ block.settings.wide_row_classes }}">{{ block.settings.cell }}</p>      	
+            {% endif %}
+          {% endif %}
+      	{% endfor %}
+  	</div>
+</div>
+{% endif %}
+{% endif %}
+{% endif %}
+
+<style>
+ 
+
+  
+  #multibuytable_{{section.id}} .grid > div:nth-of-type(1n+{{ max_blocks_shown | plus: 4}}  ){
+   	display:none;
+  }
+  
+  #multibuytable_{{section.id}}.showall div.table-wrapper > div {
+   	display:grid;
+  }
+  
+  .force-hidden {
+  
+  	display: none! important;
+    
+  }
+  
+</style>
+
+{% endif %}
+{% endif %}
+{% endif %}
+{% endunless %}
+
+{% schema %}
+  {
+    "name": "Multibuy Table General",
+	"settings": [
+        {
+            "type": "html",
+            "id": "country_iso",
+            "label": "Only display if current iso is (* for all)",
+            "info": "Comma seperated",
+            "default":"*"
+        },  
+		{
+			"type": "text",
+			"id": "title",
+			"label": "Title",
+            "info": "For identifying section only."
+		},      
+		{
+			"type": "checkbox",
+			"id": "active",
+			"label": "Is active?"
+		},
+		{
+			"type": "text",
+			"id": "header_left",
+			"label": "Header - Left Column"
+		},
+		{
+			"type": "text",
+			"id": "header_right",
+			"label": "Header - Right Column"
+		},
+		{
+			"id": "collection",
+			"type": "collection",
+			"label": "Collection"
+		}
+	],
+    "presets": [
+      {
+        "name": "Multibuy Table",
+        "settings": {
+        }
+      }
+    ],
+	"blocks": [
+      {
+        "type": "row",
+        "name": "Row",
+        "settings": [
+          {
+              "type": "html",
+              "id": "country_iso",
+              "label": "Only display if current iso is (* for all)",
+              "info": "Comma seperated",
+              "default":"*"
+          },    
+          {
+              "type": "text",
+              "id": "title",
+              "label": "Title",
+              "info": "For identifying section only."
+          },           
+          {
+            "id": "left_cell",
+            "type": "text",
+            "label": "Left Cell"
+          },
+          {
+            "id": "left_extra",
+            "type": "text",
+            "label": "Left Extra"
+          },          
+          {
+            "id": "right_cell",
+            "type": "text",
+            "label": "Right Cell"
+          },
+          {
+            "id": "right_extra",
+            "type": "text",
+            "label": "Right Extra"
+          } 
+	   ]
+	  },
+      {
+        "type": "wide_row",
+        "name": "Wide Row",
+        "settings": [
+          {
+              "type": "text",
+              "id": "title",
+              "label": "Title",
+              "info": "For identifying section only."
+          },           
+          {
+            "id": "cell",
+            "type": "text",
+            "label": "Cell"
+          },
+          {
+            "id": "wide_row_classes",
+            "type": "text",
+            "label": "Wide Row Classes",
+			"info": "classes for text, border etc"
+          }
+	   ]
+	  }
+	  
+	]  
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

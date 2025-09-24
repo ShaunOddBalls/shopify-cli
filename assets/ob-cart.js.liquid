@@ -1,0 +1,349 @@
+document.addEventListener("DOMContentLoaded", function() {
+
+    updateCart();
+
+});
+
+
+async function updateCart(){
+      const cartUrl = `/cart?view=cart`;
+      try {
+        const response = await fetch(cartUrl);
+        const cartHTML = await response.text();
+        document.getElementById("cart-items").innerHTML = cartHTML;
+          fetch('/cart.js')
+          .then(response => response.json())
+          .then(cart => {
+            updateCartHeader(cart)
+          })
+        
+
+      }catch(error){
+        console.error("adding to cart error: " + error)
+      }
+
+}
+
+/**
+*Handles all items in cart header
+**/
+function updateCartHeader(cart) {
+
+  //updates cart values in the ᶠᵒᵒᵗᵉʳ
+  const currencySymbol = GEBO.settings.shop_money_format[0];
+  var compPrice = 0;
+  
+  const savings = compPrice*100 - cart.total_price;
+
+
+  
+  var foundFreeGift = false;
+  if(cart.items){
+    for(item of cart.items){
+      if (item.properties && '_cg' in item.properties) {
+        foundFreeGift = true;
+      }
+    }
+  }
+    
+  if(foundFreeGift){
+    document.getElementById("open-free-gift-selector").style.display = "none";
+    document.getElementById("free-gift-selected-text").style.display = "block";
+  }else{
+    document.getElementById("open-free-gift-selector").style.display = "flex";
+    document.getElementById("free-gift-selected-text").style.display = "none";
+  }
+    const cartTotal = cart.total_price / 100;
+    const freeGiftThreshold = parseFloat(document.getElementById("free-gift-threshold").innerHTML);
+    const freeShippingThreshold = parseFloat(document.getElementById("free-shipping-threshold").innerHTML);
+    const freeShippingWidth = 50; // location of the free shipping icon
+
+    let toFreeShipping = 0; // % of distance to free shipping, 100 indicates the bar should be filled freeShippingWidth %;
+    let toFreeGift = 0; // % of distance from free shipping to free gift
+
+    const tfg = formatMoney((freeGiftThreshold - cartTotal)*100, GEBO.settings.shop_money_format);
+    const tfs = formatMoney((freeShippingThreshold - cartTotal)*100, GEBO.settings.shop_money_format);
+    const fsm = document.getElementById('free-ship-marker');
+    const fgm = document.getElementById('free-gift-marker');
+    fsm.setAttribute("data-text", formatMoney(freeShippingThreshold*100, GEBO.settings.shop_money_format).replace(".00",""));
+    fgm.setAttribute("data-text", formatMoney(freeGiftThreshold*100, GEBO.settings.shop_money_format).replace(".00",""));
+    document.getElementById("to-shipping-threshold-span").innerHTML = tfs;
+    document.getElementById("to-gift-threshold-span").innerHTML = tfg;
+
+    if (cartTotal >= freeGiftThreshold) { // cart qualifies for free gift
+        document.getElementById("under-free-gift-threshold-cart-message").style.display = "none";//show hide messaging/free gift selector 
+        document.getElementById("over-free-gift-threshold-cart-message").style.display = "block";
+      
+        toFreeShipping = 100;
+        toFreeGift = 100;
+        document.getElementById("from-shipping-span").style.display = "none"; //show/hide text for progress bar
+        // document.getElementById("from-gift-span").style.display = "none"; //show/hide text for progress bar
+       // document.getElementById("to-shipping-threshold-span").style.display = "none"; //show/hide text for progress bar
+        // document.getElementById("to-gift-threshold-span").style.display = "none"; //show/hide text for progress bar
+    } else if (cartTotal >= freeShippingThreshold) { // cart qualifies for free shipping but not free gift
+      removeFreeGift(cart);
+        document.getElementById("no-free-ship").classList.add("hidden");
+        document.getElementById("with-free-ship").classList.remove("hidden");
+        document.getElementById("with-free-ship").classList.add("flex");
+        document.getElementById("under-free-gift-threshold-cart-message").style.display = "block";//show hide messaging/free gift selector 
+        document.getElementById("over-free-gift-threshold-cart-message").style.display = "none";
+        toFreeShipping = 100;
+        const gap = freeGiftThreshold - freeShippingThreshold; // difference between thresholds
+        const intoGap = cartTotal - freeShippingThreshold; // how far past shipping threshold
+        // document.getElementById("from-shipping-span").style.display = "none"; //show/hide text for progress bar
+        // document.getElementById("from-gift-span").style.display = "block"; //show/hide text for progress bar
+         // document.getElementById("to-shipping-threshold-span").style.display = "none"; //show/hide text for progress bar
+        document.getElementById("to-gift-threshold-span").style.display = "block"; //show/hide text for progress bar
+      
+        toFreeGift = (intoGap / gap) * 100;
+    } else { // cart is less than free shipping
+      removeFreeGift(cart);
+      
+      document.getElementById("under-free-gift-threshold-cart-message").style.display = "block";//show hide messaging/free gift selector 
+      document.getElementById("over-free-gift-threshold-cart-message").style.display = "none";
+      document.getElementById("no-free-ship").classList.remove("hidden");
+        document.getElementById("with-free-ship").classList.add("hidden");
+        document.getElementById("with-free-ship").classList.remove("flex");
+      
+      toFreeShipping = (cartTotal / freeShippingThreshold) * 100;
+      document.getElementById("from-shipping-span").style.display = "block"; //show/hide text for progress bar
+      // document.getElementById("from-gift-span").style.display = "none"; //show/hide text for progress bar
+      document.getElementById("to-shipping-threshold-span").style.display = "block"; //show/hide text for progress bar
+      // document.getElementById("to-gift-threshold-span").style.display = "none"; //show/hide text for progress bar
+    }
+
+    // Calculate totalWidth
+    const totalWidth = (toFreeShipping * (freeShippingWidth / 100) + toFreeGift * (1 - (freeShippingWidth / 100))) + "%";
+    
+    // Output the totalWidth to the console and update the progress bar width
+    document.getElementById("progress-bar").style.width = totalWidth;
+}
+
+
+/*
+* remove free gift from the cart, called if cart total < free gift value
+*/
+function removeFreeGift(cart){
+  if(cart.items){
+      for(item of cart.items){
+        if (item.properties && '_cg' in item.properties) {
+          console.log(item)
+          const key= item.key
+          let updates = {
+            [key]:0
+          };
+          console.log(updates)
+          fetch(window.Shopify.routes.root + 'cart/update.js', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({ updates })
+            })
+            .then(response => {
+              updateCart()
+            })
+            .catch((error) => {
+              console.error('Error:', error);
+            });
+        }
+      }
+  }
+
+}
+  document.body.addEventListener('click', function(event) {
+
+    if (event.target.closest('#open-free-gift-selector')) {//open free gift selector
+      document.getElementById("free-gift-selector").style.display = "block";
+    }
+    if (!event.target.closest('#free-gift-selector') && !event.target.closest('#open-free-gift-selector')) {//close free gift selector
+      document.getElementById("free-gift-selector").style.display = "none";
+    }
+    
+    //close variant selector for free gift if clicking outside the variant selector
+    if (!event.target.closest('.free-gift-open')) {
+        document.querySelectorAll('.free-gift-open').forEach(function(element) {
+            element.classList.remove('free-gift-open');
+            element.querySelector('.free-gift-mutiple-variants').style.display = "none";
+            element.querySelector('.js-placeholder-free-gift-add').style.display = "block";
+            const variants = element.querySelectorAll('.free-gift-variant');
+            variants.forEach((variant, index) => {
+              setTimeout(function(){
+                variant.classList.add("opacity-0");
+                variant.classList.remove("opacity-100");
+              }, 200*index)
+            })
+        });
+    }
+
+    //add button in free gift section for product with multiple variants  
+    if (event.target.closest('.js-placeholder-free-gift-add')) {
+      const wrapper = event.target.closest('.js-free-gift-add-wrapper');
+      const extraVariants = event.target.closest('.js-free-gift-add-wrapper').querySelector(".free-gift-mutiple-variants");
+      event.target.style.display = "none";
+      extraVariants.style.display = "grid";
+      fadeVariantsIn(extraVariants);
+      wrapper.classList.add("free-gift-open");
+    }
+
+  
+    //click listner for close popup
+    if (event.target.closest('.product-page-safety-screen')) {
+      resetPopup();
+    }
+
+    if (event.target.closest('#test-progress-bar')) {
+        const number = event.target.closest(".wrapper").querySelector("input").value;
+        const obj = {
+            total_price: parseFloat(number*100) || 0 
+        };
+        updateCartHeader(obj);
+    }
+
+
+    if(event.target.closest('#show-cart')){
+      updateCart();
+    }
+      //Click listner for quick buy add to cart
+    if(event.target.closest('.js-quick-buy-variant')){
+      const var_id = event.target.closest('.js-quick-buy-variant').getAttribute('var-id');
+      event.target.classList.add("variant-loading");
+      addToCart([{id:var_id}], 1)
+    }
+
+    //click listner for minus button on quantity selector
+    if(event.target.closest('.js-cart-minus-button')){
+      const item = JSON.parse(event.target.closest('.cart-item').querySelector(".item-json").value);
+      event.target.closest(".cart-item").classList.add("loading");
+      const var_id = item.variant_id;
+      let number = item.quantity - 1;
+      let updates = {
+        [var_id]: number
+      };
+      fetch('/cart/update.js', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ updates })
+      })
+      .then(response => {
+        updateCart();
+        return response.json();
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+      
+    }
+        //click listner for plus button on quantity selector
+    if(event.target.closest('.js-cart-plus-button')){
+      const item = JSON.parse(event.target.closest('.cart-item').querySelector(".item-json").value);
+      event.target.closest(".cart-item").classList.add("loading");
+      const var_id = item.variant_id;
+      let number = item.quantity + 1;
+      let updates = {
+        [var_id]: number
+      };
+      fetch('/cart/update.js', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ updates })
+      })
+      .then(response => {
+        updateCart();
+        return response.json();
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+      
+    }
+    if(event.target.closest('.js-remove-from-cart')){
+      const item = JSON.parse(event.target.closest('.cart-item').querySelector(".item-json").value);
+      event.target.closest(".cart-item").classList.add("loading");
+      console.log(item)
+      const key= item.key
+      let updates = {
+        [key]:0
+      };
+      console.log(updates)
+      fetch(window.Shopify.routes.root + 'cart/update.js', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ updates })
+        })
+        .then(response => {
+          updateCart()
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        });
+      
+    }
+
+
+    
+  })
+
+    function formatMoney(cents, format){
+
+    if (typeof cents === 'string') {
+      cents = cents.replace('.', '');
+    }
+
+    let value = '';
+    const placeholderRegex = /\{\{\s*(\w+)\s*\}\}/;
+    const formatString = format || moneyFormat;
+
+    function formatWithDelimiters(number, precision, thousands, decimal) {
+      thousands = thousands || ',';
+      decimal = decimal || '.';
+
+      if (isNaN(number) || number === null) {
+        return 0;
+      }
+
+      number = (number / 100.0).toFixed(precision);
+
+      const parts = number.split('.');
+      const dollarsAmount = parts[0].replace(
+        /(\d)(?=(\d\d\d)+(?!\d))/g,
+        '$1' + thousands
+      );
+      const centsAmount = parts[1] ? decimal + parts[1] : '';
+
+      return dollarsAmount + centsAmount;
+    }
+
+    switch (formatString.match(placeholderRegex)[1]) {
+      case 'amount':
+        value = formatWithDelimiters(cents, 2);
+        break;
+      case 'amount_no_decimals':
+        value = formatWithDelimiters(cents, 0);
+        break;
+      case 'amount_with_comma_separator':
+        value = formatWithDelimiters(cents, 2, '.', ',');
+        break;
+      case 'amount_no_decimals_with_comma_separator':
+        value = formatWithDelimiters(cents, 0, '.', ',');
+        break;
+      case 'amount_no_decimals_with_space_separator':
+        value = formatWithDelimiters(cents, 0, ' ');
+        break;
+      case 'amount_with_apostrophe_separator':
+        value = formatWithDelimiters(cents, 2, "'");
+        break;
+    }
+
+    return formatString.replace(placeholderRegex, value);
+
+  }
+
+
+

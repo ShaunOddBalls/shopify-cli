@@ -1,0 +1,345 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "98075ee8-3123-4a83-a479-cb6cdacb98f0": {
+      "type": "tabs-and-blocks",
+      "blocks": {
+        "54bf7b7e-8cc5-4da1-a963-524d697f3769": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "my-4 col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "WHO IS KLARNA?",
+            "title_text": "WHO IS KLARNA?",
+            "block_title_classes": "w-full bg-gray-100 px-8 pt-4 pb-3 text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas",
+            "description": "Klarna is a Swedish payment service provider that takes end-to-end responsibility for your payment. Klarna is the provider of smooth payments to more than 190,000 online stores. Over 80 million consumers worldwide have trusted Klarna to securely handle their payments.",
+            "block_description_classes": "px-8 py-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "dfa6f780-e64d-4825-ad98-47fc08dd45fa": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "my-4 col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "HOW DOES PAY LATER IN 30 DAYS WORK?",
+            "title_text": "HOW DOES PAY LATER IN 30 DAYS WORK?",
+            "block_title_classes": "w-full bg-gray-100 px-8 pt-4 pb-3 text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas",
+            "description": "Once your order is confirmed, you'll receive an email with payment instructions within two days from Klarna. You'll then have 30 days to try on your order and only pay when you’re happy. Complete the payment online, at your convenience, with no extra cost. You can pay via credit or debit card at www.klarna.com/uk",
+            "block_description_classes": "px-8 py-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "e22d0cec-ee44-4f50-9ff3-e9205e7b7aea": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "my-4 col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "AM I ELIGIBLE FOR PAY LATER IN 30 DAYS?",
+            "title_text": "AM I ELIGIBLE FOR PAY LATER IN 30 DAYS?",
+            "block_title_classes": "w-full bg-gray-100 px-8 pt-4 pb-3 text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas",
+            "description": "To use Pay later in 30 days you must be at least 18. Whilst this option is widely promoted, Pay later in 30 days is subject to your financial circumstances. When choosing Pay later in 30 days, our assessment will not affect your credit rating.",
+            "block_description_classes": "px-8 py-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "fbfc4e52-4ed6-40b5-954b-dc23d5f754c6": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "my-4 col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "HOW CAN I INCREASE MY CHANCES OF BEING ACCEPTED FOR PAY LATER IN 30 DAYS?",
+            "title_text": "AM I ELIGIBLE FOR PAY LATER IN 30 DAYS?",
+            "block_title_classes": "w-full bg-gray-100 px-8 pt-4 pb-3 text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas",
+            "description": "Klarna is unique and offers Pay later in 30 days based on a number of factors such as the order value, previous order history and item availability. If you are 18 or over, you can improve your chances of being offered Pay later in 30 days by ensuring you provide your full name and accurate address details and shipping to your registered billing address. All orders are assessed individually. Just because you have had Pay later in 30 days before does not mean it will be offered for every order and in turn, as it is denied does not mean it will be denied for all future orders.",
+            "block_description_classes": "px-8 py-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "1d9c7f6a-4e05-4ebd-a4ac-8e85929fa59f": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "my-4 col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "WILL A CREDIT SEARCH TAKE PLACE AGAINST ME?",
+            "title_text": "WILL A CREDIT SEARCH TAKE PLACE AGAINST ME?",
+            "block_title_classes": "w-full bg-gray-100 px-8 pt-4 pb-3 text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas",
+            "description": "Klarna may run so-called unrecorded enquiries (or soft credit searches) that do not affect credit scoring and are only visible to you and Klarna, but not visible to other lenders. Neither Klarna nor OddBalls run credit searches against you that could impact your credit rating.",
+            "block_description_classes": "px-8 py-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "0c586fa7-fd3f-48b7-befd-add671cd653c": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "my-4 col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "WHY HAVE I NOT BEEN OFFERED PAY LATER IN 30 DAYS?",
+            "title_text": "WHY HAVE I NOT BEEN OFFERED PAY LATER IN 30 DAYS?",
+            "block_title_classes": "w-full bg-gray-100 px-8 pt-4 pb-3 text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas",
+            "description": "Although Pay later in 30 days is widely promoted it is not always universally available. The Pay later in 30 days method is automatically generated by algorithms that are dependent upon a number of factors including amount of order, the online store, previous order history and item availability. Alternatively, you are able to complete your order by paying by credit or debit card at the checkout.",
+            "block_description_classes": "px-8 py-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "d1846e79-55aa-4d36-8371-fb38ffce1030": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "my-4 col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "WHAT ARE MY PAYMENT OPTIONS WITH KLARNA?",
+            "title_text": "WHAT ARE MY PAYMENT OPTIONS WITH KLARNA?",
+            "block_title_classes": "w-full bg-gray-100 px-8 pt-4 pb-3 text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas",
+            "description": "You can pay with debit or credit card immediately in the checkout or take advantage of our Pay later in 30 days payment option, where you can pay for the goods once you have received them via credit card or debit card.",
+            "block_description_classes": "px-8 py-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "cea2efe7-16c1-4e2c-b4f0-17c676f74d3e": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "my-4 col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "WHAT HAPPENS IF I CANCEL OR RETURN MY ORDER?",
+            "title_text": "WHAT HAPPENS IF I CANCEL OR RETURN MY ORDER?",
+            "block_title_classes": "w-full bg-gray-100 px-8 pt-4 pb-3 text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas",
+            "description": "As soon as OddBalls have accepted your cancellation/return, then Klarna will cancel the statement or refund your payment.",
+            "block_description_classes": "px-8 py-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "e26aec2f-94dc-4319-998d-7bd8df1519ca": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "my-4 col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "WHAT HAPPENS IF I DON’T PAY FOR MY ORDER?",
+            "title_text": "WHAT HAPPENS IF I DON’T PAY FOR MY ORDER?",
+            "block_title_classes": "w-full bg-gray-100 px-8 pt-4 pb-3 text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas",
+            "description": "Payment is due 30 days after the item is shipped. To help you pay on time, we'll alert you two days before payment is due – you'll receive email reminders to pay – and, if very late, we’ll also send you a text or letter, too. Your credit score will not be impacted by using Klarna’s ‘Pay later in 30 days’ products even if you have failed to pay on time.",
+            "block_description_classes": "px-8 py-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "648ca625-ab78-411f-bfa6-e578862c4b66": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "my-4 col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "I HAVE BEEN ASKED TO GO TO THE KLARNA SITE. IS THIS CORRECT?",
+            "title_text": "I HAVE BEEN ASKED TO GO TO THE KLARNA SITE. IS THIS CORRECT?",
+            "block_title_classes": "w-full bg-gray-100 px-8 pt-4 pb-3 text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas",
+            "description": "If you have chosen to Pay later in 30 days, Klarna will send you an email with further details on how to pay. Your email will contain a link to Klarna where you can settle your payment with your credit or debit card.",
+            "block_description_classes": "px-8 py-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "6d8c8f38-d427-473c-8557-df45f3e92cbb": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "my-4 col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "WHAT DO I NEED TO PROVIDE WHEN I MAKE A PURCHASE?",
+            "title_text": "WHAT DO I NEED TO PROVIDE WHEN I MAKE A PURCHASE?",
+            "block_title_classes": "w-full bg-gray-100 px-8 pt-4 pb-3 text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas",
+            "description": "If you want to make a purchase with Klarna you need to provide your name, address and email address. For some orders you may need to provide your mobile number or date of birth, too. All information will be sent to your email address, including payment reminders and links to your online statements. It's very important that you give us the correct details, as otherwise you will not receive the payment information.",
+            "block_description_classes": "px-8 py-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "90ca19a8-e7b8-4c58-90c0-78ac5de4e6df": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "my-4 col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "IS MY PAYMENT INFORMATION SAFE?",
+            "title_text": "IS MY PAYMENT INFORMATION SAFE?",
+            "block_title_classes": "w-full bg-gray-100 px-8 pt-4 pb-3 text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas",
+            "description": "Payment information is processed securely by Klarna. No card details are transferred to or held by OddBalls. All transactions take place via connections secured with the latest industry standard security protocols.",
+            "block_description_classes": "px-8 py-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "d0298be5-0e8b-4cb5-ab95-c63a31c47ff6": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "my-4 col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "CAN I PAY BEFORE THE DUE DATE?",
+            "title_text": "CAN I PAY BEFORE THE DUE DATE?",
+            "block_title_classes": "w-full bg-gray-100 px-8 pt-4 pb-3 text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas",
+            "description": "You can pay for your order at any point after you receive the email from Klarna with the details of your payment on. Just follow the instructions on this email to pay for your order.",
+            "block_description_classes": "px-8 py-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "06f15580-cb9c-41f6-80a7-6271ecd26097": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "my-4 col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "HAVE YOU RECEIVED MY PAYMENT?",
+            "title_text": "HAVE YOU RECEIVED MY PAYMENT?",
+            "block_title_classes": "w-full bg-gray-100 px-8 pt-4 pb-3 text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas",
+            "description": "If you pay by card, OddBalls will confirm your order right away. If paying by Pay later in 30 days, Klarna will send you a payment confirmation to the email address that you have used for your order. If you have made a payment but not received the payment confirmation, you can always check the status of your order and payments by logging in to www.klarna.com.",
+            "block_description_classes": "px-8 py-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "0ede52cc-3b7a-41ae-8f12-9e20a5c175c6": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "my-4 col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "WHAT HAPPENS TO MY STATEMENT, WHEN I'VE RETURNED THE GOODS?",
+            "title_text": "HAVE YOU RECEIVED MY PAYMENT?",
+            "block_title_classes": "w-full bg-gray-100 px-8 pt-4 pb-3 text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas",
+            "description": "Once OddBalls has received the return (partial or full) and you have received their confirmation of this, an updated statement will be sent to you by Klarna if you've made a partial return. With a full return, your statement will be closed.",
+            "block_description_classes": "px-8 py-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "12ad1584-0133-4735-b2c3-b65b4d956bd8": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "my-4 col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "I'VE RECEIVED A STATEMENT, BUT I'VE NOT YET RECEIVED MY GOODS.",
+            "title_text": "I'VE RECEIVED A STATEMENT, BUT I'VE NOT YET RECEIVED MY GOODS.",
+            "block_title_classes": "w-full bg-gray-100 px-8 pt-4 pb-3 text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas",
+            "description": "You have 30 days to pay, so you don’t need to pay right away. If your due date is near and there is no sign of your goods, please call OddBalls to check on delivery. You can also contact Klarna’s Customer Service so that we can postpone the due date on your payment.",
+            "block_description_classes": "px-8 py-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "0971a49e-a1b2-4ceb-bff2-5c60fdb87d68": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "my-4 col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "I HAVE CANCELLED MY ORDER. HOW LONG WILL IT TAKE UNTIL I RECEIVE MY REFUND?",
+            "title_text": "I HAVE CANCELLED MY ORDER. HOW LONG WILL IT TAKE UNTIL I RECEIVE MY REFUND?",
+            "block_title_classes": "w-full bg-gray-100 px-8 pt-4 pb-3 text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas",
+            "description": "As soon as the store has registered your cancellation or your return, the refund will be processed within 5 business days.",
+            "block_description_classes": "px-8 py-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "59f33e9b-3cd9-4982-b5c2-608755b22f8e": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "my-4 col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "I HAVE ASKED FOR A REFUND. HOW WILL I BE REFUNDED?",
+            "title_text": "I HAVE ASKED FOR A REFUND. HOW WILL I BE REFUNDED?",
+            "block_title_classes": "w-full bg-gray-100 px-8 pt-4 pb-3 text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas",
+            "description": "If you have paid for your order with a card, the refund will be made back to the same card. If you have not paid the statement yet, then the refund will reduce the statement or cancel it completely.",
+            "block_description_classes": "px-8 py-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "af80148b-00da-4e75-ad5a-5fe52ee5bbe8": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "my-4 col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "I HAVEN’T RECEIVED AN EMAIL WITH MY STATEMENT/PAYMENT INFORMATION.",
+            "title_text": "I HAVEN’T RECEIVED AN EMAIL WITH MY STATEMENT/PAYMENT INFORMATION.",
+            "block_title_classes": "w-full bg-gray-100 px-8 pt-4 pb-3 text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas",
+            "description": "If you do not have your statement number to hand you can log in at www.klarna.com/uk, where you will find all of your orders and be able to make payments.",
+            "block_description_classes": "px-8 py-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "03f8d8a3-9f3c-4250-9122-dd398d599a7c": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "my-4 col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "I STILL HAVE QUESTIONS REGARDING PAYMENT, HOW CAN I GET IN TOUCH?",
+            "title_text": "I STILL HAVE QUESTIONS REGARDING PAYMENT, HOW CAN I GET IN TOUCH?",
+            "block_title_classes": "w-full bg-gray-100 px-8 pt-4 pb-3 text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas",
+            "description": "Visit Klarna’s Customer Service page for a full list of FAQ’s, live chat and telephone options.",
+            "block_description_classes": "px-8 py-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        }
+      },
+      "block_order": [
+        "54bf7b7e-8cc5-4da1-a963-524d697f3769",
+        "dfa6f780-e64d-4825-ad98-47fc08dd45fa",
+        "e22d0cec-ee44-4f50-9ff3-e9205e7b7aea",
+        "fbfc4e52-4ed6-40b5-954b-dc23d5f754c6",
+        "1d9c7f6a-4e05-4ebd-a4ac-8e85929fa59f",
+        "0c586fa7-fd3f-48b7-befd-add671cd653c",
+        "d1846e79-55aa-4d36-8371-fb38ffce1030",
+        "cea2efe7-16c1-4e2c-b4f0-17c676f74d3e",
+        "e26aec2f-94dc-4319-998d-7bd8df1519ca",
+        "648ca625-ab78-411f-bfa6-e578862c4b66",
+        "6d8c8f38-d427-473c-8557-df45f3e92cbb",
+        "90ca19a8-e7b8-4c58-90c0-78ac5de4e6df",
+        "d0298be5-0e8b-4cb5-ab95-c63a31c47ff6",
+        "06f15580-cb9c-41f6-80a7-6271ecd26097",
+        "0ede52cc-3b7a-41ae-8f12-9e20a5c175c6",
+        "12ad1584-0133-4735-b2c3-b65b4d956bd8",
+        "0971a49e-a1b2-4ceb-bff2-5c60fdb87d68",
+        "59f33e9b-3cd9-4982-b5c2-608755b22f8e",
+        "af80148b-00da-4e75-ad5a-5fe52ee5bbe8",
+        "03f8d8a3-9f3c-4250-9122-dd398d599a7c"
+      ],
+      "settings": {
+        "outer_wrapper_attr": "",
+        "outer_wrapper_classes": "2xl:mx-auto 2xl:container py-12 lg:px-20 md:px-6 px-4",
+        "inner_wrapper_classes": "grid grid-cols-12 gap-6",
+        "header_wrapper_classes": "col-span-12 flex flex-col justify-center items-center text-center space-y-4 marujo",
+        "all_tabs_wrapper_classes": "",
+        "content_wrapper_classes": "col-span-12 grid grid-cols-12 space-y-8",
+        "option_menu_selected": false,
+        "title": "PAY LATER IN 30 DAYS FAQ",
+        "title_classes": "text-3xl lg:text-4xl tracking-wider leading-9 md:leading-7 lg:leading-9 text-gray-800 font-bebas",
+        "description": "",
+        "description_classes": "text-base leading-6 text-center text-gray-600 w-full md:w-10/12"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "98075ee8-3123-4a83-a479-cb6cdacb98f0"
+  ]
+}

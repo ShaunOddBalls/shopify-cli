@@ -1,0 +1,1038 @@
+{% comment %}
+<div class=" px-4 w-full" id="match-balls-header">
+	<img style="width:100%;" src="https://cdn.shopify.com/s/files/1/0353/7249/files/matchballs.png?v=1702980493" />
+</div> 
+{% endcomment %} 
+<div id="match-change-1-wrapper" class="hidden" style="position:fixed; width:100vw; height:100vh; top:0px; left:0px; z-index: 999;">
+	<div id="match-change-1-safety-screen" class="w-screen h-screen fixed justify-center align-middle" style="backdrop-filter: blur(5px);z-index: -1;background: #00000066; "></div>
+	<div id="match-change-1-content" class="p-2 md:p-2 w-max md:w-1/3" style="background-color:white; position:fixed; top:0dvh; left:50%; transform: translate(-50%); min-height:50dvh;"></div>
+</div>
+<div id="match-change-2-wrapper" class="hidden" style="position:fixed; width:100vw; height:100vh; top:0px; left:0px; z-index: 999;">
+	<div id="match-change-2-safety-screen" class="w-screen h-screen fixed justify-center align-middle" style="backdrop-filter: blur(5px);z-index: -1;background: #00000066; "></div>
+	<div id="match-change-2-content" class="p-2 md:p-2 w-max md:w-1/3" style="background-color:white; position:fixed; top:0dvh; left:50%; transform: translate(-50%); min-height:50dvh;"></div>
+</div>
+<div id="match-balls-wrapper" class="relative md:grid md:grid-cols-12"> 
+  
+    {% render "ob-perfect-pair-nav" %} 
+
+    <div class="absolute homepage-banner-cover w-full h-full"> 
+     <img src="https://cdn.shopify.com/s/files/1/0353/7249/files/pp-Desktop-BG.svg?v=1736860823" alt="" class="w-full h-full invisible -z-10 object-position-center object-fit object-cover hidden md:block">
+   </div>
+
+
+  
+    <div id="match-balls-img-container" class="md:h-80v col-span-12 2xl:col-span-8 xl:col-span-6" style=" justify-content:center;">
+      
+          <div class="lg:col-span-6 xl:col-span-8 stick-to-bottom h-full">
+          
+              <div id="sub-left-col" class="relative h-full object-position-center flex flex-col justify-center">
+              
+                  <img id="sub-mobile-svg" src="https://cdn.shopify.com/s/files/1/0353/7249/files/pp-Mobile-BG.svg?v=1736860823" alt="files/subscription-desktop-svg.svg" class="w-full invisible h-full -z-10 object-cover md:hidden block absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                  <img src="https://cdn.shopify.com/s/files/1/0353/7249/files/PerfectPairs-Stacked-White.svg?v=1737540209" alt="" class="!w-3/6 !max-w-3/6 !object-contain mx-auto z-10">
+              
+                  <!-- <h2 class="font-bold lg:text-4xl text-white py-2 text-center uppercase w-3/6 mx-auto font-montserrat-bold z-10">Welcome to the Pants Party!</h2> -->
+              </div>
+          </div>
+            
+		<!-- <div id="cover_img_url" class="perfect-pair-image object-position-center"> {{ images['home-perfect-pair.jpg'] | image_url: width:  2000 | image_tag: widths: '200, 300, 400, 600, 800, 1000, 1200, 1400, 1600, 1800'  }} </div>
+		<div id="cover_img_url_2" class="perfect-pair-image hidden"> {{ images['VALENTINES_14.png'] | image_url: width:  2000 | image_tag: widths: '200, 300, 400, 600, 800, 1000, 1200, 1400, 1600, 1800'  }} </div>
+		<div id="men_boxer_img_url" class="perfect-pair-image hidden"> {{ images['MensBoxers.svg'] | image_url: width:  2000 | image_tag: widths: '200, 300, 400, 600, 800, 1000, 1200, 1400, 1600, 1800'  }} </div>
+		<div id="women_boxer_img_url" class="perfect-pair-image hidden"> {{ images['LADIESBOXERS.svg'] | image_url: width:  2000 | image_tag: widths: '200, 300, 400, 600, 800, 1000, 1200, 1400, 1600, 1800'  }} </div>
+		<div id="men_brief_img_url" class="perfect-pair-image hidden"> {{ images['MensBriefs.svg'] | image_url: width:  2000 | image_tag: widths: '200, 300, 400, 600, 800, 1000, 1200, 1400, 1600, 1800'  }} </div>
+		<div id="women_brief_img_url" class="perfect-pair-image hidden"> {{ images['LadiesBriefs.svg'] | image_url: width:  2000 | image_tag: widths: '200, 300, 400, 600, 800, 1000, 1200, 1400, 1600, 1800'  }} </div>
+		<div id="women_thong_img_url" class="perfect-pair-image hidden"> {{ images['THONG.svg'] | image_url: width:  2000 | image_tag: widths: '200, 300, 400, 600, 800, 1000, 1200, 1400, 1600, 1800'  }} </div>
+		<div id="women_seamless_img_url" class="perfect-pair-image hidden"> {{ images['Seamless.svg'] | image_url: width:  2000 | image_tag: widths: '200, 300, 400, 600, 800, 1000, 1200, 1400, 1600, 1800'  }} </div> -->
+	</div>
+	<div id="step-1-wrapper" class="  md:h-full 2xl:col-span-4 xl:col-span-6 col-span-12 relative border-0 border-gray-300 border-solid pt-4" style="min-height: 468px;">
+		<h1 class="font-bebas whitespace-nowrap hidden md:block pointer-events-none" style="font-size: calc(15vw); top: -8px; position: absolute; width: 100%; opacity: 0.03; line-height: 1em; text-align:center;"> Pair One </h1>
+		<div id="step-1" class="js-perfect-step 2xl:px-6 p-6 lg:p-14 2xl:w-5/6 xl:w-11/12 relative" style="background: #fff; backdrop-filter: blur(10px);">
+			<div class="js-match-change-safety-screen basicLightboxCloseBundle basicLightboxCloseWithIcon border-2 bg-white border-solid  rounded-md" style="right:0px; top:15px; height: 30px; z-index: 99998; width: 30px;align-items:center;justify-content:center">
+				<svg aria-hidden="true" focusable="false" role="presentation" width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M1.41418 0L16.9705 15.5563L15.5563 16.9706L-2.89679e-05 1.41421L1.41418 0Z" fill="#111111"></path>
+					<path d="M16.9706 1.41431L1.41423 16.9707L1.85966e-05 15.5564L15.5564 9.31025e-05L16.9706 1.41431Z" fill="#111111"></path>
+				</svg>
+			</div>
+			<div id="free-shipping-message" class="relative ">
+              {% comment %}
+				<svg id="Layer_1" style="height:30px;" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 205.97075">
+					<defs>
+						<style>
+							#match-balls-wrapper .cls-1 {
+								fill: #f00f83 !important;
+							}
+
+							#match-balls-wrapper .cls-1,
+							.cls-2 {
+								stroke-width: 0px;
+							}
+
+							#match-balls-wrapper .cls-2 {
+								fill: #00aeef !important;
+							}
+						</style>
+					</defs>
+					<g>
+						<g>
+							<path class="cls-2" d="M710.3155,197.87053c-.49401-3.78582-.98778-12.01583-.96966-19.61551,0,0-1.83128-56.87579-1.88542-56.88255.09523,1.55938,15.89591,1.0847,17.48284,1.05135,1.19878-.02489,2.40868-.04568,3.62171-.05776.00701-.00073.01305-.00459.02006-.00532,9.21634-.94549,24.19745-6.95534,31.82493-18.76984,9.48026-14.66813,9.96848-22.97475,11.0672-25.52481,3.30945-7.80608,4.05531-15.85506,1.53231-24.16241-2.94281-9.57549-6.13021-20.39157-15.12226-24.65038-8.66625-4.09639-15.92298-6.18531-25.28119-5.89988-4.42122.15541-53.84476,1.03757-53.84476,1.03757l-.97618,42.47207.33885,10.38926,2.95683,36.83684,1.77642,28.93674-1.03056,45.26551c-.47492,12.81703-1.68192,15.14353,4.12274,17.67933l17.03547-1.03733c1.19322-.11094,2.38813-.23831,3.58643-.36543,3.56274-.36785,4.23754-2.91622,3.74425-6.69745ZM704.72087,49.32609c.44737-3.28867,33.58153-1.27491,36.2128,2.18342,3.0651,3.96709,9.52111,19.80185,9.71084,24.97618.17619,6.82893-7.94771,15.79367-13.75237,18.78482-2.49593,1.28869-29.33649,4.44201-29.86579,2.08167-2.30547-11.40653-3.33652-40.28188-2.30547-48.02609Z" />
+							<path class="cls-2" d="M782.34381,197.15854c4.16352,1.60094,8.93407,2.4801,14.2489,2.60661,4.92295-.27214,9.98437-1.37941,15.22349-3.29014,2.92337-2.65721,5.82084-5.84615,8.64321-9.57298,1.54396,3.57463,3.7079,7.40306,6.46612,11.42075,4.17647,1.86013,8.99763,3.28356,14.41345,4.26453,4.92276-1.10727,7.56762-4.60659,7.83318-10.46569-.59468-3.97307-2.83452-7.2891-6.69423-9.97142l-.55642-2.27809.91084-12.25589.1012-3.0684,5.21362-52.03598.22811-7.55467-2.03763-8.4404c-1.67027-3.61925-4.39084-6.93449-8.13659-10.04135-3.87246-2.4297-8.3904-4.2962-13.56597-5.67561l-15.05873-2.04999c-5.08751.70883-10.40233,1.88543-16.05862,3.49872-3.32819,1.8161-6.65658,4.49901-10.04772,8.11826-2.12589,3.35289-4.01132,7.59232-5.63099,12.73023l-.89869,10.62965,6.74463.18408,12.03435,1.7396,1.73382-3.85314c.64548-4.60022,2.55601-9.06118,5.65708-13.35678,3.46685-2.22749,7.80728-3.40409,12.9958-3.54335,4.18863,1.47404,7.87143,4.11232,11.04761,7.85848l.44247,13.72993-1.68262,3.02438c-2.54366,3.06283-6.09956,5.78339-10.6426,8.08679l-16.05862,2.44843-13.79348,4.37848c-3.64435,2.22052-6.98509,5.13154-10.07302,8.73784-2.15099,3.88481-3.75851,8.43443-4.8341,13.59127-1.08854,4.86518-1.80953,10.63622-2.06294,17.32388.80983,4.23285,2.17689,8.84542,4.10057,13.80583,2.36615,3.34712,5.64334,6.44142,9.79451,9.27614ZM791.56894,157.27744l4.02407-6.04238c1.54396-1.44874,3.36584-2.89807,5.44113-4.35338l14.4517-4.92216c2.3287-.64588,4.69485-1.59457,7.04864-2.91102,1.03794,2.06931,1.70872,4.43566,2.06313,7.03629l-2.08824,17.957-5.71984,14.3499-6.02365,3.54992-7.59292,2.2522c-2.455-.90446-4.96041-1.96771-7.51642-3.29014l-3.75851-6.23224-1.16445-8.39638.83533-8.99763Z" />
+							<g>
+								<path class="cls-2" d="M911.43572,164.50098s.81903-9.00996,1.02378-11.2625c.20137-2.21444-.56872-4.16458-7.08371-5.06073-.84293-.08298-1.67932-.17725-2.54029-.22911-1.7844-.10125-3.12569-.83504-4.01147-2.21444-.91148-1.36655-1.54402-3.01181-1.89828-4.90355-.37975-1.91722-.60795-3.89127-.6835-5.98529-.44244-13.34457-.18316-37.86549.45005-45.19275.61991-7.21879,2.31546-4.74118,4.34025-5.02576,1.97428-.2467,3.98598-.30375,5.94786-.19619.41718.04465.88555.08231,1.36655.12696.48077.06292.9108.09449,1.35414.14522.98657.05029,1.82184-.12651,2.51819-.53128.7083-.36689,1.22719-1.34129,1.60693-2.92342.18987-1.18953.51911-2.35402.92388-3.55595.37975-1.21456.64539-2.4361.74641-3.6696l.10103-.41132.05119-.37343v-.84158c-.44311-7.30786-24.778-3.49867-28.47308-3.62586-4.17586-.13868-8.36457-.85375-12.48991-1.42969-3.89781-.481-8.74431-2.24578-9.76922,3.02444-.53106,2.63229-2.30328,9.54169-.25324,11.80664,3.4547,3.79634,12.57853-.63276,12.76818,3.26483.37975.82308.62036,1.72104.77257,2.74595.12628,1.03167-.76643,16.81639-1.01945,23.97925-.24061,6.94751-.41741,16.27362-.78475,23.22744-.21513,3.27159-.65779,7.68129-1.18953,9.25034-.54436,1.5253,0,0-.88577.59488-3.54332,2.56261-9.65512.37321-12.85726,3.63803-3.39111,3.51153-1.68247,8.23806-1.20193,12.56613.53151,4.75179,8.07367,3.79634,12.46466,4.30236,8.54204.98748,14.02153.49363,21.18349.56939,4.50126.08817,8.98019.57278,13.49024.91193,4.19457.21445,4.03199-2.72137,4.03199-2.72137Z" />
+								<polygon class="cls-2" points="907.7014 40.07146 905.94212 30.97674 898.9984 24.81447 890.19088 21.65933 881.08081 24.29369 874.80579 31.18983 871.84825 40.07146 874.43926 49.1664 881.00331 55.98533 890.19088 57.58473 899.12429 55.54394 905.82437 49.09681 907.7014 40.07146" />
+							</g>
+							<path class="cls-2" d="M961.52317,91.20668l-.32675-9.00003-26.20814,2.13348,2.50105,112.22256,27.6606-.60119-2.10304-62.79014c.99812-31.62176,28.64202-16.22018,28.64202-16.22018l3.34349-28.56536s-18.01833-5.72073-33.50923,2.82086Z" />
+						</g>
+						<path class="cls-1" d="M33.22881,198.84081c-.50462-3.8671-1.00899-12.2738-.99048-20.03663,0,0-1.8706-58.09685-1.9259-58.10376.09727,1.59286,16.23718,1.10799,17.85818,1.07392,1.22452-.02543,2.46039-.04666,3.69947-.059.00716-.00074.01333-.00469.02049-.00543,9.41421-.96579,24.71695-7.10466,32.50818-19.17281,9.6838-14.98304,10.18249-23.46799,11.3048-26.0728,3.3805-7.97367,4.14237-16.19545,1.56521-24.68115-3.00599-9.78107-6.26182-20.82936-15.44692-25.1796-8.85231-4.18434-16.26483-6.31811-25.82395-6.02654-4.51614.15874-55.00075,1.05985-55.00075,1.05985l-.99714,43.3839.34612,10.61231,3.02031,37.62769,1.81455,29.55798-1.05269,46.23732c-.48512,13.0922-1.71803,15.46865,4.21125,18.05889l17.40121-1.0596c1.21884-.11332,2.4394-.24342,3.66343-.37328,3.63923-.37575,4.32851-2.97883,3.82464-6.84124ZM27.51408,47.10726c.45697-3.35927,34.30249-1.30228,36.99025,2.2303,3.13091,4.05226,9.72552,20.22698,9.91932,25.51239.17997,6.97554-8.11834,16.13275-14.04761,19.18811-2.54951,1.31635-29.96632,4.53737-30.50698,2.12636-2.35497-11.65142-3.40815-41.14669-2.35497-49.05716Z" />
+						<path class="cls-1" d="M178.33216,163.11258c-.19258-.46882-.43748-.93877-.84315-1.24207-.53241-.39824-1.24162-.44131-1.90595-.46905-3.73049-.15605-7.78435-.21919-10.79323,1.99141-2.95431,2.17091-4.35942,6.14743-7.46053,7.99091-.33307.38245-.58743.64381-.67425.65215-2.27735.18333-4.51727.70875-6.70667,1.59453-2.17678.87901-4.41669,1.3794-6.7193,1.58145-1.42991.12696-2.97393-.02526-4.5432-.41718-1.63286-.43026-3.20123-.94914-4.8341-1.62632-1.61979-.65824-3.13855-1.3918-4.63137-2.22098-1.4811-.83504-2.84765-1.58821-4.04935-2.29043-1.68338-.93606-2.97393-2.03696-3.92329-3.35954-.93606-1.30994-1.69555-2.65755-2.25277-4.11948-.54414-1.42969-1.05017-2.84674-1.4926-4.27666-.04059-.12515-.09201-.23159-.13417-.35426,13.4041-2.53465,26.36847-7.72549,37.16395-16.0294,7.78367-5.98754,14.6818-14.22764,15.58719-24.0061.42665-4.60882-.50941-9.25778-.1477-13.87224.23948-3.05353,1.04115-6.1596.3024-9.13195-.79467-3.1974-3.23235-5.68537-5.57172-8.00534-.91306-.90517-1.84619-1.82522-2.9931-2.40589-1.41142-.71439-5.75032-1.91587-7.33154-1.95804-.1698-.00451-.30939.00992-.46995.01105-.00135-.0212-.00496-.04194-.00631-.06314-2.29877-.33916-4.67805-.35381-6.95202-.83346-5.06231-1.07542-10.57923-.68372-15.78067-.13282-5.44115.60119-9.50358,3.91653-14.52755,5.68808-2.41671.86029-4.39076,1.75915-6.18757,3.65743-1.74674,1.83491-4.65708,3.06841-6.08722,5.06141-1.2017,1.66398-1.98645,3.39111-3.63149,4.70782-.93674.72116-5.50452,7.47879-5.70747,9.38948-.35426,2.72723-.75927,5.31487-1.2653,7.82043-.46837,2.50533-.9108,5.02375-1.36655,7.58004-.43003,2.53127-.78452,5.11259-.99965,7.68152-.21513,2.61944-.21513,5.31487.05051,8.09893.22731,3.05624.68305,6.04888,1.34129,9.04807.63276,2.96761,1.75915,5.79564,3.35345,8.40268.51888.84744,1.1645,1.72081,1.96142,2.61899.79738.92388,6.55491,13.14815,8.47845,15.40746,1.92354,2.27149,4.18871,4.34025,6.88414,6.22568,2.63229,1.87956,5.40349,3.50521,8.28857,4.86589,2.86005,1.34106,5.28984,2.22684,7.28915,2.63815,1.83491.44965,3.36585.89885,4.55538,1.4236,1.21478.50016,2.3671.99379,3.4547,1.44299,1.11398.44289,2.32877.7967,3.65765,1.06324,1.40466.24625,3.13832.26542,5.28939.1008.94937-.1008,2.22684-.20273,3.83445-.36734,1.63196-.18897,3.26483-.43003,4.96038-.73333,1.68315-.33555,3.25242-.70875,4.75833-1.16427,1.48042-.45552,2.50556-1.01273,3.10021-1.72104.72116-.79738,1.50591-1.39225,2.30328-1.82251.78475-.43026,1.55642-.82218,2.29043-1.13247.75927-.31029,1.44277-.65193,2.13867-1.03799.68305-.38538,1.35437-.9426,1.94902-1.6385.86052-1.08196,1.65744-2.11364,2.34094-3.13855.40771-.5482.94982-.94643,1.58889-1.25267.3272-.34818.65531-.69838.98274-1.031.55677-.56579,1.11534-1.14533,1.49644-1.84145.4837-.88352.6526-1.89963.81384-2.89387.55-3.3875,1.07926-6.98066-.2255-10.15483ZM111.64315,123.9297c.83526-3.80265,2.17655-7.39671,3.99906-10.76256,1.82184-3.39832,4.12512-6.27709,6.83273-8.6938,2.74662-2.40431,5.93568-3.75191,9.52906-4.03063,1.24004-.13914,2.39213-.14567,3.51807-.08862,1.13901.04465,2.27803,0,3.51829-.08231.73401-.06292,1.36632-.24693,1.92354-.53128.16214-.09426,1.34354-.10802,2.93244-.07216,1.21117.30962,2.6562.21287,3.83986.71259,1.72284.72702,2.5802,2.66341,3.0064,4.48412,1.64256,7.01674-.77415,14.4139-4.44218,20.6168-1.53342,2.59305-3.30812,5.07854-5.56834,7.06996-2.92838,2.58043-6.55017,4.22975-10.18595,5.64907-3.62856,1.41661-7.34935,2.71167-11.12517,3.67862-2.04215.52294-4.5114.48866-6.8422.73739-.63005-2.20609-1.12639-4.01214-1.22696-4.45728-.27804-1.28469-.45574-2.55585-.58202-3.85316-.25324-3.1196.03834-6.58062.87337-10.37673Z" />
+						<path class="cls-1" d="M315.39682,30.1159c-.17832-2.28778.50562-4.82714,2.01313-7.63355-2.89363-2.64975-5.76028-3.94056-8.62-3.71766-4.95685.38635-8.44131,3.56546-11.38069,8.872-1.56896,2.83245-2.59037,5.84503-3.14894,9.38815-.48902,3.10194-.84912,6.37858-.56485,10.0257.40107,5.1457.6093,8.31859,1.45675,9.11567.84565.79722,2.18316.48017,3.74251.35863,1.17087-.09126,2.99095.04254,5.3998-.53244,2.40388-.56917,4.16873-1.18625,5.3396-1.27751,3.57284-.27848,6.12706.98518,8.02939,2.75586,1.83147,1.70473,3.2605,4.12337,3.54126,7.72546.28904,3.70835-1.21395,6.08958-3.41187,7.9998-1.92217,1.67057-4.45,2.61138-8.27208,2.90929-1.71583.13374-3.00585.8798-3.79484.55406-2.3166-.47223-2.20781-1.31808-4.56612-1.48551-3.05217.23789-4.70179,4.13453-4.5497,10.98427.08467,3.14113.17536,3.14082.36575,6.27732.31624,5.2096-.16175,5.24785.24382,10.45126.40603,5.20928.54934,5.19811.95536,10.40739.40608,5.21,1.36859,5.13498,1.77467,10.34499.40619,5.21132.25796,5.22288.66414,10.4342.40684,5.21972.57182,5.20686.97866,10.42659.40684,5.21972.45397,5.21605.86081,10.43577.32271,4.14029-.39376,7.80091-.06491,10.79088.5897,5.36171,1.75927,8.78212,2.37129,10.44905.94764,2.59333,2.89679,3.88256,6.05867,3.63611,1.2572-.09799,1.25909-.07368,2.51629-.17167,3.35073-.26117,5.21515-.3225,5.59105-.35179,5.7662-.44944,9.18142,2.26681,9.67179,8.5582.25045,3.21326-.40805,5.84445-1.69263,7.61929-1.38299,1.91081-3.84341,2.48913-7.00444,2.73551-1.52698.11902-5.14616.22966-10.93782-.27434-2.01164-.17636-4.59635-.09148-7.74337.01405-2.28842.07674-4.88536.09715-7.77419.32231-2.28778.17832-5.49825,1.25851-9.82039,2.35899-4.32726,1.1045-7.64605,1.10765-9.74138,1.27097-5.91009.46065-8.93338-2.2786-9.43861-8.76063-.50467-6.47484,1.81144-10.09245,7.29707-10.52002,1.17446-.09154,2.27119.0732,3.25321-.00334,1.32464-.10325,1.33184-.01087,2.65649-.11411,3.1313-.24406,5.05268-1.90599,5.52845-4.6935.30529-1.79537-.04988-5.56396-.33734-11.28486-.15883-3.16097.24984-6.96638-.09002-11.32669-.42712-5.47992-1.2325-5.41715-1.65962-10.89707-.4276-5.4861.07976-5.52565-.34784-11.01175q-.42766-5.48686-.85102-10.97406c-.42777-5.48825-.64725-5.47115-1.07503-10.9594-.42846-5.4971-.7646-5.4709-1.19306-10.968-.42846-5.4971.4128-5.56267-.01566-11.05977-.52878-6.78419-2.49421-10.55524-4.96903-10.36235-1.33454.10402-2.37265.34305-3.13164.40221-.76439.05958-1.6854.5242-2.82929.61336-3.59399.28013-6.45502-.25712-8.436-1.71697-2.11531-1.55884-3.50426-4.18452-3.78044-7.72779-.28954-3.7148.30332-6.91926,2.01356-8.92222,1.71119-2.00408,4.76507-3.32989,8.48014-3.61945.74281-.0579,1.93596.90287,3.41978.78721,1.48202-.11551,2.56629-.62135,3.31269-.67953,2.41188-.18799,3.8131-1.94651,3.57647-4.98249-.27194-3.48902-.4514-6.75013-.46086-9.83187-.01091-3.55527-.39928-6.8685-.0608-9.88114.40415-3.59712,1.8441-6.61105,2.74644-9.43358,1.00949-3.15793,1.50775-6.51662,3.3658-9.15818,1.82372-2.59275,4.59765-4.48573,7.23711-6.58088,2.68968-2.13793,5.68508-3.41547,8.81712-4.61376,3.06649-1.17322,6.08861-3.03697,9.5783-3.30896,4.1351-.3223,8.08129.61736,11.75841,1.59015,3.77752.99934,7.45978,2.46438,10.75447,4.83092,3.15849,2.2701,5.46688,5.04567,7.22443,7.92366,1.8584,3.04312,2.48892,6.45519,2.77899,10.17668.34191,4.3867.22781,8.38216-1.91602,11.61454-2.14714,3.23625-5.32221,5.32017-8.94092,5.60222-3.24281.25275-5.96165-1.46846-8.43351-3.67519-2.47338-2.20299-4.05141-4.82083-4.31875-8.2507Z" />
+						<path class="cls-1" d="M387.95234,141.41455l22.56792,1.25124c-3.48497,30.75712-17.01907,45.47649-40.60109,44.16902-7.01769-.38908-12.96658-2.03426-17.85047-4.93211-4.88389-2.89785-8.82169-7.18507-11.81319-12.86526-2.9919-5.67298-5.0351-12.78216-6.12981-21.32393-1.09691-8.53467-1.31899-18.63972-.67225-30.30464,1.2839-23.15693,5.46859-40.13821,12.55187-50.93676,7.08508-10.79844,17.38953-15.82276,30.91335-15.07296,26.28751,1.45747,38.14716,25.34673,35.57916,71.66419l-.16878,3.04412-55.40658-3.07193c-1.55594,28.06354,3.24478,42.401,14.40355,43.01968,10.14286.56235,15.68437-7.65123,16.62632-24.64066ZM388.57515,107.23929c-.25032-13.83222-1.31407-22.9649-3.18616-27.39235-1.93219-4.94029-5.34893-7.54541-10.25015-7.81715-4.98767-.27653-8.67147,1.9349-11.04968,6.63621-2.35366,4.19316-4.41868,13.15237-6.19657,26.87214l30.68257,1.70115Z" />
+						<path class="cls-1" d="M498.77264,105.54557c-5.28138-.53958-21.05513.28156-24.88902,1.11764-6.35297,1.38542-13.06029,2.46549-18.528,10.54131-4.55003,7.03004-4.36799,21.80001-2.10555,32.17465.07534.34547.22039.88992.44031,1.62484.21734.73918.36497,1.27937.44031,1.62484,1.97898,6.45188,5.05478,12.00356,9.2234,16.64483,4.16848,4.64868,8.7973,7.32101,13.88386,8.02125,6.73043.34545,16.06551-.78556,28.00602-3.38948l6.57239-1.43327c2.62962-.57346,4.15234-.42176,4.57484.45363,2.14922,4.60157,3.86788,9.84359,5.14939,15.72008.4528,2.07634.6436,3.48232.57731,4.22427-.01968.97181-1.84401,2.33349-5.47726,4.08964-3.54898,1.6196-7.89743,2.99257-13.04446,4.11501-5.36812,1.17065-10.05753,1.76862-14.06747,1.79743-10.6741.51826-18.99119-.26405-24.95294-2.34659-8.55719-3.44419-15.85393-9.28295-21.89126-17.50496-3.27334-4.4783-5.72016-8.59399-7.34045-12.34708-1.88319-4.41956-3.2235-8.47374-4.02838-12.16462-2.76521-12.68012-2.83202-32.18359,2.45048-46.37867,6.85171-18.0381,18.74232-25.07874,34.07956-28.42341,6.02301-1.31347,24.04606-2.07859,31.63461-.96014.48789.13733.78264.43495.88335.89675s.11404,1.18269.04167,2.1623c-.07327.9835-.16939,2.1197-.2885,3.41601-.11987,1.29278-.1602,2.29864-.11672,3.01296-.16096,8.73174-.51735,13.15593-1.06337,13.275l-.16414.0358Z" />
+						<path class="cls-1" d="M595.59848,174.92528l4.7524,6.50397-10.87461,12.06129-12.30834,7.67062-17.67119,1.42616-20.78672-10.13471-5.08752-29.14266,2.95469-23.64563,1.71201-23.77823,1.86668-23.78061,2.3589-23.66184-15.8791-1.01651.46067-8.64185,20.31748-15.01728,18.01688-27.21624,9.98376.89772-2.21564,19.97655-1.47505,20.31281,32.68918,2.24452-.98548,13.81039-32.61038-3.18818-2.63255,28.86097-2.893,28.77554-1.87688,28.86769.97889,20.67438,9.96146,6.80199,11.35195-2.12182,9.89152-7.53904Z" />
+					</g>
+					<!--<path class="cls-2" d="M1076.76654,161.35082c.97841-6.88523.10653-14.41074-2.6331-22.34784-.9175-2.93611-2.26711-5.90451-3.99856-8.76576-1.61497-2.72918-3.22003-5.10827-4.71118-7.14279-7.00312-9.37097-17.32331-13.57049-26.12119-21.05613-5.26278-4.54715-7.82272-14.42246.95536-16.94201,7.16582-2.05052,16.66601-.22036,23.07611,3.45837,1.57843.91012,3.3885,1.22065,4.98076,2.06216,3.35812,1.7114,9.95765-10.71983,11.16773-13.98814,1.78477-4.64743-1.32458-6.51616-5.08298-8.56212-4.23242-2.33076-9.67072-4.02344-16.13572-5.0754-.4621-.07582-.90477-.12293-1.35228-.20914-5.87506-.83457-11.79694-1.02135-17.57183-.43146-3.28357.37304-6.48134,1.04055-9.54793,2.02935-3.13585,1.01424-6.22693,2.46954-9.21084,4.30019-3.31335,2.06949-6.01907,4.93375-8.06755,8.47239-2.01763,3.5123-3.19573,7.61899-3.47901,12.16789l.00325.11696c-.2113,6.98814,2.30889,13.58662,7.59751,19.67324,1.00522,1.27721,3.27032,3.71218,10.54292,9.94326l5.54465,4.75656,5.63825,4.60689c1.04502,1.00105,2.50415,2.46194,4.41534,4.32583,1.80833,1.79291,3.15984,3.27814,4.0122,4.40978.87776,1.20109,1.90422,2.70106,2.9073,4.45518.98442,1.65287,1.76464,3.2928,2.34263,4.91284,1.05289,3.03427,1.6056,5.85523,1.61865,8.33368.07995,2.93008-.28821,4.57454-.64,5.39624-.39288,1.16888-.96618,2.07074-1.61497,2.75847-1.09668,1.0071-2.7428,1.58656-4.9346,1.78315-.90802.09632-2.03228.04094-3.34901-.15465-2.30475-.35426-5.15837-1.07169-8.39365-2.21714-2.62907-1.01567-4.5221-1.76712-5.75757-2.31495-1.16481-.51412-2.4496-1.1421-3.72955-1.8595-1.77172-.97963-2.50345-1.39794-2.77805-1.57976-.33097-.22537-1.2653-.86299-3.92763-2.71038l-6.13249-4.17971c-3.89999-2.58303-7.4615.039-9.93858,3.1213-2.41286,2.95235-5.21857,6.60336-5.43117,10.58623-.27363,5.17019,4.90322,7.21877,8.39459,9.78034l4.44877,3.2818.17344.10407c.77465.46535,2.01106,1.14208,3.77127,2.113,1.73776.9536,3.53214,1.81558,5.3186,2.58487,1.736.76038,4.06777,1.71208,7.06167,2.90808,4.11851,1.71536,8.32678,2.90045,12.38126,3.47484,3.26052.48011,6.56752.5883,9.78901.33202,7.55126-.5703,13.97929-3.3428,19.13121-8.19854l.12347-.10554c5.00882-5.04452,8.06271-11.25907,9.1435-18.40801Z" />-->
+					<path class="cls-1" d="M256.15571,124.07108c2.98714-6.3424,9.13204-19.38949,9.13204-19.38949,0,0-25.30877-23.91918-38.45464-5.64322l-.2773-11.16257-33.98031-1.12368-1.22854,11.51822,12.25855.43206-3.03008,86.57469-10.76437-.35246-.81903,14.12909,11.11615.55271-.00428.13124,12.72263.50107,22.83259,1.13541,1.6376-14.89422-10.89583-.35697.76849-58.98031c0-18.68488,18.59509-15.66453,28.98633-3.07157Z" />
+				</svg>{% endcomment %}
+				<div class="mt-3 font-semibold uppercase text-md leading-snug"> {{ 'ob_perfect_pair.home_slide.free_shipping_text' | t }} </div>
+			</div>
+			<div id="perfect-pair-copy" class="my-2 mb-0 sm:mb-0 sm:my-3 text-md leading-snug">{{ 'ob_perfect_pair.home_slide.intro_text' | t }}!</div>
+			<h1 id="step-1-marker" class="my-3 flex typography typography--body-md uppercase mb-0 font-semibold size-name" style="display: flex;align-items: baseline;">
+				<div style="">{{ 'ob_perfect_pair.home_slide.1st_pair_heading' | t }}</div>
+			</h1>
+			<div class="-mt-0 mb-2 text-md leading-snug">{{ 'ob_perfect_pair.home_slide.department_intoduction' | t }}</div>
+			<div id="1-gender-choice" class="flex justify-center md:mb-6 mb-3 relative bg-gray-200 rounded-full">
+				<div id="1-men" data-gender="men" class="js-step-1-gender cursor-pointer  uppercase font-semibold  w-1/2 md:py-4 py-3 text-center slider-control" style="z-index:2">{{ 'ob_perfect_pair.home_slide.mens' | t }}</div>
+				<div id="1-women" data-gender="women" class="js-step-1-gender cursor-pointer uppercase  font-semibold w-1/2 md:py-4 py-3 text-center slider-control" style="z-index:2">{{ 'ob_perfect_pair.home_slide.womens' | t }}</div>
+                <div class="selection-tab-selection hidden shadow-sm h-full bg-magenta-500 absolute flex items-center uppercase font-bold justify-center rounded-full font-bold text-black h-[88%]" style="width: 50%;top: 50%;bottom: 50%;transform: translate(0%, -50%);left: 1%; z-index:1;"></div>
+                
+			</div>
+			<h1 class="js-match-select-a-product-1 hidden my-3 typography typography--body-md uppercase mb-2 font-semibold">{{ 'ob_perfect_pair.home_slide.prod_type_introduction' | t }}</h1>
+			<div id="1-men-choice" class="js-step-1-type-choice flex hidden  grid grid-cols-4 gap-1">
+				<div id="1-men-boxer" data-type="mens-boxer-shorts-individuals" class="cursor-pointer  js-step-1-type  flex flex-col  uppercase border-2 border-solid  font-bold rounded-md 1 p-1 matchballs-active" style=" display:flex; justify-content:center;">
+					<img src="https://cdn.shopify.com/s/files/1/0353/7249/files/MensBoxers.svg?v=1707144899" />
+					<div class="text-xs text-center">{{ 'ob_perfect_pair.home_slide.boxers' | t }}</div>
+				</div>
+				<div id="1-men-brief" data-type="mens-briefs-individuals" class="js-step-1-type cursor-pointer cursor-pointer  js-step-1-type  flex flex-col  uppercase border-2 border-solid  font-bold rounded-md 1 p-1" style=" display:flex; justify-content:center;">
+					<img src="https://cdn.shopify.com/s/files/1/0353/7249/files/MensBriefs.svg?v=1707144899" />
+					<div class="text-xs text-center">{{ 'ob_perfect_pair.home_slide.briefs' | t }}</div>
+				</div>
+                <div id="1-men-bamboo" data-type="mens-bamboo-boxer-shorts-individuals" class="js-step-1-type  no-small cursor-pointer cursor-pointer  js-step-1-type  flex flex-col  uppercase border-2 border-solid  font-bold rounded-md 1 p-1" style=" display:flex; justify-content:center;">
+					<img src="https://cdn.shopify.com/s/files/1/0353/7249/files/Bamboo-Men.svg?v=1718015867" />
+					<div class="text-xs text-center">{{ 'ob_perfect_pair.home_slide.bamboo' | t }}</div>
+				</div>
+                <div id="1-men-loose-fit" data-type="mens-loose-fit-boxers" class="js-step-1-type  no-small cursor-pointer cursor-pointer  js-step-1-type  flex flex-col  uppercase border-2 border-solid  font-bold rounded-md 1 p-1" style=" display:flex; justify-content:center;">
+					<img src="https://cdn.shopify.com/s/files/1/0353/7249/files/LooseFit-Magenta.svg?v=1742993809" />
+					<div class="text-xs text-center">{{ 'ob_perfect_pair.loose_fit_boxers' | t }}</div>
+				</div>
+			</div>
+			<div id="1-women-choice" class="js-step-1-type-choice flex hidden  grid grid-cols-4 gap-1">
+				<div id="1-women-boxer" data-type="ladies-boxer-shorts-individuals" class="js-step-1-type cursor-pointer flex flex-col uppercase border-2 border-solid  font-bold rounded-md 1 p-1 matchballs-active" style=" display:flex; justify-content:center;">
+					<img src="https://cdn.shopify.com/s/files/1/0353/7249/files/LadiesBoxers.svg?v=1707144899" />
+					<div class="text-xs text-center">{{ 'ob_perfect_pair.home_slide.boxers' | t }}</div>
+				</div>
+				<div id="1-women-brief" data-type="ladies-briefs-individuals" class="js-step-1-type cursor-pointer flex flex-col border-2 uppercase border-solid  font-bold rounded-md 2 p-1" style=" display:flex; justify-content:center;">
+					<img src="https://cdn.shopify.com/s/files/1/0353/7249/files/LadiesBriefs.svg?v=1707144899" />
+					<div class="text-xs text-center">{{ 'ob_perfect_pair.home_slide.briefs' | t }}</div>
+				</div>
+				<div id="1-women-thong" data-type="ladies-thongs-individuals" class="js-step-1-type cursor-pointer flex flex-col border-2 uppercase border-solid  font-bold rounded-md 2 p-1" style=" display:flex; justify-content:center;">
+					<img src="https://cdn.shopify.com/s/files/1/0353/7249/files/Thong.svg?v=1707144899" />
+					<div class="text-xs text-center">{{ 'ob_perfect_pair.home_slide.thongs' | t }}</div>
+				</div>
+				<div id="1-women-seamless" data-type="seamless-individuals" class="js-step-1-type cursor-pointer flex flex-col border-2 uppercase border-solid  font-bold rounded-md 2 p-1" style=" display:flex; justify-content:center;">
+					<img src="https://cdn.shopify.com/s/files/1/0353/7249/files/Seamless.svg?v=1707144899" />
+					<div class="text-xs text-center">{{ 'ob_perfect_pair.home_slide.seamless' | t }}</div>
+				</div>
+                <div id="1-women-full-seamless" data-type="full-seamless-individuals" class="js-step-1-type cursor-pointer flex flex-col border-2 uppercase border-solid  font-bold rounded-md 2 p-1" style=" display:flex; justify-content:center;">
+					<img src="https://cdn.shopify.com/s/files/1/0353/7249/files/Sub-Seamless-Full.png?v=1724159544" />
+					<div class="text-xs text-center">{{ 'ob_perfect_pair.home_slide.full_seamless' | t }}</div>
+				</div>
+				<div id="1-women-bamboo" data-type="ladies-bamboo-boxer-shorts-individuals" class="js-step-1-type no-small cursor-pointer flex flex-col border-2 uppercase border-solid  font-bold rounded-md 2 p-1" style=" display:flex; justify-content:center;">
+					<img src="https://cdn.shopify.com/s/files/1/0353/7249/files/Bamboo-Women.svg?v=1718015867" />
+					<div class="text-xs text-center">{{ 'ob_perfect_pair.home_slide.bamboo' | t }}</div>
+				</div>
+			</div>
+			<div id="1-size-choice" class="mt-6 relative hidden">
+				<h3 class="my-3 flex typography typography--body-md uppercase mb-2 font-semibold size-name">{{ 'ob_perfect_pair.home_slide.size_heading' | t }} <a class="js-quick-buy-size-guide-show get-size cursor-hand flex items-start gap-x-1" style="position:absolute; right:0rem;" href="fat-cow-mens-boxer-shorts">
+              		 <div class="cursor-pointer flex flex-col items-center typography typography--body-md capitalize mb-2 ">
+                            <span class="pr-2" style="text-align: right; line-height: 10px; align-self: center;">{{ 'ob_perfect_pair.home_slide.size_guide' | t }}</span>
+                        <!-- <svg class="tape-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 157.21 100.22" style="enable-background:new 0 0 157.21 100.22;" xml:space="preserve">
+                          <style type="text/css">
+                          	.st0{fill:#EC008C;}
+                            }
+                          </style>
+                          <g>
+                          	<path class="st0" d="M12.39,43.19v25.58c0,0,8.25,18.73,45.29,18.59c37.04-0.14,48.5-16.07,48.5-16.07l1.68-8.39   c0,0,22.92,10.62,36.48,7.13V44.86l-18.17-1.68l-17.89-5.59c0,0-14.26,21.51-51.58,19.35S12.39,43.19,12.39,43.19z"></path>
+                          	<g>
+                          		<path d="M59.77,45.78c11.91,0,20.89-4.67,20.89-10.87c0-6.2-8.98-10.87-20.89-10.87c-11.91,0-20.89,4.67-20.89,10.87    C38.88,41.11,47.86,45.78,59.77,45.78z M59.77,28.97c9.75,0,15.97,3.52,15.97,5.95c0,2.43-6.22,5.95-15.97,5.95    c-9.75,0-15.97-3.52-15.97-5.95C43.8,32.49,50.02,28.97,59.77,28.97z"></path>
+                          		<path d="M142.61,41.39c-24.83-0.36-31.69-6.19-32.89-7.44c-1.03-13.08-22.56-23.2-49.94-23.2c-28.06,0-50.04,10.61-50.04,24.16    V65.3c0,13.55,21.98,24.16,50.04,24.16c26.79,0,48.04-9.68,49.91-22.35c4.71,2.52,14.11,5.22,32.79,5.56    c1.39,0,2.58-0.48,3.54-1.41c0.95-0.93,1.48-2.18,1.48-3.51V46.31C147.48,43.63,145.3,41.43,142.61,41.39z M59.77,15.67    c26.99,0,45.12,9.95,45.12,19.24c0,5.71-6.86,11.65-18.38,15.4c-0.01,0-0.02,0.01-0.03,0.01c-7.24,2.35-16.3,3.84-26.71,3.84    c-26.99,0-45.12-9.95-45.12-19.25C14.65,25.62,32.78,15.67,59.77,15.67z M59.77,84.55c-26.99,0-45.12-9.95-45.12-19.24V45.47    c1.14,1.16,2.43,2.27,3.92,3.31v13.75c0,1.36,1.1,2.46,2.46,2.46c1.36,0,2.46-1.1,2.46-2.46V51.69c1.89,0.95,3.95,1.82,6.15,2.62    v8.36c0,1.36,1.1,2.46,2.46,2.46c1.36,0,2.46-1.1,2.46-2.46v-6.8c1.97,0.55,4.01,1.03,6.15,1.45v12.95c0,1.36,1.1,2.46,2.46,2.46    c1.36,0,2.46-1.1,2.46-2.46V58.12c2,0.27,4.05,0.48,6.15,0.64v7.79c0,1.36,1.1,2.46,2.46,2.46c1.36,0,2.46-1.1,2.46-2.46v-7.54    c1.02,0.03,2.04,0.07,3.07,0.07c1.04,0,2.05-0.04,3.07-0.07v12.49c0,1.36,1.1,2.46,2.46,2.46c1.36,0,2.46-1.1,2.46-2.46V58.76    c2.1-0.16,4.15-0.36,6.15-0.64v7.23c0,1.36,1.1,2.46,2.46,2.46c1.36,0,2.46-1.1,2.46-2.46v-8.04c2.14-0.41,4.18-0.9,6.15-1.45    v11.7c0,1.36,1.1,2.46,2.46,2.46c1.36,0,2.46-1.1,2.46-2.46V54.3c2.2-0.79,4.26-1.66,6.15-2.62v5.85c0,1.36,1.1,2.46,2.46,2.46    c1.36,0,2.46-1.1,2.46-2.46v-8.76c1.49-1.04,2.78-2.15,3.92-3.31V65.3C104.89,74.6,86.76,84.55,59.77,84.55z M109.81,40.08    c0.99,0.57,2.19,1.15,3.62,1.73v8.74c0,1.36,1.1,2.46,2.46,2.46c1.36,0,2.46-1.1,2.46-2.46v-7.11c1.64,0.45,3.48,0.87,5.53,1.24    v10.85c0,1.36,1.1,2.46,2.46,2.46c1.36,0,2.46-1.1,2.46-2.46V45.43c1.15,0.14,2.35,0.27,3.61,0.38v21.47    c-16.78-1.34-21.56-4.95-22.6-6.01V40.08z M142.56,67.76c-1.85-0.03-3.57-0.1-5.22-0.17V46.14c1.66,0.08,3.39,0.14,5.23,0.17    L142.56,67.76z"></path>
+                          	</g>
+                          </g>
+                          </svg> -->
+                      
+                          <svg class="circular-loader relative hidden" style="position: relative !important; width: 21px; " viewBox="25 25 50 50">
+                      	<circle class="loader-path" stroke="#f00f83" cx="50" cy="50" r="20" fill="none" stroke-width="4"></circle>
+                      </svg>
+					</a>
+				</h3>
+				<div id="step-1-men-size" class="js-step-1-size-choice grid grid-cols-4 gap-3">
+					<div id="1-small" data-size="size-xxs" class="js-step-1-size small-size ooption-value font-semibold group relative flex items-center justify-center rounded-md border py-4 px-4 text-xs  uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 cursor-pointer bg-white text-gray-900 shadow-sm " style=" margin-bottom: 0px; display:flex; justify-content:center;">XXS</div>
+					<div id="1-small" data-size="size-xs" class="js-step-1-size small-size ooption-value font-semibold group relative flex items-center justify-center rounded-md border py-4 px-4 text-xs  uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 cursor-pointer bg-white text-gray-900 shadow-sm" style=" margin-bottom: 0px; display:flex; justify-content:center;">XS</div>
+					<div id="1-small" data-size="size-small" class="js-step-1-size ooption-value font-semibold group relative flex items-center justify-center rounded-md border py-4 px-4 text-xs  uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 cursor-pointer bg-white text-gray-900 shadow-sm" style=" margin-bottom: 0px; display:flex; justify-content:center;">Small</div>
+					<div id="1-medium" data-size="size-medium" class="js-step-1-size ooption-value font-semibold group relative flex items-center justify-center rounded-md border py-4 px-4 text-xs  uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 cursor-pointer bg-white text-gray-900 shadow-sm" style=" margin-bottom: 0px; display:flex; justify-content:center;">Medium</div>
+					<div id="1-large" data-size="size-large" class="js-step-1-size ooption-value font-semibold group relative flex items-center justify-center rounded-md border py-4 px-4 text-xs  uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 cursor-pointer bg-white text-gray-900 shadow-sm" style=" margin-bottom: 0px; display:flex; justify-content:center;">Large</div>
+					<div id="1-large" data-size="size-xl" class="js-step-1-size ooption-value font-semibold group relative flex items-center justify-center rounded-md border py-4 px-4 text-xs  uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 cursor-pointer bg-white text-gray-900 shadow-sm" style=" margin-bottom: 0px; display:flex; justify-content:center;">XL</div>
+					<div id="1-large" data-size="size-xxl" class="js-step-1-size ooption-value font-semibold group relative flex items-center justify-center rounded-md border py-4 px-4 text-xs  uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 cursor-pointer bg-white text-gray-900 shadow-sm" style=" margin-bottom: 0px; display:flex; justify-content:center;">2XL</div>
+					<div id="1-large" data-size="size-xxxl" class="js-step-1-size ooption-value font-semibold group relative flex items-center justify-center rounded-md border py-4 px-4 text-xs  uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 cursor-pointer bg-white text-gray-900 shadow-sm" style=" margin-bottom: 0px; display:flex; justify-content:center;">3XL</div>
+				</div>
+				<div id="step-1-women-size" class="js-step-1-size-choice grid grid-cols-4 gap-3">
+					<div id="1-6" data-size="title-size-6" class="js-step-1-size small-size ooption-value font-semibold group relative flex items-center justify-center rounded-md border py-4 px-4 text-xs  uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 cursor-pointer bg-white text-gray-900 shadow-sm" style=" margin-bottom: 0px; display:flex; justify-content:center;">Size 6</div>
+					<div id="1-8" data-size="title-size-8" class="js-step-1-size small-size ooption-value font-semibold group relative flex items-center justify-center rounded-md border py-4 px-4 text-xs  uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 cursor-pointer bg-white text-gray-900 shadow-sm" style=" margin-bottom: 0px; display:flex; justify-content:center;">Size 8</div>
+					<div id="1-10" data-size="title-size-10" class="js-step-1-size ooption-value font-semibold group relative flex items-center justify-center rounded-md border py-4 px-4 text-xs  uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 cursor-pointer bg-white text-gray-900 shadow-sm" style=" margin-bottom: 0px; display:flex; justify-content:center;">Size 10</div>
+					<div id="1-12" data-size="title-size-12" class="js-step-1-size ooption-value font-semibold group relative flex items-center justify-center rounded-md border py-4 px-4 text-xs  uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 cursor-pointer bg-white text-gray-900 shadow-sm" style=" margin-bottom: 0px; display:flex; justify-content:center;">Size 12</div>
+					<div id="1-14" data-size="title-size-14" class="js-step-1-size ooption-value font-semibold group relative flex items-center justify-center rounded-md border py-4 px-4 text-xs  uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 cursor-pointer bg-white text-gray-900 shadow-sm" style=" margin-bottom: 0px; display:flex; justify-content:center;">Size 14</div>
+					<div id="1-16" data-size="title-size-16" class="js-step-1-size ooption-value font-semibold group relative flex items-center justify-center rounded-md border py-4 px-4 text-xs  uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 cursor-pointer bg-white text-gray-900 shadow-sm" style=" margin-bottom: 0px; display:flex; justify-content:center;">Size 16</div>
+					<div id="1-18" data-size="title-size-18" class="js-step-1-size ooption-value font-semibold group relative flex items-center justify-center rounded-md border py-4 px-4 text-xs  uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 cursor-pointer bg-white text-gray-900 shadow-sm" style=" margin-bottom: 0px; display:flex; justify-content:center;">Size 18</div>
+					<div id="1-20" data-size="title-size-20" class="js-step-1-size ooption-value font-semibold group relative flex items-center justify-center rounded-md border py-4 px-4 text-xs  uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 cursor-pointer bg-white text-gray-900 shadow-sm" style=" margin-bottom: 0px; display:flex; justify-content:center;">Size 20</div>
+				</div>
+			</div>
+			<div id="step-1-finish" class="hidden btn-shadow-lg uppercase border-2 border-solid  font-bold rounded-full mt-10 mb-10 pointer-events-none w-full py-4 text-center">
+              <span class="button-unavailable">{{ 'ob_perfect_pair.home_slide.unavailable_button' | t }} </span>
+              <span style="display:none;" class="button-available">{{ 'ob_perfect_pair.home_slide.available_button' | t }} </span>
+            </div>
+		</div>
+	</div>
+	<div id="step-2-wrapper" class="md:h-full 2xl:col-span-4 xl:col-span-6 col-span-12 relative border-0 border-gray-300 border-solid pt-4 hidden" style="min-height: 468px;">
+		<h1 class="font-bebas whitespace-nowrap pointer-events-none hidden md:block mb-2" style="font-size: calc(14vw); top: -8px; position: absolute; width: 100%; opacity: 0.03; line-height: 1em; text-align:center;">{{ 'ob_perfect_pair.home_slide.available_button' | t }}</h1>
+		<div id="step-2" class="js-perfect-step  bg-white 2xl:px-6 p-6 lg:p-14 2xl:w-5/6 xl:w-11/12 relative">
+			<div class="js-match-change-safety-screen basicLightboxCloseBundle basicLightboxCloseWithIcon border-2 bg-white border-solid  rounded-md" style="right:15px; top:15px; height: 30px; z-index: 99998; width: 30px;align-items:center;justify-content:center">
+				<svg aria-hidden="true" focusable="false" role="presentation" width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M1.41418 0L16.9705 15.5563L15.5563 16.9706L-2.89679e-05 1.41421L1.41418 0Z" fill="#111111"></path>
+					<path d="M16.9706 1.41431L1.41423 16.9707L1.85966e-05 15.5564L15.5564 9.31025e-05L16.9706 1.41431Z" fill="#111111"></path>
+				</svg>
+			</div>{% comment %}
+			<svg id="Layer_1" style="height: 30px;" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 205.97075">
+				<defs>
+					<style>
+						#match-balls-wrapper .cls-1 {
+							fill: #f00f83 !important;
+						}
+
+						#match-balls-wrapper .cls-1,
+						.cls-2 {
+							stroke-width: 0px; 
+						}
+
+						#match-balls-wrapper .cls-2 {
+							fill: #00aeef !important;
+						}
+					</style>
+				</defs>
+				<g>
+					<g>
+						<path class="cls-2" d="M710.3155,197.87053c-.49401-3.78582-.98778-12.01583-.96966-19.61551,0,0-1.83128-56.87579-1.88542-56.88255.09523,1.55938,15.89591,1.0847,17.48284,1.05135,1.19878-.02489,2.40868-.04568,3.62171-.05776.00701-.00073.01305-.00459.02006-.00532,9.21634-.94549,24.19745-6.95534,31.82493-18.76984,9.48026-14.66813,9.96848-22.97475,11.0672-25.52481,3.30945-7.80608,4.05531-15.85506,1.53231-24.16241-2.94281-9.57549-6.13021-20.39157-15.12226-24.65038-8.66625-4.09639-15.92298-6.18531-25.28119-5.89988-4.42122.15541-53.84476,1.03757-53.84476,1.03757l-.97618,42.47207.33885,10.38926,2.95683,36.83684,1.77642,28.93674-1.03056,45.26551c-.47492,12.81703-1.68192,15.14353,4.12274,17.67933l17.03547-1.03733c1.19322-.11094,2.38813-.23831,3.58643-.36543,3.56274-.36785,4.23754-2.91622,3.74425-6.69745ZM704.72087,49.32609c.44737-3.28867,33.58153-1.27491,36.2128,2.18342,3.0651,3.96709,9.52111,19.80185,9.71084,24.97618.17619,6.82893-7.94771,15.79367-13.75237,18.78482-2.49593,1.28869-29.33649,4.44201-29.86579,2.08167-2.30547-11.40653-3.33652-40.28188-2.30547-48.02609Z"></path>
+						<path class="cls-2" d="M782.34381,197.15854c4.16352,1.60094,8.93407,2.4801,14.2489,2.60661,4.92295-.27214,9.98437-1.37941,15.22349-3.29014,2.92337-2.65721,5.82084-5.84615,8.64321-9.57298,1.54396,3.57463,3.7079,7.40306,6.46612,11.42075,4.17647,1.86013,8.99763,3.28356,14.41345,4.26453,4.92276-1.10727,7.56762-4.60659,7.83318-10.46569-.59468-3.97307-2.83452-7.2891-6.69423-9.97142l-.55642-2.27809.91084-12.25589.1012-3.0684,5.21362-52.03598.22811-7.55467-2.03763-8.4404c-1.67027-3.61925-4.39084-6.93449-8.13659-10.04135-3.87246-2.4297-8.3904-4.2962-13.56597-5.67561l-15.05873-2.04999c-5.08751.70883-10.40233,1.88543-16.05862,3.49872-3.32819,1.8161-6.65658,4.49901-10.04772,8.11826-2.12589,3.35289-4.01132,7.59232-5.63099,12.73023l-.89869,10.62965,6.74463.18408,12.03435,1.7396,1.73382-3.85314c.64548-4.60022,2.55601-9.06118,5.65708-13.35678,3.46685-2.22749,7.80728-3.40409,12.9958-3.54335,4.18863,1.47404,7.87143,4.11232,11.04761,7.85848l.44247,13.72993-1.68262,3.02438c-2.54366,3.06283-6.09956,5.78339-10.6426,8.08679l-16.05862,2.44843-13.79348,4.37848c-3.64435,2.22052-6.98509,5.13154-10.07302,8.73784-2.15099,3.88481-3.75851,8.43443-4.8341,13.59127-1.08854,4.86518-1.80953,10.63622-2.06294,17.32388.80983,4.23285,2.17689,8.84542,4.10057,13.80583,2.36615,3.34712,5.64334,6.44142,9.79451,9.27614ZM791.56894,157.27744l4.02407-6.04238c1.54396-1.44874,3.36584-2.89807,5.44113-4.35338l14.4517-4.92216c2.3287-.64588,4.69485-1.59457,7.04864-2.91102,1.03794,2.06931,1.70872,4.43566,2.06313,7.03629l-2.08824,17.957-5.71984,14.3499-6.02365,3.54992-7.59292,2.2522c-2.455-.90446-4.96041-1.96771-7.51642-3.29014l-3.75851-6.23224-1.16445-8.39638.83533-8.99763Z"></path>
+						<g>
+							<path class="cls-2" d="M911.43572,164.50098s.81903-9.00996,1.02378-11.2625c.20137-2.21444-.56872-4.16458-7.08371-5.06073-.84293-.08298-1.67932-.17725-2.54029-.22911-1.7844-.10125-3.12569-.83504-4.01147-2.21444-.91148-1.36655-1.54402-3.01181-1.89828-4.90355-.37975-1.91722-.60795-3.89127-.6835-5.98529-.44244-13.34457-.18316-37.86549.45005-45.19275.61991-7.21879,2.31546-4.74118,4.34025-5.02576,1.97428-.2467,3.98598-.30375,5.94786-.19619.41718.04465.88555.08231,1.36655.12696.48077.06292.9108.09449,1.35414.14522.98657.05029,1.82184-.12651,2.51819-.53128.7083-.36689,1.22719-1.34129,1.60693-2.92342.18987-1.18953.51911-2.35402.92388-3.55595.37975-1.21456.64539-2.4361.74641-3.6696l.10103-.41132.05119-.37343v-.84158c-.44311-7.30786-24.778-3.49867-28.47308-3.62586-4.17586-.13868-8.36457-.85375-12.48991-1.42969-3.89781-.481-8.74431-2.24578-9.76922,3.02444-.53106,2.63229-2.30328,9.54169-.25324,11.80664,3.4547,3.79634,12.57853-.63276,12.76818,3.26483.37975.82308.62036,1.72104.77257,2.74595.12628,1.03167-.76643,16.81639-1.01945,23.97925-.24061,6.94751-.41741,16.27362-.78475,23.22744-.21513,3.27159-.65779,7.68129-1.18953,9.25034-.54436,1.5253,0,0-.88577.59488-3.54332,2.56261-9.65512.37321-12.85726,3.63803-3.39111,3.51153-1.68247,8.23806-1.20193,12.56613.53151,4.75179,8.07367,3.79634,12.46466,4.30236,8.54204.98748,14.02153.49363,21.18349.56939,4.50126.08817,8.98019.57278,13.49024.91193,4.19457.21445,4.03199-2.72137,4.03199-2.72137Z"></path>
+							<polygon class="cls-2" points="907.7014 40.07146 905.94212 30.97674 898.9984 24.81447 890.19088 21.65933 881.08081 24.29369 874.80579 31.18983 871.84825 40.07146 874.43926 49.1664 881.00331 55.98533 890.19088 57.58473 899.12429 55.54394 905.82437 49.09681 907.7014 40.07146"></polygon>
+						</g>
+						<path class="cls-2" d="M961.52317,91.20668l-.32675-9.00003-26.20814,2.13348,2.50105,112.22256,27.6606-.60119-2.10304-62.79014c.99812-31.62176,28.64202-16.22018,28.64202-16.22018l3.34349-28.56536s-18.01833-5.72073-33.50923,2.82086Z"></path>
+					</g>
+					<path class="cls-1" d="M33.22881,198.84081c-.50462-3.8671-1.00899-12.2738-.99048-20.03663,0,0-1.8706-58.09685-1.9259-58.10376.09727,1.59286,16.23718,1.10799,17.85818,1.07392,1.22452-.02543,2.46039-.04666,3.69947-.059.00716-.00074.01333-.00469.02049-.00543,9.41421-.96579,24.71695-7.10466,32.50818-19.17281,9.6838-14.98304,10.18249-23.46799,11.3048-26.0728,3.3805-7.97367,4.14237-16.19545,1.56521-24.68115-3.00599-9.78107-6.26182-20.82936-15.44692-25.1796-8.85231-4.18434-16.26483-6.31811-25.82395-6.02654-4.51614.15874-55.00075,1.05985-55.00075,1.05985l-.99714,43.3839.34612,10.61231,3.02031,37.62769,1.81455,29.55798-1.05269,46.23732c-.48512,13.0922-1.71803,15.46865,4.21125,18.05889l17.40121-1.0596c1.21884-.11332,2.4394-.24342,3.66343-.37328,3.63923-.37575,4.32851-2.97883,3.82464-6.84124ZM27.51408,47.10726c.45697-3.35927,34.30249-1.30228,36.99025,2.2303,3.13091,4.05226,9.72552,20.22698,9.91932,25.51239.17997,6.97554-8.11834,16.13275-14.04761,19.18811-2.54951,1.31635-29.96632,4.53737-30.50698,2.12636-2.35497-11.65142-3.40815-41.14669-2.35497-49.05716Z"></path>
+					<path class="cls-1" d="M178.33216,163.11258c-.19258-.46882-.43748-.93877-.84315-1.24207-.53241-.39824-1.24162-.44131-1.90595-.46905-3.73049-.15605-7.78435-.21919-10.79323,1.99141-2.95431,2.17091-4.35942,6.14743-7.46053,7.99091-.33307.38245-.58743.64381-.67425.65215-2.27735.18333-4.51727.70875-6.70667,1.59453-2.17678.87901-4.41669,1.3794-6.7193,1.58145-1.42991.12696-2.97393-.02526-4.5432-.41718-1.63286-.43026-3.20123-.94914-4.8341-1.62632-1.61979-.65824-3.13855-1.3918-4.63137-2.22098-1.4811-.83504-2.84765-1.58821-4.04935-2.29043-1.68338-.93606-2.97393-2.03696-3.92329-3.35954-.93606-1.30994-1.69555-2.65755-2.25277-4.11948-.54414-1.42969-1.05017-2.84674-1.4926-4.27666-.04059-.12515-.09201-.23159-.13417-.35426,13.4041-2.53465,26.36847-7.72549,37.16395-16.0294,7.78367-5.98754,14.6818-14.22764,15.58719-24.0061.42665-4.60882-.50941-9.25778-.1477-13.87224.23948-3.05353,1.04115-6.1596.3024-9.13195-.79467-3.1974-3.23235-5.68537-5.57172-8.00534-.91306-.90517-1.84619-1.82522-2.9931-2.40589-1.41142-.71439-5.75032-1.91587-7.33154-1.95804-.1698-.00451-.30939.00992-.46995.01105-.00135-.0212-.00496-.04194-.00631-.06314-2.29877-.33916-4.67805-.35381-6.95202-.83346-5.06231-1.07542-10.57923-.68372-15.78067-.13282-5.44115.60119-9.50358,3.91653-14.52755,5.68808-2.41671.86029-4.39076,1.75915-6.18757,3.65743-1.74674,1.83491-4.65708,3.06841-6.08722,5.06141-1.2017,1.66398-1.98645,3.39111-3.63149,4.70782-.93674.72116-5.50452,7.47879-5.70747,9.38948-.35426,2.72723-.75927,5.31487-1.2653,7.82043-.46837,2.50533-.9108,5.02375-1.36655,7.58004-.43003,2.53127-.78452,5.11259-.99965,7.68152-.21513,2.61944-.21513,5.31487.05051,8.09893.22731,3.05624.68305,6.04888,1.34129,9.04807.63276,2.96761,1.75915,5.79564,3.35345,8.40268.51888.84744,1.1645,1.72081,1.96142,2.61899.79738.92388,6.55491,13.14815,8.47845,15.40746,1.92354,2.27149,4.18871,4.34025,6.88414,6.22568,2.63229,1.87956,5.40349,3.50521,8.28857,4.86589,2.86005,1.34106,5.28984,2.22684,7.28915,2.63815,1.83491.44965,3.36585.89885,4.55538,1.4236,1.21478.50016,2.3671.99379,3.4547,1.44299,1.11398.44289,2.32877.7967,3.65765,1.06324,1.40466.24625,3.13832.26542,5.28939.1008.94937-.1008,2.22684-.20273,3.83445-.36734,1.63196-.18897,3.26483-.43003,4.96038-.73333,1.68315-.33555,3.25242-.70875,4.75833-1.16427,1.48042-.45552,2.50556-1.01273,3.10021-1.72104.72116-.79738,1.50591-1.39225,2.30328-1.82251.78475-.43026,1.55642-.82218,2.29043-1.13247.75927-.31029,1.44277-.65193,2.13867-1.03799.68305-.38538,1.35437-.9426,1.94902-1.6385.86052-1.08196,1.65744-2.11364,2.34094-3.13855.40771-.5482.94982-.94643,1.58889-1.25267.3272-.34818.65531-.69838.98274-1.031.55677-.56579,1.11534-1.14533,1.49644-1.84145.4837-.88352.6526-1.89963.81384-2.89387.55-3.3875,1.07926-6.98066-.2255-10.15483ZM111.64315,123.9297c.83526-3.80265,2.17655-7.39671,3.99906-10.76256,1.82184-3.39832,4.12512-6.27709,6.83273-8.6938,2.74662-2.40431,5.93568-3.75191,9.52906-4.03063,1.24004-.13914,2.39213-.14567,3.51807-.08862,1.13901.04465,2.27803,0,3.51829-.08231.73401-.06292,1.36632-.24693,1.92354-.53128.16214-.09426,1.34354-.10802,2.93244-.07216,1.21117.30962,2.6562.21287,3.83986.71259,1.72284.72702,2.5802,2.66341,3.0064,4.48412,1.64256,7.01674-.77415,14.4139-4.44218,20.6168-1.53342,2.59305-3.30812,5.07854-5.56834,7.06996-2.92838,2.58043-6.55017,4.22975-10.18595,5.64907-3.62856,1.41661-7.34935,2.71167-11.12517,3.67862-2.04215.52294-4.5114.48866-6.8422.73739-.63005-2.20609-1.12639-4.01214-1.22696-4.45728-.27804-1.28469-.45574-2.55585-.58202-3.85316-.25324-3.1196.03834-6.58062.87337-10.37673Z"></path>
+					<path class="cls-1" d="M315.39682,30.1159c-.17832-2.28778.50562-4.82714,2.01313-7.63355-2.89363-2.64975-5.76028-3.94056-8.62-3.71766-4.95685.38635-8.44131,3.56546-11.38069,8.872-1.56896,2.83245-2.59037,5.84503-3.14894,9.38815-.48902,3.10194-.84912,6.37858-.56485,10.0257.40107,5.1457.6093,8.31859,1.45675,9.11567.84565.79722,2.18316.48017,3.74251.35863,1.17087-.09126,2.99095.04254,5.3998-.53244,2.40388-.56917,4.16873-1.18625,5.3396-1.27751,3.57284-.27848,6.12706.98518,8.02939,2.75586,1.83147,1.70473,3.2605,4.12337,3.54126,7.72546.28904,3.70835-1.21395,6.08958-3.41187,7.9998-1.92217,1.67057-4.45,2.61138-8.27208,2.90929-1.71583.13374-3.00585.8798-3.79484.55406-2.3166-.47223-2.20781-1.31808-4.56612-1.48551-3.05217.23789-4.70179,4.13453-4.5497,10.98427.08467,3.14113.17536,3.14082.36575,6.27732.31624,5.2096-.16175,5.24785.24382,10.45126.40603,5.20928.54934,5.19811.95536,10.40739.40608,5.21,1.36859,5.13498,1.77467,10.34499.40619,5.21132.25796,5.22288.66414,10.4342.40684,5.21972.57182,5.20686.97866,10.42659.40684,5.21972.45397,5.21605.86081,10.43577.32271,4.14029-.39376,7.80091-.06491,10.79088.5897,5.36171,1.75927,8.78212,2.37129,10.44905.94764,2.59333,2.89679,3.88256,6.05867,3.63611,1.2572-.09799,1.25909-.07368,2.51629-.17167,3.35073-.26117,5.21515-.3225,5.59105-.35179,5.7662-.44944,9.18142,2.26681,9.67179,8.5582.25045,3.21326-.40805,5.84445-1.69263,7.61929-1.38299,1.91081-3.84341,2.48913-7.00444,2.73551-1.52698.11902-5.14616.22966-10.93782-.27434-2.01164-.17636-4.59635-.09148-7.74337.01405-2.28842.07674-4.88536.09715-7.77419.32231-2.28778.17832-5.49825,1.25851-9.82039,2.35899-4.32726,1.1045-7.64605,1.10765-9.74138,1.27097-5.91009.46065-8.93338-2.2786-9.43861-8.76063-.50467-6.47484,1.81144-10.09245,7.29707-10.52002,1.17446-.09154,2.27119.0732,3.25321-.00334,1.32464-.10325,1.33184-.01087,2.65649-.11411,3.1313-.24406,5.05268-1.90599,5.52845-4.6935.30529-1.79537-.04988-5.56396-.33734-11.28486-.15883-3.16097.24984-6.96638-.09002-11.32669-.42712-5.47992-1.2325-5.41715-1.65962-10.89707-.4276-5.4861.07976-5.52565-.34784-11.01175q-.42766-5.48686-.85102-10.97406c-.42777-5.48825-.64725-5.47115-1.07503-10.9594-.42846-5.4971-.7646-5.4709-1.19306-10.968-.42846-5.4971.4128-5.56267-.01566-11.05977-.52878-6.78419-2.49421-10.55524-4.96903-10.36235-1.33454.10402-2.37265.34305-3.13164.40221-.76439.05958-1.6854.5242-2.82929.61336-3.59399.28013-6.45502-.25712-8.436-1.71697-2.11531-1.55884-3.50426-4.18452-3.78044-7.72779-.28954-3.7148.30332-6.91926,2.01356-8.92222,1.71119-2.00408,4.76507-3.32989,8.48014-3.61945.74281-.0579,1.93596.90287,3.41978.78721,1.48202-.11551,2.56629-.62135,3.31269-.67953,2.41188-.18799,3.8131-1.94651,3.57647-4.98249-.27194-3.48902-.4514-6.75013-.46086-9.83187-.01091-3.55527-.39928-6.8685-.0608-9.88114.40415-3.59712,1.8441-6.61105,2.74644-9.43358,1.00949-3.15793,1.50775-6.51662,3.3658-9.15818,1.82372-2.59275,4.59765-4.48573,7.23711-6.58088,2.68968-2.13793,5.68508-3.41547,8.81712-4.61376,3.06649-1.17322,6.08861-3.03697,9.5783-3.30896,4.1351-.3223,8.08129.61736,11.75841,1.59015,3.77752.99934,7.45978,2.46438,10.75447,4.83092,3.15849,2.2701,5.46688,5.04567,7.22443,7.92366,1.8584,3.04312,2.48892,6.45519,2.77899,10.17668.34191,4.3867.22781,8.38216-1.91602,11.61454-2.14714,3.23625-5.32221,5.32017-8.94092,5.60222-3.24281.25275-5.96165-1.46846-8.43351-3.67519-2.47338-2.20299-4.05141-4.82083-4.31875-8.2507Z"></path>
+					<path class="cls-1" d="M387.95234,141.41455l22.56792,1.25124c-3.48497,30.75712-17.01907,45.47649-40.60109,44.16902-7.01769-.38908-12.96658-2.03426-17.85047-4.93211-4.88389-2.89785-8.82169-7.18507-11.81319-12.86526-2.9919-5.67298-5.0351-12.78216-6.12981-21.32393-1.09691-8.53467-1.31899-18.63972-.67225-30.30464,1.2839-23.15693,5.46859-40.13821,12.55187-50.93676,7.08508-10.79844,17.38953-15.82276,30.91335-15.07296,26.28751,1.45747,38.14716,25.34673,35.57916,71.66419l-.16878,3.04412-55.40658-3.07193c-1.55594,28.06354,3.24478,42.401,14.40355,43.01968,10.14286.56235,15.68437-7.65123,16.62632-24.64066ZM388.57515,107.23929c-.25032-13.83222-1.31407-22.9649-3.18616-27.39235-1.93219-4.94029-5.34893-7.54541-10.25015-7.81715-4.98767-.27653-8.67147,1.9349-11.04968,6.63621-2.35366,4.19316-4.41868,13.15237-6.19657,26.87214l30.68257,1.70115Z"></path>
+					<path class="cls-1" d="M498.77264,105.54557c-5.28138-.53958-21.05513.28156-24.88902,1.11764-6.35297,1.38542-13.06029,2.46549-18.528,10.54131-4.55003,7.03004-4.36799,21.80001-2.10555,32.17465.07534.34547.22039.88992.44031,1.62484.21734.73918.36497,1.27937.44031,1.62484,1.97898,6.45188,5.05478,12.00356,9.2234,16.64483,4.16848,4.64868,8.7973,7.32101,13.88386,8.02125,6.73043.34545,16.06551-.78556,28.00602-3.38948l6.57239-1.43327c2.62962-.57346,4.15234-.42176,4.57484.45363,2.14922,4.60157,3.86788,9.84359,5.14939,15.72008.4528,2.07634.6436,3.48232.57731,4.22427-.01968.97181-1.84401,2.33349-5.47726,4.08964-3.54898,1.6196-7.89743,2.99257-13.04446,4.11501-5.36812,1.17065-10.05753,1.76862-14.06747,1.79743-10.6741.51826-18.99119-.26405-24.95294-2.34659-8.55719-3.44419-15.85393-9.28295-21.89126-17.50496-3.27334-4.4783-5.72016-8.59399-7.34045-12.34708-1.88319-4.41956-3.2235-8.47374-4.02838-12.16462-2.76521-12.68012-2.83202-32.18359,2.45048-46.37867,6.85171-18.0381,18.74232-25.07874,34.07956-28.42341,6.02301-1.31347,24.04606-2.07859,31.63461-.96014.48789.13733.78264.43495.88335.89675s.11404,1.18269.04167,2.1623c-.07327.9835-.16939,2.1197-.2885,3.41601-.11987,1.29278-.1602,2.29864-.11672,3.01296-.16096,8.73174-.51735,13.15593-1.06337,13.275l-.16414.0358Z"></path>
+					<path class="cls-1" d="M595.59848,174.92528l4.7524,6.50397-10.87461,12.06129-12.30834,7.67062-17.67119,1.42616-20.78672-10.13471-5.08752-29.14266,2.95469-23.64563,1.71201-23.77823,1.86668-23.78061,2.3589-23.66184-15.8791-1.01651.46067-8.64185,20.31748-15.01728,18.01688-27.21624,9.98376.89772-2.21564,19.97655-1.47505,20.31281,32.68918,2.24452-.98548,13.81039-32.61038-3.18818-2.63255,28.86097-2.893,28.77554-1.87688,28.86769.97889,20.67438,9.96146,6.80199,11.35195-2.12182,9.89152-7.53904Z"></path>
+				</g>
+				<!--<path class="cls-2" d="M1076.76654,161.35082c.97841-6.88523.10653-14.41074-2.6331-22.34784-.9175-2.93611-2.26711-5.90451-3.99856-8.76576-1.61497-2.72918-3.22003-5.10827-4.71118-7.14279-7.00312-9.37097-17.32331-13.57049-26.12119-21.05613-5.26278-4.54715-7.82272-14.42246.95536-16.94201,7.16582-2.05052,16.66601-.22036,23.07611,3.45837,1.57843.91012,3.3885,1.22065,4.98076,2.06216,3.35812,1.7114,9.95765-10.71983,11.16773-13.98814,1.78477-4.64743-1.32458-6.51616-5.08298-8.56212-4.23242-2.33076-9.67072-4.02344-16.13572-5.0754-.4621-.07582-.90477-.12293-1.35228-.20914-5.87506-.83457-11.79694-1.02135-17.57183-.43146-3.28357.37304-6.48134,1.04055-9.54793,2.02935-3.13585,1.01424-6.22693,2.46954-9.21084,4.30019-3.31335,2.06949-6.01907,4.93375-8.06755,8.47239-2.01763,3.5123-3.19573,7.61899-3.47901,12.16789l.00325.11696c-.2113,6.98814,2.30889,13.58662,7.59751,19.67324,1.00522,1.27721,3.27032,3.71218,10.54292,9.94326l5.54465,4.75656,5.63825,4.60689c1.04502,1.00105,2.50415,2.46194,4.41534,4.32583,1.80833,1.79291,3.15984,3.27814,4.0122,4.40978.87776,1.20109,1.90422,2.70106,2.9073,4.45518.98442,1.65287,1.76464,3.2928,2.34263,4.91284,1.05289,3.03427,1.6056,5.85523,1.61865,8.33368.07995,2.93008-.28821,4.57454-.64,5.39624-.39288,1.16888-.96618,2.07074-1.61497,2.75847-1.09668,1.0071-2.7428,1.58656-4.9346,1.78315-.90802.09632-2.03228.04094-3.34901-.15465-2.30475-.35426-5.15837-1.07169-8.39365-2.21714-2.62907-1.01567-4.5221-1.76712-5.75757-2.31495-1.16481-.51412-2.4496-1.1421-3.72955-1.8595-1.77172-.97963-2.50345-1.39794-2.77805-1.57976-.33097-.22537-1.2653-.86299-3.92763-2.71038l-6.13249-4.17971c-3.89999-2.58303-7.4615.039-9.93858,3.1213-2.41286,2.95235-5.21857,6.60336-5.43117,10.58623-.27363,5.17019,4.90322,7.21877,8.39459,9.78034l4.44877,3.2818.17344.10407c.77465.46535,2.01106,1.14208,3.77127,2.113,1.73776.9536,3.53214,1.81558,5.3186,2.58487,1.736.76038,4.06777,1.71208,7.06167,2.90808,4.11851,1.71536,8.32678,2.90045,12.38126,3.47484,3.26052.48011,6.56752.5883,9.78901.33202,7.55126-.5703,13.97929-3.3428,19.13121-8.19854l.12347-.10554c5.00882-5.04452,8.06271-11.25907,9.1435-18.40801Z"></path>-->
+				<path class="cls-1" d="M256.15571,124.07108c2.98714-6.3424,9.13204-19.38949,9.13204-19.38949,0,0-25.30877-23.91918-38.45464-5.64322l-.2773-11.16257-33.98031-1.12368-1.22854,11.51822,12.25855.43206-3.03008,86.57469-10.76437-.35246-.81903,14.12909,11.11615.55271-.00428.13124,12.72263.50107,22.83259,1.13541,1.6376-14.89422-10.89583-.35697.76849-58.98031c0-18.68488,18.59509-15.66453,28.98633-3.07157Z"></path>
+			</svg>{% endcomment %}
+			<h1 class="my-3 flex typography typography--body-md uppercase mb-2 font-semibold size-name" style="display: flex;align-items: baseline;">
+				<div style="">{{ 'ob_perfect_pair.slide_2.2nd_pair_heading' | t }}</div>
+			</h1>
+			<div class="my-3 -mt-0 mb-2 text-md leading-snug">{{ 'ob_perfect_pair.slide_2.department_intoduction' | t }}</div>
+			<div id="2-gender-choice" class="flex justify-center mb-6 bg-gray-200 rounded-full p-2 relative">
+				<div id="2-men" data-gender="men" class="js-step-2-gender cursor-pointer  w-1/2 py-2 font-semibold text-center uppercase slider-control" style=" z-index:2">{{ 'ob_perfect_pair.slide_2.mens' | t }}</div>
+				<div id="2-women" data-gender="women" class="js-step-2-gender cursor-pointer  w-1/2 py-2 font-semibold text-center uppercase slider-control" style=" z-index:2">{{ 'ob_perfect_pair.slide_2.womens' | t }}</div>
+                <div class="selection-tab-selection hidden shadow-sm h-full bg-magenta-500 absolute flex items-center uppercase font-bold justify-center rounded-full font-bold text-black h-[88%]" style="width: 50%;top: 50%;bottom: 50%;transform: translate(0%, -50%);left: 1%; z-index:1"></div>
+			</div>
+			<h1 class="js-match-select-a-product-2 hidden my-3 typography typography--body-md uppercase mb-2 font-semibold">{{ 'ob_perfect_pair.slide_2.prod_type_introduction' | t }}</h1>
+			<div id="2-men-choice" class="js-step-2-type-choice flex hidden  grid grid-cols-4 gap-3">
+				<div id="2-men-boxer" data-type="mens-boxer-shorts-individuals" class="js-step-2-type cursor-pointer uppercase border-2 border-solid  font-bold rounded-md 1 p-1 matchballs-active" style="justify-content:center;">
+					<img src="https://cdn.shopify.com/s/files/1/0353/7249/files/MensBoxers.svg?v=1707144899" />
+					<div class="text-xs text-center">{{ 'ob_perfect_pair.slide_2.boxers' | t }}</div>
+				</div>
+				<div id="2-men-brief" data-type="mens-briefs-individuals" class="js-step-2-type cursor-pointer cursor-pointer  js-step-1-type  flex flex-col  uppercase border-2 border-solid  font-bold rounded-md 1 p-1" style="justify-content:center;">
+					<img src="https://cdn.shopify.com/s/files/1/0353/7249/files/MensBriefs.svg?v=1707144899" />
+					<div class="text-xs text-center">{{ 'ob_perfect_pair.slide_2.briefs' | t }}</div>
+				</div>
+                <div id="1-men-bamboo" data-type="mens-bamboo-boxer-shorts-individuals"  class="js-step-2-type  no-small cursor-pointer cursor-pointer  js-step-1-type  flex flex-col  uppercase border-2 border-solid  font-bold rounded-md 1 p-1" style="justify-content:center;">
+					<img src="https://cdn.shopify.com/s/files/1/0353/7249/files/Bamboo-Men.svg?v=1718015867" />
+					<div class="tw-text-xs tw-text-center">{{ 'ob_perfect_pair.slide_2.bamboo' | t }}</div>
+				</div>
+                <div id="2-men-loose-fit" data-type="mens-loose-fit-boxers" class="js-step-2-type  no-small cursor-pointer cursor-pointer  js-step-2-type  flex flex-col  uppercase border-2 border-solid  font-bold rounded-md 1 p-1" style=" display:flex; justify-content:center;">
+					<img src="https://cdn.shopify.com/s/files/1/0353/7249/files/LooseFit-Magenta.svg?v=1742993809" />
+					<div class="text-xs text-center">{{ 'ob_perfect_pair.loose_fit_boxers' | t }}</div>
+				</div>
+			</div>
+			<div id="2-women-choice" class="js-step-2-type-choice flex hidden  grid grid-cols-4 gap-3">
+				<div id="2-women-boxer" data-type="ladies-boxer-shorts-individuals" class="js-step-2-type flex cursor-pointer flex-col uppercase border-2 border-solid  font-semibold rounded-md 1 p-1 matchballs-active" style=" display:flex; justify-content:center;">
+					<img src="https://cdn.shopify.com/s/files/1/0353/7249/files/LadiesBoxers.svg?v=1707144899" />
+					<div class="text-xs text-center">{{ 'ob_perfect_pair.slide_2.boxers' | t }}</div>
+				</div>
+				<div id="2-women-brief" data-type="ladies-briefs-individuals" class="js-step-2-type flex cursor-pointer flex-col ooption-value group relative flex items-center justify-center rounded-md border py-4 px-4 text-xs font-semibold uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 cursor-pointer bg-white text-gray-900 shadow-sm" style=" display:flex; justify-content:center;">
+					<img src="https://cdn.shopify.com/s/files/1/0353/7249/files/LadiesBriefs.svg?v=1707144899" />
+					<div class="text-xs text-center">{{ 'ob_perfect_pair.slide_2.briefs' | t }}</div>
+				</div>
+				<div id="2-women-thong" data-type="ladies-thongs-individuals" class="js-step-2-type cursor-pointer flex flex-col ooption-value group relative flex items-center justify-center rounded-md border py-4 px-4 text-xs font-semibold uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 cursor-pointer bg-white text-gray-900 shadow-sm" style=" display:flex; justify-content:center;">
+					<img src="https://cdn.shopify.com/s/files/1/0353/7249/files/Thong.svg?v=1707144899" />
+					<div class="text-xs text-center">{{ 'ob_perfect_pair.slide_2.thongs' | t }}</div>
+				</div>
+				<div id="2-women-seamless" data-type="seamless-individuals" class="js-step-2-type cursor-pointer flex flex-col  ooption-value group relative flex items-center justify-center rounded-md border py-4 px-4 text-xs font-semibold uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 cursor-pointer bg-white text-gray-900 shadow-sm" style=" display:flex; justify-content:center;">
+					<img src="https://cdn.shopify.com/s/files/1/0353/7249/files/Seamless.svg?v=1707144899" />
+					<div class="text-xs text-center">{{ 'ob_perfect_pair.slide_2.seamless' | t }}</div>
+				</div>
+                <div id="1-women-full-seamless" data-type="full-seamless-individuals" class="js-step-2-type cursor-pointer flex flex-col  ooption-value group relative flex items-center justify-center rounded-md border py-4 px-4 text-xs font-semibold uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 cursor-pointer bg-white text-gray-900 shadow-sm" style=" display:flex; justify-content:center;">
+					<img src="https://cdn.shopify.com/s/files/1/0353/7249/files/Sub-Seamless-Full.png?v=1724159544" />
+					<div class="tw-text-xs tw-text-center">{{ 'ob_perfect_pair.slide_2.full_seamless' | t }}</div>
+				</div>
+				<div id="1-women-bamboo" data-type="ladies-bamboo-boxer-shorts-individuals" class="js-step-2-type no-small cursor-pointer flex flex-col  ooption-value group relative flex items-center justify-center rounded-md border py-4 px-4 text-xs font-semibold uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 cursor-pointer bg-white text-gray-900 shadow-sm" style=" display:flex; justify-content:center;">
+					<img src="https://cdn.shopify.com/s/files/1/0353/7249/files/Bamboo-Women.svg?v=1718015867" />
+					<div class="tw-text-xs tw-text-center">{{ 'ob_perfect_pair.slide_2.bamboo' | t }}</div>
+				</div>
+			</div>
+			<div id="2-size-choice" class="mt-6 relative hidden">
+				<h3 class="my-3 flex typography typography--body-md uppercase mb-2 font-semibold size-name"> {{ 'ob_perfect_pair.slide_2.size_heading' | t }}: <a class="js-quick-buy-size-guide-show get-size cursor-hand flex items-start gap-x-1" style="position:absolute; right:1rem;" href="fat-cow-mens-boxer-shorts">
+              		 <div class="cursor-pointer flex flex-col items-center typography typography--body-md capitalize mb-2 ">
+                            <span class="pr-2" style="text-align: right; line-height: 10px; align-self: center;">{{ 'ob_perfect_pair.slide_2.size_guide' | t }}</span>
+                        <svg class="tape-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 157.21 100.22" style="enable-background:new 0 0 157.21 100.22;" xml:space="preserve">
+                          <style type="text/css">
+                            .unavailable{
+                            pointer-events: none;
+                            opacity: 0.5;
+                          }
+                          .unavailable:after{
+                              content: "";
+                              position: absolute;
+                              width:100%;
+                              top:50%;
+                              left:0;
+                              transform: rotate(22deg);
+                              height:1px;
+                              background-color: #e3e3e3;
+                              }
+                .st0{fill:#EC008C;}
+                            }
+                          </style>
+                          <g>
+                          	<path class="st0" d="M12.39,43.19v25.58c0,0,8.25,18.73,45.29,18.59c37.04-0.14,48.5-16.07,48.5-16.07l1.68-8.39   c0,0,22.92,10.62,36.48,7.13V44.86l-18.17-1.68l-17.89-5.59c0,0-14.26,21.51-51.58,19.35S12.39,43.19,12.39,43.19z"></path>
+                          	<g>
+                          		<path d="M59.77,45.78c11.91,0,20.89-4.67,20.89-10.87c0-6.2-8.98-10.87-20.89-10.87c-11.91,0-20.89,4.67-20.89,10.87    C38.88,41.11,47.86,45.78,59.77,45.78z M59.77,28.97c9.75,0,15.97,3.52,15.97,5.95c0,2.43-6.22,5.95-15.97,5.95    c-9.75,0-15.97-3.52-15.97-5.95C43.8,32.49,50.02,28.97,59.77,28.97z"></path>
+                          		<path d="M142.61,41.39c-24.83-0.36-31.69-6.19-32.89-7.44c-1.03-13.08-22.56-23.2-49.94-23.2c-28.06,0-50.04,10.61-50.04,24.16    V65.3c0,13.55,21.98,24.16,50.04,24.16c26.79,0,48.04-9.68,49.91-22.35c4.71,2.52,14.11,5.22,32.79,5.56    c1.39,0,2.58-0.48,3.54-1.41c0.95-0.93,1.48-2.18,1.48-3.51V46.31C147.48,43.63,145.3,41.43,142.61,41.39z M59.77,15.67    c26.99,0,45.12,9.95,45.12,19.24c0,5.71-6.86,11.65-18.38,15.4c-0.01,0-0.02,0.01-0.03,0.01c-7.24,2.35-16.3,3.84-26.71,3.84    c-26.99,0-45.12-9.95-45.12-19.25C14.65,25.62,32.78,15.67,59.77,15.67z M59.77,84.55c-26.99,0-45.12-9.95-45.12-19.24V45.47    c1.14,1.16,2.43,2.27,3.92,3.31v13.75c0,1.36,1.1,2.46,2.46,2.46c1.36,0,2.46-1.1,2.46-2.46V51.69c1.89,0.95,3.95,1.82,6.15,2.62    v8.36c0,1.36,1.1,2.46,2.46,2.46c1.36,0,2.46-1.1,2.46-2.46v-6.8c1.97,0.55,4.01,1.03,6.15,1.45v12.95c0,1.36,1.1,2.46,2.46,2.46    c1.36,0,2.46-1.1,2.46-2.46V58.12c2,0.27,4.05,0.48,6.15,0.64v7.79c0,1.36,1.1,2.46,2.46,2.46c1.36,0,2.46-1.1,2.46-2.46v-7.54    c1.02,0.03,2.04,0.07,3.07,0.07c1.04,0,2.05-0.04,3.07-0.07v12.49c0,1.36,1.1,2.46,2.46,2.46c1.36,0,2.46-1.1,2.46-2.46V58.76    c2.1-0.16,4.15-0.36,6.15-0.64v7.23c0,1.36,1.1,2.46,2.46,2.46c1.36,0,2.46-1.1,2.46-2.46v-8.04c2.14-0.41,4.18-0.9,6.15-1.45    v11.7c0,1.36,1.1,2.46,2.46,2.46c1.36,0,2.46-1.1,2.46-2.46V54.3c2.2-0.79,4.26-1.66,6.15-2.62v5.85c0,1.36,1.1,2.46,2.46,2.46    c1.36,0,2.46-1.1,2.46-2.46v-8.76c1.49-1.04,2.78-2.15,3.92-3.31V65.3C104.89,74.6,86.76,84.55,59.77,84.55z M109.81,40.08    c0.99,0.57,2.19,1.15,3.62,1.73v8.74c0,1.36,1.1,2.46,2.46,2.46c1.36,0,2.46-1.1,2.46-2.46v-7.11c1.64,0.45,3.48,0.87,5.53,1.24    v10.85c0,1.36,1.1,2.46,2.46,2.46c1.36,0,2.46-1.1,2.46-2.46V45.43c1.15,0.14,2.35,0.27,3.61,0.38v21.47    c-16.78-1.34-21.56-4.95-22.6-6.01V40.08z M142.56,67.76c-1.85-0.03-3.57-0.1-5.22-0.17V46.14c1.66,0.08,3.39,0.14,5.23,0.17    L142.56,67.76z"></path>
+                          	</g>
+                          </g>
+                          </svg>
+                      
+                          <svg class="circular-loader relative hidden" style="position: relative !important; width: 21px; " viewBox="25 25 50 50">
+                      	<circle class="loader-path" stroke="#f00f83" cx="50" cy="50" r="20" fill="none" stroke-width="4"></circle>
+                      </svg>
+					</a>
+				</h3>
+				<div id="step-2-men-size" class="js-step-2-size-choice grid grid-cols-4 gap-3">
+					<div id="2-small" data-size="size-xxs" class="js-step-2-size small-size ooption-value group relative flex items-center justify-center rounded-md border py-4 px-4 text-xs font-semibold uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 cursor-pointer bg-white text-gray-900 shadow-sm" style="margin-bottom: 0px; display:flex; justify-content:center;">XXS</div>
+					<div id="2-small" data-size="size-xs" class="js-step-2-size  small-size ooption-value group relative flex items-center justify-center rounded-md border py-4 px-4 text-xs font-semibold uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 cursor-pointer bg-white text-gray-900 shadow-sm" style=" margin-bottom: 0px; display:flex; justify-content:center;">XS</div>
+					<div id="2-small" data-size="size-small" class="js-step-2-size ooption-value group relative flex items-center justify-center rounded-md border py-4 px-4 text-xs font-semibold uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 cursor-pointer bg-white text-gray-900 shadow-sm" style=" margin-bottom: 0px; display:flex; justify-content:center;">Small</div>
+					<div id="2-medium" data-size="size-medium" class="js-step-2-size ooption-value group relative flex items-center justify-center rounded-md border py-4 px-4 text-xs font-semibold uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 cursor-pointer bg-white text-gray-900 shadow-sm" style=" margin-bottom: 0px; display:flex; justify-content:center;">Medium</div>
+					<div id="2-large" data-size="size-large" class="js-step-2-size ooption-value group relative flex items-center justify-center rounded-md border py-4 px-4 text-xs font-semibold uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 cursor-pointer bg-white text-gray-900 shadow-sm" style=" margin-bottom: 0px; display:flex; justify-content:center;">Large</div>
+					<div id="2-large" data-size="size-xl" class="js-step-2-size ooption-value group relative flex items-center justify-center rounded-md border py-4 px-4 text-xs font-semibold uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 cursor-pointer bg-white text-gray-900 shadow-sm" style=" margin-bottom: 0px; display:flex; justify-content:center;">XL</div>
+					<div id="2-large" data-size="size-xxl" class="js-step-2-size ooption-value group relative flex items-center justify-center rounded-md border py-4 px-4 text-xs font-semibold uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 cursor-pointer bg-white text-gray-900 shadow-sm" style=" margin-bottom: 0px; display:flex; justify-content:center;">2XL</div>
+					<div id="2-large" data-size="size-xxxl" class="js-step-2-size ooption-value group relative flex items-center justify-center rounded-md border py-4 px-4 text-xs font-semibold uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 cursor-pointer bg-white text-gray-900 shadow-sm" style=" margin-bottom: 0px; display:flex; justify-content:center;">3XL</div>
+				</div>
+				<div id="step-2-women-size" class="js-step-2-size-choice grid grid-cols-4 gap-3">
+					<div id="2-6" data-size="title-size-6" class="js-step-2-size  small-size ooption-value group relative flex items-center justify-center rounded-md border py-4 px-4 text-xs font-semibold uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 cursor-pointer bg-white text-gray-900 shadow-sm" style=" margin-bottom: 0px; display:flex; justify-content:center;">Size 6</div>
+					<div id="2-8" data-size="title-size-8" class="js-step-2-size  small-size ooption-value group relative flex items-center justify-center rounded-md border py-4 px-4 text-xs font-semibold uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 cursor-pointer bg-white text-gray-900 shadow-sm" style=" margin-bottom: 0px; display:flex; justify-content:center;">Size 8</div>
+					<div id="2-10" data-size="title-size-10" class="js-step-2-size ooption-value group relative flex items-center justify-center rounded-md border py-4 px-4 text-xs font-semibold uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 cursor-pointer bg-white text-gray-900 shadow-sm" style=" margin-bottom: 0px; display:flex; justify-content:center;">Size 10</div>
+					<div id="2-12" data-size="title-size-12" class="js-step-2-size ooption-value group relative flex items-center justify-center rounded-md border py-4 px-4 text-xs font-semibold uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 cursor-pointer bg-white text-gray-900 shadow-sm" style=" margin-bottom: 0px; display:flex; justify-content:center;">Size 12</div>
+					<div id="2-14" data-size="title-size-14" class="js-step-2-size ooption-value group relative flex items-center justify-center rounded-md border py-4 px-4 text-xs font-semibold uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 cursor-pointer bg-white text-gray-900 shadow-sm" style=" margin-bottom: 0px; display:flex; justify-content:center;">Size 14</div>
+					<div id="2-16" data-size="title-size-16" class="js-step-2-size ooption-value group relative flex items-center justify-center rounded-md border py-4 px-4 text-xs font-semibold uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 cursor-pointer bg-white text-gray-900 shadow-sm" style=" margin-bottom: 0px; display:flex; justify-content:center;">Size 16</div>
+					<div id="2-18" data-size="title-size-18" class="js-step-2-size ooption-value group relative flex items-center justify-center rounded-md border py-4 px-4 text-xs font-semibold uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 cursor-pointer bg-white text-gray-900 shadow-sm" style=" margin-bottom: 0px; display:flex; justify-content:center;">Size 18</div>
+					<div id="2-20" data-size="title-size-20" class="js-step-2-size ooption-value group relative flex items-center justify-center rounded-md border py-4 px-4 text-xs font-semibold uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 cursor-pointer bg-white text-gray-900 shadow-sm" style=" margin-bottom: 0px; display:flex; justify-content:center;">Size 20</div>
+				</div>
+			</div>
+			<div id="step-2-finish" class="hidden btn-shadow-lg mb-4 uppercase border-2 border-solid  font-bold rounded-full mt-10 pointer-events-none w-full py-4 text-center">
+              <span class="button-unavailable">{{ 'ob_perfect_pair.slide_2.unavailable_button' | t }} </span>
+              <span style="display:none;" class="button-available">{{ 'ob_perfect_pair.slide_2.available_button' | t }} </span>
+            </div>
+			<div id="match-me-back-button" class="flex cursor-pointer">
+				<div class="cursor-pointer text-sm bg-gray-0 border border-gray-400 border-solid font-bold hover:border-color-black text-center px-5 pl-2  py-2 flex text-gray-700 uppercase rounded-lg">
+					<svg class="mr-3" fill="#000000" width="20px" height="20px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+						<g data-name="Layer 2">
+							<g data-name="arrow-ios-back">
+								<rect width="24" height="24" transform="rotate(90 12 12)" opacity="0"></rect>
+								<path d="M13.83 19a1 1 0 0 1-.78-.37l-4.83-6a1 1 0 0 1 0-1.27l5-6a1 1 0 0 1 1.54 1.28L10.29 12l4.32 5.36a1 1 0 0 1-.78 1.64z"></path>
+							</g>
+						</g>
+					</svg>Back
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="match-me-loading-results" class="hidden h-screen relative">
+	<div class="mx-auto w-32 whitepsace-nowrap" style="position: absolute; top: 40%; left: 50%; transform: translateX(-50%);">
+		<div class="whitespace-nowrap">{{ 'ob_perfect_pair.loading_screen.loading' | t }}</div>
+		<svg class="circular-loader relative" viewBox="25 25 50 50">
+			<circle class="loader-path" stroke="#f00f83" cx="50" cy="50" r="20" fill="none" stroke-width="4"></circle>
+		</svg>
+	</div>
+</div>
+<style>
+	#match-me-final {
+		min-height: calc(100vh - 290px);
+		height: 100%;
+	}
+  @media(min-width: 720px){
+    
+	#match-me-final .outer-wrapper {
+    height: calc(100vh - 272px);
+    top: 0px;
+    padding: 30px;
+    }
+  }
+</style>
+<div id="match-me-final-nav" class="hidden"> {% render "ob-perfect-pair-nav" %} </div>
+<div id="match-me-final" class="hidden w-full md:bg-gray-100">
+	<div class="relative  relative md:grid md:grid-cols-2 w-full" style="padding-top:70px;">
+		<div class="outer-wrapper  flex items-center  md:h-full relative border-1 border-gray-300 border-solid top-0 h-calc(100vh - 140px) md:p-6 p-6 md:h-calc(100vh - 272px) ">
+			<div class="w-full">
+				<div style="box-shadow: #00000026 0 5px 15px; border-radius: 7px;background: white;
+    overflow: hidden;" lass="md:max-w-2xl sm:border-1 bg-white border border-gray-300 border-solid justify-center flex items-center px-0 w-full md:mx-auto">
+					<div id="match-me-results" class="grid w-full grid-cols-2 gap-2 md:gap-6 px-4 md:px-0 pointer-events-none">
+						<div id="match-me-res1" class="bg-white pt-0 py-0 md:w-full md:mx-auto md:flex md:justify-center border-r border-solid border-gray-300" style="/* box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px; */position: relative;">
+							<div class="w-full mt-3">
+								<div id="match-me-title1" class="px-4 md:mx-auto" style="width:fit-content;"></div>
+								<!--<div class="w-full border-b border-solid border-gray-300" style="width:95%;"></div>-->
+								<div id="match-me-img1" class="px-4 md:mx-auto" style="height: auto; padding-top: 100%; position: relative; display: block;"></div>
+							</div>
+						</div>
+						<div id="match-me-res2" class="rounded-md bg-white pt-0 py-0 md:w-full md:mx-auto md:flex md:justify-center" style="/* box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px; */">
+							<div class="w-full mt-3">
+								<div id="match-me-title2" class="px-4 md:mx-auto" style="width:fit-content;"></div>
+								<!--<div class="w-full border-b border-solid border-gray-300"></div>-->
+								<div id="match-me-img2" class="px-4 md:mx-auto" style="height: auto; padding-top: 100%; position: relative; display: block;"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="flex items-center justify-center md:py-6">
+			<div id="matchballs-style-tabs" class="relative border-t border-gray-300 border-solid p-6 pb-4 bg-white lg:shadow-2xl" style="width: 100%;max-width: 600px;">
+				<div class="text-md leading-snug">
+					<div class="font-bebas leading-snug uppercase text-lg md:mt-0 md:text-xl md:mt-4">{{ 'ob_perfect_pair.results_screen.title' | t }}</div>
+					<div class="flex mb-3 text-md leading-snug">{{ 'ob_perfect_pair.results_screen.selected_print' | t }} <div id="match-selected-print" class="ml-2 font-bold"></div>
+					</div>
+					<div class="gap-4 flex items-center mb-2 mt-3 ">
+                        <div class="flex p-3 relative bg-gray-200 rounded-full w-full">
+						<div id="match-me-adventurous" class="hidden font-semibold text-gray-500 js-matchballs-tab selected-tab cursor-pointer text-md relative slider-control w-1/2 uppercase flex justify-center items-center" style="z-index:2">{{ 'ob_perfect_pair.results_screen.patterned' | t }}</div>
+						<div id="match-me-plain" class="unavailable font-semibold text-gray-500 js-matchballs-tab text-base cursor-pointer text-md relative slider-control uppercase flex justify-center items-center w-1/2" style="z-index:2">
+                          <div id="plain-available">{{ 'ob_perfect_pair.results_screen.plain' | t }}</div>
+                          <div class="pointer-events-none" id="plain-unavailable" style="display:none">{{ 'ob_perfect_pair.results_screen.no_plain' | t }}</div>
+                        </div>
+                        <div class="selection-tab-selection shadow-sm h-full bg-magenta-500 absolute flex items-center uppercase font-bold justify-center rounded-full font-bold text-black h-[88%]" style="width: 50%; top: 50%; bottom: 50%; transform: translate(0%, -50%); left: 1%; z-index:1;"></div>
+                        </div>
+					</div>
+                  
+                  
+					<div id="match-me-result-designs-patterned-wrapper" class="col-span-2 mb-0 relative js-matchballs-design-results">
+                      <div id="patterned-found-prints-total-wrapper" class="text-md leading-snug mb-4">
+                        <span id="patterned-found-prints-total"></span> {{ 'ob_perfect_pair.results_screen.patterned' | t }} {{ 'ob_perfect_pair.results_screen.prints_available_in' | t }}
+                        <span class="found-prints-type-1 font-bold"></span> - <span class="found-prints-size-1" style="color:#f00f83"></span>
+                        <span class="found-prints-total-info">
+                        &
+                        <span class="found-prints-type-2 font-bold"></span> - <span class="found-prints-size-2" style="color:#f00f83"></span>
+                        </span>
+                      </div>
+						<div id="match-me-result-designs-patterned" class=" gap-3 grid sm:grid-cols-7 grid-cols-5 flex-wrap overflow-hidden pb-8" style="max-height:6.5rem"></div>
+						<div id="" class="pointer-events-none w-full absolute z-10 h-10 flex justify-center show-more-gradient adv-show-more-gradient " style="align-items:end"></div>
+						<b style="transform: translateX(-50%);" class="adv-show-more-gradient p-4 pb-1 js-show-more-prints z-10 absolute uppercase text-xs bottom-0 transform -translate-1/2 left-1/2 cursor-pointer">{{ 'ob_perfect_pair.results_screen.show_more' | t }}</b>
+					</div>
+					<div id="match-me-result-designs-plain-wrapper" class="col-span-2 mb-0 relative js-matchballs-design-results hidden">
+                      <div id="plain-found-prints-total-wrapper" class="text-xs mb-4">
+                        <span id="plain-found-prints-total"></span> {{ 'ob_perfect_pair.results_screen.plain' | t }} {{ 'ob_perfect_pair.results_screen.prints_available_in' | t }}
+                        <span class="found-prints-type-1 font-bold"></span> - <span class="found-prints-size-1" style="color:#f00f83"></span>
+                        <span class="found-prints-total-info">
+                          & <span class="found-prints-type-2 font-bold"></span> - <span class="found-prints-size-2" style="color:#f00f83"></span>
+                        </span>
+                        
+                      </div>
+						<div id="match-me-result-designs-plain" class="gap-3 grid sm:grid-cols-7 grid-cols-5 flex-wrap overflow-hidden pb-8" style="max-height:6.5rem"></div>
+						<div id="" class="pointer-events-none w-full absolute z-10 h-10 flex justify-center show-more-gradient plain-show-more-gradient " style="align-items:end"></div>
+						<b style="transform: translateX(-50%);" class="plain-show-more-gradient p-4 js-show-more-prints z-10 absolute uppercase text-xs bottom-0 transform -translate-1/2 left-1/2 cursor-pointer">{{ 'ob_perfect_pair.results_screen.show_more' | t }}</b>
+					</div>
+					<div id="" class="js-show-less-prints w-full py-2 flex justify-center z-10 hidden cursor-pointer " style="align-items:end; position:relative;">
+						<b>{{ 'ob_perfect_pair.results_screen.show_less' | t }}</b>
+					</div>
+					<div id="match-bralette-wrapper" class="border-gray-300 mt-3 rounded-md col-span-2 md:col-span-1 mb-4" style="">
+						<div id="match-bralette-section-title" class="text-md relative w-full items-center" style="align-items:center;">
+							<div class="match-bralette-cover absolute bg-white h-full w-full z-10 hidden rounded-md">
+								<div class="w-max mx-auto my-auto">No Braltettes Available</div>
+							</div>
+							<div id="match-balls-get-brallete-intro" class="js-match-balls-get-brallete-intro w-full flex items-center">
+								<!-- <img width="50px" height="50px" class="mx-auto" src="https://cdn.shopify.com/s/files/1/0353/7249/files/Bralette_8e24920d-0235-499f-a8f7-3c9c9d9c6ff0.png?v=1699289969" /> -->
+								<img width="50px" height="50px" class="mr-6 shadow-lg" src="https://cdn.shopify.com/s/files/1/0353/7249/files/Bralette-gray.png?v=1706090535" style=" border: 1px solid #ddd;">
+								<div>
+									<div class="text-sm text-magenta-500 font-display cursor-pointer" style=" font-weight: bold;">+ {{ 'ob_perfect_pair.results_screen.add_bralette' | t }}</div>
+								</div>
+							</div>
+                          <div id="match-balls-bralettes-selected">
+                          </div>
+						</div>
+					</div>
+                  <div id="match-socks-wrapper" style="display:none;">
+                    <div id="match-socks-intro" class="js-match-socks-intro w-full flex items-center">
+								<!-- <img width="50px" height="50px" class="mx-auto" src="https://cdn.shopify.com/s/files/1/0353/7249/files/Bralette_8e24920d-0235-499f-a8f7-3c9c9d9c6ff0.png?v=1699289969" /> -->
+								<img width="50px" height="50px" class="mr-6 shadow-lg" src="https://cdn.shopify.com/s/files/1/0353/7249/files/Socks.svg?v=1725348785" style=" border: 1px solid #ddd;">
+								<div>
+									<div class="text-sm text-magenta-500 font-display cursor-pointer" style=" font-weight: bold;">+ {{ 'ob_perfect_pair.results_screen.add_socks' | t }}</div>
+								</div>
+                        </div>
+                    <div id="match-socks-selected">
+                    </div>
+                    <div id="match-socks-unavailable" class="border my-1 border-solid border-gray-300 text-center py-1">
+                      {{ 'ob_perfect_pair.results_screen.no_socks' | t }}
+                    </div>
+                  </div>
+					<div id="pair-price" class="text-sm my-3 flex"></div>
+					<div id="add-match-to-cart" class="cursor-pointer col-span-2 mb-4 justify-between w-full tracking-normal rounded-full uppercase btn-shadow-lg block bg-magenta border-solid border-2 border-md  relative font-semibold text-center p-4 text-white hover:bg-magenta-700 transition-colors duration-200">{{ 'ob_perfect_pair.results_screen.add_to_cart' | t }} </div>
+				</div>
+				<div class="px-4 md:max-w-7xl md:mx-auto"></div>
+				<div id="match-me-results-back-button" class="cursor-pointer flex">
+					<div class="cursor-pointer text-sm bg-gray-0 border border-gray-400 border-solid font-bold hover:border-color-black text-center px-5 pl-2  py-2 flex text-gray-700 uppercase rounded-lg">
+						<svg class="mr-3" fill="#000000" width="20px" height="20px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+							<g data-name="Layer 2">
+								<g data-name="arrow-ios-back">
+									<rect width="24" height="24" transform="rotate(90 12 12)" opacity="0"></rect>
+									<path d="M13.83 19a1 1 0 0 1-.78-.37l-4.83-6a1 1 0 0 1 0-1.27l5-6a1 1 0 0 1 1.54 1.28L10.29 12l4.32 5.36a1 1 0 0 1-.78 1.64z"></path>
+								</g>
+							</g>
+						</svg>Back
+					</div>
+				</div>
+			</div>
+			<div id="match-found-bralette" class="hidden" style="position: fixed; width: 100vh; height: 100vh; top: 0px; left: 0px; z-index: 60;">
+				<div id="match-found-bralette-safety-screen" class="js-match-safety-screen w-screen h-screen fixed justify-center align-middle" style="backdrop-filter: blur(5px);z-index: -1;background: #00000066; "></div>
+				<div id="match-found-bralette-content" class="md:flex max-w-7xl" style="position:fixed; width: 90%; background-color: white; top: 8dvh; left: 50%; transform: translateX(-50%); z-index: 99999;">
+					<div class="js-match-safety-screen basicLightboxCloseBundle basicLightboxCloseWithIcon border-2 bg-white border-solid  rounded-md" style="right:15px; top:15px; height: 30px; z-index: 99998; width: 30px;display:flex;align-items:center;justify-content:center">
+						<svg aria-hidden="true" focusable="false" role="presentation" width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M1.41418 0L16.9705 15.5563L15.5563 16.9706L-2.89679e-05 1.41421L1.41418 0Z" fill="#111111"></path>
+							<path d="M16.9706 1.41431L1.41423 16.9707L1.85966e-05 15.5564L15.5564 9.31025e-05L16.9706 1.41431Z" fill="#111111"></path>
+						</svg>
+					</div>
+					<div id="match-found-bralette-img" class="border-b border-gray-300 border-solid md:border-r flex align-center px-10" style="">
+						<img class="y-max my-auto" style="" />
+					</div>
+					<div class="md:my-auto md:mx-auto">
+						<div id="match-found-bralette-title" class="px-4 product-title relative font-bebas text-2xl lg:text-4xl tracking-wider   h2 mb-4"></div>
+						<div id="match-found-bralette-price" class=" px-4 mb-4"></div>
+						<div class="relative px-4">
+							<h3 class="my-3 flex typography typography--body-md uppercase mb-0 font-semibold size-name">  {{ 'ob_perfect_pair.home_slide.size_heading' | t }}: <a class="js-quick-buy-size-guide-show get-size cursor-hand flex items-start gap-x-1" style="position:absolute; right:1rem;" href="fat-cow-ladies-bralette">
+              		 <div class="cursor-pointer flex flex-col items-center typography typography--body-md capitalize mb-2 ">
+                            <span class="pr-2 uppercase" style="text-align: right; line-height: 10px; align-self: center;">{{ 'ob_perfect_pair.home_slide.size_guide' | t }}</span>
+                        <svg class="tape-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 157.21 100.22" style="enable-background:new 0 0 157.21 100.22;" xml:space="preserve">
+                          <style type="text/css">
+                          	.st0{fill:#EC008C;}
+                            }
+                          </style>
+                          <g>
+                          	<path class="st0" d="M12.39,43.19v25.58c0,0,8.25,18.73,45.29,18.59c37.04-0.14,48.5-16.07,48.5-16.07l1.68-8.39   c0,0,22.92,10.62,36.48,7.13V44.86l-18.17-1.68l-17.89-5.59c0,0-14.26,21.51-51.58,19.35S12.39,43.19,12.39,43.19z"></path>
+                          	<g>
+                          		<path d="M59.77,45.78c11.91,0,20.89-4.67,20.89-10.87c0-6.2-8.98-10.87-20.89-10.87c-11.91,0-20.89,4.67-20.89,10.87    C38.88,41.11,47.86,45.78,59.77,45.78z M59.77,28.97c9.75,0,15.97,3.52,15.97,5.95c0,2.43-6.22,5.95-15.97,5.95    c-9.75,0-15.97-3.52-15.97-5.95C43.8,32.49,50.02,28.97,59.77,28.97z"></path>
+                          		<path d="M142.61,41.39c-24.83-0.36-31.69-6.19-32.89-7.44c-1.03-13.08-22.56-23.2-49.94-23.2c-28.06,0-50.04,10.61-50.04,24.16    V65.3c0,13.55,21.98,24.16,50.04,24.16c26.79,0,48.04-9.68,49.91-22.35c4.71,2.52,14.11,5.22,32.79,5.56    c1.39,0,2.58-0.48,3.54-1.41c0.95-0.93,1.48-2.18,1.48-3.51V46.31C147.48,43.63,145.3,41.43,142.61,41.39z M59.77,15.67    c26.99,0,45.12,9.95,45.12,19.24c0,5.71-6.86,11.65-18.38,15.4c-0.01,0-0.02,0.01-0.03,0.01c-7.24,2.35-16.3,3.84-26.71,3.84    c-26.99,0-45.12-9.95-45.12-19.25C14.65,25.62,32.78,15.67,59.77,15.67z M59.77,84.55c-26.99,0-45.12-9.95-45.12-19.24V45.47    c1.14,1.16,2.43,2.27,3.92,3.31v13.75c0,1.36,1.1,2.46,2.46,2.46c1.36,0,2.46-1.1,2.46-2.46V51.69c1.89,0.95,3.95,1.82,6.15,2.62    v8.36c0,1.36,1.1,2.46,2.46,2.46c1.36,0,2.46-1.1,2.46-2.46v-6.8c1.97,0.55,4.01,1.03,6.15,1.45v12.95c0,1.36,1.1,2.46,2.46,2.46    c1.36,0,2.46-1.1,2.46-2.46V58.12c2,0.27,4.05,0.48,6.15,0.64v7.79c0,1.36,1.1,2.46,2.46,2.46c1.36,0,2.46-1.1,2.46-2.46v-7.54    c1.02,0.03,2.04,0.07,3.07,0.07c1.04,0,2.05-0.04,3.07-0.07v12.49c0,1.36,1.1,2.46,2.46,2.46c1.36,0,2.46-1.1,2.46-2.46V58.76    c2.1-0.16,4.15-0.36,6.15-0.64v7.23c0,1.36,1.1,2.46,2.46,2.46c1.36,0,2.46-1.1,2.46-2.46v-8.04c2.14-0.41,4.18-0.9,6.15-1.45    v11.7c0,1.36,1.1,2.46,2.46,2.46c1.36,0,2.46-1.1,2.46-2.46V54.3c2.2-0.79,4.26-1.66,6.15-2.62v5.85c0,1.36,1.1,2.46,2.46,2.46    c1.36,0,2.46-1.1,2.46-2.46v-8.76c1.49-1.04,2.78-2.15,3.92-3.31V65.3C104.89,74.6,86.76,84.55,59.77,84.55z M109.81,40.08    c0.99,0.57,2.19,1.15,3.62,1.73v8.74c0,1.36,1.1,2.46,2.46,2.46c1.36,0,2.46-1.1,2.46-2.46v-7.11c1.64,0.45,3.48,0.87,5.53,1.24    v10.85c0,1.36,1.1,2.46,2.46,2.46c1.36,0,2.46-1.1,2.46-2.46V45.43c1.15,0.14,2.35,0.27,3.61,0.38v21.47    c-16.78-1.34-21.56-4.95-22.6-6.01V40.08z M142.56,67.76c-1.85-0.03-3.57-0.1-5.22-0.17V46.14c1.66,0.08,3.39,0.14,5.23,0.17    L142.56,67.76z"></path>
+                          	</g>
+                          </g>
+                          </svg>
+                      
+                          <svg class="circular-loader relative hidden" style="position: relative !important; width: 21px; " viewBox="25 25 50 50">
+                      	<circle class="loader-path" stroke="#f00f83" cx="50" cy="50" r="20" fill="none" stroke-width="4"></circle>
+                      </svg>
+					</a>
+				</h3>
+						</div>
+						<div id="match-found-bralette-variants" style="display:flex; justify-content:center" class=" px-4 my-4">
+							<div class="product-variants grid grid-cols-4 gap-3 w-full">
+                              <div data-variant-id="29457021173821" data-option-value="XS" class="product-variant text-xs relative match-variant">
+
+                                  <label data-active="ring-2 ring-magenta" class="ooption-value group relative flex items-center justify-center rounded-md border py-4 px-4 text-xs font-semibold uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 cursor-pointer bg-white text-gray-900 shadow-sm">
+                                    
+									<input type="radio" var_id="9000000000" value="XS" name="3942254149693-size" class="peer sr-only" data-option-index="0" data-option-value="XS">
+									
+
+                                    <span class="peer-checked:border-transparent items-center flex justify-center peer-checked:bg-magenta-500 peer-checked:text-white peer-checked:hover:bg-pink-700 peer-checked:ring-2 peer-checked:ring-magenta-500 peer-checked:ring-offset-2 border-transparent pointer-events-none absolute -inset-px rounded-md" aria-hidden="true"></span>
+                                    <span class="option-value relative peer-checked:text-white">
+                                      <del class="out-of-stock-marker">XS</del>
+                                      <div class="in-stock-marker">XS</div>
+                                    </span>
+                                  </label>
+                                </div>
+                              
+                              <div data-variant-id="29457020616765" data-option-value="Small" class="product-variant text-xs relative match-variant ">
+
+                                  <label data-active="ring-2 ring-magenta" class="ooption-value group relative flex items-center justify-center rounded-md border py-4 px-4 text-xs font-semibold uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 cursor-pointer bg-white text-gray-900 shadow-sm">
+                                    
+									<input type="radio" var_id="9000000000" value="Small" name="3942254149693-size" class="peer sr-only" data-option-index="0" data-option-value="Small">
+									
+
+                                    <span class="peer-checked:border-transparent items-center flex justify-center peer-checked:bg-magenta-500 peer-checked:text-white peer-checked:hover:bg-pink-700 peer-checked:ring-2 peer-checked:ring-magenta-500 peer-checked:ring-offset-2 border-transparent pointer-events-none absolute -inset-px rounded-md" aria-hidden="true"></span>
+                                    <span class="option-value relative peer-checked:text-white">
+                                      <del class="out-of-stock-marker">Small</del>
+                                      <div class="in-stock-marker">Small</div>
+                                    </span>
+                                  </label>
+                                </div>
+                              <div data-variant-id="29457020649533" data-option-value="Medium" class="product-variant text-xs relative match-variant">
+ 
+                                  <label data-active="ring-2 ring-magenta" class="ooption-value group relative flex items-center justify-center rounded-md border py-4 px-4 text-xs font-semibold uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 cursor-pointer bg-white text-gray-900 shadow-sm">
+                                    
+									<input type="radio" var_id="9000000000" value="Medium" name="3942254149693-size" class="peer sr-only" data-option-index="0" data-option-value="Medium">
+									
+
+                                    <span class="peer-checked:border-transparent items-center flex justify-center peer-checked:bg-magenta-500 peer-checked:text-white peer-checked:hover:bg-pink-700 peer-checked:ring-2 peer-checked:ring-magenta-500 peer-checked:ring-offset-2 border-transparent pointer-events-none absolute -inset-px rounded-md" aria-hidden="true"></span>
+                                    <span class="option-value relative peer-checked:text-white">
+                                      <del class="out-of-stock-marker">Medium</del>
+                                      <div class="in-stock-marker">Medium</div>
+                                    </span>
+                                  </label>
+                                </div>
+                              <div data-variant-id="29457020682301" data-option-value="Large" class="product-variant text-xs relative match-variant">
+        
+                                  <label data-active="ring-2 ring-magenta" class="ooption-value group relative flex items-center justify-center rounded-md border py-4 px-4 text-xs font-semibold uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 cursor-pointer bg-white text-gray-900 shadow-sm">
+                                    
+									<input type="radio" var_id="9000000000" value="Large" name="3942254149693-size" class="peer sr-only" data-option-index="0" data-option-value="Large">
+									
+
+                                    <span class="peer-checked:border-transparent items-center flex justify-center peer-checked:bg-magenta-500 peer-checked:text-white peer-checked:hover:bg-pink-700 peer-checked:ring-2 peer-checked:ring-magenta-500 peer-checked:ring-offset-2 border-transparent pointer-events-none absolute -inset-px rounded-md" aria-hidden="true"></span>
+                                    <span class="option-value relative peer-checked:text-white">
+                                      <del class="out-of-stock-marker">Large</del>
+                                      <div class="in-stock-marker">Large</div>
+                                    </span>
+                                  </label>
+                                </div><div data-variant-id="29457020715069" data-option-value="XL" class="product-variant text-xs relative match-variant ">
+                         
+                                  <label data-active="ring-2 ring-magenta" class="ooption-value group relative flex items-center justify-center rounded-md border py-4 px-4 text-xs font-semibold uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 cursor-pointer bg-white text-gray-900 shadow-sm">
+                                    
+									<input type="radio" var_id="9000000000" value="XL" name="3942254149693-size" class="peer sr-only" data-option-index="0" data-option-value="XL">
+									
+
+                                    <span class="peer-checked:border-transparent items-center flex justify-center peer-checked:bg-magenta-500 peer-checked:text-white peer-checked:hover:bg-pink-700 peer-checked:ring-2 peer-checked:ring-magenta-500 peer-checked:ring-offset-2 border-transparent pointer-events-none absolute -inset-px rounded-md" aria-hidden="true"></span>
+                                    <span class="option-value relative peer-checked:text-white">
+                                      <del class="out-of-stock-marker">XL</del>
+                                      <div class="in-stock-marker">XL</div>
+                                    </span>
+                                  </label>
+                                </div>
+                              
+                              <div data-variant-id="29457020747837" data-option-value="2XL" class="product-variant text-xs relative match-variant">
+                              
+                                  <label data-active="ring-2 ring-magenta" class="ooption-value group relative flex items-center justify-center rounded-md border py-4 px-4 text-xs font-semibold uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 cursor-pointer bg-white text-gray-900 shadow-sm">
+                                    
+									<input type="radio" var_id="9000000000" value="2XL" name="3942254149693-size" class="peer sr-only" data-option-index="0" data-option-value="2XL">
+									
+
+                                    <span class="peer-checked:border-transparent items-center flex justify-center peer-checked:bg-magenta-500 peer-checked:text-white peer-checked:hover:bg-pink-700 peer-checked:ring-2 peer-checked:ring-magenta-500 peer-checked:ring-offset-2 border-transparent pointer-events-none absolute -inset-px rounded-md" aria-hidden="true"></span>
+                                    <span class="option-value relative peer-checked:text-white">
+                                      <del class="out-of-stock-marker">2XL</del>
+                                      <div class="in-stock-marker">2XL</div>
+                                    </span>
+                                  </label>
+                                </div>
+                              <div data-variant-id="29457021206589" data-option-value="3XL" class="product-variant text-xs relative match-variant">
+                                 
+                                  <label data-active="ring-2 ring-magenta" class="ooption-value group relative flex items-center justify-center rounded-md border py-4 px-4 text-xs font-semibold uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 cursor-pointer bg-white text-gray-900 shadow-sm">
+                                    
+									<input type="radio" var_id="9000000000" value="3XL" name="3942254149693-size" class="peer sr-only" data-option-index="0" data-option-value="3XL">
+									
+
+                                    <span class="peer-checked:border-transparent items-center flex justify-center peer-checked:bg-magenta-500 peer-checked:text-white peer-checked:hover:bg-pink-700 peer-checked:ring-2 peer-checked:ring-magenta-500 peer-checked:ring-offset-2 border-transparent pointer-events-none absolute -inset-px rounded-md" aria-hidden="true"></span>
+                                    <span class="option-value relative peer-checked:text-white">
+                                      <del class="out-of-stock-marker">3XL</del>
+                                      <div class="in-stock-marker">3XL</div>
+                                    </span>
+                                  </label>
+                                </div>
+                            </div>
+						</div>
+						<div id="match-found-bralette-add-to-bundle" class="px-4">
+							<div id="add-bralette-to-match" class="col-span-2 mb-4 justify-between w-full tracking-normal rounded-md uppercase btn-shadow-lg block rounded-full  border-2 border-solid relative font-semibold text-center p-4 hover:bg-magenta-700 transition-colors duration-200 pointer-events-none"> Select a Size </div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+                              
+            <div id="match-found-sock" class="hidden" style="position: fixed; width: 100vw; height: 100vh; top: 0px; left: 0px; z-index: 60;">
+				<div id="match-found-sock-safety-screen" class="js-match-safety-screen w-screen h-screen fixed justify-center align-middle" style="backdrop-filter: blur(5px);z-index: -1;background: #00000066; "></div>
+				<div id="match-found-sock-content" class="md:grid md:grid-cols-2 max-w-7xl" style="position: absolute;
+    width: 100%;
+    max-width: 90vw;
+    background-color: white;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    z-index: 99999;">
+					<div class=" absolute js-match-safety-screen basicLightboxCloseBundle basicLightboxCloseWithIcon border-2 bg-white border-solid  rounded-md" style="right:15px; top:15px; height: 30px; z-index: 99998; width: 30px;display:flex;align-items:center;justify-content:center">
+						<svg aria-hidden="true" focusable="false" role="presentation" width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M1.41418 0L16.9705 15.5563L15.5563 16.9706L-2.89679e-05 1.41421L1.41418 0Z" fill="#111111"></path>
+							<path d="M16.9706 1.41431L1.41423 16.9707L1.85966e-05 15.5564L15.5564 9.31025e-05L16.9706 1.41431Z" fill="#111111"></path>
+						</svg>
+					</div>
+					<div id="match-found-sock-img" class="border-b border-gray-300 border-solid md:border-r flex align-center px-10" style="">
+						<img class="y-max my-auto" style="" />
+					</div>
+					<div class="md:my-auto md:mx-auto">
+						<div id="match-found-sock-title" class="px-4 product-title relative font-bebas text-2xl lg:text-4xl tracking-wider   h2 mb-4"></div>
+						<div id="match-found-sock-price" class=" px-4 mb-4"></div>
+						<div class="relative px-4">
+							<h3 class="my-3 flex typography typography--body-md uppercase mb-2 font-semibold size-name"> Pair 1 size: 
+				</h3>
+						</div>
+						<div id="match-found-sock-variants" style="display:flex; justify-content:center" class=" px-4 my-4">
+							<div class="product-variants grid grid-cols-4 gap-3 w-full">
+                              <div data-variant-id="29457021173821" data-option-value="1-2" class="product-variant text-xs relative match-variant">
+
+                                  <label data-active="ring-2 ring-magenta" class="ooption-value group relative flex items-center justify-center rounded-md border py-4 px-4 text-xs font-semibold uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 cursor-pointer bg-white text-gray-900 shadow-sm">
+                                    
+									<input type="radio" var_id="9000000000" value="1-2" name="3942254149693-size" class="peer sr-only" data-option-index="0" data-option-value="1-2">
+									
+
+                                    <span class="peer-checked:border-transparent items-center flex justify-center peer-checked:bg-magenta-500 peer-checked:text-white peer-checked:hover:bg-pink-700 peer-checked:ring-2 peer-checked:ring-magenta-500 peer-checked:ring-offset-2 border-transparent pointer-events-none absolute -inset-px rounded-md" aria-hidden="true"></span>
+                                    <span class="option-value relative peer-checked:text-white">
+                                      <del class="out-of-stock-marker">1-2</del>
+                                      <div class="in-stock-marker">1-2</div>
+                                    </span>
+                                  </label>
+                                </div>
+                              
+                              <div data-variant-id="29457020616765" data-option-value="3-6" class="product-variant text-xs relative match-variant ">
+
+                                  <label data-active="ring-2 ring-magenta" class="ooption-value group relative flex items-center justify-center rounded-md border py-4 px-4 text-xs font-semibold uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 cursor-pointer bg-white text-gray-900 shadow-sm">
+                                    
+									<input type="radio" var_id="9000000000" value="3-6" name="3942254149693-size" class="peer sr-only" data-option-index="0" data-option-value="3-6">
+									
+
+                                    <span class="peer-checked:border-transparent items-center flex justify-center peer-checked:bg-magenta-500 peer-checked:text-white peer-checked:hover:bg-pink-700 peer-checked:ring-2 peer-checked:ring-magenta-500 peer-checked:ring-offset-2 border-transparent pointer-events-none absolute -inset-px rounded-md" aria-hidden="true"></span>
+                                    <span class="option-value relative peer-checked:text-white">
+                                      <del class="out-of-stock-marker">3-6</del>
+                                      <div class="in-stock-marker">3-6</div>
+                                    </span>
+                                  </label>
+                                </div>
+                              <div data-variant-id="29457020649533" data-option-value="7-10" class="product-variant text-xs relative match-variant">
+ 
+                                  <label data-active="ring-2 ring-magenta" class="ooption-value group relative flex items-center justify-center rounded-md border py-4 px-4 text-xs font-semibold uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 cursor-pointer bg-white text-gray-900 shadow-sm">
+                                    
+									<input type="radio" var_id="9000000000" value="7-10" name="3942254149693-size" class="peer sr-only" data-option-index="0" data-option-value="7-10">
+									
+
+                                    <span class="peer-checked:border-transparent items-center flex justify-center peer-checked:bg-magenta-500 peer-checked:text-white peer-checked:hover:bg-pink-700 peer-checked:ring-2 peer-checked:ring-magenta-500 peer-checked:ring-offset-2 border-transparent pointer-events-none absolute -inset-px rounded-md" aria-hidden="true"></span>
+                                    <span class="option-value relative peer-checked:text-white">
+                                      <del class="out-of-stock-marker">7-10</del>
+                                      <div class="in-stock-marker">7-10</div>
+                                    </span>
+                                  </label>
+                                </div>
+                              <div data-variant-id="29457020682301" data-option-value="11-13" class="product-variant text-xs relative match-variant">
+        
+                                  <label data-active="ring-2 ring-magenta" class="ooption-value group relative flex items-center justify-center rounded-md border py-4 px-4 text-xs font-semibold uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 cursor-pointer bg-white text-gray-900 shadow-sm">
+                                    
+									<input type="radio" var_id="9000000000" value="11-13" name="3942254149693-size" class="peer sr-only" data-option-index="0" data-option-value="11-13">
+									
+
+                                    <span class="peer-checked:border-transparent items-center flex justify-center peer-checked:bg-magenta-500 peer-checked:text-white peer-checked:hover:bg-pink-700 peer-checked:ring-2 peer-checked:ring-magenta-500 peer-checked:ring-offset-2 border-transparent pointer-events-none absolute -inset-px rounded-md" aria-hidden="true"></span>
+                                    <span class="option-value relative peer-checked:text-white">
+                                      <del class="out-of-stock-marker">11-13</del>
+                                      <div class="in-stock-marker">11-13</div>
+                                    </span>
+                                  </label>
+                                </div>   
+                            </div>
+						</div>
+                              <div class="px-4">
+                                <h3 class="my-3 flex typography typography--body-md uppercase mb-2 font-semibold size-name"> Pair 2 size (optional):
+                              </div>
+						<div id="match-found-sock-variants-2" style="display:flex; justify-content:center" class=" px-4 my-4">
+							<div class="product-variants grid grid-cols-4 gap-3 w-full">
+                              <div data-variant-id="29457021173821" data-option-value="1-2" class="product-variant text-xs relative match-variant">
+
+                                  <label data-active="ring-2 ring-magenta" class="ooption-value group relative flex items-center justify-center rounded-md border py-4 px-4 text-xs font-semibold uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 cursor-pointer bg-white text-gray-900 shadow-sm">
+                                    
+									<input type="radio" var_id="9000000000" value="1-2" name="3942254149693-size-2" class="peer sr-only" data-option-index="0" data-option-value="1-2">
+									
+
+                                    <span class="peer-checked:border-transparent items-center flex justify-center peer-checked:bg-magenta-500 peer-checked:text-white peer-checked:hover:bg-pink-700 peer-checked:ring-2 peer-checked:ring-magenta-500 peer-checked:ring-offset-2 border-transparent pointer-events-none absolute -inset-px rounded-md" aria-hidden="true"></span>
+                                    <span class="option-value relative peer-checked:text-white">
+                                      <del class="out-of-stock-marker">1-2</del>
+                                      <div class="in-stock-marker">1-2</div>
+                                    </span>
+                                  </label>
+                                </div>
+                              
+                              <div data-variant-id="29457020616765" data-option-value="3-6" class="product-variant text-xs relative match-variant ">
+
+                                  <label data-active="ring-2 ring-magenta" class="ooption-value group relative flex items-center justify-center rounded-md border py-4 px-4 text-xs font-semibold uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 cursor-pointer bg-white text-gray-900 shadow-sm">
+                                    
+									<input type="radio" var_id="9000000000" value="3-6" name="3942254149693-size-2" class="peer sr-only" data-option-index="0" data-option-value="3-6">
+									
+
+                                    <span class="peer-checked:border-transparent items-center flex justify-center peer-checked:bg-magenta-500 peer-checked:text-white peer-checked:hover:bg-pink-700 peer-checked:ring-2 peer-checked:ring-magenta-500 peer-checked:ring-offset-2 border-transparent pointer-events-none absolute -inset-px rounded-md" aria-hidden="true"></span>
+                                    <span class="option-value relative peer-checked:text-white">
+                                      <del class="out-of-stock-marker">3-6</del>
+                                      <div class="in-stock-marker">3-6</div>
+                                    </span>
+                                  </label>
+                                </div>
+                              <div data-variant-id="29457020649533" data-option-value="7-10" class="product-variant text-xs relative match-variant">
+ 
+                                  <label data-active="ring-2 ring-magenta" class="ooption-value group relative flex items-center justify-center rounded-md border py-4 px-4 text-xs font-semibold uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 cursor-pointer bg-white text-gray-900 shadow-sm">
+                                    
+									<input type="radio" var_id="9000000000" value="7-10" name="3942254149693-size-2" class="peer sr-only" data-option-index="0" data-option-value="7-10">
+									
+
+                                    <span class="peer-checked:border-transparent items-center flex justify-center peer-checked:bg-magenta-500 peer-checked:text-white peer-checked:hover:bg-pink-700 peer-checked:ring-2 peer-checked:ring-magenta-500 peer-checked:ring-offset-2 border-transparent pointer-events-none absolute -inset-px rounded-md" aria-hidden="true"></span>
+                                    <span class="option-value relative peer-checked:text-white">
+                                      <del class="out-of-stock-marker">7-10</del>
+                                      <div class="in-stock-marker">7-10</div>
+                                    </span>
+                                  </label>
+                                </div>
+                              <div data-variant-id="29457020682301" data-option-value="11-13" class="product-variant text-xs relative match-variant">
+        
+                                  <label data-active="ring-2 ring-magenta" class="ooption-value group relative flex items-center justify-center rounded-md border py-4 px-4 text-xs font-semibold uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 cursor-pointer bg-white text-gray-900 shadow-sm">
+                                    
+									<input type="radio" var_id="9000000000" value="11-13" name="3942254149693-size-2" class="peer sr-only" data-option-index="0" data-option-value="11-13">
+									
+
+                                    <span class="peer-checked:border-transparent items-center flex justify-center peer-checked:bg-magenta-500 peer-checked:text-white peer-checked:hover:bg-pink-700 peer-checked:ring-2 peer-checked:ring-magenta-500 peer-checked:ring-offset-2 border-transparent pointer-events-none absolute -inset-px rounded-md" aria-hidden="true"></span>
+                                    <span class="option-value relative peer-checked:text-white">
+                                      <del class="out-of-stock-marker">11-13</del>
+                                      <div class="in-stock-marker">11-13</div>
+                                    </span>
+                                  </label>
+                                </div>   
+                            </div>
+						</div>                              
+						<div id="match-found-sock-add-to-bundle" class="px-4">
+							<div id="add-sock-to-match" class="col-span-2 mb-4 justify-between w-full tracking-normal rounded-md uppercase btn-shadow-lg block rounded-full  border-2 border-solid relative font-semibold text-center p-4 hover:bg-magenta-700 transition-colors duration-200 pointer-events-none"> Select a Size </div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+	</div>
+</div>
+                                  <div id="match-balls-form-container">
+                                    
+                                  </div>
+	
+
+                                  		
+        <div id="match-me-final-no-matches" class="hidden px-4 text-center relative">
+				<div class="text-7xl w-full text-center py-4"> :( </div> 
+              	Sorry we couldn't find any matches 
+              	<div class="text-center mb-4"> 
+					Try again with different styles? 
+					<div id="match-me-results-back-button" class="absolute top-1 right-2 rounded-md uppercase border-2 border-solid  font-bold rounded-md">
+						<svg fill="#000000" height="20px" width="20px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 330 330" xml:space="preserve" transform="rotate(90)">
+							<g stroke-width="0"></g>
+							<g stroke-linecap="round" stroke-linejoin="round"></g>
+							<g>
+								<path d="M325.607,79.393c-5.857-5.857-15.355-5.858-21.213,0.001l-139.39,139.393L25.607,79.393 c-5.857-5.857-15.355-5.858-21.213,0.001c-5.858,5.858-5.858,15.355,0,21.213l150.004,150c2.813,2.813,6.628,4.393,10.606,4.393 s7.794-1.581,10.606-4.394l149.996-150C331.465,94.749,331.465,85.251,325.607,79.393z"></path>
+							</g>
+						</svg>
+					</div>
+					<div class="">
+						<div id="match-me-results-back-button" class="flex">
+							<div class="cursor-pointer mt-6 text-sm bg-gray-0 border border-gray-400 border-solid font-bold hover:border-color-black text-center px-5 pl-2  py-2 flex text-gray-700 uppercase rounded-lg">
+								<svg class="mr-3" fill="#000000" width="20px" height="20px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+									<g data-name="Layer 2">
+										<g data-name="arrow-ios-back">
+											<rect width="24" height="24" transform="rotate(90 12 12)" opacity="0"></rect>
+											<path d="M13.83 19a1 1 0 0 1-.78-.37l-4.83-6a1 1 0 0 1 0-1.27l5-6a1 1 0 0 1 1.54 1.28L10.29 12l4.32 5.36a1 1 0 0 1-.78 1.64z"></path>
+										</g>
+									</g>
+								</svg>
+								Go Back
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+   		  <style>
+
+#matchballs-style-tabs .selected-tab{
+    color: #fff !important;
+}
+
+#sub-left-col{
+  min-height: 225px;
+}
+#match-balls-img-container img {
+    padding: 0px 72px;
+}
+/* #sub-mobile-svg{
+  min-height: 225px;
+  width: 100% !important;
+  height: 100% ! important;
+} */
+            #match-me-final,
+  #sub-left-col,
+  #step-1-wrapper,
+  #step-2-wrapper,
+  #step-3-wrapper {
+      background: #009fe2;
+  }
+  #ub-left-col {
+    background: rgb(0 159 226 / var(--tw-bg-opacity, 1));
+  }
+  #sub-left-col::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 35%; /* Adjust width as needed */
+    height: 100%;
+    background-image: url('https://cdn.shopify.com/s/files/1/0353/7249/files/Models-1_1917304a-b0e7-43af-bb2e-d2e4a349e15f.png?v=1737476534');
+    background-size: contain; /* Ensure the image is contained within the element */
+    background-position: left bottom; /* Center the image on the left side */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    z-index: 1;
+  }
+  
+  #sub-left-col::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 35%; /* Adjust width as needed */
+    height: 100%;
+    background-image: url('https://cdn.shopify.com/s/files/1/0353/7249/files/Models-2_15971097-7a70-4941-88ff-de8b61fdc98e.png?v=1737476535');
+    background-size: contain; /* Ensure the image is contained within the element */
+    background-position: right bottom; /* Center the image on the right side */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    z-index: 1;
+  }   
+@media (max-width: 768px) {            
+  
+  #step-1-wrapper,
+  #step-2-wrapper,
+  #step-3-wrapper {
+      background: #fff;
+  }
+  #match-balls-img-container img {
+      padding: 0px 0px;
+  }
+  
+  #sub-left-col::before {
+    width: 30%; /* Adjust width as needed */
+  }
+  
+  #sub-left-col::after {
+    width: 30%; /* Adjust width as needed */
+  }
+  #sub-left-col {
+      padding-top:30px;
+  }
+  #match-balls-img-container {
+    height: 30vh;
+}
+}
+@media (max-width: 400px) {
+  #sub-left-col::before {
+    width: 30%; /* Adjust width as needed */
+  }
+  
+  #sub-left-col::after {
+    width: 30%; /* Adjust width as needed */
+  }
+  #sub-left-col {
+      padding-top:30px;
+  }
+  #match-balls-img-container {
+    height: 35vh;
+  }
+}  
+@media (min-width: 768px) {
+  .stick-to-bottom{
+    position: sticky;
+    top: 190px;
+    height: calc(100vh - 190px)
+  }
+}
+
+/* Small screens (sm) - 640px and up */
+@media (min-width: 640px) {
+}
+
+/* Medium screens (md) - 768px and up */
+@media (min-width: 768px) {
+  /* Your custom styles here */
+    #sub-left-col::before {
+      width: 50%; /* Adjust width as needed */
+    }
+    
+    #sub-left-col::after {
+      width: 50%; /* Adjust width as needed */
+    }
+}
+
+/* Large screens (lg) - 1024px and up */
+@media (min-width: 1024px) {
+  /* Your custom styles here */
+    #sub-left-col::before {
+      width: 50%; /* Adjust width as needed */
+    }
+    
+    #sub-left-col::after {
+      width: 50%; /* Adjust width as needed */
+    }
+}
+
+/* Extra large screens (xl) - 1280px and up */
+@media (min-width: 1280px) {
+  /* Your custom styles here */
+    #sub-left-col::before {
+      width: 50%; /* Adjust width as needed */
+    }
+    
+    #sub-left-col::after {
+      width: 50%; /* Adjust width as needed */
+    }
+}
+
+/* 2x extra large screens (2xl) - 1536px and up */
+@media (min-width: 1536px) {
+  /* Your custom styles here */
+      #sub-left-col::before {
+      width: 35%; /* Adjust width as needed */
+    }
+    
+    #sub-left-col::after {
+      width: 35%; /* Adjust width as needed */
+    }
+}
+
+/* 3x extra large screens (3xl) - 1920px and up */
+@media (min-width: 1920px) {
+  /* Your custom styles here */
+    #sub-left-col::before {
+      width: 30%; /* Adjust width as needed */
+    }
+    
+    #sub-left-col::after {
+      width: 30%; /* Adjust width as needed */
+    }
+}
+
+            
+
+</style>

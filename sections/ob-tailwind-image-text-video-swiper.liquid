@@ -1,0 +1,2102 @@
+{% include 'ob-include-set-current-country' %}
+{% include 'ob-include-country-ok-to-proceed', thingObj:section %}
+<!--sections/tailwind-image-text-video-swiper.liquid-->
+
+{% assign current_handle = '' %}
+
+{% case template.name %}
+{% when 'page' %}
+{% assign current_handle = page.handle %}
+{% when 'blog' %}
+{% assign current_handle = blog.handle %}
+{% when 'article' %}
+{% assign current_handle = blog.handle %}
+{% when 'collection' %}
+{% assign current_handle = collection.handle %}
+{% when 'product' %}
+{% assign current_handle = product.handle %}
+{% endcase %}
+
+
+
+
+
+
+
+
+
+{%- capture slider-options-default -%}{"slidesPerView":{{ section.settings.slides_per_view_mobile }},"spaceBetween":{{ section.settings.space_between_mobile }},"effect":"{{ section.settings.effect }}","allowTouchMove":true,{% if section.settings.autoplay_checked == true %}"autoplay":{"delay":{{ section.settings.autoplay_delay }},"disableOnInteraction":false,"stopOnLastSlide":{{ section.settings.autoplay_loop_checked }}},{% endif %}{% if section.settings.pagination_checked %}"pagination":{"el":".swiper-pagination-{{ section.id }}","clickable":true},{% endif %}{% if section.settings.navigation_checked %}"navigation":{"nextEl": ".{{ section.id }}-{{ swiper }}-button-next","prevEl": ".{{ section.id }}-{{ swiper }}-button-prev"},{% endif %}{% if section.settings.scrollbar_checked %}"scrollbar":{"el": ".swiper-scrollbar","hide": true},{% endif %}"breakpoints":{"640":{"slidesPerView":{{ section.settings.slides_per_view_640 }},"spaceBetween":{{ section.settings.space_between_640 }}},"768":{"slidesPerView":{{ section.settings.slides_per_view_768 }},"spaceBetween":{{ section.settings.space_between_768}}},"1024":{"slidesPerView":{{ section.settings.slides_per_view_1024 }},"spaceBetween":{{ section.settings.space_between_1024}}},"1280":{"slidesPerView":{{ section.settings.slides_per_view_1280 }},"spaceBetween":{{ section.settings.space_between_1280 }}}}}{%- endcapture -%}
+{% assign swiper_class = 'multiblock' %}
+{% if section.settings.is_swiper == 'true' %}
+	{% assign swiper_class = 'swiper' %}
+
+{% else %}
+	{% assign slider-options-default = '' %}
+{% endif %}
+
+
+{% if country_ok_to_proceed == 'yes' %}
+  
+<div class="{{ section.settings.section_wrapper_classes }} relative">
+
+  
+    {% for block in section.blocks %}
+  {% if block.type == 'double-cta'  %}
+
+
+
+  <style>
+    .index-10 {
+      z-index: 10;
+    }
+
+    .w{
+      width: 100%;
+    }
+    
+    .flex-direction{
+      flex-direction: column;
+    }
+
+    .reverse {
+      justify-content: center;
+      align-items: end;
+    }
+
+     .dbl-cta-title{
+    {% if block.settings.title-text-size != blank %} font-size: {{ block.settings.title-text-size }}px ;{% endif %}
+    {% if block.settings.title-color != blank %} color: {{ block.settings.title-color }} ;{% endif %} 
+    }
+
+    .dbl-cta-paragraph{
+         {% if block.settings.paragragh-font-size != blank %} font-size: {{ block.settings.paragragh-font-size }}px ;{% endif %}
+         {% if block.settings.paragraph-color != blank %} color: {{ block.settings.paragraph-color }} ;{% endif %} 
+       }
+
+    @media (min-width: 768px) {
+      
+       .dbl-cta-title{
+        {% if block.settings.desktop-title-text-size != blank %} font-size: {{ block.settings.desktop-title-text-size }}px ;{% endif %}
+      }
+
+       .dbl-cta-paragraph{
+         {% if block.settings.desktop-paragraph-text-size != blank %} font-size: {{ block.settings.desktop-paragraph-text-size }}px ;{% endif %}
+       }
+      
+      .flex-direction{
+      flex-direction: row;
+      justify-content: start;
+    }
+      .reverse {
+        flex-direction: row-reverse;
+        justify-content: {{ block.settings.position }};
+        align-items: center;
+        ;
+      }
+
+       .w{
+      width: 80%;
+      min-width: 367px;
+    }
+    }
+
+        @media (min-width: 1024px) {
+      .max-w{
+        width: 510px;
+      }
+    }
+     </style>
+
+    {% capture btn-one-styles %} 
+     {% if block.settings.btn-one-bg-color != blank %} background-color: {{ block.settings.btn-one-bg-color }};{% endif %}
+     {% if block.settings.btn-one-color != blank %} color: {{ block.settings.btn-one-color }} ;{% endif %}
+    {% endcapture %}
+    {% capture btn-two-styles %} 
+     {% if block.settings.btn-two-bg-color != blank %} background-color: {{ block.settings.btn-two-bg-color }};{% endif %}
+     {% if block.settings.btn-two-color != blank %} color: {{ block.settings.btn-two-color }};{% endif %}
+    {% endcapture %}
+
+  <div class="absolute w-full h-full flex justify-end md: md:justify-center  p-5 md:p-20 index-10 items-center reverse lg:p-30 img-overlay" style="z-index:10;">
+    <div class="w-full md:w-1/2 md:p-5">
+            
+          <div class="w-full">
+                <h2 class="text-{{ block.settings.title-text-postion }} {{ block.settings.title-text-classes }}">{{ block.settings.title }}</h2>
+              <p class="dbl-cta-paragraph pb-3 text-{{ block.settings.paragraph-text-postion }} {{ block.settings.p-classes }}">{{ block.settings.paragragh }}</p>
+          </div>
+        <div class=" flex gap-3 {% if block.settings.btn-one-text == "" or block.settings.btn-two-text == "" %} justify-{{ block.settings.button-postion }}{% else %} w max-w flex-direction {% endif %}">
+        {% if block.settings.btn-one-text != "" %}
+           <div class="double-cta double-cta-{{ block.settings.btn-one-text | replace: " ", "-" }} md:w-1/2 w-full">
+               <a href="{{ block.settings.btn-1-url }}" style="{{ btn-one-styles }}" class="wcc {{ block.settings.btn-one-classes }}">{{ block.settings.btn-one-text }} </a>
+           </div>
+        {% endif %}
+        {% if block.settings.btn-two-text != "" %}
+           <div class="double-cta double-cta-{{ block.settings.btn-two-text | replace: " ", "-" }} md:w-1/2 w-full">
+               <a href="{{ block.settings.btn-2-url }}" style="{{ btn-two-styles }}" class="wcc {{ block.settings.btn-two-classes }}">{{ block.settings.btn-two-text }}</a>
+           </div>
+        {% endif %}
+        </div>
+      
+    </div>
+  </div>
+
+  {% endif %}
+{%  endfor %}
+
+
+
+
+             
+  {% if section.settings.title != blank %}
+  <div class="{{ section.settings.text_wrap }}">
+      {% if section.settings.title != blank %}
+      <h3 class="{{ section.settings.text_header_classes }}">{{ section.settings.title }}</h3>
+      {% endif %}
+      {% if section.settings.text_description != blank %}               
+      <p class="{{ section.settings.text_description }}">{{ section.settings.description }}</p>
+      {% endif %}
+  </div>
+  {% endif %}
+  <div id="tailwind_{{ swiper_class }}_{{ section.id }}" class="{{ swiper_class }} relative overflow-hidden tailwind-{{ swiper_class }} {{ section.settings.swiper_classes }}" data-options='{% if section.settings.custom_options != blank and section.settings.custom_options contains "{" %}{{section.settings.custom_options}}{% else %}{{ slider-options-default }}{% endif %}'>
+    <!-- Additional required wrapper -->
+    <div class="{{ swiper_class }}-wrapper {{ section.settings.swiper_wrapper_classes }}">
+      {%  assign slide_count = 0 %}
+      {% for block in section.blocks %}
+
+  {% assign timed_continue = "true" %}
+
+{% if block.type == "Timed" %}
+  {% assign timed_continue = "false" %}
+{% assign current_year = "now" | date: "%Y" %}
+{% assign current_month = "now" | date: "%m" %}
+{% assign current_day = "now" | date: "%d" %}
+{% assign current_hour = "now" | date: "%H" %}
+{% assign current_min = "now" | date: "%M" %}
+
+{% assign active_year = block.settings.countdown_yyyy %}
+{% assign active_month = block.settings.countdown_mm %}
+{% assign active_day = block.settings.countdown_dd %}
+
+{% assign expiry_year = block.settings.e_countdown_yyyy %}
+{% assign expiry_month = block.settings.e_countdown_mm %}
+{% assign expiry_day = block.settings.e_countdown_dd %}
+
+{% assign show_banner = false %}
+{% if block.settings.countdown_yyyy %}
+  {% comment %} Check if current date is after the go live date {% endcomment %}
+  {% if current_year > active_year %}
+    {% assign show_banner = true %}
+  {% elsif current_year == active_year %}
+    {% if current_month > active_month %}
+      {% assign show_banner = true %}
+    {% elsif current_month == active_month %}
+      {% if current_day >= active_day %}
+        {% assign show_banner = true %}
+      {% endif %}
+    {% endif %}
+  {% endif %}
+{% endif %}
+
+{% assign show_banner_1 = true %}
+{% if block.settings.e_countdown_yyyy %}
+  {% comment %} Check if current date is after the expiry date {% endcomment %}
+  {% if current_year > expiry_year %}
+    {% assign show_banner_1 = false %}
+  {% elsif current_year == expiry_year %}
+    {% if current_month > expiry_month %}
+      {% assign show_banner_1 = false %}
+    {% elsif current_month == expiry_month %}
+      {% if current_day > expiry_day %}
+        {% assign show_banner_1 = false %}
+      {% endif %}
+    {% endif %}
+  {% endif %}
+{% endif %}
+
+{% if show_banner and show_banner_1 %}
+  {% assign timed_continue = "true" %}
+{% endif %}
+        {% endif %}
+		
+        {% include 'ob-include-country-ok-to-proceed', thingObj:block %}      
+
+        {% if block.settings.block_active and timed_continue == "true" %}
+          {%  assign slide_count = slide_count | plus:1 %}
+          {%  assign preload = false %}
+         
+          {% if slide_count == 1 %}
+                {% assign preload = true %}
+          {% else %}
+            {% assign preload = false %}
+          {% endif %}
+          {% if template.name == 'collection' or template.name == 'page' %}
+
+              {% assign block_handles_arr = block.settings.url_handle | downcase | replace: ' ', '' | split: ',' %}
+              {% assign block_not_handles_arr = block.settings.not_url_handle | downcase | replace: ' ', '' | split: ',' %}
+              {% if block_handles_arr contains '*' %}
+              {% assign handle_ok_to_proceed = 'yes' %}
+              {% endif%}
+              {% if block_handles_arr contains current_handle %}
+              {% assign handle_ok_to_proceed = 'yes' %}
+              {% endif%}
+              {% if block_not_handles_arr contains current_handle   %}
+              {% assign handle_ok_to_proceed = 'no' %}
+              {% endif %}
+
+          {% else %}
+              {% assign handle_ok_to_proceed = 'yes' %}
+          {% endif %}        
+
+          {% if handle_ok_to_proceed == 'yes' and country_ok_to_proceed == 'yes' %}
+
+ 
+            
+              {% if block.type == 'multi_use_block' %}
+                          <div class="{{ swiper_class }}-slide">
+                <div id="block_{{section.id}}_{{block.id}}" class="{{ block.settings.block_wrap }} relative">
+                  {% if block.settings.block_link != blank %}
+                  <a class="absolute w-full h-full inset-0 z-100" href="{{ block.settings.block_link }}"></a>
+                  {% endif %}
+                  <div class="{{ block.settings.text_wrap }}">
+                    {% if block.settings.block_title != blank %}
+                    <h3 class="{{ block.settings.text_header_classes }}">{{ block.settings.block_title }}</h3>
+                    {% endif %}
+                    {% if block.settings.text_description != blank %}               
+                    <p class="{{ block.settings.text_description }}">{{ block.settings.description }}</p>
+                    {% endif %}
+                    {% if block.settings.button_text != blank %}
+                    <div class="{{ block.settings.text_button }}"><a class="{{ block.settings.link_classes }}" href="{{ block.settings.button_link }}">{{ block.settings.button_text }}</a></div>
+                    {% endif %}
+                  </div>
+                  {% if block.settings.block_link != blank %}
+                  <div class="h-full w-full {{ block.settings.link_classes }}" href="{{ block.settings.block_link }}"></div>
+                  {% endif %}
+                  {% if block.settings.block_image_desktop != blank %} 
+
+                    {% assign id = block.id %}
+                    {% assign section_id = id | append: '-' | append: section.id %}
+                    {% assign slide_image_desktop = block.settings.block_image_desktop %}
+                    {% assign slide_image_desktop_classes = block.settings.block_image_desktop_class %}
+                    {% render 'ob-lazy-image', image: slide_image_desktop, preload:preload, id: section_id, max_width:2400, class: slide_image_desktop_classes,  sizes: '100vw' %}
+                    {% if block.type == 'double-cta'  %}
+                      
+
+                    {% endif %}
+                  <div></div>
+                  {% endif %}
+
+                  {% if block.settings.block_image_mobile != blank %}
+
+                    {% assign id = block.id %}
+                    {% assign section_id = id | append: '-' | append: section.id %}
+                    {% assign slide_image_mobile = block.settings.block_image_mobile %}
+                    {% assign slide_image_mobile_classes = block.settings.block_image_mobile_class %}
+                    {% render 'ob-lazy-image', image: slide_image_mobile, preload:preload, id: section_id, max_width:640, class: slide_image_mobile_classes,  sizes: '100vw' %}              
+
+                  {% endif %}
+                </div> 
+
+
+
+{% elsif block.type == 'Timed' %}
+                        <div class="{{ swiper_class }}-slide">
+                <div id="block_{{section.id}}_{{block.id}}" class="{{ block.settings.block_wrap }}">
+                  <div class="homepage-banner-cover homepage-banner-{{ block.settings.block_link | replace: 'https://www.myoddballs.com/pages/', '' }}">
+<img class="desktop-home-page-banner-cover hidden md:block w-full" src="data:image/gif;base64,R0lGODlhgAe8AvcAAAAAAAAAMwAAZgAAmQAAzAAA/wArAAArMwArZgArmQArzAAr/wBVAABVMwBVZgBVmQBVzABV/wCAAACAMwCAZgCAmQCAzACA/wCqAACqMwCqZgCqmQCqzACq/wDVAADVMwDVZgDVmQDVzADV/wD/AAD/MwD/ZgD/mQD/zAD//zMAADMAMzMAZjMAmTMAzDMA/zMrADMrMzMrZjMrmTMrzDMr/zNVADNVMzNVZjNVmTNVzDNV/zOAADOAMzOAZjOAmTOAzDOA/zOqADOqMzOqZjOqmTOqzDOq/zPVADPVMzPVZjPVmTPVzDPV/zP/ADP/MzP/ZjP/mTP/zDP//2YAAGYAM2YAZmYAmWYAzGYA/2YrAGYrM2YrZmYrmWYrzGYr/2ZVAGZVM2ZVZmZVmWZVzGZV/2aAAGaAM2aAZmaAmWaAzGaA/2aqAGaqM2aqZmaqmWaqzGaq/2bVAGbVM2bVZmbVmWbVzGbV/2b/AGb/M2b/Zmb/mWb/zGb//5kAAJkAM5kAZpkAmZkAzJkA/5krAJkrM5krZpkrmZkrzJkr/5lVAJlVM5lVZplVmZlVzJlV/5mAAJmAM5mAZpmAmZmAzJmA/5mqAJmqM5mqZpmqmZmqzJmq/5nVAJnVM5nVZpnVmZnVzJnV/5n/AJn/M5n/Zpn/mZn/zJn//8wAAMwAM8wAZswAmcwAzMwA/8wrAMwrM8wrZswrmcwrzMwr/8xVAMxVM8xVZsxVmcxVzMxV/8yAAMyAM8yAZsyAmcyAzMyA/8yqAMyqM8yqZsyqmcyqzMyq/8zVAMzVM8zVZszVmczVzMzV/8z/AMz/M8z/Zsz/mcz/zMz///8AAP8AM/8AZv8Amf8AzP8A//8rAP8rM/8rZv8rmf8rzP8r//9VAP9VM/9VZv9Vmf9VzP9V//+AAP+AM/+AZv+Amf+AzP+A//+qAP+qM/+qZv+qmf+qzP+q///VAP/VM//VZv/Vmf/VzP/V////AP//M///Zv//mf//zP///wAAAAAAAAAAAAAAACH5BAEAAPwALAAAAACAB7wCAAirAAEIHEiwoMGDCBMqXMiwocOHECNKnEixosWLGDNq3Mixo8ePIEOKHEmypMmTKFOqXMmypcuXMGPKnEmzps2bOHPq3Mmzp8+fQIMKHUq0qNGjSJMqXcq0qdOnUKNKnUq1qtWrWLNq3cq1q9evYMOKHUu2rNmzaNOqXcu2rdu3cOPKnUu3rt27ePPq3cu3r9+/gAMLHky4sOHDiBMrXsy4sePHkCNLnky5suXLRpgza97MubPnz6BDix5NurTp06hTq17NurXr17Bjy55Nu7bt27hz697Nu7fv38CDCx9OvLjx48iTK1/OvLnz59CjS59Ovbo39evYs2vfzr279+/gw4sfT768+fPo06tfz769+/fw48ufT7++/fv48+vfz7+///8ABijggAQWaDTggQgmqOCCDDbo4IMQRijhhBRWaOGFGGao4YYcdujhhyCGKOKIJJZo4okopqjiiiy26OKLKzDGKOOMNNZo44045qjjjjz26OOPQAYp5JBEFmnkkUgmqeSSTDbp5JNQRikq5ZRUVmnllVhmqeWWXHbp5ZdghinmmGSWaeaZaKap5ppstunmm3DGKeecJXTWaeedeOap55589unnn4AGKuighBZq6KGIJqrooow26uijkEYiKumklFZq6aWYZqrpppx26umnoIYq6qiklmrqqaimquqqrCC26uqrsMYq66y01mrrrbjmquuuvPbq66/ABivssMQWayDsscgmq+yyzDbr7LPQRivttNRWa+212Gar7bbcduvttxzghivuuOSWa+656Kar7rrstuvuu/DGK++89NZrHe+9+Oar77789uvvvwAHLPDABBds8MEIJ6zwwgw3GuzwwxBHLPHEFFds8cUYZ6zxxhx37PHHIIcsG/LIJJds8skop6zyyiy37PLLMMcs88w012zzzRk456zzzjz37PPPQAct9NBEF2300UgnrfTSF0w37fTTUEct9dRUV2311VhnrfXWXHftGPXXYIct9thkl2322WinrfbabLft9ttwxxct99x012333XjnrffefPft99+ABy744BaEF2744YgnrvjijDfu+OOQRy755JRXFW755ZhnrvnmnHfu+eeghy766KSXbhb66ainrvrqrLfu+uuwxy777LTXbvvtFLjnrvvuvPfu++/ABy/88MQXb/zxFMgnr/zyzDfv/PPQRy/99NRXb/31FNhnr/323Hfv/ffghy/++OSXb/75Euinr/767Lfv/vvwxy///PTXbxT//fjnr//+/Pfv//8ADKAAB0jAAhQa8IAITKACF8jABjrwgRCMoAQnSBTBClrwghjMoAY3yMEOevCDIAyhCBNHSMISmvCEKEyhClfIwha68IUwE4yhDGdIwxra8IY4zKEOd8jDHvoT8IdADKIQh0jEIhrxiEhMohKXyBTEJjrxiVCMohSnSMUqWvGKWMyiFhK3yMUuevGLYAyjGMdIxjKa8YwRaEyjGtfIxja68Y1wjKMc50gSxzra8Y54zKMe98jHPvrxj4AMEqQgB0nIQhrykIhMpCIXychGOhHykZCMpCQnSclKWvKSmMykJhI3yclOevKToAylKEdJylKa8pQQqEylKlfJyla68pWwjKUsZxFJy1ra8pa4zKUud8nLXvrylxDADKYwh0nMYhrzmMhMpjKXEcnMZjrzmdCMpjSnSc1qWvOaD9jMpja3yc1uevOb4AynOBDHSc5ymvOc6EynOtfJzna6D/Od8IynPOdJz3ra8574zA+nPvfJz376858ADahAB0oR0IIa9KAITahCF8rQhjr0oRAPjahEJ0rRilr0ohjNqEY3D8rRjnr0oyANqUhHStKSmg70pChNqUpXytKWuvSlMA+NqUxnStOa2vSmOM2pTncPytOe+vSnQA2qUIdK1KIaDvWoSE2qUpfK1KY69alQDo2qVKdK1apa9apYzapWD7fK1a569atgDatYx0rWsg6a9axoTata18rWtrr1rQ1wjatc50rXutr1rnjNDqte98rXvvr1r4ANrGAHDkvYwhr2sIhNrGIXy9jGDjr2sZCNrGQnS9nKWvayDZjNrGY3y9nOevazoA0NrWhHS9rSmva0qE2tag1Xy9rWuva1sI2tbGdLDdva2va2uM2tbnfL294O+va3wA2ucIdL3OIa97gMyE2ucpfL3OY697nQDI2udKdL3epa97rYzQ6udrfL3e5697vgDa94xwxL3vKa97zoTa9618sN3va6973wja9850vf+gza9774za9+98vf/voN978ADrCAB0zgAhv4wAwITrCCF8zgBjv4wRAMjrCEJ0zhClv4whjODbCGN8zhDnv4wyAOsYgLR0ziEpv4xChOsYoMV8ziFrv4xTCOsYxnDEzjGtv4xjjOsY53zAvjHvv4x0AOspCHTA3kIhv5yEhOspKXzOQmCzv5yVCOspSnTOUqDFv5yljOspa3zOUuewv5y2AOs5jHTOYymwv5zGhOs5rXzOY2uwv5zXCOs5znTOc62w35znjOs573zOc++/nPC4AOtKAHTehCG/rQC4hOtKIXzehGO/rRC5COtKQnTelKW/rSC5jOtKY3zelOe/rTC6AOtahHTepSm/rUC6hOtapXzepWu/rVC7COtaxnTeta2/rWC7jOta53zete+/rXCcAOtrCHTexiGwv72MhOtrKXzexmOwv72dCOtrSnTe1qWwv72tjOtra3ze1uewr72+AOt7jHTe5yC5v73OhOt7rXze52Cbv73fCOt7znTQvvetv73vjOt773zQrvfvv73wAPuMAHC07wghv84AhPuMIXCs7whjv84RCPuMQLJ07xilv84hjPuMYJN87xjnv84yAPCrnIR07ykpv85CgLT7nKV87ylrv85TAKj7nMZ07zmtv85gk4z7nOd87znvsK/OdAD7rQh070ogsb/ehIT7rSl870pgk7/elQj7rUp04K9apb/epYz7rWtwrO9a57/etgD7vYCsdO9rKb/ewUCQgAOw==" alt="Homepage Banner" />  
+<img class="mobile-home-page-banner-cover md:hidden w-full" src="data:image/gif;base64,R0lGODlhhAPQAnAAACH5BAEAAPwALAAAAACEA9AChwAAAAAAMwAAZgAAmQAAzAAA/wArAAArMwArZgArmQArzAAr/wBVAABVMwBVZgBVmQBVzABV/wCAAACAMwCAZgCAmQCAzACA/wCqAACqMwCqZgCqmQCqzACq/wDVAADVMwDVZgDVmQDVzADV/wD/AAD/MwD/ZgD/mQD/zAD//zMAADMAMzMAZjMAmTMAzDMA/zMrADMrMzMrZjMrmTMrzDMr/zNVADNVMzNVZjNVmTNVzDNV/zOAADOAMzOAZjOAmTOAzDOA/zOqADOqMzOqZjOqmTOqzDOq/zPVADPVMzPVZjPVmTPVzDPV/zP/ADP/MzP/ZjP/mTP/zDP//2YAAGYAM2YAZmYAmWYAzGYA/2YrAGYrM2YrZmYrmWYrzGYr/2ZVAGZVM2ZVZmZVmWZVzGZV/2aAAGaAM2aAZmaAmWaAzGaA/2aqAGaqM2aqZmaqmWaqzGaq/2bVAGbVM2bVZmbVmWbVzGbV/2b/AGb/M2b/Zmb/mWb/zGb//5kAAJkAM5kAZpkAmZkAzJkA/5krAJkrM5krZpkrmZkrzJkr/5lVAJlVM5lVZplVmZlVzJlV/5mAAJmAM5mAZpmAmZmAzJmA/5mqAJmqM5mqZpmqmZmqzJmq/5nVAJnVM5nVZpnVmZnVzJnV/5n/AJn/M5n/Zpn/mZn/zJn//8wAAMwAM8wAZswAmcwAzMwA/8wrAMwrM8wrZswrmcwrzMwr/8xVAMxVM8xVZsxVmcxVzMxV/8yAAMyAM8yAZsyAmcyAzMyA/8yqAMyqM8yqZsyqmcyqzMyq/8zVAMzVM8zVZszVmczVzMzV/8z/AMz/M8z/Zsz/mcz/zMz///8AAP8AM/8AZv8Amf8AzP8A//8rAP8rM/8rZv8rmf8rzP8r//9VAP9VM/9VZv9Vmf9VzP9V//+AAP+AM/+AZv+Amf+AzP+A//+qAP+qM/+qZv+qmf+qzP+q///VAP/VM//VZv/Vmf/VzP/V////AP//M///Zv//mf//zP///wAAAAAAAAAAAAAAAAisAAEIHEiwoMGDCBMqXMiwocOHECNKnEixosWLGDNq3Mixo8ePIEOKHEmypMmTKFOqXMmypcuXMGPKnEmzps2bOHPq3Mmzp8+fQIMKHUq0qNGjSJMqXcq0qdOnUKNKnUq1qtWrWLNq3cq1q9evYMOKHUu2rNmzaNOqXcu2rdu3cOPKnUu3rt27ePPq3cu3r9+/gAMLHky4sOHDiBMrXsy4sePHkCNLnky5suXLmEcza97MubPnz6BDix5NurTp06hTq17NurXr17Bjy55Nu7bt27hz697Nu7fv38CDCx9OvLjx48iTK1/OvLnz59CjS59Ovbr16zjYs2vfzr279+/gw4sfT768+fPo06tfz769+/fw48ufT7++/fv48+vfz7+///8ABijggAQWaOCBCDMmqOCCDDbo4IMQRijhhBRWaOGFGGao4YYcdujhhyCGKOKIJJZo4okopqjiiiy26OKLMMYtKOOMNNZo44045qjjjjz26OOPQAYp5JBEFmnkkUgmqeSSTDbp5JNQRinllFRWKWnllVhmqeWWXHbp5ZdghinmmGSWaeaZaKap5ppstunmm3DGKeecdNZpJuedeOap55589unnn4AGKuighBZq6KGIJqrooow26uijkEYq6aSUI1Zq6aWYZqrpppx26umnoIYq6qiklmrqqaimquqqrLbq6quwIMYq66y01mrrrbjmquuuvPbq66/ABivssMQWa+yxyCarIOyyzDbr7LPQRivttNRWa+212Gar7bbcduvtt+CGK+64HOSWa+656Kar7rrstuvuu/DGK++89NZr77345qsd77789uvvvwAHLPDABBds8MEIJ6zwwgw37PDDEEccLPHEFFds8cUYZ6zxxhx37PHHIIcs8sgkl2zyyRkop6zyyiy37PLLMMcs88w012zzzTjnrPPOGTz37PPPQAct9NBEF2300UgnrfTSTDft9NMZUEct9dRUV2311VhnrfXWXHft9ddghy322Bdkl2322WinrfbabLft9ttwxy333HTXbRf33XjnrffefPft99+ABy744IQXbvjhiBYnrvjijDfu+OOQRy755JRXbvnlmGeuFvnmnHfu+eeghy766KSXbvrpqKeu+uoVrLfu+uuwxy777LTXbvvtuOeu++68FPfu++/ABy/88MQXb/zxyCev/PLMFTfv/PPQRy/99NRXb/312Gev/fbcdxPv/ffghy/++OSXb/756Kev/vrsFLfv/vvwxy///PTXb//9+Oev//78FPfv//8ADKAAB0jAAhrwgAhMoAIXFcjABjrwgRCMoAQnSMEKWvCCGMygBhM3yMEOevCDIAyhCEdIwhKa8IQoFUyhClfIwha68IUwjKEMZ0jDGtrwhhM4zKEOd8jDHvrwh0AMohCHSMQiExrxiEhMohKXyMQmOvGJUIyiFKcSSMUqWvGKWMyiFrfIxS568YtgEwyjGMdIxjKa8YxoTKMa18jGNroS8Y1wjKMc50jHOtrxjnjMox73EsjHPvrxj4AMpCAHSchCGvKQiBJMpCIXychGOvKRkIykJCdJyUoQWvKSmMykJjfJyU568pOgDBKlKEdJylKa8pSoTKUqV8nKVroR8pWwjKUsZ0nLWtrylrjMpS4Qd8nLXvryl8AMpjCHScxiGhHzmMhMpjKXycxmOvOZ0IymNBCnSc1qWvOa2MymNrfJzW56EfOb4AynOMdJznKa85zoTKc6ENfJzna6853wjKc850nPetoP8574zKc+98nPfvrznwAND6hAB0rQghr0oAhNqEIXyhHQhjr0oRCNqEQnStGKWvSiGA/NqEY3ytGOevSjIA2pSEcPStKSmvSkKE2pSlfK0pa6D/SlMI2pTGdK05ra9KY4zQ6pTnfK05769KdADapQhw9K1KIa9ahITapSl8rUpjoP9alQjapUp0rVqlr1qljNDqpWt8rVrnr1q2ANq1jHDkrWspr1rGhNq1rXyta2Cbr1rXCN60UDAgA7" alt="Homepage Banner" />
+                </div>
+                  {% if block.settings.block_link != blank %}
+                  <a class="h-full w-full absolute inset-0 cursor-pointer z-100 {{ block.settings.link_classes }}" href="{{ block.settings.block_link }}"></a>
+                  {% endif %}
+                  <div class="absolute w-full h-full inset-0">
+                  {% if block.settings.block_image_desktop != blank %}
+
+                    {% assign id = block.id %}
+                    {% assign section_id = id | append: '-' | append: section.id %}
+                    {% assign slide_image_desktop = block.settings.block_image_desktop %}
+                    {% assign slide_image_desktop_classes = block.settings.block_image_desktop_class %}
+                    {% render 'ob-lazy-image', image: slide_image_desktop, preload:preload, id: section_id, max_width:2400, class: slide_image_desktop_classes,  sizes: '100vw' %}
+
+                  {% endif %}
+                  {% if block.settings.block_image_mobile != blank %}
+
+                    {% assign id = block.id %}
+                    {% assign section_id = id | append: '-' | append: section.id %}
+                    {% assign slide_image_mobile = block.settings.block_image_mobile %}
+                    {% assign slide_image_mobile_classes = block.settings.block_image_mobile_class %}
+                    {% render 'ob-lazy-image', image: slide_image_mobile, preload:preload, id: section_id, max_width:640, class: slide_image_mobile_classes,  sizes: '100vw' %}
+
+                  {% endif %}
+                </div>
+                  {% if block.settings.block_video_desktop != blank and block.settings.block_video_mobile != blank %}    
+                  <div class="video-block h-full w-full absolute inset-0 {{ block.settings.video_wrap }}" data-src-mobile="{{ block.settings.block_video_mobile | file_url }}" data-src="{{ block.settings.block_video_desktop | file_url }}"> 
+                    <div class="fluid-width-video-wrapper h-full w-full absolute inset-0">
+                      {% if block.settings.block_video_desktop contains '.json' %}
+                        <lottie-player loading="lazy" src="{{ block.settings.block_video_desktop | file_url }}"  background="transparent"  speed="1"  style="width: 100%"  loop autoplay></lottie-player>
+                      {% else %}
+                        <video loading="lazy" class="object-cover h-full w-full" src=""><source src="" type="video/mp4"></video>    
+                      {% endif %}
+                    </div>
+                  </div>
+                  {% endif %}
+                  <div class="{{ block.settings.svg_wrap }}"> <!-- svg -->
+                   {% if block.settings.block_svg_desktop != blank %}
+                    <img loading="lazy" class="{{ block.settings.block_svg_desktop_class }} {% if block.settings.block_svg_desktop_2 != blank %} shippingBannerA {% endif %}" src="{{ block.settings.block_svg_desktop | file_url }}" alt="desktop banner svg" hello="hello {{ block.settings.block_svg_desktop_2  }}">
+                    {% endif %}
+                    {% if block.settings.block_svg_mobile != blank %}
+                    <img loading="lazy" class="{{ block.settings.block_svg_mobile_class }} {% if block.settings.block_svg_desktop_2 != blank %} shippingBannerA {% endif %}" src="{{ block.settings.block_svg_mobile | file_url }}" alt="mobile banner svg" hello="hello {{ block.settings.block_svg_mobile_2  }}">                       
+                    {% endif %}        
+                    {% if block.settings.block_svg_desktop_2 != blank %}
+                    <img loading="lazy" class="{{ block.settings.block_svg_desktop_class }} shippingBannerB" src="{{ block.settings.block_svg_desktop_2 | file_url }}" alt="desktop banner svg">
+                    {% endif %}
+                    {% if block.settings.block_svg_mobile_2 != blank %}
+                    <img loading="lazy" class="{{ block.settings.block_svg_mobile_class }} shippingBannerB" src="{{ block.settings.block_svg_mobile_2 | file_url }}" alt="mobile banner svg">                       
+                    {% endif %}        
+                  </div>
+                </div>
+                     
+
+
+                
+              {% elsif block.type == 'multi_use_image_block' %}
+                        <div class="{{ swiper_class }}-slide">
+                <div id="block_{{section.id}}_{{block.id}}" class="{{ block.settings.block_wrap }}">
+                  <div class="homepage-banner-cover homepage-banner-{{ block.settings.block_link | replace: 'https://www.myoddballs.com/pages/', '' }}">
+<img class="desktop-home-page-banner-cover hidden md:block w-full" src="data:image/gif;base64,R0lGODlhgAe8AvcAAAAAAAAAMwAAZgAAmQAAzAAA/wArAAArMwArZgArmQArzAAr/wBVAABVMwBVZgBVmQBVzABV/wCAAACAMwCAZgCAmQCAzACA/wCqAACqMwCqZgCqmQCqzACq/wDVAADVMwDVZgDVmQDVzADV/wD/AAD/MwD/ZgD/mQD/zAD//zMAADMAMzMAZjMAmTMAzDMA/zMrADMrMzMrZjMrmTMrzDMr/zNVADNVMzNVZjNVmTNVzDNV/zOAADOAMzOAZjOAmTOAzDOA/zOqADOqMzOqZjOqmTOqzDOq/zPVADPVMzPVZjPVmTPVzDPV/zP/ADP/MzP/ZjP/mTP/zDP//2YAAGYAM2YAZmYAmWYAzGYA/2YrAGYrM2YrZmYrmWYrzGYr/2ZVAGZVM2ZVZmZVmWZVzGZV/2aAAGaAM2aAZmaAmWaAzGaA/2aqAGaqM2aqZmaqmWaqzGaq/2bVAGbVM2bVZmbVmWbVzGbV/2b/AGb/M2b/Zmb/mWb/zGb//5kAAJkAM5kAZpkAmZkAzJkA/5krAJkrM5krZpkrmZkrzJkr/5lVAJlVM5lVZplVmZlVzJlV/5mAAJmAM5mAZpmAmZmAzJmA/5mqAJmqM5mqZpmqmZmqzJmq/5nVAJnVM5nVZpnVmZnVzJnV/5n/AJn/M5n/Zpn/mZn/zJn//8wAAMwAM8wAZswAmcwAzMwA/8wrAMwrM8wrZswrmcwrzMwr/8xVAMxVM8xVZsxVmcxVzMxV/8yAAMyAM8yAZsyAmcyAzMyA/8yqAMyqM8yqZsyqmcyqzMyq/8zVAMzVM8zVZszVmczVzMzV/8z/AMz/M8z/Zsz/mcz/zMz///8AAP8AM/8AZv8Amf8AzP8A//8rAP8rM/8rZv8rmf8rzP8r//9VAP9VM/9VZv9Vmf9VzP9V//+AAP+AM/+AZv+Amf+AzP+A//+qAP+qM/+qZv+qmf+qzP+q///VAP/VM//VZv/Vmf/VzP/V////AP//M///Zv//mf//zP///wAAAAAAAAAAAAAAACH5BAEAAPwALAAAAACAB7wCAAirAAEIHEiwoMGDCBMqXMiwocOHECNKnEixosWLGDNq3Mixo8ePIEOKHEmypMmTKFOqXMmypcuXMGPKnEmzps2bOHPq3Mmzp8+fQIMKHUq0qNGjSJMqXcq0qdOnUKNKnUq1qtWrWLNq3cq1q9evYMOKHUu2rNmzaNOqXcu2rdu3cOPKnUu3rt27ePPq3cu3r9+/gAMLHky4sOHDiBMrXsy4sePHkCNLnky5suXLRpgza97MubPnz6BDix5NurTp06hTq17NurXr17Bjy55Nu7bt27hz697Nu7fv38CDCx9OvLjx48iTK1/OvLnz59CjS59Ovbo39evYs2vfzr279+/gw4sfT768+fPo06tfz769+/fw48ufT7++/fv48+vfz7+///8ABijggAQWaDTggQgmqOCCDDbo4IMQRijhhBRWaOGFGGao4YYcdujhhyCGKOKIJJZo4okopqjiiiy26OKLKzDGKOOMNNZo44045qjjjjz26OOPQAYp5JBEFmnkkUgmqeSSTDbp5JNQRikq5ZRUVmnllVhmqeWWXHbp5ZdghinmmGSWaeaZaKap5ppstunmm3DGKeecJXTWaeedeOap55589unnn4AGKuighBZq6KGIJqrooow26uijkEYiKumklFZq6aWYZqrpppx26umnoIYq6qiklmrqqaimquqqrCC26uqrsMYq66y01mrrrbjmquuuvPbq66/ABivssMQWayDsscgmq+yyzDbr7LPQRivttNRWa+212Gar7bbcduvttxzghivuuOSWa+656Kar7rrstuvuu/DGK++89NZrHe+9+Oar77789uvvvwAHLPDABBds8MEIJ6zwwgw3GuzwwxBHLPHEFFds8cUYZ6zxxhx37PHHIIcsG/LIJJds8skop6zyyiy37PLLMMcs88w012zzzRk456zzzjz37PPPQAct9NBEF2300UgnrfTSF0w37fTTUEct9dRUV2311VhnrfXWXHftGPXXYIct9thkl2322WinrfbabLft9ttwxxct99x012333XjnrffefPft99+ABy744BaEF2744YgnrvjijDfu+OOQRy755JRXFW755ZhnrvnmnHfu+eeghy766KSXbhb66ainrvrqrLfu+uuwxy777LTXbvvtFLjnrvvuvPfu++/ABy/88MQXb/zxFMgnr/zyzDfv/PPQRy/99NRXb/31FNhnr/323Hfv/ffghy/++OSXb/75Euinr/767Lfv/vvwxy///PTXbxT//fjnr//+/Pfv//8ADKAAB0jAAhQa8IAITKACF8jABjrwgRCMoAQnSBTBClrwghjMoAY3yMEOevCDIAyhCBNHSMISmvCEKEyhClfIwha68IUwE4yhDGdIwxra8IY4zKEOd8jDHvoT8IdADKIQh0jEIhrxiEhMohKXyBTEJjrxiVCMohSnSMUqWvGKWMyiFhK3yMUuevGLYAyjGMdIxjKa8YwRaEyjGtfIxja68Y1wjKMc50gSxzra8Y54zKMe98jHPvrxj4AMEqQgB0nIQhrykIhMpCIXychGOhHykZCMpCQnSclKWvKSmMykJhI3yclOevKToAylKEdJylKa8pQQqEylKlfJyla68pWwjKUsZxFJy1ra8pa4zKUud8nLXvrylxDADKYwh0nMYhrzmMhMpjKXEcnMZjrzmdCMpjSnSc1qWvOaD9jMpja3yc1uevOb4AynOBDHSc5ymvOc6EynOtfJzna6D/Od8IynPOdJz3ra8574zA+nPvfJz376858ADahAB0oR0IIa9KAITahCF8rQhjr0oRAPjahEJ0rRilr0ohjNqEY3D8rRjnr0oyANqUhHStKSmg70pChNqUpXytKWuvSlMA+NqUxnStOa2vSmOM2pTncPytOe+vSnQA2qUIdK1KIaDvWoSE2qUpfK1KY69alQDo2qVKdK1apa9apYzapWD7fK1a569atgDatYx0rWsg6a9axoTata18rWtrr1rQ1wjatc50rXutr1rnjNDqte98rXvvr1r4ANrGAHDkvYwhr2sIhNrGIXy9jGDjr2sZCNrGQnS9nKWvayDZjNrGY3y9nOevazoA0NrWhHS9rSmva0qE2tag1Xy9rWuva1sI2tbGdLDdva2va2uM2tbnfL294O+va3wA2ucIdL3OIa97gMyE2ucpfL3OY697nQDI2udKdL3epa97rYzQ6udrfL3e5697vgDa94xwxL3vKa97zoTa9618sN3va6973wja9850vf+gza9774za9+98vf/voN978ADrCAB0zgAhv4wAwITrCCF8zgBjv4wRAMjrCEJ0zhClv4whjODbCGN8zhDnv4wyAOsYgLR0ziEpv4xChOsYoMV8ziFrv4xTCOsYxnDEzjGtv4xjjOsY53zAvjHvv4x0AOspCHTA3kIhv5yEhOspKXzOQmCzv5yVCOspSnTOUqDFv5yljOspa3zOUuewv5y2AOs5jHTOYymwv5zGhOs5rXzOY2uwv5zXCOs5znTOc62w35znjOs573zOc++/nPC4AOtKAHTehCG/rQC4hOtKIXzehGO/rRC5COtKQnTelKW/rSC5jOtKY3zelOe/rTC6AOtahHTepSm/rUC6hOtapXzepWu/rVC7COtaxnTeta2/rWC7jOta53zete+/rXCcAOtrCHTexiGwv72MhOtrKXzexmOwv72dCOtrSnTe1qWwv72tjOtra3ze1uewr72+AOt7jHTe5yC5v73OhOt7rXze52Cbv73fCOt7znTQvvetv73vjOt773zQrvfvv73wAPuMAHC07wghv84AhPuMIXCs7whjv84RCPuMQLJ07xilv84hjPuMYJN87xjnv84yAPCrnIR07ykpv85CgLT7nKV87ylrv85TAKj7nMZ07zmtv85gk4z7nOd87znvsK/OdAD7rQh070ogsb/ehIT7rSl870pgk7/elQj7rUp04K9apb/epYz7rWtwrO9a57/etgD7vYCsdO9rKb/ewUCQgAOw==" alt="Homepage Banner" />  
+<img class="mobile-home-page-banner-cover md:hidden w-full" src="data:image/gif;base64,R0lGODlhhAPQAnAAACH5BAEAAPwALAAAAACEA9AChwAAAAAAMwAAZgAAmQAAzAAA/wArAAArMwArZgArmQArzAAr/wBVAABVMwBVZgBVmQBVzABV/wCAAACAMwCAZgCAmQCAzACA/wCqAACqMwCqZgCqmQCqzACq/wDVAADVMwDVZgDVmQDVzADV/wD/AAD/MwD/ZgD/mQD/zAD//zMAADMAMzMAZjMAmTMAzDMA/zMrADMrMzMrZjMrmTMrzDMr/zNVADNVMzNVZjNVmTNVzDNV/zOAADOAMzOAZjOAmTOAzDOA/zOqADOqMzOqZjOqmTOqzDOq/zPVADPVMzPVZjPVmTPVzDPV/zP/ADP/MzP/ZjP/mTP/zDP//2YAAGYAM2YAZmYAmWYAzGYA/2YrAGYrM2YrZmYrmWYrzGYr/2ZVAGZVM2ZVZmZVmWZVzGZV/2aAAGaAM2aAZmaAmWaAzGaA/2aqAGaqM2aqZmaqmWaqzGaq/2bVAGbVM2bVZmbVmWbVzGbV/2b/AGb/M2b/Zmb/mWb/zGb//5kAAJkAM5kAZpkAmZkAzJkA/5krAJkrM5krZpkrmZkrzJkr/5lVAJlVM5lVZplVmZlVzJlV/5mAAJmAM5mAZpmAmZmAzJmA/5mqAJmqM5mqZpmqmZmqzJmq/5nVAJnVM5nVZpnVmZnVzJnV/5n/AJn/M5n/Zpn/mZn/zJn//8wAAMwAM8wAZswAmcwAzMwA/8wrAMwrM8wrZswrmcwrzMwr/8xVAMxVM8xVZsxVmcxVzMxV/8yAAMyAM8yAZsyAmcyAzMyA/8yqAMyqM8yqZsyqmcyqzMyq/8zVAMzVM8zVZszVmczVzMzV/8z/AMz/M8z/Zsz/mcz/zMz///8AAP8AM/8AZv8Amf8AzP8A//8rAP8rM/8rZv8rmf8rzP8r//9VAP9VM/9VZv9Vmf9VzP9V//+AAP+AM/+AZv+Amf+AzP+A//+qAP+qM/+qZv+qmf+qzP+q///VAP/VM//VZv/Vmf/VzP/V////AP//M///Zv//mf//zP///wAAAAAAAAAAAAAAAAisAAEIHEiwoMGDCBMqXMiwocOHECNKnEixosWLGDNq3Mixo8ePIEOKHEmypMmTKFOqXMmypcuXMGPKnEmzps2bOHPq3Mmzp8+fQIMKHUq0qNGjSJMqXcq0qdOnUKNKnUq1qtWrWLNq3cq1q9evYMOKHUu2rNmzaNOqXcu2rdu3cOPKnUu3rt27ePPq3cu3r9+/gAMLHky4sOHDiBMrXsy4sePHkCNLnky5suXLmEcza97MubPnz6BDix5NurTp06hTq17NurXr17Bjy55Nu7bt27hz697Nu7fv38CDCx9OvLjx48iTK1/OvLnz59CjS59Ovbr16zjYs2vfzr279+/gw4sfT768+fPo06tfz769+/fw48ufT7++/fv48+vfz7+///8ABijggAQWaOCBCDMmqOCCDDbo4IMQRijhhBRWaOGFGGao4YYcdujhhyCGKOKIJJZo4okopqjiiiy26OKLMMYtKOOMNNZo44045qjjjjz26OOPQAYp5JBEFmnkkUgmqeSSTDbp5JNQRinllFRWKWnllVhmqeWWXHbp5ZdghinmmGSWaeaZaKap5ppstunmm3DGKeecdNZpJuedeOap55589unnn4AGKuighBZq6KGIJqrooow26uijkEYq6aSUI1Zq6aWYZqrpppx26umnoIYq6qiklmrqqaimquqqrLbq6quwIMYq66y01mrrrbjmquuuvPbq66/ABivssMQWa+yxyCarIOyyzDbr7LPQRivttNRWa+212Gar7bbcduvtt+CGK+64HOSWa+656Kar7rrstuvuu/DGK++89NZr77345qsd77789uvvvwAHLPDABBds8MEIJ6zwwgw37PDDEEccLPHEFFds8cUYZ6zxxhx37PHHIIcs8sgkl2zyyRkop6zyyiy37PLLMMcs88w012zzzTjnrPPOGTz37PPPQAct9NBEF2300UgnrfTSTDft9NMZUEct9dRUV2311VhnrfXWXHft9ddghy322Bdkl2322WinrfbabLft9ttwxy333HTXbRf33XjnrffefPft99+ABy744IQXbvjhiBYnrvjijDfu+OOQRy755JRXbvnlmGeuFvnmnHfu+eeghy766KSXbvrpqKeu+uoVrLfu+uuwxy777LTXbvvtuOeu++68FPfu++/ABy/88MQXb/zxyCev/PLMFTfv/PPQRy/99NRXb/312Gev/fbcdxPv/ffghy/++OSXb/756Kev/vrsFLfv/vvwxy///PTXb//9+Oev//78FPfv//8ADKAAB0jAAhrwgAhMoAIXFcjABjrwgRCMoAQnSMEKWvCCGMygBhM3yMEOevCDIAyhCEdIwhKa8IQoFUyhClfIwha68IUwjKEMZ0jDGtrwhhM4zKEOd8jDHvrwh0AMohCHSMQiExrxiEhMohKXyMQmOvGJUIyiFKcSSMUqWvGKWMyiFrfIxS568YtgEwyjGMdIxjKa8YxoTKMa18jGNroS8Y1wjKMc50jHOtrxjnjMox73EsjHPvrxj4AMpCAHSchCGvKQiBJMpCIXychGOvKRkIykJCdJyUoQWvKSmMykJjfJyU568pOgDBKlKEdJylKa8pSoTKUqV8nKVroR8pWwjKUsZ0nLWtrylrjMpS4Qd8nLXvryl8AMpjCHScxiGhHzmMhMpjKXycxmOvOZ0IymNBCnSc1qWvOa2MymNrfJzW56EfOb4AynOMdJznKa85zoTKc6ENfJzna6853wjKc850nPetoP8574zKc+98nPfvrznwAND6hAB0rQghr0oAhNqEIXyhHQhjr0oRCNqEQnStGKWvSiGA/NqEY3ytGOevSjIA2pSEcPStKSmvSkKE2pSlfK0pa6D/SlMI2pTGdK05ra9KY4zQ6pTnfK05769KdADapQhw9K1KIa9ahITapSl8rUpjoP9alQjapUp0rVqlr1qljNDqpWt8rVrnr1q2ANq1jHDkrWspr1rGhNq1rXyta2Cbr1rXCN60UDAgA7" alt="Homepage Banner" />
+                </div>
+                  {% if block.settings.block_link != blank %}
+                  <a class="h-full w-full absolute inset-0 cursor-pointer z-100 {{ block.settings.link_classes }}" href="{{ block.settings.block_link }}"></a>
+                  {% endif %}
+                  <div class="absolute w-full h-full inset-0">
+                  {% if block.settings.block_image_desktop != blank %}
+
+                    {% assign id = block.id %}
+                    {% assign section_id = id | append: '-' | append: section.id %}
+                    {% assign slide_image_desktop = block.settings.block_image_desktop %}
+                    {% assign slide_image_desktop_classes = block.settings.block_image_desktop_class %}
+                    {% render 'ob-lazy-image', image: slide_image_desktop, preload:preload, id: section_id, max_width:2400, class: slide_image_desktop_classes,  sizes: '100vw' %}
+
+                  {% endif %}
+                  {% if block.settings.block_image_mobile != blank %}
+
+                    {% assign id = block.id %}
+                    {% assign section_id = id | append: '-' | append: section.id %}
+                    {% assign slide_image_mobile = block.settings.block_image_mobile %}
+                    {% assign slide_image_mobile_classes = block.settings.block_image_mobile_class %}
+                    {% render 'ob-lazy-image', image: slide_image_mobile, preload:preload, id: section_id, max_width:640, class: slide_image_mobile_classes,  sizes: '100vw' %}
+
+                  {% endif %}
+                </div>
+                  {% if block.settings.block_video_desktop != blank and block.settings.block_video_mobile != blank %}    
+                  <div class="video-block h-full w-full absolute inset-0 {{ block.settings.video_wrap }}" data-src-mobile="{{ block.settings.block_video_mobile | file_url }}" data-src="{{ block.settings.block_video_desktop | file_url }}"> 
+                    <div class="fluid-width-video-wrapper h-full w-full absolute inset-0">
+                      {% if block.settings.block_video_desktop contains '.json' %}
+                        <lottie-player loading="lazy" src="{{ block.settings.block_video_desktop | file_url }}"  background="transparent"  speed="1"  style="width: 100%"  loop autoplay></lottie-player>
+                      {% else %}
+                        <video loading="lazy" class="object-cover h-full w-full" src=""><source src="" type="video/mp4"></video>    
+                      {% endif %}
+                    </div>
+                  </div>
+                  {% endif %}
+                  <div class="{{ block.settings.svg_wrap }}"> <!-- svg -->
+                    {% if block.settings.block_svg_desktop != blank %}
+                    <img loading="lazy" class="{{ block.settings.block_svg_desktop_class }} freeShippingA" src="{{ block.settings.block_svg_desktop | file_url }}" alt="desktop banner svg" hello="hello {{ block.settings.block_svg_desktop_2  }}">
+                    {% endif %}
+                    {% if block.settings.block_svg_mobile != blank %}
+                    <img loading="lazy" class="{{ block.settings.block_svg_mobile_class }} freeShippingA" src="{{ block.settings.block_svg_mobile | file_url }}" alt="mobile banner svg" hello="hello {{ block.settings.block_svg_mobile_2  }}">                       
+                    {% endif %}        
+                    {% if block.settings.block_svg_desktop_2 != blank %}
+                    <img loading="lazy" class="{{ block.settings.block_svg_desktop_class }} freeShippingB" src="{{ block.settings.block_svg_desktop_2 | file_url }}" alt="desktop banner svg">
+                    {% endif %}
+                    {% if block.settings.block_svg_mobile_2 != blank %}
+                    <img loading="lazy" class="{{ block.settings.block_svg_mobile_class }} freeShippingB" src="{{ block.settings.block_svg_mobile_2 | file_url }}" alt="mobile banner svg">                       
+                    {% endif %}        
+                  </div>
+                </div>
+              {% endif %}
+
+          </div>
+          {% endif %}
+        {% endif %}
+        
+        {% if block.settings.block_video_desktop != blank and block.settings.block_video_mobile != blank %}
+          {% if block.settings.video_title != "" %}
+            <div class="{{ block.settings.video_addon_class }} ">
+              <div class="{{ block.settings.video_title_class }} ">
+                {{ block.settings.video_title }}
+              </div>
+                {% if block.settings.video_text != "" %}
+                  <div class="{{ block.settings.video_text_class }}">
+                    {{ block.settings.video_text }}
+                  </div>
+                {% endif %}
+                {% if block.settings.video_button_text != "" %}
+                  <a href="{{ block.settings.video_button_url }}">
+                  <div class="border-2 border-white border-solid rounded-md text-center p-2 {{ block.settings.video_button_class }}">
+                  {{ block.settings.video_button_text }}
+                  </div>
+                    </a>
+                {% endif %}
+            </div>
+          {% endif %}
+        {% endif %}
+
+        
+      {% endfor %}    
+    </div>
+    {% if section.settings.pagination_checked %}
+    <div class="{{ swiper_class }}-pagination-{{ section.id }} swiper-pagination-position mbm-difference"></div>
+    {% endif %}
+
+    {% if section.settings.navigation_checked %}
+    <div class="{{ section.id }}-{{ swiper_class }}-button-prev"></div>
+    <div class="{{ section.id }}-{{ swiper_class }}-button-next"></div>
+    {% endif %}
+
+    {% if section.settings.scrollbar_checked %}
+    <div class="{{ swiper_class }}-scrollbar"></div>
+    {% endif %}
+  
+  </div>
+</div>
+{% endif %}  
+<style>
+  
+  
+      #tailwind_swiper_{{ section.id }}.tailwind-swiper:not(.swiper-initialized) .swiper-slide {
+
+		{% assign percentage = 100 | divided_by: section.settings.slides_per_view_mobile %}
+		width: {{ percentage }}%;
+		margin-right: 10px;
+      } 
+    
+	@media (min-width: 640px) {
+    
+      #tailwind_swiper_{{ section.id }}.tailwind-swiper:not(.swiper-initialized) .swiper-slide {
+		{% assign percentage = 100 | divided_by: section.settings.slides_per_view_640 %}
+         width: {{ percentage }}%;
+        margin-right: {{ section.settings.space_between_640 }}px;
+      }     
+    
+    }
+
+	@media (min-width: 768px) {
+    
+      #tailwind_swiper_{{ section.id }}.tailwind-swiper:not(.swiper-initialized) .swiper-slide {
+		{% assign percentage = 100 | divided_by: section.settings.slides_per_view_768 %}
+         width: {{ percentage }}%;
+        margin-right: {{ section.settings.space_between_768 }}px;
+
+      }     
+    
+    }
+  
+	@media (min-width: 1024px) {
+    
+      #tailwind_swiper_{{ section.id }}.tailwind-swiper:not(.swiper-initialized) .swiper-slide {
+		{% assign percentage = 100 | divided_by: section.settings.slides_per_view_1024 %}
+         width: {{ percentage }}%;
+        margin-right: {{ section.settings.space_between_1024 }}px;
+
+      }     
+    
+    }  
+
+  	@media (min-width: 1280px) {
+    
+      #tailwind_swiper_{{ section.id }}.tailwind-swiper:not(.swiper-initialized) .swiper-slide {
+
+		{% assign percentage = 100 | divided_by: section.settings.slides_per_view_1280 %}
+         width: {{ percentage }}%;
+        margin-right: {{ section.settings.space_between_1280 }}px;
+
+      }     
+    
+    }
+
+    
+  {{ section.settings.custom_css }}
+  
+
+</style>
+
+{% schema %}
+  {
+    "name": "TW Img Text Video Swiper",
+    "class": "tailwind-img-text-video-swiper",
+	"presets": [
+		{
+			"name": "TW Img Text Video Swiper"
+		}
+	],
+    "settings": [
+        {
+            "type": "html",
+            "id": "country_iso",
+            "label": "Only display if current iso is (* for all)",
+            "info": "Comma seperated",
+            "default":"*"
+        },
+		{
+			"type": "text",
+			"id": "section_wrapper_classes",
+			"label": "Section wrapper_classes"
+		},
+		{
+			"type": "select",
+			"id": "is_swiper",
+			"label": "Is Swiper",
+            "options": [
+              {
+                "value": "true",
+                "label": "True"
+              },
+              {
+                "value": "false",
+                "label": "False"
+              }
+			],
+			"default": "true"
+		},
+		{
+			"type": "select",
+			"id": "lazy_images",
+			"label": "Lazy load images?",
+            "options": [
+              {
+                "value": "true",
+                "label": "True"
+              },
+              {
+                "value": "false",
+                "label": "False"
+              }
+			],
+			"default": "true"
+		},
+        {
+          "type": "header",
+          "content": "Intro block"
+        },
+        {
+          "id": "text_wrap",
+          "type": "text",
+          "label": "text wrap",
+          "default": "absolute bottom-10 right-20",
+          "info": "eg. absolute bottom-10 right-20"			
+        },
+        {
+          "id": "title",
+          "type": "text",
+          "label": "title"		
+        },
+        {
+          "id": "text_header_classes",
+          "type": "text",
+          "label": "text header class",
+          "default": "text-5xl pb-1",
+          "info": "eg. text-5xl pb-1"			
+        },
+        {
+          "id": "description",
+          "type": "html",
+          "label": "text description"			
+        },
+
+        {
+          "id": "text_description",
+          "type": "text",
+          "label": "text description class",
+          "default": "text-xl",
+          "info": "eg. text-xl"			
+        },
+
+        {
+          "type": "header",
+          "content": "Swiper"
+        },
+
+		{
+			"type": "text",
+			"id": "swiper_classes",
+			"label": "Swiper classes"
+		},
+		{
+			"type": "text",
+			"id": "swiper_wrapper_classes",
+			"label": "Swiper wrapper classes"
+		},
+		{
+			"type": "html",
+			"id": "custom_css",
+			"label": "Custom HTML"
+		},
+		{
+			"type": "html",
+			"id": "custom_options",
+			"label": "Custom options JSON"
+		},
+
+		{
+			"type": "header",
+			"content": "Breakpoints"
+		},
+		{
+			"type": "paragraph",
+			"content": "Tip: Set all slides per view to 1 for hero slider"
+		},
+		{
+			"type": "paragraph",
+			"content": "Mobile"
+		},		
+		{
+			"type": "range",
+			"id": "slides_per_view_mobile",
+			"min": 1,
+			"max": 10,
+			"step": 0.5,
+			"default": 2,
+			"label": "Slides Per View"
+		},
+		{
+			"type": "range",
+			"id": "space_between_mobile",
+			"min": 0,
+			"max": 50,
+			"step": 10,
+			"default": 10,
+			"label": "Space Between"
+		},
+		{
+			"type": "paragraph",
+			"content": "640px"
+		},
+		{
+			"type": "range",
+			"id": "slides_per_view_640",
+			"min": 1,
+			"max": 10,
+			"step": 0.5,
+			"default": 3,
+			"label": "Slides Per View"
+		},
+		{
+			"type": "range",
+			"id": "space_between_640",
+			"min": 0,
+			"max": 50,
+			"step": 10,
+			"default": 20,
+			"label": "Space Between"
+		},
+		{
+			"type": "paragraph",
+			"content": "768px"
+		},
+		{
+			"type": "range",
+			"id": "slides_per_view_768",
+			"min": 1,
+			"max": 10,
+			"step": 0.5,
+			"default": 3,
+			"label": "Slides Per View"
+		},
+		{
+			"type": "range",
+			"id": "space_between_768",
+			"min": 0,
+			"max": 50,
+			"step": 10,
+			"default": 30,
+			"label": "Space Between"
+		},
+		{
+			"type": "paragraph",
+			"content": "1024px"
+		},
+		{
+			"type": "range",
+			"id": "slides_per_view_1024",
+			"min": 1,
+			"max": 10,
+			"step": 0.5,
+			"default": 4,
+			"label": "Slides Per View"
+		},
+		{
+			"type": "range",
+			"id": "space_between_1024",
+			"min": 0,
+			"max": 50,
+			"step": 10,
+			"default": 40,
+			"label": "Space Between"
+		},
+		{
+			"type": "paragraph",
+			"content": "1280px"
+		},
+		{
+			"type": "range",
+			"id": "slides_per_view_1280",
+			"min": 1,
+			"max": 10,
+			"step": 0.5,
+			"default": 5,
+			"label": "Slides Per View"
+		},
+		{
+			"type": "range",
+			"id": "space_between_1280",
+			"min": 0,
+			"max": 50,
+			"step": 10,
+			"default": 50,
+			"label": "Space Between"
+		},
+		{
+			"type": "checkbox",
+			"id": "pagination_checked",
+			"label": "Pagination needed?"
+		},
+		{
+			"type": "checkbox",
+			"id": "navigation_checked",
+			"label": "Navigation needed?"
+		},
+		{
+			"type": "checkbox",
+			"id": "scrollbar_checked",
+			"label": "Scrollbar needed?"
+		},
+		{
+			"type": "header",
+			"content": "Effect"
+		},
+        {
+          "type": "radio",
+          "id": "effect",
+          "label": "Effect",
+          "options": [
+            {
+              "value": "fade",
+              "label": "Fade"
+            },
+            {
+              "value": "slide",
+              "label": "Slide"
+            }
+          ],
+          "default": "slide"
+        },
+		{
+			"type": "header",
+			"content": "Autoplay"
+		},
+		{
+			"type": "checkbox",
+			"id": "autoplay_checked",
+			"label": "Autoplay needed?",
+			"info": "Check to activate slideshow function"
+		},
+		{
+			"type": "range",
+			"id": "autoplay_delay",
+			"min": 0,
+			"max": 9000,
+			"step": 1000,
+			"default": 3000,
+			"label": "Autoplay Delay",
+			"info": "Time between each slide"
+		},
+		{
+			"type": "checkbox",
+			"id": "autoplay_loop_checked",
+			"default": false,
+			"label": "Stop on last slide?",
+			"info": "Uncheck to loop slides"
+		}
+	],
+	"blocks": [
+        {
+          "type": "double-cta",
+          "name": "double CTA",
+          "settings": [
+            {
+             "type": "select",
+             "id": "position",
+              "label": "Desktop position",
+              "options": [
+                {
+                  "label": "right",
+                  "value": "start"
+                },
+                {
+                  "label": "center",
+                  "value": "center"
+                },
+                {
+                  "label": "left",
+                  "value": "end"
+                }
+              ],
+              "default": "start"
+            },
+            {
+              "type": "text",
+              "id": "title",
+              "label": "Title text",
+              "default": "Title"
+             
+            },
+            {
+              "type": "text",
+              "id": "title-text-classes",
+              "label": "Title text classes",
+              "info": "eg. text-3xl md:text-6xl capitalize dbl-cta-title pb-1 font-bebas",
+              "default": "text-3xl md:text-6xl capitalize dbl-cta-title pb-1 font-bebas"
+            },
+            {
+              "type": "select",
+              "id": "title-text-postion",
+              "label": "Title Text Alignment",
+              "options": [
+                {
+                  "label": "left",
+                  "value": "left"
+                },
+                {
+                  "label": "center",
+                  "value": "center"
+                },
+                {
+                  "label": "right",
+                  "value": "right"
+                }
+              ],
+              "default": "left"
+            },
+            {
+              "type": "range", 
+              "id": "title-text-size",
+              "min": 0,
+              "max": 74,
+              "step": 1,
+              "default": 18,
+              "unit": "px",
+              "label": "title-font-size"
+            },
+            {
+              "type": "color",
+              "id": "title-color",
+              "label": "Title Color"
+            },
+            {
+              "type": "range", 
+              "id": "desktop-title-text-size",
+              "min": 0,
+              "max": 74,
+              "step": 1,
+              "default": 32,
+              "unit": "px",
+              "label": "Desktop title font size"
+            },
+            {
+              "type": "textarea",
+              "id": "paragragh",
+              "label": "paragragh text",
+              "default": "My Paragraph"
+             
+            },
+            {
+              "type": "text",
+              "id": "p-classes",
+              "label": "paragragh classes"
+            },
+             {
+              "type": "select",
+              "id": "paragraph-text-postion",
+              "label": "Paragraph Text Alignment",
+              "options": [
+                {
+                  "label": "left",
+                  "value": "left"
+                },
+                {
+                  "label": "center",
+                  "value": "center"
+                },
+                {
+                  "label": "right",
+                  "value": "right"
+                }
+              ],
+              "default": "left"
+            },
+            {
+              "type": "range", 
+              "id": "paragragh-font-size",
+              "min": 0,
+              "max": 74,
+              "step": 1,
+              "default": 12,
+              "unit": "px",
+              "label": "paragragh font size"
+            },
+            {
+              "type": "color",
+              "id": "paragraph-color",
+              "label": "Paragragh Color"
+            },
+            {
+              "type": "range", 
+              "id": "desktop-paragraph-text-size",
+              "min": 0,
+              "max": 74,
+              "step": 1,
+              "default": 18,
+              "unit": "px",
+              "label": "Desktop paragragh font size"
+            },
+            {
+              "type": "text",
+              "id": "btn-one-text",
+              "label": "Button one Text",
+              "default": "button one"
+            },
+            {
+              "type": "text",
+              "id": "btn-one-classes",
+              "label": "Button one classes",
+              "info": "eg. px-8 relative p-2 rounded-md uppercase btn-shadow-lg block border-solid border-2 border-md border-black text-black font-semibold text-center  transition-colors duration-200",
+              "default": "px-8 relative p-2 rounded-md uppercase btn-shadow-lg block border-solid border-2 border-md border-black text-black font-semibold text-center  transition-colors duration-200"
+            },
+            {
+              "type": "url",
+              "id": "btn-1-url",
+              "label": "Button one link"
+            },
+            {
+              "type": "color",
+              "id": "btn-one-color",
+              "label": "Button one color",
+              "default": "#fff"
+            },
+            {
+              "type": "color_background",
+              "id": "btn-one-bg-color",
+              "label": "Button one background color",
+              "default": "#000000"
+            },
+            {
+              "type": "text",
+              "id": "btn-two-text",
+              "label": "Button two Text",
+              "default": "button two"
+            },
+            {
+              "type": "text",
+              "id": "btn-two-classes",
+              "label": "Button two classes",
+              "info": "eg. px-8 relative p-2 rounded-md uppercase btn-shadow-lg block border-solid border-2 border-md border-black text-black font-semibold text-center  transition-colors duration-200",
+              "default": "px-8 relative p-2 rounded-md uppercase btn-shadow-lg block border-solid border-2 border-md border-black text-black font-semibold text-center  transition-colors duration-200"
+            },
+            {
+              "type": "url",
+              "id": "btn-2-url",
+              "label": "Button two link"
+            },
+            {
+              "type": "color",
+              "id": "btn-two-color",
+              "label": "Button two color",
+              "default": "#000000"
+            },
+            {
+              "type": "color_background",
+              "id": "btn-two-bg-color",
+              "label": "Button two background color",
+              "default": "#ffffff"
+            },
+            {
+              "type": "select",
+              "id": "button-postion",
+              "label": "Single Button Alignment",
+              "info": "Only effects alignment of button if there is only one button",
+              "options": [
+                {
+                  "label": "left",
+                  "value": "start"
+                },
+                {
+                  "label": "center",
+                  "value": "center"
+                },
+                {
+                  "label": "right",
+                  "value": "end"
+                }
+              ],
+              "default": "start"
+            }
+          ]
+        },
+		{
+          "type": "multi_use_block",
+          "name": "image text and button",
+          "settings": [
+            {
+                "type": "checkbox",
+                "id": "block_active",
+                "label": "Block active?"
+            },
+            {
+                "type": "html",
+                "id": "country_iso",
+                "label": "Only display if current iso is (* for all)",
+                "info": "Comma seperated",
+                "default":"*"
+            },
+            {
+              "type": "textarea",
+              "id": "url_handle",
+              "label": "Only display if url contains this handle (* for all)",
+              "info": "One per line",
+              "default":"*"
+            },
+            {
+              "type": "textarea",
+              "id": "not_url_handle",
+              "label": "Dont display if url contains this handle",
+              "info": "One per line"
+            },
+            {
+              "id": "title",
+              "type": "text",
+              "label": "Block title",
+			  "info": "Use for identifying the block only"	
+			},
+            {
+              "id": "block_link",
+              "type": "url",
+              "label": "block link"	
+            },
+            {
+              "id": "block_wrap",
+              "type": "text",
+              "label": "block wrap",
+              "default": "col-span-6 relative",
+              "info": "eg. col-span-6 relative"			
+            },
+            {
+              "type": "header",
+              "content": "Images"
+            },
+            {
+              "id": "block_image_desktop",
+              "type": "image_picker",
+              "label": "desktop image (optional)"
+            },
+            {
+              "id": "block_image_desktop_class",
+              "type": "text",
+              "label": "desktop image class",
+              "default": "object-cover h-full w-full hidden sm:block",
+              "info": "eg. object-cover h-full w-full hidden sm:block"
+            },
+            {
+                "type": "select",
+                "id": "placeholder_desktop",
+                "label": "Placeholder size (desktop)",
+                "options": [
+                  {
+                    "value": "small",
+                    "label": "Small"
+                  },
+                  {
+                    "value": "medium",
+                    "label": "Medium"
+                  },
+                  {
+                    "value": "large",
+                    "label": "Large"
+                  }
+                ],
+                "default": "medium"
+            },
+            {
+              "id": "block_image_mobile",
+              "type": "image_picker",
+              "label": "mobile image (optional)"
+            },
+            {
+              "id": "block_image_mobile_class",
+              "type": "text",
+              "label": "mobile image class",
+              "default": "object-cover h-full w-full block sm:hidden",
+              "info": "eg. object-cover h-full w-full block sm:hidden"
+            },
+            {
+                "type": "select",
+                "id": "placeholder_mobile",
+                "label": "Placeholder size (mobile)",
+                "options": [
+                  {
+                    "value": "small",
+                    "label": "Small"
+                  },
+                  {
+                    "value": "medium",
+                    "label": "Medium"
+                  },
+                  {
+                    "value": "large",
+                    "label": "Large"
+                  }
+                ],
+                "default": "medium"
+            },
+            {
+              "type": "header",
+              "content": "Block text"
+            },
+            {
+              "id": "text_wrap",
+              "type": "text",
+              "label": "text wrap",
+              "default": "absolute bottom-10 right-20",
+              "info": "eg. absolute bottom-10 right-20"			
+            },
+            {
+              "id": "block_title",
+              "type": "text",
+              "label": "title"		
+            },
+            {
+              "id": "text_header_classes",
+              "type": "text",
+              "label": "text header class",
+              "default": "text-5xl pb-1",
+              "info": "eg. text-5xl pb-1"			
+            },
+            {
+              "id": "description",
+              "type": "html",
+              "label": "text description"			
+            },
+
+            {
+              "id": "text_description",
+              "type": "text",
+              "label": "text description class",
+              "default": "text-xl",
+              "info": "eg. text-xl"			
+            },
+            {
+              "id": "button_link",
+              "type": "url",
+              "label": "button url"			
+            },
+            {
+              "id": "link_classes",
+              "type": "text",
+              "label": "<a> link classes",
+              "default": "block",
+              "info": "eg. block"			
+            },
+            {
+              "id": "button_text",
+              "type": "text",
+              "label": "button text"			
+            },
+            {
+              "id": "text_button",
+              "type": "text",
+              "label": "button class",
+              "default": "bg-black text-white py-2 px-5 mt-3 text-center w-auto inline-block",
+              "info": "eg. bg-black text-white py-2 px-5 mt-3 text-center w-auto inline-block"			
+            }
+          ]
+        },
+            {
+        "type": "Timed",
+        "name": "Timed Banner",
+        "settings": [
+                      {
+              "id": "block_active",
+              "type": "checkbox",
+              "label": "block active?",
+              "default": true
+            },
+            {
+                "type": "html",
+                "id": "country_iso",
+                "label": "Only display if current iso is (* for all)",
+                "info": "Comma seperated",
+                "default":"*"
+            },
+            {
+              "type": "textarea",
+              "id": "url_handle",
+              "label": "Only display if url contains this handle (* for all)",
+              "info": "One per line",
+              "default":"*"
+            },
+            {
+              "type": "textarea",
+              "id": "not_url_handle",
+              "label": "Dont display if url contains this handle",
+              "info": "One per line"
+            },
+            {
+              "id": "title",
+              "type": "text",
+              "label": "Block title",
+			  "info": "Use for identifying the block only"	
+			},
+            {
+              "id": "block_link",
+              "type": "url",
+              "label": "block link"	
+            },
+            {
+              "id": "link_classes",
+              "type": "text",
+              "label": "<a> link classes",
+              "default": "block",
+              "info": "eg. block"			
+            },
+            {
+              "id": "block_wrap",
+              "type": "text",
+              "label": "block wrap",
+              "default": "col-span-6 relative",
+              "info": "eg. col-span-6 relative"			
+            },
+            {
+              "type": "header",
+              "content": "Images"
+            },
+            {
+              "id": "block_image_desktop",
+              "type": "image_picker",
+              "label": "desktop image (optional)"
+            },
+            {
+              "id": "block_image_desktop_class",
+              "type": "text",
+              "label": "desktop image class",
+              "default": "object-cover h-full w-full hidden sm:block",
+              "info": "eg. object-cover h-full w-full hidden sm:block"
+            },
+            {
+                "type": "select",
+                "id": "placeholder_desktop",
+                "label": "Placeholder size (desktop)",
+                "options": [
+                  {
+                    "value": "small",
+                    "label": "Small"
+                  },
+                  {
+                    "value": "medium",
+                    "label": "Medium"
+                  },
+                  {
+                    "value": "large",
+                    "label": "Large"
+                  }
+                ],
+                "default": "medium"
+            },
+            {
+              "id": "block_image_mobile",
+              "type": "image_picker",
+              "label": "mobile image (optional)"
+            },
+            {
+              "id": "block_image_mobile_class",
+              "type": "text",
+              "label": "mobile image class",
+              "default": "object-cover h-full w-full block sm:hidden",
+              "info": "eg. object-cover h-full w-full block sm:hidden"
+            },
+            {
+                "type": "select",
+                "id": "placeholder_mobile",
+                "label": "Placeholder size (mobile)",
+                "options": [
+                  {
+                    "value": "small",
+                    "label": "Small"
+                  },
+                  {
+                    "value": "medium",
+                    "label": "Medium"
+                  },
+                  {
+                    "value": "large",
+                    "label": "Large"
+                  }
+                ],
+                "default": "medium"
+            },
+            {
+              "id": "video_wrap",
+              "type": "text",
+              "label": "video wrap",
+              "default": "col-span-12 absolute inset-0 w-full h-full",
+              "info": "eg. col-span-12 absolute inset-0 w-full h-full"			
+            },
+            {
+              "id": "block_video_desktop",
+              "type": "text",
+              "label": "desktop video (optional)"
+            },
+            {
+              "id": "block_video_desktop_class",
+              "type": "text",
+              "label": "desktop video class",
+              "default": "object-cover h-full w-full",
+              "info": "eg. object-cover h-full w-full"
+            },
+            {
+              "id": "block_video_mobile",
+              "type": "text",
+              "label": "mobile video (optional)"
+            },
+            {
+              "id": "block_video_mobile_class",
+              "type": "text",
+              "label": "mobile video class",
+              "default": "object-cover h-full w-full",
+              "info": "eg. object-cover h-full w-full"
+            },
+           {
+              "id": "video_title",
+              "type": "text",
+              "label": "Video Title (optional)"
+            },
+            {
+              "id": "video_addon_class",
+              "type": "text",
+              "label": "Video addon text classes (optional)",
+              "default":"z-50 justify-center absolute text-white w-full h-full flex flex-col items-center p-5",
+              "info":"eg. z-50 justify-center absolute text-white w-full h-full flex flex-col items-center p-5"
+            },
+            {
+              "id": "video_title_class",
+              "type": "text",
+              "label": "Video Title classes (optional)",
+              "default":"text-4xl ",
+              "info":"eg. text-4xl "
+            },
+            {
+              "id": "video_text",
+              "type": "text",
+              "label": "video text (optional)"
+            },
+             {
+              "id": "video_text_class",
+              "type": "text",
+              "label": "video text classes (optional)"
+            },
+            {
+              "id": "video_button_text",
+              "type": "text",
+              "label": "video button text (optional)"
+            },
+            {
+              "id": "video_button_class",
+              "type": "text",
+              "label": "video button classses (optional)"
+            },
+             {
+              "id": "video_button_url",
+              "type": "url",
+              "label": "video button link (optional)"
+            },
+            {
+              "id": "svg_wrap",
+              "type": "text",
+              "label": "svg wrap",
+              "default": "absolute w-full h-full inset-0",
+              "info": "eg. absolute w-full h-full inset-0"			
+            },
+            {
+              "id": "block_svg_desktop",
+              "type": "text",
+              "label": "desktop svg (optional)"
+            },
+          {
+              "id": "block_svg_desktop_2",
+              "type": "text",
+              "label": "desktop svg 2 (optional)"
+            },
+            {
+              "id": "block_svg_desktop_class",
+              "type": "text",
+              "label": "desktop image class",
+              "default": "w-full h-full hidden sm:block",
+              "info": "eg. w-full h-full hidden sm:block"
+            },
+            {
+              "id": "block_svg_mobile",
+              "type": "text",
+              "label": "mobile svg (optional)"
+            },
+          {
+              "id": "block_svg_mobile_2",
+              "type": "text",
+              "label": "mobile svg 2 (optional)"
+            },
+            {
+              "id": "block_svg_mobile_class",
+              "type": "text",
+              "label": "mobile image class",
+              "default": "w-full h-full block sm:hidden",
+              "info": "eg. w-full h-full block sm:hidden"
+            },
+          {
+            "type": "header",
+            "content": "Go Live Date"
+          },
+          {
+          "type": "select",
+          "id": "countdown_dd",
+          "label": "Day",
+          "options": [
+            {
+              "value": "01",
+              "label": "1"
+            },
+            {
+              "value": "02",
+              "label": "2"
+            },
+            {
+              "value": "03",
+              "label": "3"
+            },
+            {
+              "value": "04",
+              "label": "4"
+            },
+            {
+              "value": "05",
+              "label": "5"
+            },
+            {
+              "value": "06",
+              "label": "6"
+            },
+            {
+              "value": "07",
+              "label": "7"
+            },
+            {
+              "value": "08",
+              "label": "8"
+            },
+            {
+              "value": "09",
+              "label": "9"
+            },
+            {
+              "value": "10",
+              "label": "10"
+            },
+            {
+              "value": "11",
+              "label": "11"
+            },
+            {
+              "value": "12",
+              "label": "12"
+            },
+            {
+              "value": "13",
+              "label": "13"
+            },
+            {
+              "value": "14",
+              "label": "14"
+            },
+            {
+              "value": "15",
+              "label": "15"
+            },
+            {
+              "value": "16",
+              "label": "16"
+            },
+            {
+              "value": "17",
+              "label": "17"
+            },
+            {
+              "value": "18",
+              "label": "18"
+            },
+            {
+              "value": "19",
+              "label": "19"
+            },
+            {
+              "value": "20",
+              "label": "20"
+            },
+            {
+              "value": "21",
+              "label": "21"
+            },
+            {
+              "value": "22",
+              "label": "22"
+            },
+            {
+              "value": "23",
+              "label": "23"
+            },
+            {
+              "value": "24",
+              "label": "24"
+            },
+            {
+              "value": "25",
+              "label": "25"
+            },
+            {
+              "value": "26",
+              "label": "26"
+            },
+            {
+              "value": "27",
+              "label": "27"
+            },
+            {
+              "value": "28",
+              "label": "28"
+            },
+            {
+              "value": "29",
+              "label": "29"
+            },
+            {
+              "value": "30",
+              "label": "30"
+            },
+            {
+              "value": "31",
+              "label": "31"
+            }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "countdown_mm",
+          "label": "Month",
+          "options": [
+            {
+              "value": "01",
+              "label": "January"
+            },
+            {
+              "value": "02",
+              "label": "February"
+            },
+            {
+              "value": "03",
+              "label": "March"
+            },
+            {
+              "value": "04",
+              "label": "April"
+            },
+            {
+              "value": "05",
+              "label": "May"
+            },
+            {
+              "value": "06",
+              "label": "June"
+            },
+            {
+              "value": "07",
+              "label": "July"
+            },
+            {
+              "value": "08",
+              "label": "August"
+            },
+            {
+              "value": "09",
+              "label": "September"
+            },
+            {
+              "value": "10",
+              "label": "October"
+            },
+            {
+              "value": "11",
+              "label": "November"
+            },
+            {
+              "value": "12",
+              "label": "December"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "countdown_yyyy",
+          "label": "Year"
+        },
+        {
+          "type": "text",
+          "id": "countdown_time",
+          "label": "E.g. 0:00:00 GMT+00:00"
+        },
+          {
+            "type": "header",
+            "content": "Stop Live Date"
+          },
+          {
+          "type": "select",
+          "id": "e_countdown_dd",
+          "label": "Day",
+          "options": [
+            {
+              "value": "01",
+              "label": "01"
+            },
+            {
+              "value": "02",
+              "label": "2"
+            },
+            {
+              "value": "03",
+              "label": "3"
+            },
+            {
+              "value": "04",
+              "label": "4"
+            },
+            {
+              "value": "05",
+              "label": "5"
+            },
+            {
+              "value": "06",
+              "label": "6"
+            },
+            {
+              "value": "07",
+              "label": "7"
+            },
+            {
+              "value": "08",
+              "label": "8"
+            },
+            {
+              "value": "09",
+              "label": "9"
+            },
+            {
+              "value": "10",
+              "label": "10"
+            },
+            {
+              "value": "11",
+              "label": "11"
+            },
+            {
+              "value": "12",
+              "label": "12"
+            },
+            {
+              "value": "13",
+              "label": "13"
+            },
+            {
+              "value": "14",
+              "label": "14"
+            },
+            {
+              "value": "15",
+              "label": "15"
+            },
+            {
+              "value": "16",
+              "label": "16"
+            },
+            {
+              "value": "17",
+              "label": "17"
+            },
+            {
+              "value": "18",
+              "label": "18"
+            },
+            {
+              "value": "19",
+              "label": "19"
+            },
+            {
+              "value": "20",
+              "label": "20"
+            },
+            {
+              "value": "21",
+              "label": "21"
+            },
+            {
+              "value": "22",
+              "label": "22"
+            },
+            {
+              "value": "23",
+              "label": "23"
+            },
+            {
+              "value": "24",
+              "label": "24"
+            },
+            {
+              "value": "25",
+              "label": "25"
+            },
+            {
+              "value": "26",
+              "label": "26"
+            },
+            {
+              "value": "27",
+              "label": "27"
+            },
+            {
+              "value": "28",
+              "label": "28"
+            },
+            {
+              "value": "29",
+              "label": "29"
+            },
+            {
+              "value": "30",
+              "label": "30"
+            },
+            {
+              "value": "31",
+              "label": "31"
+            }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "e_countdown_mm",
+          "label": "Month",
+          "options": [
+            {
+              "value": "01",
+              "label": "January"
+            },
+            {
+              "value": "02",
+              "label": "February"
+            },
+            {
+              "value": "03",
+              "label": "March"
+            },
+            {
+              "value": "04",
+              "label": "April"
+            },
+            {
+              "value": "05",
+              "label": "May"
+            },
+            {
+              "value": "06",
+              "label": "June"
+            },
+            {
+              "value": "07",
+              "label": "July"
+            },
+            {
+              "value": "08",
+              "label": "August"
+            },
+            {
+              "value": "09",
+              "label": "September"
+            },
+            {
+              "value": "10",
+              "label": "October"
+            },
+            {
+              "value": "11",
+              "label": "November"
+            },
+            {
+              "value": "12",
+              "label": "December"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "e_countdown_yyyy",
+          "label": "Year"
+        },
+        {
+          "type": "text",
+          "id": "e_countdown_time",
+          "label": "E.g. 0:00:00 GMT+00:00"
+        }
+        ]
+      },
+        {
+          "type": "multi_use_image_block",
+          "name": "image, svg and video",
+          "settings": [
+            {
+              "id": "block_active",
+              "type": "checkbox",
+              "label": "block active?",
+              "default": true
+            },
+            {
+                "type": "html",
+                "id": "country_iso",
+                "label": "Only display if current iso is (* for all)",
+                "info": "Comma seperated",
+                "default":"*"
+            },
+            {
+              "type": "textarea",
+              "id": "url_handle",
+              "label": "Only display if url contains this handle (* for all)",
+              "info": "One per line",
+              "default":"*"
+            },
+            {
+              "type": "textarea",
+              "id": "not_url_handle",
+              "label": "Dont display if url contains this handle",
+              "info": "One per line"
+            },
+            {
+              "id": "title",
+              "type": "text",
+              "label": "Block title",
+			  "info": "Use for identifying the block only"	
+			},
+            {
+              "id": "block_link",
+              "type": "url",
+              "label": "block link"	
+            },
+            {
+              "id": "link_classes",
+              "type": "text",
+              "label": "<a> link classes",
+              "default": "block",
+              "info": "eg. block"			
+            },
+            {
+              "id": "block_wrap",
+              "type": "text",
+              "label": "block wrap",
+              "default": "col-span-6 relative",
+              "info": "eg. col-span-6 relative"			
+            },
+            {
+              "type": "header",
+              "content": "Images"
+            },
+            {
+              "id": "block_image_desktop",
+              "type": "image_picker",
+              "label": "desktop image (optional)"
+            },
+            {
+              "id": "block_image_desktop_class",
+              "type": "text",
+              "label": "desktop image class",
+              "default": "object-cover h-full w-full hidden sm:block",
+              "info": "eg. object-cover h-full w-full hidden sm:block"
+            },
+            {
+                "type": "select",
+                "id": "placeholder_desktop",
+                "label": "Placeholder size (desktop)",
+                "options": [
+                  {
+                    "value": "small",
+                    "label": "Small"
+                  },
+                  {
+                    "value": "medium",
+                    "label": "Medium"
+                  },
+                  {
+                    "value": "large",
+                    "label": "Large"
+                  }
+                ],
+                "default": "medium"
+            },
+            {
+              "id": "block_image_mobile",
+              "type": "image_picker",
+              "label": "mobile image (optional)"
+            },
+            {
+              "id": "block_image_mobile_class",
+              "type": "text",
+              "label": "mobile image class",
+              "default": "object-cover h-full w-full block sm:hidden",
+              "info": "eg. object-cover h-full w-full block sm:hidden"
+            },
+            {
+                "type": "select",
+                "id": "placeholder_mobile",
+                "label": "Placeholder size (mobile)",
+                "options": [
+                  {
+                    "value": "small",
+                    "label": "Small"
+                  },
+                  {
+                    "value": "medium",
+                    "label": "Medium"
+                  },
+                  {
+                    "value": "large",
+                    "label": "Large"
+                  }
+                ],
+                "default": "medium"
+            },
+            {
+              "id": "video_wrap",
+              "type": "text",
+              "label": "video wrap",
+              "default": "col-span-12 absolute inset-0 w-full h-full",
+              "info": "eg. col-span-12 absolute inset-0 w-full h-full"			
+            },
+            {
+              "id": "block_video_desktop",
+              "type": "text",
+              "label": "desktop video (optional)"
+            },
+            {
+              "id": "block_video_desktop_class",
+              "type": "text",
+              "label": "desktop video class",
+              "default": "object-cover h-full w-full",
+              "info": "eg. object-cover h-full w-full"
+            },
+            {
+              "id": "block_video_mobile",
+              "type": "text",
+              "label": "mobile video (optional)"
+            },
+            {
+              "id": "block_video_mobile_class",
+              "type": "text",
+              "label": "mobile video class",
+              "default": "object-cover h-full w-full",
+              "info": "eg. object-cover h-full w-full"
+            },
+           {
+              "id": "video_title",
+              "type": "text",
+              "label": "Video Title (optional)"
+            },
+            {
+              "id": "video_addon_class",
+              "type": "text",
+              "label": "Video addon text classes (optional)",
+              "default":"z-50 justify-center absolute text-white w-full h-full flex flex-col items-center p-5",
+              "info":"eg. z-50 justify-center absolute text-white w-full h-full flex flex-col items-center p-5"
+            },
+            {
+              "id": "video_title_class",
+              "type": "text",
+              "label": "Video Title classes (optional)",
+              "default":"text-4xl ",
+              "info":"eg. text-4xl "
+            },
+            {
+              "id": "video_text",
+              "type": "text",
+              "label": "video text (optional)"
+            },
+             {
+              "id": "video_text_class",
+              "type": "text",
+              "label": "video text classes (optional)"
+            },
+            {
+              "id": "video_button_text",
+              "type": "text",
+              "label": "video button text (optional)"
+            },
+            {
+              "id": "video_button_class",
+              "type": "text",
+              "label": "video button classses (optional)"
+            },
+             {
+              "id": "video_button_url",
+              "type": "url",
+              "label": "video button link (optional)"
+            },
+            {
+              "id": "svg_wrap",
+              "type": "text",
+              "label": "svg wrap",
+              "default": "absolute w-full h-full inset-0",
+              "info": "eg. absolute w-full h-full inset-0"			
+            },
+            {
+              "id": "block_svg_desktop",
+              "type": "text",
+              "label": "desktop svg (optional)"
+            },
+            {
+              "id": "block_svg_desktop_class",
+              "type": "text",
+              "label": "desktop image class",
+              "default": "w-full h-full hidden sm:block",
+              "info": "eg. w-full h-full hidden sm:block"
+            },
+            {
+              "id": "block_svg_mobile",
+              "type": "text",
+              "label": "mobile svg (optional)"
+            },
+            {
+              "id": "block_svg_mobile_class",
+              "type": "text",
+              "label": "mobile image class",
+              "default": "w-full h-full block sm:hidden",
+              "info": "eg. w-full h-full block sm:hidden"
+            }
+          ]
+		}
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

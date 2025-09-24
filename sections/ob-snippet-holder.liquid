@@ -1,0 +1,40 @@
+<div outer-wrapper class="{{ section.settings.outer_wrapper_classes }}">
+  	<div class="{{ section.settings.inner_wrapper_classes }}">
+      {% assign snippet = section.settings.snippet_name %}
+      {% include snippet %}
+  	</div>
+</div>
+{% schema %}
+  {
+    "name": "Snippet Holder",
+	"presets": [
+		{
+			"name": "Snippet Holder"
+		}
+	],
+    "settings": [
+		{
+			"type": "text",
+			"id": "outer_wrapper_classes",
+			"label": "Outer Wrapper Classes",
+			"default": "relative z-20"
+		},
+		{
+			"type": "text",
+			"id": "inner_wrapper_classes",
+			"label": "Inner Wrapper Classes"
+		},
+		{
+			"type": "text",
+			"id": "snippet_name",
+			"label": "Snippet Name"
+		}
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

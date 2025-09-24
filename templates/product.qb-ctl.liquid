@@ -1,0 +1,32 @@
+{% layout none %}
+{% capture cart_attributes %}
+  <!------------------------ CART UPSELL MESSAGE ------------------------------>
+<input id="cart-matching-upsell" type="hidden" value="{{ product.type }}" name="properties[_Cart Matching Upsell]">
+<input type="hidden" data-cro-feature-loaded="matching-cart-upsell-popup"     data-cro-feature-viewed="matching-cart-upsell-popup"      data-cro-feature-clicked="matching-cart-upsell-popup">
+{% endcapture %}
+{% render 'ob-product-qb', cart_attributes:cart_attributes, product:product %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  

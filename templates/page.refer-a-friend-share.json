@@ -1,0 +1,280 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "custom_liquid_R7ff6R": {
+      "type": "custom-liquid",
+      "custom_css": [],
+      "settings": {
+        "custom_liquid": "<div id=\"refer-a-friend-modal\" class=\"hidden inset-0 h-full w-full bg-black bg-opacity-70 z-40\">\n        <div class=\"js-refer-modal absolute w-full h-full inset-0 z-1 fixed\"></div>\n        <div class=\"absolute transform -translate-y-1/2 -translate-x-1/2 left-1/2 top-1/2 z-2 w-11/12 max-w-lg w-full bg-white rounded-md max-h-90v border-2 border-solid border-black md:p-10 px-5 py-2\">\n        \n        <div class=\"w-full relative\">\n            <div class=\"js-refer-modal -right-2 top-0 lg:-right-5 lg:-top-5 absolute border-2 bg-white border-solid border-black rounded-md btn-shadow-outline p-1 cursor-pointer\" style=\"z-index: 1;\">\n                <svg aria-hidden=\"true\" focusable=\"false\" role=\"presentation\" width=\"17\" height=\"17\" viewBox=\"0 0 17 17\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <path d=\"M1.41418 0L16.9705 15.5563L15.5563 16.9706L-2.89679e-05 1.41421L1.41418 0Z\" fill=\"#111111\"></path>\n                    <path d=\"M16.9706 1.41431L1.41423 16.9707L1.85966e-05 15.5564L15.5564 9.31025e-05L16.9706 1.41431Z\" fill=\"#111111\"></path>\n                </svg>\n            </div>\n        </div>\n        \n        \n        <script async src=\"https://referralprogramapp.com/shopify/referral/widget.js?shop=myoddballs.myshopify.com&cmp=9830\"></script><div id=\"conjured_referral\"></div>\n        </div>\n    </div>",
+        "color_scheme": "",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "sky_hero_section_ftarVt": {
+      "type": "sky-hero-section",
+      "blocks": {
+        "image_YQCjL8": {
+          "type": "image",
+          "settings": {
+            "wrapper_classes": "w-full md:w-1/2 p-5 relative",
+            "img_wrapper_classes": "w-full",
+            "img_classes": "bg-blue-900",
+            "desktop_img": "shopify://shop_images/HeroImage-ReferFriend.png",
+            "mobile_img": "shopify://shop_images/HeroImage-ReferFriend.png"
+          }
+        },
+        "text_38deWj": {
+          "type": "text",
+          "settings": {
+            "wrapper_classes": "w-full md:w-1/2 flex flex-col align-center justify-center text-center",
+            "title": "",
+            "title_classes": "mt-2 font-bebas text-4xl",
+            "img_wrapper_classes": "flex items-center justify-center w-full",
+            "img_classes": "max-w-lg xl:max-w-2xl py-4",
+            "mobile_img": "shopify://shop_images/Refer-GIF_1.gif",
+            "desktop_img": "shopify://shop_images/Refer-GIF_1.gif",
+            "subtitle": "",
+            "subtitle_classes": "mt-2 font-bebas text-xl",
+            "call_to_action": "Enjoy 20% off for you and a friend when you refer them to OddBalls",
+            "call_to_action_classes": "uppercase px-3 pb-4 max-w-md mx-auto md:text-2xl text-2xl text-indigo-900  marujo",
+            "btn_classes": "rounded-full uppercase bg-white px-16 pb-3 pt-1  marujo text-3xl js-refer-modal cursor-pointer",
+            "link_text": "Refer a friend",
+            "link_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_YQCjL8",
+        "text_38deWj"
+      ],
+      "custom_css": [
+        ".bg-blue-1000 {background-color: #caedfa;}",
+        ".bg-blue-900 {background-color: rgb(202, 236, 255);}",
+        ".text-indigo-900 {color: #08013d !important;}"
+      ],
+      "settings": {
+        "classes": "w-full bg-blue-1000 max-w-9xl px-3",
+        "inner_classes": "w-full  flex flex-col lg:flex-row-reverse  px-3 max-w-9xl mx-auto"
+      }
+    },
+    "tw_card_section_GpjxMQ": {
+      "type": "tw-card-section",
+      "blocks": {
+        "title_GRc4Fy": {
+          "type": "title",
+          "settings": {
+            "text": "GET REWARDED IN 4 EASY STEPS",
+            "wrapper-classes": "",
+            "classes": "mx-auto marujo text-center  text-4xl md:text-5xl uppercase pb-8 text-magenta"
+          }
+        },
+        "card_BtRTcd": {
+          "type": "card",
+          "settings": {
+            "classes": "rounded-md shadow-lg p-5 flex flex-col justify-between",
+            "title": "1. Sign up",
+            "title_classes": "text-3xl text-center marujo text-magenta pb-2",
+            "paragraph": "Simply enter your name and email address",
+            "para_class": "text-center mx-auto  text-base md:text-lg  text-magenta",
+            "svg": "",
+            "img": "shopify://shop_images/SignUp_1.svg"
+          }
+        },
+        "card_wNQQJE": {
+          "type": "card",
+          "settings": {
+            "classes": "rounded-md shadow-lg p-5 flex flex-col justify-between",
+            "title": "2. Share",
+            "title_classes": "text-3xl text-center marujo text-magenta pb-2",
+            "paragraph": "Simply enter your name and email address",
+            "para_class": "text-center mx-auto  text-base md:text-lg  text-magenta",
+            "svg": "",
+            "img": "shopify://shop_images/Share.svg"
+          }
+        },
+        "card_7wChxX": {
+          "type": "card",
+          "settings": {
+            "classes": "rounded-md shadow-lg p-5 flex flex-col justify-between",
+            "title": "3. Relax",
+            "title_classes": "text-3xl text-center marujo text-magenta pb-2",
+            "paragraph": "Simply enter your name and email address",
+            "para_class": "text-center mx-auto  text-base md:text-lg  text-magenta",
+            "svg": "",
+            "img": "shopify://shop_images/Relax.svg"
+          }
+        },
+        "card_4ABNkp": {
+          "type": "card",
+          "settings": {
+            "classes": "rounded-md shadow-lg p-5 flex flex-col justify-between",
+            "title": "4 Reward",
+            "title_classes": "text-3xl text-center marujo text-magenta pb-2",
+            "paragraph": "Simply enter your name and email address",
+            "para_class": "text-center mx-auto  text-base md:text-lg  text-magenta",
+            "svg": "",
+            "img": "shopify://shop_images/Rewards.svg"
+          }
+        },
+        "title_UHjgET": {
+          "type": "title",
+          "settings": {
+            "text": "Lets Share The Love",
+            "wrapper-classes": "text-center",
+            "classes": "rounded-full uppercase bg-magenta px-3 pb-3 pt-1  marujo text-2xl js-refer-modal inline-block text-white  cursor-pointer js-refer-modal mb-6 mt-6"
+          }
+        }
+      },
+      "block_order": [
+        "title_GRc4Fy",
+        "card_BtRTcd",
+        "card_wNQQJE",
+        "card_7wChxX",
+        "card_4ABNkp",
+        "title_UHjgET"
+      ],
+      "settings": {
+        "section-wrap": "px-3"
+      }
+    },
+    "ob_trust_pilot_widget_mJbxJh": {
+      "type": "ob-trust-pilot-widget",
+      "custom_css": [
+        ".bg-blue-1000 {background-color: #caedfa;}",
+        ".bg-blue-900 {background-color: rgb(202, 236, 255);}",
+        ".text-indigo-900 {color: #08013d !important;}"
+      ],
+      "settings": {
+        "outer_wrapper_classes": "bg-blue-1000 text-indigo-900 px-3",
+        "wrapper_classes": "max-w-7xl mx-auto py-10 px-2",
+        "widget_header": "Building friendships one review at a time",
+        "widget_header_classes": "text-center text-4xl md:text-5xl uppercase pb-8 text-indigo-900  marujo",
+        "widget_subheader": "",
+        "widget_subheader_classes": "",
+        "widget_code": "<!-- TrustBox widget - Slider -->\n<div class=\"trustpilot-widget\" data-locale=\"en-GB\" data-template-id=\"54ad5defc6454f065c28af8b\" data-businessunit-id=\"5c7f9459871dac0001ea0238\" data-style-height=\"240px\" data-style-width=\"100%\" data-theme=\"light\" data-stars=\"5\" data-review-languages=\"en\">\n<a href=\"https://uk.trustpilot.com/review/myoddballs.com\" target=\"_blank\" rel=\"noopener\">Trustpilot</a>\n</div>\n<!-- End TrustBox widget -->",
+        "widget_wrapper_classes": "",
+        "use_microcombo": false
+      }
+    },
+    "tabs_and_blocks_EqDnP4": {
+      "type": "tabs-and-blocks",
+      "blocks": {
+        "content_faq_Y3zKQX": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "How does the refer-a-friend scheme work?",
+            "title_text": "How does the refer-a-friend scheme work?",
+            "block_title_classes": "w-full  px-8 pt-5 pb-5 text-l md:text-2xl font-medium leading-7 md:leading-5 text-left",
+            "description": "<br> As a thank you for spreading the word about our products, we have created the refer-a-friend scheme whereby current customers can refer new customers to OddBalls. Both the referrer and the referred friend will receive a 20% discount off their next purchase.",
+            "block_description_classes": "px-8 pb-5 text-md leading-6"
+          }
+        },
+        "content_faq_6PK76U": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "How do I invite a friend?",
+            "title_text": "How do I invite a friend?",
+            "block_title_classes": "w-full  px-8 pt-5 pb-5 text-l md:text-2xl font-medium leading-7 md:leading-5 text-left",
+            "description": "<br>To invite a friend, navigate to the referral page and enter your name and email address. You will find a unique referral link that will be sent directly to your friends email. When your friend uses this link to make their first purchase, both of you will receive a 20% discount.",
+            "block_description_classes": "px-8 pb-5 text-md leading-6"
+          }
+        },
+        "content_faq_YQXyzj": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "How to refer a friend?",
+            "title_text": "How to refer a friend?",
+            "block_title_classes": "w-full  px-8 pt-5 pb-5 text-l md:text-2xl font-medium leading-7 md:leading-5 text-left",
+            "description": "<br>To start referring friends, follow these steps: \n<br>\n<br>\n1.\tGo to the referral page\n<br>\n2.\tEnter your name and email address\n<br>\n3.\tYou will find a unique referral link that will be sent directly to your friends email\n<br>\n4.\tEnsure your friend uses this link when they make their first purchase to activate the discounts and to receive your 20% off too",
+            "block_description_classes": "px-8 pb-5 text-md leading-6"
+          }
+        },
+        "content_faq_PDL8AH": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "I’ve been referred by a friend. How do I get my reward?",
+            "title_text": "I’ve been referred by a friend. How do I get my reward?",
+            "block_title_classes": "w-full  px-8 pt-5 pb-5 text-l md:text-2xl font-medium leading-7 md:leading-5 text-left",
+            "description": "<br> If you’ve been referred by a friend, click on the referral link they sent you. This link will take you to our website where you can sign up and make your first purchase. Once you’ve completed your purchase, enter your unique code into the discount code link and a 20% discount will be automatically applied. Your friend will also receive their 20% discount reward.",
+            "block_description_classes": "px-8 pb-5 text-md leading-6"
+          }
+        },
+        "content_faq_qm6biD": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto rounded-md text-left w-full border-2 border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "How many people can I refer to OddBalls?",
+            "title_text": "How many people can I refer to OddBalls?",
+            "block_title_classes": "w-full  px-8 pt-5 pb-5 text-l md:text-2xl font-medium leading-7 md:leading-5 text-left",
+            "description": "<br> There is no limit to the number of people you can refer to OddBalls. The more friends you refer, the more rewards you can earn. Each time a referred friend makes their first purchase using your referral link, you will receive a 20% discount. So, keep sharing and enjoy the benefits.",
+            "block_description_classes": "px-8 pb-5 text-md leading-6"
+          }
+        }
+      },
+      "block_order": [
+        "content_faq_Y3zKQX",
+        "content_faq_6PK76U",
+        "content_faq_YQXyzj",
+        "content_faq_PDL8AH",
+        "content_faq_qm6biD"
+      ],
+      "settings": {
+        "outer_wrapper_attr": "data-attribute for linking section content",
+        "outer_wrapper_classes": "2xl:mx-auto 2xl:container py-12 lg:px-20 md:px-6 px-3  px-3 max-w-7xl mx-auto px-6",
+        "inner_wrapper_classes": "grid grid-cols-12 gap-6",
+        "header_wrapper_classes": "col-span-12 flex flex-col justify-center items-center text-center space-y-4",
+        "all_tabs_wrapper_classes": "",
+        "content_wrapper_classes": "col-span-12 mt-8 grid grid-cols-12 gap-y-8",
+        "option_menu_selected": false,
+        "title": "Refer a friend FAQs",
+        "title_classes": "text-4xl lg:text-5xl leading-9 md:leading-7 lg:leading-9 text-magenta marujo",
+        "description": "",
+        "description_classes": "text-base leading-6 text-center text-gray-600 w-full md:w-10/12"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "custom_liquid_R7ff6R",
+    "sky_hero_section_ftarVt",
+    "tw_card_section_GpjxMQ",
+    "ob_trust_pilot_widget_mJbxJh",
+    "tabs_and_blocks_EqDnP4"
+  ]
+}

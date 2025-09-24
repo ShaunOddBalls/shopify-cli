@@ -1,0 +1,128 @@
+<div id="quiz_{{ section.id }}" class="quiz-results {{ section.settings.outer_wrapper_classes }}">
+  	{% if section.settings.background_image_mobile != blank or section.settings.background_image_desktop != blank %}
+  	<div>
+      <img class="block md:hidden h-full w-full inset-0 {{ section.settings.background_image_wrapper_classes }}" src="{{ section.settings.background_image_mobile | img_url: "800x"}}">
+      <img class="hidden md:block h-full w-full inset-0 {{ section.settings.background_image_wrapper_classes }}" src="{{ section.settings.background_image_desktop | img_url: "800x"}}">
+  	</div>
+  	{% endif %}
+    <div class="{{ section.settings.inner_wrapper_classes }}">
+      <div class="{{ section.settings.q_side_wrapper_classes }}">
+        <div class="{{ section.settings.questions_wrapper_classes }}">
+          	{% if section.settings.title != blank %}
+          		<h2 class="{{ section.settings.title_classes }}">{{ section.settings.title }}</h2>
+          	{% endif %}
+          	{% if section.settings.subtitle != blank %}
+          		<h3 class="{{ section.settings.subtitle_classes }}">{{ section.settings.subtitle }} </h3>
+          	{% endif %}
+            {% if section.settings.image_link != blank %}
+            <div class="{{ section.settings.image_wrapper_classes }}">
+              <img class="{{ section.settings.image_classes}}" src="{{ section.settings.image_link | img_url: "500x" }}">
+            </div>
+            {% endif %}
+        </div>
+      </div>
+    </div>
+</div>
+
+{% schema %}
+  {
+  	"name": "Quiz Results Slide",
+	"class":"js-quiz-slide hidden",
+	"presets": [
+		{
+			"name": "Quiz Results Slide"
+		}
+	],
+  	"settings": [
+		{
+  			"type": "text",
+  			"id": "outer_wrapper_classes",
+  			"label": "Outer Wrapper Classes",
+			"default": "relative z-10"
+  		},
+  		{
+  			"type": "text",
+  			"id": "inner_wrapper_classes",
+  			"label": "Inner Wrapper Classes",
+			"default": "max-w-7xl mx-auto"
+  		},
+  		{
+  			"type": "text",
+  			"id": "background_image_wrapper_classes",
+  			"label": "Background Image Wrapper Classes",
+			"default": "absolute object-cover z-50"
+  		},
+  		{
+  			"type": "image_picker",
+  			"id": "background_image_mobile",
+  			"label": "Background Image Mobile"
+  		},
+  		{
+  			"type": "image_picker",
+  			"id": "background_image_desktop",
+  			"label": "Background Image Desktop"
+  		},
+  		{
+  			"type": "header",
+  			"content": "Content"
+  		},
+  		{
+  			"type": "text",
+  			"id": "q_side_wrapper_classes",
+  			"label": "Wrapper Classes",
+			"default": "z-100 relative"
+  		},
+  		{
+  			"type": "text",
+  			"id": "questions_wrapper_classes",
+  			"label": "Questions Wrapper Classes",
+			"default": "flex flex-col px-5 md:px-10 gap-y-4"
+  		},
+  		{
+  			"type": "text",
+  			"id": "title",
+  			"label": "Title"
+  		},
+  		{
+  			"type": "text",
+  			"id": "title_classes",
+  			"label": "Title Classes",
+			"default": "text-white text-4xl text-center"
+  		},
+  		{
+  			"type": "text",
+  			"id": "subtitle",
+  			"label": "Subtitle"
+  		},
+  		{
+  			"type": "text",
+  			"id": "subtitle_classes",
+  			"label": "Subtitle Classes",
+			"default": "text-white text-2xl text-center"
+  		},
+  		{
+  			"type": "text",
+  			"id": "image_wrapper_classes",
+  			"label": "Image Wrapper Classes"
+  		},
+  		{
+  			"type": "text",
+  			"id": "image_classes",
+  			"label": "Image Classes"
+  		},
+  		{
+  			"type": "image_picker",
+  			"id": "image_link",
+  			"label": "Image Link"
+  		}
+  	]
+
+   }
+
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

@@ -1,0 +1,265 @@
+document.body.addEventListener('click', function(event) { 
+
+    if(event.target.closest("#sas-individual-selector")){
+      document.querySelector('.sas-parent-form').classList.remove("sub-selected");
+      document.querySelector('.sas-parent-form').classList.add("individual-selected");
+    }
+    if(event.target.closest("#sas-subscription-selector")){
+      console.log("hello")
+      document.querySelector('.sas-parent-form').classList.add("sub-selected");
+      document.querySelector('.sas-parent-form').classList.remove("individual-selected");
+  
+      checkSasState()
+    }
+  
+    if(event.target.closest(".ooption-value")){
+      setTimeout(()=>{
+        checkSasState();
+      }, 10)
+    }
+  })
+  
+  const checkSasState = () =>{
+    const prodVariantsArr = Array.from(document.querySelectorAll(".sas-product-variants-wrap input"))
+  
+      if(!prodVariantsArr.some((item)=>{
+        return item.checked == true;
+      })){
+        document.getElementById("sas-atc-button").classList.add("sas-no-pants");
+      }else{
+        document.getElementById("sas-atc-button").classList.remove("sas-no-pants");
+      }
+      
+      const subSocksArr = Array.from(document.querySelectorAll(".sas-sock-selector input"));
+      
+      if(!subSocksArr.some((item)=>{
+        return item.checked == true;
+      })){
+        document.getElementById("sas-atc-button").classList.add("sas-no-socks");
+      }else{
+        document.getElementById("sas-atc-button").classList.remove("sas-no-socks");
+      }
+  }
+  
+  function sortSasVariants(){
+    const prod = JSON.parse(document.getElementById("product-json").value);
+    const subVariants = document.querySelectorAll('.sas-product-form [data-option-name="Size"] .product-variant');
+    subVariants.forEach((variant) =>{
+      prod.variants.forEach((prodVariant) =>{
+        if(variant.getAttribute("data-option-value") == prodVariant.title){
+          if(!prodVariant.available){
+            variant.classList.add("variant-unavailable");
+          }else{
+            variant.classList.remove("variant-unavailable");
+          }
+        }
+      })
+      
+    })
+  }
+  
+  document.addEventListener("click", () => {
+    if(event.target.closest("#sas-atc-button")){
+      addSaSToCart()
+    }  
+  
+    if(event.target.closest("#sas-subscription-selector")){
+      const popupTarget = document.getElementById("sas-popup");
+      openPopup(popupTarget)
+      setTimeout(() => {
+  window.dispatchEvent(new Event('resize'));
+}, 300);
+    }
+  })
+  
+  
+  const addSaSToCart = async () => {
+        const selectedPants = document.querySelector('.sas-product-variants-wrap input:checked')
+      const pantsTitle = selectedPants?.dataset.optionValue;
+      const selectedSocks = document.querySelector('.sas-sock-selector input:checked')
+      const socksTitle = selectedSocks?.dataset.optionValue;
+  
+      const inputs = document.querySelectorAll("#sas-product-variants input");
+      
+      const inputsArray = Array.from(inputs);
+      
+      const matchedInput = inputsArray.find((item) => {
+        const first = item.dataset.first?.toLowerCase();
+        const second = item.dataset.second?.toLowerCase();
+      
+        return first === pantsTitle.toLowerCase() && second === socksTitle.toLowerCase();
+      });
+      
+      
+      const varIdToAdd = matchedInput?.dataset.id;
+  
+      const pantsInputs = document.querySelectorAll(".product-variants-wrap input");
+      const pantsInputArray = Array.from(pantsInputs);
+  
+      const sasProdInput = document.getElementById("sas-prod-info");
+      const sasProdInfo = JSON.parse(sasProdInput.innerHTML);
+      let sasProdId = sasProdInfo.id;
+      let currentProdInput = document.getElementById("product-json");
+      let sasMothlyPrice = sasProdInput.getAttribute('data-sas-monthy-price');
+      let currentProdInfo = JSON.parse(currentProdInput.value);
+      let prodId = currentProdInfo.id;
+      let currentProdVarId = currentProdInfo.variants.find((car) =>{
+        return car.title.toLowerCase() == pantsTitle.toLowerCase();
+      }).id
+      const sasFormContainer = document.getElementById("sas-form-container");
+      const sasForm = sasFormContainer.querySelector("form");
+    const sasVarIdInput = sasForm.querySelector('input[name="id"]')
+    sasVarIdInput.value = varIdToAdd;
+    const prodData = document.createElement('input');
+    prodData.classList.add("js-prod-data")
+    prodData.value = JSON.stringify(sasProdInfo);
+    prodData.setAttribute("type", "hidden");
+    prodData.id = "product-json-" + sasProdInfo.id;
+    sasForm.append(prodData);
+  
+    const currentDate = new Date();
+    const timestamp = currentDate.getTime();
+    const sasTimestampInput = document.createElement("input");
+    sasTimestampInput.setAttribute("name", "properties[_sub_and_save_subscription]");
+    sasTimestampInput.value = timestamp;
+    sasTimestampInput.type = "hidden";
+    sasForm.append(sasTimestampInput);
+
+
+    const nextMonth = new Date();
+    nextMonth.setMonth(nextMonth.getMonth() + 1);
+    nextMonth.setDate(1);
+    const day = String(nextMonth.getDate()).padStart(2, '0');
+    const month = String(nextMonth.getMonth() + 1).padStart(2, '0');
+    const year = nextMonth.getFullYear();
+    const startDate = `${day}-${month}`; // Format as DD-MM-YYYY
+    
+    const startDateInput = document.createElement("input");
+    startDateInput.setAttribute("name", "properties[Payment Starts]");
+    startDateInput.value = startDate;
+    startDateInput.type = "hidden";
+    sasForm.append(startDateInput);
+    
+    if(sasMothlyPrice){
+    const MonthlyPriceInput = document.createElement("input");
+    MonthlyPriceInput.setAttribute("name", "properties[Monthly Price]");
+    MonthlyPriceInput.value = sasMothlyPrice;
+    MonthlyPriceInput.type = "hidden";
+    sasForm.append(MonthlyPriceInput);
+    }
+    
+    const FreeShinppingMessage = document.createElement("input");
+    FreeShinppingMessage.setAttribute("name", "properties[Free Shipping]");
+    FreeShinppingMessage.value = "✅";
+    FreeShinppingMessage.type = "hidden";
+    sasForm.append(FreeShinppingMessage);
+    
+    const sasProdTypeInput = document.createElement("input");
+    sasProdTypeInput.setAttribute("name", `properties[_SaS Discount]`);
+    sasProdTypeInput.value = "Subscription " + currentProdInfo.type;
+    sasProdTypeInput.type = "hidden";
+    sasForm.append(sasProdTypeInput);
+    
+    
+    const sellingPlan = document.getElementById("sas-sp-input").value;
+    const productForm = document.querySelector(".sas-product-form-form");
+    const prodVarIdInput = productForm.querySelector('input[name="id"]')
+  
+    prodVarIdInput.value = currentProdVarId;
+    
+    const prodTimestampInput = document.createElement("input");
+    prodTimestampInput.setAttribute("name", "properties[_sub_and_save_product]");
+    prodTimestampInput.value = timestamp;
+    prodTimestampInput.type = "hidden";
+    
+    productForm.append(prodTimestampInput);
+
+    
+    const freeSocksInput = document.createElement("input");
+    freeSocksInput.setAttribute("name", "properties[Free Socks]");
+    freeSocksInput.value = "✅";
+    freeSocksInput.type = "hidden";
+    
+    productForm.append(freeSocksInput);
+
+    const sasProdTypeInput2 = document.createElement("input");
+    sasProdTypeInput2.setAttribute("name", `properties[_SaS Discount]`);
+    sasProdTypeInput2.value = "Product " + currentProdInfo.type;
+    sasProdTypeInput2.type = "hidden";
+    productForm.append(sasProdTypeInput2);
+    
+    await SaSAddToCart(sasForm, varIdToAdd,sasProdInfo, sellingPlan)
+    await SaSAddToCart(productForm, currentProdVarId,currentProdInfo)
+  
+  
+  }
+  
+   async function addFormsToCart(index) {
+            const forms = document.querySelectorAll('#sas-form-container .product-form');
+            for (let form of forms) {
+                const addToCartButton = form.querySelector('.add-to-cart-button');
+                addToCartButton.click();
+                await SaSAddToCart(form, form.querySelector('.product-selected-variant-id').value);
+            }
+      }
+  
+    function SaSAddToCart(form, currentVariant,productData, sellingPlan = false) {
+      console.log(form)
+      return new Promise((resolve, reject) => {
+  
+          const formData = new FormData(form);
+        if(sellingPlan){
+          formData.set('selling_plan', sellingPlan);
+        }
+          const dataString = new URLSearchParams(formData).toString();
+          fetch('/cart/add.js', {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/x-www-form-urlencoded',
+                  'Accept': 'application/json',
+              },
+              body: dataString,
+          })
+          .then(response => {
+              console.log('Cart add response:', response);
+              if (response.ok) {
+                  return response.json();
+              } else {
+                  return response.json().then((json) => {
+                      throw new Error(json.description || 'Failed to add to cart');
+                  });
+              }
+          })
+          .then(cartItem => {
+              console.log('Item added to cart:', cartItem);
+              const event = new CustomEvent('itemAddedToCart', {
+                  detail: {
+                      variant: currentVariant,
+                      product: productData,
+                      formData: formData,
+                  },
+              });
+              document.dispatchEvent(event);
+              const quantityDiv = document.getElementById("cart-items-number");
+              const resetRevent = new CustomEvent('revertToCart');
+              document.dispatchEvent(resetRevent);
+  
+              const cartevent = new CustomEvent('updateCart');
+              document.dispatchEvent(cartevent);
+  
+              resolve(cartItem); // Resolve the promise when item is successfully added
+          })
+          .catch(error => {
+                    const errDiv = document.createElement("div");
+                    errDiv.className="fixed top-2 right-2 bg-red-500 text-white rounded-md px-2 py-1"
+                    errDiv.innerHTML = "Error adding to cart";
+                    errDiv.style.zIndex = "999999999999";
+                    document.body.append(errDiv);
+                    setTimeout(() =>{
+                      errDiv.remove();
+                    }, 2500)
+              console.error('ATC: Error adding to cart:', error);
+              reject(error); // Reject the promise if there's an error
+          });
+      });
+  }

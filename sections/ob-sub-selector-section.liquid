@@ -1,0 +1,1050 @@
+{% assign bg_color = section.settings.background-color | color_to_rgb %}       
+{% assign opacity = section.settings.opacity %}       
+{% assign opacity = opacity | divided_by: 100.0 %}       
+
+{% assign opacityWithEndBracket = ', ' | append: opacity | append: ')' %}       
+{% assign rgba = bg_color | replace: 'rgb', 'rgba' | replace:')', opacityWithEndBracket %}      
+
+
+{% comment %}Loop to get the number of options{% endcomment %}
+{% assign step_count = 0 %}
+{% for block in section.blocks %}
+  {% if block.type == "step" %}
+    {% assign step_count = step_count | plus: 1 %}
+  {% endif %}
+{% endfor %}
+
+{% comment %}Capture sections{% endcomment %}
+{% assign loop_count = 0 %}
+{% capture sub_nav %}
+  {% for block in section.blocks %}
+    {% if block.type == "step" %}
+      {% assign loop_count = loop_count | plus: 1 %}
+      {% assign width = 100 | divided_by: loop_count %}
+      <div data-nav-id="{{ block.settings.title }}" data-tags="{{ block.settings.filter-tags }}" class="js-sub-tab js-step-1 cursor-pointer text-gray-800 cursor-pointer uppercase w-1/2 py-2 text-center {% if forloop.first %}active-selection selected{% endif %}">
+        {{ block.settings.title }}
+      </div>
+      {% if forloop.last %}
+      <div class="selection-tab-selection shadow-sm h-full bg-white absolute flex items-center uppercase font-bold justify-center rounded-full fomnt-bold text-black h-[88%]" style="width: {{ width }}%;top: 50%;bottom: 50%;transform: translate(0%, -50%);left: 1%;">Mens</div>
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+{% endcapture %}
+
+{% comment %}Build card tabs based on block type {% endcomment %}
+{% assign tab_cards = "" %}
+{% assign design_buttons_capture = "" %}
+{% for block in section.blocks %}
+  {% if block.type == "step" %}
+    {% assign show_tab_2_on = block.settings.design_rules %}
+    {% assign show_tab_2_on = block.settings.design_rules | split: "," %}
+    
+    {% assign subscription_options = "" %}
+    {% for i in (1..8) %}
+      {% assign title_key = "subscription_option_" | append: i | append: "_title" %}
+      {% assign svg_key = "subscription_option_" | append: i | append: "_svg" %}
+      {% assign product_type_key = "subscription_option_" | append: i | append: "_product_type" %}
+      {% assign product_type = block.settings[product_type_key] | strip %}
+      {% assign add_design = false %}
+      
+      {% for rule in show_tab_2_on %}
+        {% assign rule = rule | strip %}
+        {% if rule == product_type %}
+          {% assign add_design = true %}
+          {% break %}
+        {% else %}
+
+        {% endif %}
+      {% endfor %}
+      
+      {% if block.settings[title_key] != "*" %}
+        {% capture option %}
+          <div class="js-sub-select js-step-2 border-2 cursor-pointer flex flex-col uppercase border-solid  font-bold rounded-md p-1 bg-off-white " data-product-type="{{ product_type }}" data-add-design="{{ add_design }}">
+            {% if block.settings[svg_key] %}
+              <img src="{{ block.settings[svg_key] | img_url: 'large' }}" alt="{{ block.settings[title_key] }}" />
+            {% endif %}
+            {% if block.settings[title_key] %}
+            <div class="{{ section.settings.card_title_wrapper_classes }}">
+              <p class="{{ section.settings.card_title_classes }}">{{ block.settings[title_key] }}</p>
+            </div>
+            {% endif %}
+          </div>
+        {% endcapture %}
+        {% assign subscription_options = subscription_options | append: option %}
+      {% endif %}
+    {% endfor %}
+
+    
+    {% if subscription_options != "" %}
+      {% capture card_set %}
+        <div class="{% unless block.settings.title == "Men's" %}hidden{% endunless %}" data-tab="{{ block.settings.title }}">
+          <div class="flex grid grid-cols-3 md:grid-cols-4 gap-1">
+            {{ subscription_options }}
+          </div>
+        </div>
+      {% endcapture %}
+      {% assign tab_cards = tab_cards | append: card_set %}
+    {% endif %}
+
+    {% assign design_list = block.settings.design_list %}
+    {% assign design_list = design_list | split: "," %}
+    
+   {% capture design_buttons %}
+      <div class="full flex hidden p-2 bg-gray-200 rounded-full relative" data-tab-2="{{ block.settings.title }}">
+        {% assign design_count = 0 %}
+        {% for design in design_list %}
+          {% assign design_count = design_count | plus: 1 %}
+          {% assign design_width = 100 | divided_by: design_count %}
+          <div class="js-sub-design select cursor-pointer uppercase w-1/2 py-2 text-center" data-design="{{ design }}">
+          </div>
+          {% if forloop.first %}
+            {% assign name = design %}
+          {% endif %}
+          {% if forloop.last %}
+            <div class="selection-tab-selection shadow-sm h-full bg-white absolute flex items-center uppercase font-bold justify-center rounded-full fomnt-bold text-black h-[88%]" style="width: {{ design_width }}%;top: 50%;bottom: 50%;transform: translate(0%, -50%);left: 1%;">{{ name }}</div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    {% endcapture %}
+    {% assign design_buttons_capture = design_buttons_capture | append: design_buttons %}
+  {% endif %}
+{% endfor %}
+
+
+
+<div class="relative lg:grid lg:grid-cols-12 relative" style="min-height: calc(100vh - 190px);">
+   <div class="absolute homepage-banner-cover w-full h-full"> 
+     <img src="{{ section.settings.desktop_img | img_url: "800x"}}" alt="{{ section.settings.background_heading }}" class="w-full h-full -z-10 object-position-center object-fit hidden md:block">
+     
+   </div>
+  <!-- Progress bar here if we want one -->
+
+  <!-- Background Image -->
+  <div class="lg:col-span-6 xl:col-span-8 stick-to-bottom h-full">
+   
+    <div id="sub-left-col" class="relative h-full object-position-center flex flex-col justify-center">
+      {% if section.settings.mobile_img or section.settings.desktop_img %}
+        <img id="sub-mobile-svg" src="{{ section.settings.mobile_background_img | img_url: '600x' }}" alt="{{ section.settings.mobile_background_img }}" class="w-full h-full -z-10 object-cover md:hidden block absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+        <img src="{{ section.settings.mobile_img | img_url: '600x' }}" alt="{{ section.settings.background_heading }}" class="w-3/6 mx-auto z-10">
+      {% endif %}
+    <h2 class="font-bold lg:text-4xl text-white py-2 text-center uppercase w-3/6 mx-auto font-montserrat-bold z-10">Welcome to the Pants Party!</h2>
+    </div>
+  </div>
+  <!-- ./Background Image -->
+
+  <div id="side-panel" class="md:h-full relative xl:col-span-4 lg:col-span-6" style="{% if section.settings.background-color %} background-color: {{ rgba }};{% endif %}backdrop-filter: blur({{ section.settings.backdrop-blur }}px)">
+    {% if section.settings.background_heading %}
+      <h1 class="whitespace-nowrap hidden md:block pointer-events-none absolute text-center leading-4 font-bebas" style="font-size: calc(15vw); top: -8px; opacity: 0.03;">
+        {{ section.settings.background_heading }}
+      </h1>
+    {% endif %}
+
+    <!-- Main Card -->
+     <div class="relative overflow-hidden reasons-swiper-wrap">
+        <div class="swiper info-slider">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide flex flex-col justify-center items-center text-center h-32">
+              <div><img src="https://cdn.shopify.com/s/files/1/0353/7249/files/Designs.svg?v=1722324793" alt="1. Fun Designs" class="w-24 h-24"></div>
+              <div><h2 class="mx-auto text-lg marujo leading-none">Fun New<br>Designs</h2></div>
+            </div>
+            <div class="swiper-slide flex flex-col justify-center items-center text-center h-32">
+              <div><img src="https://cdn.shopify.com/s/files/1/0353/7249/files/Socks-2.svg?v=1722324793" alt="2. Free Socks" class="w-24 h-24"></div>
+              <div><h2 class="mx-auto text-lg marujo leading-none">Free<br>Socks</h2></div>
+            </div>
+            <div class="swiper-slide flex flex-col justify-center items-center text-center h-32">
+              <div><img src="https://cdn.shopify.com/s/files/1/0353/7249/files/FreeDelivery.svg?v=1722324793" alt="3.Free Delivery" class="w-24 h-24"></div>
+              <div><h2 class="mx-auto text-lg marujo leading-none">Free Delivery<br>On All Orders</h2></div>
+            </div>
+            <div class="swiper-slide flex flex-col justify-center items-center text-center h-32">
+              <div><img src="https://cdn.shopify.com/s/files/1/0353/7249/files/ExclusiveGifts-2.svg?v=1722324793" alt="4.Exclusive Gifts" class="w-24 h-24"></div>
+              <div><h2 class="mx-auto text-lg marujo leading-none">Exclusive<br>Gifts</h2></div>
+            </div>
+            <div class="swiper-slide flex flex-col justify-center items-center text-center h-32">
+              <div><img src="https://cdn.shopify.com/s/files/1/0353/7249/files/VIP.svg?v=1722324793" alt="5.VIP Access" class="w-24 h-24"></div>
+              <div><h2 class="mx-auto text-lg marujo leading-none">VIP<br>Access</h2></div>
+            </div>
+            <div class="swiper-slide flex flex-col justify-center items-center text-center h-32">
+              <div><img src="https://cdn.shopify.com/s/files/1/0353/7249/files/Discounts-2.svg?v=1722324793" alt="6.Exclusive Discounts" class="w-24 h-24"></div>
+              <div><h2 class="mx-auto text-lg marujo leading-none">Exclusive<br>Discounts</h2></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <div class="  md:w-4/5 md:mb-6 mx-auto col-span-4    max-w-lg overflow-hidden" style="min-height: 520px;">
+
+
+      
+      {% for block in section.blocks %}
+        {% case block.type %}
+          
+        {% when 'product-banner' %}
+          {% assign product_types = block.settings.product_types %}
+          {% assign product_type = product.type | downcase %}
+          {% assign product_types_arr = block.settings.product_types | downcase %}
+          {% assign proceed_with_multibuy = 'no' %}
+          {% if block.settings.is_multibuy_banner %}
+            {% unless product.compare_at_price > product.price %}
+              {% assign proceed_with_multibuy = 'yes' %}
+            {% endunless %}
+          {% else %}
+              {% assign proceed_with_multibuy = 'yes' %}
+          {% endif %}
+
+          {% assign tags_ok_to_proceed = 'yes' %}
+          {% if block.settings.exclude_tags != blank %}
+            {% assign exclude_tags = block.settings.exclude_tags | downcase %}
+            {% assign exclude_tags_arr = exclude_tags | split: ',' %}
+            {% for tag in exclude_tags_arr %}
+              {% assign tag_downcase = tag | downcase %}
+              {% for prod_tag in product.tags %}
+                {% assign prod_tag_downcase = prod_tag | downcase %}
+                
+                {% if tag_downcase == prod_tag_downcase %}
+                  {% assign tags_ok_to_proceed = 'no'%}
+                {% endif %}
+              {% endfor %}
+            {% endfor %}           
+          {% endif %}
+
+          {% assign customer_ok_to_proceed = 'yes' %}
+          {% if is_customer %}
+            {% assign is_customer = 'yes' %}
+          {% else %}
+            {% assign is_customer = 'no' %}
+          {% endif %}
+          
+          {% assign customers_block_check = block.settings.customers %}
+          {% unless customer_check == 'both' or block.settings.customers == blank %}
+            {% if is_customer == 'yes' and customers_block_check == 'not customer' %}
+              {% assign customer_ok_to_proceed = 'no' %}           
+            {% endif %}
+
+            {% if is_customer == 'no' and customers_block_check == 'customer' %}
+              {% assign customer_ok_to_proceed = 'no' %}            
+            {% endif %}
+          {% endunless%}
+
+          {% if product_types_arr contains product_type and customer_ok_to_proceed == 'yes' and tags_ok_to_proceed == 'yes' and proceed_with_multibuy == 'yes'%}   
+            <div class="banner-present relative" >
+              {% if block.settings.mobile_image != blank %}
+              {%  assign mobile_image = block.settings.mobile_image | img_url: '1000x' %}
+              <img id="himg" mobile class="{{ block.settings.mobile_image_classes }}" src="{{ mobile_image }}">
+              {% endif %}
+              {% if block.settings.desktop_image != blank %}
+              {%  assign desktop_image = block.settings.desktop_image | img_url: '1000x' %}
+              <img id="himg" desktop class="{{ block.settings.desktop_image_classes }}" src="{{ desktop_image }}">
+              {% endif %}
+
+
+          {% if block.settings.block_video_desktop != blank and block.settings.block_video_mobile != blank %}    
+          <div class="video-block video-replace-me {{ block.settings.video_outer_wrap }}" data-src-mobile="{{ block.settings.block_video_mobile | file_url }}" data-src="{{ block.settings.block_video_desktop | file_url }}"> 
+            <div class="fluid-width-video-wrapper">
+              {% if block.settings.block_video_desktop contains '.json' %}
+                <lottie-player loading="lazy" src="{{ block.settings.block_video_desktop | file_url }}"  background="transparent"  speed="1"  style="width: 100%"  loop autoplay></lottie-player>
+              {% else %}
+                <video loading="lazy" class="object-cover h-full w-full" src=""><source src="" type="video/mp4"></video>    
+              {% endif %}
+            </div>
+          </div>
+        
+          {% endif %}
+              
+              {% if block.settings.mobile_svg != blank %}
+              {%  assign mobile_svg = block.settings.mobile_svg | file_url  %}
+              <img id="himg" mobile svg class="{{ block.settings.mobile_svg_classes }}" src="{{ mobile_svg }}">
+              {% endif %}
+              {% if block.settings.desktop_svg != blank %}
+              {%  assign desktop_svg = block.settings.desktop_svg | file_url  %}
+              <img id="himg" desktop svg class="{{ block.settings.desktop_svg_classes }}" src="{{ desktop_svg }}">
+              {% endif %}
+            </div>
+
+            {%  if mobile_image contains '/no-image-' or mobile_image contains '/no-image-' or mobile_svg contains '/no-image-' or desktop_svg contains '/no-image-' %}
+            {%  else %}
+                {% assign banners_count = banners_count | plus: 1 %}
+            {%  endif %}
+            
+          {% endif %}
+          
+          {% when 'title' %}
+            <div class="{{ block.settings.wrapper_classes }}">
+              <h2 class="{{ block.settings.text_classes }}">{{ block.settings.text }}</h2>
+            </div>
+          {% when 'paragraph' %}
+            <div class="{{ block.settings.wrapper_classes }}">
+              <h2 class="{{ block.settings.text_classes }}">{{ block.settings.text }}</h2>
+            </div>
+        {% endcase %}
+      {% endfor %}
+
+      <!-- Form -->
+      <div class="w-full px-6 pb-6" id="sub-and-save-form">
+        
+        <!-- options -->
+        <div id="sub-n-save-options">
+        <div class="w-full">
+          <p class="typography typography--body-md uppercase mb-2 font-semibold load-animate">{{ section.settings.step_one_text }}</p>
+          <div class="flex justify-center mb-6 rounded-full rounded-bl-full p-2 bg-gray-200 bg-opacity-40 relative load-animate" id="option">
+            {{ sub_nav }}
+          </div>
+        </div>
+          <div id="options-1">
+            <div> 
+            <div class="w-full load-animate">
+              <p class="typography typography--body-md uppercase mb-2 font-semibold">{{ section.settings.step_two_text }}</p>
+            </div>
+            </div>
+            <!-- Output the captured tab cards -->
+            <div class="w-full mb-6 load-animate">
+              {{  tab_cards }}
+            </div>
+          </div>
+          <div id="options-2" class="hidden mb-3">
+            <div class="full">
+              <p class="typography typography--body-md uppercase mb-2 font-semibold">{{ section.settings.step_tree_text }}</p>
+            </div>
+            <div id="step-three-options">
+              {{ design_buttons_capture }}
+          </div>
+          </div>
+          <div id="default-options" class="hidden mb-3">
+              <p class="typography typography--body-md uppercase mb-2 font-semibold">{{ section.settings.step_tree_text }}</p>
+            <div class="default-tabs full flex p-2 bg-gray-200 rounded-full relative">
+              <div class="border-l uppercase py-2 w-1/2 py text-center bg-gradient" data-design="adventurous">adventurous</div>
+              <div class="opacity-50  uppercase w-1/2 py-2 text-center rounded-tr-full  disabled line-through" data-design="classic">classic</div>
+              <div class="selection-tab-selection shadow-sm h-full bg-white absolute flex items-center uppercase font-bold justify-center rounded-full fomnt-bold text-black h-[88%] patterned" style="width: 50%;top: 50%;bottom: 50%;transform: translate(0%, -50%);left: 1%;">Patterned</div>
+            </div>
+          </div>
+          <div id="sas-product-container" class="my-6">
+              
+          </div>
+          
+        <!-- ./options -->
+       </div>
+      <div id="intail-product-loader" class="w-full mt-6 hidden">
+        <div class="flex items-center gap-4 border-light rounded-lg shadow-sm w-full p-2">
+          <div class="w-full">
+            <div class="load-animate h-10 my-2">title</div>
+            <div class="load-animate mb-2">title</div>
+          </div>
+          <div class="h-28 load-animate w-3/5"></div>
+        </div>
+        <div class="w-full ">
+          <p class="my-2 mb-0 sm:mb-0 sm:my-3 text-md leading-snug py-2 font-bold">2. Please select your size</p>
+          <div class="px-1 grid gap-2 grid-cols-4 md:grid-cols-4 mb-6">
+            <div class="h-12 w-full load-animate"></div>
+            <div class="h-12 w-full load-animate"></div>
+            <div class="h-12 w-full load-animate"></div>
+            <div class="h-12 w-full load-animate"></div>
+            <div class="h-12 w-full load-animate"></div>
+            <div class="h-12 w-full load-animate"></div>
+            <div class="h-12 w-full load-animate"></div>
+            <div class="h-12 w-full load-animate"></div>
+          </div>
+        </div>
+        <div class="w-full ">
+          <p class="my-2 mb-0 sm:mb-0 sm:my-3 text-md leading-snug py-2 font-bold">2. Please select your size</p>
+          <div class="px-1 grid gap-2 grid-cols-4 md:grid-cols-4 mb-4">
+            <div class="h-8 w-full load-animate"></div>
+            <div class="h-8 w-full load-animate"></div>
+            <div class="h-8 w-full load-animate"></div>
+          </div>
+        </div>
+      
+        <div class="w-full h-12 load-animate mb-6"></div>
+      </div>
+      </div>
+
+        <!-- ./Form -->
+      <!-- ./Main Card -->
+      
+    </div>
+  </div>
+</div>
+
+
+{% schema %}
+{
+  "name": "Sub and Save",
+  "settings": [
+    {
+      "type": "text",
+      "id": "background_heading",
+      "label": "Background Heading",
+      "default": "Title"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_img",
+      "label": "middle svg"
+    },
+    {
+      "type": "image_picker",
+      "id": "desktop_img",
+      "label": "Desktop Background Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_background_img",
+      "label": "Mobile Background Image"
+    },
+    {
+      "type": "text",
+      "id": "step_one_text",
+      "label": "Step One Text",
+    },
+    {
+      "type": "text",
+      "id": "step_two_text",
+      "label": "Step Two Text",
+    },
+    {
+      "type": "text",
+      "id": "step_tree_text",
+      "label": "Step Three Text",
+    },
+    {
+      "type": "text",
+      "id": "card_title_wrapper_classes",
+      "label": "Card Title Wrapper Classes",
+      "default": "text-xs text-center"
+    },
+    {
+      "type": "text",
+      "id": "card_title_classes",
+      "label": "Card Title Classes",
+      "default": "text-xs text-center"
+    },
+    {
+      "type": "color",
+      "id": "background-color",
+      "label": "Background Colour"
+    },
+    {
+      "type": "range",
+      "id": "opacity",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "Background Opacity",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "backdrop-blur",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Back ground blur",
+      "default": 0
+    }
+    
+  ],
+  "blocks": [
+    {
+      "name": "Title",
+      "type": "title",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Title Text",
+          "default": "title"
+        },
+        {
+          "type": "text",
+          "id": "wrapper_classes",
+          "label": "Wrapper Classes Text",
+          "default": "w-full"
+        },
+        {
+          "type": "text",
+          "id": "text_classes",
+          "label": "Title Classes",
+          "default": "text-lg marujo"
+        }
+      ]
+    },
+    {
+      "name": "Paragraph",
+      "type": "paragraph",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Paragraph Text"
+        },
+        {
+          "type": "text",
+          "id": "wrapper_classes",
+          "label": "Wrapper Classes Text"
+        },
+        {
+          "type": "text",
+          "id": "text_classes",
+          "label": "Paragraph Classes"
+        }
+      ]
+    },
+    {
+      "type": "product-banner",
+      "name": "Product Banner",
+        "settings": [
+          {
+            "id": "block_active",
+            "type": "checkbox",
+            "label": "block active?",
+			"default": true
+          },
+          {
+            "id": "is_multibuy_banner",
+            "type": "checkbox",
+            "label": "Is multibuy banner",
+            "info": "Check to activate",
+			"default": false
+          },
+          {
+            "id": "banner_background",
+            "type": "color",
+            "label": "Banner background colour"			
+          },
+          {
+            "id": "wrapper_classes",
+            "type": "textarea",
+            "label": "Wrapper classes"			
+          },           
+          {
+            "id": "title",
+            "type": "text",
+            "label": "Title for block",
+            "info": "Used for identification only"
+          },
+          {
+            "id": "text",
+            "type": "text",
+            "label": "Text for Block (optional)",
+            "info": "Used instead of svg"
+          },
+          {
+            "id": "customers",
+            "type": "select",
+            "default": "both",            
+            "options": [
+              {
+                "value": "both",
+                "label": "both"
+              },
+              {
+                "value": "customer",
+                "label": "customer"
+              },
+              {
+                "value": "not-customer",
+                "label": "not customer"
+              } 
+            ],
+            "label": "Customer (optional)"
+          },
+          {
+            "type": "html",
+            "id": "country_iso",
+            "label": "Only display if current iso is (* for all)",
+            "info": "Comma seperated",
+            "default":"*"
+          },         
+          {
+            "id": "product_types",
+            "type": "textarea",
+            "label": "Product types to display",
+         	"info": "List separated with commas"			
+          },
+          {
+            "id": "exclude_tags",
+            "type": "textarea",
+            "label": "Exclude if product contains tags",
+         	"info": "List separated with commas"			
+          },
+          {
+            "id": "desktop_image",
+            "type": "image_picker",
+            "label": "Desktop image"			
+          },
+          {
+            "id": "mobile_image",
+            "type": "image_picker",
+            "label": "Mobile image"			
+          },
+          {
+            "id": "desktop_image_classes",
+            "type": "textarea",
+            "label": "Desktop image classes",
+            "default": "mx-auto w-full hidden md:block"
+          },
+          {
+            "id": "mobile_image_classes",
+            "type": "textarea",
+            "label": "Mobile image classes",
+            "default": "mx-auto w-full md:hidden"
+          },
+          {
+            "id": "desktop_svg",
+            "type": "text",
+            "label": "Desktop SVG",
+         	"info": "Enter as file name"			
+          },
+          {
+            "id": "mobile_svg",
+            "type": "text",
+            "label": "Mobile SVG",
+         	"info": "Enter as file name"			
+          },
+          {
+            "id": "desktop_svg_classes",
+            "type": "textarea",
+            "label": "Desktop svg classes",
+            "default": "absolute inset-0 w-full h-full mx-auto hidden md:block"
+          },
+          {
+            "id": "mobile_svg_classes",
+            "type": "textarea",
+            "label": "Mobile svg classes",
+            "default": "absolute inset-0 w-full h-full mx-auto md:hidden"
+          },
+            {
+              "id": "video_outer_wrap",
+              "type": "text",
+              "label": "video outer wrap",
+              "default": "absolute inset-0 absolute inset-0 w-full h-full mx-auto",
+              "info": "eg. absolute inset-0 absolute inset-0 w-full h-full mx-auto"			
+            },
+            {
+              "id": "video_wrap",
+              "type": "text",
+              "label": "video wrap",
+              "default": "col-span-12 absolute inset-0 w-full h-full",
+              "info": "eg. col-span-12 absolute inset-0 w-full h-full"			
+            },
+            {
+              "id": "block_video_desktop",
+              "type": "text",
+              "label": "desktop video (optional)"
+            },
+            {
+              "id": "block_video_desktop_class",
+              "type": "text",
+              "label": "desktop video class",
+              "default": "object-cover h-full w-full",
+              "info": "eg. object-cover h-full w-full"
+            },
+            {
+              "id": "block_video_mobile",
+              "type": "text",
+              "label": "mobile video (optional)"
+            },
+            {
+              "id": "block_video_mobile_class",
+              "type": "text",
+              "label": "mobile video class",
+              "default": "object-cover h-full w-full",
+              "info": "eg. object-cover h-full w-full"
+            }
+            ]
+          },
+        {
+        "name": "Options",
+        "type": "step",
+        "settings": [
+        {
+          "type": "header",
+          "content": "Membership Options"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title Text",
+          "info": "This must be unique"
+        },
+        {
+          "type": "text",
+          "id": "filter-tags",
+          "label": "tags",
+          "info": "tags used to filter products"
+        },
+        {
+          "type": "header",
+          "content": "Subscription Options"
+        },
+        {
+          "type": "text",
+          "id": "subscription_option_1_title",
+          "label": "Subscription Text 1",
+          "default": "*"
+        },
+        {
+          "type": "image_picker",
+          "id": "subscription_option_1_svg",
+          "label": "Subscription 1 Svg"
+        },
+        {
+          "type": "text",
+          "id": "subscription_option_1_product_type",
+          "label": "Subscription Product Type 1",
+        },
+        {
+          "type": "text",
+          "id": "subscription_option_2_title",
+          "label": "Subscription Text 2",
+          "default": "*"
+        },
+        {
+          "type": "image_picker",
+          "id": "subscription_option_2_svg",
+          "label": "Subscription 2 Svg"
+        },
+        {
+          "type": "text",
+          "id": "subscription_option_2_product_type",
+          "label": "Subscription Product Type 2",
+ 
+        },
+        {
+          "type": "text",
+          "id": "subscription_option_3_title",
+          "label": "Subscription Text 3",
+          "default": "*"
+        },
+        {
+          "type": "image_picker",
+          "id": "subscription_option_3_svg",
+          "label": "Subscription 3 Svg"
+        },
+        {
+          "type": "text",
+          "id": "subscription_option_3_product_type",
+          "label": "Subscription Product Type 3",
+
+        },
+        {
+          "type": "text",
+          "id": "subscription_option_4_title",
+          "label": "Subscription Text 4",
+          "default": "*"
+        },
+        {
+          "type": "image_picker",
+          "id": "subscription_option_4_svg",
+          "label": "Subscription 4 Svg"
+        },
+        {
+          "type": "text",
+          "id": "subscription_option_4_product_type",
+          "label": "Subscription Product Type 4",
+
+        },
+        {
+          "type": "text",
+          "id": "subscription_option_5_title",
+          "label": "Subscription Text 5",
+          "default": "*"
+        },
+        {
+          "type": "image_picker",
+          "id": "subscription_option_5_svg",
+          "label": "Subscription 5 Svg"
+        },
+        {
+          "type": "text",
+          "id": "subscription_option_5_product_type",
+          "label": "Subscription Product Type 5",
+
+        },
+        {
+          "type": "text",
+          "id": "subscription_option_6_title",
+          "label": "Subscription Text 6",
+          "default": "*"
+        },
+        {
+          "type": "image_picker",
+          "id": "subscription_option_6_svg",
+          "label": "Subscription 6 Svg"
+        },
+        {
+          "type": "text",
+          "id": "subscription_option_6_product_type",
+          "label": "Subscription Product Type 6",
+  
+        },
+        {
+          "type": "text",
+          "id": "subscription_option_7_title",
+          "label": "Subscription Text 7",
+          "default": "*"
+        },
+        {
+          "type": "image_picker",
+          "id": "subscription_option_7_svg",
+          "label": "Subscription 7 Svg"
+        },
+        {
+          "type": "text",
+          "id": "subscription_option_7_product_type",
+          "label": "Subscription Product Type 7",
+  
+        },
+        {
+          "type": "text",
+          "id": "subscription_option_8_title",
+          "label": "Subscription Text 8",
+          "default": "*"
+        },
+        {
+          "type": "image_picker",
+          "id": "subscription_option_8_svg",
+          "label": "Subscription 8 Svg"
+        },
+        {
+          "type": "text",
+          "id": "subscription_option_8_product_type",
+          "label": "Subscription Product Type 8",
+  
+        },
+        {
+          "type": "header",
+          "content": "Design Types"
+        },
+        {
+          "type": "text",
+          "id": "design_list",
+          "label": "Designs Available",
+          "info": "Design list separated by a comma",
+          "default": "adventurous,classic"
+        },
+        {
+          "type": "text",
+          "id": "design_rules",
+          "label": "Applicable Product Types",
+          "info": "Product list separated by a comma"
+        }
+      ]
+    },
+        {
+        "name": "Info Slider",
+        "type": "info-slider",
+        "settings": [
+        {
+          "type": "header",
+          "content": "Info Slider"
+        },
+  
+  ]
+        }
+          ],
+  "presets": [
+    {
+      "name": "Sub and Save"
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+  .active-selection.js-step-2{
+    background-color: #f00f83 !important;
+    color: white;
+    font-wieght: bold;
+  }
+
+  /* .bg-gradient,
+  .ob-bg-gradient{
+    background: rgb(3,173,239); 
+    background: linear-gradient(136deg, rgba(3,173,239,1) 0%, rgba(14,164,233,1) 7.000000000000001%, rgba(117,88,190,1) 53%, rgba(221,11,146,1) 100%);
+  } */
+  
+  .patterned{
+    background: rgb(3,173,239);
+    background: linear-gradient(136deg, rgba(3,173,239,1) 0%, rgba(14,164,233,1) 7.000000000000001%, rgba(117,88,190,1) 53%, rgba(221,11,146,1) 100%);
+    color: white;
+  }
+
+  .plain{
+    background-color: black !important;
+    color: white;
+    font-wieght: bold;
+  }
+  
+
+  .active-selection.ob-hover-plain{
+    /* background-color: #000; */
+  }
+
+  .active-selection img {
+    filter: brightness(0) invert(1) !important;
+  }
+
+  #sas-product-container .basicLightbox{
+    position: relative !important;
+  }
+  
+  #sas-product-container .product-title{
+   font-size: 1.5em;
+   line-height: 1;
+  }
+  
+ #sas-product-container .loaded,
+ #intail-product-loader .loaded{
+    max-height: 142px;
+    max-width: 142px;
+    display: block !important;
+    width: auto;
+    height: auto;
+    margin: 0.5rem;
+}
+
+.ml-thirty-three-percent{
+  margin-left: 33%;
+}
+
+#sub-left-col{
+  min-height: 225px;
+}
+
+/* #sub-mobile-svg{
+  min-height: 225px;
+  width: 100% !important;
+  height: 100% ! important;
+} */
+  
+  #sub-left-col::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30%; /* Adjust width as needed */
+    height: 100%;
+    background-image: url('https://cdn.shopify.com/s/files/1/0353/7249/files/Image-1.png?v=1722240075');
+    background-size: contain; /* Ensure the image is contained within the element */
+    background-position: left bottom; /* Center the image on the left side */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    z-index: 1;
+  }
+  
+  #sub-left-col::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30%; /* Adjust width as needed */
+    height: 100%;
+    background-image: url('https://cdn.shopify.com/s/files/1/0353/7249/files/Image-2.png?v=1722240075');
+    background-size: contain; /* Ensure the image is contained within the element */
+    background-position: right bottom; /* Center the image on the right side */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    z-index: 1;
+  }
+
+
+@media only screen and (max-width: 600px) {
+  #intail-product-loader .loaded,
+  #sas-product-container .loaded {
+    max-height: 92px;
+    max-width: 92px;
+    display: block !important;
+    width: auto;
+    height: auto;
+}
+}
+
+  .border-light{
+    border: 2px solid #ddd;
+  }
+
+  .load-animate-square,
+.load-animate-mt,
+.load-animate {
+	animation: shimmer 3s;
+	animation-iteration-count: infinite;
+    background-color: transparent !important;
+    background-image: linear-gradient(to right, #e6e6e6 5%, #cccccc 25%, #e6e6e6 35%) !important;
+	background-size: 1000px 100%;
+    color: transparent ! Important;
+    /* width: fit-content; */
+    border-radius: 5px !important;
+    border-color: #cccccc !important;
+	opacity:1 !important;
+
+
+    box-shadow: 0px 0px 0px transparent !important;
+    border-width: 0px !important;
+}
+.load-animate-square *,
+.load-animate * {
+  visibility:hidden !important;
+}
+@keyframes  shimmer {
+	from {
+		background-position: -1000px 0;
+	}
+	to {
+		background-position: 1000px 0;
+	}
+}
+
+#side-panel::before{
+    content: "";
+    height: 100%;
+    width: 4px;
+    position: absolute;
+    left: -20px;
+    background: rgb(255, 255, 255);
+    background: linear-gradient(85deg, rgb(0 0 0 / 10%) 0%, rgb(0 0 0 / 8%) 94%);
+    width: 20px;
+    top: 0px;
+    filter: blur(10px);
+}
+
+.bg-off-white{
+  background-color: #ffffff;
+}
+
+.reasons-swiper-wrap{
+        background: #ffffff30;
+    padding: 5px 0px 15px 0px;
+}
+
+.selection-tab-selection{
+  transition: 0.5s transform ease;
+}
+
+.reasons-swiper-wrap:before {
+  content: "";
+  height: 1px;
+  width: 100%;
+  background: #03103021;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+}
+
+#info-slider img{
+  width: 80px;
+  height: 80px
+}
+
+@media (min-width: 768px) {
+  .stick-to-bottom{
+    position: sticky;
+    top: 190px;
+    height: calc(100vh - 190px)
+  }
+}
+
+@media (max-width: 768px){
+  .border-light{
+    border: 2px solid #ddd;
+}
+}
+</style>

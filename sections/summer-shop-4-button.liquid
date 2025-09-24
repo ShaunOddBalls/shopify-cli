@@ -1,0 +1,129 @@
+{% schema %}
+{
+  "name": "Summer Shop 4 Buttons",
+  "settings": [
+
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      }
+],
+  "blocks": [
+    {
+      "type": "image_block",
+      "name": "Image Block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },{
+          "type": "collection",
+          "id": "page",
+          "label": "Collection"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Use Url instead of a collection",
+          "info": "Collection input must be Blank"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "button text",
+        },
+        {
+          "type": "text",
+          "id": "bottom_text",
+          "label": "bottom text"
+        },
+        {
+        "type": "select",
+        "id": "vertical_position",
+        "label": "Text vertical position",
+        "options": [
+          {
+            "value": "top",
+            "label": "Top"
+          },
+          {
+            "value": "middle",
+            "label": "Middle"
+          },
+          {
+            "value": "bottom",
+            "label": "Bottom"
+          }
+        ],
+        "default": "middle"
+      },
+        {
+        "type": "select",
+        "id": "square",
+        "label": "Is Square?",
+        "options": [
+          {
+            "value": "yes",
+            "label": "yes"
+          },
+          {
+            "value": "no",
+            "label": "no"
+          }
+        ],
+        "default": "no"
+      }
+        
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Summer Shop 4 Buttons",
+    }
+  ]
+}
+{% endschema %}
+
+<div>
+  <div class="typography--title-five mx-auto text-center md:text-4xl mt-8 mb-4">
+    {{ section.settings.title }}
+  </div>
+  <div class="grid md:grid-cols-4 grid-cols-2 px-2 gap-2 md:px-4 gap:4">
+    {% for block in section.blocks %}
+      <div>
+      <div class="relative w-full">
+      <a class="ss_image_block w-full block" style="width:100%; {% if block.settings.square == "yes" %} padding-top:100%; {% else %} padding-top:130%; {% endif %}" href="{% if block.settings.page != blank %}/collections/{{ block.settings.page }}{% endif %}{% if block.settings.url != blank and block.settings.page == blank %}{{ block.settings.url }}{% endif %}" class="flex justify-center lw-circles flex-col ">
+        {{ block.settings.image | media_tag: image_size: '400x' }}
+        {% if block.settings.button_text != blank %}
+                    <div
+                      class="w-full top-0 h-full absolute flex items-center text-center py-2 md:py-4 z-10 flex-col {% if block.settings.vertical_position =="top" %} justify-start {% elsif block.settings.vertical_position == "middle" %}justify-center{% elsif block.settings.vertical_position == "bottom" %}justify-end{% endif %}"
+                    >
+                      <div class="px-3 md:px-6 py-1 md:py-2 shadow-md rounded-md bg-white font-bold md:text-lg">
+                      {{ block.settings.button_text }}
+                      </div>
+                    </div>
+        {% endif %}
+      </a>
+      </div>
+        <div class="text-xs p-2">
+          {{ block.settings.bottom_text }}
+        </div>
+      </div>
+
+    {% endfor %}
+  </div>
+</div>
+
+<style>
+  .ss_image_block img{
+    position:absolute;
+    top:0px;
+    left:0px;
+    height:100%;
+    width:100%;
+    
+  }
+</style>

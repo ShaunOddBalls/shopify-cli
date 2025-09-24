@@ -1,0 +1,692 @@
+    <style>
+
+      .unavailable{
+        pointer-events: none;
+        opacity: 0.5;
+      }
+      .unavailable:after{
+        content: "";
+        position: absolute;
+        width:100%;
+        top:50%;
+        left:0;
+        transform: rotate(22deg);
+        height:1px;
+        background-color: #e3e3e3;
+      }
+      
+.circular-loader {
+    animation: rotate 2s linear infinite;
+    height: 100%;
+    transform-origin: center center;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: auto;
+}
+
+@keyframes rotate {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.loader-path {
+    stroke-dasharray: 150, 200;
+    stroke-dashoffset: -10;
+    animation: dash 1.5s ease-in-out infinite;
+    stroke-linecap: round;
+}
+
+@keyframes dash {
+    0% {
+        stroke-dasharray: 1, 200;
+        stroke-dashoffset: 0;
+    }
+    50% {
+        stroke-dasharray: 89, 200;
+        stroke-dashoffset: -35px;
+    }
+    100% {
+        stroke-dasharray: 150, 200;
+        stroke-dashoffset: -124px;
+    }
+}
+     .text-svg{
+    padding-bottom: 115px
+  }
+
+  #add-bab-to-cart.pointer-events-none{
+    opacity: 0.8;
+  }
+
+  #bab-finish.active-bab{
+    cursor: pointer !important;
+    pointer-events: auto !important;
+  }
+
+  .bab-bundle-item {
+    cursor: pointer;
+  }
+      
+  #bab-left-col::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30%; /* Adjust width as needed */
+    height: 100%;
+    background-image: url('https://cdn.shopify.com/s/files/1/0353/7249/files/BAB_Model_LeftV1.png?v=1724316469');
+    background-size: contain; /* Ensure the image is contained within the element */
+    background-position: left bottom; /* Center the image on the left side */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    z-index: 1;
+  }
+  
+  #bab-left-col::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30%; /* Adjust width as needed */
+    height: 100%;
+    background-image: url('https://cdn.shopify.com/s/files/1/0353/7249/files/BAB_Model_Right.png?v=1724316232');
+    background-size: contain; /* Ensure the image is contained within the element */
+    background-position: right bottom; /* Center the image on the right side */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    z-index: 1;
+  }
+      
+   .pb-padding{
+      padding-right: 1.5rem;
+      padding-left: 1.5rem;
+    }
+
+    #bab-primary-panel::before{
+      content: "";
+      height: 100%;
+      width: 4px;
+      position: absolute;
+      left: -20px;
+      background: rgb(255, 255, 255);
+      background: linear-gradient(85deg, rgb(0 0 0 / 10%) 0%, rgb(0 0 0 / 8%) 94%);
+      width: 20px;
+      top: 0px;
+      filter: blur(10px);
+    }
+
+    #bab-primary-panel{
+      background-color: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(10px);
+    }
+
+    .bab-milestone-marker{
+      transform: translateX(50%);
+      background-color: black;
+      padding: 1px 7px;
+      border-radius: 5px;
+      color: white;
+      line-height: 1rem;
+    }
+      
+    .bab-milestone-marker.active-bab-pair{
+      background-color: #f00f83!important;
+    }
+      
+    .bab-milestone-marker.unlocked{
+      background-color: #f00f83!important;
+    }
+
+    .bab-milestone-price-marker.unlocked{
+      font-weight: 900;
+      color: #f00f83 !important;
+    }
+
+    #bab-compare-at-price{
+      font-weight: 400;
+      font-size: 0.9rem;
+    }
+
+    
+          
+    .load-animate-square,
+    .load-animate-mt,
+    .load-animate {
+    	animation: shimmer 3s;
+    	animation-iteration-count: infinite;
+        background-color: transparent !important;
+        background-image: linear-gradient(to right, #e6e6e6 5%, #cccccc 25%, #e6e6e6 35%) !important;
+    	background-size: 1000px 100%;
+        color: transparent ! Important;
+        /* width: fit-content; */
+        border-radius: 5px !important;
+        border-color: #cccccc !important;
+    	opacity:1 !important;
+    
+    
+        box-shadow: 0px 0px 0px transparent !important;
+        border-width: 0px !important;
+    }
+      
+    .load-animate-square *,
+    .load-animate * {
+      visibility:hidden !important;
+    }
+
+    .bab-active{
+      background-color: #f00f83;
+      color: white;
+    }
+
+    .bab-size.bab-active,
+    .bab-type.bab-active{
+      outline: 2px solid #f00f83;
+      border: 2px solid white;
+      background-color: #f00f83;
+      color: white;
+    }
+      
+    .bab-active:hover{
+      background-color: #f00f83;
+      color: white;
+    }
+      
+    .bab-active img {
+        filter: brightness(0) invert(1);
+    }
+
+    #bab-left-col {
+    min-height: 225px;
+    }
+      
+    @keyframes  shimmer {
+    	from {
+    		background-position: -1000px 0;
+    	}
+    	to {
+    		background-position: 1000px 0;
+    	}
+    }
+
+        #bab-bar:before, #bab-bar:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        /* bottom: 11px; */
+        height: 100%;
+        border-radius: 20px;
+        z-index: 0;
+    }
+    #bab-bar:before {
+        width: 100%;
+        background: #e5e5e6;
+    }
+    #bab-bar:after {
+        width: 100%;
+        background: var(--background);
+        clip-path: polygon(0 0, var(--progress) 0, var(--progress) 100%, 0 100%);
+        transition: clip-path 1s;
+    }
+
+    @media (min-width: 768px) {
+    .stick-to-bottom {
+        position: sticky;
+        top: 190px;
+        height: calc(100vh - 190px);
+    }
+}
+    
+    @media (min-width: 1024px) { 
+
+      .pb-padding{
+        padding-right: 0rem;
+        padding-left: 0rem;
+      }
+      
+      #bab-patterned-prods,
+      #bab-plain-prods {
+            max-height: calc(100vh - 515px);
+      }
+    
+      #bab-primary-wrapper{
+        padding: 20px;
+        min-height:520px; max-width: 600px; margin: auto; top: 50%; position: relative; transform: translateY(-50%); overflow: hidden; border-radius: 7px; overflow: hidden;
+      }
+      #babpage-style-tabs{
+             max-width: 600px; padding: 50px; position: relative; border: 1px solid #e6e6e6; overflow: hidden; box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px; border-radius: 7px; overflow: hidden; box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+      }
+      #bab-info-step {
+        padding: 50px; 
+      }
+      #bab-bundle-step {
+        
+      }
+    
+    /* #bab-outer-wrapper{
+      background-color: #e27d81;
+    }
+     */
+    @media (max-width: 1024px) { 
+      .match-me-desktop{
+        display:none;
+      }
+    }
+    
+      
+    .bundle-milestone{
+     border: 1px solid #f00f83;
+      border-radius: 5px;padding: 2px 3px;
+      color: #f00f83;
+      line-height: 1em;
+      font-weight: extra-bold;
+    }
+
+    .text-svg{
+    padding-bottom: 268px
+  }
+      
+  #bab-left-col::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30%; /* Adjust width as needed */
+    height: 115% !important;
+    background-image: url('https://cdn.shopify.com/s/files/1/0353/7249/files/BAB_Model_LeftV1.png?v=1724316469');
+    background-size: contain; /* Ensure the image is contained within the element */
+    background-position: left bottom; /* Center the image on the left side */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    z-index: 1;
+  }
+  
+  #bab-left-col::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30%; /* Adjust width as needed */
+    height: 115%;
+    background-image: url('https://cdn.shopify.com/s/files/1/0353/7249/files/BAB_Model_Right.png?v=1724316232');
+    background-size: contain; /* Ensure the image is contained within the element */
+    background-position: right bottom; /* Center the image on the right side */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    z-index: 1;
+  }
+    
+    }
+
+</style>
+
+<div id="bab-outer-wrapper">
+  <div id="bab-inner-wrapper" class="lg:grid lg:grid-cols-12 relative" style="min-height: calc(100vh - 190px);">
+     <div class="absolute homepage-banner-cover w-full h-full"> 
+       <img src="https://cdn.shopify.com/s/files/1/0353/7249/files/build-a-bundle-svg.svg?v=1724229536" class="w-full h-full -z-10 object-position-center object-cover hidden md:block">    
+     </div>
+
+
+    
+    <div id="bab-secondary-panel" class="col-span-7 max-h-100vh relative stick-to-bottom h-full">
+      <div id="bab-left-col" class="relative h-full object-position-center flex flex-col justify-center overflow-hidden">
+        <img id="sub-mobile-svg" src="https://cdn.shopify.com/s/files/1/0353/7249/files/build-a-bundle-svg.svg?v=1724229536" class="w-full h-full -z-10 object-cover lg:hidden block absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+        <img src="https://cdn.shopify.com/s/files/1/0353/7249/files/BUILDER_BUNDLE_BannerText_600x_a115fc6f-92d3-4af6-aae0-24bdd0b4344f.svg?v=1724227349" class="text-svg w-3/6 mx-auto z-10">
+    </div>
+    </div>
+    
+    <div id="bab-primary-panel" class="col-span-5 relative py-3 sm:-pt-8 pb-8" style="">
+      <div id="bab-primary-wrapper" class="px-0 lg:w-4/5 relative">
+        <div id="bab-primary-inner-wrapper">
+          <div id="bab-info-step" class="px-6">
+        <div id="bab-title" class="w-full">
+                <div class="text-3xl w-full  marujo duration-300">
+                    {{ "ob_bab.bab_title" | t }}
+                </div>
+    			<div class="mt-3 font-semibold uppercase flex text-sm leading-snug"> <span style="border: 1px solid #d3e7f5;
+                                            background-color: #eff8ff;" class="p-2 px-3 rounded-lg text-xs">👉{{ "ob_bab.bab_save_up_to" | t }}  </span> </div>
+    			<div id="perfect-pair-copy" class="my-3 text-md leading-snug">{{ "ob_bab.bab_intro" | t }}</div>
+
+
+          
+    
+        </div>
+          <div id="bab-gender-choice" class="flex relative jusatify-center my-6 bg-gray-200  p-2 text-gray-800 rounded-full">
+				<div id="bab-men"  data-gender="men" class=" bab-gender cursor-pointer  uppercase font-bold w-1/2 py-2 text-center slider-control" style="z-index:2;">{{ "ob_bab.mens" | t }} </div>
+				<div id="bab-women" data-gender="women" class=" bab-gender cursor-pointer  uppercase font-bold w-1/2 py-2 text-center slider-control" style="z-index:2;">{{ "ob_bab.womens" | t }} </div>
+                <div class="selection-tab-selection hidden shadow-sm h-full bg-white absolute flex items-center uppercase font-bold justify-center rounded-full font-bold !text-black h-[88%]" style="width: 50%;top: 50%;bottom: 50%;transform: translate(0%, -50%);left: 1%; z-index:1;"></div>
+			</div>
+  			<h1 class="js-match-select-a-product-1 hidden my-3">{{ "ob_bab.select_type" | t }}</h1>
+			<div id="bab-men-choice" class="bab-type-choice flex hidden  grid grid-cols-3 md:grid-cols-4 gap-1">
+				<div id="bab-men-boxer" data-col-id="278855811133" data-type="mens-boxer-shorts-individuals" class="cursor-pointer  bab-type  flex flex-col  uppercase border-2 border-solid font-semibold rounded-md 1 p-1 " style=" display:flex; justify-content:center;">
+					<img src="https://cdn.shopify.com/s/files/1/0353/7249/files/MensBoxers.svg?v=1707144899" />
+					<div class="text-xs text-center">{{ "ob_bab.boxers" | t }}</div>
+				</div>
+				<div id="bab-men-brief" data-colo-d="278857777213" data-type="mens-briefs-individuals" class="bab-type cursor-pointer flex flex-col  uppercase border-2 border-solid font-semibold rounded-md 2 p-1" style=" display:flex; justify-content:center;">
+					<img src="https://cdn.shopify.com/s/files/1/0353/7249/files/MensBriefs.svg?v=1707144899" />
+					<div class="text-xs text-center">{{ "ob_bab.briefs" | t }}</div>
+				</div>
+              <div id="bab-men-bamboo" data-col-id="278855811133" data-type="mens-bamboo-boxer-shorts-individuals" class="js-bab-bamboo cursor-pointer  bab-type  flex flex-col  uppercase border-2 border-solid font-semibold rounded-md 1 p-1 " style=" display:flex; justify-content:center;">
+					<img src="https://cdn.shopify.com/s/files/1/0353/7249/files/Bamboo-Men.svg?v=1718015867" />
+					<div class="text-xs text-center">{{ "ob_bab.bamboo" | t }}</div>
+				</div>
+			</div>
+			<div id="bab-women-choice" class="bab-type-choice flex hidden  grid grid-cols-3 md:grid-cols-4 gap-1">
+				<!-- <div id="bab-women-boxer" data-col-id="278856073277" data-type="ladies-boxer-shorts-individuals" class="bab-type cursor-pointer flex flex-col uppercase border-2 border-solid font-semibold rounded-md 1 p-1 " style=" display:flex; justify-content:center;">
+					<img src="https://cdn.shopify.com/s/files/1/0353/7249/files/LadiesBoxers.svg?v=1707144899" />
+					<div class="text-xs text-center">{{ "ob_bab.boxers" | t }}</div>
+				</div> -->
+				<div id="bab-women-brief" data-col-id="278857809981" data-type="ladies-briefs-individuals" class="bab-type cursor-pointer flex flex-col border-2 uppercase border-solid font-semibold rounded-md 2 p-1" style=" display:flex; justify-content:center;">
+					<img src="https://cdn.shopify.com/s/files/1/0353/7249/files/LadiesBriefs.svg?v=1707144899" />
+					<div class="text-xs text-center">{{ "ob_bab.briefs" | t }}</div>
+				</div>
+				<div id="bab-women-thong" data-col-id="278857875517" data-type="ladies-thongs-individuals" class="bab-type cursor-pointer flex flex-col border-2 uppercase border-solid font-semibold rounded-md 2 p-1" style=" display:flex; justify-content:center;">
+					<img src="https://cdn.shopify.com/s/files/1/0353/7249/files/Thong.svg?v=1707144899" />
+					<div class="text-xs text-center">{{ "ob_bab.thongs" | t }}</div>
+				</div>
+				<div id="bab-women-seamless" data-col-id="278858072125" data-type="seamless-individuals" class="bab-type cursor-pointer flex flex-col uppercase border-2 border-solid font-semibold rounded-md 1 p-1 " style=" display:flex; justify-content:center;">
+					<img src="https://cdn.shopify.com/s/files/1/0353/7249/files/Seamless.svg?v=1707144899" />
+					<div class="text-xs text-center">{{ "ob_bab.seamless" | t }}</div>
+				</div>
+				<div id="bab-women-full-seamless" data-col-id="283779432509" data-type="full-seamless-individuals" class="bab-type cursor-pointer flex flex-col uppercase border-2 border-solid font-semibold rounded-md 1 p-1 " style=" display:flex; justify-content:center;">
+					<img src="https://cdn.shopify.com/s/files/1/0353/7249/files/Sub-Seamless-Full.png?v=1724159544" />
+					<div class="text-xs text-center">{{ "ob_bab.full_seamless" | t }}</div>
+				</div>
+				<div id="bab-women-boxer" data-col-id="278856073277" data-type="ladies-bamboo-boxer-shorts-individuals" class="js-bab-bamboo bab-type cursor-pointer flex flex-col uppercase border-2 border-solid font-semibold rounded-md 1 p-1 " style=" display:flex; justify-content:center;">
+					<img src="https://cdn.shopify.com/s/files/1/0353/7249/files/Bamboo-Women.svg?v=1718015867" />
+					<div class="text-xs text-center">{{ "ob_bab.bamboo" | t }}</div>
+				</div>
+			</div>
+			<div id="bab-size-choice" class="mt-6 relative hidden">
+				<h3 class="my-3 flex typography typography--body-md uppercase mb-2 font-semibold size-name"> {{ "ob_bab.sizes" | t }}: <a class="js-match-size-guide-show get-size cursor-hand flex items-center gap-x-1" style="position:absolute; right:1rem;">
+              		 </a><div class="cursor-pointer flex flex-col align-center typography typography--body-md capitalize mb-2 "><a class="js-match-size-guide-show get-size cursor-hand flex items-center gap-x-1" style="position:absolute; right:1rem;">
+                            <span class="pr-2" style="text-align: right; align-self: center;">{{ "ob_popup.size_guide" | t }}</span>
+                        <svg class="tape-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 157.21 100.22" style="enable-background:new 0 0 157.21 100.22;" xml:space="preserve">
+                          <style type="text/css">
+                          	.st0{fill:#EC008C;}
+                            }
+                          </style>
+                          <g>
+                          	<path class="st0" d="M12.39,43.19v25.58c0,0,8.25,18.73,45.29,18.59c37.04-0.14,48.5-16.07,48.5-16.07l1.68-8.39   c0,0,22.92,10.62,36.48,7.13V44.86l-18.17-1.68l-17.89-5.59c0,0-14.26,21.51-51.58,19.35S12.39,43.19,12.39,43.19z"></path>
+                          	<g>
+                          		<path d="M59.77,45.78c11.91,0,20.89-4.67,20.89-10.87c0-6.2-8.98-10.87-20.89-10.87c-11.91,0-20.89,4.67-20.89,10.87    C38.88,41.11,47.86,45.78,59.77,45.78z M59.77,28.97c9.75,0,15.97,3.52,15.97,5.95c0,2.43-6.22,5.95-15.97,5.95    c-9.75,0-15.97-3.52-15.97-5.95C43.8,32.49,50.02,28.97,59.77,28.97z"></path>
+                          		<path d="M142.61,41.39c-24.83-0.36-31.69-6.19-32.89-7.44c-1.03-13.08-22.56-23.2-49.94-23.2c-28.06,0-50.04,10.61-50.04,24.16    V65.3c0,13.55,21.98,24.16,50.04,24.16c26.79,0,48.04-9.68,49.91-22.35c4.71,2.52,14.11,5.22,32.79,5.56    c1.39,0,2.58-0.48,3.54-1.41c0.95-0.93,1.48-2.18,1.48-3.51V46.31C147.48,43.63,145.3,41.43,142.61,41.39z M59.77,15.67    c26.99,0,45.12,9.95,45.12,19.24c0,5.71-6.86,11.65-18.38,15.4c-0.01,0-0.02,0.01-0.03,0.01c-7.24,2.35-16.3,3.84-26.71,3.84    c-26.99,0-45.12-9.95-45.12-19.25C14.65,25.62,32.78,15.67,59.77,15.67z M59.77,84.55c-26.99,0-45.12-9.95-45.12-19.24V45.47    c1.14,1.16,2.43,2.27,3.92,3.31v13.75c0,1.36,1.1,2.46,2.46,2.46c1.36,0,2.46-1.1,2.46-2.46V51.69c1.89,0.95,3.95,1.82,6.15,2.62    v8.36c0,1.36,1.1,2.46,2.46,2.46c1.36,0,2.46-1.1,2.46-2.46v-6.8c1.97,0.55,4.01,1.03,6.15,1.45v12.95c0,1.36,1.1,2.46,2.46,2.46    c1.36,0,2.46-1.1,2.46-2.46V58.12c2,0.27,4.05,0.48,6.15,0.64v7.79c0,1.36,1.1,2.46,2.46,2.46c1.36,0,2.46-1.1,2.46-2.46v-7.54    c1.02,0.03,2.04,0.07,3.07,0.07c1.04,0,2.05-0.04,3.07-0.07v12.49c0,1.36,1.1,2.46,2.46,2.46c1.36,0,2.46-1.1,2.46-2.46V58.76    c2.1-0.16,4.15-0.36,6.15-0.64v7.23c0,1.36,1.1,2.46,2.46,2.46c1.36,0,2.46-1.1,2.46-2.46v-8.04c2.14-0.41,4.18-0.9,6.15-1.45    v11.7c0,1.36,1.1,2.46,2.46,2.46c1.36,0,2.46-1.1,2.46-2.46V54.3c2.2-0.79,4.26-1.66,6.15-2.62v5.85c0,1.36,1.1,2.46,2.46,2.46    c1.36,0,2.46-1.1,2.46-2.46v-8.76c1.49-1.04,2.78-2.15,3.92-3.31V65.3C104.89,74.6,86.76,84.55,59.77,84.55z M109.81,40.08    c0.99,0.57,2.19,1.15,3.62,1.73v8.74c0,1.36,1.1,2.46,2.46,2.46c1.36,0,2.46-1.1,2.46-2.46v-7.11c1.64,0.45,3.48,0.87,5.53,1.24    v10.85c0,1.36,1.1,2.46,2.46,2.46c1.36,0,2.46-1.1,2.46-2.46V45.43c1.15,0.14,2.35,0.27,3.61,0.38v21.47    c-16.78-1.34-21.56-4.95-22.6-6.01V40.08z M142.56,67.76c-1.85-0.03-3.57-0.1-5.22-0.17V46.14c1.66,0.08,3.39,0.14,5.23,0.17    L142.56,67.76z"></path>
+                          	</g>
+                          </g>
+                          </svg>
+                      
+                          <svg class="circular-loader relative hidden" style="position: relative !important; width: 21px; height: 21px !important;" viewBox="25 25 50 50">
+                      	<circle class="loader-path" stroke="#f00f83" cx="50" cy="50" r="20" fill="none" stroke-width="4"></circle>
+                      </svg>
+					</a>
+				</div></h3>
+				<div id="bab-men-size" class="bab-size-choice grid grid-cols-4 gap-3">
+					<div id="bab-small" data-size="xxs" class="bab-size small-size cursor-pointer ooption-value group relative flex items-center justify-center rounded-md border py-4 px-4 text-xs font-medium uppercase hover:bg-gray-50 sm:flex-1 cursor-pointer bg-white text-gray-900 shadow-sm font-semibold " style=" margin-bottom: 0px; display:flex; justify-content:center;">XXS</div>
+					<div id="bab-small" data-size="xs" class="bab-size small-size cursor-pointer ooption-value group relative flex items-center justify-center rounded-md border py-4 px-4 text-xs font-medium uppercase hover:bg-gray-50 sm:flex-1 cursor-pointer bg-white text-gray-900 shadow-sm font-semibold" style=" margin-bottom: 0px; display:flex; justify-content:center;">XS</div>
+					<div id="bab-small" data-size="small" class="bab-size cursor-pointer ooption-value group relative flex items-center justify-center rounded-md border py-4 px-4 text-xs font-medium uppercase hover:bg-gray-50 sm:flex-1 cursor-pointer bg-white text-gray-900 shadow-sm font-semibold" style=" margin-bottom: 0px; display:flex; justify-content:center;">Small</div>
+					<div id="bab-medium" data-size="medium" class="bab-size cursor-pointer ooption-value group relative flex items-center justify-center rounded-md border py-4 px-4 text-xs font-medium uppercase hover:bg-gray-50 sm:flex-1 cursor-pointer bg-white text-gray-900 shadow-sm font-semibold" style=" margin-bottom: 0px; display:flex; justify-content:center;">Medium</div>
+					<div id="bab-large" data-size="large" class="bab-size cursor-pointer ooption-value group relative flex items-center justify-center rounded-md border py-4 px-4 text-xs font-medium uppercase hover:bg-gray-50 sm:flex-1 cursor-pointer bg-white text-gray-900 shadow-sm font-semibold" style=" margin-bottom: 0px; display:flex; justify-content:center;">Large</div>
+					<div id="bab-large" data-size="xl" class="bab-size cursor-pointer ooption-value group relative flex items-center justify-center rounded-md border py-4 px-4 text-xs font-medium uppercase hover:bg-gray-50 sm:flex-1 cursor-pointer bg-white text-gray-900 shadow-sm font-semibold" style=" margin-bottom: 0px; display:flex; justify-content:center;">XL</div>
+					<div id="bab-large" data-size="2xl" class="bab-size cursor-pointer ooption-value group relative flex items-center justify-center rounded-md border py-4 px-4 text-xs font-medium uppercase hover:bg-gray-50 sm:flex-1 cursor-pointer bg-white text-gray-900 shadow-sm font-semibold" style=" margin-bottom: 0px; display:flex; justify-content:center;">2XL</div>
+					<div id="bab-large" data-size="3xl" class="bab-size cursor-pointer ooption-value group relative flex items-center justify-center rounded-md border py-4 px-4 text-xs font-medium uppercase hover:bg-gray-50 sm:flex-1 cursor-pointer bg-white text-gray-900 shadow-sm font-semibold" style=" margin-bottom: 0px; display:flex; justify-content:center;">3XL</div>
+				</div>
+				<div id="bab-women-size" class="bab-size-choice grid grid-cols-4 gap-3">
+					<div id="bab-6" data-size="size 6" class="bab-size small-size uppercase ooption-value group relative flex items-center justify-center rounded-md border py-4 px-4 text-xs font-medium uppercase hover:bg-gray-50 sm:flex-1 cursor-pointer bg-white text-gray-900 shadow-sm" style=" margin-bottom: 0px; display:flex; justify-content:center;">Size 6</div>
+					<div id="bab-8" data-size="size 8" class="bab-size small-size cursor-pointer uppercase ooption-value group relative flex items-center justify-center rounded-md border py-4 px-4 text-xs font-medium uppercase hover:bg-gray-50 sm:flex-1 cursor-pointer bg-white text-gray-900 shadow-sm" style=" margin-bottom: 0px; display:flex; justify-content:center;">Size 8</div>
+					<div id="bab-10" data-size="size 10" class="bab-size cursor-pointer uppercase ooption-value group relative flex items-center justify-center rounded-md border py-4 px-4 text-xs font-medium uppercase hover:bg-gray-50 sm:flex-1 cursor-pointer bg-white text-gray-900 shadow-sm" style=" margin-bottom: 0px; display:flex; justify-content:center;">Size 10</div>
+					<div id="bab-12" data-size="size 12" class="bab-size cursor-pointer uppercase ooption-value group relative flex items-center justify-center rounded-md border py-4 px-4 text-xs font-medium uppercase hover:bg-gray-50 sm:flex-1 cursor-pointer bg-white text-gray-900 shadow-sm" style=" margin-bottom: 0px; display:flex; justify-content:center;">Size 12</div>
+					<div id="bab-14" data-size="size 14" class="bab-size cursor-pointer uppercase ooption-value group relative flex items-center justify-center rounded-md border py-4 px-4 text-xs font-medium uppercase hover:bg-gray-50 sm:flex-1 cursor-pointer bg-white text-gray-900 shadow-sm" style=" margin-bottom: 0px; display:flex; justify-content:center;">Size 14</div>
+					<div id="bab-16" data-size="size 16" class="bab-size cursor-pointer uppercase ooption-value group relative flex items-center justify-center rounded-md border py-4 px-4 text-xs font-medium uppercase hover:bg-gray-50 sm:flex-1 cursor-pointer bg-white text-gray-900 shadow-sm" style=" margin-bottom: 0px; display:flex; justify-content:center;">Size 16</div>
+					<div id="bab-18" data-size="size 18" class="bab-size cursor-pointer uppercase ooption-value group relative flex items-center justify-center rounded-md border py-4 px-4 text-xs font-medium uppercase hover:bg-gray-50 sm:flex-1 cursor-pointer bg-white text-gray-900 shadow-sm" style=" margin-bottom: 0px; display:flex; justify-content:center;">Size 18</div>
+					<div id="bab-20" data-size="size 20" class="bab-size cursor-pointer uppercase ooption-value group relative flex items-center justify-center rounded-md border py-4 px-4 text-xs font-medium uppercase hover:bg-gray-50 sm:flex-1 cursor-pointer bg-white text-gray-900 shadow-sm" style=" margin-bottom: 0px; display:flex; justify-content:center;">Size 20</div>
+				</div>
+			</div>
+            <div id="bab-finish" class="hidden btn-shadow-lg uppercase border-2 border-solid font-bold rounded-full mt-10 mb-0 pointer-events-none w-full py-4 text-center">{{ "ob_bab.empty_button"  | t }}</div>
+      </div>
+
+
+
+          
+          <div id="bab-bundle-step" style="display:none;">
+            <div id="bab-loading" class="flex flex-col items-center justify-center min-h-60v justify-center">
+              <div id="bab-loading-message" class="whitespace-nowrap">{{ "ob_bab.loading_message" | t}}</div>
+              	<div class="mx-auto w-32 whitepsace-nowrap" style="">
+            		
+            		<img height="100%" width="100%" src="https://cdn.shopify.com/s/files/1/0353/7249/files/oddballs-loading-balls.gif?v=1724235557" />
+            	</div>
+            </div>
+
+            
+            <div id="bab-loaded" style="display:none;">
+
+            <div id="bab-header" class=" bundle-header  w-full " style="">
+              <div class="w-full">
+              <div class="flex p-0">
+                <!--
+                <div class="w-1/5 top-0 left-0 hidden  lg:flex p-4" style="max-width: 190px;" >
+                <img style="object-fit:contain" src = "https://cdn.shopify.com/s/files/1/0353/7249/files/Mens_Boxers_6bd90475-6025-45cc-8e77-63e156ea3cf6.png?v=1699289969" />
+                
+                
+                </div>-->
+                <div class="px-0 flex-1 flex items-center">
+                    <div class="flex-1">
+                        <div id="bundle-title" class="pb-0 px-8 lg:px-0 lg:pt-5 pt-0 mb-0">
+        					<div class="mariojo mt-0 marujo  text-2xl lg:mt-0 lg:text-3xl lg:mt-0">{{ "ob_bab.fun_part" | t }} 😍 </div>
+        					<div class="text-sm mt-3 lg:text-md lg:mt-4">
+
+                               {{ "ob_bab.instructions" | t }}
+                              
+                            </div>
+                        </div>
+                        <div id="bundle-plain" class="text-lg lg:text-2xl hidden js-current_bundle_title"></div>
+                         <div class="pb-padding py-3 pb-3 lg:pb-4">
+                            <div class="saver-progress-bar-header mb-3">
+                                <div class="saver-header relative" >
+                                    <div class="flex items-center lg:text-base ">
+                                      <div class="w-full rounded-md py-2" style="background: #2196f317; /* padding: 5px 10px; */ border: 1px solid #d3e7f5; background-color: #eff8ff">
+                                        <div class="flex justify-between">
+                                                       <div class="lg:text-lg pl-4 font-bold" id="bab-pricing" data-price="1200">{{ "ob_bab.bundle_price"  | t}}:  <span id="bab-saving-price" class="text-magenta">{{ localization.country.currency.symbol }}0.00</span><del class="text-gray-500 ml-1" id="bab-compare-at-price"></del></div><div id="included-from-cart" style="display:none;"><div class="mb-2 text-xs lg:text-base mx-4"> (Including the <a class="text-cyan-500"><span id="items-in-bundle-footer">3 </span><span class="ml-1 capitalize" id="bab-bundle-type" class=""></span></a> already in your cart)</div></div>
+                                                        <div style="flex-shrink:2;" class="flex items-center mx-2 text-xs">{{ "ob_bab.price_per_pair" | t }}:<span id="bab-price-per-pair"></span></div>
+                                        </div>
+
+                                          <div id="bab-complete" class="flex items-center px-4 rounded-full text-sm" style="display:none;">
+                                         <div id="bab-succesSVG" class="mr-1"> <svg fill="#488848" height="15px" width="15px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve" style="    width: 15px;    height: 15px;"><polygon points="437.3,30 202.7,339.3 64,200.7 0,264.7 213.3,478 512,94 "></polygon></svg></div>
+                                          <div>  
+                                                 {{ "ob_bab.your_saving"  | t }} : <b class="green">{{ localization.country.currency.symbol }}<span id="bab-final-savings"></span></b>
+                                            </div>
+                                      </div>
+                                        <div id="bab-not-complete" class="flex items-center px-4  rounded-full text-sm" style="">
+                                            <div id="bab-not-succesSVG" class="circle  w-3.5 h-3.5 mr-2"><svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 122.88 111.54"><defs><style>.cls-1{fill:#d10808;}.cls-2{fill:#ffffff;fill-rule:evenodd;}</style></defs><title>caution</title><path class="cls-1" d="M2.35,84.42,45.28,10.2l.17-.27h0A23,23,0,0,1,52.5,2.69,17,17,0,0,1,61.57,0a16.7,16.7,0,0,1,9.11,2.69,22.79,22.79,0,0,1,7,7.26q.19.32.36.63l42.23,73.34.24.44h0a22.48,22.48,0,0,1,2.37,10.19,17.63,17.63,0,0,1-2.17,8.35,15.94,15.94,0,0,1-6.93,6.6c-.19.1-.39.18-.58.26a21.19,21.19,0,0,1-9.11,1.75v0H17.61c-.22,0-.44,0-.65,0a18.07,18.07,0,0,1-6.2-1.15A16.42,16.42,0,0,1,3,104.24a17.53,17.53,0,0,1-3-9.57,23,23,0,0,1,1.57-8.74,7.66,7.66,0,0,1,.77-1.51Z"></path><path class="cls-2" d="M9,88.75,52.12,14.16c5.24-8.25,13.54-8.46,18.87,0l42.43,73.69c3.39,6.81,1.71,16-9.33,15.77H17.61C10.35,103.8,5.67,97.43,9,88.75Z"></path><path class="cls-1" d="M57.57,82.69A5.48,5.48,0,0,1,61,81.11a5.66,5.66,0,0,1,4.42,1.66,5.53,5.53,0,0,1,1.62,3.54A5.6,5.6,0,0,1,67,87.72a6,6,0,0,1-.42,1.34,5.53,5.53,0,0,1-2.92,2.84,5.79,5.79,0,0,1-4.57-.1,5.51,5.51,0,0,1-2.81-2.94,5.31,5.31,0,0,1-.36-1.27,5.9,5.9,0,0,1-.06-1.32h0a6.45,6.45,0,0,1,.57-2,4.6,4.6,0,0,1,1.14-1.56Zm8.15-10.24c-.19,4.79-8.31,4.8-8.49,0-.82-8.21-2.92-27.7-2.86-35.42.07-2.38,2-3.78,4.56-4.32a11.19,11.19,0,0,1,2.49-.24,11.77,11.77,0,0,1,2.5.25c2.61.55,4.65,2,4.65,4.44v.24L65.72,72.45Z"></path></svg></div>
+                                            <div>
+                                                  {{ "ob_bab.add_more_to_save_html" | t }}
+                                            </div>
+
+                                        </div>
+                                      </div>
+
+                                    </div>
+                                </div>
+                
+                            </div>
+                           <div id="bab-stock-error" class="mb-3 bg-red-300 py-1 text-white px-4" style="display:none;">
+                             
+                           </div>
+                            <div id="bab-progress-bar">
+
+
+                               <div id="bab-top-row">
+                                 <div class="grid text-sm mb-2 grid-cols-9">
+                                   <div class="relative">Save:<div class="absolute right-0 top-0" style="transform:translateX(50%)" ></div></div>
+                                   <div class="relative"><div class="absolute right-0 top-0" style="transform:translateX(50%)" ></div></div>
+                                   <div class="relative"><div class="absolute right-0 top-0 bab-comp-marker bab-milestone-marker" style="transform:translateX(50%)" id="bab-savings-1">{{ localization.country.currency.symbol }}6</div></div>
+                                   <div class="relative"><div class="absolute right-0 top-0 bab-comp-marker" style="transform:translateX(50%)" id="bab-savings-2">{{ localization.country.currency.symbol }}8</div></div>
+                                   <div class="relative"><div class="absolute right-0 top-0 bab-comp-marker" style="transform:translateX(50%)" id="bab-savings-3">{{ localization.country.currency.symbol }}10</div></div>
+                                   <div class="relative"><div class="absolute right-0 top-0 bab-comp-marker bab-milestone-marker" style="transform:translateX(50%)" id="bab-savings-4">{{ localization.country.currency.symbol }}18</div></div>
+                                   <div class="relative"><div class="absolute right-0 top-0 bab-comp-marker" style="transform:translateX(50%)" id="bab-savings-5">{{ localization.country.currency.symbol }}18</div></div>
+                                   <div class="relative"><div class="absolute right-0 top-0 bab-comp-marker" style="transform:translateX(50%)" id="bab-savings-6">{{ localization.country.currency.symbol }}18</div></div>
+                                   <div class="relative"><div class="absolute right-0 top-0 bab-comp-marker bab-milestone-marker" style="transform:translateX(50%)" id="bab-savings-7">{{ localization.country.currency.symbol }}18</div></div>
+                                 </div>
+                               </div>
+
+                            
+                               <div id="bab-mid-row" class="relative w-full text-sm grid grid-cols-1">
+                                 <div class="grid grid-cols-9 rounded-md" style="background-color: #eaecee; height: 12px; width: 100%; position: relative; ">
+                                   <div class=" border-solid" style="border-right-width: 1px; z-index:1;"></div>
+                                   <div class=" border-solid" style="border-right-width: 1px; z-index:1;"></div>
+                                   <div class=" border-solid" style="border-right-width: 2px; z-index:1;"></div>
+                                   <div class=" border-solid" style="border-right-width: 1px; z-index:1;"></div>
+                                   <div class=" border-solid" style="border-right-width: 1px; z-index:1;"></div>
+                                   <div class=" border-solid" style="border-right-width: 1px; z-index:1;"></div>
+                                   <div class=" border-solid" style="border-right-width: 1px; z-index:1;"></div>
+                                   <div class=" border-solid" style="border-right-width: 1px; z-index:1;"></div>
+                                   <div class=" border-solid" style="border-right-width: 2px; z-index:1;"></div>
+                                   <div id="bab-bar" class="absolute h-full rounded-md top-0" style="transition: width 0.3s; max-width:100%;"></div>
+                                 </div>
+                                 
+                               </div>
+                               <div id="bab-bot-row" class="w-full text-sm mb-0" style="height:12px">
+                                 <div class="grid-cols-9 grid">
+                                   <div class="relative text-left">{{ "ob_bab.pairs"  | t }}:<div class="absolute right-0  top-0" style="transform:translateX(50%)">1</div> </div>
+                                   <div class="relative"><div class="absolute right-0" style="transform:translateX(50%)">2</div> </div>
+                                   <div class="relative"><div class="absolute right-0 bab-price-marker bab-milestone-price-marker font-bold" style="transform:translateX(50%)">3</div> </div>
+                                   <div class="relative"><div class="absolute right-0 bab-price-marker" style="transform:translateX(50%)">4</div> </div>
+                                   <div class="relative"><div class="absolute right-0 bab-price-marker " style="transform:translateX(50%)">5</div> </div>
+                                   <div class="relative"><div class="absolute right-0 bab-price-marker bab-milestone-price-marker font-bold" style="transform:translateX(50%)">6</div> </div>
+                                   <div class="relative"><div class="absolute right-0 bab-price-marker" style="transform:translateX(50%)">7</div> </div>
+                                   <div class="relative"><div class="absolute right-0 bab-price-marker" style="transform:translateX(50%)">8</div> </div>
+                                   <div class="relative"><div class="absolute right-0 bab-price-marker bab-milestone-price-marker font-bold" style="transform:translateX(50%)">9</div> </div>
+                                   
+                                 </div>
+                               </div>
+                                
+                            </div>
+                             <div id="bab-back-button" class="flex pt-3 lg:pt-4 flex justify-between text-xs pointer- cursor-pointer">
+                                <div>{{ "ob_bab.current_size" | t }}: <span class="text-magenta-500 uppercase" id="bab-header-current-size"></span></div>
+<div id="bab-return-home-button" class=" ml-4 flew items-center leading-none  text-xs  flex text-magenta-500 capitize relative font-semibold">
+                                    <svg class="text-magenta-500 w-4 current-color mr-1 " xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve"><path d="M58.898,9.574l-1.801,11.111c14.028,2.258,24.753,14.387,24.753,29.054c0,16.273-13.191,29.463-29.465,29.463  S22.921,66.014,22.921,49.738c0-4.56,1.049-8.867,2.904-12.715l9.83,9.831l6.192-35.083L6.925,18.123l10.616,10.616  c-3.705,6.13-5.845,13.312-5.845,21c0,22.473,18.217,40.688,40.689,40.688c22.473,0,40.689-18.215,40.689-40.688  C93.075,29.483,78.272,12.692,58.898,9.574z" style="
+    fill: #f00f83;
+"></path></svg><span>{{ "ob_bab.start_again" | t }}</span>
+                                  </div>
+                             </div>
+                           </div>
+                           <div id="build-a-bundle-key" class="flex mr-2 hidden px-5 pb-1 lg:py-3 lg:px-6" style="    border-top: 1px solid #00000021;
+                padding-top: 7px;
+                padding-bottom: 7px;">
+                                    </div>
+            
+                    </div>
+                </div>
+              </div>
+              </div>
+                  <input type="hidden" name="product-type" value="{{ product.type }}">
+                  <section class="">
+              <div id="div1"></div>
+            </section>
+                    
+            </div>
+            <div id="bab-content">
+              <div id="bab-showing-prods" class="mb-6">
+              <div id="print-selector-tabs" class="flex justify-center max-md:mb-4">
+              <div class="js-all-tabs-prints w-full col-span-6 justify-between pt-1 pb-1 grid lg:grid-cols-2 grid-cols-2 justify-items-around relative bg-gray-200 py-2 rounded-full my-2 max-md:mx-8 lg:py-1.5" style="">
+                <div class="overflow-hidden flex justify-center items-center flex-col text-center py-1 flex justify-center items-center flex-col text-center lg:py-3 transition-colors duration-200 flex-1 slider-control">
+                  <span id="bab-patterned-prints" class="js-tab-prints transition-colors duration-200 py-1 px-3 rounded-md text-md lg:text-md cursor-pointer selected-tab w-full h-full" style="z-index:2 ">{{ "ob_bab.patterned" | t }}</span>
+                </div>
+          
+                <div class="flex justify-center items-center flex-col text-center py-1 flex justify-center items-center flex-col text-center py-1 lg:py-3  transition-colors duration-200 flex-1 slider-control " style="z-index:2 ">
+                  <span id="bab-plain-prints" class="js-tab-prints transition-colors duration-200 py-1 px-3 rounded-md text-md lg:text-md cursor-pointer w-full h-full" style="z-index:2 " >{{ "ob_bab.plain" | t }}</span>
+                </div>
+                <div class="selection-tab-selection shadow-sm h-full bg-white absolute flex items-center uppercase font-bold justify-center rounded-full font-bold !text-black h-[88%]" style="width: 50%;top: 50%;bottom: 50%;transform: translate(0%, -50%);left: 1%; z-index:1"></div>
+                <!-- <a class="flex justify-center items-center flex-col text-center py-1 flex justify-center items-center flex-col text-center py-1 lg:py-3  transition-colors duration-200 flex-1 ">
+                  <span id="bab-bamboo-prints" class="js-tab-prints transition-colors duration-200 py-1 px-3 rounded-md text-md lg:text-md cursor-pointer ">Bamboo</span>
+                </a> -->
+          
+              </div>
+            </div>
+              <div id="bab-patterned-prods" class=" border-2 border-gray-300 rounded-md border-solid grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 mx-8 lg:mx-0 scroll-shadows">
+              </div>
+              <div id="bab-plain-prods" class="border-2 border-gray-300 rounded-md border-solid grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 mx-8 mx-8 lg:mx-0 lg:mx-auto scroll-shadows" style="display:none;">
+              </div>
+                <!-- <div id="bab-bamboo-prods" class="border-2 border-gray-300 rounded-md border-solid grid grid-cols-3 lg:grid-cols-5 mx-4 scroll-shadows" style="display:none;">
+              </div> -->
+            </div>
+              <div id="bab-showing-bundle" style="display:none;">
+                <div id="bab-items-in-bundle-wrapper" class="pb-2 px-2">
+                  <div class="py-6">
+                  {{ "ob_bab.items_in_bundle" | t }}:
+                  </div>
+                <div id="bab-items-in-bundle" class="grid grid-cols-3 lg:grid-cols-4 gap-2"></div>
+                </div>
+
+                <div id="bab-empty-bundle" class="text-center py-20">
+                  {{ "ob_bab.empty" | t }}
+                </div>
+              </div>
+              <div class="bab-footer flex-col sticky bottom-0 flex-shrink-0 justify-center border-t-1  border-gray-300 border-solid px-3  pt-4 pb-6 lg:px-0" style="backdrop-filter: blur(3px); background-color:rgb(255 255 255 / 74%);;">
+                  <div class="flex gap-4">
+                    <div id="add-bab-to-cart" class="button" style="">{{ "ob_bab.please_select_pairs" | t }}</div>
+                    <div id="show-bab" class="js-show-bab button button--variant-outline flex-1" data-text-1="Edit Selection" data-text-2="Back">{{ "ob_bab.edit_selection" | t }}</div>
+                  </div>
+              </div>
+            </div>
+          </div>
+           <div id="bab-finished-screen" class="cursor-event flex flex-col items-center justify-center mb-4 p-8" style="display:none;">
+            <div class="mb-4 text-center">
+                  {{ "ob_bab.bundle_added" | t }}
+                  <br/>
+                  {{ "ob_bab.checkout" | t }}
+            </div>
+              <a href="/checkout/" id="bab-checkout" class="w-4/5 text-center btn-shadow-lg uppercase border-2 border-solid font-bold rounded-full mt-3  w-full py-4 text-center bg-magenta-500 text-white"><div class="">{{ "ob_bab.checkouta" | t }}</div></a>
+              <a href="/" id="bab-continuet" class="w-4/5 text-center  uppercase border-2 border-solid border-magenta font-bold rounded-full mt-10  w-full py-4 text-center text-magenta"><div class="">{{ "ob_bab.continue" | t }}</div></a>
+             <br/> 
+             {{ "ob_bab.alternatively" | t }}
+             <a href="javascript://" class="text-magenta font-bold" id="bab-restart">{{ "ob_bab.another"  | t }}</a>
+          </div>
+        </div>
+
+
+          
+        </div>
+      </div>
+    </div>
+
+ 
+  </div>
+</div>
+
+
+    <div
+      id="bab-pop-up"
+      class="justify-center align-middle fixed top-0 left-0 w-screen h-screen flex"
+      style="z-index: 1000; justify-content: center; align-items: center; height:100dvh; display:none"
+    >
+      <div
+        id="bab"
+        class="js-bab-safety-screen w-screen h-screen fixed justify-center align-middle"
+        style="backdrop-filter: blur(5px);z-index: -1;background: #00000066; "
+      ></div>
+      <div id="bab" class="absolute shadow-xl border-2 border-solid bg-white p-15  w-10/12 md:w-7/12 lg:w-1/2" style="box-shadow: 3px 3px #000; overflow:hidden;" >
+        <div class="js-bab-safety-screen basicLightboxCloseBundle basicLightboxCloseWithIcon border-2 bg-white border-solid rounded-md absolute"  style="right:15px; top:15px; height: 30px; z-index: 99998; width: 30px;display:flex;align-items:center;justify-content:center">
+          <svg aria-hidden="true" focusable="false" role="presentation" width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" > <path d="M1.41418 0L16.9705 15.5563L15.5563 16.9706L-2.89679e-05 1.41421L1.41418 0Z" fill="#111111"></path><path d="M16.9706 1.41431L1.41423 16.9707L1.85966e-05 15.5564L15.5564 9.31025e-05L16.9706 1.41431Z" fill="#111111"></path> </svg>
+        </div>
+        <div class="js-bundle-contents grid lg:grid-cols-2 w-full" style="min-height:100%;">
+            <div class="relative bg-gray-100">
+                <div id="bab-popup-img" class="h-full w-full relative">
+                    <img class="absolute h-full object-contain" />
+                  <div class="w-full" style="padding-top:100%"></div>
+                </div>
+            </div>
+            <div class="relative flex justify-center items-center py-8 sm:p-12">
+                 <div class="relative flex-flex-col 3xl:px-12 ">
+                    <div id="bab-popup-title" class="marujo text-3xl px-2">
+                    </div>
+                    <div  class="text-xl text-magenta-500 uppercase px-2 ">{{ "ob_bab.sizes"  | t }}: <span id="bab-popup-size"></span></div>
+                   <div class="px-2">
+                    <div id="bab-popup-button" class="bottom-2 lg:bottom-8 btn-shadow-lg uppercase border-2 border-solid font-bold rounded-full mt-10  w-full py-4 text-center bg-magenta-500 text-white"> {{ "ob_bab.add_to_bundle" | t }} </div>
+                   </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+<div id="match-size-guide-wrapper" class="hidden" style="position:fixed; width:100vw; height:100vh; top:0px; left:0px; z-index: 1000;">
+	<div id="match-size-guide-safety-screen" class="js-match-size-guide-safety-screen w-screen h-screen fixed justify-center align-middle" style="backdrop-filter: blur(5px);z-index: -1;background: #00000066; "></div>
+	<div id="match-size-guide-content" class="p-2 max-w-2xl w-full" style="background-color:white; position:fixed; top:10dvh; left:50%; transform: translate(-50%); min-height:50dvh;"></div>
+</div>

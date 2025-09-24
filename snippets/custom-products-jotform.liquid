@@ -1,0 +1,62 @@
+<div class="py-4 md:py-0">
+  <div id="contact_form_wrapper">
+   <iframe id="JotFormIFrame-250902096719057" title="Get In Touch" onload="window.parent.scrollTo(0,0)" allowtransparency="true" allow="geolocation; microphone; camera; fullscreen" src="https://form.jotform.com/250902096719057" frameborder="0" style="min-width:100%;max-width:100%;height:539px;border:none;" scrolling="no" > </iframe> <script src='https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js'></script> <script>window.jotformEmbedHandler("iframe[id='JotFormIFrame-250902096719057']", "https://form.jotform.com/")</script> 
+  </div>
+  
+  <div id="callback_form" class="hidden text-center ">
+   <iframe id="JotFormIFrame-251492810903354" title="Request a call back" onload="window.parent.scrollTo(0,0)" allowtransparency="true" allow="geolocation; microphone; camera; fullscreen; payment" src="https://form.jotform.com/251492810903354" frameborder="0" style="min-width:100%;max-width:100%;height:539px;border:none;" scrolling="no" > </iframe> <script src='https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js'></script> <script>window.jotformEmbedHandler("iframe[id='JotFormIFrame-251492810903354']", "https://form.jotform.com/")</script> 
+  <a href="#contact_form_wrapper"><div class="underline js-callback" id="custom-form-swap">Or Fill Out a Form</div></a>
+  </div>
+</div>
+
+<script>
+window.addEventListener("message", function(event) {
+  // Check for consent
+  if (document.body.getAttribute("consentStatus") !== "yes") {
+    return;
+  }
+
+  // Confirm it's from Jotform and the expected structure
+  if (
+    event.origin.includes("jotform") &&
+    typeof event.data === "object" &&
+    event.data.action === "submission-completed"
+  ) {
+    console.log("✅ Jotform submission detected from iframe");
+
+    if (typeof fbq === "function") {
+      fbq("trackCustom", "CustomProductSubmission", {
+        page_title: document.title,
+        page_url: window.location.href
+      });
+      console.log("📤 Facebook Pixel: CustomProductSubmission fired with metadata");
+    } else {
+      console.warn("⚠️ fbq is not defined — Pixel not fired");
+    }
+  }
+}); 
+  
+document.addEventListener('DOMContentLoaded', function() {
+  // Get all elements with the class 'js-callback'
+  const callbackElements = document.querySelectorAll('.js-callback');
+
+  // Get the elements to toggle the 'hidden' class on
+  const callbackForm = document.getElementById('callback_form');
+  const contactFormWrapper = document.getElementById('contact_form_wrapper');
+
+  // Check if both forms exist
+  if (callbackForm && contactFormWrapper) {
+    // Add click event listener to each '.js-callback' element
+    callbackElements.forEach(element => {
+      element.addEventListener('click', function() {
+        // Toggle 'hidden' class on both forms
+        console.log('click')
+        callbackForm.classList.toggle('hidden');
+        contactFormWrapper.classList.toggle('hidden');
+      });
+    });
+  } else {
+    console.log('One or both target elements not found');
+  }
+});
+</script>

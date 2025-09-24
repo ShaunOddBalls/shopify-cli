@@ -1,0 +1,92 @@
+{% schema %}
+{
+  "name": "SD-tri-block",
+  "blocks": [{
+    "type": "block",
+    "name": "block",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "background_image",
+        "label": "Background Image"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title Text"
+      },
+      {
+        "type": "text",
+        "id": "button_text",
+        "label": "Button Text"
+      },
+      {
+        "type": "url",
+        "id": "button_link",
+        "label": "Button Link"
+      }
+    ]
+  }],
+  "presets": [
+    {
+      "name": "SD-tri-block",
+      "blocks": [
+        {
+          "type": "block"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<div class="student-blocks-section flex whitespace-nowrap overflow-x-auto">
+  {% for block in section.blocks %}
+    <div  class="student-custom-block" {{ block.shopify_attributes }}>
+      {% if block.settings.background_image %}
+        <div class="background-image w-full h-full relative" style="background-image: url('{{ block.settings.background_image | img_url: 'master' }}');">
+          <div class="w-full h-full flex flex-col justify-center items-center">
+            {% if block.settings.title %}
+              <div class="w-4/5">
+                <h2 class="text-white text-2xl md:text-4xl font-bold text-wrap pb-4">{{ block.settings.title }}</h2>
+              </div>
+            {% endif %}
+            {% if block.settings.button_text %}
+              <div class="w-full flex justify-center">
+                <a href="{{ block.settings.button_link }}" class="absolute bottom-2 w-4/5 py-2 text-center bg-white uppercase font-bold max-md:text-xxs" style="opacity:0.8;">{{ block.settings.button_text }}</a>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      {% endif %}
+    </div>
+  {% endfor %}
+</div>
+
+<style>
+  .student-custom-block{
+    min-width:50vw;
+    height:50vw;
+    max-height:50vw;
+    padding: 1rem 3%;
+  }
+  @media(min-width: 1024px){
+    .student-custom-block{
+      min-width:33vw;
+      height:33vw;
+      max-height: 33vw;
+    }
+  }
+  .student-blocks-section {
+    width: 100%;
+  }
+  .student-custom--block {
+    margin-bottom: 30px;
+  }
+  .background-image {
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+  }
+  
+</style>

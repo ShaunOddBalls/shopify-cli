@@ -1,0 +1,60 @@
+{% unless product.vendor == 'OddBalls Subscriptions' or localization.market.handle == "eu" %}
+{% if section.settings.collection.handle != blank %}
+{% assign selected_handle = section.settings.collection.handle %}
+{% assign collection_array = product.collections %}
+{% if collection_array.size > 0 %}
+{% assign filter_collection = collection_array | where: 'handle', selected_handle  %}
+{% if filter_collection.size > 0 %}
+
+{% assign total_blocks = 0 %}
+{% for block in section.blocks %}
+	{% assign total_blocks = total_blocks | plus: 1 %}
+{% endfor %}
+
+{% if section.settings.active %}
+{% if product.price >= product.compare_at_price %}  
+{% if product.tags contains 'feature-multi-buy' %}
+<div class="my-2 js-multibuy-table-start">
+  	<div class="text-xs uppercase text-gray-800 tpl-4 pb-2"><b>Multibuy Discount - </b>Buy more and save</div>
+  	<div class="grid grid-cols-2 text-center tpl-4 tpr-4">
+        <p class="col-span-1 border border-gray-400 border-solid py-1 mb-0.5 mr-0.5 text-xs font-bold text-gray-500">{{ section.settings.header_left }}</p>
+        <p class="col-span-1 border border-gray-400 border-solid py-1 mb-0.5 text-xs font-bold text-gray-500">{{ section.settings.header_right }}</p>
+        {% for block in section.blocks %}
+      	{% if block.type == "row" %}
+        <p class="col-span-1 flex justify-center items-center border border-gray-400 border-solid py-1 mb-0.5 mr-0.5 text-xs font-semibold text-gray-500">{% if block.settings.left_extra != blank %}<span class="line-through text-xxs text-gray-400 pr-1">{{ block.settings.left_extra }}</span>{% endif %} {{ block.settings.left_cell }}</p>
+        <p class="col-span-1 flex justify-center items-center border border-gray-400 border-solid py-1 mb-0.5 text-xs font-semibold text-gray-500 flex items-center">{% if block.settings.right_extra != blank %}<span class="line-through text-xxs text-gray-400 pr-1">{{ block.settings.right_extra }}</span>{% endif %}{{ block.settings.right_cell }}</p>
+		{% elsif block.type == "wide_row" %}
+        <p class="col-span-2 border border-solid py-1 mb-0.5 text-xs font-semibold {{ block.settings.wide_row_classes }}">{{ block.settings.cell }}</p>      	
+      	{% endif %}
+      	{% endfor %}
+  	</div>
+</div>
+{% endif %}
+{% endif %}
+{% endif %}
+<style>
+ 
+
+  
+  #multibuytable_{{section.id}} .grid > div:nth-of-type(1n+{{ max_blocks_shown | plus: 4}}  ){
+   	display:none;
+  }
+  
+  #multibuytable_{{section.id}}.showall div.table-wrapper > div {
+   	display:grid;
+  }
+  
+  .force-hidden {
+  
+  	display: none! important;
+    
+  }
+  
+</style>
+  
+
+
+{% endif %}
+{% endif %}
+{% endif %}
+{% endunless %}

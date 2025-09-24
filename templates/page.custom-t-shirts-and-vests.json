@@ -1,0 +1,248 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "charities-hero": {
+      "type": "ob-charities-hero",
+      "settings": {
+        "hero-outer-class": "",
+        "hero-frame-class": "max-w-7xl mx-auto sm:px-6 lg:px-8  pt-0",
+        "hero-image-outer-class": "bg-black bg-opacity-30",
+        "logo": "shopify://shop_images/IMG_0302_resized.jpg",
+        "title": "Custom Vests and T-shirts",
+        "subtitle_description": "<p>Get Yours Here</p>",
+        "button_text": "Get IN TOUCH",
+        "button_class": "px-8 rounded-full uppercase btn-shadow-lg block bg-magenta border-solid border-md  relative font-semibold text-center p-4 text-white hover:bg-magenta-700 transition-colors duration-200",
+        "hero_url": "#contact_form_wrapper",
+        "subtitle_description_class": "mt-6 max-w-lg mx-auto text-center text-xl text-white sm:max-w-3xl",
+        "title_description": "",
+        "title_description_class": "mt-6 max-w-lg mx-auto text-center text-xl text-white sm:max-w-3xl"
+      }
+    },
+    "ob_custom_page_slider_nav_z7MHBU": {
+      "type": "ob-custom-page-slider-nav",
+      "custom_css": [
+        ".scrollable-nav {background-color: white;}"
+      ],
+      "settings": {
+        "handle": "new-custom-nav-list",
+        "slides_per_view": "auto",
+        "space_between": 0,
+        "grab_cursor": true,
+        "mousewheel": false,
+        "allow_touch_move": true,
+        "keyboard_enabled": false,
+        "autoplay_delay": 5000,
+        "disable_autoplay_on_interaction": false,
+        "loop": true,
+        "looped_slides": 10,
+        "transition_speed": 1000,
+        "desktop_slides_per_view": 7,
+        "desktop_allow_touch_move": true,
+        "desktop_autoplay": false,
+        "desktop_gap": 30,
+        "wrapper-classes": "w-full -mt-16 max-w-7xl mx-auto",
+        "swiper_class_list": "mx-auto max-w-7xl",
+        "slide_classes": "w-1/4 lg:w-auto",
+        "title": "",
+        "title-classes": "text-2xl md:text-4xl uppercase  mx-auto text-center marujo",
+        "image-classes": "rounded-full",
+        "text": "text-xs md:text-sm lg:text-base text-black text-wrap text-center py-2 uppercase marujo",
+        "background-image": ""
+      }
+    },
+    "custom_html_EETADm": {
+      "type": "ob-custom-html",
+      "settings": {}
+    },
+    "16551193883dbf260d": {
+      "type": "ob-trust-pilot-widget",
+      "settings": {
+        "outer_wrapper_classes": "border-b border-solid border-gray-300",
+        "wrapper_classes": "max-w-7xl mx-auto pb-6 px-2",
+        "widget_header": "We'd be nowhere without our amazing customers!",
+        "widget_header_classes": "marujo text-center text-4xl md:text-5xl uppercase py-6",
+        "widget_subheader": "",
+        "widget_subheader_classes": "",
+        "widget_code": "<!-- TrustBox widget - Slider -->\n<div class=\"trustpilot-widget\" data-locale=\"en-GB\" data-template-id=\"54ad5defc6454f065c28af8b\" data-businessunit-id=\"5c7f9459871dac0001ea0238\" data-style-height=\"240px\" data-style-width=\"100%\" data-theme=\"light\" data-stars=\"5\" data-review-languages=\"en\">\n<a href=\"https://uk.trustpilot.com/review/myoddballs.com\" target=\"_blank\" rel=\"noopener\">Trustpilot</a>\n</div>\n<!-- End TrustBox widget -->",
+        "widget_wrapper_classes": "",
+        "use_microcombo": false
+      }
+    },
+    "cfe52b2f-0696-4d62-8ec1-d36fdb17f10d": {
+      "type": "ob-tailwind-image-and-text-with-phone",
+      "blocks": {
+        "3870b2d5-6923-47f6-ae56-fae715825ffe": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/NURFC_13_resize.png",
+            "title": ""
+          }
+        },
+        "40367859-728d-437d-9947-5255993cd30a": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/NURFC_11_resize.png",
+            "title": ""
+          }
+        },
+        "image_fMngJc": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/NURFC_10.jpg",
+            "title": ""
+          }
+        },
+        "image_LVdCP6": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/NURFC_13_resize_1.png",
+            "title": ""
+          }
+        }
+      },
+      "block_order": [
+        "3870b2d5-6923-47f6-ae56-fae715825ffe",
+        "40367859-728d-437d-9947-5255993cd30a",
+        "image_fMngJc",
+        "image_LVdCP6"
+      ],
+      "settings": {
+        "static_image": true,
+        "section-class": "bg-white",
+        "hero-frame-class": "",
+        "image-block-class": "px-3 hidden md:block",
+        "title": "Our Custom Vests and T-shirts",
+        "text-block-class": "",
+        "intro": "",
+        "content": "<p>Totally bespoke sportswear for your club, school or business! With access to all of OddBalls’ funky and exciting designs, you will be able to make your very own range in your colours. Whether you are going on tour, to the gym or need a warmup top, our T-shirts & Vests are the ideal was to put your stamp on our garments!</p><p>A minimum order of 10 and lead times of 4-5 weeks give everyone the opportunity to secure their own OddBalls bespoke sportswear!</p>",
+        "images_per_slide": 4,
+        "row_height": 250,
+        "row_height_mobile": 250,
+        "caption": "",
+        "button_text": "Get In Touch",
+        "button_class": "px-8 rounded-full uppercase btn-shadow-lg block bg-magenta border-solid border-2 border-md  relative font-semibold text-center p-4 text-white hover:bg-magenta-700 transition-colors duration-200 w-full  sm:w-48",
+        "button_text_2": "call me back",
+        "button_class_2": "js-callback px-8 rounded-full uppercase btn-shadow-lg block border-solid border-2 border-md  relative font-semibold text-center p-4 text-black transition-colors duration-200 w-full  sm:w-48",
+        "hero_url": "#contact_form_wrapper"
+      }
+    },
+    "9d21fc79-b694-45b7-94ed-13b90ab76a91": {
+      "type": "ob-custom-html",
+      "settings": {}
+    },
+    "ob_snippet_holder_RknAf3": {
+      "type": "ob-snippet-holder",
+      "name": "Snippet Holder",
+      "settings": {
+        "outer_wrapper_classes": "relative z-20",
+        "inner_wrapper_classes": "",
+        "snippet_name": "custom-products-jotform"
+      }
+    },
+    "full_page_slick_slider_VGTJXj": {
+      "type": "ob-full-page-width-swiper",
+      "blocks": {
+        "image_WaGy9N": {
+          "type": "image",
+          "settings": {
+            "img": "shopify://shop_images/IMG_0381.jpg"
+          }
+        },
+        "image_p46UEj": {
+          "type": "image",
+          "settings": {
+            "img": "shopify://shop_images/NURFC_14.jpg"
+          }
+        },
+        "image_4i3tNj": {
+          "type": "image",
+          "settings": {
+            "img": "shopify://shop_images/IMG_0794_1.jpg"
+          }
+        },
+        "image_DUh3Dg": {
+          "type": "image",
+          "settings": {
+            "img": "shopify://shop_images/IMG_0302_resized.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "image_WaGy9N",
+        "image_p46UEj",
+        "image_4i3tNj",
+        "image_DUh3Dg"
+      ],
+      "settings": {
+        "title": "Our Custom vests and t-shirts in action",
+        "wrapper_classes": "text-center",
+        "bg_color": ""
+      }
+    },
+    "callback_form": {
+      "type": "ob-custom-html",
+      "disabled": true,
+      "settings": {}
+    },
+    "tailwind-image-and-text2": {
+      "type": "ob-tailwind-image-and-text",
+      "blocks": {
+        "d77764eb-a4aa-4d33-a5a6-8b4f288783fc": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/GROUPS_6.png",
+            "title": ""
+          }
+        },
+        "b8c404cf-327d-49a2-bfd9-567b21e535f7": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/ZEBRA_CROSSING_4.png",
+            "title": ""
+          }
+        }
+      },
+      "block_order": [
+        "d77764eb-a4aa-4d33-a5a6-8b4f288783fc",
+        "b8c404cf-327d-49a2-bfd9-567b21e535f7"
+      ],
+      "settings": {
+        "section-class": "md:px-8",
+        "hero-frame-class": "",
+        "image-block-class": "order-1 md:px-3",
+        "title": "More about us",
+        "title-classes": "marujo mt-2 text-3xl leading-8 font-extrabold tracking-tight sm:text-4xl text-magenta pb-6",
+        "text-block-class": "order-2 md:px-3",
+        "intro": "",
+        "content": "<p>So why choose OddBalls? Our underwear is made from premium cotton, making it SUPER comfy and built to last!</p><p>We have hundreds of designs to choose from, meaning you can support your favourite team, pick your favourite pattern, or chill in something plain.</p><p><br/>We’re proud to support some amazing charities and have donated over £1,000,000 to them since 2014</p>",
+        "images_per_slide": 1,
+        "row_height": 350,
+        "row_height_mobile": 350,
+        "caption": "dsdsd",
+        "button_text": "",
+        "button_class": "",
+        "hero_url": ""
+      }
+    }
+  },
+  "order": [
+    "charities-hero",
+    "ob_custom_page_slider_nav_z7MHBU",
+    "custom_html_EETADm",
+    "16551193883dbf260d",
+    "cfe52b2f-0696-4d62-8ec1-d36fdb17f10d",
+    "9d21fc79-b694-45b7-94ed-13b90ab76a91",
+    "ob_snippet_holder_RknAf3",
+    "full_page_slick_slider_VGTJXj",
+    "callback_form",
+    "tailwind-image-and-text2"
+  ]
+}

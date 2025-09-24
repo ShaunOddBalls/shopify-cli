@@ -1,0 +1,58 @@
+{% comment %}
+show_on_all_collections: true or false 
+{% endcomment %}
+
+
+{% assign show_block = "true" %}
+
+{% if show_on_all_collections == false  %}
+
+{{ collection_extas_to_show_on }}
+{%- assign exclude_handles = "" -%}
+  {% if collection_extas_to_exclude_from.value != blank %}
+  {%- for coll in  collection_extas_to_exclude_from.value -%}
+    {%- assign exclude_handles = exclude_handles | append: coll.handle | append: "," -%}
+  {%- endfor -%}
+  {% endif %}
+  
+  {% if collection_lists_to_exclude_from != blank %}
+  {%- for collection_list in collection_lists_to_exclude_from.value -%}
+    {%- for coll in collection_list.collection_list.value -%}
+      {%- assign exclude_handles = exclude_handles | append: coll.handle | append: "," -%}
+    {%- endfor -%}
+  {%- endfor -%}
+  {% endif %}
+
+  {%- assign collection_exclude_on_handles_array = exclude_handles | split: "," | compact -%}
+
+  {% if collection_exclude_on_handles_array contains collection.handle %}
+    {% assign show_block = false %}
+  {% endif %}
+
+{%- assign include_handles = "" -%}
+{% if collection_extas_to_show_on.value != blank and show_block %}
+  {%- for coll in collection_extas_to_show_on.value -%}
+    {%- assign include_handles = include_handles | append: coll.handle | append: "," -%}
+  {%- endfor -%}
+{% endif %}
+
+{% if collection_lists_to_show_on != blank and show_block %}
+  {%- for collection_list in collection_lists_to_show_on.value -%}
+    {%- for coll in collection_list.collection_list.value -%}
+      {%- assign include_handles = include_handles | append: coll.handle | append: "," -%}
+    {%- endfor -%}
+  {%- endfor -%}
+{% endif %}
+
+
+{%- assign collection_show_on_handles_array = include_handles | split: "," | compact -%}
+
+{% assign show_block = "false" %}
+
+{% if collection_show_on_handles_array contains collection.handle %}
+  {% assign show_block = "true" %}
+{% endif %}
+
+{% endif %}
+
+{{ show_block }}

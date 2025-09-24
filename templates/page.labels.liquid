@@ -1,0 +1,58 @@
+{% layout none %}
+{% assign market_code = localization.language.root_url %}
+{% if market_code == '/' %}
+  {% assign market_code = 'uk' %}
+{% else %}
+  {% assign market_code = market_code | remove: '/' %}
+{% endif %}
+
+
+{% assign label_list = shop.metaobjects.label_list["label-list"] %}
+{% for label in label_list.label.value %}
+
+
+{% assign show_on_all = label.show_on_all_markets %}
+{% assign to_show_on = label.markets_to_show_on_ | replace: '[', ''| replace: '"', '' | replace: ']', '' | split: ',' %}
+{% assign to_exclude_from = label.markets_to_exclude_from | replace: '[', ''| replace: '"', '' | replace: ']', '' | split: ',' %}
+{% assign show = true %}
+
+  
+{% if show_on_all == false %}
+  {% if to_exclude_from != blank %}
+    {% for market in to_exclude_from %}
+      {% assign market_strip = market | strip %}
+      {% assign market_downcase = market_strip | downcase %}
+      {% if market_code == market_downcase %}
+        {% assign show = "false" %}
+        {% break %}
+      {% endif %}
+    {% endfor %}
+  {% endif %}      
+  {% if show == true %}
+    {% assign show = false %}
+    {% for market in to_show_on %}
+      {% assign market_strip = market | strip %}
+      {% assign market_downcase = market_strip | downcase %}
+      {% if market_code == market_downcase %}
+        {% assign show = true %}
+        {% break %}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+{% endif %}
+    
+{% capture value  %}
+  
+  {
+"tag_match":"{{ label.tag_match }}",
+"text":"{{ label.text }}",
+"text_color":"{{ label.text_colour }}",
+"bg_color":"{{ label.bg_colour }}",
+"outline_color":"{{ label.outline_colour }}",
+"theme_version":"{{ label.theme_version }}",
+"label_name":"{{ label.label_name }}",
+"show_hide_class": "{% if show %}absolute{% else %}hidden{% endif %}"
+  }
+{% endcapture %}
+  <input class="tag" value='{{ value | strip }}' />
+{% endfor %}

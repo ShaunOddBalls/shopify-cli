@@ -1,0 +1,655 @@
+{% assign hero_metaObject_list = shop.metaobjects.hero_banner_list[section.settings.handle] %}
+{% assign banners = hero_metaObject_list.list_of_hero_banners %}
+{% assign section_id = 'hero-slider-' | append: section.id %}
+{% assign now = 'now' | date: '%Y-%m-%d %H:%M' %}
+{% assign show_dots = section.settings.show_dots %}
+{% assign slider_dot_count = 0 %}
+
+{% comment %} Check Market Code {% endcomment %}
+{% assign market_code = localization.language.root_url %}
+{% if market_code == '/' %}
+  {% assign market_code = 'uk' %}
+{% else %}
+  {% assign market_code = market_code | remove: '/' %}
+{% endif %}
+
+<style>
+  .costum-reverse {
+    justify-content: center;
+    align-items: end;
+  }
+
+  .dbl-cta-title{
+    {% if section.settings.title-text-size != blank %} font-size: {{ section.settings.title-text-size }}px ;{% endif %}
+    {% if section.settings.title-color != blank %} color: {{ section.settings.title-color }} ;{% endif %}
+  }
+
+  .dbl-cta-paragraph{
+    {% if section.settings.paragragh-font-size != blank %} font-size: {{ section.settings.paragragh-font-size }}px ;{% endif %}
+    {% if section.settings.paragraph-color != blank %} color: {{ section.settings.paragraph-color }} ;{% endif %}
+  }
+
+  @media (min-width: 768px) {
+    .dbl-cta-title{
+      {% if section.settings.desktop-title-text-size != blank %} font-size: {{ section.settings.desktop-title-text-size }}px ;{% endif %}
+    }
+
+    .dbl-cta-paragraph{
+      {% if section.settings.desktop-paragraph-text-size != blank %} font-size: {{ section.settings.desktop-paragraph-text-size }}px ;{% endif %}
+    }
+
+    .costum-reverse {
+      flex-direction: row-reverse;
+      justify-content: {{ section.settings.position }};
+      align-items: center;
+    }
+  }
+
+</style>
+
+{% if section.settings['cta-setting'] == true %}
+  {% capture btn-one-styles %}
+  {% if section.settings.btn-one-bg-color != blank %} background-color: {{ section.settings.btn-one-bg-color }};{% endif %}
+  {% if section.settings.btn-one-color != blank %} color: {{ section.settings.btn-one-color }} ;{% endif %}
+  {% endcapture %}
+  {% capture btn-two-styles %}
+  {% if section.settings.btn-two-bg-color != blank %} background-color: {{ section.settings.btn-two-bg-color }};{% endif %}
+  {% if section.settings.btn-two-color != blank %} color: {{ section.settings.btn-two-color }};{% endif %}
+  {% endcapture %}
+{% endif %}
+
+{%- capture buttons -%}
+         <div class="absolute w-full h-full inset-0 flex justify-end md: md:justify-center  p-5 md:p-20 index-10 items-center costum-reverse lg:p-30 img-overlay z-10">
+    <div class="w-full md:w-1/2 md:p-5">
+           
+          <div class="w-full">
+                <h2 class="text-{{ section.settings.title-text-postion }} {{ section.settings.title-text-classes }}">{{ section.settings.title }}</h2>
+              <p class="dbl-cta-paragraph pb-3 text-{{ section.settings.paragraph-text-postion }} {{ section.settings.p-classes }}">{{ section.settings.paragragh }}</p>
+          </div>
+        <div class=" flex gap-3 {% if section.settings.btn-one-text == "" or section.settings.btn-two-text == "" %} justify-{{ section.settings.button-postion }}{% else %} md:w-4/5 lg:max-w-lg flex-col md:flex-row {% endif %}">
+        {% if section.settings.btn-one-text != "" %}
+           <div class="double-cta double-cta-{{ section.settings.btn-one-text | replace: " ", "-" }} md:w-1/2 w-full">
+               <a href="{%- render 'ob-process-international-link', url:section.settings.btn-1-url %}" style="{{ btn-one-styles }}" class="wcc {{ section.settings.btn-one-classes }}">{{ section.settings.btn-one-text }} </a>
+           </div>
+        {% endif %}
+        {% if section.settings.btn-two-text != "" %}
+           <div class="double-cta double-cta-{{ section.settings.btn-two-text | replace: " ", "-" }} md:w-1/2 w-full">
+               <a href="{%- render 'ob-process-international-link', url:section.settings.btn-2-url %}" style="{{ btn-two-styles }}" class="wcc {{ section.settings.btn-two-classes }}">{{ section.settings.btn-two-text }}</a>
+           </div>
+        {% endif %}
+        </div>
+     
+    </div>
+  </div>
+{%- endcapture -%}
+{% assign has_any_banners = 'no' %}
+<div
+  id="{{ section_id }}"
+  class="relative overflow-hidden w-full ob-slider-container hero {{ section.settings.section_wrapper_classes }} {% if customer %}{{ section.settings.extra-logged-in }} {% else %} {{ section.settings.extra-logged-out }}{% endif %}"
+  {{ section.settings['extra-attributes'] }}
+>
+  <div
+    class="flex transition-transform duration-500 ease-out bg-white overflow-hidden w-full ob-slider"
+    data-slider-enabled="{{ section.settings.slider_enabled }}"
+    data-autoplay="{{ section.settings.autoplay }}"
+    data-loop="{{ section.settings.loop }}"
+    data-slides-mobile="{{ section.settings.slides_mobile }}"
+    data-slides-md="{{ section.settings.slides_md }}"
+    data-slides-lg="{{ section.settings.slides_lg }}"
+    data-gap="{{ section.settings.slide_gap }}"
+	data-dots="{{ section.settings.show_dots }}"
+  >
+    <div class="flex w-full ob-slides-wrappers">
+      {% assign rendered_banners = 0 %}
+      {% for banner in banners.value %}
+        {% assign loading_state = '' %}
+
+        {% assign link = banner.banner_link %}
+        {% assign desktop_image = banner.desktop_image %}
+        {% assign desktop_video = banner.desktop_video %}
+        {% assign desktop_svg = banner.desktop_svg %}
+        {% assign name = banner.name %}
+        {% assign mobile_image = banner.mobile_image %}
+        {% assign mobile_video = banner.mobile_video %}
+        {% assign mobile_svg = banner.mobile_svg %}
+        {% assign meta_info = banner.meta_info %}
+        {% assign show_banner = false %}
+        {% assign display_from = banner.time_to_display_from | date: '%Y-%m-%d %H:%M' %}
+        {% assign display_untill = banner.display_untill | date: '%Y-%m-%d %H:%M' %}
+        {% assign is_timed = banner.is_timed_banner %}
+
+        {% assign show_on_all_markets = banner.show_on_all_markets %}
+
+        {% assign markets_to_show = banner.markets_to_show_on %}
+        {% assign markets_to_show = markets_to_show | replace: '[', '' | replace: ']', '' | replace: '"', '' %}
+        {% assign markets_to_show = markets_to_show | split: ',' %}
+
+        {% assign markets_to_exclude = banner.markets_to_exclude_from %}
+        {% assign markets_to_exclude = markets_to_exclude | replace: '[', '' | replace: ']', '' | replace: '"', '' %}
+        {% assign markets_to_exclude = markets_to_exclude | split: ',' %}
+
+        {%- capture meta_handles -%}
+          {% for product in meta_info.value.products_in_banner.value %}{%- comment %}<locksmith:4c8c>{% endcomment -%}{%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product, subject_parent: meta_info.value.products_in_banner, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}{%- comment %}</locksmith:4c8c>{% endcomment -%}{{- product.handle -}},{% endfor %}  
+        {%- endcapture -%}
+        {% assign meta_handles = meta_handles | strip %}
+
+        {% assign show_banner = true %}
+
+        {% if show_on_all_markets == false %}
+          {% comment %} check to see if it's in the to show on list {% endcomment %}
+          {% for market in markets_to_exclude %}
+            {% assign market_strip = market | strip %}
+            {% assign market_downcase = market_strip | downcase %}
+            {% if market_code == market_downcase %}
+              {% assign show_banner = false %}
+              {% break %}
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+
+        {% if show_banner == true and markets_to_show != blank %}
+          {% assign show_banner = false %}
+          {% for market in markets_to_show %}
+            {% assign market_strip = market | strip %}
+            {% assign market_downcase = market_strip | downcase %}
+            {% if market_code == market_downcase %}
+              {% assign show_banner = true %}
+              {% break %}
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+
+        {% if is_timed %}
+          {% if display_from %}
+            {% if now <= display_from %}
+              {% assign show_banner = false %}
+            {% endif %}
+          {% endif %}
+
+          {% if display_untill %}
+            {% if now >= display_untill %}
+              {% assign show_banner = false %}
+            {% endif %}
+          {% endif %}
+        {% endif %}
+
+        {% if show_banner == true %}
+
+          {% assign rendered_banners = rendered_banners | plus: 1 %}
+          
+          {% assign slider_dot_count = slider_dot_count | plus: 1 %}
+          {% assign has_any_banners = 'yes' %}
+
+          {% if rendered_banners == "1" %}
+            {% assign loading_state = 'lazy' %}
+          {% else %}
+            {% assign loading_state = 'eager' %}
+          {% endif  %}
+          
+          <div
+            class="flex-none w-full transition-opacity duration-500 ease-in-out ob-slide {% if rendered_banners == 1 %}active{% endif %}"
+            data-people="{{ meta_info.value.people_in_banner }}"
+            data-number-of-people="{{ meta_info.value.number_of_people }}"
+            data-theme="{{ meta_info.value.theme }}"
+            data-campaign="{{ meta_info.value.campaign }}"
+            data-prod-handles="{{ meta_handles }}"
+            {{ section.settings['extra-attributes'] }}
+          >
+            {% if link != blank %}
+              <a href="{%- render 'ob-process-international-link', url:link %}" class="block cursor-pointer">
+            {% endif %}
+            <div class="relative">
+              {% if desktop_video != blank %}
+                <video class="object-cover h-full w-full  max-md:hidden " autoplay loop muted playsinline>
+                  <source src="{{ desktop_video | file_url }}" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              {% elsif desktop_image != blank %}
+                  {% render 'srcset-image-responsive',
+                  image: desktop_image,
+                  class: 'w-full object-cover hidden md:block',
+                  alt: name,
+                  loading: loading_state,
+                  size: 'desktop',
+                  full_width: true
+                %}
+              {% endif %}
+              {% if mobile_video != blank %}
+                <video class="object-cover h-full w-full block md:hidden" autoplay loop muted playsinline>
+                  <source src="{{ mobile_video | file_url }}" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              {% elsif mobile_image != blank %}
+                {% render 'srcset-image-responsive',
+                  image: mobile_image,
+                  class: 'w-full object-cover md:hidden',
+                  alt: name,
+                  loading: loading_state,
+                  size: 'mobile',
+                  full_width: true
+                %}
+              {% endif %}
+              {% if desktop_svg != blank or mobile_svg != blank %}
+                <div class="absolute inset-0 w-full h-full">
+                  {% if desktop_svg != blank %}
+                    <img
+                      {% unless forloop.first %}
+                        loading="lazy"
+                      {% else %}
+                        loading="eager"
+                      {% endunless %}
+                      class="w-full h-full hidden md:block"
+                      src="{{ desktop_svg | img_url }}"
+                      alt="desktop overlay svg"
+                      width="{{ desktop_svg.width }}"
+                      height="{{ desktop_svg.height }}"
+                    >
+                  {% endif %}
+                  {% if mobile_svg != blank %}
+                    <img
+                      {% unless forloop.first %}
+                        loading="lazy"
+                      {% else %}
+                        loading="eager"
+                      {% endunless %}
+                      class="w-full h-full block md:hidden"
+                      src="{{ mobile_svg| img_url }}"
+                      alt="mobile overlay svg"
+                      width="{{ mobile_svg.width }}"
+                      height="{{ mobile_svg.height }}"
+                    >
+                  {% endif %}
+                </div>
+              {% endif %}
+            </div>
+            {% if link != blank %}</a>{% endif %}
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+
+  {% if has_any_banners == 'yes' %}
+    {% if section.settings['cta-setting'] == true %}{{ buttons }}{% endif %}
+  {% endif %}
+
+  {% if show_dots == true %}
+    <div class="{{ section.settings.dots_container_classes }}" role="tablist" aria-label="Hero slider navigation">
+      {% for i in (1..slider_dot_count) %}
+        <button
+          class="{{ section.settings.dot_classes }}"
+          data-dot-index="{{ forloop.index0 }}"
+          role="tab"
+          aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
+          aria-label="Go to slide {{ forloop.index }} of {{ slider_dot_count }}"
+        >
+          <span class="sr-only">Slide {{ forloop.index }} of {{ slider_dot_count }}</span>
+        </button>
+      {% endfor %}
+    </div>
+  {% endif %}
+</div>
+
+
+
+{% schema %}
+{
+  "name": "Hero Slider",
+  "settings": [
+    {
+      "type": "text",
+      "id": "handle",
+      "label": "Metaobject handle",
+      "info": "Needs the handle of a metaobject Hero Banner List",
+      "default": "home-page"
+    },
+    {
+      "type": "text",
+      "id": "extra-attributes",
+      "label": "Extra Atrributes to the slide container"
+    },
+    {
+      "type": "text",
+      "id": "section_wrapper_classes",
+      "label": "Section Wrapper Classes",
+      "default": "relative"
+    },
+    {
+      "type": "text",
+      "id": "extra-logged-in",
+      "label": "Extra classes to be added if the user is logged in"
+    },
+    {
+      "type": "text",
+      "id": "extra-logged-out",
+      "label": "Extra classes to be added if the user is logged out"
+    },
+    {
+      "type": "header",
+      "content": "Slider Settings"
+    },
+    {
+      "type": "header",
+      "content": "pagination"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_dots",
+      "label": "Show pagination dots",
+      "default": true,
+      "info": "Display navigation dots below the slider."
+    },
+    {
+      "type": "text",
+      "id": "dots_container_classes",
+      "label": "Dots container classes",
+      "default": "ob-dots absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10"
+    },
+    {
+      "type": "text",
+      "id": "dot_classes",
+      "label": "Individual dot classes",
+      "default": "ob-dot w-2 h-2 rounded-full bg-gray-300 transition-colors duration-200"
+    },
+    {
+      "type": "header",
+      "content": "Play Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "slider_enabled",
+      "label": "Enable slider",
+      "default": true,
+      "info": "Turn the slider functionality on or off."
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Autoplay",
+      "default": true,
+      "info": "Automatically cycle through slides."
+    },
+    {
+      "type": "checkbox",
+      "id": "loop",
+      "label": "Loop slides",
+      "default": true,
+      "info": "Restart from the first slide after the last one."
+    },
+    {
+      "type": "header",
+      "content": "Slide Layout"
+    },
+    {
+      "type": "range",
+      "id": "slides_mobile",
+      "label": "Slides on mobile",
+      "min": 1,
+      "max": 15,
+      "step": 1,
+      "default": 1,
+      "info": "Number of slides shown on small screens."
+    },
+    {
+      "type": "range",
+      "id": "slides_md",
+      "label": "Slides on tablet",
+      "min": 1,
+      "max": 15,
+      "step": 1,
+      "default": 1,
+      "info": "Number of slides shown on medium screens."
+    },
+    {
+      "type": "range",
+      "id": "slides_lg",
+      "label": "Slides on desktop",
+      "min": 1,
+      "max": 15,
+      "step": 1,
+      "default": 1,
+      "info": "Number of slides shown on large screens."
+    },
+    {
+      "type": "range",
+      "id": "slide_gap",
+      "label": "Slide gap (px)",
+      "min": 0,
+      "max": 60,
+      "step": 4,
+      "default": 0,
+      "info": "Spacing between each slide."
+    },
+    {
+      "type": "header",
+      "content": "Call To Action Section"
+    },
+    {
+      "type": "checkbox",
+      "label": "Turn on call to action ",
+      "default": false,
+      "id": "cta-setting"
+    },
+    {
+      "type": "select",
+      "id": "position",
+      "label": "Desktop position",
+      "options": [
+        {
+          "label": "right",
+          "value": "start"
+        },
+        {
+          "label": "center",
+          "value": "center"
+        },
+        {
+          "label": "left",
+          "value": "end"
+        }
+      ],
+      "default": "start"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title text",
+      "default": "Title"
+    },
+    {
+      "type": "text",
+      "id": "title-text-classes",
+      "label": "Title text classes",
+      "info": "eg. text-3xl md:text-6xl capitalize dbl-cta-title pb-1 font-bebas",
+      "default": "text-3xl md:text-6xl capitalize dbl-cta-title pb-1 font-bebas"
+    },
+    {
+      "type": "select",
+      "id": "title-text-postion",
+      "label": "Title Text Alignment",
+      "options": [
+        {
+          "label": "left",
+          "value": "left"
+        },
+        {
+          "label": "center",
+          "value": "center"
+        },
+        {
+          "label": "right",
+          "value": "right"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "range",
+      "id": "title-text-size",
+      "min": 0,
+      "max": 74,
+      "step": 1,
+      "default": 18,
+      "unit": "px",
+      "label": "title-font-size"
+    },
+    {
+      "type": "color",
+      "id": "title-color",
+      "label": "Title Color"
+    },
+    {
+      "type": "range",
+      "id": "desktop-title-text-size",
+      "min": 0,
+      "max": 74,
+      "step": 1,
+      "default": 32,
+      "unit": "px",
+      "label": "Desktop title font size"
+    },
+    {
+      "type": "textarea",
+      "id": "paragragh",
+      "label": "paragragh text",
+      "default": "My Paragraph"
+    },
+    {
+      "type": "text",
+      "id": "p-classes",
+      "label": "paragragh classes"
+    },
+    {
+      "type": "select",
+      "id": "paragraph-text-postion",
+      "label": "Paragraph Text Alignment",
+      "options": [
+        {
+          "label": "left",
+          "value": "left"
+        },
+        {
+          "label": "center",
+          "value": "center"
+        },
+        {
+          "label": "right",
+          "value": "right"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "range",
+      "id": "paragragh-font-size",
+      "min": 0,
+      "max": 74,
+      "step": 1,
+      "default": 12,
+      "unit": "px",
+      "label": "paragragh font size"
+    },
+    {
+      "type": "color",
+      "id": "paragraph-color",
+      "label": "Paragragh Color"
+    },
+    {
+      "type": "range",
+      "id": "desktop-paragraph-text-size",
+      "min": 0,
+      "max": 74,
+      "step": 1,
+      "default": 18,
+      "unit": "px",
+      "label": "Desktop paragragh font size"
+    },
+    {
+      "type": "text",
+      "id": "btn-one-text",
+      "label": "Button one Text",
+      "default": "button one"
+    },
+    {
+      "type": "text",
+      "id": "btn-one-classes",
+      "label": "Button one classes",
+      "info": "eg. px-8 relative p-2 rounded-md uppercase btn-shadow-lg block border-solid border-2 border-md border-black text-black font-semibold text-center  transition-colors duration-200",
+      "default": "px-8 relative p-2 rounded-md uppercase btn-shadow-lg block border-solid border-2 border-md border-black text-black font-semibold text-center  transition-colors duration-200"
+    },
+    {
+      "type": "url",
+      "id": "btn-1-url",
+      "label": "Button one link"
+    },
+    {
+      "type": "color",
+      "id": "btn-one-color",
+      "label": "Button one color",
+      "default": "#fff"
+    },
+    {
+      "type": "color_background",
+      "id": "btn-one-bg-color",
+      "label": "Button one background color",
+      "default": "#000000"
+    },
+    {
+      "type": "text",
+      "id": "btn-two-text",
+      "label": "Button two Text",
+      "default": "button two"
+    },
+    {
+      "type": "text",
+      "id": "btn-two-classes",
+      "label": "Button two classes",
+      "info": "eg. px-8 relative p-2 rounded-md uppercase btn-shadow-lg block border-solid border-2 border-md border-black text-black font-semibold text-center  transition-colors duration-200",
+      "default": "px-8 relative p-2 rounded-md uppercase btn-shadow-lg block border-solid border-2 border-md border-black text-black font-semibold text-center  transition-colors duration-200"
+    },
+    {
+      "type": "url",
+      "id": "btn-2-url",
+      "label": "Button two link"
+    },
+    {
+      "type": "color",
+      "id": "btn-two-color",
+      "label": "Button two color",
+      "default": "#000000"
+    },
+    {
+      "type": "color_background",
+      "id": "btn-two-bg-color",
+      "label": "Button two background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "select",
+      "id": "button-postion",
+      "label": "Single Button Alignment",
+      "info": "Only effects alignment of button if there is only one button",
+      "options": [
+        {
+          "label": "left",
+          "value": "start"
+        },
+        {
+          "label": "center",
+          "value": "center"
+        },
+        {
+          "label": "right",
+          "value": "end"
+        }
+      ],
+      "default": "start"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Slider"
+    }
+  ]
+}
+{% endschema %}

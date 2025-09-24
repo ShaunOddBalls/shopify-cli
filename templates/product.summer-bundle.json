@@ -1,0 +1,107 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "ob_text_video_slider_PJyg9W": {
+      "type": "ob-text-video-slider",
+      "name": "Hero Slider",
+      "settings": {
+        "handle": "summer-bundle",
+        "extra-attributes": "",
+        "section_wrapper_classes": "relative",
+        "extra-logged-in": "",
+        "extra-logged-out": "",
+        "show_dots": true,
+        "dots_container_classes": "ob-dots absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10",
+        "dot_classes": "ob-dot w-2 h-2 rounded-full bg-gray-300 transition-colors duration-200",
+        "slider_enabled": true,
+        "autoplay": true,
+        "loop": true,
+        "slides_mobile": 1,
+        "slides_md": 1,
+        "slides_lg": 1,
+        "slide_gap": 0,
+        "cta-setting": false,
+        "position": "start",
+        "title": "Title",
+        "title-text-classes": "text-3xl md:text-6xl capitalize dbl-cta-title pb-1 font-bebas",
+        "title-text-postion": "left",
+        "title-text-size": 18,
+        "title-color": "",
+        "desktop-title-text-size": 32,
+        "paragragh": "My Paragraph",
+        "p-classes": "",
+        "paragraph-text-postion": "left",
+        "paragragh-font-size": 12,
+        "paragraph-color": "",
+        "desktop-paragraph-text-size": 18,
+        "btn-one-text": "button one",
+        "btn-one-classes": "px-8 relative p-2 rounded-md uppercase btn-shadow-lg block border-solid border-2 border-md border-black text-black font-semibold text-center  transition-colors duration-200",
+        "btn-1-url": "",
+        "btn-one-color": "#ffffff",
+        "btn-one-bg-color": "#000000",
+        "btn-two-text": "button two",
+        "btn-two-classes": "px-8 relative p-2 rounded-md uppercase btn-shadow-lg block border-solid border-2 border-md border-black text-black font-semibold text-center  transition-colors duration-200",
+        "btn-2-url": "",
+        "btn-two-color": "#000000",
+        "btn-two-bg-color": "#ffffff",
+        "button-postion": "start"
+      }
+    },
+    "full_page_easy_section_qw6AXP": {
+      "type": "full-page-easy-section",
+      "blocks": {
+        "paragraph_HB4eKp": {
+          "type": "paragraph",
+          "disabled": true,
+          "settings": {
+            "wrapper_classes": "text-base text-white bg-[#ff9100]",
+            "inner_wrapper_settings": "text-md px-4  max-w-[330px] mx-auto font-semibold",
+            "paragraph_text": "1. Pick your products"
+          }
+        },
+        "paragraph_MGtPHX": {
+          "type": "paragraph",
+          "disabled": true,
+          "settings": {
+            "wrapper_classes": "text-base text-white bg-[#ff9100]",
+            "inner_wrapper_settings": "text-md px-4   max-w-[330px] mx-auto font-semibold",
+            "paragraph_text": "2. Pick your size "
+          }
+        },
+        "paragraph_fkgLmX": {
+          "type": "paragraph",
+          "disabled": true,
+          "settings": {
+            "wrapper_classes": "text-base text-white bg-[#ff9100]",
+            "inner_wrapper_settings": "text-md px-4  max-w-[330px] md:max-w-[1000px] mx-auto font-semibold",
+            "paragraph_text": "3. Create your own summer bundle"
+          }
+        },
+        "eb_easy_bundle_builder_app_block_mix_and_match_bundle_xnWULn": {
+          "type": "shopify://apps/eb-easy-bundle-builder/blocks/app-block-mixAndMatchBundle/05b1325c-6303-4da5-8e2f-b13ab2a50e1a",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "paragraph_HB4eKp",
+        "paragraph_MGtPHX",
+        "paragraph_fkgLmX",
+        "eb_easy_bundle_builder_app_block_mix_and_match_bundle_xnWULn"
+      ],
+      "name": "New Easy bundle",
+      "settings": {}
+    }
+  },
+  "order": [
+    "ob_text_video_slider_PJyg9W",
+    "full_page_easy_section_qw6AXP"
+  ]
+}

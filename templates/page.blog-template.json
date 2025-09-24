@@ -1,0 +1,183 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "ob_image_text_grid_7EDhTE": {
+      "type": "ob-image-text-grid",
+      "blocks": {
+        "image_and_text_VG43Ey": {
+          "type": "image-and-text",
+          "settings": {
+            "country_iso": "*",
+            "title": "",
+            "block_wrapper_classes": "col-span-12 flex justify-center  px-4 items-center text-center relative",
+            "block_title": "",
+            "title_classes": "text",
+            "description": "<h2 class=\"text-center font-bebas text-3xl lg:text-4xl\">Sign Up To Enter Our Competition!🎉 </h2>",
+            "description_classes": "",
+            "svg": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_and_text_VG43Ey"
+      ],
+      "disabled": true,
+      "settings": {
+        "outer_wrapper_classes": "relative pb-6",
+        "inner_wrapper_classes": "col-span-12 flex justify-center  py-3 px-4 items-center text-center",
+        "grid_wrapper_classes": "mt-6 grid grid-cols-2 gap-0.5 md:grid-cols-3 lg:mt-8",
+        "title": "",
+        "title_classes": "text-center text-base font-semibold uppercase text-gray-600 tracking-wider",
+        "section_bg_colour": "",
+        "block_bg_colour": "",
+        "block_bg_colour_hover": "",
+        "block_text_colour": "",
+        "block_text_colour_hover": "",
+        "block_image_classes": "",
+        "block_svg_classes": "",
+        "custom_css": ""
+      }
+    },
+    "blog_template_Qt3LrH": {
+      "type": "blog-template",
+      "blocks": {
+        "image_block_WDUEEb": {
+          "type": "image_block",
+          "settings": {
+            "image": "shopify://shop_images/sub_blog_pic.png",
+            "url": "https://www.myoddballs.com/blogs/news/oddballs-underwear-subscription",
+            "text": "OddBalls Underwear Subscription Guide"
+          }
+        },
+        "image_block_TVm79L": {
+          "type": "image_block",
+          "settings": {
+            "image": "shopify://shop_images/new_ladies_boxer_pic.png",
+            "url": "https://www.myoddballs.com/blogs/news/new-and-improved-womens-boxer-shorts",
+            "text": "New & Improved Women's Boxer Shorts"
+          }
+        },
+        "image_block_TnMHFJ": {
+          "type": "image_block",
+          "settings": {
+            "image": "shopify://shop_images/banne_2.png",
+            "url": "https://www.myoddballs.com/blogs/news/discover-womens-underwear-for-every-body",
+            "text": "Women's Underwear Guide"
+          }
+        },
+        "image_block_TcjCdq": {
+          "type": "image_block",
+          "settings": {
+            "image": "shopify://shop_images/mens_underwear_guide_blog_pic.png",
+            "url": "https://www.myoddballs.com/blogs/news/different-mens-underwear-types",
+            "text": "Men's Underwear Guide"
+          }
+        },
+        "image_block_4rMA6r": {
+          "type": "image_block",
+          "settings": {
+            "image": "shopify://shop_images/How_to_care_for_your_underwear.png",
+            "url": "https://www.myoddballs.com/blogs/news/how-to-care-for-your-underwear-washing-guide",
+            "text": "How to Care for Your Underwear"
+          }
+        },
+        "image_block_kgfr9H": {
+          "type": "image_block",
+          "settings": {
+            "image": "shopify://shop_images/AvoidChafing.jpg",
+            "url": "https://www.myoddballs.com/blogs/news/what-is-bamboo-underwear-benefits-fabric-facts-care-tips",
+            "text": "The Bamboo Underwear Breakdown"
+          }
+        },
+        "image_block_wyUPGX": {
+          "type": "image_block",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/John_Lewis_Launch.png",
+            "url": "",
+            "text": "The UK’s Comfiest Underwear Brand, Now at John Lewis!"
+          }
+        },
+        "image_block_MrC7Nx": {
+          "type": "image_block",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/Womens_boxers_new.png",
+            "url": "shopify://products/amountraised",
+            "text": "Meet the NEW & Improved Women’s Boxer Shorts"
+          }
+        },
+        "image_block_c6RmLE": {
+          "type": "image_block",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/Womens_underwear_guide.png",
+            "url": "shopify://products/amountraised",
+            "text": "Women's Underwear Guide"
+          }
+        },
+        "image_block_jHF3jk": {
+          "type": "image_block",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/Swimwear_Guide.png",
+            "url": "shopify://products/amountraised",
+            "text": "Men's Swimwear Guide"
+          }
+        },
+        "image_block_D4FWPH": {
+          "type": "image_block",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/Avoiding_Chafing.png",
+            "url": "shopify://products/amountraised",
+            "text": "Avoiding Chafing this Summer"
+          }
+        }
+      },
+      "block_order": [
+        "image_block_WDUEEb",
+        "image_block_TVm79L",
+        "image_block_TnMHFJ",
+        "image_block_TcjCdq",
+        "image_block_4rMA6r",
+        "image_block_kgfr9H",
+        "image_block_wyUPGX",
+        "image_block_MrC7Nx",
+        "image_block_c6RmLE",
+        "image_block_jHF3jk",
+        "image_block_D4FWPH"
+      ],
+      "name": "blog-template",
+      "settings": {
+        "title": "The OddBalls Blog: The Latest & Greatest",
+        "title_color": "#add8e6",
+        "title_text_color": "#ffffff"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "ob_image_text_grid_7EDhTE",
+    "blog_template_Qt3LrH"
+  ]
+}

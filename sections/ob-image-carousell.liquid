@@ -1,0 +1,390 @@
+{% comment %}
+  Carousel Slider Section using ob-slider library and Tailwind CSS
+  A responsive carousel slider with navigation controls and auto-play functionality
+{% endcomment %}
+{% assign market_code = localization.language.root_url %}
+{% if market_code == '/' %}
+  {% assign market_code = 'uk' %}
+{% else %}
+  {% assign market_code = market_code | remove: '/' %}
+{% endif %}
+
+{% assign section_markets_to_show = section.settings.markets_to_show_on | split: ',' %}
+{% assign section_markets_to_exclude_on = section.settings.markets_to_exclude_on | split: ',' %}
+{% assign section_show_on_all_markets = section.settings.show_on_all_markets %}
+{% assign show_block = 'false' %}
+{%- capture show_section -%}
+  {%- render 'ob-process-show-on-by-market', show_on_all_markets: section_show_on_all_markets, markets_to_show:section_markets_to_show, markets_to_exclude_on: section_markets_to_exclude_on -%}
+  {% endcapture %}
+<!-- show_block:  {{ show_section }} -->
+{% if show_section contains 'true' %}
+  <div class="relative w-full">
+    {%  if template.suffix=="subs-2025"  %}<div class="absolute top-0 left-0 w-full h-full bg-gray-50" style="z-index:-1"></div> {% endif %}
+
+
+    <div
+      class="w-full bg-gray-50 py-2 overflow-x-hidden max-w-7xl mx-auto"
+      data-section-id="{{ section.id }}"
+      style="overflow-x: hidden !important;"
+  >
+    <div class="mx-auto overflow-x-hidden">
+      {% if section.settings.title != blank %}
+        <div class="text-center">
+          <h2 class="text-4xl font-bold text-gray-900 {{ section.settings.title-classes }}">
+            {{ section.settings.title }}
+          </h2>
+          {% if section.settings.subtitle != blank %}
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto px-4">{{ section.settings.subtitle }}</p>
+          {% endif %}
+        </div>
+      {% endif %}
+      <!-- Responsive Card-Stack Carousel -->
+      <div
+        class="ob-slider-container stacked-card w-full relative overflow-x-hidden"
+        style="overflow-x: hidden !important;"
+      >
+        <div
+          class="ob-slider relative overflow-visible rounded-xl"
+          data-autoplay="{{ section.settings.autoplay }}"
+          data-slides-mobile="1"
+          data-slides-md="1"
+          data-slides-lg="1"
+          data-gap="20"
+          data-loop="true"
+          data-marquee="false"
+          data-drag-scroll="true"
+          data-slider-enabled="true"
+          data-slide-by="1"
+          data-touchpad="true"
+          data-card-stack="true"
+          data-stagger="{{ section.settings.enable_stagger | default: true }}"
+          data-mobile-gap="150"
+          data-desktop-gap="20"
+          style="height: 600px;"
+        >
+          <!-- Navigation Controls -->
+          {% if section.settings.show_navigation %}
+            <button
+              class="ob-prev absolute left-2 md:left-4 top-1/2 -translate-y-1/2 bg-pink-500 hover:bg-pink-600 border-none w-5 h-5 md:w-12 md:h-12 rounded-full cursor-pointer hidden md:flex items-center justify-center z-20 transition-all duration-300 hover:scale-110 shadow-lg"
+              aria-label="Previous slide"
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                class="text-white md:w-6 md:h-6"
+              >
+                <polyline points="15,18 9,12 15,6"></polyline>
+              </svg>
+            </button>
+
+            <button
+              class="ob-next absolute right-2 md:right-4 top-1/2 -translate-y-1/2 bg-pink-500 hover:bg-pink-600 border-none w-5 h-5 md:w-12 md:h-12 rounded-full cursor-pointer hidden md:flex items-center justify-center z-20 transition-all duration-300 hover:scale-110 shadow-lg"
+              aria-label="Next slide"
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                class="text-white md:w-6 md:h-6"
+              >
+                <polyline points="9,18 15,12 9,6"></polyline>
+              </svg>
+            </button>
+          {% endif %}
+
+          <div
+            class="ob-slides-wrappers flex h-full transition-transform duration-500 ease-in-out items-center justify-center max-w-full overflow-x-hidden opacity-0"
+            style="overflow-x: hidden !important;"
+          >
+            {% for block in section.blocks %}
+              {% case block.type %}
+                {% when 'slide' %}
+                  <div
+                    class="ob-slide flex-shrink-0 w-72 h-96 md:w-80 md:h-[28rem] relative transform transition-all duration-300 hover:scale-105 max-w-72 md:max-w-80 opacity-100 visible"
+                    {{ block.shopify_attributes }}
+                  >
+                    <div
+                      class="relative w-full h-full flex flex-col rounded-3xl shadow-2xl"
+                      style="background-color: {{ block.settings.background_color | default: '#ec4899' }};"
+                    >
+                      <div class="flex-1 flex flex-col items-center justify-center text-center text-white p-6 md:p-8">
+                        <!-- Icon/Image -->
+                        <div class="w-16 h-16 md:w-20 md:h-20 mb-4 md:mb-6 flex items-center justify-center">
+                          {% if block.settings.image != blank %}
+                            <img
+                              src="{{ block.settings.image | img_url: '80x80' }}"
+                              alt="{{ block.settings.title | escape }}"
+                              width="80"
+                              height="80"
+                              class="w-full h-full object-contain"
+                            >
+                          {% elsif block.settings.svg_code != blank %}
+                            {{ block.settings.svg_code }}
+                          {% else %}
+                            <!-- Default icon -->
+                            <svg
+                              class="w-full h-full"
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                              stroke-width="2"
+                            >
+                              <path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                          {% endif %}
+                        </div>
+
+                        {% if block.settings.title != blank %}
+                          <h3 class="text-2xl md:text-3xl font-bold mb-3 md:mb-4 uppercase tracking-wide">
+                            {{ block.settings.title }}
+                          </h3>
+                        {% endif %}
+
+                        {% if block.settings.description != blank %}
+                          <p class="text-sm md:text-base opacity-90 leading-relaxed">
+                            {{ block.settings.description }}
+                          </p>
+                        {% endif %}
+                      </div>
+                    </div>
+                  </div>
+              {% endcase %}
+            {% endfor %}
+          </div>
+        </div>
+
+        <!-- Dots Navigation -->
+        {% if section.settings.show_dots and section.blocks.size > 1 %}
+          <div class="ob-dots flex justify-center gap-2 md:gap-3 mt-4 md:mt-6">
+            {% for block in section.blocks %}
+              {% if block.type == 'slide' %}
+                <button
+                  class="ob-dot w-2 h-2 md:w-3 md:h-3 rounded-full border-none cursor-pointer transition-all duration-300 bg-gray-300 hover:bg-pink-400"
+                  data-dot-index="{{ forloop.index0 }}"
+                  aria-label="Go to slide {{ forloop.index }}"
+                ></button>
+              {% endif %}
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  </div>
+{% endif %}
+
+<style>
+  /* Active dot state - can't be handled with Tailwind alone */
+  .ob-slider-container.stacked-card .ob-dot.active {
+    width: 30px;
+    background-color: #f00f83;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Card Stack Carousel",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Market Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_on_all_markets",
+      "default": true,
+      "label": "Show On All Markets",
+      "info": "on to show on all"
+    },
+    {
+      "type": "text",
+      "id": "markets_to_show_on",
+      "label": "Markets to show on",
+      "info": "Example would look like: uk, en-eu (shows on UK and EU markets)"
+    },
+    {
+      "type": "text",
+      "id": "markets_to_exclude_on",
+      "label": "Markets to Exclude on",
+      "info": "Example would look like: uk, en-eu (Would not show on UK and EU markets)"
+    },
+    {
+      "type": "header",
+      "content": "Section Content"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section title",
+      "default": "Subscription Benefits"
+    },
+    {
+      "type": "text",
+      "id": "title-classes",
+      "label": "Title Classes",
+      "default": "marujo"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Section subtitle",
+      "default": "Discover all the amazing benefits of subscribing to our service"
+    },
+    {
+      "type": "header",
+      "content": "Carousel Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Enable autoplay",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_stagger",
+      "label": "Enable card stagger/rotation",
+      "default": true,
+      "info": "Adds a subtle rotation effect to create a fan-like appearance"
+    },
+    {
+      "type": "header",
+      "content": "Navigation"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_navigation",
+      "label": "Show navigation arrows",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_dots",
+      "label": "Show pagination dots",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Slider classes"
+    },
+    {
+      "type": "text",
+      "id": "block_title_classes",
+      "label": "Slider Title Classes",
+      "default": "text-3xl font-bold mb-4 uppercase tracking-wide"
+    },
+    {
+      "type": "text",
+      "id": "block_paragragh_classes",
+      "label": "Slider paragraph Classes",
+      "default": "text-base opacity-90 leading-relaxed"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Content"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Icon/Image",
+          "info": "Upload an image or icon for this slide"
+        },
+        {
+          "type": "textarea",
+          "id": "svg_code",
+          "label": "SVG Code",
+          "info": "Alternative to image - paste SVG code here"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Benefit Title"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Add your benefit description here"
+        },
+        {
+          "type": "header",
+          "content": "Styling"
+        },
+        {
+          "type": "color",
+          "id": "background_color",
+          "label": "Background color",
+          "default": "#ec4899"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Card Stack Carousel",
+      "settings": {
+        "title": "Subscription Benefits",
+        "subtitle": "Discover all the amazing benefits of subscribing to our service"
+      },
+      "blocks": [
+        {
+          "type": "slide",
+          "settings": {
+            "title": "VIP DISCOUNTS",
+            "description": "VIP discounts sent straight to your inbox",
+            "background_color": "#ec4899"
+          }
+        },
+        {
+          "type": "slide",
+          "settings": {
+            "title": "FREE DELIVERY",
+            "description": "Enjoy free UK delivery on every order",
+            "background_color": "#3b82f6"
+          }
+        },
+        {
+          "type": "slide",
+          "settings": {
+            "title": "EARLY ACCESS",
+            "description": "Early access to new products and collections",
+            "background_color": "#f97316"
+          }
+        },
+        {
+          "type": "slide",
+          "settings": {
+            "title": "FREE GIFTS",
+            "description": "Exclusive gifts and perks just for subscribers",
+            "background_color": "#a855f7"
+          }
+        },
+        {
+          "type": "slide",
+          "settings": {
+            "title": "SOCKS BUNDLE",
+            "description": "Get socks with every pair of undies!",
+            "background_color": "#14b8a6"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

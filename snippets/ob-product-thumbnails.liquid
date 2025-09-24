@@ -1,0 +1,37 @@
+{% assign current_month = 'now' | date: '%b' %}
+{% assign current_month = current_month | downcase %}
+
+{% assign media_count = 0 %}
+<div class="ob-dots flex items-center justify-center gap-2">
+  {% for media in product.media limit: 18 %}
+    {% assign media_ok_to_proceed = 'yes' %}
+
+    {% if product.type == 'Subscription' or product.type == 'Pre-Paid Subscription' %}
+      {% assign temp_img_str = media | downcase %}
+
+      {% if temp_img_str contains 'month-' %}
+        {% assign media_ok_to_proceed = 'no' %}
+        {% if temp_img_str contains current_month %}
+          {% assign media_ok_to_proceed = 'yes' %}
+        {% endif %}
+      {% endif %}
+    {% endif %}
+
+    {% if media_ok_to_proceed == 'yes' %}
+      <button
+        class="ob-dot swiper-thumb aspect-[1:1] border border-2 w-[40px] h-[40px] border-transparent rounded-md overflow-hidden relative {% if media_count == 0 %}active {% endif %}"
+        data-dot-index="{{ media_count }}"
+        aria-label="Go to slide {{ media_count }}"
+        type="button"
+      >
+        <img
+          alt="thumbnail-{{ media_count }}"
+          class="w-full h-full object-cover bg-white"
+          src="{{ media | image_url: width: 80, height: 80 }}"
+          loading="lazy"
+        >
+      </button>
+      {% assign media_count = media_count | plus: 1 %}
+    {% endif %}
+  {% endfor %}
+</div>

@@ -1,0 +1,158 @@
+{% comment %}
+sections/mobile-install-banner.liquid
+A customizable mobile install banner. Auto-detects iOS vs Android, shows image, title, description, star rating, button, and a dismiss button (hides forever when closed).
+{% endcomment %}
+
+<div id="mobile-install-banner" class="mobile-install-banner" style="display:none;">
+  <button class="mobile-install-banner__close" aria-label="Close banner">&times;</button>
+  <div class="mobile-install-banner__inner">
+    <div class="flex w-full">
+      <div class="w-max flex items-center">
+        
+    {% if section.settings.image != blank %}
+      <div class="mobile-install-banner__image">
+        <img src="{{ section.settings.image | img_url: '200x' }}" alt="{{ section.settings.title }}">
+      </div>
+    {% endif %}
+    <div class="mobile-install-banner__content">
+      <div class="flex gap-4 items-center">
+        
+      <h3 class="mobile-install-banner__title">{{ section.settings.title }}</h3>
+              
+      </div>
+      <p class="mobile-install-banner__description">{{ section.settings.description }}</p>
+      <div class="flex items-center gap-4">
+        
+        <div class="mobile-install-banner__stars">
+          {% for i in (1..5) %}
+            {% if section.settings.rating >= i %}
+              <!-- filled star -->
+              <svg class="star star--filled" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .587l3.668 7.431L24 9.75l-6 5.849L19.335 24 12 20.202 4.665 24 6 15.599 0 9.75l8.332-1.732z"/></svg>
+            {% else %}
+              <!-- empty star -->
+              <svg class="star" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 .587l3.668 7.431L24 9.75l-6 5.849L19.335 24 12 20.202 4.665 24 6 15.599 0 9.75l8.332-1.732z"/></svg>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+                
+
+    </div>
+      </div>
+                <div class="flex flex-1 items-center justify-center">
+                  <a id="mobile-install-button" href="#" class="mobile-install-banner__button">{{ section.settings.button_text }}</a>
+                </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .mobile-install-banner {
+    width: 100%;
+    background: #fff;
+    box-shadow: 0 -2px 6px rgba(0,0,0,0.15);
+    z-index: 1000;
+    font-family: sans-serif;
+  }
+  .mobile-install-banner__inner {
+    display: flex;
+    align-items: center;
+    padding: 4px 10px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .mobile-install-banner__close {
+    position: absolute;
+    top: 2px;
+    right: 9px;
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  .mobile-install-banner__image img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    margin-right: 12px;
+  }
+  .mobile-install-banner__content {
+    flex: 1;
+  }
+  .mobile-install-banner__title {
+    margin: 0;
+    font-size: 16px;
+  }
+  .mobile-install-banner__description {
+    margin: 4px 0;
+    font-size: 10px;
+    color: #555;
+  }
+  .mobile-install-banner__stars {
+    display: flex;
+    margin-bottom: 8px;
+  }
+  .star {
+    width: 12px;
+    height: 12px;
+    margin-right: 2px;
+  }
+  .star--filled { fill: #f5a623; }
+  .mobile-install-banner__button {
+    padding: 4px 8px;
+    background: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 12px;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    try {
+      if (localStorage.getItem('mobileInstallBannerClosed') === 'true') return;
+      var ua = navigator.userAgent || navigator.vendor || window.opera;
+      var isiOS = /iPad|iPhone|iPod/.test(ua) && !window.MSStream;
+      var isAndroid = /android/i.test(ua);
+      // if (!isiOS && !isAndroid) return;
+      var banner = document.getElementById('mobile-install-banner');
+      var btn = document.getElementById('mobile-install-button');
+      try {
+        var link = isiOS ? '{{ section.settings.ios_url }}' : '{{ section.settings.android_url }}';
+        btn.setAttribute('href', link);
+      } catch (linkError) {
+        console.error('Error setting install link:', linkError);
+      }
+      banner.style.display = 'block';
+      document.querySelector('.mobile-install-banner__close').addEventListener('click', function() {
+        try {
+          banner.style.display = 'none';
+          localStorage.setItem('mobileInstallBannerClosed', 'true');
+        } catch (dismissError) {
+          console.error('Error dismissing banner:', dismissError);
+        }
+      });
+    } catch (e) {
+      console.error('Mobile Install Banner error:', e);
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Mobile Install Banner",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "App Icon/Image" },
+    { "type": "text", "id": "title", "label": "Title", "default": "Get the App" },
+    { "type": "textarea", "id": "description", "label": "Description", "default": "Experience the best of our store on mobile." },
+    { "type": "range", "id": "rating", "label": "Star Rating", "min": 1, "max": 5, "step": 1, "default": 5 },
+    { "type": "text", "id": "button_text", "label": "Button Text", "default": "Install Now" },
+    { "type": "url", "id": "android_url", "label": "Google Play Store URL" },
+    { "type": "url", "id": "ios_url", "label": "App Store URL" }
+  ],
+  "presets": [
+    { "name": "Mobile Install Banner", "category": "Custom" }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,60 @@
+{% assign label_sep = '' %}
+{% assign label_arr = "" %}
+	{% for block in section.blocks %}
+		{% if block.settings.label_active %}
+          {% if block.settings.title != blank and block.settings.nav_text != blank %}
+              {% capture label %}{{label_sep}}label_nav_text_{{block.settings.nav_text}}||label_bg_{{block.settings.bg_color}}||label_color_{{block.settings.text_color}}||label_border_{{block.settings.border_color}}||label_text_{{block.settings.title}}{% endcapture %}
+              {% assign label_sep = ',' %}
+              {% assign label_arr = label_arr | append: label %}
+          {% endif %}
+		{% endif %}
+	{% endfor %}
+{{label_arr}}
+{% schema %}
+{
+    "name": "Nav Labels",
+    "class": "nav-label",
+    "blocks": [
+        {
+          "type": "nav_label",
+          "name": "Nav Label",
+          "settings": [
+                {
+                  "type": "checkbox",
+                  "id": "label_active",
+                  "label": "Label active",
+                  "default": true
+                },
+          		{
+                  "type": "text",
+                  "id": "title",
+                  "label": "Title"
+          		},
+          		{
+                  "type": "text",
+                  "id": "nav_text",
+                  "label": "Nav Text"
+          		},
+				{
+                  "type": "color",
+                  "id": "text_color",
+                  "label": "Text colour",
+				  "default":"#ffffff"
+          		},
+				{
+                  "type": "color",
+                  "id": "bg_color",
+                  "label": "BG colour",
+				  "default":"#f00f83"
+          		},
+				{
+                  "type": "color",
+                  "id": "border_color",
+                  "label": "Border colour",
+				  "default":"#f00f83"
+          		}
+    		]
+  		}
+	]
+}
+{% endschema %}

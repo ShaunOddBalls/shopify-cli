@@ -1,0 +1,190 @@
+{% schema %}
+{
+  "name": "SS-25-Things",
+  "settings": [
+    {
+      "type": "text",
+      "label": "Title",
+      "id": "title"
+    }
+  ],
+  "presets": [
+    {
+      "name": "SS-25-Things"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image_block",
+      "name": "Image Block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "circle_image",
+          "label": "Image"
+        },{
+          "type": "collection",
+          "id": "page",
+          "label": "Page"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Use Url instead of a collection"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "button text",
+        },
+        {
+          "type": "text",
+          "id": "button-classes",
+          "label": "button classes"
+        },
+        {
+          "type": "text",
+          "id": "text-classes",
+          "label": "button text classes"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_on_all_markets",
+          "default": true,
+          "label": "Show On All Markets",
+          "info": "on to show on all"
+        },
+        {
+          "type": "text",
+          "id": "markets_to_show_on",
+          "label": "Markets to show on",
+          "info": "Example would look like: uk, en-eu (shows on UK and EU markets)"
+        },
+        {
+          "type": "text",
+          "id": "markets_to_exclude_on",
+          "label": "Markets to Exclude on",
+          "info": "Example would look like: uk, en-eu (Would not show on UK and EU markets)"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+
+{% comment %}
+/*-------------------------------- */
+/*  markets logic init
+/*-------------------------------- */
+{% endcomment %}
+{% assign market_code = localization.language.root_url %}
+{% if market_code == '/' %}
+  {% assign market_code = 'uk' %}
+{% else %}
+  {% assign market_code = market_code | remove: '/' %}
+{% endif %}
+{% comment %}
+/*-------------------------------- */
+/*  markets logic init END
+/*-------------------------------- */
+{% endcomment %}
+
+<div class="flex flex-col justify-center items-center bg-gray-50 my-4">
+  {% if section.settings.title != "" %}
+  <div class="w-full text-center font-bold text-3xl py-4">
+    {{ section.settings.title }}
+  </div>
+  {% endif %}
+  <div class="grid grid-cols-3  md:grid-cols-6 my-1 gap-1 md:gap-x-10 md:gap-y-6 gap-y-2 relative">
+    {% for block in section.blocks %}
+    {% capture block_url_raw %}{% if block.settings.page != blank %}/collections/{{ block.settings.page }}{% endif %}{% if block.settings.url != blank and block.settings.page == blank %}{{ block.settings.url }}{% endif %}{% endcapture %}
+{% comment %}
+/*-------------------------------- */
+/*  markets logic 
+/*-------------------------------- */
+{% endcomment %}
+          {% assign show_block = true %}
+          {% if block.settings.show_on_all_markets == false %}
+            {% assign markets_to_show = block.settings.markets_to_show_on | split: ',' %}
+            {% assign markets_to_exclude_on = block.settings.markets_to_exclude_on | split: ',' %}
+
+            {% if markets_to_exclude_on != blank %}
+            {% for market in markets_to_exclude_on %}
+              {% assign market_strip = market | strip %}
+              {% assign market_downcase = market_strip | downcase %}
+              {% if market_code == market_downcase %}
+                {% assign show_block = false %}
+                {% break %}
+              {% endif %}
+            {% endfor %}
+            {% endif %}
+            
+            {% if markets_to_show != blank and show_block  %}
+              
+              {% assign show_block = false %}
+              {% for market in markets_to_show %}
+      
+                {% assign market_strip = market | strip %}
+                {% assign market_downcase = market_strip | downcase %}
+                {% if market_code == market_downcase %}
+                  {% assign show_block = true %}
+                  {% break %}
+                {% endif %}
+              {% endfor %}
+            {% endif %}
+          {% else %}
+            {% assign show_block = true %}
+          {% endif %}
+
+{% if show_block %}
+{% comment %}
+/*-------------------------------- */
+/*  markets logic END
+/*-------------------------------- */
+{% endcomment %}
+
+
+    
+        <a href="{%- render 'ob-process-international-link', url: block_url_raw -%}" class="flex justify-center lw-circles flex-col relative">
+          {{ block.settings.circle_image | media_tag: image_size: '400x' }}
+          {% if block.settings.title != blank %}
+            <div class="absolute w-full h-full flex justify-center items-center max-md:items-end top-0 left-0 py-2">
+          <div class="{{ block.settings.button-classes }} bg-white px-2 py-1 rounded-full font-bold md:py-2 bg-white px-2 py-1 md:py-2 md:px-6 rounded-full font-bold text-center" style="max-width:90%">
+                      <div
+                        class="{{ block.settings.text-classes }} "
+                      >
+                        {{ block.settings.title }}
+                      </div>
+                    </div>
+            </div>
+          {% endif %}
+        </a>
+
+
+
+{% comment %}
+/*-------------------------------- */
+/*  markets logic 
+/*-------------------------------- */
+{% endcomment %}
+{% endif %}        
+{% comment %}
+/*-------------------------------- */
+/*  markets logic END
+/*-------------------------------- */
+{% endcomment %}
+
+
+
+    
+    {% endfor %}
+  </div>
+</div>
+<style>
+  .lw-circles img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+  }
+</style>

@@ -1,0 +1,499 @@
+<script src="{{ 'ob-collection.js' | asset_url }}" defer="defer"></script>
+<input type="hidden" id="page-search-query" value="{{ search.terms }}" />
+<input type="hidden" id="perm-nosto-search-query" value="{{ search.terms }}" />
+<input type="hidden" id="collection_total" value="30" />
+<div id="search-page-outer-wrapper" class="flex justify-center">
+  <div id="search-page-inner-wrapper" style="width: 100%">
+    <div id="search-page-header">
+      <div id="search-page-title" class="text-xl uppercase  w-full pt-4 px-2">{{ "ob_search.search" | t }}</div>
+      <div id="search-page-input-wrapper" class="flex items-center py-4 justify-center hidden">
+        <input id="search-page-input" class="w-7/12 px-2 border-none bg-gray-200 rounded-md" placeholder="" />
+      </div>
+      <div class="flex w-full justify-center">
+      </div>
+    </div>
+    <div id="searh-page-results-wrapper" >
+      <div id="search-page-before-results" style="display:none;" class="">
+        <div class="py-4 montserrat px-2">{{ "ob_search.popular_searches" | t }}</div>
+        <div id="before-keywords" class="flex gap-1 px-2" style=""></div>
+        <div id="before-products" class="grid grid-cols-2 lg:grid-cols-5" style=""></div>
+      </div>
+      <div id="search-page-after-results" style="" class="">
+        <div class="flex justify-between items-center px-2">
+          <div class="montserrat " style="height:min-content; max-width:70%; word-wrap: break-word; "> {{ "ob_search.results_for" | t }} "<span id="search-term-display">{{ search.terms }}</span>"</div>
+        </div>
+<div class="border-y">
+	<div class="flex h-12 md:wrapper md:h-16 md:justify-between">
+	  <div class="relative flex flex-1 items-center md:flex-grow-0 whitespace-nowrap border-r">
+		<button class="button button--variant-ghost w-full h-full rounded-[0] pl-2 hover:enabled:bg-transparent" data-toggle="collapse" data-target=".filters-nav" data-class="clicked">
+		  {{ "ob_search.show_filters" | t }}
+		  <div class="button__end-icon">
+			<svg xmlns="http://www.w3.org/2000/svg" width="20px" class="rotate-icon icon w-2" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 8 8">
+			  <path d="M7.70601 2.04498C7.7645 2.10494 7.7645 2.20217 7.70601 2.26213L4.10509 5.95383C4.0466 6.0138 3.95176 6.0138 3.89327 5.95383C3.83478 5.89387 3.83478 5.79664 3.89327 5.73667L7.49419 2.04498C7.55268 1.98501 7.64752 1.98501 7.70601 2.04498Z" fill="currentColor"></path>
+			  <path d="M4.10648 5.95503C4.04799 6.01499 3.95316 6.01499 3.89467 5.95503L0.293746 2.26333C0.235254 2.20336 0.235254 2.10613 0.293746 2.04617C0.352238 1.9862 0.447073 1.9862 0.505565 2.04617L4.10648 5.73787C4.16498 5.79783 4.16498 5.89506 4.10648 5.95503Z" fill="currentColor"></path>
+			  <path fill-rule="evenodd" clip-rule="evenodd" d="M7.49419 2.04498C7.55268 1.98501 7.64752 1.98501 7.70601 2.04498C7.7645 2.10494 7.7645 2.20217 7.70601 2.26213L4.12172 5.93678C4.11718 5.94316 4.1121 5.94927 4.10648 5.95503C4.10651 5.955 4.10646 5.95505 4.10648 5.95503C4.05103 6.01179 3.96289 6.0148 3.90407 5.96389C3.90081 5.96113 3.89774 5.95811 3.89467 5.95503C3.89424 5.95459 3.8937 5.95427 3.89327 5.95383L3.88838 5.94858L0.293746 2.26333C0.235254 2.20336 0.235254 2.10613 0.293746 2.04617C0.352238 1.9862 0.447073 1.9862 0.505565 2.04617L3.9993 5.62797L7.49419 2.04498ZM3.9993 5.26994L7.31523 1.87041C7.47183 1.70986 7.72837 1.70986 7.88497 1.87041C8.03818 2.02748 8.03818 2.27963 7.88497 2.4367L4.31111 6.10066C4.30309 6.11061 4.29454 6.12027 4.28545 6.12959C4.1373 6.28147 3.89971 6.28967 3.74191 6.15418C3.73241 6.1461 3.7232 6.13751 3.71431 6.12839C3.71158 6.1256 3.70891 6.12278 3.70628 6.11993L0.114783 2.43789C-0.0384243 2.28082 -0.0384244 2.02868 0.114783 1.87161C0.271385 1.71106 0.527927 1.71106 0.684529 1.87161L3.9993 5.26994Z" fill="currentColor"></path>
+			</svg>
+		  </div>
+		</button>
+	  </div>
+	  <div class="relative flex flex-1 whitespace-nowrap items-center md:flex-grow-0 md:border-l md">
+		<button class="button button--variant-ghost w-full h-full rounded-[0] pr-2 hover:enabled:bg-transparent" data-toggle="collapse" data-target=".sort-nav" data-class="clicked">
+		 {{ "ob_search.sort_by" | t }}
+		  <div class="button__end-icon [&amp;_svg]:max-w-full [&amp;_svg]:h-full [&amp;_svg]:transition-transform">
+			<svg xmlns="http://www.w3.org/2000/svg" width="20" class="rotate-icon icon w-2" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 8 8">
+			  <path d="M7.70601 2.04498C7.7645 2.10494 7.7645 2.20217 7.70601 2.26213L4.10509 5.95383C4.0466 6.0138 3.95176 6.0138 3.89327 5.95383C3.83478 5.89387 3.83478 5.79664 3.89327 5.73667L7.49419 2.04498C7.55268 1.98501 7.64752 1.98501 7.70601 2.04498Z" fill="currentColor"></path>
+			  <path d="M4.10648 5.95503C4.04799 6.01499 3.95316 6.01499 3.89467 5.95503L0.293746 2.26333C0.235254 2.20336 0.235254 2.10613 0.293746 2.04617C0.352238 1.9862 0.447073 1.9862 0.505565 2.04617L4.10648 5.73787C4.16498 5.79783 4.16498 5.89506 4.10648 5.95503Z" fill="currentColor"></path>
+			  <path fill-rule="evenodd" clip-rule="evenodd" d="M7.49419 2.04498C7.55268 1.98501 7.64752 1.98501 7.70601 2.04498C7.7645 2.10494 7.7645 2.20217 7.70601 2.26213L4.12172 5.93678C4.11718 5.94316 4.1121 5.94927 4.10648 5.95503C4.10651 5.955 4.10646 5.95505 4.10648 5.95503C4.05103 6.01179 3.96289 6.0148 3.90407 5.96389C3.90081 5.96113 3.89774 5.95811 3.89467 5.95503C3.89424 5.95459 3.8937 5.95427 3.89327 5.95383L3.88838 5.94858L0.293746 2.26333C0.235254 2.20336 0.235254 2.10613 0.293746 2.04617C0.352238 1.9862 0.447073 1.9862 0.505565 2.04617L3.9993 5.62797L7.49419 2.04498ZM3.9993 5.26994L7.31523 1.87041C7.47183 1.70986 7.72837 1.70986 7.88497 1.87041C8.03818 2.02748 8.03818 2.27963 7.88497 2.4367L4.31111 6.10066C4.30309 6.11061 4.29454 6.12027 4.28545 6.12959C4.1373 6.28147 3.89971 6.28967 3.74191 6.15418C3.73241 6.1461 3.7232 6.13751 3.71431 6.12839C3.71158 6.1256 3.70891 6.12278 3.70628 6.11993L0.114783 2.43789C-0.0384243 2.28082 -0.0384244 2.02868 0.114783 1.87161C0.271385 1.71106 0.527927 1.71106 0.684529 1.87161L3.9993 5.26994Z" fill="currentColor"></path>
+			</svg>
+		  </div>
+		</button>
+		<div class="sort-nav hidden z-40 shadow-2 max-sm:shadow-none max-sm:fixed max-sm:top-0 max-sm:left-0 max-sm:right-0 max-sm:bottom-0 sm:absolute sm:top-full sm:right-2 sm:py-5 sm:px-4 sm:bg-white sm:rounded-sm" role="dialog" aria-hidden="false" aria-modal="true">
+		  <div class="absolute top-0 left-0 w-full h-full bg-black/80 z-[-1] sm:hidden" data-toggle="collapse" data-target=".sort-nav" aria-expanded="true"></div>
+		  <div class="sort-nav-inner bg-white max-sm:rounded-t-2xl max-sm:fixed max-sm:left-0 max-sm:right-0 max-sm:bottom-0">
+			<div class="py-4 px-6 flex justify-between items-center border-b sm:hidden">
+			  <p class="typography typography--heading-six text-sm">Sort By</p>
+			  <button class="button button--variant-ghost button--icon bg-[#F5F5F5] !w-6 !h-6" data-toggle="collapse" data-target=".sort-nav" aria-label="Close">
+				<svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 14 14">
+				  <rect width="16.9705" height="1.13137" rx="0.565684" transform="matrix(0.707106 -0.707108 0.707106 0.707108 0.600586 12.6001)" fill="currentColor"></rect>
+				  <rect width="16.9705" height="1.13137" rx="0.565684" transform="matrix(-0.707106 -0.707107 0.707106 -0.707108 12.6006 13.4001)" fill="currentColor"></rect>
+				</svg>
+			  </button>
+			</div>
+			<div class="radio-group" role="radiogroup">
+			  <div class="sort-option radio-group__item max-sm:py-5 max-sm:mx-6 max-sm:border-b max-sm:last:border-0" data-sort="relevance">
+				<input type="radio" id="sort-most-relevant" name="sort" checked="">
+				<label class="typography typography--body-md" for="sort-most-relevant">{{ "collection_page.most_relevant" | t }}</label>
+			  </div>
+			  <div class="sort-option radio-group__item max-sm:py-5 max-sm:mx-6 max-sm:border-b max-sm:last:border-0" data-sort="asc">
+				<input type="radio" id="sort-price-asc" name="sort">
+				<label class="typography typography--body-md" for="sort-price-asc">{{ "collection_page.low_to_high" | t }}</label>
+			  </div>
+			  <div class="sort-option radio-group__item max-sm:py-5 max-sm:mx-6 max-sm:border-b max-sm:last:border-0" data-sort="desc">
+				<input type="radio" id="sort-price-desc" name="sort">
+				<label class="typography typography--body-md" for="sort-price-desc">{{ "collection_page.high_to_low" | t }}</label>
+			  </div>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	</div>
+  </div>
+
+        
+        <div id="search-page-results-found" class="">
+              <div id="after-keywords" class="flex gap-1 px-2" style=""></div>
+          <div class="flex relative sm:wrapper flex-1">
+          {% render 'ob-collection-facets' collection:collection %}
+              <div id="after-products" class="grid grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-2" style="">
+                <div class="product-card p-1"><div class="product-card__image-wrapper"><a href="https://www.myoddballs.com/products/mens-bamboo-boxer-shorts-free-socks-monthly-subscription-g2" class="swiper swiper-product product-card__image group aspect-square swiper-initialized swiper-horizontal swiper-ios swiper-backface-hidden"><div class="swiper-wrapper" aria-live="polite"><div class="animate-mt swiper-slide swiper-slide-active" role="group" aria-label="1 / 1"><div class="w-full" src="https://cdn.shopify.com/s/files/1/0353/7249/files/BambooMen-min-month-oct_bd090399-3f6a-41f1-8507-f31979acccb4.png?v=1727354213" loading="lazy" alt="Mens Bamboo Boxer Shorts &amp; Free Socks - Monthly Subscription" width="500" height="500"></div></div></div></a></div><div class="product-card__details sm:px-0"><div class=" p-2 pb-3 px-4"><div class="animate-mt bg-white border border-black border-solid grid grid-cols-2 rounded-full w-full"><a href="https://www.myoddballs.com/products/mens-bamboo-boxer-shorts-free-socks-monthly-subscription-g2" class="text-xxs md:text-sm items-center text-center uppercase border-r border-solid border-gray-300 py-1 font-semibold md:font-normal">see more</a><div class="text-xxs md:text-sm items-center text-center uppercase coll-quick-add py-1 font-semibold md:font-normal">Quick Buy</div></div></div><a href="https://www.myoddballs.com/products/mens-bamboo-boxer-shorts-free-socks-monthly-subscription-g2" class=""><p class="animate-mt product-card__details__title px-2">Mens Bamboo Boxer Shorts &amp; Free Socks - Monthly Subscription</p><p class="animate-mt product-card__details__color px-2 w-max">Boxer Shorts Bundle</p><p class="animate-mt product-card__details__price px-2 w-max">£13<del class="ml-1 opacity-0 text-gray-300">£19</del></p></a></div></div> 
+                <div class="product-card p-1"><div class="product-card__image-wrapper"><a href="https://www.myoddballs.com/products/mens-bamboo-boxer-shorts-free-socks-monthly-subscription-g2" class="swiper swiper-product product-card__image group aspect-square swiper-initialized swiper-horizontal swiper-ios swiper-backface-hidden"><div class="swiper-wrapper" aria-live="polite"><div class="animate-mt swiper-slide swiper-slide-active" role="group" aria-label="1 / 1"><div class="w-full" src="https://cdn.shopify.com/s/files/1/0353/7249/files/BambooMen-min-month-oct_bd090399-3f6a-41f1-8507-f31979acccb4.png?v=1727354213" loading="lazy" alt="Mens Bamboo Boxer Shorts &amp; Free Socks - Monthly Subscription" width="500" height="500"></div></div></div></a></div><div class="product-card__details sm:px-0"><div class=" p-2 pb-3 px-4"><div class="animate-mt bg-white border border-black border-solid grid grid-cols-2 rounded-full w-full"><a href="https://www.myoddballs.com/products/mens-bamboo-boxer-shorts-free-socks-monthly-subscription-g2" class="text-xxs md:text-sm items-center text-center uppercase border-r border-solid border-gray-300 py-1 font-semibold md:font-normal">see more</a><div class="text-xxs md:text-sm items-center text-center uppercase coll-quick-add py-1 font-semibold md:font-normal">Quick Buy</div></div></div><a href="https://www.myoddballs.com/products/mens-bamboo-boxer-shorts-free-socks-monthly-subscription-g2" class=""><p class="animate-mt product-card__details__title px-2">Mens Bamboo Boxer Shorts &amp; Free Socks - Monthly Subscription</p><p class="animate-mt product-card__details__color px-2 w-max">Boxer Shorts Bundle</p><p class="animate-mt product-card__details__price px-2 w-max">£13<del class="ml-1 opacity-0 text-gray-300">£19</del></p></a></div></div> 
+                <div class="product-card p-1"><div class="product-card__image-wrapper"><a href="https://www.myoddballs.com/products/mens-bamboo-boxer-shorts-free-socks-monthly-subscription-g2" class="swiper swiper-product product-card__image group aspect-square swiper-initialized swiper-horizontal swiper-ios swiper-backface-hidden"><div class="swiper-wrapper" aria-live="polite"><div class="animate-mt swiper-slide swiper-slide-active" role="group" aria-label="1 / 1"><div class="w-full" src="https://cdn.shopify.com/s/files/1/0353/7249/files/BambooMen-min-month-oct_bd090399-3f6a-41f1-8507-f31979acccb4.png?v=1727354213" loading="lazy" alt="Mens Bamboo Boxer Shorts &amp; Free Socks - Monthly Subscription" width="500" height="500"></div></div></div></a></div><div class="product-card__details sm:px-0"><div class=" p-2 pb-3 px-4"><div class="animate-mt bg-white border border-black border-solid grid grid-cols-2 rounded-full w-full"><a href="https://www.myoddballs.com/products/mens-bamboo-boxer-shorts-free-socks-monthly-subscription-g2" class="text-xxs md:text-sm items-center text-center uppercase border-r border-solid border-gray-300 py-1 font-semibold md:font-normal">see more</a><div class="text-xxs md:text-sm items-center text-center uppercase coll-quick-add py-1 font-semibold md:font-normal">Quick Buy</div></div></div><a href="https://www.myoddballs.com/products/mens-bamboo-boxer-shorts-free-socks-monthly-subscription-g2" class=""><p class="animate-mt product-card__details__title px-2">Mens Bamboo Boxer Shorts &amp; Free Socks - Monthly Subscription</p><p class="animate-mt product-card__details__color px-2 w-max">Boxer Shorts Bundle</p><p class="animate-mt product-card__details__price px-2 w-max">£13<del class="ml-1 opacity-0 text-gray-300">£19</del></p></a></div></div> 
+                <div class="product-card p-1"><div class="product-card__image-wrapper"><a href="https://www.myoddballs.com/products/mens-bamboo-boxer-shorts-free-socks-monthly-subscription-g2" class="swiper swiper-product product-card__image group aspect-square swiper-initialized swiper-horizontal swiper-ios swiper-backface-hidden"><div class="swiper-wrapper" aria-live="polite"><div class="animate-mt swiper-slide swiper-slide-active" role="group" aria-label="1 / 1"><div class="w-full" src="https://cdn.shopify.com/s/files/1/0353/7249/files/BambooMen-min-month-oct_bd090399-3f6a-41f1-8507-f31979acccb4.png?v=1727354213" loading="lazy" alt="Mens Bamboo Boxer Shorts &amp; Free Socks - Monthly Subscription" width="500" height="500"></div></div></div></a></div><div class="product-card__details sm:px-0"><div class=" p-2 pb-3 px-4"><div class="animate-mt bg-white border border-black border-solid grid grid-cols-2 rounded-full w-full"><a href="https://www.myoddballs.com/products/mens-bamboo-boxer-shorts-free-socks-monthly-subscription-g2" class="text-xxs md:text-sm items-center text-center uppercase border-r border-solid border-gray-300 py-1 font-semibold md:font-normal">see more</a><div class="text-xxs md:text-sm items-center text-center uppercase coll-quick-add py-1 font-semibold md:font-normal">Quick Buy</div></div></div><a href="https://www.myoddballs.com/products/mens-bamboo-boxer-shorts-free-socks-monthly-subscription-g2" class=""><p class="animate-mt product-card__details__title px-2">Mens Bamboo Boxer Shorts &amp; Free Socks - Monthly Subscription</p><p class="animate-mt product-card__details__color px-2 w-max">Boxer Shorts Bundle</p><p class="animate-mt product-card__details__price px-2 w-max">£13<del class="ml-1 opacity-0 text-gray-300">£19</del></p></a></div></div> 
+                <div class="product-card p-1"><div class="product-card__image-wrapper"><a href="https://www.myoddballs.com/products/mens-bamboo-boxer-shorts-free-socks-monthly-subscription-g2" class="swiper swiper-product product-card__image group aspect-square swiper-initialized swiper-horizontal swiper-ios swiper-backface-hidden"><div class="swiper-wrapper" aria-live="polite"><div class="animate-mt swiper-slide swiper-slide-active" role="group" aria-label="1 / 1"><div class="w-full" src="https://cdn.shopify.com/s/files/1/0353/7249/files/BambooMen-min-month-oct_bd090399-3f6a-41f1-8507-f31979acccb4.png?v=1727354213" loading="lazy" alt="Mens Bamboo Boxer Shorts &amp; Free Socks - Monthly Subscription" width="500" height="500"></div></div></div></a></div><div class="product-card__details sm:px-0"><div class=" p-2 pb-3 px-4"><div class="animate-mt bg-white border border-black border-solid grid grid-cols-2 rounded-full w-full"><a href="https://www.myoddballs.com/products/mens-bamboo-boxer-shorts-free-socks-monthly-subscription-g2" class="text-xxs md:text-sm items-center text-center uppercase border-r border-solid border-gray-300 py-1 font-semibold md:font-normal">see more</a><div class="text-xxs md:text-sm items-center text-center uppercase coll-quick-add py-1 font-semibold md:font-normal">Quick Buy</div></div></div><a href="https://www.myoddballs.com/products/mens-bamboo-boxer-shorts-free-socks-monthly-subscription-g2" class=""><p class="animate-mt product-card__details__title px-2">Mens Bamboo Boxer Shorts &amp; Free Socks - Monthly Subscription</p><p class="animate-mt product-card__details__color px-2 w-max">Boxer Shorts Bundle</p><p class="animate-mt product-card__details__price px-2 w-max">£13<del class="ml-1 opacity-0 text-gray-300">£19</del></p></a></div></div> 
+                <div class="product-card p-1"><div class="product-card__image-wrapper"><a href="https://www.myoddballs.com/products/mens-bamboo-boxer-shorts-free-socks-monthly-subscription-g2" class="swiper swiper-product product-card__image group aspect-square swiper-initialized swiper-horizontal swiper-ios swiper-backface-hidden"><div class="swiper-wrapper" aria-live="polite"><div class="animate-mt swiper-slide swiper-slide-active" role="group" aria-label="1 / 1"><div class="w-full" src="https://cdn.shopify.com/s/files/1/0353/7249/files/BambooMen-min-month-oct_bd090399-3f6a-41f1-8507-f31979acccb4.png?v=1727354213" loading="lazy" alt="Mens Bamboo Boxer Shorts &amp; Free Socks - Monthly Subscription" width="500" height="500"></div></div></div></a></div><div class="product-card__details sm:px-0"><div class=" p-2 pb-3 px-4"><div class="animate-mt bg-white border border-black border-solid grid grid-cols-2 rounded-full w-full"><a href="https://www.myoddballs.com/products/mens-bamboo-boxer-shorts-free-socks-monthly-subscription-g2" class="text-xxs md:text-sm items-center text-center uppercase border-r border-solid border-gray-300 py-1 font-semibold md:font-normal">see more</a><div class="text-xxs md:text-sm items-center text-center uppercase coll-quick-add py-1 font-semibold md:font-normal">Quick Buy</div></div></div><a href="https://www.myoddballs.com/products/mens-bamboo-boxer-shorts-free-socks-monthly-subscription-g2" class=""><p class="animate-mt product-card__details__title px-2">Mens Bamboo Boxer Shorts &amp; Free Socks - Monthly Subscription</p><p class="animate-mt product-card__details__color px-2 w-max">Boxer Shorts Bundle</p><p class="animate-mt product-card__details__price px-2 w-max">£13<del class="ml-1 opacity-0 text-gray-300">£19</del></p></a></div></div> 
+                <div class="product-card p-1"><div class="product-card__image-wrapper"><a href="https://www.myoddballs.com/products/mens-bamboo-boxer-shorts-free-socks-monthly-subscription-g2" class="swiper swiper-product product-card__image group aspect-square swiper-initialized swiper-horizontal swiper-ios swiper-backface-hidden"><div class="swiper-wrapper" aria-live="polite"><div class="animate-mt swiper-slide swiper-slide-active" role="group" aria-label="1 / 1"><div class="w-full" src="https://cdn.shopify.com/s/files/1/0353/7249/files/BambooMen-min-month-oct_bd090399-3f6a-41f1-8507-f31979acccb4.png?v=1727354213" loading="lazy" alt="Mens Bamboo Boxer Shorts &amp; Free Socks - Monthly Subscription" width="500" height="500"></div></div></div></a></div><div class="product-card__details sm:px-0"><div class=" p-2 pb-3 px-4"><div class="animate-mt bg-white border border-black border-solid grid grid-cols-2 rounded-full w-full"><a href="https://www.myoddballs.com/products/mens-bamboo-boxer-shorts-free-socks-monthly-subscription-g2" class="text-xxs md:text-sm items-center text-center uppercase border-r border-solid border-gray-300 py-1 font-semibold md:font-normal">see more</a><div class="text-xxs md:text-sm items-center text-center uppercase coll-quick-add py-1 font-semibold md:font-normal">Quick Buy</div></div></div><a href="https://www.myoddballs.com/products/mens-bamboo-boxer-shorts-free-socks-monthly-subscription-g2" class=""><p class="animate-mt product-card__details__title px-2">Mens Bamboo Boxer Shorts &amp; Free Socks - Monthly Subscription</p><p class="animate-mt product-card__details__color px-2 w-max">Boxer Shorts Bundle</p><p class="animate-mt product-card__details__price px-2 w-max">£13<del class="ml-1 opacity-0 text-gray-300">£19</del></p></a></div></div> 
+                <div class="product-card p-1"><div class="product-card__image-wrapper"><a href="https://www.myoddballs.com/products/mens-bamboo-boxer-shorts-free-socks-monthly-subscription-g2" class="swiper swiper-product product-card__image group aspect-square swiper-initialized swiper-horizontal swiper-ios swiper-backface-hidden"><div class="swiper-wrapper" aria-live="polite"><div class="animate-mt swiper-slide swiper-slide-active" role="group" aria-label="1 / 1"><div class="w-full" src="https://cdn.shopify.com/s/files/1/0353/7249/files/BambooMen-min-month-oct_bd090399-3f6a-41f1-8507-f31979acccb4.png?v=1727354213" loading="lazy" alt="Mens Bamboo Boxer Shorts &amp; Free Socks - Monthly Subscription" width="500" height="500"></div></div></div></a></div><div class="product-card__details sm:px-0"><div class=" p-2 pb-3 px-4"><div class="animate-mt bg-white border border-black border-solid grid grid-cols-2 rounded-full w-full"><a href="https://www.myoddballs.com/products/mens-bamboo-boxer-shorts-free-socks-monthly-subscription-g2" class="text-xxs md:text-sm items-center text-center uppercase border-r border-solid border-gray-300 py-1 font-semibold md:font-normal">see more</a><div class="text-xxs md:text-sm items-center text-center uppercase coll-quick-add py-1 font-semibold md:font-normal">Quick Buy</div></div></div><a href="https://www.myoddballs.com/products/mens-bamboo-boxer-shorts-free-socks-monthly-subscription-g2" class=""><p class="animate-mt product-card__details__title px-2">Mens Bamboo Boxer Shorts &amp; Free Socks - Monthly Subscription</p><p class="animate-mt product-card__details__color px-2 w-max">Boxer Shorts Bundle</p><p class="animate-mt product-card__details__price px-2 w-max">£13<del class="ml-1 opacity-0 text-gray-300">£19</del></p></a></div></div> 
+                <div class="product-card p-1"><div class="product-card__image-wrapper"><a href="https://www.myoddballs.com/products/mens-bamboo-boxer-shorts-free-socks-monthly-subscription-g2" class="swiper swiper-product product-card__image group aspect-square swiper-initialized swiper-horizontal swiper-ios swiper-backface-hidden"><div class="swiper-wrapper" aria-live="polite"><div class="animate-mt swiper-slide swiper-slide-active" role="group" aria-label="1 / 1"><div class="w-full" src="https://cdn.shopify.com/s/files/1/0353/7249/files/BambooMen-min-month-oct_bd090399-3f6a-41f1-8507-f31979acccb4.png?v=1727354213" loading="lazy" alt="Mens Bamboo Boxer Shorts &amp; Free Socks - Monthly Subscription" width="500" height="500"></div></div></div></a></div><div class="product-card__details sm:px-0"><div class=" p-2 pb-3 px-4"><div class="animate-mt bg-white border border-black border-solid grid grid-cols-2 rounded-full w-full"><a href="https://www.myoddballs.com/products/mens-bamboo-boxer-shorts-free-socks-monthly-subscription-g2" class="text-xxs md:text-sm items-center text-center uppercase border-r border-solid border-gray-300 py-1 font-semibold md:font-normal">see more</a><div class="text-xxs md:text-sm items-center text-center uppercase coll-quick-add py-1 font-semibold md:font-normal">Quick Buy</div></div></div><a href="https://www.myoddballs.com/products/mens-bamboo-boxer-shorts-free-socks-monthly-subscription-g2" class=""><p class="animate-mt product-card__details__title px-2">Mens Bamboo Boxer Shorts &amp; Free Socks - Monthly Subscription</p><p class="animate-mt product-card__details__color px-2 w-max">Boxer Shorts Bundle</p><p class="animate-mt product-card__details__price px-2 w-max">£13<del class="ml-1 opacity-0 text-gray-300">£19</del></p></a></div></div> 
+
+              </div>
+
+          </div>
+              <div class="w-full flex justify-center">
+                <div id="search-see-more" class="button button--variant-outline" data-page-loc="0">
+                  <div id="search-see-more-text">See More</div>
+                  <div id="search-see-more-loader" class="w-4"><svg class="loading-ele-outer" viewBox="25 25 50 50"><circle class="loading-ele-inner" cx="50" cy="50" r="20" fill="none" stroke-width="4"></circle></svg></div>
+                </div>
+              </div>
+        </div>
+        <div id="search-page-no-results-found" class="">
+              <div id="no-results-after-keywords" class="flex gap-1 px-2" style=""></div>
+              <div id="no-results-after-products" class="grid grid-cols-3" style=""></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+    <div id="search-nosto-filters-wrapper" class="fixed top-0 left-0 w-screen h-screen" style="display:none; z-index:999;">
+      <div id="nosto-safety" class="nosto-safety w-full h-full fixed top-0 right-0 bg-black" style="z-index:-1; opacity:0.3"></div>
+      <div id="nosto-filters-container" class="bg-white w-full lg:w-1/3 right-0 top-0 h-full absolute lg:pr-4" style="transform:translateX(100%)">
+        <div style="max-height:85%; overflow-y:auto; border-bottom-width: 1px; border-style: solid; border-opacity: 1; border-color: rgba(229, 231, 235);">
+            
+          <div class="">
+          <div class="flex py-2 bg-gray-50 px-2">
+              <input type="text" id="nosto-search-input" placeholder="" class="h-6 mr-2 rounded-md bg-gray-200 border-none"/>
+            </div>
+          <div id="nosto-search-active-filters-wrapper" class="bg-gray-50 border-b border-solid border-gray-300 px-2 py-1" style="display:none;">
+            <div>Active Filters:</div>
+                  <div id="nosto-search-active-price" class="flex gap-2"></div>
+                  <div id="nosto-search-active-filters" class="flex gap-2"></div>
+                </div>
+          <div id="nosto-results-filters"></div>
+        </div>
+        </div>
+
+        <div class="fixed w-full bottom-0 px-2 py-1" style="height:14%;">
+          <div id="" class="nosto-apply-filters bg-magenta-500 w-full py-1 rounded-full text-white text-center mb-2">Apply Filters</div>
+          <div id="" class="nosto-apply-filters w-full py-1 rounded-full text-center border border-solid border-gray-300">Close</div>
+        </div>
+      </div>
+      
+    </div>
+  
+</div>
+
+<!-- <style>
+          /* /* .filter-show #nosto-safety {
+              display: block !important;
+          }
+          
+          :not(.filter-show) #nosto-safety {
+              display: none !important;
+          } */
+
+        .active-filter{
+          background-color: #00aeef !important;
+          color:white;
+        }
+        .rotatable{
+          transition: transform 0.1s linear
+        }
+.rotate-180{
+  transform:rotate(180deg);
+}
+        
+#nosto-filters-container{
+  transition:all 0.3s ease;
+}
+.filter-show #nosto-filters-wrapper{
+  display:block !important;
+}
+.show#nosto-filters-container{
+  transform:translate(0) !important;
+}
+::selection {
+  color: #fff;
+  background: #17a2b8;
+}
+.nosto-wrapper {
+  background: #fff;
+}
+header h2 {
+  font-size: 24px;
+  font-weight: 600;
+}
+header p {
+  margin-top: 5px;
+  font-size: 16px;
+}
+.nosto-price-input {
+  width: 100%;
+  display: flex;
+  margin: 30px 0 35px;
+}
+.nosto-price-input .nosto-field {
+  display: flex;
+  width: 100%;
+  height: 45px;
+  align-items: center;
+}
+.nosto-field input {
+  width: 100%;
+  height: 100%;
+  outline: none;
+  font-size: 19px;
+  margin-left: 12px;
+  border-radius: 5px;
+  text-align: center;
+  border: 1px solid #999;
+  -moz-appearance: textfield;
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+.nosto-price-input .nosto-separator {
+  width: 130px;
+  display: flex;
+  font-size: 19px;
+  align-items: center;
+  justify-content: center;
+}
+.nosto-slider {
+  height: 5px;
+  position: relative;
+  background: #ddd;
+  border-radius: 5px;
+}
+.nosto-slider .nosto-progress {
+  height: 100%;
+  left: 25%;
+  right: 25%;
+  position: absolute;
+  border-radius: 5px;
+  background: #17a2b8;
+}
+.nosto-range-input {
+  position: relative;
+}
+.nosto-range-input input {
+  position: absolute;
+  width: 100%;
+  height: 5px;
+  top: -5px;
+  background: none;
+  pointer-events: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+input[type="range"]::-webkit-slider-thumb {
+  height: 17px;
+  width: 17px;
+  border-radius: 50%;
+  background: #17a2b8;
+  pointer-events: auto;
+  -webkit-appearance: none;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.nosto-05);
+}
+input[type="range"]::-moz-range-thumb {
+  height: 17px;
+  width: 17px;
+  border: none;
+  border-radius: 50%;
+  background: #17a2b8;
+  pointer-events: auto;
+  -moz-appearance: none;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.nosto-05);
+}
+
+/* Support */
+.nosto-support-box {
+  top: 2rem;
+  position: relative;
+  bottom: 0;
+  text-align: center;
+  display: block;
+}
+.nosto-b-btn {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+.nosto-b-btn.nosto-paypal i {
+  color: blue;
+}
+.nosto-b-btn:hover {
+  text-decoration: none;
+  font-weight: bold;
+}
+.nosto-b-btn i {
+  font-size: 20px;
+  color: yellow;
+  margin-top: 2rem;
+}
+
+.nosto-active-filter-option{
+  color:white;
+  background-color: #00adef;
+  margin: 0px 0.5rem 0px 0px;
+  white-space:nowrap;
+  height:fit-content;
+}
+        .nosto-wrapper {
+  background: #fff;
+}
+header h2 { 
+  font-size: 24px;
+  font-weight: 600;
+}
+header p {
+  margin-top: 5px;
+  font-size: 16px;
+}
+.nosto-price-input {
+  width: 100%;
+  display: flex;
+  margin: 0px 0px 10px 0px;
+}
+.nosto-price-input .nosto-field {
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+.nosto-field input {
+  width: 100%;
+  height: 100%;
+  outline: none;
+  margin-left: 12px;
+  border-radius: 5px;
+  text-align: center;
+  border: 1px solid #999;
+  -moz-appearance: textfield;
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+.nosto-price-input .nosto-separator {
+  width: 130px;
+  display: flex;
+  font-size: 19px;
+  align-items: center;
+  justify-content: center;
+}
+.nosto-slider {
+  height: 5px;
+  position: relative;
+  background: #ddd;
+  border-radius: 5px;
+}
+.nosto-slider .nosto-progress {
+  height: 100%;
+  left: 25%;
+  right: 25%;
+  position: absolute;
+  border-radius: 5px;
+  background: #17a2b8;
+}
+.nosto-range-input {
+  position: relative;
+}
+.nosto-range-input input {
+  position: absolute;
+  width: 100%;
+  height: 5px;
+  top: -5px;
+  background: none;
+  pointer-events: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+input[type="range"]::-webkit-slider-thumb {
+  height: 17px;
+  width: 17px;
+  border-radius: 50%;
+  background: #17a2b8;
+  pointer-events: auto;
+  -webkit-appearance: none;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.nosto-05);
+}
+input[type="range"]::-moz-range-thumb {
+  height: 17px;
+  width: 17px;
+  border: none;
+  border-radius: 50%;
+  background: #17a2b8;
+  pointer-events: auto;
+  -moz-appearance: none;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.nosto-05);
+}
+
+/* Support */
+.nosto-support-box {
+  top: 2rem;
+  position: relative;
+  bottom: 0;
+  text-align: center;
+  display: block;
+}
+.nosto-b-btn {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+.nosto-b-btn.nosto-paypal i {
+  color: blue;
+}
+.nosto-b-btn:hover {
+  text-decoration: none;
+  font-weight: bold;
+}
+.nosto-b-btn i {
+  font-size: 20px;
+  color: yellow;
+  margin-top: 2rem;
+}
+.facet-count{
+  color:#676767
+}
+.empty-facet{
+  color:gray;
+  pointer-events: none;
+}
+.nosto-collection-item{
+  padding:2%;
+}
+.filter-show{
+  display:block !important;
+}
+
+.facet-count{
+      top: 0.1rem;
+    right: 0.1rem;
+}
+.filter-option-dropdown{
+  position: relative;
+}
+.filter-option-dropdown svg{
+  top:0px;
+  display:flex;
+  height:100%;
+  align-items: center;
+}
+#nosto-search-input::placeholder {
+    color: #888;
+    opacity: 1; /* Ensure placeholder is visible */
+    font-size: 14px;
+}
+
+        .filter-option-dropdown{
+          padding:0.75rem;
+          font-size: 1rem;
+        }
+        .nosto-wrapper{
+          padding-bottom: 0.75rem;
+        }
+
+        .nosto-wrapper.pb-6{
+          padding-bottom: 1.5rem;
+        }
+        .nosto-results-filters{
+            border-top-width: 1px;
+            border-style: solid;
+            border-opacity: 1;
+            border-color: rgba(229, 231, 235);
+        }
+     .nosto-blur{
+       filter: blur(3px);
+     }   
+
+        .filter-item-count{
+            border-left: 1px solid #ddd;
+            top: 0px;
+            right: 0px;
+            border-bottom: 1px solid #ddd;
+            border-bottom-left-radius: 3px;
+            padding: 2px 7px 1px 5px !important;
+            line-height: 1em;
+            border-color: rgb(209 213 219);
+        }
+        .filter-option-dropdown {
+              font-size: 1rem;
+          }
+        .facet-name{
+          text-transform: capitalize;
+        }
+  #search-page-input::placeholder {
+    color: #888;
+    opacity: 1; 
+    font-size: 14px;
+} */
+</style> -->
+{% schema %}
+  {
+    "name": "nosto-search",
+    "settings": [],
+    "presets": [{
+      "name": "nosto-search"
+  }]
+  }
+{% endschema %}

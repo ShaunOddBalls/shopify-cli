@@ -1,0 +1,67 @@
+{% layout none %}
+{% assign label_sep = '' %}{% include 'ob-include-set-current-country' %}{% for block in section.blocks %}{%- include 'ob-include-country-ok-to-proceed', thingObj:block -%}{% if country_ok_to_proceed == 'yes' %}{% if block.settings.product_label != blank and block.settings.label != blank and block.settings.product_tag != blank %}{% capture label %}{{label_sep}}label_tag_{{block.settings.product_tag}}||label_bg_{{block.settings.bg_color}}||label_color_{{block.settings.text_color}}||label_border_{{block.settings.border_color}}||label_shape_{{block.settings.label_shape}}||label_product_{{block.settings.product_label}}||label_grid_{{block.settings.label}}{% endcapture %}{% assign label_sep = ',' %}{% assign label_arr = label_arr | append: label %}{% endif %}{% endif %}{% endfor 
+ {% assign product_count = 0 %}
+                {% assign show_product = 'yes' %}
+                {% if product.tags contains 'hide_me' %}
+                    {% assign show_product = 'no' %}
+                {%  endif  %}
+                {%  if product.available %}
+                    {% assign show_product = 'yes' %}
+                {%  else  %}
+                     {% assign show_product = 'no' %}
+                     {%  if product.tags contains 'show-out-of-stock' or  product.tags contains 'show-out-of-stock-sold-out' %}
+                         {% assign show_product = 'yes' %}
+                     {% endif %}
+                {%  endif %}
+                  {% if product.tags contains 'not-for-sale' %}
+                    {% assign show_product = 'no' %}
+                {%  endif  %}
+
+                {%  if show_product == 'yes' %}
+                {% assign product_count = product_count | plus: 1 %}  
+                {% endif %}
+
+
+
+<div data-target="product-tag-upsell-recommendations" class="js-ptab-target2 blend-dividex ob-collection-product-slider ">
+  <div class="product-tag-upsell-recommendations block relative  m-2 pb-10">
+          <div class="ob-collection-product-slider swiper-container w-full overflow-hidden">
+            <div class="swiper-wrapper">
+              {% for product in collection.products %}
+                  {% if product.type == "Bralette" or product.type == "Ladies Boxers" or product.type == "Low Rise Briefs" or product.type == "seamless" or product.type == "Thong" or product.type == "Ladies Bamboo Boxers" or product.type == "Seamless Full Briefs" or product.type == "Towels" and show_product == "yes" %}
+                  <div class="product-card flex flex-col justify-between swiper-slide swiper-slide " type="{{ product.type }}">
+                    <div class="product-card__image-wrapper">
+                      <a href="{{ product.url }}" class="swiper swiper-product product-card__image group aspect-square swiper-initialized swiper-horizontal swiper-ios swiper-backface-hidden relative">
+                         <div class="label-container absolute right-0 p-2">
+                            {% render 'label-generator' product:product, labelTags:labelTags %}
+                    </div>
+                        <div  aria-live="polite">
+                          <div class="bg-gray- role="group" aria-label="1 / 1">
+                            <img class="w-full" src="{{ product.images[0] | img_url: '500x' }}" loading="lazy" alt="{{ product.title }}" width="500" height="500">
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                    <div class="product-card__details sm:px-0">
+                      <a href="{{ product.url }}">
+                        {% assign title = product.title | split: "-" %}
+                        <p class="product-card__details__title px-2">{{ title[0] }}</p>
+                        <p class="product-card__details__color px-2">{{ title[1] }}</p>
+                        <p class="product-card__details__price px-2 text-magenta">{{ product.price | money }}<del class="ml-1 text-gray-500">{{ product.compare_at_price | money }}</del></p>
+                      </a>
+                    </div>
+                       <div class="flex w-full justify-center">
+                  <div class="button px-2 w-full add-ctl-to-cart cart-bs-quick-add" data-handle="{{ product.handle }}" >
+                    <div>Add To Cart</div>
+                  </div>
+                </div>
+                    <input type="hidden" value='{{ product | json | escape }}' class="prod-info">
+                  </div>
+                 
+                  {% endif %}
+              {% endfor %}
+            </div>
+            <div class="swiper-pagination "></div>
+          </div>
+        </div>
+</div>

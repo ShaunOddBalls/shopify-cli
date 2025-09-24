@@ -1,0 +1,100 @@
+<div class="{{ section.settings.outer_wrapper_classes }}">
+	<div class="{{ section.settings.inner_wrapper_classes }} max-w-7xl mx-auto px-4 pt-10">
+      <div class=" grid md:grid-cols-2 relative rounded-md overflow-hidden border-2 border-solid">
+        <div class="{{ section.settings.file_download_wrapper }}">
+          <a class="w-full"  href="{{ section.settings.file_download_link }}https://cdn.shopify.com/s/files/1/0353/7249/files/A5-CYG_2.pdf?v=1656342432" target="_blank" download="oddballs-check-yourself-guide" title="Click to download">
+              <img class="w-full" src="{{ 'A5-CYG-01.png' | file_img_url:'x1500' }}" alt="" data-mce-fragment="1" data-mce-src="https://cdn.shopify.com/s/files/1/0353/7249/files/A5-CYG-01.jpg?v=1656342433">
+          </a>
+          <div class="flex-col px-5 py-4 sm:px-10 md:px-10 md:py-5 border-t-2 border-solid">
+            <h3 class="pb-4">Click to download a 'Check Yourself' guide</h3>
+            <a class="{{ settings.primary_button }}" href="https://cdn.shopify.com/s/files/1/0353/7249/files/A5-CYG_2.pdf?v=1656342432" target="_blank" download title="Click to download">Download Now</a>
+          </div>          
+        </div>
+        <div class="grid relative overflow-hidden md:border-l-2 border-solid border-black">
+          <div class="relative md:absolute inset-0 w-full h-full md:overflow-y-scroll">
+            <div class="font-bebas text-xl md:text-3xl text-center border-b-2 border-solid py-6">              
+              <span>20 FACTS ABOUT TESTICULAR CANCER</span>
+            </div>
+ 		  {% assign block_count = 0 %}
+          {% for block in section.blocks %}
+          	{% assign block_count = block_count | plus: 1 %}
+ 			{% unless block_count == 1 %}
+          		{% assign top_border = 'border-t border-color border-solid' %}
+          	{% endunless %}
+            
+            {% assign modulo = block_count | modulo: 2 %}
+            {% if modulo != 0 %}
+            	{% assign item_bg = 'bg-magenta-500' %}
+            {% else %}
+            	{% assign item_bg = 'bg-cyan-500' %}
+			{% endif %}            	
+
+          	<div class="grid grid-cols-6 {{ top_border }}">
+              <div class="border-black border-solid col-span-1 flex items-center justify-center py-4">
+                <span class="border-2 border-black border-solid col-span-1 flex font-semibold items-center justify-center py-1 px-2.5 rounded-md text-white {{ item_bg }}">
+				{{ block_count }}
+                </span>
+              </div>
+              <div class="col-span-5 pr-2 px-3 py-1.5 text-sm md:text-base flex items-center">
+                <span>
+                	{{ block.settings.content }}
+                </span>
+              </div>
+          	</div>
+          {% endfor %}
+          </div>       
+        </div>
+      </div>
+    </div>
+  	<div class="{{ section.settings.inner_wrapper_classes }} max-w-7xl mx-auto px-4 pb-10">
+      <div class="relative rounded-md overflow-hidden border-2 border-solid mt-10">
+        <h3 class="py-6 px-2 font-bebas text-center text-xl md:text-3xl" id="youtube-embed-with-169-ratio">The OddBalls Guide to Checking Yourself!</h2>
+        <div class="blend-divide aspect-video w-full">
+            <iframe src="https://www.youtube.com/embed/m_y2hb4xF68" allowfullscreen="" title="YouTube Video" class="w-full h-full">
+            </iframe>
+        </div>               
+      </div>  
+  	</div>
+</div>
+
+{% schema %}
+  {
+    "name": "Check Yourself Page",
+	"presets": [
+      {
+        "name": "Check Yourself Page"
+      }
+  	],
+    "settings": [
+      {
+        "id": "outer_wrapper_classes",
+        "type": "text",
+        "label": "Outer wrapper classes"
+      },      
+      {
+        "id": "inner_wrapper_classes",
+        "type": "text",
+        "label": "Inner wrapper classes"
+      }
+	],
+	"blocks":[
+        {
+          "type": "fact-content",
+          "name": "Fact Content",
+          "settings": [
+			{
+				"type": "text",
+				"id": "content",
+				"label": "Fact content"
+			}
+		  ]
+		}
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

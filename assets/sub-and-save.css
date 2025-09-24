@@ -1,0 +1,85 @@
+.sub-selected{
+  background: red;
+}
+.individual-selected #sas-individual-selector .outer-selector{
+  border-color:#f00f83;
+}
+.individual-selected #sas-individual-selector .inner-selector{
+  background:#f00f83;
+}
+.sub-selected #sas-subscription-selector .outer-selector{
+  border-color:#f00f83;
+  
+}
+.sub-selected #sas-subscription-selector .inner-selector{
+  background:#f00f83;
+  
+}
+
+.sub-selected .sas-sock-selector{
+  display:block;
+}
+.individual-selected .sas-sock-selector{
+  display:none;
+}
+
+.individual-selected #sas-atc-button{
+  display:none;
+}
+/* .sub-selected #atc-button{
+  display:none;
+} */
+.sub-selected #quantity-selector{
+  display:none;
+}
+
+
+.sas-button-no-pants{
+  display: none;
+}
+.sas-button-selected{
+  display: block;
+}
+.sas-button-no-socks{
+  display: none;
+}
+.sas-no-socks .sas-button-selected{
+  display:none;
+}
+.sas-no-pants .sas-button-selected{
+  display:none;
+}
+
+
+.sas-no-socks .sas-button-no-socks{
+  display: block;
+}
+.sas-no-pants .sas-button-no-pants{
+  display: block;
+}
+
+.sas-no-pants .sas-button-no-socks{
+  display: none;
+}
+
+.sas-open {
+  opacity: 1;
+  max-height: 100%; /* Adjust as needed */
+  transition: opacity 0.5s ease, max-height 0.5s ease;
+}
+
+.sas-closed {
+  opacity: 0;
+  max-height: 0;
+  transition: opacity 0.5s ease, max-height 0.5s ease;
+}
+
+.bg-cyan-500{
+    --tw-bg-opacity: 1;
+    background-color: rgb(0 159 226 / var(--tw-bg-opacity, 1));
+}
+
+.text-cyan-500 {
+    --tw-text-opacity: 1;
+    color: rgb(0 159 226 / var(--tw-text-opacity, 1));
+}

@@ -1,0 +1,227 @@
+{% include 'ob-include-set-current-country' %}
+
+{% comment %} Check Market Code {% endcomment %}
+{% assign market_code = localization.language.root_url %}
+{% if market_code == '/' %}
+  {% assign market_code = 'uk' %}
+{% else %}
+  {% assign market_code = market_code | remove: '/' %}
+{% endif %}
+
+{% assign global_ok_to_proceed = 'no' %}
+{% assign global_customers = '' %}
+{% assign customer_status = 'loggedout' %}
+{% assign show_block = true %}
+{% if customer %}
+  {% assign customer_status = 'loggedin' %}
+{% endif %}
+
+{% assign block_count = 0 %}
+
+{% assign current_domain = request.host %}
+
+{% assign ok_to_proceed = 'no' %}
+{% assign domain_ok_to_proceed = 'no' %}
+{% assign customer_ok_to_proceed = 'no' %}
+{% assign handle_ok_to_proceed = 'no' %}
+{% assign proceed_with_country = 'no' %}
+<!-- -- before slide active ----- -->
+
+{% for block in section.blocks %}
+  <!-- -- before slide active ----- -->
+  {% if block.settings.slide_active == true %}
+    <!-- -- slide active ----- -->
+
+    {% assign ok_to_proceed = 'no' %}
+    {% assign domain_ok_to_proceed = 'no' %}
+    {% assign customer_ok_to_proceed = 'no' %}
+    {% assign handle_ok_to_proceed = 'no' %}
+    {% assign proceed_with_country = 'no' %}
+    {% assign block_domains_arr = block.settings.domains | downcase | replace: ' ', '' | split: ',' %}
+
+    {% if block.settings.domains != blank %}
+      {% if block_domains_arr contains '*' or block_domains_arr contains current_domain %}
+        {% assign domain_ok_to_proceed = 'yes' %}
+      {% endif %}
+    {% endif %}
+
+    {% assign current_handle = '' %}
+
+    {% case template.name %}
+      {% when 'page' %}
+        {% assign current_handle = page.handle %}
+      {% when 'blog' %}
+        {% assign current_handle = blog.handle %}
+      {% when 'article' %}
+        {% assign current_handle = blog.handle %}
+      {% when 'collection' %}
+        {% assign current_handle = collection.handle %}
+      {% when 'product' %}
+        {% assign current_handle = product.handle %}
+    {% endcase %}
+
+    {% assign block_handles_arr = block.settings.url_handle | downcase | replace: ' ', '' | split: ',' %}
+    {% assign block_not_handles_arr = block.settings.not_url_handle | downcase | replace: ' ', '' | split: ',' %}
+
+    {% if block_handles_arr contains '*' %}
+      {% assign handle_ok_to_proceed = 'yes' %}
+    {% endif %}
+
+    {% if block_handles_arr contains current_handle %}
+      {% assign handle_ok_to_proceed = 'yes' %}
+    {% endif %}
+
+    {% if block_not_handles_arr contains current_handle %}
+      {% assign handle_ok_to_proceed = 'no' %}
+    {% endif %}
+
+    {% if customer_status == block.settings.customers or block.settings.customers == 'all' %}
+      {% assign customer_ok_to_proceed = 'yes' %}
+    {% endif %}
+
+    {% include 'ob-include-country-ok-to-proceed', thingObj: block %}
+    {% if country_ok_to_proceed == 'yes' %}
+      {% assign proceed_with_country = 'yes' %}
+    {% endif %}
+    <!--
+      <h1>form domain_ok_to_proceed = {{domain_ok_to_proceed}}</h1>
+      <h1>form customer_ok_to_proceed = {{customer_ok_to_proceed}}</h1>
+      <h1>form handles_ok_to_proceed = {{handle_ok_to_proceed}}</h1>
+    -->
+
+    {% if domain_ok_to_proceed == 'yes'
+      and handle_ok_to_proceed == 'yes'
+      and customer_ok_to_proceed == 'yes'
+      and proceed_with_country == 'yes'
+    %}
+      {% assign show_block = true %}
+      {% if block.settings.show_on_all_markets == false %}
+        {% assign markets_to_show = block.settings.markets_to_show_on | split: ',' %}
+        {% assign markets_to_exclude_on = block.settings.markets_to_exclude_on | split: ',' %}
+
+        {% if markets_to_exclude_on != blank %}
+          {% for market in markets_to_exclude_on %}
+            {% assign market_strip = market | strip %}
+            {% assign market_downcase = market_strip | downcase %}
+            {% if market_code == market_downcase %}
+              {% assign show_block = false %}
+              {% break %}
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+
+        {% if markets_to_show != blank and show_block %}
+          {% assign show_block = false %}
+          {% for market in markets_to_show %}
+            {% assign market_strip = market | strip %}
+            {% assign market_downcase = market_strip | downcase %}
+            {% if market_code == market_downcase %}
+              {% assign show_block = true %}
+              {% break %}
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+      {% endif %}
+
+      {% if show_block %}
+        {% assign slider_count = slider_count | plus: 1 %}
+        {% if block.settings.klaviyo_id != blank %}
+          <div class="grid grid--full {{ block.settings.wrapper_classes }}">
+            <style>
+              #signup_form {
+
+                 }
+               	.klaviyo-form-{{ block.settings.klaviyo_id }} {
+                     max-width: 700px;
+                     margin: auto;
+                 }
+            </style>
+            <div class="grid__item" id="signup_form">
+              <div class="klaviyo-form-{{ block.settings.klaviyo_id }}"></div>
+            </div>
+          </div>
+        {% endif %}
+      {% endif %}
+    {% endif %}
+  {% endif %}
+{% endfor %}
+
+<style>
+  /* .klaviyo-form-wrapper:before {
+    content:url("{{ 'loading-spinner-light_1.gif' | file_img_url: '200x' }}");
+    position: absolute;
+    width:200px;
+    height:200px;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+  }
+
+  .klaviyo-form-wrapper.klaviyo-form:before {
+    content:"";
+  }
+
+  .homepage-form .klaviyo-form .ql-font-helvetica {
+        font-family: 'Bebas Neue', sans-serif !important;
+        font-weight: 400 !important;
+        font-size: 30px !important;
+        line-height: 1em !important;
+  }
+
+  .homepage-form .klaviyo-form .kl-private-reset-css-Xuajs1 > p > span,
+  .homepage-form .klaviyo-form .kl-private-reset-css-Xuajs1 > p > a {
+        font-family: 'Bebas Neue', sans-serif !important;
+  }
+
+  {% for block in section.blocks %}
+    .kl-private-quill-wrapper-{{ block.settings.html_id }}.kl-private-quill-wrapper-{{ block.settings.html_id }}.kl-private-quill-wrapper-{{ block.settings.html_id }} .ql-editor .ql-font-helvetica {
+        font-family: 'Bebas Neue', sans-serif;
+        font-weight: 400;
+        font-size: 3em !important;
+        line-height: 1em;
+    }
+
+    .kl-private-quill-wrapper-{{ block.settings.html_id }}.kl-private-quill-wrapper-{{ block.settings.html_id }}.kl-private-quill-wrapper-{{ block.settings.html_id }} .ql-editor {
+        overflow-y: initial;
+    }
+    .klaviyo-form-{{ block.settings.klaviyo_id }} .go1575027576,
+    .klaviyo-form-{{ block.settings.klaviyo_id }} input[type="email"] {
+    	box-shadow: 3px 3px #000;
+        color: #000 !important;
+        background-color: #fff !important;
+        border: 2px solid #000 !important;
+        border-radius: 0.25rem !important;
+        padding: 1.5em 1em !important;
+    }
+
+
+    .klaviyo-form-{{ block.settings.klaviyo_id }} {
+        max-width: 500px;
+        margin: auto;
+    }
+    .klaviyo-form-{{ block.settings.klaviyo_id }} button:not([aria-haspopup="listbox"])  {
+    	box-shadow: 3px 3px #000;
+        color: #fff !important;
+        background-color: #009fe2 !important;
+        border: 2px solid #000 !important;
+        border-radius: 0.25rem !important;
+        letter-spacing: 0px !important;
+        font-weight: 600 !important;
+      	padding: 1rem 2rem !important;
+    }
+
+    .klaviyo-form-{{ block.settings.klaviyo_id }} button[aria-haspopup="listbox"]  {
+        border: 0px solid #000000 !important;
+        box-shadow: 0 0 0px transparent !important;
+        outoline:none;
+    }
+
+    .klaviyo-form-{{ block.settings.klaviyo_id }} button:active {
+        top: 3px;
+        left: 3px;
+        box-shadow: none;
+    }    */
+
+
+  {% endfor %}
+</style>

@@ -1,0 +1,203 @@
+{% schema %}
+{
+  "name": "ob Header Announcement",
+  "settings": [],
+  "blocks": [
+    {
+      "name": "Text slide",
+      "type": "text-block",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "title",
+          "label": "Announcent content",
+          "default": "<p>announcement</p>"
+        },
+        {
+          "type": "header",
+          "content": "Display Blocks Based on Markets"
+        },
+        {
+          "type": "paragraph",
+          "content": "Enter markets one line and seperate with a , 'uk' (default), 'de-en' (German market), 'en-eu' (European market). Example would look like uk, en-eu"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_on_all_markets",
+          "default": true,
+          "label": "Show On All Markets",
+          "info": "on to show on all"
+        },
+        {
+          "type": "text",
+          "id": "markets_to_show_on",
+          "label": "Markets to show on",
+          "info": "Example would look like: uk, en-eu (shows on UK and EU markets)"
+        },
+        {
+          "type": "text",
+          "id": "markets_to_exclude_on",
+          "label": "Markets to Exclude on",
+          "info": "Example would look like: uk, en-eu (Would not show on UK and EU markets)"
+        }
+      ]
+    },
+    {
+      "name": "liquid slide",
+      "type": "liquid-block",
+      "settings": [
+        {
+          "type": "text",
+          "id": "liquid",
+          "label": "snippet name"
+        },
+        {
+          "type": "header",
+          "content": "Display Blocks Based on Markets"
+        },
+        {
+          "type": "paragraph",
+          "content": "Enter markets one line and seperate with a , 'uk' (default), 'de-en' (German market), 'en-eu' (European market). Example would look like uk, en-eu"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_on_all_markets",
+          "default": true,
+          "label": "Show On All Markets",
+          "info": "on to show on all"
+        },
+        {
+          "type": "text",
+          "id": "markets_to_show_on",
+          "label": "Markets to show on",
+          "info": "Example would look like: uk, en-eu (shows on UK and EU markets)"
+        },
+        {
+          "type": "text",
+          "id": "markets_to_exclude_on",
+          "label": "Markets to Exclude on",
+          "info": "Example would look like: uk, en-eu (Would not show on UK and EU markets)"
+        }
+      ]
+    },
+    {
+      "name": "HTML slide",
+      "type": "html-block",
+      "settings": [
+        {
+          "type": "html",
+          "id": "html",
+          "label": "html free text"
+        },
+        {
+          "type": "header",
+          "content": "Display Blocks Based on Markets"
+        },
+        {
+          "type": "paragraph",
+          "content": "Enter markets one line and seperate with a , 'uk' (default), 'de-en' (German market), 'en-eu' (European market). Example would look like uk, en-eu"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_on_all_markets",
+          "default": true,
+          "label": "Show On All Markets",
+          "info": "on to show on all"
+        },
+        {
+          "type": "text",
+          "id": "markets_to_show_on",
+          "label": "Markets to show on",
+          "info": "Example would look like: uk, en-eu (shows on UK and EU markets)"
+        },
+        {
+          "type": "text",
+          "id": "markets_to_exclude_on",
+          "label": "Markets to Exclude on",
+          "info": "Example would look like: uk, en-eu (Would not show on UK and EU markets)"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+{% assign market_code = localization.language.root_url %}
+{% if market_code == '/' %}
+  {% assign market_code = 'uk' %}
+{% else %}
+  {% assign market_code = market_code | remove: '/' %}
+{% endif %}
+
+
+<div class="announcement-bar ob-slider-container w-full min-h-[44px] bg-background-secondary-default text-text-default">
+  <div class="wrapper px-0">
+    <div class="ob-slider  overflow-hidden w-full swiper-announcement"
+       data-autoplay="true"
+        data-slides-mobile="1"
+        data-slides-md="1"
+        data-slides-lg="1"
+        data-gap="0"
+        data-loop="true"
+        data-slide-by="1"
+        data-drag-scroll="true"
+        data-slider-enabled="true"
+        data-dots="false"
+      >
+      <div class="ob-slides-wrappers w-full flex transition-transform duration-500 ease-in-out">
+        {% for block in section.blocks %}
+        
+          {% assign show_block = true %}
+          
+          {% if block.settings.show_on_all_markets == false %}
+            {% assign markets_to_show = block.settings.markets_to_show_on | split: ',' %}
+            {% assign markets_to_exclude_on = block.settings.markets_to_exclude_on | split: ',' %}
+
+            {% if markets_to_exclude_on != blank %}
+            {% for market in markets_to_exclude_on %}
+              {% assign market_strip = market | strip %}
+              {% assign market_downcase = market_strip | downcase %}
+              {% if market_code == market_downcase %}
+                {% assign show_block = false %}
+                {% break %}
+              {% endif %}
+            {% endfor %}
+            {% endif %}
+            
+            {% if markets_to_show != blank and show_block  %}
+              
+              {% assign show_block = false %}
+              {% for market in markets_to_show %}
+      
+                {% assign market_strip = market | strip %}
+                {% assign market_downcase = market_strip | downcase %}
+                {% if market_code == market_downcase %}
+                  {% assign show_block = true %}
+                  {% break %}
+                {% endif %}
+              {% endfor %}
+            {% endif %}
+          {% else %}
+            {% assign show_block = true %}
+          {% endif %}
+
+          {% if show_block %}
+            <div class="ob-slide w-full relative py-3 flex justify-center items-center ob-slide w-full flex-none">
+              {% case block.type %}
+                {% when 'html-block' %}
+                  {{ block.settings.html }}
+
+                {% when 'text-block' %}
+                  {{ block.settings.title }}
+
+                {% when 'liquid-block' %}
+                  {% assign snippet = block.settings.liquid %}
+                  {% include snippet %}
+              {% endcase %}
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,359 @@
+.careers-wrapper,
+.careers-wrapper h1,
+.careers-wrapper h2,
+.careers-wrapper h3,
+.careers-wrapper h4,
+.careers-wrapper h5,
+.careers-wrapper h6 {
+    font-family: 'Rubik', sans-serif;
+}
+.careers-wrapper {
+    max-width: 1340px;
+}
+.p-\[30px\] {
+    padding: 30px;
+}
+.px-\[12px\] {
+    padding-left: 12px;
+    padding-right: 12px;
+}
+.px-\[22px\] {
+    padding-left: 22px;
+    padding-right: 22px;
+}
+.px-\[24px\] {
+    padding-left: 24px;
+    padding-right: 24px;
+}
+.px-\[28px\] {
+    padding-left: 28px;
+    padding-right: 28px;
+}
+.py-\[14px\] {
+    padding-bottom: 14px;
+    padding-top: 14px;
+}
+.py-\[15px\] {
+    padding-bottom: 15px;
+    padding-top: 15px;
+}
+.py-\[20px\] {
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+.py-\[70px\] {
+    padding-bottom: 70px;
+    padding-top: 70px;
+}
+.mt-\[50px\] {
+    margin-top: 50px;
+}
+.mb-\[17px\] {
+    margin-bottom: 17px;
+}
+.mb-\[22px\] {
+    margin-bottom: 22px;
+}
+.mb-\[30px\] {
+    margin-bottom: 30px;
+}
+.mb-\[40px\] {
+    margin-bottom: 40px;
+}
+.mb-\[48px\] {
+    margin-bottom: 48px;
+}
+.mb-\[50px\] {
+    margin-bottom: 50px;
+}
+.ml-\[7px\] {
+    margin-left: 7px;
+}
+.mr-\[9px\] {
+    margin-right: 9px;
+}
+.rounded-\[50px\] {
+    border-radius: 50px;
+}
+.w-\[95\%\] {
+    width: 95%;
+}
+.w-\[70px\] {
+    width: 70px;
+}
+.h-\[70px\] {
+    height: 70px;
+}
+.max-w-\[50px\] {
+    max-width: 50px;
+}
+.max-w-\[80px\] {
+    max-width: 80px;
+}
+.max-w-\[140px\] {
+    max-width: 140px;
+}
+.max-w-\[725px\] {
+    max-width: 725px;
+}
+.max-w-\[976px\] {
+    max-width: 976px;
+}
+.max-w-\[1340px\] {
+    max-width: 1340px;
+}
+.max-h-\[50px\] {
+    max-height: 50px;
+}
+.max-h-\[80px\] {
+    max-height: 80px;
+}
+.max-h-\[140px\] {
+    max-height: 140px;
+}
+.min-h-\[300px\] {
+    min-height: 300px;
+}
+.text-\[14px\] {
+    font-size: 14px;
+}
+.text-\[18px\] {
+    font-size: 18px;
+}
+.text-\[28px\] {
+    font-size: 28px;
+}
+.text-\[35px\] {
+    font-size: 35px;
+}
+.leading-\[14px\] {
+    line-height: 14px;
+}
+.leading-\[32px\] {
+    line-height: 32px;
+}
+.leading-\[44px\] {
+    line-height: 44px;
+}
+.text-heading-4 {
+    font-size: 28px;
+    line-height: 32px;
+}
+.text-heading-5 {
+    font-size: 22px;
+    line-height: 24px;
+}
+.text-quote {
+    font-size: 20px;
+    line-height: 28px;
+}
+.text-excerpt {
+    font-size: 18px;
+    line-height: 26px;
+}
+.text-info {
+    font-size: 16px;
+    line-height: 28px;
+}
+.translate-\[25px\] {
+    transform: translate(25px, 25px);
+}
+.-translate-half {
+    transform: translate(-50%, -50%);
+}
+.hover\:bg-blue:hover {
+    background-color: #009fe2;
+}
+.group:hover .group-hover\:filter-white {
+    filter: brightness(0) invert(1);
+}
+.hover\:translate-y-\[-3px\]:hover {
+    transform: translateY(-3px);
+}
+.focus\:box-shadow-none:focus {
+    box-shadow: none;
+}
+.bg-1 {
+    background-color: #fff3ea;
+}
+.bg-2 {
+    background-color: #dbece5;
+}
+.bg-3 {
+    background-color: #d1ecfd;
+}
+.bg-4 {
+    background-color: #9bd3d7;
+}
+.bg-5 {
+    background-color: #fec447;
+}
+.bg-6 {
+    background-color: #feccb5;
+}
+.bg-7 {
+    background-color: #92b5ff;
+}
+.bg-8 {
+    background-color: #c4d39b;
+}
+.bg-9 {
+    background-color: #d2ceff;
+}
+.box-shadow {
+    box-shadow: 3px 3px #000;
+}
+.wave-clip-path {
+    clip-path: path('M3963.9,0c-17.7,0-18.2,10.4-35.3,10.3c-18,0-18-10.3-36.1-10.3c-17.7,0-18.2,10.4-35.3,10.3 c-18,0-18-10.3-36.1-10.3c-17.7,0-18.2,10.4-35.3,10.3c-18,0-18-10.3-36.1-10.3c-17.7,0-18.2,10.4-35.3,10.3 c-18,0-18-10.3-36.1-10.3c-17.7,0-18.2,10.4-35.3,10.3c-18,0-18-10.3-36.1-10.3c-17.7,0-18.2,10.4-35.3,10.3 c-18,0-18-10.3-36.1-10.3c-17.7,0-18.2,10.4-35.3,10.3c-18,0-18-10.3-36.1-10.3c-17.7,0-18.2,10.4-35.3,10.3 c-18,0-18-10.3-36.1-10.3c-17.7,0-18.2,10.4-35.3,10.3c-18,0-18-10.3-36.1-10.3c-17.7,0-18.2,10.4-35.3,10.3 c-18,0-18-10.3-36.1-10.3c-17.7,0-18.2,10.4-35.3,10.3c-18,0-18-10.3-36.1-10.3c-17.7,0-18.2,10.4-35.3,10.3 c-18,0-18-10.3-36.1-10.3c-17.7,0-18.2,10.4-35.3,10.3c-18,0-18-10.3-36.1-10.3c-17.7,0-18.2,10.4-35.3,10.3 c-18,0-18-10.3-36.1-10.3c-17.7,0-18.2,10.4-35.3,10.3c-18,0-18-10.3-36.1-10.3c-17.7,0-18.2,10.4-35.3,10.3 c-18,0-18-10.3-36.1-10.3c-17.7,0-18.2,10.4-35.3,10.3c-18,0-18-10.3-36.1-10.3c-17.7,0-18.2,10.4-35.3,10.3 c-18,0-18-10.3-36.1-10.3c-17.7,0-18.2,10.4-35.3,10.3c-18,0-18-10.3-36.1-10.3c-17.7,0-18.2,10.4-35.3,10.3 c-18,0-18-10.3-36.1-10.3c-17.7,0-18.2,10.4-35.3,10.3c-18,0-18-10.3-36.1-10.3c-17.7,0-18.2,10.4-35.3,10.3 c-18,0-18-10.3-36.1-10.3c-17.7,0-18.2,10.4-35.3,10.3c-18,0-18-10.3-36.1-10.3c-17.7,0-18.2,10.4-35.3,10.3 c-18,0-18-10.3-36.1-10.3c-17.7,0-18.2,10.4-35.3,10.3c-18,0-18-10.3-36.1-10.3c-17.7,0-18.2,10.4-35.3,10.3 c-18,0-18-10.3-36.1-10.3c-17.7,0-18.2,10.4-35.3,10.3c-18,0-18-10.3-36.1-10.3c-17.7,0-18.2,10.4-35.3,10.3 c-18,0-18-10.3-36.1-10.3c-17.7,0-18.2,10.4-35.3,10.3c-18,0-18-10.3-36.1-10.3c-17.7,0-18.2,10.4-35.3,10.3 c-18,0-18-10.3-36.1-10.3c-17.7,0-18.2,10.4-35.3,10.3c-18,0-18-10.3-36.1-10.3c-17.7,0-18.2,10.4-35.3,10.3 c-18,0-18-10.3-36.1-10.3c-17.7,0-18.2,10.4-35.3,10.3c-18,0-18-10.3-36.1-10.3c-17.7,0-18.2,10.4-35.3,10.3 c-18,0-18-10.3-36.1-10.3c-17.7,0-18.2,10.4-35.3,10.3c-18,0-18-10.3-36.1-10.3c-17.7,0-18.2,10.4-35.3,10.3 c-18,0-18-10.3-36.1-10.3c-17.7,0-18.2,10.4-35.3,10.3c-18,0-18-10.3-36.1-10.3c-17.7,0-18.2,10.4-35.3,10.3 c-18,0-18-10.3-36.1-10.3c-17.7,0-18.2,10.4-35.3,10.3c-18,0-18-10.3-36.1-10.3c-17.7,0-18.2,10.4-35.3,10.3 c-18,0-18-10.3-36.1-10.3c-17.7,0-18.2,10.4-35.3,10.3c-18,0-18-10.3-36.1-10.3c-17.7,0-18.2,10.4-35.3,10.3 c-18,0-18-10.3-36.1-10.3c-17.7,0-18.2,10.4-35.3,10.3c-18,0-18-10.3-36.1-10.3c-17.7,0-18.2,10.4-35.3,10.3 c-18,0-18-10.3-36.1-10.3c-17.7,0-18.2,10.4-35.3,10.3c-18,0-18-10.3-36.1-10.3c-17.7,0-18.2,10.4-35.3,10.3 c-18,0-18-10.3-36.1-10.3c-17.7,0-18.2,10.4-35.3,10.3C625,10.2,625,0,607,0c-17.7,0-18.2,10.4-35.3,10.3c-18,0-18-10.3-36.1-10.3 c-17.7,0-18.2,10.4-35.3,10.3c-18,0-18-10.3-36.1-10.3c-17.7,0-18.2,10.4-35.3,10.3c-18,0-18-10.3-36.1-10.3 c-17.7,0-18.2,10.4-35.3,10.3c-18,0-18-10.3-36.1-10.3c-17.7,0-18.2,10.4-35.3,10.3c-18,0-18-10.3-36.1-10.3 c-17.7,0-18.2,10.4-35.3,10.3c-18,0-18-10.3-36.1-10.3c-17.7,0-18.2,10.4-35.3,10.3c-18,0-18-10.3-36.1-10.3 C89.3,0,88.8,10.4,71.7,10.3c-18,0-18-10.3-36.1-10.3C17.8,0,17.4,10.6,0,10.3h71.4h0.3h71.1h0.3h71.1h0.3h71.1h0.3h71.1h0.3h71.1 h0.3H500h0.3h71.1h0.3h71.1h0.3h71.1h0.3h71.1h0.3h71.1h0.3h71.1h0.3h71.1h0.3h71.1h0.3h71.1h0.3h71.1h0.3h71.1h0.3h71.1h0.3h71.1 h0.3h71.1h0.3h71.1h0.3h71.1h0.3h71.1h0.3h71.1h0.3h71.1h0.3h71.1h0.3h71.1h0.3h71.1h0.3h71.1h0.3h71.1h0.3h71.1h0.3h71.1h0.3h71.1 h0.3h71.1h0.3h71.1h0.3h71.1h0.3h71.1h0.3h71.1h0.3h71.1h0.3h71.1h0.3h71.1h0.3h71.1h0.3h71.1h0.3h71.1h0.3h71.1h0.3h71.1h0.3h71.1 h0.3h71.1h0.3h71.1h0.3h71.1h0.3h71.1h0.3h71.1h0.3h71.1h0.3h71.1h0.3h71.4C3981.9,10.3,3981.9,0,3963.9,0z');
+}
+.fade {
+    opacity: 0;
+    transform: translateY(-10px);
+}
+.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+    transition: 1s;
+}
+.slick-slider {
+    display: none;
+}
+.slick-initialized {
+    display: block;
+}
+.slick-slider.dots .slick-dots {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 33px;
+}
+.slick-slider.dots .slick-dots .slick-active {
+    background-color: #000;
+}
+.slick-slider.dots .slick-dots li {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #d0d5dd;
+    margin-left: 8px;
+    cursor: pointer;
+}
+.slick-slider.dots .slick-dots button {
+    visibility: hidden;
+}
+.slick-track {
+    display: flex;
+}
+.slick-slide {
+    height: auto;
+}
+.icon-wrap svg {
+    width: 100%;
+    height: 100%;
+}
+.icon-wrap.invert svg {
+    filter: invert(1) brightness(2);
+}
+.site-header {
+    z-index: 999 !important;
+}
+@media (min-width: 768px) {
+    .md\:p-\[60px\] {
+        padding: 60px !important;
+    }
+    .md\:px-\[36px\] {
+        padding-left: 36px;
+        padding-right: 36px;
+    }
+    .md\:px-\[48px\] {
+        padding-left: 48px;
+        padding-right: 48px;
+    }
+    .md\:px-\[63px\] {
+        padding-left: 63px;
+        padding-right: 63px;
+    }
+    .md\:py-\[43px\] {
+        padding-bottom: 43px;
+        padding-top: 43px;
+    }
+    .md\:py-\[53px\] {
+        padding-bottom: 53px;
+        padding-top: 53px;
+    }
+    .md\:mb-\[30px\] {
+        margin-bottom: 30px;
+    }
+    .md\:mb-\[70px\] {
+        margin-bottom: 70px;
+    }
+    .md\:max-w-\[50ch\] {
+        max-width: 50ch;
+    }
+    .md\:text-\[46px\] {
+        font-size: 46px;
+    }
+    .md\:text-heading-5 {
+        font-size: 22px;
+        line-height: 24px;
+    }
+    .md\:leading-\[52px\] {
+        line-height: 52px;
+    }
+    .md\:gap-y-\[34px\] {
+        row-gap: 34px;
+    }
+}
+@media (min-width: 1024px) {
+    .lg\:px-\[32px\] {
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+    .lg\:py-\[22px\] {
+        padding-bottom: 22px;
+        padding-top: 22px;
+    }
+    .lg\:mt-\[70px\] {
+        margin-top: 70px;
+    }
+    .lg\:text-heading-1 {
+        font-size: 56px;
+        letter-spacing: -.01em;
+        line-height: 64px;
+    }
+    .lg\:gap-\[30px\] {
+        gap: 30px;
+    }
+    .lg\:gap-x-\[70px\] {
+        column-gap: 70px;
+    }
+}
+@media (max-width: 1023px) {
+    .job-card + .job-card {
+        margin-top: 30px;
+    }
+}
+@media (min-width: 1280px) {
+    .xl\:gap-\[30px\] {
+        gap: 30px;
+    }
+    .xl\:gap-\[95px\] {
+        gap: 95px;
+    }
+}
+
+#theme_job_modal_content ul {
+    list-style-type: disc;
+    list-style-position: outside;
+    padding-left: 20px;
+    line-height: 1.4em;
+    margin-top: 20px;
+}
+#theme_job_modal_content ul li {
+    padding-left: 5px;
+}
+
+.globo-form-app.boxed-layout {
+  max-width:100% !important;
+}
+}

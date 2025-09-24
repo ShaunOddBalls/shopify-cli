@@ -1,0 +1,1326 @@
+try {
+  		// Add debug function at the top
+  		function printSwapDebug(message, data = null) {
+  			const DEBUG = false; // Set to true to enable logging
+  			if (DEBUG) {
+  				if (data) {
+  					console.log(message, data);
+  				} else {
+  					console.log(message);
+  				}
+  			}
+  		}
+  async function get_labels() {
+      const label_list_url = 'https://oddballs-data--development.gadget.app/apps/oddballs-data/metaobject?handle=product_label';
+      const label_url = 'https://oddballs-data--development.gadget.app/apps/oddballs-data/metaobject?handle=label_list';
+  
+  
+      try {
+  
+          const [response1, response2] = await Promise.all([
+              fetch(label_list_url).then(res => res.text()),
+              fetch(label_url).then(res => res.text())
+          ]);
+  
+          const jsonData2 = JSON.parse(response2);
+          const list = jsonData2.map(item => item.node.fields[0].value.split(","));
+          const flatList = list.flat();
+          const idList = flatList.map(item => item.replace(/[\[\]\\"]/g, ''));
+          const ids = idList.map(gid => gid.split('/').pop());
+  
+          const jsonData = JSON.parse(response1);
+          const tagArr = jsonData.map(item => item.node);
+          const orderedTagArr = ids.map(item => {
+              for (const each of tagArr) {
+                  if (each.id.includes(item)) {
+                      return each;
+                  }
+              }
+          });
+  
+          labelList = orderedTagArr;
+      } catch (error) {
+          console.error('Error:', error);
+      }
+  }
+  get_labels();
+  
+  async function fetchPrintSelectors() {
+      printSwapDebug('🚀 Starting print selectors fetch for all containers...');
+      const containers = {
+          'print-swap-patterned-container': {
+              element: document.getElementById('print-swap-patterned-container'),
+              tab: document.querySelector('[data-style="patterned"]')
+          },
+          'print-swap-plain-container': {
+              element: document.getElementById('print-swap-plain-container'),
+              tab: document.querySelector('[data-style="plain"]')
+          },
+          'print-swap-partnerships-container': {
+              element: document.getElementById('print-swap-partnerships-container'),
+              tab: document.querySelector('[data-style="partnerships"]')
+          }
+      };
+  
+      const slider = document.getElementById('print-swap-slider');
+  
+      // Load each container independently
+      Object.entries(containers).forEach(async ([containerId, { element: container, tab }]) => {
+          if (!container) {
+              printSwapDebug(`⚠️ [${containerId}] Container not found, skipping...`);
+              return;
+          }
+  
+          printSwapDebug(`📦 [${containerId}] Starting container initialization...`);
+          const url = container.getAttribute('data-prints-url');
+          if (!url) {
+              printSwapDebug(`⚠️ [${containerId}] No prints URL found, disabling tab...`);
+              disableTab(tab, container);
+              return;
+          }
+  
+          try {
+              printSwapDebug(`🌐 [${containerId}] Fetching prints data...`);
+              const response = await fetch(url);
+              if (!response.ok) {
+                  throw new Error(`HTTP error! status: ${response.status}`);
+              }
+              const html = await response.text();
+              
+              const temp = document.createElement('div');
+              temp.innerHTML = html;
+              
+              if (!temp.innerHTML.trim()) {
+                  throw new Error('Empty content received');
+              }
+  
+              printSwapDebug(`✨ [${containerId}] Print data received, updating container...`);
+              container.innerHTML = temp.innerHTML;
+  
+              printSwapDebug(`🔄 [${containerId}] Starting Nosto initialization...`);
+  
+          } catch (error) {
+              console.error(`❌ [${containerId}] Error:`, error);
+              container.innerHTML = '<div class="col-span-4 text-center">Error loading prints</div>';
+              disableTab(tab, container);
+  
+              if (tab.classList.contains('active')) {
+                  printSwapDebug(`🔄 [${containerId}] Active tab failed, finding alternative...`);
+                  activateFirstAvailableTab(containers, slider);
+              }
+          }
+      });
+  }
+  
+  document.body.addEventListener('click', function(event) {
+      /*
+      *click listener for patterned/plain tabs
+      */
+      var showMoreBtn = document.getElementById('show-more-prints-btn');
+      var showLessBtn = document.getElementById('show-less-prints-btn');
+      if(showMoreBtn){      
+        showMoreBtn.addEventListener('click', function() {
+            var elements = document.querySelectorAll('.js-print-container');
+            
+            // Iterate over each element and set the maxHeight to 'none'
+            elements.forEach(function(element) {
+                element.style.maxHeight = '10000px';
+            });
+            
+            // Hide the showMoreBtn and show the showLessBtn
+            showMoreBtn.style.display = 'none';
+            showLessBtn.style.display = 'flex';
+        });
+      }
+      if(showLessBtn){        
+        showLessBtn.addEventListener('click', function() {
+            var elements = document.querySelectorAll('.js-print-container');
+            
+            // Iterate over each element and set the maxHeight to '8rem'
+            elements.forEach(function(element) {
+                element.style.maxHeight = '';
+            });
+            
+            // Hide the showLessBtn and show the showMoreBtn
+            showLessBtn.style.display = 'none';
+            showMoreBtn.style.display = 'block';
+        });
+      }
+      if (event.target.matches('.js-patterned-plain-selector')) {
+          var selectors = document.querySelectorAll('.js-patterned-plain-selector');
+          var clickedSelector = event.target;
+          var isPlainActive = clickedSelector.dataset.style === 'plain';
+          var isPartnershipActive = clickedSelector.dataset.style === 'partnerships';
+  
+        // Remove active class and reset styles for all selectors
+          selectors.forEach(function(selector) {
+              selector.classList.remove('active', 'font-semibold', 'text-gray-900');
+              selector.classList.add('text-gray-800');
+          });
+  
+        // Add active class and set styles for the clicked selector
+          clickedSelector.classList.add('active', 'font-semibold', 'text-gray-900');
+          clickedSelector.classList.remove('text-gray-800');
+  
+        //move the slider
+          var slider = document.getElementById('print-swap-slider');
+          if (isPlainActive) {
+              slider.classList.add('plain-active');       
+              slider.classList.add('plain-seletor');    
+              slider.classList.remove('partnership-active');
+          } else if (isPartnershipActive){
+              slider.classList.remove('plain-active');       
+              slider.classList.remove('plain-seletor');      
+              slider.classList.add('partnership-active');       
+          }
+          else {
+              slider.classList.remove('plain-active');
+              slider.classList.remove('plain-seletor');
+              slider.classList.remove('partnership-active');
+          }
+  
+        //show/hide patterned/plain containers
+          var patternedContainer = document.getElementById('print-swap-patterned-container');
+          var plainContainer = document.getElementById('print-swap-plain-container');
+          var partnershipsContainer = document.getElementById('print-swap-partnerships-container');
+  
+          if (isPlainActive) {
+              patternedContainer.style.display = 'none';
+              plainContainer.style.display = '';
+              partnershipsContainer.style.display = "none"
+           } else if (isPartnershipActive){
+              patternedContainer.style.display = 'none';
+              plainContainer.style.display = 'none';
+              partnershipsContainer.style.display = ""
+          }
+          else {
+              patternedContainer.style.display = '';
+              plainContainer.style.display = 'none';
+              partnershipsContainer.style.display = "none"
+          }
+  
+          
+      }
+  
+      /*
+      *click listener for print swaps
+      */
+  
+      if (event.target.closest('.js-print-swap')) {
+  
+        renderMatchingSocksUpsell()
+  
+        const printElements = document.querySelectorAll('.js-print-swap');
+          printElements.forEach(element => {
+              const input = element.querySelector('input[type="radio"], input[type="checkbox"]'); 
+              if (input) {
+                  input.checked = false; 
+              }
+          });
+        const closestSwap = event.target.closest(".js-print-swap");
+        if (closestSwap) {
+            const inputToCheck = closestSwap.querySelector("input[type='radio'], input[type='checkbox']");
+            if (inputToCheck) {
+                inputToCheck.checked = true;
+            }
+        }
+        //event.preventDefault();
+  
+        let product;
+        //get product JSON
+          const parentEle = event.target.closest('.js-print-swap');
+          const productWrapParent = parentEle.closest('.product-content');
+          if (parentEle) {
+              // Find the .js-prod-json element inside the clicked element
+              var prodJsonElement = parentEle.querySelector('.js-prod-json');
+              if (prodJsonElement) {
+                  let cleanedHTML = prodJsonElement.innerHTML.replace(/<a href="tel:\d+">(\d+)<\/a>/g, '$1');
+                  product = JSON.parse(cleanedHTML);
+                  //product = JSON.parse(prodJsonElement.innerHTML.trim());
+  
+                  // Update URL and browser history
+                  if (product.handle) {
+                    const newUrl = window.location.origin + '/products/' + product.handle;
+                    history.pushState({ path: newUrl }, '', newUrl);
+                  }
+  
+                  // After updating all the necessary elements
+                  // Dispatch custom event to notify other parts of the application
+                  document.dispatchEvent(new CustomEvent('printSwapped', { detail: { product: product } }));
+              } else {
+                  printSwapDebug('No .js-prod-json element found inside the parent element.');
+              }
+          } else {
+              printSwapDebug('No parent element with .js-print-swap class found.');
+          }
+        
+  
+        // updating product page with new product
+        var titleElement = document.getElementById('product-title');
+        titleElement.innerHTML = product.title;
+        var priceElement = document.getElementById('prod-price');
+        var priceContent = priceElement.innerHTML;
+        var currencyChar = priceContent.charAt(0);
+        priceElement.innerHTML = currencyChar + parseFloat(product.price/100).toFixed(2);
+        var compPriceElement = document.getElementById('prod-comp-price');
+        // var prodJsonElement = document.getElementById('product-json');
+        // prodJsonElement.value = JSON.stringify(product);
+  
+        // Update the product JSON in the input element
+        var prodJsonElement = productWrapParent.querySelector('input#product-json');
+        if (prodJsonElement) {
+          prodJsonElement.value = JSON.stringify(product);
+        } else {
+          console.error('ATC: Product input element not found for product ID:', product.id);
+        }
+        
+          const gyfDiv = document.getElementById("product-header-get-yours-from");
+        if(product.price < product.compare_at_price){
+          if(gyfDiv){
+            gyfDiv.style.display = "none";
+          }
+          compPriceElement.innerHTML = currencyChar + parseFloat(product.compare_at_price/100).toFixed(2);
+          compPriceElement.style.display = "block";
+        } else {
+          if(gyfDiv){
+            gyfDiv.style.display = "block";
+          }
+          compPriceElement.style.display = 'none';
+        }
+        if(product.tags.includes("style-partnerships")){
+          if(gyfDiv){
+            gyfDiv.style.display = "none";
+          }
+        }
+        
+  
+        // Rebuild the gallery
+        var imageContainer = document.getElementById('product-images');
+        var newModalImagesContainer = document.querySelector('.mobile-images-wrapper');
+        const newSlider = newModalImagesContainer.querySelector("#mobile-product-images")
+        var dotsContainer = document.querySelector('.ob-dots');
+        var desktopThumbsContainer = document.querySelector('.hidden.md\\:flex.absolute.z-10.bottom-6.max-w-screen-md .flex.items-center.justify-center.max-h-full.overflow-auto.gap-x-2');
+  
+  if (newSlider) {
+  
+      newSlider.innerHTML = "";
+      const images = product.media;
+      const fragment = document.createDocumentFragment();
+    const addImages = () =>{
+      
+      images.forEach((media, index) => {
+          const container = document.createElement('div');
+          container.classList.add('flex-shrink-0', 'w-full', 'h-full', 'relative');
+          container.setAttribute('data-slide-index', index);
+          const ratioDiv = document.createElement('div');
+          ratioDiv.style.width = '100vw';
+          ratioDiv.style.paddingTop = '100%';
+          container.appendChild(ratioDiv);
+          const img = document.createElement('img');
+          const mediaUrl = media.src;
+          img.src = mediaUrl;
+          img.srcset = `${mediaUrl}?v=1654703521 100w, 
+                        ${mediaUrl}?v=1654703521 200w, 
+                        ${mediaUrl}?v=1654703521 300w, 
+                        ${mediaUrl}?v=1654703521 600w, 
+                        ${mediaUrl}?v=1654703521 900w, 
+                        ${mediaUrl}?v=1654703521 1200w, 
+                        ${mediaUrl}?v=1654703521 1500w`;
+  
+          img.sizes = "(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 33vw";
+          img.alt = media.alt;
+          img.decoding = "async";
+          img.width = 600;
+          img.height = 600;
+          img.classList.add('ob-product-media__image', 'w-full', 'h-full', 'object-contain', 'absolute', 'top-0', 'left-0');
+          container.appendChild(img);
+          fragment.appendChild(container);
+      });
+    }
+    addImages()
+    addImages()
+    addImages()
+    
+    newSlider.appendChild(fragment);
+  
+    const thumbnailContainer = newModalImagesContainer.querySelector(".thumbnails")
+    
+    const thumbFragment = document.createDocumentFragment();
+    thumbnailContainer.innerHTML = ""
+      images.forEach((media, index) => {
+              const container = document.createElement('div');
+              container.style.width = '45px';
+              container.style.paddingTop = '45px';
+              container.classList.add('flex', 'items-center', 'text-justify-center', 'relative', 'product-thumbnail', 'rounded-md');
+              container.setAttribute('data-slideindex', index + 1);
+            
+              // Create the inner div (which seems empty in the original HTML)
+              const innerDiv = document.createElement('div');
+              container.appendChild(innerDiv);
+            
+              // Create the absolute div for positioning the image
+              const imageWrapper = document.createElement('div');
+              imageWrapper.classList.add('absolute', 'top-0', 'left-0', 'flex', 'justify-center', 'items-center', 'w-full', 'h-full');
+              container.appendChild(imageWrapper);
+            
+              // Create the image element
+              const img = document.createElement('img');
+              const mediaUrl = media.src;
+              img.src = mediaUrl;
+              img.srcset = `${mediaUrl}?v=1743159569 100w, 
+                            ${mediaUrl}?v=1743159569 200w, 
+                            ${mediaUrl}?v=1743159569 300w, 
+                            ${mediaUrl}?v=1743159569 600w, 
+                            ${mediaUrl}?v=1743159569 900w, 
+                            ${mediaUrl}?v=1743159569 1200w, 
+                            ${mediaUrl}?v=1743159569 1500w`;
+            
+              img.sizes = "(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 33vw";
+              img.alt = media.alt;
+              img.loading = "lazy";
+              img.decoding = "async";
+              img.width = 40;
+              img.height = 40;
+              img.classList.add('ob-product-media__image', 'object-contain');
+            
+              // Append the image to the imageWrapper
+              imageWrapper.appendChild(img);
+        thumbFragment.appendChild(container)
+      })
+      thumbnailContainer.appendChild(thumbFragment);
+    }
+  
+        if (imageContainer) {
+          imageContainer.innerHTML = "";
+          // modalImagesContainer.innerHTML = "";
+          if (dotsContainer) {
+            dotsContainer.innerHTML = "";
+          }
+          if (desktopThumbsContainer) {
+            desktopThumbsContainer.innerHTML = "";
+          }
+  
+          const images = product.media;
+  
+          images.forEach((media, index) => {
+            // Create main product image
+            const mainImageDiv = document.createElement('div');
+            mainImageDiv.className = 'w-full relative';
+            
+            if (index === 0) {
+              const favoriteButton = createFavoriteButton();
+              mainImageDiv.appendChild(favoriteButton);
+            }
+  
+            const imageButton = document.createElement('button');
+            imageButton.className = 'w-full h-full relative bg-background-primary-default overflow-hidden';
+            imageButton.setAttribute('data-toggle', 'collapse');
+            imageButton.setAttribute('data-target', '.modal-gallery');
+            imageButton.setAttribute('data-overflow', 'true');
+  
+            const image = document.createElement('img');
+            image.className = 'w-full h-full aspect-square object-cover';
+            image.src = media.src;
+            image.alt = media.alt || '';
+            image.loading = 'lazy';
+  
+            imageButton.appendChild(image);
+            mainImageDiv.appendChild(imageButton);
+            imageContainer.appendChild(mainImageDiv);
+  
+            // Create modal slide
+            const modalSlide = document.createElement('div');
+            modalSlide.className = 'ob-slide flex-shrink-0 w-full h-full';
+            modalSlide.setAttribute('data-slide-index', index);
+            
+            const modalImage = document.createElement('img');
+            modalImage.className = 'w-full h-full object-contain';
+            modalImage.src = media.src;
+            modalImage.alt = media.alt || '';
+            modalImage.loading = 'lazy';
+            
+            modalSlide.appendChild(modalImage);
+            // modalImagesContainer.appendChild(modalSlide);
+  
+            
+  
+            // Create desktop thumbnails
+            if (desktopThumbsContainer && index < 6) {
+              const swiperThumb = document.createElement('button');
+              swiperThumb.className = 'w-full h-full object-cover bg-white';
+              swiperThumb.setAttribute('data-thumb-index', index);
+              
+              const swiperThumbImage = document.createElement('img');
+              swiperThumbImage.className = 'w-[72px] h-full object-cover bg-white';
+              swiperThumbImage.src = media.src;
+              swiperThumbImage.alt = `thumbnail-${index}`;
+              swiperThumbImage.loading = 'lazy';
+              swiperThumbImage.width = 72;
+              swiperThumbImage.height = 100;
+              
+              swiperThumb.appendChild(swiperThumbImage);
+              desktopThumbsContainer.appendChild(swiperThumb);
+            }
+          });
+  
+          const descriptionDiv = document.querySelector(".description-div");
+          if (descriptionDiv) {
+            descriptionDiv.innerHTML = product.description;
+          }
+  
+          // Update thumbnail images
+          updateThumbnailImages(images);
+  
+          // Dispatch a custom event to signal that the gallery has been updated
+          document.dispatchEvent(new CustomEvent('galleryUpdated', { detail: { images: images } }));
+  
+          // Dispatch the 'design:changed' event
+          document.dispatchEvent(new Event('design:changed'));
+  
+          // Reinitialize the slider
+          const modalGallery = document.querySelector('.modal-gallery');
+          if (!modalGallery) {
+            console.warn('Modal gallery not found - continuing without modal update');
+          } else {
+  
+          const oldSlider = modalGallery.querySelector('.ob-slider');
+          if (oldSlider) {
+            console.log('Old slider found:', oldSlider);
+            
+            // Get the parent container
+            const sliderContainer = oldSlider.closest('.ob-slider-container');
+            if (!sliderContainer) {
+              console.warn('Slider container not found');
+              return;
+            }
+  
+            // Create new slider with exact same classes
+            const newSlider = document.createElement('div');
+            newSlider.className = oldSlider.className;
+            
+            // Copy all data attributes
+            Array.from(oldSlider.attributes).forEach(attr => {
+              if (attr.name.startsWith('data-')) {
+                newSlider.setAttribute(attr.name, attr.value);
+              }
+            });
+            
+            // Create slides wrapper with exact same classes
+            const oldSlidesWrapper = oldSlider.querySelector('.ob-slides-wrappers');
+            const slidesWrapper = document.createElement('div');
+            slidesWrapper.className = oldSlidesWrapper.className;
+            
+            // Create slides
+            images.forEach((media, index) => {
+              const modalSlide = document.createElement('div');
+              modalSlide.className = 'ob-slide flex-shrink-0 w-full h-full';
+              modalSlide.setAttribute('data-slide-index', index);
+              
+              const modalImage = document.createElement('img');
+              modalImage.className = 'w-full h-full object-contain';
+              modalImage.src = media.src;
+              modalImage.alt = media.alt || '';
+              modalImage.loading = 'lazy';
+              
+              modalSlide.appendChild(modalImage);
+              slidesWrapper.appendChild(modalSlide);
+            });
+            
+            // Add slides wrapper to new slider
+            newSlider.appendChild(slidesWrapper);
+            
+            // Replace old slider with new one
+            console.log('Replacing old slider with new one...');
+            sliderContainer.replaceChild(newSlider, oldSlider);
+            
+            // Wait for the mutation observer to catch the new slider
+            setTimeout(() => {
+              // Log final state
+              console.log('Slider initialized:', {
+                classList: newSlider.classList.toString(),
+                slides: newSlider.querySelectorAll('.ob-slide').length,
+                currentTransform: slidesWrapper.style.transform
+              });
+            }, 100);
+          } else {
+            console.warn('Slider not found in modal gallery');
+          }
+          } // Close the else block for modalGallery check
+        } else {
+          console.warn('Image container or modal images container not found');
+        }
+        
+        //-------------------- update form and attributeds -----------------------------------------
+          renderReccomendations();
+          renderSubAndSave()
+        // Find the form within the product wrap parent
+        const productForm = productWrapParent.querySelector('form[data-type="add-to-cart-form"]');
+        if (productForm) {
+          // Update form name/id attribute
+          const formNameId = `product-form-${product.id}`;
+          productForm.setAttribute('id', formNameId);
+          productForm.setAttribute('name', formNameId);
+  
+        
+          // Update hidden input for variant selection
+          let variantInput = productForm.querySelector('input[name="id"]');
+          // if (variantInput) {
+  
+          //   // Find the first available variant or use the first variant if none are available
+          //   const selectedVariant = product.variants.find(variant => variant.available) || product.variants[0];
+          //   // Set the value of the input to the selected variant's ID
+          //   variantInput.value = selectedVariant.id;
+            
+          // } else {
+          //   console.warn("Variant input not found in the form");
+          // }
+        
+          // Update product JSON input
+          let jsonInput = productWrapParent.querySelector('input#product-json');
+          if (jsonInput) {
+            jsonInput.value = JSON.stringify(product);
+            jsonInput.setAttribute('product-id', product.id);
+          } else {
+            console.warn("Product JSON input not found in the form");
+          }
+        } else {
+          console.warn("Product form not found within the product wrap parent");
+        }
+        //-------------------- update form and attributeds END ---------------------------------
+  try{
+    
+  let labelLocs = document.querySelectorAll(".label-wrapper")
+    labelLocs.forEach(label =>{
+      label.innerHTML = generateProductLabel(product);
+      printSwapDebug(generateProductLabel(product))
+    })
+  }catch(error){
+    console.error(error)
+  }
+  
+        
+  //-------------------- variants & Selling Plan -----------------------------------------
+  // Select the container for product variants
+  const variantDiv = productWrapParent.querySelector('.product-form .product-variants-wrap');
+  variantDiv.innerHTML = ""; // Clear existing content
+  
+  // Create the options_with_values array
+  const options_with_values = product.options.map(optionName => {
+    return {
+      name: optionName,
+      values: [...new Set(product.variants.map(variant => variant[`option${product.options.indexOf(optionName) + 1}`]))]
+    };
+  });
+  
+  
+  // Create a container for all product options
+  const productOptionsContainer = document.createElement('div');
+  productOptionsContainer.className = 'product-options';
+  
+  for (let option of options_with_values) {
+  
+    const productOptionDiv = document.createElement('div');
+    productOptionDiv.className = 'product-option';
+    productOptionDiv.setAttribute('data-option-index', options_with_values.indexOf(option));
+    productOptionDiv.setAttribute('data-option-name', option.name);
+  
+    // Create option title
+    const optionTitle = document.createElement('h3');
+    optionTitle.className = 'typography typography--body-md uppercase mb-2 font-semibold';
+    optionTitle.textContent = option.name;
+    productOptionDiv.appendChild(optionTitle);
+  
+    // Create variants container
+    const variantsContainer = document.createElement('div');
+    variantsContainer.className = 'product-variants grid grid-cols-4 gap-3';
+  
+    for (let value of option.values) {
+  
+      // Find the variant that matches this option value
+      const variant = product.variants.find(v => v[`option${product.options.indexOf(option.name) + 1}`] === value);
+  
+      if (!variant) {
+        console.warn(`No variant found for option ${option.name} with value ${value}`);
+        continue;
+      }
+  
+      // Create the outer div with the class 'product-variant relative'
+      const outerDiv = document.createElement('div');
+      outerDiv.className = 'product-variant text-xs relative';
+      outerDiv.setAttribute('data-variant-id', variant.id);
+      outerDiv.setAttribute('data-option-value', value);
+      if (!variant.available) {
+        outerDiv.classList.add("variant-unavailable");
+      }
+  
+      // Create the out-of-stock-marker div
+      const outOfStockMarker = document.createElement('div');
+      outOfStockMarker.className = 'out-of-stock-marker absolute z-10';
+      outOfStockMarker.style.right = '5%';
+      outOfStockMarker.style.bottom = '10%';
+      outOfStockMarker.innerHTML = '<svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="15" height="15" viewBox="0 0 24 24" stroke="#f00f83" xmlns="http://www.w3.org/2000/svg"><path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path></svg>';
+  
+      // Create the label
+      const label = document.createElement('label');
+      label.className = 'ooption-value group relative flex items-center justify-center rounded-md border py-4 px-4 text-xs font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 cursor-pointer bg-white text-gray-900 shadow-sm';
+      label.setAttribute('data-active', 'ring-2 ring-magenta');
+  
+      // Create the input
+      if (variant.available) {
+        const input = document.createElement('input');
+        input.type = 'radio';
+        input.value = variant.id;
+        input.name = `${product.id}-${option.name.toLowerCase().replace(/\s+/g, '-')}`;
+        input.className = 'peer sr-only';
+        input.setAttribute('data-option-index', options_with_values.indexOf(option));
+        input.setAttribute('data-option-value', value);
+        label.appendChild(input);
+      }
+  
+      // Create the span for peer-checked styles
+      const peerCheckedSpan = document.createElement('span');
+      peerCheckedSpan.className = 'peer-checked:border-transparent items-center flex justify-center peer-checked:bg-magenta-500 peer-checked:text-white peer-checked:hover:bg-pink-700 peer-checked:ring-2 peer-checked:ring-magenta-500 peer-checked:ring-offset-2 border-transparent pointer-events-none absolute -inset-px rounded-md';
+      peerCheckedSpan.setAttribute('aria-hidden', 'true');
+  
+      // Create the span for option value
+      const optionValueSpan = document.createElement('span');
+      optionValueSpan.className = 'option-value relative peer-checked:text-white';
+      optionValueSpan.innerHTML = `<del class="out-of-stock-marker">${value}</del><div class="in-stock-marker">${value}</div>`;
+  
+      // Append the spans to the label
+      label.appendChild(peerCheckedSpan);
+      label.appendChild(optionValueSpan);
+  
+      // Append the out-of-stock-marker div and label to the outer div
+      outerDiv.appendChild(outOfStockMarker);
+      outerDiv.appendChild(label);
+  
+      // Append the outer div to the variants container
+      variantsContainer.appendChild(outerDiv);
+    }
+  
+    productOptionDiv.appendChild(variantsContainer);
+    productOptionsContainer.appendChild(productOptionDiv);
+  }
+  
+  // Append the product options to the main variant div
+  variantDiv.appendChild(productOptionsContainer);
+  
+  // Add Selling Plans
+  if (product.selling_plan_groups && product.selling_plan_groups.length > 0) {
+    const sellingPlanGroup = document.createElement('div');
+    sellingPlanGroup.className = 'selling-plan-group';
+  
+    const sellingPlanTitle = document.createElement('div');
+    sellingPlanTitle.className = 'selling-plan-title';
+    sellingPlanTitle.textContent = 'Subscription Options';
+    sellingPlanGroup.appendChild(sellingPlanTitle);
+  
+    const sellingPlanSelect = document.createElement('select');
+    sellingPlanSelect.name = 'selling_plan';
+    sellingPlanSelect.className = 'selling-plan-select';
+  
+    let firstOptionSelected = false;
+  
+    if (!product.requires_selling_plan) {
+      const oneTimeOption = document.createElement('option');
+      oneTimeOption.value = '';
+      oneTimeOption.textContent = 'One-time purchase';
+      oneTimeOption.selected = !firstOptionSelected;
+      sellingPlanSelect.appendChild(oneTimeOption);
+      firstOptionSelected = true;
+    }
+  
+    for (let group of product.selling_plan_groups) {
+      for (let plan of group.selling_plans) {
+        const option = document.createElement('option');
+        option.value = plan.id;
+        option.textContent = plan.name;
+        option.selected = !firstOptionSelected;
+        sellingPlanSelect.appendChild(option);
+        firstOptionSelected = true;
+      }
+    }
+  
+    sellingPlanGroup.appendChild(sellingPlanSelect);
+    variantDiv.appendChild(sellingPlanGroup);
+  } else {
+  }
+  
+  // Add Out of Stock Message
+  let showOutOfStock = false;
+  for (let variant of product.variants) {
+    if (!variant.available) {
+      showOutOfStock = true;
+      break;
+    }
+  }
+  
+  if (showOutOfStock) {
+    const outOfStockDiv = document.createElement('div');
+    outOfStockDiv.className = 'text-xs mt-4';
+    outOfStockDiv.innerHTML = 'Size out of stock? <a class="text-magenta-500 out-of-stock-message2 klaviyo-bis-trigger" style="color:#f00f83 !important;" href="#">Click here</a> to get notified when it\'s back in stock';
+    variantDiv.appendChild(outOfStockDiv);
+  
+    // Assuming you have a function to render the back-in-stock form
+    renderBackInStockForm();
+  } else {
+  }
+  
+  // Function to render back in stock form (you'll need to implement this)
+  function renderBackInStockForm() {
+    // Implementation of the back-in-stock form rendering
+    // This might involve creating elements or calling a separate function/module
+  }
+  
+  
+  
+  
+        
+        
+  
+        // const variantDiv = document.querySelector(".product-variants");
+        // variantDiv.innerHTML = "";
+        // for (var variant of product.variants) {
+        //     // Create the outer div with the class 'product-variant relative'
+        //     var outerDiv = document.createElement('div');
+        //     outerDiv.className = 'product-variant relative';      
+        //     outerDiv.setAttribute('data-id', variant.id);
+        //     outerDiv.setAttribute('data-title', variant.title);
+        //   if(!variant.available){
+        //     outerDiv.classList.add("variant-unavailable")
+        //   }
+  
+        //     // Create the out-of-stock-marker div
+        //     var outOfStockMarker = document.createElement('div');
+        //     outOfStockMarker.className = 'out-of-stock-marker absolute z-10';
+        //     outOfStockMarker.style.right = '5%';
+        //     outOfStockMarker.style.bottom = '10%';
+        //     outOfStockMarker.innerHTML = '<svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="15" height="15" viewBox="0 0 24 24" stroke="#f00f83" xmlns="http://www.w3.org/2000/svg"><path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path></svg>';
+        
+        //     // Create the label
+        //     var label = document.createElement('label');
+        //     label.className = 'ooption-value group relative flex items-center justify-center rounded-md border py-4 px-4 text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 cursor-pointer bg-white text-gray-900 shadow-sm';
+        //     label.setAttribute('data-active', 'ring-2 ring-magenta');
+        
+        //     // Create the input
+        //     var input = document.createElement('input');
+        //     input.type = 'radio';
+        //     input.value = variant.id;
+        //     input.className = 'peer sr-only';
+        
+        //     // Create the span for peer-checked styles
+        //     var peerCheckedSpan = document.createElement('span');
+        //     peerCheckedSpan.className = 'peer-checked:border-transparent items-center flex justify-center peer-checked:bg-magenta-500 peer-checked:text-white peer-checked:hover:bg-pink-700 peer-checked:ring-2 peer-checked:ring-magenta-500 peer-checked:ring-offset-2 border-transparent pointer-events-none absolute -inset-px rounded-md';
+        //     peerCheckedSpan.setAttribute('aria-hidden', 'true');
+        
+        //     // Create the span for option value
+        //     var optionValueSpan = document.createElement('span');
+        //     optionValueSpan.className = 'option-value relative peer-checked:text-white';
+        //     optionValueSpan.innerHTML = `<del class="out-of-stock-marker">${variant.title}</del><div class="in-stock-marker">${variant.title}</div>`;
+        
+        //     // Append the input and spans to the label
+        //     label.appendChild(input);
+        //     label.appendChild(peerCheckedSpan);
+        //     label.appendChild(optionValueSpan);
+        
+        //     // Append the out-of-stock-marker div and label to the outer div
+        //     outerDiv.appendChild(outOfStockMarker);
+        //     outerDiv.appendChild(label);
+        
+        //     // Append the outer div to the container
+        //     variantDiv.appendChild(outerDiv);
+        // }
+  
+  
+        // if (xhr && xhr.readyState != 4) {
+        //     xhr.abort();
+        // }
+        // var productHandle = product.handle;
+        
+        // var url = `/products/${productHandle}`;
+        
+        // fetch(url)
+        //     .then(response => {
+        //         if (!response.ok) {
+        //             throw new Error('Network response was not ok ' + response.statusText);
+        //         }
+        //         return response.text();
+        //     })
+        //     .then(data => {
+        //         const parser = new DOMParser();
+        //         const doc = parser.parseFromString(data, 'text/html');
+        //         const ctlTarget = doc.getElementById("complete-the-look");
+        //         document.getElementById("complete-the-look-ajax").innerHTML = "";
+        //         document.getElementById("complete-the-look-ajax").append(ctlTarget);
+        //     })
+        //     .catch(error => {
+        //         console.error('error fetching product:', error);
+        //     });
+  
+  
+  
+  
+        
+      }
+     var xhr;
+  
+    function modifyUrlWithResolutions(url) { // used to return a source set with multiple resolutions
+      var resolutions = [360, 420, 480, 640, 840, 1080, 1280, 1540, 1860, 1950];
+      var parts = url.split('.');
+      var fileName = parts.slice(0, -1).join('.'); 
+      var fileExtension = parts[parts.length - 1];
+      var modifiedUrls = [];
+    
+      for (var i = 0; i < resolutions.length; i++) {
+        var resolution = resolutions[i];
+        var modifiedUrl = fileName + "_" + resolution + "x." + fileExtension + " " + resolution + "w";
+        modifiedUrls.push(modifiedUrl);
+      }
+    
+      var result = '';
+      for (var j = 0; j < modifiedUrls.length; j++) {
+        result += modifiedUrls[j];
+        if (j !== modifiedUrls.length - 1) {
+          result += ',';
+        }
+        
+      }
+      //return("")
+      return result;
+    }
+  
+    // Helper functions
+    function createFavoriteButton() {
+      const button = document.createElement('button');
+      button.className = 'button button--variant-outline button--icon product-card__favourite product-card__favourite--off';
+      button.setAttribute('aria-label', 'Add product to favourites');
+      button.innerHTML = `
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 1024 1024">
+          <path fill="currentColor" d="M923 283.6a260.04 260.04 0 0 0-56.9-82.8a264.4 264.4 0 0 0-84-55.5A265.34 265.34 0 0 0 679.7 125c-49.3 0-97.4 13.5-139.2 39c-10 6.1-19.5 12.8-28.5 20.1c-9-7.3-18.5-14-28.5-20.1c-41.8-25.5-89.9-39-139.2-39c-35.5 0-69.9 6.8-102.4 20.3c-31.4 13-59.7 31.7-84 55.5a258.44 258.44 0 0 0-56.9 82.8c-13.9 32.3-21 66.6-21 101.9c0 33.3 6.8 68 20.3 103.3c11.3 29.5 27.5 60.1 48.2 91c32.8 48.9 77.9 99.9 133.9 151.6c92.8 85.7 184.7 144.9 188.6 147.3l23.7 15.2c10.5 6.7 24 6.7 34.5 0l23.7-15.2c3.9-2.5 95.7-61.6 188.6-147.3c56-51.7 101.1-102.7 133.9-151.6c20.7-30.9 37-61.5 48.2-91c13.5-35.3 20.3-70 20.3-103.3c.1-35.3-7-69.6-20.9-101.9zM512 814.8S156 586.7 156 385.5C156 283.6 240.3 201 344.3 201c73.1 0 136.5 40.8 167.7 100.4C543.2 241.8 606.6 201 679.7 201c104 0 188.3 82.6 188.3 184.5c0 201.2-356 429.3-356 429.3z"></path>
+          <path fill="currentColor" fill-opacity="0" d="M679.7 201c-73.1 0-136.5 40.8-167.7 100.4C480.8 241.8 417.4 201 344.3 201c-104 0-188.3 82.6-188.3 184.5c0 201.2 356 429.3 356 429.3s356-228.1 356-429.3C868 283.6 783.7 201 679.7 201z"></path>
+        </svg>
+      `;
+      return button;
+    }
+  
+    function createImageButton(media, index) {
+      const button = document.createElement('button');
+      button.className = 'swiper-thumb w-full h-full relative bg-background-primary-default overflow-hidden';
+      button.setAttribute('data-toggle', 'collapse');
+      button.setAttribute('data-target', '.modal-gallery');
+      button.setAttribute('data-overflow', 'true');
+      
+      const img = document.createElement('img');
+      img.className = 'w-full h-full aspect-square object-cover';
+      img.src = media.src;
+      img.loading = 'lazy';
+      img.alt = media.alt || '';
+  
+      button.appendChild(img);
+      return button;
+    }
+  
+    function createModalSlide(media) {
+      const slide = document.createElement('div');
+      slide.className = 'swiper-slide';
+  
+      const img = document.createElement('img');
+      img.className = 'w-full sm:h-full object-cover';
+      img.src = media.src;
+      img.alt = media.alt || '';
+  
+      slide.appendChild(img);
+      return slide;
+    }
+  
+    function updateThumbnailImages(images) {
+      const thumbnailContainer = document.querySelector('.modal-gallery .flex.items-center.justify-center');
+      if (thumbnailContainer) {
+        thumbnailContainer.innerHTML = '';
+  
+        images.slice(0, 6).forEach((media, index) => {
+          const button = document.createElement('button');
+          button.className = `ob-dot swiper-thumb aspect-[1:1] border border-2 w-[40px] h-[40px] border-transparent rounded-md overflow-hidden relative ${index === 0 ? 'active' : ''}`;
+          button.setAttribute('data-dot-index', index);
+          button.setAttribute('aria-label', `Go to slide ${index}`);
+        
+  
+          const img = document.createElement('img');
+          img.className = 'w-[72px] h-full object-cover bg-white';
+          img.src = media.src;
+          img.loading = 'lazy';
+          img.alt = media.alt || '';
+  
+          button.appendChild(img);
+          thumbnailContainer.appendChild(button);
+        });
+      }
+    }
+  });
+  
+  // Add an event listener for the popstate event to handle browser back/forward navigation
+  window.addEventListener('popstate', function(event) {
+    if (event.state && event.state.path) {
+      // Load the product data for the new URL
+      fetch(event.state.path + '.js')
+        .then(response => response.json())
+        .then(productData => {
+          // Update the page content with the new product data
+          updateProductPage(productData);
+        })
+        .catch(error => console.error('Error:', error));
+    }
+  });
+  
+  function updateProductPage(productData) {
+    // Update various elements on the page with the new product data
+    // This function should update all relevant parts of the product page
+    // For example:
+    document.title = productData.title;
+    document.querySelector('.product-title').textContent = productData.title;
+    document.querySelector('.product-price').textContent = formatMoney(productData.price);
+    // Update images, variants, etc.
+    // Dispatch an event to notify other parts of the application
+    document.dispatchEvent(new CustomEvent('productPageUpdated', { detail: { product: productData } }));
+  }
+  
+  let controller; // Global variable to store the current AbortController
+  
+  // Function to handle rendering of upsell after product change
+  function renderMatchingSocksUpsell() {
+    console.time("Fetch Request Time");
+  
+    // Immediately remove existing upsell to avoid duplicates
+    document.querySelectorAll('.matching-sock-upsell').forEach(el => el.remove());
+    console.log('Removed existing .matching-sock-upsell before fetch');
+  
+    // Find the closest .shopify-section from .sas-parent-form
+    let sectionElement = document.querySelector('.sas-parent-form')?.closest('.shopify-section');
+    if (!sectionElement) {
+      console.warn('No .shopify-section found near .sas-parent-form.');
+      return;
+    }
+  
+    let sectionId = sectionElement.id.replace('shopify-section-', '');
+    console.log('Fetching section:', sectionId);
+  
+    // Cancel the previous fetch if it exists
+    if (controller) {
+      controller.abort();
+      console.log('Previous fetch aborted.');
+    }
+  
+    // Create a new AbortController for this request
+    controller = new AbortController();
+    const signal = controller.signal;
+  
+    // Fetch request with AbortController to allow cancellation
+    fetch(`${window.location.pathname}?sections=${sectionId}`, { cache: "no-store", signal })
+      .then(res => res.json())
+      .then(data => {
+        if (!data || !data[sectionId]) {
+          console.warn(`No content found for section ID: ${sectionId}`);
+          return;
+        }
+  
+        let tempContainer = document.createElement('div');
+        tempContainer.innerHTML = data[sectionId];
+  
+        let newUpsell = tempContainer.querySelector('.matching-sock-upsell');
+        if (newUpsell) {
+          let productForm = document.querySelector('form[id^="product-form-"]');
+          if (productForm) {
+            productForm.parentNode.insertBefore(newUpsell, productForm);
+            
+             console.timeEnd("Inserted new .matching-sock-upsell before product form Fetch Request Time")
+          } else {
+            console.timeEnd("No product-form found to insert the upsell before. before product form Fetch Request Time")
+            console.log('No product-form found to insert the upsell before.');
+          }
+        } else {
+          console.log('No .matching-sock-upsell found in response.');
+        }
+      })
+      .catch(error => {
+        if (error.name === 'AbortError') {
+          console.log('Fetch request was aborted.');
+        } else {
+          console.error('Error fetching section:', error);
+        }
+      });
+  }
+  
+  // Debounced function to trigger rendering of the upsell
+  function debouncedRenderMatchingSocks() {
+    // Set a new debounce timeout to wait for user to stop changing selections
+    clearTimeout(debounceTimeout);
+    debounceTimeout = setTimeout(renderMatchingSocksUpsell, 500); // Wait 500ms after the last change before executing
+  }
+  
+  
+  // Function to render the tag recommendation section
+  function renderReccomendations() {
+    // Find the parent section element
+    const recommendationsDiv = document.querySelector('.tag-product-recommendations');
+    if (!recommendationsDiv) return;
+    
+    // Get the parent shopify-section element and extract its ID
+    const sectionParent = recommendationsDiv.closest('.shopify-section');
+    if (!sectionParent) return;
+    
+    const sectionId = sectionParent.id.replace('shopify-section-', '');
+    
+    // Fetch the section content
+    fetch(`${window.location.pathname}?sections=${sectionId}`)
+      .then(res => res.json())
+      .then(data => {
+        if (data[sectionId]) {
+          // Create a temporary container and set its HTML content
+          const tempContainer = document.createElement('div');
+          tempContainer.innerHTML = data[sectionId];
+          
+          // Replace the old section with the new content
+          const oldSection = document.getElementById(`shopify-section-${sectionId}`);
+          if (oldSection) {
+            oldSection.replaceWith(tempContainer.firstElementChild);
+            document.dispatchEvent(new CustomEvent('productRecommendationsUpdated'));
+          }
+        }
+      })
+      .catch(error => console.error('Error re-rendering section:', error));
+  }
+  function formatMoney(cents) {
+    // Implement your money formatting logic here
+    return '$' + (cents / 100).toFixed(2);
+  }
+  
+        document.addEventListener('DOMContentLoaded', function () {
+        document.querySelectorAll('.js-bundle-swap-section').forEach(function (section) {
+          const thisObj = section;
+          const number = thisObj.getAttribute('data-bundle_size');
+          let max_discount = 0;
+          let discount;
+        
+          section.querySelectorAll('.js-bundle-swap').forEach(function (bundleSwap) {
+            const prod = JSON.parse(bundleSwap.querySelector('.js-prod-json').innerHTML);
+        
+            // Calculate the discount
+            const temp = prod.compare_at_price - prod.price;
+            discount = (temp / prod.compare_at_price) * 100;
+            if (discount > max_discount) {
+              max_discount = discount;
+            }
+          });
+  
+          const discountLabel = document.createElement('div');
+          discountLabel.className = "text-center bundle-discount-label rounded-md bg-magenta-500 text-white p-1";
+          discountLabel.innerHTML = "Save <span class='uppercase font-bold'>" + parseInt(max_discount) + "%</span>";
+        
+          document.querySelectorAll('.js-bundle-size').forEach(function (bundleSize) {
+            if (bundleSize.getAttribute('data-bundle_size') === thisObj.getAttribute('data-bundle_size')) {
+              bundleSize.querySelector('.bundle-discount-loc').appendChild(discountLabel.cloneNode(true));
+            }
+          });
+  
+          if(section.querySelector('.bundle-discount-loc')){
+            section.querySelector('.bundle-discount-loc').appendChild(discountLabel);
+          }
+        });
+        });
+  
+  function generateProductLabel(data) {
+          let available = data.available;
+          const current_id = data.id;
+          const image_url = data.featured_image;
+          let prod_price = data.price_min;
+          let comp_price = data.compare_at_price;
+          const tags = data.tags;
+          let label_found = false;
+          let savings = 0;
+        
+          for (const label of labelList) {
+            let proceed = false
+            for (const each of label.fields) {
+                if (each.key === "theme_version"){
+                  if(each.value == "{{ settings.theme_label_version }}"){
+                    proceed = true;
+                  }  
+                }
+              }
+            if(label && proceed){
+              let labelMatch = "";
+              let bgColor = "";
+              let textColor = "";
+              let labelText = "";
+              for (const each of label.fields) {
+                if (each.key === "tag_match") labelMatch = each.value;
+                if (each.key === "bg_colour") bgColor = each.value;
+                if (each.key === "text_colour") textColor = each.value;
+                if (each.key === "text") labelText = each.value;
+              }
+          
+              if (!Array.isArray(tags)) continue;
+              for (const tag of tags) {
+                if (tag === labelMatch && !label_found) {
+                  if (tag === "label-sale-percent-discount") {
+                    if (parseFloat(comp_price) > parseFloat(prod_price)) {
+                    printSwapDebug("returning something")
+                      label_found = true;
+                      savings = ((comp_price - prod_price) / comp_price * 100).toFixed(2);
+                      return `<div class=" product-label text-xs font-mulish sub-title   rounded-sm" style="width:fit-content; padding:3px 10px;border-radius:3px; background-color: ${bgColor}; color:${textColor}; box-shadow: 1px 1px 1px rgb(0 0 0 / 30%);">${Math.round(savings)}% OFF SALE</div>`;
+                    }
+                  } else if (tag === "label-sale-value-discount") {
+                    if (parseFloat(comp_price) > parseFloat(prod_price)) {
+                      label_found = true;
+                      savings = comp_price - prod_price;
+                      if (savings % 1 !== 0) {
+                          savings = savings.toFixed(2); // Format to 2 decimal places
+  }                    return `<div class=" product-label text-xs font-mulish sub-title   rounded-sm" style="width:fit-content; padding:3px 10px;border-radius:3px; background-color: ${bgColor}; color:${textColor}; box-shadow: 1px 1px 1px rgb(0 0 0 / 30%);">SAVE £${savings}</div>`;
+                    }
+                  } else {
+                    // default label handling
+                    label_found = true;
+                    return `<span class="absolute top-2 right-2 rounded px-1.5 py-1 font-display text-3xs font-bold uppercase text-center text-nowrap" style="z-index:12; background-color: ${bgColor}; color:${textColor}">${labelText}</span>`;
+                  }
+                }
+              }
+            }
+          }
+          return null; 
+        }
+  
+        function disableTab(tab, container) {
+            if (!tab) return;
+            
+            tab.classList.add('disabled');
+            tab.style.opacity = '0.5';
+            tab.style.cursor = 'not-allowed';
+            tab.style.pointerEvents = "none";
+            if (container) {
+                container.style.display = 'none';
+            }
+        }
+        
+        function activateFirstAvailableTab(containers, slider) {
+            for (const [containerId, { element: container, tab }] of Object.entries(containers)) {
+                if (tab && !tab.classList.contains('disabled')) {
+                    // Remove active class from all tabs
+                    document.querySelectorAll('.js-patterned-plain-selector').forEach(t => {
+                        t.classList.remove('active', 'font-semibold', 'text-gray-900');
+                        t.classList.add('text-gray-800');
+                    });
+        
+                    // Hide all containers
+                    Object.values(containers).forEach(({ element }) => {
+                        if (element) element.style.display = 'none';
+                    });
+        
+                    // Activate the first available tab
+                    tab.classList.add('active', 'font-semibold', 'text-gray-900');
+                    tab.classList.remove('text-gray-800');
+                    if (container) container.style.display = '';
+        
+                    // Move the slider
+                    if (slider) {
+                        slider.classList.remove('plain-active', 'patterned-active', 'partnership-active');
+                        const style = tab.getAttribute('data-style');
+                        if (style === 'plain') {
+                            slider.classList.add('plain-active', 'plain-selector');
+                        } else if (style === 'partnerships') {
+                            slider.classList.add('partnership-active');
+                        } else {
+                            slider.classList.add('patterned-active');
+                        }
+                    }
+        
+                    break;
+                }
+            }
+        }
+  /*-------------------------------------------------------------------
+                  Sub And Save
+  ----------------------------------------------------------------------*/
+  
+  function renderSubAndSave() {
+    try {
+      const sasSelector = document.getElementById('sas-selector');
+      const sasPopup = document.getElementById('sas-popup');
+  
+      console.log(sasSelector, sasPopup);
+      if (!sasSelector || !sasPopup) return;
+  
+      sasSelector.querySelectorAll('.sas-change').forEach(el => {
+        el.classList.add('load-animate');
+      });
+  
+      // Find parent Shopify section IDs
+      const section1 = sasSelector.closest('.shopify-section');
+      const section2 = sasPopup.closest('.shopify-section');
+      console.log(section1, section2);
+      if (!section1 || !section2) return;
+  
+      const sectionId1 = section1.id.replace('shopify-section-', '');
+      const sectionId2 = section2.id.replace('shopify-section-', '');
+  
+      // Build unique section ID list
+      const sectionParams = [...new Set([sectionId1, sectionId2])].join(',');
+  
+      // Fetch sections
+      fetch(`${window.location.pathname}?sections=${sectionParams}`)
+        .then(res => res.json())
+        .then(sections => {
+          const sectionHTML1 = sections[sectionId1];
+          if (sectionHTML1) {
+            const tempDiv1 = document.createElement('div');
+            tempDiv1.innerHTML = sectionHTML1;
+  
+            // Replace #sas-selector
+            const newSasSelector = tempDiv1.querySelector('#sas-selector');
+            const oldSasSelector = document.getElementById('sas-selector');
+            if (newSasSelector && oldSasSelector) {
+              oldSasSelector.replaceWith(newSasSelector);
+              newSasSelector.classList.add('sas-open');
+              newSasSelector.classList.remove('sas-closed');
+            } else if (oldSasSelector) {
+              oldSasSelector.classList.add('sas-closed');
+            }
+  
+            // Replace #sas-product-form-containers (from same section)
+            const newSasFormContainer = tempDiv1.querySelector('#sas-product-form-container');
+             
+            const oldSasFormContainer = document.getElementById('sas-product-form-container');
+            console.log('newsasForm', newSasFormContainer )
+            console.log('oldSasFormContainer', oldSasFormContainer )
+            if (newSasFormContainer && oldSasFormContainer) {
+              oldSasFormContainer.replaceWith(newSasFormContainer);
+            }
+          }
+  
+          // Replace #sas-popup
+          const sectionHTML2 = sections[sectionId2];
+          if (sectionHTML2) {
+            const tempDiv2 = document.createElement('div');
+            tempDiv2.innerHTML = sectionHTML2;
+            const newSasPopup = tempDiv2.querySelector('#sas-popup');
+            const oldSasPopup = document.getElementById('sas-popup');
+            if (newSasPopup && oldSasPopup) {
+              oldSasPopup.replaceWith(newSasPopup);
+            }
+          }
+        })
+        .catch(error => console.error('Error fetching multiple Shopify sections:', error));
+    } catch (renderSubAndSaveErr) {
+      console.log('render sub and sav error in ob-print-swap', renderSubAndSaveErr);
+    }
+  }
+  
+  
+        
+        // Call the function when the page loads
+        document.addEventListener('DOMContentLoaded', fetchPrintSelectors);
+  
+        
+} catch (error) {
+  console.error(error)
+}

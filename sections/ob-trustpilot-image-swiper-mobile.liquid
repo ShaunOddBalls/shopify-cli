@@ -1,0 +1,76 @@
+{% schema %}
+  {
+    "name": "Mobile Trust Pilot Slider",
+    "settings": [
+       {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Under swiper Image"
+      }
+    ],
+    "blocks": [
+      {
+        "name": "slide",
+        "type": "slide",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Mobile Trust Pilot Slider"
+      }
+    ]
+  }
+{% endschema %}
+
+ <div class="col-span-1 md:hidden  flex flex-col ">
+      <div class="swiper-{{ section.id }} overflow-hidden">
+        <div class="swiper-wrapper ">
+          <!-- Slides --> 
+          {% for block in section.blocks %}
+            {% if block.type == "slide" %}
+              <div class="swiper-slide">
+                <img 
+                  src="{{ block.settings.image | img_url: '1200x' }}" 
+                  alt="{{ block.settings.image.alt | escape }}"
+                  loading="lazy"
+                >
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+
+      {% if section.settings.image != blank %}
+        <div class="w-full h-auto bg-white flex justify-center">
+          <img 
+            src="{{ section.settings.image | img_url: '1200x' }}" 
+            alt="{{ section.settings.image.alt | escape }}"
+            loading="lazy"
+          >
+        </div>
+      {% endif %}
+      
+    </div>
+
+ 
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const swiper = new Swiper('.swiper-{{ section.id }}', {
+      slidesPerView: 1,
+      spaceBetween: 0,
+      loop: true,
+  
+      autoplay: {
+        delay: 3000, // Adjust delay as needed
+        disableOnInteraction: false, // Keeps autoplay even after user interaction
+      },
+    });
+  });
+</script>

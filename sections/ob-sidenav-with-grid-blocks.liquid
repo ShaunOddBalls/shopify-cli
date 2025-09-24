@@ -1,0 +1,531 @@
+<div class="w-full">
+{% unless section.settings.mobile %}
+  <div class="grid grid-cols-12">
+    {%- if section.settings.menu != blank -%}
+    <div class="hidden md:block md:col-span-2 xl:grid-col-1"> 
+      <aside class="w-full px-6">
+        <nav class="space-y-6">
+          {%- assign menu = linklists[section.settings.menu] -%}
+          {%- if menu.links.size > 0 -%}
+            {% for link in menu.links %}
+              {%- comment %}<locksmith:2783>{% endcomment -%}
+                {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: link, subject_parent: menu, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+              {%- comment %}</locksmith:2783>{% endcomment -%}
+              {% if link.links.size > 0 %}
+                <div>
+                  <h3 class="font-semibold text-lg mb-2">{{ link.title }}</h3>
+                  <ul class="space-y-1">
+                    {% for child in link.links %}
+                      {%- comment %}<locksmith:7ac6>{% endcomment -%}
+                        {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: child, subject_parent: link, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+                      {%- comment %}</locksmith:7ac6>{% endcomment -%}
+                      <li>
+                        <a href="{{ child.url }}" class="hover:underline">{{ child.title }}</a>
+                      </li>
+                    {% endfor %}
+                  </ul>
+                </div>
+              {% else %}
+                <div>
+                  <a href="{{ link.url }}" class="font-semibold text-lg  hover:underline block">{{ link.title }}</a>
+                </div>
+              {% endif %}
+            {% endfor %}
+          {%- endif -%}
+        </nav>
+      </aside>
+    </div>
+    {%- endif -%}
+          
+    <div class="col-span-12 md:col-span-10 xl:grid-col-11">
+          {% for block in section.blocks %}
+            <div class="w-full {{ block.settings.title_classes_1 }}">{{ block.settings.title }}</div>
+      
+          
+            <div class="w-full grid grid-cols-{{ block.settings.columns }} grid-rows-{{ block.settings.rows }} gap-{{ block.settings.gap }}">
+              {% for i in (1..block.settings.total_grid_items) %}
+                {% assign bg_key = "background-color_" | append: i %}
+                {% assign image_key = "image_" | append: i %}
+                {% assign text_key = "grid_text_" | append: i %}
+                {% assign text_class_key = "grid-text-classes_" | append: i %}
+                {% assign url_key = "url_" | append: i %}
+                {% assign header_key = "text_block_header_" | append: i %}
+                {% assign sub_text_key = "text_block_text_" | append: i %}
+                {% assign bg_colour_key = "text_block_colour_" | append: i %}
+          
+                {% assign bg = block.settings[bg_key] %}
+                {% assign img = block.settings[image_key] %}
+                {% assign text = block.settings[text_key] %}
+                {% assign text_classes = block.settings[text_class_key] %}
+                {% assign url = block.settings[url_key] %}
+                {% assign header = block.settings[header_key] %}
+                {% assign sub_text = block.settings[sub_text_key] %}
+                {% assign bg_colour = block.settings[bg_colour_key] %}
+                {% unless block.settings.grid_type == "text" %}
+                <div class="w-full h-full {{ bg }}">
+                  <a href="{{ url | default: '#' }}" class="block w-full h-full">
+                    {% if img != blank %}
+                      <img src="{{ img | img_url: '800x' }}" alt="{{ text | escape }}" class="mb-2 w-full h-auto object-cover" />
+                    {% endif %}
+                    {% if text != blank %}
+                      <p class="{{ text_classes }} {{ block.settings.grid_item_text_classes }}">{{ text }}</p>
+                    {% endif %}
+                  </a>
+                </div>
+                {% else %}
+                  <div style="background-color:{{ bg_colour }}" class="flex items-center justify-center w-full h-full p-4">
+                    <div>
+                      <div class="text-center">{{ header }}</div>
+                      <div class="text-center font-bold text-4xl">{{ sub_text }}</div>
+                    </div>
+                  </div>
+                {% endunless %}
+              {% endfor %}
+            </div>
+
+      
+          {% endfor %}
+      </div>
+    
+  </div>
+  {% else %}
+    {% if section.settings.menu != blank %}
+    {% assign menu = linklists[section.settings.menu] %}
+    {% if menu.links.size > 0 %}
+      <div class="{{ section.settings.grid_class }}">
+        {% for link in menu.links %}
+          {%- comment %}<locksmith:6a66>{% endcomment -%}
+            {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: link, subject_parent: menu, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+          {%- comment %}</locksmith:6a66>{% endcomment -%}
+          <div>
+            <p class="{{ section.settings.heading_class }}">{{ link.title }}</p>
+            {% if link.links.size > 0 %}
+              <ul class="{{ section.settings.wrapper_class }}">
+                {% for sublink in link.links %}
+                  {%- comment %}<locksmith:0255>{% endcomment -%}
+                    {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: sublink, subject_parent: link, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+                  {%- comment %}</locksmith:0255>{% endcomment -%}
+                  <li>
+                    <a href="{{ sublink.url }}" class="{{ section.settings.link_class }}">
+                      {{ sublink.title }}
+                    </a>
+                  </li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p>No menu items found.</p>
+    {% endif %}
+  {% else %}
+    <p>No menu selected.</p>
+  {% endif %}
+  
+  {% endunless %}
+  
+</div>
+
+
+{% schema %}
+{
+  "name": "Sidebar Grid Section",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Sidebar menu"
+    },
+    {
+      "type": "checkbox",
+      "default": false,
+      "id": "mobile",
+      "label": "Just show on Mobile Nav"
+    },
+    {
+      "type": "header",
+      "content": "Mobile Nav Options",
+      "visible_if": "{{ section.settings.mobile }}"
+    },
+    {
+      "type": "text",
+      "id": "wrapper_class",
+      "label": "list settings",
+      "default": "w-full",
+      "visible_if": "{{ section.settings.mobile }}"
+    },
+    {
+      "type": "text",
+      "id": "grid_class",
+      "label": "Grid Class",
+      "default": "grid grid-cols-2 gap-6 md:hidden p-4",
+      "visible_if": "{{ section.settings.mobile }}"
+    },
+    {
+      "type": "text",
+      "id": "heading_class",
+      "label": "Group Heading Class",
+      "default": "font-semibold text-black mb-2 capitalise",
+      "visible_if": "{{ section.settings.mobile }}"
+    },
+    {
+      "type": "text",
+      "id": "link_class",
+      "label": "Link Class",
+      "default": "text-gray-800 hover:underline",
+      "visible_if": "{{ section.settings.mobile == false }}"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "grid block",
+      "type": "new-grid",
+      "settings": [ 
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Grid title"
+        },
+        {
+          "type": "select",
+          "id": "grid_type",
+          "label": "Grid Type",
+          "options": [
+            {
+              "label": "text",
+              "value": "text"
+            },
+            {
+              "label": "image",
+              "value": "image"
+            },
+          ],
+            "default":"image"
+        },
+        {
+          "type": "text",
+          "id": "title_classes_1",
+          "label": "title classes"
+        },
+        {
+          "type": "header",
+          "content": "Grid Settings",
+          "info": "ℹ️ Set columns and rows. The number of grid items shown equals columns × rows, and must not exceed 12."
+        },
+        {
+          "type": "range",
+          "id": "columns",
+          "label": "Columns",
+          "min": 1,
+          "max": 6,
+          "default": 3
+        },
+        {
+          "type": "range",
+          "id": "rows",
+          "label": "Rows",
+          "min": 1,
+          "max": 4,
+          "default": 2
+        },
+         {
+          "type": "range",
+          "id": "gap",
+          "label": "Gap",
+          "min": 1,
+          "max": 12,
+          "default": 2
+        },
+        {
+          "type": "range",
+          "id": "total_grid_items",
+          "label": "Total Grid Items",
+          "min": 1,
+          "max": 12,
+          "default": 6,
+          "info": "ℹ️ Set this to match columns × rows"
+        },
+        {
+          "type": "header",
+          "content": "Grid Item Settings",
+          "info": "Classes applied to these will apply to all Grid Items"
+        },
+        {
+          "type": "text",
+          "id": "grid_item_text_classes",
+          "label": "Classes to be applied to all grid item text",
+        },
+        {
+          "type": "header",
+          "content": "Grid Item 1"
+        },
+        {
+          "type": "url",
+          "id": "url_1",
+          "label": "Grid Url"
+        },
+        {
+          "type": "color_scheme",
+          "id": "background-color_1",
+          "label": "Background Colour"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_1",
+          "label": "Image for grid item one"
+        },
+        {
+          "type": "text",
+          "id": "grid_text_1",
+          "label": "Grid Text"
+        },
+        {
+          "type": "text",
+          "id": "grid-text-classes_1",
+          "label": "Grid Text Classes"
+        },
+        {
+          "type": "text",
+          "id": "text_block_header_1",
+          "label": "Header",
+          "info":"for text blocks "
+        },
+        {
+          "type": "text",
+          "id": "text_block_text_1",
+          "label": "Text",
+          "info" : "for text blocks"
+        },
+        {
+          "type": "text",
+          "id": "text_block_colour_1",
+          "label": "Text BG colour",
+          "info" : "for text blocks",
+          "default": "#bde9ff"
+        },
+        {
+          "type": "header",
+          "content": "Grid Item 2",
+          "visible_if": "{{ block.settings.total_grid_items >= 2 }}"
+        },
+        {
+          "type": "url",
+          "id": "url_2",
+          "label": "Grid Url",
+          "visible_if": "{{ block.settings.total_grid_items >= 2 }}"
+        },
+        {
+          "type": "color_scheme",
+          "id": "background-color_2",
+          "label": "Background Colour",
+          "visible_if": "{{ block.settings.total_grid_items >= 2 }}"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_2",
+          "label": "Image for grid item one",
+          "visible_if": "{{ block.settings.total_grid_items >= 2 }}"
+        },
+        {
+          "type": "text",
+          "id": "grid_text_2",
+          "label": "Grid Text",
+          "visible_if": "{{ block.settings.total_grid_items >= 2 }}"
+        },
+        {
+          "type": "text",
+          "id": "grid-text-classes_2",
+          "label": "Grid Text Classes",
+          "visible_if": "{{ block.settings.total_grid_items >= 2 }}"
+        },
+        {
+          "type": "text",
+          "id": "text_block_header_2",
+          "label": "Header",
+          "info":"for text blocks "
+        },
+        {
+          "type": "text",
+          "id": "text_block_text_2",
+          "label": "Text",
+          "info" : "for text blocks"
+        },
+        {
+          "type": "text",
+          "id": "text_block_colour_2",
+          "label": "Text BG colour",
+          "info" : "for text blocks",
+          "default": "#bde9ff"
+        },
+        {
+          "type": "header",
+          "content": "Grid Item 3",
+          "visible_if": "{{ block.settings.total_grid_items >= 3 }}"
+        },
+        {
+          "type": "url",
+          "id": "url_3",
+          "label": "Grid Url",
+          "visible_if": "{{ block.settings.total_grid_items >= 3 }}"
+        },
+        {
+          "type": "color_scheme",
+          "id": "background-color_3",
+          "label": "Background Colour",
+          "visible_if": "{{ block.settings.total_grid_items >= 3 }}"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_3",
+          "label": "Image for grid item one",
+          "visible_if": "{{ block.settings.total_grid_items >= 3 }}"
+        },
+        {
+          "type": "text",
+          "id": "grid_text_3",
+          "label": "Grid Text",
+          "visible_if": "{{ block.settings.total_grid_items >= 3 }}"
+        },
+        {
+          "type": "text",
+          "id": "grid-text-classes_3",
+          "label": "Grid Text Classes",
+          "visible_if": "{{ block.settings.total_grid_items >= 3 }}"
+                },
+        {
+          "type": "text",
+          "id": "text_block_header_3",
+          "label": "Header",
+          "info":"for text blocks "
+        },
+        {
+          "type": "text",
+          "id": "text_block_text_3",
+          "label": "Text",
+          "info" : "for text blocks"
+        },
+        {
+          "type": "text",
+          "id": "text_block_colour_3",
+          "label": "Text BG colour",
+          "info" : "for text blocks",
+          "default": "#bde9ff"
+        },
+        {
+          "type": "header",
+          "content": "Grid Item 4",
+          "visible_if": "{{ block.settings.total_grid_items >= 4 }}"
+        },
+        {
+          "type": "url",
+          "id": "url_4",
+          "label": "Grid Url",
+          "visible_if": "{{ block.settings.total_grid_items >= 4 }}"
+        },
+        {
+          "type": "color_scheme",
+          "id": "background-color_4",
+          "label": "Background Colour",
+          "visible_if": "{{ block.settings.total_grid_items >= 4 }}"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_4",
+          "label": "Image for grid item one",
+          "visible_if": "{{ block.settings.total_grid_items >= 4 }}"
+        },
+        {
+          "type": "text",
+          "id": "grid_text_4",
+          "label": "Grid Text",
+          "visible_if": "{{ block.settings.total_grid_items >= 4 }}"
+        },
+        {
+          "type": "text",
+          "id": "grid-text-classes_4",
+          "label": "Grid Text Classes",
+          "visible_if": "{{ block.settings.total_grid_items >= 4 }}"
+        },
+        {
+          "type": "header",
+          "content": "Grid Item 5",
+          "visible_if": "{{ block.settings.total_grid_items >= 5 }}"
+        },
+        {
+          "type": "url",
+          "id": "url_5",
+          "label": "Grid Url",
+          "visible_if": "{{ block.settings.total_grid_items >= 5 }}"
+        },
+        {
+          "type": "color_scheme",
+          "id": "background-color_5",
+          "label": "Background Colour",
+          "visible_if": "{{ block.settings.total_grid_items >= 5 }}"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_5",
+          "label": "Image for grid item one",
+          "visible_if": "{{ block.settings.total_grid_items >= 5 }}"
+        },
+        {
+          "type": "text",
+          "id": "grid_text_5",
+          "label": "Grid Text",
+          "visible_if": "{{ block.settings.total_grid_items >= 5 }}"
+        },
+        {
+          "type": "text",
+          "id": "grid-text-classes_5",
+          "label": "Grid Text Classes",
+          "visible_if": "{{ block.settings.total_grid_items >= 5 }}"
+        },
+        {
+          "type": "header",
+          "content": "Grid Item 6",
+          "visible_if": "{{ block.settings.total_grid_items >= 6 }}"
+        },
+        {
+          "type": "url",
+          "id": "url_6",
+          "label": "Grid Url",
+          "visible_if": "{{ block.settings.total_grid_items >= 6 }}"
+        },
+        {
+          "type": "color_scheme",
+          "id": "background-color_6",
+          "label": "Background Colour",
+          "visible_if": "{{ block.settings.total_grid_items >= 6 }}"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_6",
+          "label": "Image for grid item one",
+          "visible_if": "{{ block.settings.total_grid_items >= 6 }}"
+        },
+        {
+          "type": "text",
+          "id": "grid_text_6",
+          "label": "Grid Text",
+          "visible_if": "{{ block.settings.total_grid_items >= 6 }}"
+        },
+        {
+          "type": "text",
+          "id": "grid-text-classes_6",
+          "label": "Grid Text Classes",
+          "visible_if": "{{ block.settings.total_grid_items >= 6 }}"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Sidebar Grid Section",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

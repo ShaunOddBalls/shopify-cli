@@ -1,0 +1,141 @@
+<div class="section-wrapper {{ section.settings.section_wrapper_classes }}" style="background-color: {{ section.settings.section_background }};">
+  {% for block in section.blocks %}
+    {% if block.type == "link_banner" %}
+      {% assign banners_count = banners_count | plus: 1 %}
+      {% assign link_banner_count = 0 %}
+      {% assign linklist = block.settings.link_list %}
+      {% assign url = canonical_url %}
+      {% assign path = url | remove_first: "https://www.myoddballs.com" | downcase %}
+  
+      <div class="link-banner blend-divide-yy tw-relative {{ block.settings.wrapper_classes }}" style="background-color:{{ block.settings.banner_background }}">
+        <div class="{{ block.settings.links_wrapper_classes }} link-banner-wrap-{{ linklists[linklist].links.size }}">
+          {% for link in linklists[linklist].links %}
+
+            
+            {%- comment %}<locksmith:37f2>{% endcomment -%}
+              {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: link, subject_parent: linklists[linklist], variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+            {%- comment %}</locksmith:37f2>{% endcomment -%}
+
+            
+            {% assign link_banner_count = link_banner_count | plus: 1 %}
+            {% assign link_lower = link.url | remove_first: "https://www.myoddballs.com" | downcase %}
+            
+
+            <a href="{%- render 'ob-process-international-link', url: link.url -%}" class="link-banner-{{ link_banner_count }}-{{ linklists[linklist].links.size }} {% if link_lower == path %}{{ block.settings.link_block_active_classes }}{% else %}{{ block.settings.link_block_classes }}{% endif %}">{{ link.title }} </a>
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+  {% endfor %}
+</div>
+
+{% schema %}
+{
+  "name": "Link Banner Section",
+  "settings": [
+    {
+      "type": "color",
+      "id": "section_background",
+      "label": "Section Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "text",
+      "id": "section_wrapper_classes",
+      "label": "Section Wrapper CSS Classes",
+      "default": "default-section-wrapper-class"
+    }
+  ],
+  "blocks": [
+      {
+        "type": "link_banner",
+        "name": "Link Banner",
+        "settings": [
+          {
+            "id": "block_active",
+            "type": "checkbox",
+            "label": "block active?",
+			"default": true
+          },
+          {
+            "id": "customers",
+            "type": "select",
+            "default": "both",
+            "options": [
+              {
+                "value": "both",
+                "label": "both"
+              },
+              {
+                "value": "customer",
+                "label": "customer"
+              },
+              {
+                "value": "not-customer",
+                "label": "not customer"
+              } 
+            ],
+            "label": "Customer (optional)"
+          },
+          {
+            "type": "textarea",
+            "id": "url_handle",
+            "label": "Only display if url contains this handle (* for all)",
+            "info": "One per line",
+            "default":"*"
+          },
+          {
+            "type": "textarea",
+            "id": "not_url_handle",
+            "label": "Dont display if url contains this handle",
+            "info": "One per line"
+          },
+          {
+            "type": "html",
+            "id": "country_iso",
+            "label": "Only display if current iso is (* for all)",
+            "info": "Comma seperated",
+            "default":"*"
+          }, 
+          {
+            "type": "link_list",
+            "id": "link_list",
+            "label": "Banner linklist"
+          },    
+          {
+             "type": "text",
+             "id": "title",
+             "label": "Block Title",
+             "info": "Only used for identifying the block."
+          },
+          {
+             "type": "text",
+             "id": "wrapper_classes",
+             "label": "Wrapper Classes",
+             "info": "Gets overwritten by colour settings below."
+          },
+          {
+            "type": "text",
+            "id": "links_wrapper_classes",
+            "label": "Links wrapper classes"
+          },          
+          {
+            "type": "text",
+            "id": "link_block_classes",
+            "label": "Link block classes"
+          },
+          {
+            "type": "text",
+            "id": "link_block_active_classes",
+            "label": "link block active classes"
+          }        
+        ]
+      }
+  ],
+  "presets": [
+    {
+      "name": "Link Banner"
+    }
+  ]
+}
+{% endschema %}

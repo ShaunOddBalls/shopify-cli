@@ -1,0 +1,169 @@
+{% schema %}
+{
+  "name": "Mens Landing Dual Block",
+  "blocks": [{
+    "type": "block",
+    "name": "block",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+        "type": "text",
+        "id": "shop_now_link",
+        "label": "Shop Now Link"
+      },
+      {
+        "type": "text",
+        "id": "shop_now_classes",
+        "label": "Shop Now Classes",
+        "default": "px-4 py-1 text-center text-white uppercase font-bold border-2 border-solid border-white rounded-full md:text-xl"
+      },
+      {
+        "type": "text",
+        "id": "top_text",
+        "label": " Title Text"
+      },
+      {
+        "type": "text",
+        "id": "subtitle_text",
+        "label": "Subtitle Text"
+      },
+      {
+        "type": "text",
+        "id": "content_text",
+        "label": "Content Text"
+      },
+      {
+        "type": "image_picker",
+        "id": "button_1_image",
+        "label": "Button 1 image"
+      },
+      {
+        "type" : "text",
+        "id": "button_1_text",
+        "label": "Button 1 text"
+      },
+      {
+        "type": "image_picker",
+        "id": "button_2_image",
+        "label": "Button 2 image"
+      },
+      {
+        "type" : "text",
+        "id": "button_2_text",
+        "label": "Button 2 text"
+      },
+      {
+        "type": "image_picker",
+        "id": "button_3_image",
+        "label": "Button 3 image"
+      },
+      {
+        "type" : "text",
+        "id": "button_3_text",
+        "label": "Button 3 text"
+      },
+      {
+        "type": "select",
+        "id": "image_position",
+        "label": "Image Position",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          }
+        ],
+        "default": "left"
+      }
+    ]
+  }],
+  "presets": [
+    {
+      "name": "Mens Landing Dual",
+      "blocks": [
+        {
+          "type": "block"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<div class="mens-landing-section ">
+  {% for block in section.blocks %}
+    <div class="mens-landing-block-wrapper md:grid grid-cols-2 py-1">
+      <div class="mens-landing-top-left-image relative {% if block.settings.image_position == "right" %}md:hidden{% endif %}" >
+        <img style="height:100%; object-fit:cover;" class="w-full" height="150px" width="300px" src="{{ block.settings.image | img_url: 'master' }}" />
+          <div class="absolute w-full bottom-2 left-0 flex justify-center">
+            <a href="{{ block.settings.shop_now_link }}" class="{{ block.settings.shop_now_classes }}">
+              Shop now
+            </a>
+          </div>
+      </div>
+      <div class="mens-landing-content px-4">
+        <h2 class="font-bold marujo text-3xl mb-4">
+          {{ block.settings.top_text }}
+        </h2>
+        <h3 class="text-lg italic">
+          {{ block.settings.subtitle_text }}
+        </h3>
+        <p class="mb-2">
+          {{ block.settings.content_text }}
+        </p>
+        <div class="flex justify-center">
+          <div class="grid grid-cols-3 md:w-3/4">
+            <div class="px-4"> 
+                <img class="w-full mb-2" width="50px" height="50PX" src="{{ block.settings.button_1_image  | img_url: 'master'  }}" />
+                <div class="text-center">
+                  {{ block.settings.button_1_text }}
+                </div>
+            </div>
+            <div class="px-4">
+                <img class="w-full mb-2" width="50px" height="50PX" src="{{ block.settings.button_2_image  | img_url: 'master'  }}" />
+                <div class="text-center">
+                  {{ block.settings.button_2_text }}
+                </div>
+            </div>
+            <div class="px-4">
+                <img class="w-full mb-2" width="50px" height="50PX" src="{{ block.settings.button_3_image  | img_url: 'master'  }}" />
+                <div class="text-center">
+                  {{ block.settings.button_3_text }}
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mens-landing-bottom-image hidden relative {% unless block.settings.image_position == "right" %}md:hidden{% endunless %} {% if block.settings.image_position == "right" %}md:block{% endif %}">
+        <img style="height:100%; object-fit:cover;" class="w-full" height="150px" width="300px" src="{{ block.settings.image | img_url: 'master' }}" />
+        <div class="absolute w-full bottom-2 md:bottom-4 left-0 flex justify-center">
+          <a href="{{ block.settings.shop_now_link }}" class="{{ block.settings.shop_now_classes }}">
+            Shop now
+          </a>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+
+<style>
+  .student-blocks-section {
+    width: 100%;
+  }
+  .student-custom--block {
+    margin-bottom: 30px;
+  }
+  .background-image {
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+  }
+  
+</style>

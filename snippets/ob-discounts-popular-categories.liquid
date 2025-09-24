@@ -1,0 +1,78 @@
+{% assign clean_title = product.title %}
+{% assign style_text = 'no' %}
+
+{% comment %}
+  Check if the product is on sale and set a variable to be used below.
+{% endcomment %}
+{% assign on_sale = false %}
+{% if product.compare_at_price > product.price %}
+  {% assign on_sale = true %}
+{% endif %}
+
+{% if product.type == 'Subscription' %} 
+
+	{% if product.tags contains 'subscription_classic' %}
+		{% assign style_text = 'CLASSIC' %}
+		{% assign style_text = 'classic monthly subscription' %}
+        {% if product.title contains 'CLASSIC Subscription - ' %}
+
+            {% assign clean_title = product.title | replace: 'CLASSIC Subscription - ','' | replace: '[G2]','' %}
+
+            {% assign clean_title = 'plain monthly subscription' %}
+            {% assign style_text = product.title | replace: '[G2]','' | replace: 'CLASSIC Subscription - ','' | replace: ' Monthly','' | replace: ' Subscription','' | downcase %}
+            
+		{% endif %}
+    {% elsif product.tags contains 'subscription_adventurous' %}
+
+            {% assign style_text = 'patterned monthly subscription' %}
+			{% assign clean_title = product.title | replace: '[G2]','' %}
+
+            {% assign clean_title = 'patterned monthly subscription' %}
+            {% assign style_text = product.title | replace: '[G2]','' | replace: ' Monthly','' | replace: ' Subscription','' | downcase %}
+			
+    {% endif %}
+	{% assign clean_title = clean_title | replace: ' Monthly','' | replace: ' Subscription','' %}
+
+
+{% elsif product.type == 'Pre-Paid Subscription' %}
+
+	{% if product.tags contains 'subscription_classic' %}
+		{% assign style_text = '{{sub}} Plain Subscription' %}
+	{% elsif product.tags contains 'subscription_adventurous' %}
+		{% assign style_text = '{{sub}} Patterned Subscription' %}
+	{% endif %}
+	
+	{% if product.title contains '06 Month Pre-Paid: ' %}
+      
+		{% assign clean_title = style_text | replace: '{{sub}}', '6 month pre-paid ' %}
+		{% assign style_text = product.title | replace: '06 Month Pre-Paid: ','' | replace: 'CLASSIC Subscription - ','' | replace: '[G2]','' | replace: ' monthly subscription','' | downcase %}
+      
+
+	{% elsif product.title contains '12 Month Pre-Paid: ' %}
+		{% assign clean_title = style_text | replace: '{{sub}}', '12 month pre-paid ' %}
+		{% assign style_text = product.title | replace: '12 Month Pre-Paid: ','' | replace: 'CLASSIC Subscription - ','' | replace: '[G2]','' | replace: ' monthly subscription','' | downcase %}
+
+	{% endif %}
+	{% assign clean_title = clean_title | replace: ' Monthly','' | replace: ' Subscription','' %}
+
+{% else %}
+
+	{% if clean_title contains '-' %}
+		{% assign clean_title_arr = clean_title | split: ' - ' %}
+		{% assign clean_title_first = clean_title_arr | first %}
+		{% assign clean_title_first = clean_title_first | append: ' - ' %}
+		{% assign style_text = clean_title | replace: clean_title_first, '' %}
+		{% assign clean_title = clean_title_first | replace: ' - ','' %}
+	{% endif %}
+
+{% endif %}
+<div class="flex justify-between flex-col relative">
+    <div class="uppercase text-sm leading-tight tracking-wide pbb-5 clean-title text-black text-sm sm:text-base md:text-md font-semibold pb-1 md:pb-0">{{ clean_title }}</div>
+    {% if style_text != 'no' %}
+    {% capture velvet_html %}<span style="font-weight: 900;color: #e55f38;border-radius: 3px; margin: 2px 0px; display: inline-block; letter-spacing: 0.15em;">Velvet</span>{% endcapture %}
+    <div class="sentence capitalize absolutee whitespace-nowrapp tracking-wide leading-4 bottom-0 t-2 text-gray-500 font-normal text-sm sm:text-sm md:text-md clean-subtitle">
+      {% capture style_text_mod %}{{ style_text | replace: 'Velvet', velvet_html }}###{% endcapture %}
+      {{ style_text_mod | replace: ' - ###', '' | replace: '###', '' }}
+    </div>
+    {% endif %}
+</div>

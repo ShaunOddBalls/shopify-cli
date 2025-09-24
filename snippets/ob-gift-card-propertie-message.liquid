@@ -1,0 +1,33 @@
+          {% assign send_on = "" %}
+          {% assign email = "" %}
+          {% assign name = "" %}
+          {% assign message = "" %}
+          
+      {% for property in item.properties %}
+          {% if property.first == "Recipient email" %}
+            {% assign email = property.last %}
+          {% endif %}
+          
+          {% if property.first == "Recipient name" %}
+            {% assign name = property.last %}
+          {% endif %}
+          
+          {% if property.first == "Message" %}
+            {% assign message = property.last %}
+          {% endif %}
+          
+          {% if property.first == "Send on" %}
+            {% assign send_on = property.last %}
+          {% endif %}
+        {% endfor %}
+        
+        {% if name != "" or email != "" or send_on != "" or message != "" %}
+          <div class="border-solid border border-0.5 rounded-md p-2 text-xs">
+            This gift card
+            {% if name != '' %} for <span style="font-weight:bold;">{{ name }}</span>{% endif %}
+            {% if email != '' %} will be sent to <span style="font-weight:bold;">{{ email }}</span>{% endif %}
+           {% if send_on != '' %}on <span style="font-weight: bold;">{{ send_on | date: "%d-%m-%Y" }}</span>.{% endif %}
+            {% if message != '' %} and will include the message "<span style="font-weight: bold;">{{ message }}</span>.{% endif %}        
+          </div>
+        {% endif %}
+      

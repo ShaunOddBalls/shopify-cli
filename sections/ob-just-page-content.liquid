@@ -1,0 +1,60 @@
+{% include 'ob-include-set-current-country' %}
+{% for block in section.blocks %}
+  {% include 'ob-include-country-ok-to-proceed', thingObj:block %}
+  {% if country_ok_to_proceed == 'yes' %}
+    <div class="">
+        <div class="{{ block.settings.wrapper_classes }}">
+          {{ block.settings.page.content }}
+        </div>
+    </div>
+  {% endif %}
+{% endfor %}
+
+{% schema %}
+  {
+    "name": "Just Page Content",
+    "settings": [
+
+	],
+	"blocks": [
+      {
+        "type": "page",
+        "name": "Page",
+        "settings": [      
+          {
+              "type": "html",
+              "id": "country_iso",
+              "label": "Only display if current iso is (* for all)",
+              "info": "Comma seperated",
+              "default":"*"
+          },
+          {
+              "type": "text",
+              "id": "wrapper_classes",
+              "label": "Page wrapper classes",
+              "default":"max-w-3xl mx-auto px-5 md:px-0 pb-10"
+          },
+          {
+              "type": "page",
+              "id": "page",
+              "label": "Page"
+          }
+        ]
+      }
+    ],
+    "presets": [
+       {
+         "name": "Just Page Content",
+         "settings": {
+            
+          }
+       }
+     ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

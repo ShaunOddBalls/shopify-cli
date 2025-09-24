@@ -1,0 +1,107 @@
+{% assign debug = off %}
+
+{% assign banner_object = settings.free_metaobject %}
+{% assign popup_object = banner_object.popup_optional.value.system.handle %}
+
+{% assign handle = banner_object.popup_optional.value.system.handle %}
+{% assign banner = shop.metaobjects.free_product_banner_with_pop_up[settings.free_metaobject] %}
+{% assign product = banner_object.product.value %}
+{% assign use_product_image = banner_object.use_product_image %}
+{% assign header = banner_object.banner_header_at_least_item_one_in_cart %}
+{% assign header_2 = banner_object.banner_header %}
+{% assign image = banner_object.svg_icon_side_html %}
+{% assign popup = banner_object.popup_optional.value.system.handle %}
+
+{% if settings.cart_free_card == 'on' %}
+
+  {% if debug %}
+  <div class="p-4">
+    <h2>MetaObject Settings</h2>
+    <p>Object: {{ banner_object }}</p>
+    <p>Popup Object: {{ popup_object }}</p>
+    <p>Banner: {{ banner }}</p>
+    <p>Handle: {{ handle }}</p>
+    <p>Pop Up: {{ popup }}</p>
+    <p>Product: {{ product.featured_image }}</p>
+    <p>Show Product Image: {{ use_product_image }}</p>
+    <p>Banner Icon/HTML: {{ image }}</p>
+    <p>Banner Header One in Cart: {{ header }}</p>
+    <p>Banner Header Empty Cart: {{ header_2 }}</p>
+  </div>
+  {% endif %}
+
+  {% assign show_banner = true %}
+  
+  {% if product and product != blank %}
+    {% for item in cart.items %}
+      {% if item.properties and item.properties['_Free-card'] %}
+        {% assign show_banner = false %}
+        {% break %}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+
+  {% assign proceed = "false" %}
+  {% if product and product != blank %}
+    {% assign proceed = "true" %}
+  {% endif %}
+  {% if product.variants.first.inventory_quantity < 10 %}
+    {% assign proceed = "false" %}
+  {% endif %}
+
+   {% assign market_code = localization.language.root_url %}
+  {% unless market_code == '/' %}
+    {% assign proceed = false %}
+  {% endunless %}
+  
+  {% if proceed == "true" %}
+    <div id="free-card-banner" class="w-full free-card-banner {% if show_banner != true %}hidden{% endif %}" style="color:#000000; background-color:#fee7f3">
+      <div class="flex justify-between items-center h-full px-4 py-2">
+
+        <div class="h-full flex items-center justify-start">
+          {% if use_product_image %}
+            <img
+              class="h-full w-28 object-contain"
+              src="{{ product.featured_image | img_url: 'medium' }}"
+              alt="{{ product.title }}"
+            >
+          {% else %}
+            {{ image }}
+          {% endif %}
+        </div>
+
+        <div class="w-full {% if popup %}js-open-generic-banner cursor-pointer{% endif %}" data-metaobjecthandle="{{ popup }}">
+          {% if cart.item_count > 0 %}
+            {{ header }}
+          {% else %}
+            {{ header_2 }}
+          {% endif %}
+        </div>
+
+   
+          <div class="flex justify-end">
+            <form method="post" id="free-card-form" onsubmit="return false">
+              {% if product.variants.size > 0 %}
+                <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+                <input type="hidden" name="quantity" id="quantity-{{ product.id }}" value="1" min="1">
+                <input type="hidden" name="properties[_Free-card]" value="{{ product.id }}">
+
+                <button
+                  type="button"
+                  id="free-card-button"
+                  class="uppercase bg-magenta-500 w-28 max-w-28 text-nowrap rounded-full text-white text-xs font-semibold justify-center items-center flex px-3 py-2 col-span-3 relative"
+                >
+                  <svg class="circular-loader hidden mx-auto" viewBox="25 25 50 50" style="width: 20px; height: 20px;">
+                    <circle class="loading-ele-inner" cx="50" cy="50" r="20" fill="none" stroke-width="4"></circle>
+                  </svg>
+                  <span class="free-cart-btn-text">Add to Cart</span>
+                </button>
+              {% endif %}
+            </form>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+
+
+{% endif %}

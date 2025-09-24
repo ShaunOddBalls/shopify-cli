@@ -1,0 +1,32 @@
+<div class="account-nav hidden fixed overflow-hidden bg-white max-xl:inset-0 max-xl:z-50 sm:max-w-[498px] xl:right-0 xl:top-[var(--header-height)] xl:px-6 xl:pb-6 xl:z-10">
+	<div class="xl:p-6 xl:w-[322px] xl:rounded-b-2xl xl:bg-white shadow-3 max-xl:shadow-none">
+	  <div class="relative">
+		<div class="flex items-center max-xl:bg-[#F7F8F5] max-xl:h-[132px]">
+		  <div class="flex justify-center flex-1">
+			<h6 class="typography typography--title-six max-xl:uppercase">{{ customer.register.my_account | t }}</h6>
+		  </div>
+		  <div class="max-xl:absolute max-xl:top-6 max-xl:right-4">
+			<button class="button button--variant-ghost button--icon bg-[#F5F5F5] !w-6 !h-6" data-toggle="collapse" data-target=".account-nav" aria-label="Close">
+			  <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 14 14">
+				<rect width="16.9705" height="1.13137" rx="0.565684" transform="matrix(0.707106 -0.707108 0.707106 0.707108 0.600586 12.6001)" fill="currentColor"></rect>
+				<rect width="16.9705" height="1.13137" rx="0.565684" transform="matrix(-0.707106 -0.707107 0.707106 -0.707108 12.6006 13.4001)" fill="currentColor"></rect>
+			  </svg>
+			</button>
+		  </div>
+		</div>
+		<div class="max-xl:px-6">
+		  <p class="typography typography--body-md text-center mt-3">{{ customer.register.sign_in_message | t }}</p>
+		  <div class="flex pt-4 gap-x-8">
+			<a href="/account/register" class="button button--variant-outline flex-1">{{ customer.register.sign_up | t }}</a>
+			<a href="/account/login" class="button flex-1">{{ customer.register.sign_in | t }}</a>
+		  </div>
+		</div>
+	  </div>
+	</div>
+  </div>
+{% schema %}
+  {
+    "name": "ob Account Nav",
+    "settings": []
+  }
+{% endschema %}

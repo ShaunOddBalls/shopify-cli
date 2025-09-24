@@ -1,0 +1,175 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "bloggle_header_p7pT9f": {
+      "type": "bloggleHeader",
+      "blocks": {
+        "hero_banner_haRkh7": {
+          "type": "hero_banner",
+          "settings": {
+            "blog_handle": "news/how-to-care-for-your-underwear-washing-guide",
+            "text_handle": "",
+            "text-color-desktop": "#ffffff",
+            "text-color-mobile": "",
+            "desktop_image": "shopify://shop_images/How_to_care_for_your_underwear_desktop_3cf8231f-5dcb-450e-8c81-31d2624c3a36.png",
+            "mobile_image": "shopify://shop_images/How_to_care_for_your_underwear_desktop_3cf8231f-5dcb-450e-8c81-31d2624c3a36.png",
+            "read_time": ""
+          }
+        },
+        "hero_banner_3k7kgR": {
+          "type": "hero_banner",
+          "settings": {
+            "blog_handle": "news/oddballs-now-at-john-lewis",
+            "text_handle": "",
+            "text-color-desktop": "#ffffff",
+            "text-color-mobile": "",
+            "desktop_image": "shopify://shop_images/OddBalls_at_John_Lewis.png",
+            "mobile_image": "shopify://shop_images/OddBalls_at_John_Lewis.png",
+            "read_time": ""
+          }
+        },
+        "hero_banner_7jpF8k": {
+          "type": "hero_banner",
+          "settings": {
+            "blog_handle": "news/what-is-bamboo-underwear-benefits-fabric-facts-care-tips",
+            "text_handle": "",
+            "text-color-desktop": "#ffffff",
+            "text-color-mobile": "",
+            "desktop_image": "shopify://shop_images/Bamboo_underwear_desktop_837512df-3b54-4b45-a7f8-c36fe702b298.png",
+            "mobile_image": "shopify://shop_images/Bamboo_underwear_desktop_837512df-3b54-4b45-a7f8-c36fe702b298.png",
+            "read_time": ""
+          }
+        },
+        "hero_banner_A7UWgw": {
+          "type": "hero_banner",
+          "disabled": true,
+          "settings": {
+            "blog_handle": "news/new-improved-womens-boxer-shorts",
+            "text_handle": "",
+            "text-color-desktop": "#ffffff",
+            "text-color-mobile": "",
+            "desktop_image": "shopify://shop_images/Coppafeel_banner.png",
+            "mobile_image": "shopify://shop_images/Coppafeel_banner.png",
+            "read_time": ""
+          }
+        },
+        "hero_banner_eNfHbU": {
+          "type": "hero_banner",
+          "settings": {
+            "blog_handle": "news/lingerie-knicker-style-guide",
+            "text_handle": "",
+            "text-color-desktop": "#ffffff",
+            "text-color-mobile": "",
+            "desktop_image": "shopify://shop_images/Womens_underwear_banner.png",
+            "mobile_image": "shopify://shop_images/Womens_underwear_banner.png",
+            "read_time": ""
+          }
+        },
+        "hero_banner_7bVcKW": {
+          "type": "hero_banner",
+          "settings": {
+            "blog_handle": "news/new-and-improved-womens-boxer-shorts",
+            "text_handle": "",
+            "text-color-desktop": "#ffffff",
+            "text-color-mobile": "",
+            "desktop_image": "shopify://shop_images/banner_2.png",
+            "mobile_image": "shopify://shop_images/banner_2.png",
+            "read_time": ""
+          }
+        },
+        "hero_banner_bAr3jB": {
+          "type": "hero_banner",
+          "settings": {
+            "blog_handle": "news/different-mens-underwear-types",
+            "text_handle": "news/different-mens-underwear-types",
+            "text-color-desktop": "#ffffff",
+            "text-color-mobile": "",
+            "desktop_image": "shopify://shop_images/3.5.png",
+            "mobile_image": "shopify://shop_images/3.5.png",
+            "read_time": ""
+          }
+        },
+        "hero_banner_ki3hyw": {
+          "type": "hero_banner",
+          "settings": {
+            "blog_handle": "news/oddballs-underwear-subscription",
+            "text_handle": "news/different-mens-underwear-types",
+            "text-color-desktop": "#ffffff",
+            "text-color-mobile": "",
+            "desktop_image": "shopify://shop_images/subs_banner.png",
+            "mobile_image": "shopify://shop_images/subs_banner.png",
+            "read_time": ""
+          }
+        }
+      },
+      "block_order": [
+        "hero_banner_haRkh7",
+        "hero_banner_3k7kgR",
+        "hero_banner_7jpF8k",
+        "hero_banner_A7UWgw",
+        "hero_banner_eNfHbU",
+        "hero_banner_7bVcKW",
+        "hero_banner_bAr3jB",
+        "hero_banner_ki3hyw"
+      ],
+      "name": "Blog Hero Header",
+      "settings": {
+        "text-color-desktop": "#fefefe",
+        "text-color-mobile": "",
+        "desktop_image": "shopify://shop_images/Banners-StudentPage_Desktop-BG_d86f6347-fb19-4b3d-a8a4-37fc70ce8b84.jpg",
+        "mobile_image": "shopify://shop_images/Banners-StudentPage_Desktop-BG.jpg",
+        "read_time": ""
+      }
+    },
+    "main": {
+      "type": "main-article",
+      "blocks": {
+        "featured_image": {
+          "type": "featured_image",
+          "settings": {
+            "image_height": "adapt"
+          }
+        },
+        "title": {
+          "type": "title",
+          "disabled": true,
+          "settings": {
+            "blog_show_date": false,
+            "blog_show_author": false
+          }
+        },
+        "share": {
+          "type": "share",
+          "disabled": true,
+          "settings": {
+            "share_label": "Share"
+          }
+        },
+        "content": {
+          "type": "content",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "featured_image",
+        "title",
+        "share",
+        "content"
+      ],
+      "disabled": true,
+      "settings": {}
+    }
+  },
+  "order": [
+    "bloggle_header_p7pT9f",
+    "main"
+  ]
+}

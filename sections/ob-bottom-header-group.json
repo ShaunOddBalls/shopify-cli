@@ -1,0 +1,163 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "header",
+  "name": "Header Menu Bottom Section",
+  "sections": {
+    "ob_nav_section_nNT88U": {
+      "type": "ob-nav-section",
+      "blocks": {
+        "desktop_nav_image_nMmRCj": {
+          "type": "desktop-nav-image",
+          "settings": {
+            "title": "accessories",
+            "text": "Collection One",
+            "url": "",
+            "image": "shopify://shop_images/FESTIVAL_WAISTBAND_DETAIL-min_f4e46987-0f81-4e0d-80b7-eab15b264c7e.png",
+            "text-2": "Collection Two",
+            "url-2": "",
+            "image-2": "shopify://shop_images/ENGLAND_RUGBY_FABRIC_DETAIL-min.png"
+          }
+        },
+        "desktop_nav_image_7cGqyG": {
+          "type": "desktop-nav-image",
+          "settings": {
+            "title": "sale",
+            "text": "Collection One",
+            "url": "",
+            "image": "shopify://shop_images/mobile_5ab4a9d2-96e7-4feb-90d4-3b2f1fb00dce.png",
+            "text-2": "Collection Two",
+            "url-2": "",
+            "image-2": "shopify://shop_images/Insta-Homepage-2.jpg"
+          }
+        },
+        "desktop_nav_image_dVdqxL": {
+          "type": "desktop-nav-image",
+          "settings": {
+            "title": "subscription",
+            "text": "Collection One",
+            "url": "",
+            "image": "shopify://shop_images/SBD-ADVENTUROUS-minty_balls_insta_4a79385f-7470-421b-8046-d501327fdbbc.png",
+            "text-2": "Collection Two",
+            "url-2": "",
+            "image-2": "shopify://shop_images/Insta_Reel_Image_8.png"
+          }
+        }
+      },
+      "block_order": [
+        "desktop_nav_image_nMmRCj",
+        "desktop_nav_image_7cGqyG",
+        "desktop_nav_image_dVdqxL"
+      ],
+      "settings": {
+        "logo_position": "top-center",
+        "menu": "nova-main-menu",
+        "menu_type_desktop": "dropdown",
+        "sticky_header_type": "on-scroll-up",
+        "show_line_separator": true,
+        "color_scheme": "background-1",
+        "enable_country_selector": false,
+        "enable_language_selector": false,
+        "mobile_logo_position": "center",
+        "margin_bottom": 0,
+        "padding_top": 20,
+        "padding_bottom": 20
+      }
+    },
+    "ob_mobile_menu_tGn7zC": {
+      "type": "ob-mobile-menu",
+      "blocks": {
+        "mobile_nav_image_Km77ec": {
+          "type": "mobile-nav-image",
+          "settings": {
+            "title": "Women",
+            "dont-display": "",
+            "text": "Matching Set",
+            "url": "#",
+            "image": "shopify://shop_images/MatchingSets.jpg"
+          }
+        },
+        "mobile_nav_image_aT8RFb": {
+          "type": "mobile-nav-image",
+          "settings": {
+            "title": "kids",
+            "dont-display": "",
+            "text": "Lad and dad",
+            "url": "#",
+            "image": "shopify://shop_images/Dad_and_Lad_Bundles.png"
+          }
+        },
+        "mobile_nav_image_UzVqaV": {
+          "type": "mobile-nav-image",
+          "settings": {
+            "title": "*",
+            "dont-display": "kids",
+            "text": "Perfect Pair",
+            "url": "#",
+            "image": "shopify://shop_images/perfect_pair_banner_3_ff0211e3-5d5e-43e9-a465-1e420ed8447f.png"
+          }
+        },
+        "mobile_nav_image_iGGjjd": {
+          "type": "mobile-nav-image",
+          "settings": {
+            "title": "*",
+            "dont-display": "kids",
+            "text": "Build A Bundle",
+            "url": "/pages/build-a-bundle",
+            "image": "shopify://shop_images/FD_BUNDLES_9.jpg"
+          }
+        },
+        "mobile_nav_image_fRmdih": {
+          "type": "mobile-nav-image",
+          "settings": {
+            "title": "kids",
+            "dont-display": "",
+            "text": "Accessories",
+            "url": "#",
+            "image": "shopify://shop_images/MENS-ACCESSORIES.png"
+          }
+        },
+        "mobile_nav_banner_XdataG": {
+          "type": "mobile-nav-banner",
+          "settings": {
+            "foreground-image": "shopify://shop_images/Payments-Mobile-FG.svg",
+            "background-image": "shopify://shop_images/Payments-Mobile-BG_ccf0492f-315e-4988-b277-f9fc45247a1a.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "mobile_nav_image_Km77ec",
+        "mobile_nav_image_aT8RFb",
+        "mobile_nav_image_UzVqaV",
+        "mobile_nav_image_iGGjjd",
+        "mobile_nav_image_fRmdih",
+        "mobile_nav_banner_XdataG"
+      ],
+      "settings": {
+        "logo_position": "middle-left",
+        "menu": "rebuild-mobile-menu",
+        "menu_type_desktop": "dropdown",
+        "sticky_header_type": "on-scroll-up",
+        "show_line_separator": true,
+        "color_scheme": "background-1",
+        "enable_country_selector": false,
+        "enable_language_selector": false,
+        "mobile_logo_position": "center",
+        "margin_bottom": 0,
+        "padding_top": 20,
+        "padding_bottom": 20
+      }
+    }
+  },
+  "order": [
+    "ob_nav_section_nNT88U",
+    "ob_mobile_menu_tGn7zC"
+  ]
+}

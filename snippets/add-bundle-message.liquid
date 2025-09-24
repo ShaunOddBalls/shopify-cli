@@ -1,0 +1,17 @@
+{% assign darkmode = false %}
+{% if product.tags contains 'theme-darkmode' %}
+  {% assign darkmode = true %}
+{% endif %}
+
+{% if darkmode and product.type == "Boxer Shorts" %}
+<div class="rounded-lg text-white uppercase px-5 py-2 text-xs mb-5 ob-border-dotted" style="
+                background: rgb(0 0 0 / 33%);
+            ">Also available as a <a href="/products/stealth-bundle-mens-boxer-shorts-4-pack" class="text-magenta text-magenta underline font-bold"> 4 pack bundle</a>
+</div>
+{% endif %}
+{% if darkmode and product.type == "Boxer Shorts Bundle" %}
+<div class="rounded-lg text-white uppercase px-5 py-2 text-xs mb-5 ob-border-dotted" style="
+                background: rgb(0 0 0 / 33%);
+            ">Also available as an <a href="/products/stealth-premium-mens-boxer-shorts" class="text-magenta underline font-bold">individual pair</a>
+</div>
+{% endif %}

@@ -1,0 +1,11 @@
+{% assign country_ok_to_proceed = 'no' %}
+
+{% if thingObj.settings.country_iso != blank %}
+	{% assign country_ok_to_proceed = 'yes' %}
+{% endif %}
+{% assign block_iso_arr = thingObj.settings.country_iso  | uppercase | replace: ' ', '' | strip_html %}
+{% if block_iso_arr contains '*' or block_iso_arr contains current_country  %}
+	{% assign country_ok_to_proceed = 'yes' %}
+{% else %}
+	{% assign country_ok_to_proceed = 'no' %}
+{%  endif %}

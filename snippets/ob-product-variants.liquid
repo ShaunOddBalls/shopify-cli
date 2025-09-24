@@ -1,0 +1,90 @@
+{% assign size = size | downcase %}
+
+                 
+
+   
+                  <!-- Variant Options -->
+                  <div id="product-variants" class="gap-4 my-6 mt-0 {{ wrapper_classes }}">
+                    {%- unless product.has_only_default_variant -%}
+                      <div class="product-options flex flex-col gap-5">
+                        {%- for option in product.options_with_values -%}
+                          <div class="product-option {% if forloop.first and sub_form %}{% endif %}" data-option-index="{{ forloop.index0 }}" data-option-name="{{ option.name | escape }}">
+                            <div class="flex justify-between items-center w-full">
+                              <div class="typography typography--body-md uppercase mb-2 font-semibold size-name">{{ option.name | escape }}</div>
+                              
+                              {% if template.suffix == 'qb' or template.suffix == 'qb-ss' or template.suffix == 'qb-rgs' or template.suffix == 'qb-scu' %}
+                                  <div>
+                                    {% render 'ob-quick-guide-size-guide' %}
+                                  </div>
+                                {% else %}
+                                  <div id="size-guide-destination"></div>
+                              {% endif %}
+                                  </div>
+                            <div class="product-variants grid grid-cols-{% if option.values.size > 4 %}4{% else %}{{ option.values.size }}{% endif %} gap-3">
+                  
+                              {%- for value in option.values -%}
+                                <div data-variant-id="{{ value.variant.id }}" data-option-value="{{ value.name | escape }}" class="product-variant text-xs relative {% unless value.variant.available %}variant-unavailable klaviyo-bis-trigger{% endunless %}{% if sub_form %} sub-form-upsell {% endif %}">
+                                  <div class="out-of-stock-marker absolute z-10" style="right:5%; bottom:10%;">
+                                    <svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="15" height="15" viewBox="0 0 24 24" stroke="#f00f83" xmlns="http://www.w3.org/2000/svg"><path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path></svg>
+                                  </div>
+                                  <label data-active="ring-2 ring-magenta" class="ooption-value group relative flex items-center justify-center rounded-md border py-4 px-4 text-xs font-medium font-semibold uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 cursor-pointer bg-white text-gray-900 shadow-sm text-nowrap">
+                                    {% if value.variant.available %}
+									<input type="radio" 
+										value="{{ value.variant.id }}" 
+										name="{{ product.id }}-{{ option.name | handle }}" 
+                                        {% assign size_value = value.name | downcase %}                              
+										class="peer sr-only {% if sub_form %} sub-form-upsell-input {% endif %}{% if value.variant.id == sizeid or size_value == size %} check-this {% endif %}"
+										data-option-index="{{ forloop.parentloop.index0 }}" 
+										data-option-value="{{ value.name | escape }}" />
+          							{% endif %}
+
+                                    <span class="peer-checked:border-transparent items-center flex justify-center peer-checked:bg-magenta-500 peer-checked:text-white peer-checked:hover:bg-pink-700 peer-checked:ring-2 peer-checked:ring-magenta-500 peer-checked:ring-offset-2 border-transparent pointer-events-none absolute -inset-px rounded-md" aria-hidden="true"></span>
+                                    <span class="option-value relative peer-checked:text-white">
+                                      <del class="out-of-stock-marker">{{ value.name }}</del>
+                                      <div class="in-stock-marker">{{ value.name }}</div>
+                                    </span>
+                                  </label>
+                                </div>
+                              {%- endfor -%}
+                            </div>
+                          </div>
+                        {%- endfor -%}
+                      </div>
+                    {%- endunless -%}
+                  </div>
+                  <!-- Selling Plans -->
+                  {% if product.selling_plan_groups.size > 0 %}
+                  <div class="selling-plan-group {% if product.selling_plan_groups.size == 1 %}hidden{% endif %}">
+                    <div class="selling-plan-title">Subscription Options</div>
+                    <select name="selling_plan" class="selling-plan-select">
+                      {% assign first_option_selected = false %}
+                      {% if product.requires_selling_plan == false %}
+                        <option value="" {% unless first_option_selected %}selected{% endunless %}>One-time purchase</option>
+                        {% assign first_option_selected = true %}
+                      {% endif %}
+                      {% for selling_plan_group in product.selling_plan_groups %}
+                        {% for selling_plan in selling_plan_group.selling_plans %}
+                          <option value="{{ selling_plan.id }}" {% unless first_option_selected %}selected{% endunless %}>
+                            {{ selling_plan.name }}
+                          </option>
+                          {% assign first_option_selected = true %}
+                        {% endfor %}
+                      {% endfor %}
+                    </select>
+                  </div>
+                  {% endif %}
+                  {% assign show_out_of_stock = 'no' %}
+                  {% for variant in product.variants %}
+                    {% if variant.available == false %}
+                      {% assign show_out_of_stock = 'yes' %}
+                      {% break %}
+                    {% endif %}
+                  {% endfor %}
+                  {% if show_out_of_stock == 'yes' and all_out_of_stock != "yes" %}
+                    <div class="tw-text-xs tw-mt-4">
+                      {{ "ob_quick_buy.out_of_stock_html" | t }}
+                    </div>
+                    {% comment %}{% render 'ob-product-back-in-stock-form' %}{% endcomment %}
+                  {% endif %}
+                  <!-- Add this hidden input with the product JSON data -->
+                  <input type="hidden" id="product-json-{{ product.id }}" value="{{ product | json | escape }}" data-product-id="{{ product.id }}">

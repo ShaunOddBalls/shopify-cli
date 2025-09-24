@@ -1,0 +1,22 @@
+{% schema %}
+{
+  "name": "Plain Text",
+  "settings": [
+      {
+        "type": "textarea",
+        "id": "text",
+        "label": "text"
+      }
+],
+  "presets": [
+    {
+      "name": "Plain Text",
+    }
+  ]
+}
+{% endschema %}
+<div class="flex justify-center">
+  <div class="w-full h-full mb-4 px-4 md:text-center max-w-7xl">
+    {{ section.settings.text }}
+  </div>
+</div>

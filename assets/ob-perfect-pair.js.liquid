@@ -1,0 +1,1542 @@
+$(document).ready(function () {
+
+  var design_list = []; 
+  function get_designs(){
+  var design_list_url = `https://oddballs-data--development.gadget.app/apps/oddballs-data/metaobject?handle=design_list_with_extras`;
+  var design_url = `https://oddballs-data--development.gadget.app/apps/oddballs-data/metaobject?handle=design`;
+
+  var params1 = { type: 'GET', url: design_list_url, dataType: 'html' };
+  var params2 = { type: 'GET', url: design_url, dataType: 'html' };
+
+        Promise.all([$.ajax(params1), $.ajax(params2)])
+        .then(([response1, response2]) => {
+          
+          const jsonData = JSON.parse(response1);
+          const designValue = jsonData[0].node.fields.find(field => field.key === 'list').value;
+          const designArray = JSON.parse(designValue);
+
+          const jsonData2 = JSON.parse(response2);
+          for(design_id of designArray){
+            for(node of jsonData2){
+              if(node.node.id == design_id){
+                design_list.push(node)
+              }
+            }
+          }
+        })
+   
+  }
+  get_designs();
+  
+ $('#site-header').css('position','relative !important');
+
+    /**************************************************************************************************
+                                  MatchBalls JS
+    *///////////////////////////////////////////////////////////////////////////////////////////////////
+    var match_step = 0; //current step in the proceess
+  
+    //variables about the user's selections
+    var step_1_gender = ""; 
+    var temp_step_1_gender = ""; 
+    var step_2_gender = "";
+    var temp_step_2_gender = "";
+    var step_1_type = "";
+    var temp_step_1_type = "";
+    var step_2_type = "";
+    var temp_step_2_type = "";
+    var step_1_size = "";
+    var temp_step_1_size = "";
+    var step_2_size = "";
+    var temp_step_2_size = "";
+    var step_1_size_plain = "";
+    var temp_step_1_size_plain = "";
+    var step_2_size_plain = "";
+    var temp_step_2_size_plain = "";
+    var current_bralette;
+    var selected_barlette_var_id = "";
+    var selected_barlette_var_id_2 = "";
+    var selected_bralette_size = "";
+    var selected_bralette_size_2 = "";
+    var match_brallete_added = false;
+    var match_brallete_added_2 = false;
+    var match_ids_to_add = [];
+    var temp_size = "";
+    var temp_id = "";
+    var match_price1 = 0;
+    var match_price2 = 0;
+    var match_comp_price1 = 0;
+    var match_comp_price2 = 0;
+    var match_bralette_in = false;
+    var match_bralette_in_2 = false;
+     
+  
+    //vars used to find/display matching pairs
+    var results_arr_1 = [];
+    var bralette_arr = [];
+    var results_arr_2 = [];
+    var matching_prints = [];
+    var temp_matching_prints = [];
+    var final_arr = [];
+  
+    //id's of found pairs
+    var match_variant_id_1 = "";
+    var match_variant_id_2 = "";
+
+    var match_prod_id_1 = "";
+    var match_prod_id_2 = "";
+  
+    //list of steps the user has visited
+    var match_balls_visited_steps = [];
+  
+    //variables for selected images
+    var men_boxer_img_url = "https://cdn.shopify.com/s/files/1/0353/7249/files/VALENTINES_96_500x.png?v=1705915662";
+    var men_brief_img_url = "https://cdn.shopify.com/s/files/1/0353/7249/files/VALENTINES_113_500x.png?v=1705917679";
+    var women_brief_img_url = 'https://cdn.shopify.com/s/files/1/0353/7249/files/VALENTINES_102_500x.png?v=1705916854';
+    var women_seamless_img_url = 'https://cdn.shopify.com/s/files/1/0353/7249/files/women-seamless-actually_500x.png?v=1704457677';
+    var women_thong_img_url = 'https://cdn.shopify.com/s/files/1/0353/7249/files/VALENTINES_105_500x.png?v=1705916911';
+    var women_boxer_img_url = "https://cdn.shopify.com/s/files/1/0353/7249/files/VALENTINES_90_500x.png?v=1705915808";
+    var cover_img_url = "https://cdn.shopify.com/s/files/1/0353/7249/files/VALENTINES_17_500x.png?v=1705916990";
+    var cover_img_url_2 = "https://cdn.shopify.com/s/files/1/0353/7249/files/VALENTINES_14.png?v=1706530611";
+  
+  function isDesktop() {
+    return window.innerWidth <= 1024;
+  }
+  
+  function scrollToStep1() {
+      if (isDesktop()) {
+          $('#match-balls-img-container').addClass("hidden md:block");
+          var element = document.getElementById("step-1-marker");
+          element.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+  }
+  
+  function scrollToStep2() {
+      if (isDesktop()) {
+          $('#match-balls-img-container').addClass("hidden md:block");
+          var element = document.getElementById("match-balls-wrapper");
+          element.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+  }
+  
+function scrollToStep3() {
+  if (isDesktop()) {
+    setTimeout(() => {
+      console.log("scrolling");
+      var element = document.getElementById("match-me-final-nav");
+      window.scrollTo({
+        top: element.offsetTop - 100,
+        behavior: "smooth"
+      });
+    }, 10);
+  }
+}
+
+
+    
+    $('body').on('click', '.js-step-1-gender', function () {
+    scrollToStep1();
+      //clicking men/women button on 1st step
+  
+      //show options for gender such as size/type
+      $('.js-match-select-a-product-1').removeClass("hidden");
+      $(this).closest('.js-perfect-step').find('#step-1-finish').removeClass("hidden");
+  
+      
+      $(this).closest('.js-perfect-step').find('#step-1-finish').removeClass("matchballs-active");//make next step button inactive
+  
+      //makes all genders/sizes/types inactive essentially resetting the users choices when changing gender
+      $('.js-step-1-gender').each(function(){
+        $(this).removeClass("matchballs-active");
+      })
+      $('.js-step-1-type').each(function(){
+        $(this).removeClass("matchballs-active");
+      })
+      $('.js-step-1-size').each(function(){
+        $(this).removeClass("matchballs-active");
+      })
+      $(this).closest('.js-perfect-step').find('#step-1-finish').html("Please Select a Size")
+      $(this).closest('.js-perfect-step').find('#step-1-finish').addClass("pointer-events-none")
+  
+      
+      $(this).addClass("matchballs-active");//adds active class to current gender
+  
+      //hides choices/sizes for all genders
+      $('.js-step-1-type-choice').each(function () {
+        $(this).addClass("hidden");
+      });
+      $('.js-step-1-size-choice').each(function () {
+        $(this).addClass("hidden");
+      });
+  
+      //show correct sizes/types, update the image and set variables for the user's choice
+      if ($(this).data('gender') == "men") {
+        $(this).closest('.js-perfect-step').find('#1-men-boxer').addClass("matchballs-active");
+        temp_step_1_type = "mens-boxer-shorts-individuals";
+        temp_step_1_gender = "men";
+        $(this).closest('.js-perfect-step').find('#1-men-choice').removeClass("hidden");
+        /**
+        $('.perfect-pair-image').each(function(){
+            $(this).addClass("hidden");
+            })
+            $('#men_boxer_img_url').removeClass("hidden");**/
+        $(this).closest('.js-perfect-step').find('#step-1-men-size').removeClass("hidden");
+      }
+      if ($(this).data('gender') == "women") {
+        $(this).closest('.js-perfect-step').find('#1-women-boxer').addClass("matchballs-active");
+        temp_step_1_type = "ladies-boxer-shorts-individuals";
+        temp_step_1_gender = "women";
+        $(this).closest('.js-perfect-step').find('#1-women-choice').removeClass("hidden");
+        /**
+        $('.perfect-pair-image').each(function(){
+            $(this).addClass("hidden");
+            })
+            $('#women_boxer_img_url').removeClass("hidden");**/
+            $(this).closest('.js-perfect-step').find('#step-1-women-size').removeClass("hidden");
+      }
+  
+      $(this).closest('.js-perfect-step').find('#1-size-choice').removeClass("hidden"); //show choices
+    });
+  
+    $('body').on('click', '.js-step-1-type', function () {
+      //click on type selection
+  
+      
+      $('.js-step-1-type').each(function(){//remove active class from all types
+        $(this).removeClass("matchballs-active");
+      })
+      $(this).addClass("matchballs-active");//add active class to current type
+      
+    temp_step_1_type = $(this).data('type');//update variable for user's choice
+      replaceMatchImg(1);
+  });
+  
+  
+    $('body').on('click', '.js-step-1-size', function () {
+      //click on size choice
+      
+      $(this).closest('.js-perfect-step').find('#step-1-finish').removeClass("pointer-events-none");//allow user to progress to next step
+      $('.js-step-1-size').each(function(){//remove active class from all size options
+        $(this).removeClass("matchballs-active");
+      })
+      $(this).addClass("matchballs-active") //add active class to selected size
+  
+      //update variables for step 1 choice
+      temp_step_1_size = $(this).data('size');
+      temp_step_1_size_plain = $(this).html();
+  
+      //change button to allow user to continue
+      $(this).closest('.js-perfect-step').find('#step-1-finish').html("Continue To Next Pair");
+      $(this).closest('.js-perfect-step').find('#step-1-finish').addClass("matchballs-active");
+      
+    });
+  
+    $('body').on('click','#step-1-finish',function(){
+      $('#2-men').click()
+      $('#match-balls-img-container').removeClass("hidden");
+      step_1_gender = temp_step_1_gender;
+      step_1_size = temp_step_1_size;
+      step_1_size_plain = temp_step_1_size_plain;
+      step_1_type = temp_step_1_type;
+      // button at the end of step 1
+      processMatchNav(2);//update nav bar
+      match_balls_visited_steps.push('1'); //user has visited step 2
+      match_balls_visited_steps.push('2'); //user has visited step 2
+      match_step = 2;//current step
+      $('#match-me-back-button').removeClass("hidden");//show back button
+      $('#step-1-wrapper').addClass("hidden");//hide step 1
+      $('#step-2-wrapper').removeClass("hidden");//show step 2
+      scrollToStep2();
+      if(step_2_gender.length > 0){//if user had previously selected a type update the image with the correct type, else use default image
+        replaceMatchImg(match_step)
+      }else{
+        /**
+         $('.perfect-pair-image').each(function(){
+            $(this).addClass("hidden");
+            })
+            $('#cover_img_url_2').removeClass("hidden");**/
+        
+      }
+    })
+  
+     $('body').on('click','.js-match-nav-step',function(){
+       //clicking the nav bar
+       
+       if (match_balls_visited_steps.map(String).includes(String($(this).data('step')))) {//only allow users to click steps that they have previously visited
+        if($(this).data('step') == 0){
+          final_arr = [];//reset found matching pairs so that new pairs can be found
+          match_step = 0;//set current step
+  
+          //show/hide the approaite sections
+          /**
+           $('.perfect-pair-image').each(function(){
+            $(this).addClass("hidden");
+            })
+            $('#cover_img_url').removeClass("hidden");**/
+         $('#step-0-wrapper').removeClass("hidden");
+          $('#step-1-wrapper').addClass("hidden");
+          $('#step-2-wrapper').addClass("hidden");
+          $('#match-me-result-designs-patterned').html("");
+          $('#match-me-result-designs-plain').html("");
+          $('#match-balls-wrapper').addClass("md:grid");
+          $('match-balls-img-container').removeClass("hidden");
+          $('#match-balls-wrapper').removeClass("hidden");
+          $('#match-me-final').addClass("hidden");
+          $('#match-me-final-nav').addClass("hidden");
+          $('#match-me-final').removeClass("md:flex");
+  
+         
+          $('#step-0-wrapper').removeClass("hidden");
+          $('#step-1-wrapper').addClass("hidden");
+       }
+       if($(this).data('step') != 3){
+         $('#match-me-final-no-matches').addClass("hidden");
+       }
+       if($(this).data('step') == 1){
+         match_step = 1;
+         $('#step-0-wrapper').addClass("hidden");
+          $('#step-1-wrapper').removeClass("hidden");
+          $('#match-balls-img-container').removeClass("hidden");
+         final_arr = [];
+         $('#match-me-result-designs-patterned').html("");
+         $('#match-me-result-designs-plain').html("");
+         $('#match-balls-wrapper').addClass("md:grid");
+         $('match-balls-img-container').removeClass("hidden");
+         $('#match-balls-wrapper').removeClass("hidden");
+         $('#match-me-final').addClass("hidden");
+         $('#match-me-final-nav').addClass("hidden");
+         $('#match-me-final').removeClass("md:flex");
+         $('#step-1-wrapper').removeClass("hidden");
+         $('#step-2-wrapper').addClass("hidden");
+         $('#match-me-back-button').addClass("hidden");    
+       }else if($(this).data('step') == 2){
+         match_step = 2;
+         $('#match-me-back-button').removeClass("hidden");
+         $('#step-0-wrapper').addClass("hidden");
+          $('#step-1-wrapper').removeClass("hidden");
+          $('#match-balls-img-container').removeClass("hidden");
+         final_arr = [];
+         $('#match-me-result-designs-patterned').html("");
+         $('#match-me-result-designs-plain').html("");
+         $('#match-balls-wrapper').addClass("md:grid");
+          $('match-balls-img-container').removeClass("hidden");
+          $('#match-balls-wrapper').removeClass("hidden");
+          $('#match-me-final').addClass("hidden");
+          $('#match-me-final-nav').addClass("hidden");
+          $('#match-me-final').removeClass("md:flex");
+          $('#step-1-wrapper').addClass("hidden");
+         $('#step-2-wrapper').removeClass("hidden");
+       }else if($(this).data('step') == 3){
+         if(match_step != 3){//don't allow the user to go to step 3 if they are already on step 3, prevents adding more items to the list of matches
+           //show/hide correct sections
+           $('#match-me-final-no-matches').addClass("hidden");
+         $('#step-0-wrapper').addClass("hidden");
+          $('#step-1-wrapper').removeClass("hidden");
+          $('#match-balls-img-container').removeClass("hidden");
+          getMatchingPairs(); //update the matching pairs
+         }
+       }
+       processMatchNav($(this).data('step'));//update the nav
+  
+       }else{
+         console.log("Step not visited");
+       }
+      
+       
+     })
+  
+    function processMatchNav(step){
+    //function to update the nav bar adding the correct classes to indicate visited current upcoming
+      
+      replaceMatchImg(step);//update the image
+      step -= 1;
+      $('.js-match-balls-nav-wrapper').each(function(){//add correct class to each nav section
+        $(this).find('.js-match-nav-step').each(function(){
+          $(this).removeClass("match-completed");
+          $(this).removeClass("match-current");
+          $(this).removeClass("match-upcoming");
+        })
+        for(let i=0;i<step;i++){
+          $(this).find('.js-match-nav-step').eq(i).addClass("match-completed");
+          
+        }
+        $(this).find('.js-match-nav-step').eq(step).addClass("match-current");
+        for(let i=step+1;i<=3;i++){
+          $(this).find('.js-match-nav-step').eq(i).addClass("match-upcoming");
+          
+        }   
+      })
+  
+    }
+     $('body').on('click','#match-me-back-button',function(){ //clicking the back arrow
+       if(match_step != 1){//prevent user from going too far back
+         match_step -= 1;
+       }
+       if(match_step == 1){//hide back button if user should not go further back
+         $('#match-me-back-button').addClass("hidden")
+       }
+       replaceMatchImg(match_step);//update image
+       processMatchNav(match_step);//update progress bar
+       $('#step-1-wrapper').removeClass("hidden");
+       $('#step-2-wrapper').addClass("hidden");
+     })
+  
+  
+    //same as step 1 functions
+    $('body').on('click', '.js-step-2-gender', function () {
+      $('.js-match-select-a-product-2').removeClass("hidden");
+      $(this).closest('.js-perfect-step').find('#step-2-finish').removeClass("matchballs-active");
+      $(this).closest('.js-perfect-step').find('#step-2-finish').removeClass("hidden");
+        $('.js-step-2-gender').each(function(){
+          $(this).removeClass("matchballs-active");
+        })
+        $('.js-step-2-type').each(function(){
+          $(this).removeClass("matchballs-active");
+        })
+      $('.js-step-2-size').each(function(){
+          $(this).removeClass("matchballs-active");
+        })
+        $(this).closest('.js-perfect-step').find('#step-2-finish').html("Please Select a Size");
+        $(this).closest('.js-perfect-step').find('#step-2-finish').addClass("pointer-events-none")
+        $(this).addClass("matchballs-active");
+        $('.js-step-2-type-choice').each(function () {
+          $(this).addClass("hidden");
+        });
+        $('.js-step-2-size-choice').each(function () {
+          $(this).addClass("hidden");
+        });
+        if ($(this).data('gender') == "men") {
+          $(this).closest('.js-perfect-step').find('#2-men-boxer').addClass("matchballs-active");
+          temp_step_2_type = "mens-boxer-shorts-individuals";
+          temp_step_2_gender = "men";
+          $(this).closest('.js-perfect-step').find('#2-men-choice').removeClass("hidden");
+          /**
+          $('.perfect-pair-image').each(function(){
+            $(this).addClass("hidden");
+            })
+            $('#men_boxer_img_url').removeClass("hidden");
+            **/
+          $(this).closest('.js-perfect-step').find('#step-2-men-size').removeClass("hidden");
+          
+        }
+        if ($(this).data('gender') == "women") {
+          $(this).closest('.js-perfect-step').find('#2-women-boxer').addClass("matchballs-active");
+          temp_step_2_type = "ladies-boxer-shorts-individuals";
+          temp_step_2_gender = "women";
+          $(this).closest('.js-perfect-step').find('#2-women-choice').removeClass("hidden");
+          /**
+          $('.perfect-pair-image').each(function(){
+            $(this).addClass("hidden");
+            })
+            $('#women_boxer_img_url').removeClass("hidden");**/
+          $(this).closest('.js-perfect-step').find('#step-2-women-size').removeClass("hidden");
+        }
+          $(this).closest('.js-perfect-step').find('#2-size-choice').removeClass("hidden");
+    });
+  
+    $('body').on('click', '.js-step-2-type', function () {
+      $('.js-step-2-type').each(function(){
+        $(this).removeClass("matchballs-active");
+      })
+      $(this).addClass("matchballs-active")
+      temp_step_2_type = $(this).data('type');
+      $(this).closest('.js-perfect-step').find('#2-size-choice').removeClass("hidden");
+      $('.js-step-2-size-choice').each(function () {
+        $(this).addClass("hidden");
+      });
+      if (temp_step_2_gender == "men") {
+        $(this).closest('.js-perfect-step').find('#step-2-men-size').removeClass("hidden");
+      }
+      if (temp_step_2_gender == "women") {
+        $(this).closest('.js-perfect-step').find('#step-2-women-size').removeClass("hidden");
+      }
+      replaceMatchImg(2)
+    });
+  
+     $('body').on('click', '.js-step-2-size', function () {
+       $(this).closest('.js-perfect-step').find('#step-2-finish').addClass("matchballs-active");
+       $(this).closest('.js-perfect-step').find('#step-2-finish').removeClass("pointer-events-none");
+        $('.js-step-2-size').each(function(){
+          $(this).removeClass("matchballs-active");
+        })
+        $(this).addClass("matchballs-active")
+        temp_step_2_size = $(this).data('size');
+        temp_step_2_size_plain = $(this).html();
+        $(this).closest('.js-perfect-step').find('#step-2-finish').html("See Your Matches");
+      
+    });
+  
+function getMatchingPairs() {//1234
+
+    match_balls_visited_steps.push('3'); // add final stage to visited list
+    match_step = 3;
+    processMatchNav(3); // update nav
+
+    // show/hide required elements
+    $('#match-balls-wrapper').removeClass("md:grid");
+    $('#match-me-loading-results').removeClass("hidden");
+    $('match-balls-img-container').addClass("hidden");
+    $('#match-balls-wrapper').addClass("hidden");
+    $('#results-div').html("finding your pairs...");
+
+    var url1 = `https://oddballs-data--development.gadget.app/apps/oddballs-data/collection?handle=${step_1_type}`;
+    var url2 = `https://oddballs-data--development.gadget.app/apps/oddballs-data/collection?handle=${step_2_type}`;
+    var url3 = `https://oddballs-data--development.gadget.app/apps/oddballs-data/collection?handle=bralettes-individuals`;
+
+    var params1 = { type: 'GET', url: url1, dataType: 'html' };
+    var params2 = { type: 'GET', url: url2, dataType: 'html' };
+    var params3 = { type: 'GET', url: url3, dataType: 'html' };
+
+    Promise.all([$.ajax(params1), $.ajax(params2), (step_1_gender === "women" || step_2_gender === "women") ? $.ajax(params3) : Promise.resolve(null)])
+        .then(([response1, response2, response3]) => {
+            const results_arr_1 = processResponse(response1, step_1_size_plain, false, step_1_type);
+          console.log(results_arr_1);
+            const results_arr_2 = processResponse(response2, step_2_size_plain, false, step_2_type);
+            if (response3) {
+                results_arr_3 = processResponse(response3, null, true);
+            }
+
+            if (step_1_gender === "women" || step_2_gender === "women") {
+                $('#match-bralette-wrapper').removeClass("hidden");
+                temp_matching_prints = matchPrints(results_arr_1, results_arr_2, results_arr_3);
+            } else {
+                temp_matching_prints = matchPrints(results_arr_1, results_arr_2);
+                $('#match-bralette-wrapper').addClass("hidden");
+                $('#match-balls-get-brallete-2').addClass("hidden");
+                $('#match-balls-get-brallete').addClass("hidden");
+            }
+          matching_prints = [];
+            for(design of design_list){
+              for(product of temp_matching_prints){
+                for(field of design.node.fields){
+                  if(field.key == "tag"){
+                    if(field.value == product[0][1]){
+                      matching_prints.push(product);
+                    }
+                  }
+                }
+              }
+            }
+            final_arr = [];
+            processMatchingPrints(0); // start recursive function to handle the array of matched prints
+        })
+        .catch(error => {
+            console.error('Fetch error:', error);
+        });
+}
+
+function processResponse(response, size_plain, isBralette = false, type) {
+    var results_arr = [];
+    const temp = JSON.parse(response);
+  console.log("temp")
+  console.log(temp)
+    const temp1 = (temp.products.map(function(item){
+      return(item.product)
+    }))
+    const isBamboo = (type === "mens-bamboo-boxer-shorts-individuals" || type === "ladies-bamboo-boxer-shorts-individuals");
+
+    const prods = temp1.filter(prod => {
+        return !prod.handle.includes("vodafone") && 
+               !prod.handle.includes("mystery") && 
+               (isBamboo || !prod.handle.includes("bamboo"));
+    });
+  console.log(prods)
+    for(prod of prods){
+      const handle = prod.handle;
+      const price = prod.variants[0].price;
+      const comp_price = prod.variants[0].compare_at_price;
+      const img = prod.image ? prod.image.src : "";
+      const tags = prod.tags.split(",");
+      var print;
+      var variants_arr_split = [];
+      var print_img;
+      // let print_img = "";
+      const variants =prod.variants;
+      if(variants){          
+        for(each2 of variants){
+          var title = each2.title;
+          var id = each2.id.replace("gid://shopify/ProductVariant/","");
+          if(each2.title == size_plain){
+            if(each2.availableForSale){
+              product_in_stock = true;
+            }else{
+              product_in_stock = false;
+            }
+          }
+          if(isBralette){
+            if(each2.availableForSale){
+              product_in_stock = true;
+            }else{
+              product_in_stock = false;
+            }
+            variants_arr_split.push([title,id, product_in_stock])
+          }else{
+            variants_arr_split.push([title,id])
+          }
+          
+        }
+      }
+      for(tag of tags){
+        if(!tag.includes("feature")){
+          if(tag.includes("design-")){
+            print = tag.replace("design-","").trim();
+          }
+        }
+        if(tag.includes('style-') && !tag.includes("limited")){
+            style = (tag.replace('style-','').trim());
+          }
+      }
+      for(each of design_list){
+        for(field of each.node.fields){
+          if(field.key == "tag"){
+            if(field.value == print){
+              for(field of each.node.fields){
+                if(field.key == "img_url"){
+                    print_img = field.value;
+                  }
+              }
+            }
+          }
+        }
+      }
+      
+
+      if (product_in_stock || isBralette) {
+            results_arr.push([handle, print, variants_arr_split, price, img, print_img, style, prod.id.replace("gid://shopify/Product/", ""), comp_price]);
+        }
+    }
+        
+        
+
+    return results_arr;
+}
+
+function matchPrints(arr1, arr2, arr3 = []) {
+    var matching_prints = [];
+
+    arr1.forEach(item1 => {
+        arr2.forEach(item2 => {
+            if (item1[1] === item2[1]) { // if the print name for both products match
+                matching_prints.push([item1, item2]);
+                arr3.forEach(item3 => {
+                    if (item3[1] == item1[1]) {
+                        bralette_arr.push(item3);
+                    }
+                });
+            }
+        });
+    });
+
+    return matching_prints;
+}
+
+    $('body').on('click','#step-2-finish',function(){
+      step_2_gender = temp_step_2_gender;
+      step_2_size = temp_step_2_size;
+      step_2_size_plain = temp_step_2_size_plain;
+      step_2_type = temp_step_2_type;
+      //click on the get pairs button
+      getMatchingPairs();
+  
+    })
+    $('body').on('click', '#bralette-to-add-remove-2', function () {
+      match_bralette_in_2 = false;
+      
+     var total_price = parseFloat(match_price1) + parseFloat(match_price2);
+      let comp_price =  parseFloat(match_comp_price1) + parseFloat(match_comp_price2);
+      if(selected_barlette_var_id){
+        total_price += parseFloat(current_bralette[3]);
+        comp_price += parseFloat(current_bralette[8]);
+      }
+      $('#pair-price').html("Set price: <div style=\"color:#f00f83; margin-left:4px;\"> £" + (parseFloat(total_price)).toFixed(2) + "</div><del class='text-gray-500 ml-2'>£" + comp_price + "</del>");
+
+
+
+
+      
+      match_brallete_added_2 = false;
+      selected_barlette_var_id_2 = false;
+       $('#bralette-to-add-2').addClass("hidden");
+      if(match_brallete_added){
+      $('#match-balls-get-brallete-intro-2').removeClass("hidden");
+      }else{
+        $('#match-balls-get-brallete-intro-2').removeClass("hidden");
+        $('#match-balls-get-brallete-2').addClass("hidden");
+        $('#match-bralette-simple').addClass("hidden");
+        $('#match-bralette-section-title').removeClass("hidden");
+        
+      }
+    })
+    $('body').on('click', '#bralette-to-add-remove', function () {
+      match_bralette_in = false;
+      $('#match-balls-get-brallete').addClass("hidden");
+      if(!match_bralette_in_2){
+        $('#match-bralette-section-title').removeClass("hidden");
+        $('#match-balls-get-brallete-2').addClass("hidden");
+      }else{
+        $('#match-bralette-section-title').addClass("hidden");
+        $('#match-bralette-simple').removeClass("hidden");
+      }
+      
+       var total_price = parseFloat(match_price1) + parseFloat(match_price2);
+      let comp_price = parseFloat(match_comp_price1) + parseFloat(match_comp_price2);
+      if(match_brallete_added_2){
+        total_price += parseFloat(current_bralette[3]);
+        comp_price += parseFloat(current_bralette[8]);
+      }
+      
+      $('#pair-price').html("Set price: <div style=\"color:#f00f83; margin-left:4px;\"> £" + (parseFloat(total_price)).toFixed(2) + "</div><del class='text-gray-500 ml-2'>£" + comp_price + "</del>");
+
+      match_brallete_added = false;
+      selected_barlette_var_id = false;
+      $('#bralette-to-add').addClass("hidden");
+      $('#match-balls-get-brallete-intro').removeClass("hidden");
+      $('#match-balls-get-brallete-intro-2').addClass("hidden");
+      $('#match-bralette-wrapper').removeClass("hidden");
+    })
+
+  
+    $('body').on('click', '.js-add-match-balls-to-cart', function () {
+
+            try{
+              fbq('track', 'ViewContent', {
+                content_ids: [$(this).data("prod1_id"),$(this).data("prod2_id")],
+                content_name: [$(this).data("handle-1"),$(this).data("handle-2")],
+                content_type: 'product_group'
+              });
+      }catch(error){
+        console.error(error)
+      }
+     
+      var print_name = $(this).data('print_name');
+      $('#match-selected-print').html(toTitleCase(print_name.replace(/-/g,' ')))
+  
+      var match_total_price = 0;
+      var bralette_found_temp = false;
+      //click on a print in the found matches section
+      for(each of bralette_arr){
+        if(each[1] == $(this).data('print_name')){
+          current_bralette = each;
+          bralette_found_temp = true;
+        }
+      }
+      if(!bralette_found_temp && ( step_1_gender == "women" || step_2_gender == "women" )){
+        match_total_price -= current_bralette[3];
+        selected_barlette_var_id = false;
+        selected_barlette_var_id_2 = false;
+        $('.match-bralette-cover').each(function(){
+          $(this).removeClass("hidden");
+        })
+      }else{
+        $('.match-bralette-cover').each(function(){
+          $(this).addClass("hidden");
+        })
+      }
+      if(selected_barlette_var_id || match_brallete_added){
+        $('#bralette-to-add-title').html(toTitleCase(current_bralette[0].replace(/-/g, ' ')));
+        $('#bralette-to-add-size').html(selected_bralette_size);
+        var $imgContainer = $('#bralette-to-add-img');
+        var $img = $imgContainer.find('img');
+        var imgWidth = $img.width();
+        var imgHeight = $img.height();
+        if(imgWidth != 0){
+          $imgContainer.css({
+              'width': imgWidth,
+              'height': imgHeight,
+              'position': 'relative',
+              'overflow': 'hidden'
+          });
+        }
+        $('#bralette-to-add-img').fadeOut(500, function() {
+            $('#bralette-to-add-img').find('img').attr('src',current_bralette[4]);
+            $(this).fadeIn(500);
+        });
+       $('#match-balls-get-brallete-intro').addClass("hidden");
+        for(each of current_bralette[2]){
+          if(each[0] == selected_bralette_size){
+            if(each[2] == true){
+              $('#bralette-to-add').removeClass("match_out_of_stock");
+              $('#match-bralette-section-title').removeClass("match_out_of_stock");
+              selected_barlette_var_id = each[1];
+            }else{
+              match_total_price -= current_bralette[3];
+              $('#bralette-to-add').addClass("match_out_of_stock");
+              $('#match-bralette-section-title').addClass("match_out_of_stock");
+              selected_barlette_var_id = false;
+            }          
+          }
+        }
+      }
+      if(selected_barlette_var_id_2 || match_brallete_added_2){
+        var $imgContainer = $('#bralette-to-add-img-2');
+        var $img = $imgContainer.find('img');  
+        var imgWidth = $img.width();
+        var imgHeight = $img.height();
+        if(imgWidth != 0){
+          $imgContainer.css({
+              'width': imgWidth,
+              'height': imgHeight,
+              'position': 'relative',
+              'overflow': 'hidden'
+          });
+        }
+        $('#bralette-to-add-title-2').html(toTitleCase(current_bralette[0].replace(/-/g, ' ')));
+        $('#bralette-to-add-size-2').html(selected_bralette_size_2);
+        $('#bralette-to-add-img-2').fadeOut(500, function() {
+            $('#bralette-to-add-img-2').find('img').attr('src',current_bralette[4]);
+            $(this).fadeIn(500);
+        });
+        $('#match-balls-get-brallete-intro-2').addClass("hidden");
+        for(each of current_bralette[2]){
+          if(each[0] == selected_bralette_size_2){
+            if(each[2] == true){
+              $('#bralette-to-add-2').removeClass("match_out_of_stock");
+              selected_barlette_var_id_2 = each[1];
+            }else{
+              $('#bralette-to-add-2').addClass("match_out_of_stock");
+              selected_barlette_var_id_2 = false;
+            }          
+          }
+        }
+      }
+      $('.js-add-match-balls-to-cart').each(function(){//remove active class from all prints
+        $(this).find('img').removeClass('active');
+      });
+  
+      $(this).find('img').addClass("active");//add active to the clicked item
+      //$('body').addClass('body-no-scroll');
+      //reset product cards
+      $('#match-p1-info').html("");
+      $('#match-p2-info').html("");
+      $('#match-p2-img').html("");
+      $('#match-p1-img').html("");
+      $('#pair-price').html("");
+  
+      //update cards with info about selected cards
+      var img1_url = $(this).data('img-1');
+      var img2_url = $(this).data('img-2');
+      var srcset1 = modifyUrlWithResolutions(img1_url);
+      var srcset2 = modifyUrlWithResolutions(img2_url);
+      $('#match-me-img1').fadeOut(500, function() {
+          $(this).html("<img style='position: absolute; z-index: 2; width: 100%; top:0px; left:0px;' src='" + img1_url + "' srcset='" + srcset1 + "'/>");
+          $(this).fadeIn(500);
+      });
+      $('#match-me-img2').fadeOut(500, function() {
+          $(this).html("<img style='position: absolute; z-index: 2; width: 100%; top:0px; left:0px;' src='" + img2_url + "' srcset='" + srcset2 + "'/>");
+          $(this).fadeIn(500);
+      });
+      var handle1 = toTitleCase($(this).data('handle-1').replace(/-/g, ' '));
+      var handle2 = toTitleCase($(this).data('handle-2').replace(/-/g, ' '));
+      match_price1 = $(this).data('price-1');
+      match_price2 = $(this).data('price-2');
+      match_comp_price1 = $(this).data('comp-price-1');
+      match_comp_price2 = $(this).data('comp-price-2');
+      $('#match-me-handle-1').html(handle1);
+      $('#match-me-handle-2').html(handle2);
+      match_total_price = parseFloat(match_price1) + parseFloat(match_price2);
+      let comp_price = parseFloat($(this).data("comp-price-1")) + parseFloat($(this).data("comp-price-2"));
+      if(selected_barlette_var_id){
+        match_total_price += parseFloat(current_bralette[3])
+        comp_price += parseFloat(current_bralette[8]);
+      }
+      if(selected_barlette_var_id_2){
+        match_total_price += parseFloat(current_bralette[3]);
+        comp_price += parseFloat(current_bralette[8]);
+      }
+    
+      $('#pair-price').html("Set price: <div style=\"color:#f00f83; margin-left:4px;\"> £" + (parseFloat(match_total_price)).toFixed(2) + "</div>");
+      $('#pair-price').html("Set price: <div style=\"color:#f00f83; margin-left:4px;\"> £" + (parseFloat(match_total_price)).toFixed(2) + "</div><del class='ml-2 text-gray-500'>£"+ comp_price +"</del>");
+  
+      //set current variants used to add to cart to the current items
+      match_variant_id_1 = $(this).data('variant-1');
+      match_variant_id_2 = $(this).data('variant-2');
+      match_prod_id_1 = $(this).data('prod1_id');
+      match_prod_id_2 = $(this).data('prod2_id');
+  
+    });
+  
+  
+    function addToCartRecursive(index) {
+            if (index >= match_ids_to_add.length) {
+              $('#add-match-to-cart').html("Add To Cart")
+              $('body').trigger('refreshDrawer');        
+              updateCart()
+              return;
+            }
+            
+            var variant_id = match_ids_to_add[index];
+            var data = {
+                quantity: 1,
+                id: variant_id,
+                properties: {}
+                }
+              data.properties['_Perfect Pair'] = variant_id;
+              data.properties['_freeshp'] = "{{ settings.vv_handle }}";
+              {% if settings.ab_cohort != blank  %}
+              data.properties['_cohort'] = "{{ settings.ab_cohort }}";
+              {% endif %}
+            $.ajax({
+                type: 'POST',
+                url: '/cart/add.js',
+                data: data,
+                dataType: 'json',
+                success: function(response) {
+                  if(match_prods_to_add[index]){
+                        atc_track(match_prods_to_add[index]);
+                  }
+                    addToCartRecursive(index + 1);
+                },
+                error: function(error) {
+                    console.error('Error adding product to cart:', error);
+                    addToCartRecursive(index + 1);
+                },
+            });
+        }
+  var match_prods_to_add;
+    $('body').on('click','#add-match-to-cart',function(){
+      //click on add to cart 
+      $('#add-match-to-cart').html(`<svg class="circular-loader relative w-8 h-8" viewBox="25 25 50 50"><circle class="loader-path" cx="50" cy="50" r="20" fill="none" stroke-width="4"></circle></svg>`)//add loading gif to button
+  
+      //get a snapshot of variants when button is clicked to prevent user changing prints while request is processing
+      var var_1 =  match_variant_id_1;
+      var prod_1 =  match_prod_id_1;
+      var var_2 =  match_variant_id_2;
+      var prod_2 =  match_prod_id_2;
+      var var_3 = selected_barlette_var_id;
+      var var_4 = selected_barlette_var_id_2;
+      match_ids_to_add = [var_1,var_2];
+      match_prods_to_add = [prod_1, prod_2];
+      var number_items = 2;
+      if(var_3){
+        match_ids_to_add.push(var_3)
+      }
+      if(var_4){
+        match_ids_to_add.push(var_4)
+      }
+      if(var_3 || var_4){
+        number_items = 3
+      }
+      if(var_3 && var_4){
+        number_items =4
+      }
+      addToCartRecursive(0);
+      
+    })
+    $('body').on('click','#match-me-results-back-button', function(){
+      //click on back button o the results page
+      match_step = 2;
+      replaceMatchImg(match_step);
+      processMatchNav(2)
+      final_arr = [];//empty array of matching pairs
+  
+      //show/hide appropriate sections
+      $('#match-me-final-no-matches').addClass("hidden");
+      $('#match-me-back-button').removeClass("hidden");
+      $('#step-1-wrapper').addClass("hidden");
+      $('#match-balls-wrapper').addClass("md:grid");
+      $('#match-me-result-designs-patterned').html("");
+      $('#match-me-result-designs-plain').html("");
+      $('#match-me-final').addClass("hidden");
+      $('#match-me-final-nav').addClass("hidden");
+      $('#match-me-final').removeClass("md:flex");
+      $('#match-balls-wrapper').removeClass("hidden");
+    })
+  
+    $('body').on('click','.js-match-safety-screen', function(){
+      $('body').removeClass("body-no-scroll");
+      $('#match-found-bralette').addClass("hidden");
+      $('#match-found-bralette-2').addClass("hidden");
+    })
+  
+    
+     $('body').on('click','.match-variant-2', function(){
+      $('.match-variant-2').each(function(){
+        $(this).find('label').removeClass("matchballs-active");
+      })
+      $('#add-bralette-to-match-2').addClass("bg-magenta-500 text-white");
+      $('#add-bralette-to-match-2').removeClass("pointer-events-none");
+      $('#add-bralette-to-match-2').html("Add To Set");
+      $(this).find('label').addClass("matchballs-active");
+      temp_id = $(this).attr('var_id');
+      temp_size = $(this).find('input').val();
+    })
+    $('body').on('click','.match-variant', function(){
+      $('#add-bralette-to-match').addClass("bg-magenta-500 text-white");
+      $('#add-bralette-to-match').removeClass("pointer-events-none");
+      $('#add-bralette-to-match').html("Add To Set");
+      temp_id = $(this).attr('var_id');
+      temp_size = $(this).find('input').val();
+      
+    })
+  
+    $('body').on('click','#add-bralette-to-match', function(){
+      $('#bralette-to-add').removeClass("match_out_of_stock");
+      match_bralette_in = true;
+      $('#match-bralette-simple').addClass("hidden");
+      $('#match-balls-get-brallete').removeClass("hidden");
+      $('#match-found-bralette').removeClass("hidden");
+      $('#match-bralette-wrapper').addClass("hidden");
+      $('#match-bralette-section-title').addClass("hidden");
+      $('body').removeClass("body-no-scroll");
+      var total_price = parseFloat(match_price1) + parseFloat(match_price2) + parseFloat(current_bralette[3]);
+      let comp_price =  parseFloat(match_comp_price1) + parseFloat(match_comp_price2) + parseFloat(current_bralette[8]);
+      if(selected_barlette_var_id_2){
+        total_price += parseFloat(current_bralette[3]);
+        comp_price += parseFloat(current_bralette[8]);
+      }
+      
+      $('#pair-price').html("Set price: <div style=\"color:#f00f83; margin-left:4px;\"> £" + (parseFloat(total_price)).toFixed(2) + "</div>");
+      $('#pair-price').html("Set price: <div style=\"color:#f00f83; margin-left:4px;\"> £" + (parseFloat(total_price)).toFixed(2) + "</div><del class='text-gray-500 ml-2'>£" + comp_price + "</del>");
+      match_brallete_added = true;
+      selected_barlette_var_id = temp_id;
+      selected_bralette_size = temp_size;
+      $('#match-found-bralette').addClass("hidden");
+      $('#bralette-to-add-title').html(toTitleCase(current_bralette[0].replace(/-/g, ' ')));
+      $('#bralette-to-add-size').html(selected_bralette_size);
+      $('#bralette-to-add-img').find('img').attr('src',current_bralette[4]);
+      $('#match-balls-get-brallete-intro').addClass("hidden");
+      $('#bralette-to-add').removeClass("hidden");
+      $('#match-balls-get-brallete-2').removeClass("hidden");
+      if(!selected_barlette_var_id_2){
+      $('#match-balls-get-brallete-intro-2').removeClass("hidden");
+      }
+    })
+    $('body').on('click','#add-bralette-to-match-2', function(){
+      match_bralette_in_2 = true;
+      $('body').removeClass("body-no-scroll");
+      var total_price = parseFloat(match_price1) + parseFloat(match_price2) + parseFloat(current_bralette[3]);
+      let comp_price =  parseFloat(match_comp_price1) + parseFloat(match_comp_price2) + parseFloat(current_bralette[8]);
+      $('#bralette-to-add-2').removeClass("match_out_of_stock");
+      if(selected_barlette_var_id != false){
+        total_price += parseFloat(current_bralette[3]);
+        comp_price += parseFloat(current_bralette[8]);
+      }
+      $('#pair-price').html("Set price: <div style=\"color:#f00f83; margin-left:4px;\"> £" + (parseFloat(total_price)).toFixed(2) + "</div><del class='text-gray-500 ml-2'>£" + comp_price + "</del>");
+    
+      selected_barlette_var_id_2 = temp_id;
+      selected_bralette_size_2 = temp_size;
+      match_brallete_added_2 = true;
+      $('#match-found-bralette-2').addClass("hidden");
+      for(each of current_bralette[2]){
+          if(each[0] == selected_bralette_size_2){
+            if(each[2] == true){
+              $('#bralette-to-add-2').removeClass("match_out_of_stock");
+              selected_barlette_var_id_2 = each[1];
+            }else{
+              $('#bralette-to-add-2').addClass("match_out_of_stock");
+              selected_barlette_var_id_2 = false;
+            }
+            $('#bralette-to-add-title-2').html(toTitleCase(current_bralette[0].replace(/-/g, ' ')));
+            $('#bralette-to-add-size-2').html(selected_bralette_size_2);
+            $('#bralette-to-add-img-2').find('img').attr('src',current_bralette[4]);
+            $('#match-balls-get-brallete-intro-2').addClass("hidden");
+            $('#bralette-to-add-2').removeClass("hidden");
+            
+          }
+        }
+    })
+    $('body').on('click','.js-match-balls-get-brallete-intro', function(){
+      $('#match-found-bralette').removeClass("hidden");
+      $('body').addClass("body-no-scroll");
+      $('#match-found-bralette-img').find('img').attr('src', current_bralette[4]);
+      $('#match-found-bralette-title').html(toTitleCase(current_bralette[0].replace(/-/g, ' ')));
+      $('#match-found-bralette-price').html(`<div class=\"flex\" >Price: <div class=\"ml-1\" style=\"color:#f00f83\">£${parseFloat((current_bralette[3])).toFixed(2)}</div><del class="text-gray-500 ml-2">£${parseFloat((current_bralette[8])).toFixed(2)}</del></div>`);
+      $('.match-variant').each(function(){
+        for(each of current_bralette[2]){
+          if(each[0] == $(this).find('input').val()){
+            $(this).attr('var_id',each[1])
+            if(each[2] == true){
+              $(this).removeClass("pointer-events-none");
+              $(this).find('input').removeAttr('disabled');
+            }else{
+              if(selected_bralette_size == $(this).find('input').val()){
+                $('#add-bralette-to-match').addClass("pointer-events-none");
+                $('#add-bralette-to-match').removeClass("bg-magenta-500 text-white");
+                $('#add-bralette-to-match').html("Select a Size")
+              }
+              //$(this).find('label').removeClass("matchballs-active");
+              $(this).find('input').attr('disabled','disabled');
+              $(this).find('input').prop('checked', false);
+              $(this).addClass("pointer-events-none");
+            }
+          }
+        }
+      })
+      
+    })
+    $('body').on('click','#match-balls-get-brallete-intro-2', function(){
+      $('#match-found-bralette-2').removeClass("hidden");
+      $('body').addClass("body-no-scroll");
+      $('#match-found-bralette-img-2').find('img').attr('src', current_bralette[4]);
+      $('#match-found-bralette-title-2').html(toTitleCase(current_bralette[0].replace(/-/g, ' ')));
+      $('#match-found-bralette-price-2').html(`<div class=\"flex\" >Price: <div class=\"ml-1\" style=\"color:#f00f83\">£${parseFloat((current_bralette[3])).toFixed(2)}</div><del class="text-gray-500 ml-2">£${parseFloat((current_bralette[8])).toFixed(2)}</del></div>`);
+      $('.match-variant-2').each(function(){
+        for(each of current_bralette[2]){
+          if(each[0] == $(this).find('input').val()){
+            $(this).attr('var_id',each[1])
+            if(each[2] == true){
+              $(this).removeClass("pointer-events-none");
+              $(this).find('input').removeAttr('disabled');
+            }else{
+              if(selected_bralette_size == $(this).find('input').val()){
+                $('#add-bralette-to-match').addClass("pointer-events-none");
+                $('#add-bralette-to-match-2').removeClass("bg-magenta-500 text-white");
+                $('#add-bralette-to-match-2').html("Select a Size")
+              }
+              $(this).find('label').removeClass("matchballs-active");
+              $(this).find('input').attr('disabled','disabled');
+              $(this).find('input').prop('checked', false);
+              $(this).addClass("pointer-events-none");
+            }
+          }
+        }
+      })
+      
+    })
+    $('body').on('click','.js-match-size-guide-safety-screen', function(){ 
+      $('#match-size-guide-wrapper').addClass("hidden");
+      $('body').removeClass("body-no-scroll");
+    })
+    $('body').on('click','.js-match-size-guide-show', function(){
+         $('#match-size-guide-wrapper').removeClass("hidden");
+      $('body').addClass("body-no-scroll");
+      $('#match-size-guide-content').html(`<div class="mx-auto w-32 whitepsace-nowrap" style="position: absolute; left: 50%; transform: translateX(-50%);"><div class="whitespace-nowrap">Getting Size Guide</div>
+    <svg class="circular-loader relative" viewBox="25 25 50 50"><circle class="loader-path" cx="50" cy="50" r="20" fill="none" stroke-width="4"></circle></svg>
+    </div>`);
+      if(temp_step_1_gender == "men"){
+        $('#match-size-guide-content').load('/pages/all-size-guides #Mens-Underwear-Size-Guide');
+      }else{
+        $('#match-size-guide-content').load('/pages/all-size-guides #Womens-Underwear-Size-Guide');
+      }
+      
+    })
+      $('body').on('click','.js-match-size-guide-show-2', function(){ 
+        $('#match-size-guide-wrapper').removeClass("hidden");
+      $('#match-size-guide-content').html(`<div class="mx-auto w-32 whitepsace-nowrap" style="position: absolute; left: 50%; transform: translateX(-50%);"><div class="whitespace-nowrap">Getting Size Guide</div>
+    <svg class="circular-loader relative" viewBox="25 25 50 50"><circle class="loader-path" cx="50" cy="50" r="20" fill="none" stroke-width="4"></circle></svg>
+    </div>`);
+      if(temp_step_2_gender == "men"){
+        $('#match-size-guide-content').load('/pages/all-size-guides #Mens-Underwear-Size-Guide');
+      }else{
+        $('#match-size-guide-content').load('/pages/all-size-guides #Womens-Underwear-Size-Guide');
+      }
+      
+      
+    })
+    $('body').on('click','.js-match-size-guide-show-3', function(){ 
+      $('#match-size-guide-wrapper').removeClass("hidden");
+      $('#match-size-guide-content').html(`<div class="mx-auto w-32 whitepsace-nowrap" style="position: absolute; left: 50%; transform: translateX(-50%);"><div class="whitespace-nowrap">Getting Size Guide</div>
+    <svg class="circular-loader relative" viewBox="25 25 50 50"><circle class="loader-path" cx="50" cy="50" r="20" fill="none" stroke-width="4"></circle></svg>
+    </div>`);
+      $('#match-size-guide-content').load('/pages/all-size-guides #Bralette-Size-Guide');
+      
+    })
+    
+    $('body').on('click','#match-me-adventurous', function(){
+      //click on the patterned sub title on final page
+      $('.js-matchballs-design-results').each(function(){//hide all designs
+        $(this).addClass("hidden");
+      })
+      $('#match-me-result-designs-patterned-wrapper').removeClass("hidden");//show appropriate designs
+  
+      //add selected-tab class to appropriate class
+      $('.js-matchballs-tab').each(function(){
+        $(this).removeClass("selected-tab");
+      })
+      $(this).addClass("selected-tab");
+      
+    })
+    $('body').on('click','#match-me-plain', function(){//as above
+      $('.js-matchballs-design-results').each(function(){
+        $(this).addClass("hidden");
+      })
+      $('#match-me-result-designs-plain-wrapper').removeClass("hidden");
+      $('.js-matchballs-tab').each(function(){
+        $(this).removeClass("selected-tab");
+      })
+      $(this).addClass("selected-tab");
+    })
+  
+    $('body').on('click','#match-me-res1',function(){
+      $('#match-change-1-content').html("");
+      const $wrapper_contents = $('#step-1').clone();
+      $wrapper_contents.attr('id', 'step-1-change-contents');
+      $wrapper_contents.css('transform','none');
+      $wrapper_contents.css('width','auto');
+      $wrapper_contents.appendTo('#match-change-1-content');
+      $wrapper_contents.find('#step-1-finish').attr('id','step-1-change');
+      $wrapper_contents.find('#step-1-change').html('Update Choices');
+      $wrapper_contents.find('.product-title').remove();
+      $wrapper_contents.find('#perfect-pair-copy').remove();
+      $('#match-change-1-wrapper').removeClass("hidden");
+    })
+  
+    $('body').on('click','#match-change-1-safety-screen',function(){
+      $('#match-change-1-wrapper').addClass("hidden");
+    })
+    $('body').on('click','#step-1-change',function(){
+      step_1_gender = temp_step_1_gender;
+      step_1_size = temp_step_1_size;
+      step_1_size_plain = temp_step_1_size_plain;
+      step_1_type = temp_step_1_type;
+      $('#match-me-final').addClass("hidden");
+      $('#match-me-final-nav').addClass("hidden");
+      $('#match-me-final').removeClass("md:flex");
+      $('#match-change-1-wrapper').addClass("hidden");
+      final_arr = [];
+      getMatchingPairs();
+    })
+    $('body').on('click', '#match-me-res2', function() {
+      $('#match-change-2-content').html("");
+      const $wrapperContents = $('#step-2').clone();
+      $wrapperContents.attr('id', 'step-2-change-contents');
+      $wrapperContents.css('transform', 'none');
+      $wrapperContents.css('width', 'auto');
+      $wrapperContents.appendTo('#match-change-2-content');
+      $wrapperContents.find('#step-2-finish').attr('id', 'step-2-change');
+      $wrapperContents.find('#step-2-change').html('Update Choices');
+      $wrapperContents.find('#match-me-back-button').remove();
+      $('#match-change-2-wrapper').removeClass("hidden");
+    });
+    
+    $('body').on('click', '#match-change-2-safety-screen', function() {
+        $('#match-change-2-wrapper').addClass("hidden");
+    });
+    
+    $('body').on('click', '#step-2-change', function() {
+        step_2_gender = temp_step_2_gender;
+        step_2_size = temp_step_2_size;
+        step_2_size_plain = temp_step_2_size_plain;
+        step_2_type = temp_step_2_type;
+        $('#match-me-final').addClass("hidden");
+        $('#match-me-final-nav').addClass("hidden");
+        $('#match-me-final').removeClass("md:flex");
+        $('#match-change-2-wrapper').addClass("hidden");
+        final_arr = [];
+        getMatchingPairs();
+    });
+  
+    $('body').on('click','.js-match-change-safety-screen', function(){
+      $('#match-change-2-wrapper').addClass("hidden");
+      $('#match-change-1-wrapper').addClass("hidden");
+    })
+
+  $('body').on('click','.js-show-less-prints', function(){
+    $('#match-me-result-designs-patterned').css('max-height','6.5rem')
+    $('#match-me-result-designs-plain').css('max-height','6.5rem')
+  })
+  $('body').on('click','.js-show-more-prints', function(){
+    $('#match-me-result-designs-patterned').css('max-height','')
+    $('#match-me-result-designs-plain').css('max-height','')
+  })
+  
+  
+  //matching_prints[array of all shared prints][array of 1 type of print][individual print name/variants][array of variants][variant name/id]            
+  
+    function processMatchingPrints(i) {
+      $('#match-me-result-designs-patterned').html("");//reset results
+      $('#match-me-result-designs-plain').html("");
+      selected_barlette_var_id = false;//reset selected bralettes
+      selected_barlette_var_id_2 = false;
+      $('#match-balls-get-brallete-intro-2').addClass("hidden");
+      $('#bralette-to-add-2').addClass("hidden");
+      $('#match-balls-get-brallete').addClass("hidden");
+      current_bralette = "";
+      $('#match-bralette-section-title').removeClass("hidden");
+      $('#match-balls-get-brallete-intro').removeClass("hidden");
+      match_brallete_added = false;
+      match_brallete_added_2 = false;
+      var pair_found = false;
+      var temp = []
+      if(matching_prints[i]!= undefined){//if there is a pair of products at index i
+        temp.push(matching_prints[i][0][1]);//patten name
+        temp.push(matching_prints[i][0][0]); //1st pair handle
+        temp.push(matching_prints[i][1][0]);//2nd pair handle
+        temp.push(matching_prints[i][0][3]);//1st pair price
+        temp.push(matching_prints[i][1][3]);//2nd pair price
+        if(matching_prints[i] != undefined){
+          if(matching_prints[i][0][0]!= undefined){
+            for(each of(matching_prints[i][0][2])){
+              if(each[0]==step_1_size_plain){
+                temp.push(each[1])//1st pair variant id
+              }
+            }
+            for(each of(matching_prints[i][1][2])){
+              if(each[0]==step_2_size_plain){
+                temp.push(each[1])//2nd pair variant id
+              }
+            }
+          
+          }
+        }
+        temp.push(matching_prints[i][0][5])//print flat lay
+        temp.push(matching_prints[i][0][4])//1st product image
+        temp.push(matching_prints[i][1][4])//second product image
+        temp.push(matching_prints[i][0][6])//design type (plain/adventurous)
+        temp.push(matching_prints[i][1][1])//print name
+        temp.push(matching_prints[i][0][7]) // 1st prod id
+        temp.push(matching_prints[i][1][7]) // 2nd prod id
+        temp.push(matching_prints[i][0][8]) // comp price 1
+        temp.push(matching_prints[i][1][8]) // comp price 2
+        
+      }
+      final_arr.push(temp) ;//push temp to final array
+    if (i < matching_prints.length) {
+      i+=1;
+      processMatchingPrints(i); //repeat until all pairs are in the way
+    }else{
+      //after all pairs are added
+      $('#match-me-loading-results').addClass("hidden"); //remove loading gif
+      const uniqueSet = new Set(final_arr);
+      const uniqueArray = Array.from(uniqueSet); //remove duplicates from final array
+      var req_images = []
+      $('#results-div').html("");
+      var total_adventurous = 0;
+      var total_plain = 0;
+      $('#match-me-result-designs-patterned').empty();
+      $('#match-me-result-designs-plain').empty();
+      for(each of uniqueArray){
+            req_images.push(each[8]);
+            req_images.push(each[9]);
+            pair_found = true; //note that there is a pair
+            if(each[10] == "adventurous"){ //if the design type is adventurous
+              $('#match-me-adventurous').removeClass("hidden"); //show adventurous prints
+              $('#match-me-result-designs-patterned').append( //create the print with relevant information for the matching pair
+                `
+                <div class="js-add-match-balls-to-cart cursor-pointer" style=width:3.6rem; height="3.6rem;"  data-prod1_id="${each[12]}" data-prod2_id="${each[13]}" data-print_name="${each[11]}" data-img-1="${each[8]}" data-img-2="${each[9]}" data-handle-1="${each[1]}" data-handle-2="${each[2]}" data-variant-1="${each[5]}" data-variant-2="${each[6]}" data-price-1="${each[3]}" data-price-2="${each[4]}" data-comp-price-1="${each[14]}" data-comp-price-2="${each[15]}"> <img  class="rounded-md" style="box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;" src="${each[7]}"/> </div>
+                `
+              )
+              total_adventurous += 1;
+            }else if(each[10] == "classic"){//as above
+              $('#match-me-plain').removeClass("hidden");
+              $('#match-me-result-designs-plain').append(
+                `
+                <div class="js-add-match-balls-to-cart cursor-pointer" style="width:3.6rem; height="3.6rem;" data-print_name="${each[11]}" data-img-1="${each[8]}" data-img-2="${each[9]}" data-handle-1="${each[1]}" data-handle-2="${each[2]}" data-variant-1="${each[5]}" data-variant-2="${each[6]}" data-price-1="${each[3]}" data-price-2="${each[4]}"  data-comp-price-1="${each[14]}" data-comp-price-2="${each[15]}"><img  class="rounded-md" style="box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;" src="${each[7]}"/> </div>
+                `
+              )
+              total_plain += 1;
+            }
+          
+            
+      }
+      if(total_adventurous <= 5){
+        $('.adv-show-more-gradient').each(function(){
+          $(this).addClass("hidden");
+        })
+      }else{
+        $('.adv-show-more-gradient').each(function(){
+          $(this).removeClass("hidden");
+        })
+      }
+      if(total_plain <= 5){
+        $('.plain-show-more-gradient').each(function(){
+          $(this).addClass("hidden");
+        })
+      }else{
+        $('.plain-show-more-gradient').each(function(){
+          $(this).removeClass("hidden");
+        })
+      }
+      $('.js-show-less-prints').addClass("hidden");
+      
+      $('.js-add-match-balls-to-cart:eq(0)').trigger('click');//click the first item once all are added to populate cards
+      for(each of bralette_arr){
+        req_images.push(each[4]);
+      }
+      //preload(req_images);
+      req_images = [];
+      if(pair_found == true){//if there is a pair found create cards 
+        $('#match-me-title1').html(`<div class="text-sm flex text-magenta-500"><div class="text-black font-bold mr-1">Pair 1:</div> ${step_1_size_plain}</div> <div class="text-xs mb-1 whitespace-nowrap"> ${toTitleCase(getCollectionHandle(step_1_type).replace(/-/g,' '))}</div>`);
+        $('#match-me-title2').html(`<div class="text-sm flex text-magenta-500"><div class="text-black font-bold mr-1">Pair 2:</div> ${step_2_size_plain}</div> <div class="text-xs mb-1 whitespace-nowrap">${toTitleCase(getCollectionHandle(step_2_type).replace(/-/g,' '))}</div>`);
+        $('#match-me-final').removeClass("hidden");
+        scrollToStep3();
+        $('#match-me-final-nav').removeClass("hidden");
+        $('#match-me-final').addClass("md:flex");
+        $('#match-me-final-no-matches').addClass("hidden");
+        if(step_1_gender == "women" || step_2_gender == "women"){
+          if(selected_barlette_var_id.length == 0 || selected_barlette_var_id == false){
+            $('#match-bralette-wrapper').removeClass("hidden");
+          }else{
+            $('#match-bralette-wrapper').addClass("hidden");
+          }
+        }else{
+          $('#match-bralette-wrapper').addClass("hidden");
+        }
+      }else{
+         $('#match-me-final-no-matches').removeClass("hidden");
+      }
+    }
+  }
+    
+  function preload(arrayOfImages) {
+      $.each(arrayOfImages, function(index, value) {
+          $('<img/>').attr('src', value).appendTo('body').css('display', 'none');
+      });
+  }
+  
+    function getCollectionHandle(collection){//find the collection name from collection passed in
+      var suffix = "";
+      if (collection == "mens-boxer-shorts-individuals"){
+        suffix = "-mens-boxer-shorts";
+      }else if (collection == "mens-briefs-individuals"){
+        suffix = "-mens-briefs";
+      }else if (collection =="ladies-boxer-shorts-individuals"){
+        suffix = "-ladies-boxers";
+      }else if (collection =="ladies-briefs-individuals"){
+        suffix ="-ladies-brief";
+      }else if (collection == "ladies-thongs-individuals"){
+        suffix ="-ladies-thong";
+      }else if (collection == "seamless-individuals"){
+        suffix = "-seamless-brazilian-briefs";
+      }
+      return(suffix);
+    }
+  
+    function replaceMatchImg(step){//replace the image with the data already stored in the step
+         /**
+        if(step == 1){
+            scrollToStep1();
+        switch (temp_step_1_type) {
+        case "ladies-boxer-shorts-individuals":
+          $('.perfect-pair-image').each(function(){
+            $(this).addClass("hidden");
+            })
+            $('#women_boxer_img_url').removeClass("hidden");
+          break;
+        case "ladies-briefs-individuals":
+          $('.perfect-pair-image').each(function(){
+            $(this).addClass("hidden");
+            })
+            $('#women_brief_img_url').removeClass("hidden");
+          break;
+        case "ladies-thongs-individuals":
+          $('.perfect-pair-image').each(function(){
+            $(this).addClass("hidden");
+            })
+            $('#women_thong_img_url').removeClass("hidden");
+          break;
+        case "seamless-individuals":
+          $('.perfect-pair-image').each(function(){
+            $(this).addClass("hidden");
+            })
+            $('#women_seamless_img_url').removeClass("hidden");
+          break;
+        case "mens-boxer-shorts-individuals":
+          $('.perfect-pair-image').each(function(){
+            $(this).addClass("hidden");
+            })
+            $('#men_boxer_img_url').removeClass("hidden");
+          break;
+        case "mens-briefs-individuals":
+          $('.perfect-pair-image').each(function(){
+            $(this).addClass("hidden");
+            })
+            $('#men_brief_img_url').removeClass("hidden");
+          break;
+        default:
+          break;
+      }
+        
+      }else if(step == 2){
+        switch (temp_step_2_type) {
+        case "ladies-boxer-shorts-individuals":
+          $('.perfect-pair-image').each(function(){
+            $(this).addClass("hidden");
+            })
+            $('#women_boxer_img_url').removeClass("hidden");
+          break;
+        case "ladies-briefs-individuals":
+          $('.perfect-pair-image').each(function(){
+            $(this).addClass("hidden");
+            })
+            $('#women_brief_img_url').removeClass("hidden");
+          break;
+        case "ladies-thongs-individuals":
+          $('.perfect-pair-image').each(function(){
+            $(this).addClass("hidden");
+            })
+            $('#women_thong_img_url').removeClass("hidden");
+          break;
+        case "seamless-individuals":
+          $('.perfect-pair-image').each(function(){
+            $(this).addClass("hidden");
+            })
+            $('#women_seamless_img_url').removeClass("hidden");
+          break;
+        case "mens-boxer-shorts-individuals":
+          $('.perfect-pair-image').each(function(){
+            $(this).addClass("hidden");
+            })
+            $('#men_boxer_img_url').removeClass("hidden");
+          break;
+        case "mens-briefs-individuals":
+          $('.perfect-pair-image').each(function(){
+            $(this).addClass("hidden");
+            })
+            $('#men_brief_img_url').removeClass("hidden");
+          break;
+        default:
+          break;
+      }
+        
+      }**/
+    }
+  
+    function toTitleCase(str) {//Make Text Look Like This
+    return str.replace(
+      /\w\S*/g,
+      function(txt) {
+        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+      }
+    );
+  }  
+    function modifyUrlWithResolutions(url) { // used to return a source set with multiple resolutions
+      var resolutions = [100, 200, 320, 480, 640, 840, 1080, 1280];
+      var parts = url.split('.');
+      var fileName = parts.slice(0, -1).join('.'); 
+      var fileExtension = parts[parts.length - 1];
+      var modifiedUrls = [];
+    
+      for (var i = 0; i < resolutions.length; i++) {
+        var resolution = resolutions[i];
+        var modifiedUrl = fileName + "_" + resolution/2 + "x." + fileExtension + " " + resolution + "w";
+        modifiedUrls.push(modifiedUrl);
+      }
+    
+      var result = '';
+      for (var j = 0; j < modifiedUrls.length; j++) {
+        result += modifiedUrls[j];
+        if (j !== modifiedUrls.length - 1) {
+          result += ',';
+        }
+        
+      }
+      //return("")
+      return result;
+    }
+      /**************************************************************************************************
+                                  MatchBalls JS end
+    *///////////////////////////////////////////////////////////////////////////////////////////////////
+
+        $('body').on('click', '.slider-control', function () {
+  
+        var position = $(this).index()
+        var text = $(this).text()
+        var translatePositionX = ((position) * 100) + "%"
+        var slider = $(this).siblings('.selection-tab-selection')
+        slider.css('transform', `translate(${translatePositionX}, -50%)`);
+        slider.html(text);
+
+        (position > 0)? slider.css('left', '-1%') : slider.css('left', '1%')
+        
+          
+        
+        
+         if (slider.hasClass("hidden")) {
+            slider.removeClass('hidden');
+          }
+    });
+
+    $('#1-men').click()
+  });
+  
+  

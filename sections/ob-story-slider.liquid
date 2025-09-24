@@ -1,0 +1,294 @@
+  <!-- <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" /> -->
+  
+{% schema %}
+{
+  "name": "Story Slider",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "title",
+      "default": "Title"
+    },
+    {
+      "type": "text",
+      "id": "heading_classes",
+      "label": "title classes",
+      "default": "p-6 marujo"
+    },
+    {
+      "type": "text",
+      "id": "top_text",
+      "label": "text",
+      "default": "your content here"
+    },
+    {
+      "type": "text",
+      "id": "top_text_classes",
+      "label": "text classes",
+      "default": "text-center max-w-lg"
+    },
+    
+  ],
+  "blocks": [
+    {
+      "type": "custom_block",
+      "name": "About Us Block",
+      "settings": [
+        {
+          "type": "color",
+          "id": "bg_color",
+          "label": "Background Color",
+          "default": "#f5f5f5"
+        },
+        {
+          "type": "color",
+          "id": "circle_color",
+          "label": "Circle Color",
+          "default": "#f5f5f5"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Background Image"
+        },
+        {
+          "type": "textarea",
+          "id": "block_text",
+          "label": "Text",
+          "default": "Your content here"
+        },
+        {
+          "type": "color",
+          "id": "date_color",
+          "label": "Year Color",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "button_color",
+          "label": "Button Color",
+          "default": "#f5f5f5"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Text",
+          "default": "none"
+        },
+        {
+          "type": "url",
+          "id": "btn_link",
+          "label": "Button Link",
+        },
+        {
+          "type": "text",
+          "id": "year",
+          "label": "year",
+     
+        },
+        {
+          "type": "text",
+          "id": "margin-right",
+          "label": "Card Right Margin",
+          "default": "14px"
+        },
+        {
+          "type": "text",
+          "id": "margin-left",
+          "label": "Card Left Margin ",
+          "default": "14px"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Timeline Slider",
+      "blocks": [
+        {
+          "type": "custom_block"
+        },
+        {
+          "type": "custom_block"
+        },
+        {
+          "type": "custom_block"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+.swiper-container-{{ section.id }} {
+  width: 100%;
+  padding: 20px 20px;
+  overflow: hidden;
+  position: relative;
+  background-color: {{ section.settings.background_color }};
+}
+
+.swiper-container-{{ section.id }} .swiper-slide {
+  opacity: 0.4;
+  transition: all 0.3s ease;
+  width: 280px;
+}
+
+.swiper-container-{{ section.id }} .card {
+  width: 100%;
+  padding: 20px 0px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.1);
+  text-align: center;
+  color: {{ section.settings.text_color }};
+  transition: all 0.3s ease;
+}
+
+.swiper-container-{{ section.id }} .card h2 {
+  font-size: 2em;
+  margin-bottom: 10px;
+  color: {{ section.settings.text_color }};
+}
+
+.swiper-container-{{ section.id }} .card p {
+  font-size: 0.9em;
+  margin-bottom: 15px;
+  color: {{ section.settings.text_color }};
+}
+
+.swiper-container-{{ section.id }} .card button {
+  padding: 10px 20px;
+  background-color: {{ section.settings.button_color }};
+  border: none;
+  border-radius: 5px;
+  color: {{ section.settings.button_text_color }};
+  font-size: 0.9em;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.swiper-container-{{ section.id }} .card button:hover {
+  opacity: 0.9;
+}
+
+.swiper-container-{{ section.id }} .swiper-slide-active {
+  opacity: 1;
+  z-index: 2;
+}
+
+.swiper-container-{{ section.id }} .swiper-slide-active .card {
+  background-color: {{ section.settings.active_card_color }};
+  transform: scale(1.1);
+}
+
+.swiper-container-{{ section.id }} .swiper-button-next,
+.swiper-container-{{ section.id }} .swiper-button-prev {
+  color: {{ section.settings.button_color }};
+  width: 44px;
+  height: 44px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.swiper-container-{{ section.id }} .swiper-button-next:after,
+.swiper-container-{{ section.id }} .swiper-button-prev:after {
+  font-size: 18px;
+}
+
+@media (max-width: 768px) {
+  .swiper-container-{{ section.id }} .swiper-button-next,
+  .swiper-container-{{ section.id }} .swiper-button-prev {
+    display: flex;
+    transform: scale(0.8);
+  }
+  
+  .swiper-container-{{ section.id }} .swiper-button-prev {
+    left: 5px;
+  }
+  
+  .swiper-container-{{ section.id }} .swiper-button-next {
+    right: 5px;
+  }
+}
+
+
+</style>
+<div class="w-full" id="About">
+ <h2 class="{{ section.settings.heading_classes }}">{{ section.settings.heading }}</h2>
+ {% if section.settings.top_text %}
+    <div class="px-6"><p class="{{ section.settings.top_text_classes }}">{{ section.settings.top_text }}</p></div> 
+  {% endif %}
+  
+<div class="swiper-container-{{ section.id }} story-slider-wrap" >
+  <div class="swiper-wrapper">
+    {% for block in section.blocks %}
+      <div class="swiper-slide">
+          <div class="card flex flex-col">
+          <div class="relative story-card-image story-{{ block.settings.year | handle }}" style="">
+            <img src="{{ block.settings.image | img_url: '500x500' }}" alt="Image">
+          </div>
+          <div
+            class="flex-col flex items-center p-6 rounded-b-3xl sm: mx-3  mx-2 max-w-[397px]"
+            style="background-color: #ededed;"
+          >
+            <div class="text-4xl font-semibold" style="color:{{ block.settings.date_color }};">
+              {{ block.settings.year }}
+            </div>
+            <div class="text-md text-center story-card-text">{{ block.settings.block_text }}</div>
+            {% if block.settings.button_text != 'none' %}
+              <div class="w-full">
+              <a
+                href="{%- render 'ob-process-international-link', url:block.settings.btn_link %}"
+                class="block font-semibold rounded-full text-white w-full btn-shadow-lg  text-xs sm:text-sm border py-2 text-center uppercase"
+                style="background-color:{{ block.settings.button_color }}"
+              >
+                {{ block.settings.button_text }}
+              </a>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
+</div>
+</div>
+
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script>
+      const swiper = new Swiper(".swiper-container-{{ section.id }}", {
+        slidesPerView: "auto",
+        centeredSlides: true,
+        initialSlide: 0,
+        loop: true,
+        spaceBetween: 20,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        breakpoints: {
+          320: {
+            slidesPerView: 1.5,
+            spaceBetween: 15,
+            centeredSlides: true,
+          },
+          768: {
+            slidesPerView: 2.5,
+            spaceBetween: 20,
+          },
+          1400: {
+            slidesPerView: 4,
+            spaceBetween: 30,
+          },
+          1600: {
+            slidesPerView: 5,
+            spaceBetween: 30,
+          },
+        },
+      });
+    </script>

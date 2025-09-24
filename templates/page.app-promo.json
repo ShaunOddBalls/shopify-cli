@@ -1,0 +1,467 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "app_banner_dPbHJy": {
+      "type": "app-banner",
+      "name": "App Banner",
+      "settings": {
+        "mobile_top_text": "Get more with",
+        "mobile_bottom_text": "The OddBalls App",
+        "desktop_top_text": "Get more with",
+        "desktop_bottom_text": "the OddBalls App",
+        "actual_bottom_text": "Click below to download",
+        "bg_image": "shopify://shop_images/Desktop-3_fa74cbc6-acc6-42b2-bdc8-9f2a7dfbeef5.jpg",
+        "mobile_bg_image": "shopify://shop_images/Mobile-BG-v3A.jpg",
+        "icon_1": "shopify://shop_images/AppStore.svg",
+        "icon_1_link": "https://apps.apple.com/gb/app/oddballs-underwear/id6477601267",
+        "icon_2": "shopify://shop_images/GoogleStore.svg",
+        "icon_2_link": "https://play.google.com/store/apps/details?id=co.tapcart.app.id_SUoDfpHo2o",
+        "underline_colour": "#7b0000"
+      }
+    },
+    "ob_image_text_grid_7EDhTE": {
+      "type": "ob-image-text-grid",
+      "blocks": {
+        "image_and_text_n3TnFA": {
+          "type": "image-and-text",
+          "settings": {
+            "country_iso": "*",
+            "title": "",
+            "block_wrapper_classes": "col-span-12 flex justify-center  px-4 items-center text-center relative",
+            "block_title": "",
+            "title_classes": "text",
+            "description": "<h2 class=\"text-center font-bebas text-xl lg:text-3xl font-bold\">Shop 20% off all app purchases for this weekend only!\n </h2>\n<br>",
+            "description_classes": "",
+            "svg": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_and_text_n3TnFA"
+      ],
+      "disabled": true,
+      "settings": {
+        "outer_wrapper_classes": "relative pb-6",
+        "inner_wrapper_classes": "col-span-12 flex justify-center  py-3 px-4 items-center text-center",
+        "grid_wrapper_classes": "mt-6 grid grid-cols-2 gap-0.5 md:grid-cols-3 lg:mt-8",
+        "title": "",
+        "title_classes": "text-center text-base font-semibold uppercase text-gray-600 tracking-wider",
+        "section_bg_colour": "",
+        "block_bg_colour": "",
+        "block_bg_colour_hover": "",
+        "block_text_colour": "",
+        "block_text_colour_hover": "",
+        "block_image_classes": "",
+        "block_svg_classes": "",
+        "custom_css": ""
+      }
+    },
+    "ob_image_text_grid_pfWbnG": {
+      "type": "ob-image-text-grid",
+      "blocks": {
+        "image_and_text_6LBCeD": {
+          "type": "image-and-text",
+          "settings": {
+            "country_iso": "*",
+            "title": "",
+            "block_wrapper_classes": "col-span-12 flex justify-center  px-4 items-center text-center relative",
+            "block_title": "",
+            "title_classes": "text",
+            "description": "<h2 class=\"text-center font-bebas text-xl lg:text-2xl\">There are so many reasons why you’ll love our app! </h2>\n<br>\nBut here are just a few of our favourites...",
+            "description_classes": "",
+            "svg": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_and_text_6LBCeD"
+      ],
+      "settings": {
+        "outer_wrapper_classes": "relative pb-6",
+        "inner_wrapper_classes": "col-span-12 flex justify-center  py-3 px-4 items-center text-center",
+        "grid_wrapper_classes": "mt-6 grid grid-cols-2 gap-0.5 md:grid-cols-3 lg:mt-8",
+        "title": "",
+        "title_classes": "text-center text-base font-semibold uppercase text-gray-600 tracking-wider",
+        "section_bg_colour": "",
+        "block_bg_colour": "",
+        "block_bg_colour_hover": "",
+        "block_text_colour": "",
+        "block_text_colour_hover": "",
+        "block_image_classes": "",
+        "block_svg_classes": "",
+        "custom_css": ""
+      }
+    },
+    "app_incentives_zpHAxQ": {
+      "type": "app-incentives",
+      "blocks": {
+        "image_block_PEnDYy": {
+          "type": "image_block",
+          "settings": {
+            "image": "shopify://shop_images/Icon-1_1.svg",
+            "title": "Exclusive Offers",
+            "text": "Unlock app-only discounts, early access to sales, and limited-edition drops."
+          }
+        },
+        "image_block_rpTjaT": {
+          "type": "image_block",
+          "settings": {
+            "image": "shopify://shop_images/Icon-2.svg",
+            "title": "Faster Shopping",
+            "text": "Browse, shop, and checkout quicker with a streamlined app experience."
+          }
+        },
+        "image_block_cpQbb4": {
+          "type": "image_block",
+          "settings": {
+            "image": "shopify://shop_images/Icon-3.svg",
+            "title": "First to Know",
+            "text": "Be the first to hear  about new arrivals, collections, and promotions."
+          }
+        },
+        "image_block_k4H9DC": {
+          "type": "image_block",
+          "settings": {
+            "image": "shopify://shop_images/Icon-4.svg",
+            "title": "Account Management",
+            "text": "Update details, view past orders, and manage your preferences all in one place."
+          }
+        },
+        "image_block_qE763d": {
+          "type": "image_block",
+          "settings": {
+            "image": "shopify://shop_images/Icon-6.svg",
+            "title": "Your Edit",
+            "text": "Find your recently viewed items and shop them later in just a few taps."
+          }
+        },
+        "image_block_HnArpR": {
+          "type": "image_block",
+          "settings": {
+            "image": "shopify://shop_images/Icon-5.svg",
+            "title": "Push Notifications",
+            "text": "Never miss a launch or offer again - get updates straight to your phone."
+          }
+        }
+      },
+      "block_order": [
+        "image_block_PEnDYy",
+        "image_block_rpTjaT",
+        "image_block_cpQbb4",
+        "image_block_k4H9DC",
+        "image_block_qE763d",
+        "image_block_HnArpR"
+      ],
+      "name": "app incentives",
+      "settings": {}
+    },
+    "app_footer_EkAL4J": {
+      "type": "app-footer",
+      "name": "App Promo Footer",
+      "settings": {
+        "title": "Click below to download our app today!",
+        "bg_image": "shopify://shop_images/Desktop-2_79d126b9-e6e8-4c9c-8c0b-2a346d25d107.jpg",
+        "mobile_bg_image": "shopify://shop_images/Mobile-2_5122f4ab-1449-4ddf-8d08-437b5ae1b8fd.jpg",
+        "icon_1": "shopify://shop_images/AppStore.svg",
+        "icon_1_link": "https://apps.apple.com/gb/app/oddballs-underwear/id6477601267",
+        "icon_2": "shopify://shop_images/GoogleStore.svg",
+        "icon_2_link": "https://play.google.com/store/apps/details?id=co.tapcart.app.id_SUoDfpHo2o"
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "ob_klaviyo_forms_CbcNwF": {
+      "type": "ob-klaviyo-forms",
+      "blocks": {
+        "form_YURChX": {
+          "type": "form",
+          "disabled": true,
+          "settings": {
+            "country_iso": "*",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": "",
+            "slide_active": true,
+            "title": "Northumbria Uni",
+            "klaviyo_id": "YaHfeb",
+            "html_id": "",
+            "wrapper_classes": "",
+            "url_handle": "student-giveaway",
+            "not_url_handle": "",
+            "domains": "*",
+            "device": "all",
+            "customers": "all"
+          }
+        },
+        "form_jpntDe": {
+          "type": "form",
+          "settings": {
+            "country_iso": "*",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": "",
+            "slide_active": true,
+            "title": "Valentines Day",
+            "klaviyo_id": "XsyydY",
+            "html_id": "",
+            "wrapper_classes": "",
+            "url_handle": "valentines-day",
+            "not_url_handle": "",
+            "domains": "*",
+            "device": "all",
+            "customers": "all"
+          }
+        }
+      },
+      "block_order": [
+        "form_YURChX",
+        "form_jpntDe"
+      ],
+      "disabled": true,
+      "settings": {
+        "section_width": "full",
+        "custom_width": ""
+      }
+    },
+    "tabs_and_blocks_FQVB36": {
+      "type": "tabs-and-blocks",
+      "blocks": {
+        "content_faq_mVKNjM": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "How can I download the OddBalls app?",
+            "title_text": "How can I download the OddBalls app?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "You can download the OddBalls app for free from the Apple App Store or Google Play Store. Just search for \"OddBalls\" and hit download.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_kRgkCF": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "Is my device compatible?",
+            "title_text": "Is my device compatible?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "The OddBalls app works on most iOS and Android smartphones and tablets. Make sure your device is running the latest version of its operating system for the best experience.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_etw3WT": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "Which payment methods can I use on the app?",
+            "title_text": "Which payment methods can I use on the app?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "We accept all major payment methods in the app, including Visa, Mastercard, American Express, PayPal, Apple Pay, and Google Pay.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_wLNAmn": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "How can I find out more about delivery and returns?",
+            "title_text": "How can I find out more about delivery and returns?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "You can view all our delivery and returns information directly within the app under “Helpdesk & FAQs” or on our Delivery & Returns website pages.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_g3xKHY": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "How can I access my account in the app?",
+            "title_text": "How can I access my account in the app?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "Simply tap the profile icon and log in using the same email and password you use on the OddBalls website. New customers can create an account in just a few steps.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_xfyG4X": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "How do I turn on notifications?",
+            "title_text": "How do I turn on notifications?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "When you download the app, you’ll be asked to enable push notifications. If you missed it, you can update your preferences in your device’s settings or within the app under “Notifications.”",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_w7CaiP": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "Is your app available outside the UK?",
+            "title_text": "Is your app available outside the UK?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "Yes – the OddBalls app supports international shopping and delivery to all the countries we currently serve. Just choose your shipping region in the settings.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_UrcKk3": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "What can I do with the OddBalls app?",
+            "title_text": "What can I do with the OddBalls app?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "The app gives you instant access to the latest OddBalls underwear, socks, swimwear and more. You can shop, manage your orders, get app-only deals, and stay updated on new drops — all in one place.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_VacCX6": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "Is the app free to download?",
+            "title_text": "Is the app free to download?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "Yes – the OddBalls app is completely free to download and use.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_jcDMAN": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "Can I track my orders through the app?",
+            "title_text": "Can I track my orders through the app?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "Yes! Once you’ve placed an order, you can track it in real time from the “My Orders” section of the app.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_wWytxw": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "Do I get exclusive discounts or offers in the app?",
+            "title_text": "Do I get exclusive discounts or offers in the app?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "Absolutely – we regularly drop app-exclusive offers, early access to new launches, and surprise sales just for our app users.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_mVaQPi": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "How do I get notified about new products or sales?",
+            "title_text": "How do I get notified about new products or sales?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "Enable push notifications in your device or app settings so you never miss a new design, limited edition drop, or discount.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_aB3Awi": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "I’m having problems using the app.",
+            "title_text": "I’m having problems using the app.",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "Try closing and reopening the app or checking your internet connection. If issues continue, please contact our support team or via the in-app help section.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        }
+      },
+      "block_order": [
+        "content_faq_mVKNjM",
+        "content_faq_kRgkCF",
+        "content_faq_etw3WT",
+        "content_faq_wLNAmn",
+        "content_faq_g3xKHY",
+        "content_faq_xfyG4X",
+        "content_faq_w7CaiP",
+        "content_faq_UrcKk3",
+        "content_faq_VacCX6",
+        "content_faq_jcDMAN",
+        "content_faq_wWytxw",
+        "content_faq_mVaQPi",
+        "content_faq_aB3Awi"
+      ],
+      "name": "Tabs and Blocks",
+      "settings": {
+        "outer_wrapper_attr": "data-attribute for linking section content",
+        "outer_wrapper_classes": "2xl:mx-auto  py-12 lg:px-20 md:px-6 px-4",
+        "inner_wrapper_classes": "grid grid-cols-12 gap-6",
+        "header_wrapper_classes": "col-span-12 flex flex-col justify-center items-center text-center space-y-4",
+        "all_tabs_wrapper_classes": "",
+        "content_wrapper_classes": "col-span-12 mt-16 grid grid-cols-12",
+        "option_menu_selected": false,
+        "title": "Mobile App FAQs",
+        "title_classes": "text-3xl lg:text-4xl font-semibold  leading-9 md:leading-7 lg:leading-9 text-gray-800",
+        "description": "From how to download and use the app, to tracking your orders and unlocking exclusive offers — here are the answers to your most frequently asked questions about the OddBalls app. Whether you're shopping on the go or managing your account, we've got everything covered right here.",
+        "description_classes": "text-base leading-6 text-center text-gray-600 w-full md:w-10/12"
+      }
+    }
+  },
+  "order": [
+    "app_banner_dPbHJy",
+    "ob_image_text_grid_7EDhTE",
+    "ob_image_text_grid_pfWbnG",
+    "app_incentives_zpHAxQ",
+    "app_footer_EkAL4J",
+    "main",
+    "ob_klaviyo_forms_CbcNwF",
+    "tabs_and_blocks_FQVB36"
+  ]
+}

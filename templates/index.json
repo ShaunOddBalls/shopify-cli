@@ -1,0 +1,1348 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "mobile_circular_category_nav_QbKJVt": {
+      "type": "mobile-circular-category-nav",
+      "blocks": {
+        "nav_img_link_cYmFA3": {
+          "type": "nav-img-link",
+          "settings": {
+            "rounded": true,
+            "img": "shopify://shop_images/Homepage_Buttons_MEN_S_BOXERS.png",
+            "text": "Men's Boxers",
+            "url": "shopify://collections/him-individuals"
+          }
+        },
+        "nav_img_link_VJUakn": {
+          "type": "nav-img-link",
+          "settings": {
+            "rounded": true,
+            "img": "shopify://shop_images/Homepage_Buttons_SUMMER_SHOP.png",
+            "text": "Swimming Shorts",
+            "url": "shopify://collections/swimming-shorts"
+          }
+        },
+        "nav_img_link_LLdwcG": {
+          "type": "nav-img-link",
+          "settings": {
+            "rounded": true,
+            "img": "shopify://shop_images/Homepage_Buttons_WOMEN_S_BOXERS.png",
+            "text": "Seamless Underwear",
+            "url": "shopify://collections/seamless-underwear"
+          }
+        },
+        "nav_img_link_EfGXqG": {
+          "type": "nav-img-link",
+          "settings": {
+            "rounded": true,
+            "img": "shopify://shop_images/Homepage_Buttons_CLEARANCE.png",
+            "text": "Sale",
+            "url": "shopify://pages/sale"
+          }
+        },
+        "nav_img_link_zNgQy4": {
+          "type": "nav-img-link",
+          "settings": {
+            "rounded": true,
+            "img": "shopify://shop_images/Homepage_Buttons_NEW_IN.png",
+            "text": "New In",
+            "url": "shopify://collections/new"
+          }
+        },
+        "nav_img_link_j8ExrK": {
+          "type": "nav-img-link",
+          "disabled": true,
+          "settings": {
+            "rounded": true,
+            "text": "Title",
+            "url": ""
+          }
+        },
+        "nav_img_link_93qHT3": {
+          "type": "nav-img-link",
+          "disabled": true,
+          "settings": {
+            "rounded": true,
+            "text": "Title",
+            "url": ""
+          }
+        },
+        "nav_img_link_jRgdjK": {
+          "type": "nav-img-link",
+          "disabled": true,
+          "settings": {
+            "rounded": true,
+            "text": "Title",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "nav_img_link_cYmFA3",
+        "nav_img_link_VJUakn",
+        "nav_img_link_LLdwcG",
+        "nav_img_link_EfGXqG",
+        "nav_img_link_zNgQy4",
+        "nav_img_link_j8ExrK",
+        "nav_img_link_93qHT3",
+        "nav_img_link_jRgdjK"
+      ],
+      "disabled": true,
+      "name": "Circular Catergorie Nav",
+      "settings": {
+        "mobile_slides": 4,
+        "tablet_slides": 4,
+        "desktop_slides": 4,
+        "gap": 4,
+        "autoplay": false,
+        "loop": false,
+        "drags_scroll": true,
+        "title": "",
+        "title_settings": "text-2xl md:text-4xl uppercase  mx-auto text-center marujo"
+      }
+    },
+    "ob_hero_banner_with_nav_slider_cMt3Fd": {
+      "type": "ob-hero-banner-with-nav-slider",
+      "disabled": true,
+      "name": "Hero Banner With Slider",
+      "settings": {
+        "metaobject": "copy-of-coppa-feel-homepage-banner",
+        "reverse": true
+      }
+    },
+    "ob_hero_banner_with_nav_slider_DRLx9K": {
+      "type": "ob-hero-banner-with-nav-slider",
+      "disabled": true,
+      "name": "Hero Banner With Slider",
+      "settings": {
+        "metaobject": "copy-of-coppa-feel-homepage-banner",
+        "reverse": true
+      }
+    },
+    "ob_hero_banner_with_nav_slider_4CfJ8L": {
+      "type": "ob-hero-banner-with-nav-slider",
+      "name": "Hero Banner With Slider",
+      "settings": {
+        "metaobject": "home-page-banner-test",
+        "reverse": false
+      }
+    },
+    "ob_trust_pilot_widget_3MFawT": {
+      "type": "ob-trust-pilot-widget",
+      "settings": {
+        "outer_wrapper_classes": "border-black border-solid blend-divide",
+        "wrapper_classes": "max-w-7xl mx-auto pb-2 pt-4",
+        "widget_header": "",
+        "widget_header_classes": "text-black text-center uppercase text-4xl md:text-6xl pb-3",
+        "widget_subheader": "",
+        "widget_subheader_classes": "",
+        "widget_code": "<!-- TrustBox widget - Micro Combo -->\n<div class=\"trustpilot-widget hidden\" data-locale=\"en-GB\" data-template-id=\"5419b6ffb0d04a076446a9af\" data-businessunit-id=\"5c7f9459871dac0001ea0238\" data-style-height=\"40px\" data-style-width=\"100%\" data-theme=\"light\">\n  <a href=\"https://uk.trustpilot.com/review/myoddballs.com\" target=\"_blank\" rel=\"noopener\">Trustpilot</a>\n</div>\n<!-- End TrustBox widget -->",
+        "widget_wrapper_classes": "max-w-lg mx-auto",
+        "use_microcombo": true
+      }
+    },
+    "ob_collection_slider_old_FBFAUH": {
+      "type": "ob-collection-slider-old",
+      "custom_css": [
+        "@media (max-width: 720px) {.js-ptab-target {min-height: 375px; }}"
+      ],
+      "name": "Collection Products UK",
+      "settings": {
+        "collection": "best-sellers-homepage",
+        "product_list": [],
+        "title": "Mens Bestsellers",
+        "wrapper_class": "",
+        "text_class": "text-2xl md:text-4xl uppercase  mx-auto text-center marujo mont",
+        "slider_enabled": true,
+        "autoplay": false,
+        "loop": false,
+        "slides_mobile": 2,
+        "slides_md": 3,
+        "slides_lg": 5,
+        "slide_gap": 10,
+        "slide_by": "all",
+        "drag_scroll": true,
+        "show_dots": true,
+        "dots_container_classes": "relative ob-dots w-full justify-center items-center flex gap-2 z-10 my-4",
+        "dot_classes": "ob-dot w-2 h-2 rounded-full bg-neutral-300 transition-colors duration-300 ease-in-out",
+        "show_on_all_markets": false,
+        "markets_to_show_on": "uk",
+        "markets_to_exclude_on": ""
+      }
+    },
+    "ob_hero_banner_with_nav_slider_EhytX7": {
+      "type": "ob-hero-banner-with-nav-slider",
+      "name": "Hero Banner With Slider",
+      "settings": {
+        "metaobject": "womens-underwear",
+        "reverse": true
+      }
+    },
+    "ob_metaobject_collection_conditional_banner_LBhAmy": {
+      "type": "ob-metaobject-collection-conditional-banner",
+      "disabled": true,
+      "name": "ob Collection Banner List",
+      "settings": {
+        "title": "XTRA10",
+        "metaobject": "summer-10-test"
+      }
+    },
+    "ob_text_video_slider_fekpf3": {
+      "type": "ob-text-video-slider",
+      "disabled": true,
+      "settings": {
+        "handle": "winter-sale",
+        "extra-attributes": "",
+        "section_wrapper_classes": "relative",
+        "extra-logged-in": "",
+        "extra-logged-out": "",
+        "show_dots": true,
+        "dots_container_classes": "ob-dots absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10",
+        "dot_classes": "ob-dot w-2 h-2 rounded-full bg-gray-300 transition-colors duration-200",
+        "slider_enabled": true,
+        "autoplay": false,
+        "loop": true,
+        "slides_mobile": 1,
+        "slides_md": 1,
+        "slides_lg": 1,
+        "slide_gap": 0,
+        "cta-setting": false,
+        "position": "start",
+        "title": "Title",
+        "title-text-classes": "text-3xl md:text-6xl capitalize dbl-cta-title pb-1 font-bebas",
+        "title-text-postion": "left",
+        "title-text-size": 18,
+        "title-color": "",
+        "desktop-title-text-size": 32,
+        "paragragh": "My Paragraph",
+        "p-classes": "",
+        "paragraph-text-postion": "left",
+        "paragragh-font-size": 12,
+        "paragraph-color": "",
+        "desktop-paragraph-text-size": 18,
+        "btn-one-text": "button one",
+        "btn-one-classes": "px-8 relative p-2 rounded-md uppercase btn-shadow-lg block border-solid border-2 border-md border-black text-black font-semibold text-center  transition-colors duration-200",
+        "btn-1-url": "",
+        "btn-one-color": "#ffffff",
+        "btn-one-bg-color": "#000000",
+        "btn-two-text": "button two",
+        "btn-two-classes": "px-8 relative p-2 rounded-md uppercase btn-shadow-lg block border-solid border-2 border-md border-black text-black font-semibold text-center  transition-colors duration-200",
+        "btn-2-url": "",
+        "btn-two-color": "#000000",
+        "btn-two-bg-color": "#ffffff",
+        "button-postion": "start"
+      }
+    },
+    "main": {
+      "type": "ob-index",
+      "disabled": true,
+      "settings": {}
+    },
+    "scroll_to_piEqGg": {
+      "type": "scroll-to",
+      "name": "Scroll To",
+      "settings": {
+        "scroll_to": "bestsellers"
+      }
+    },
+    "ob_collection_slider_old_V3yGp3": {
+      "type": "ob-collection-slider-old",
+      "name": "Collection Products EU",
+      "settings": {
+        "collection": "mens-bestsellers-eu-new",
+        "product_list": [],
+        "title": "Mens Bestsellers",
+        "wrapper_class": "",
+        "text_class": "text-2xl md:text-4xl uppercase  mx-auto text-center marujo",
+        "slider_enabled": true,
+        "autoplay": false,
+        "loop": false,
+        "slides_mobile": 2,
+        "slides_md": 3,
+        "slides_lg": 5,
+        "slide_gap": 10,
+        "slide_by": "all",
+        "drag_scroll": true,
+        "show_dots": true,
+        "dots_container_classes": "relative ob-dots w-full justify-center items-center flex gap-2 z-10 my-4",
+        "dot_classes": "ob-dot w-2 h-2 rounded-full bg-neutral-300 transition-colors duration-300 ease-in-out",
+        "show_on_all_markets": false,
+        "markets_to_show_on": "en-eu,de-eu",
+        "markets_to_exclude_on": ""
+      }
+    },
+    "ob_collection_slider_old_bhPBp3": {
+      "type": "ob-collection-slider-old",
+      "name": "Collection Products UK",
+      "settings": {
+        "collection": "womens-best-sellers-homepage",
+        "product_list": [],
+        "title": "Womens Bestsellers",
+        "wrapper_class": "",
+        "text_class": "text-2xl md:text-4xl uppercase  mx-auto text-center marujo",
+        "slider_enabled": true,
+        "autoplay": false,
+        "loop": false,
+        "slides_mobile": 2,
+        "slides_md": 3,
+        "slides_lg": 5,
+        "slide_gap": 10,
+        "slide_by": "all",
+        "drag_scroll": true,
+        "show_dots": true,
+        "dots_container_classes": "relative ob-dots w-full justify-center items-center flex gap-2 z-10 my-4",
+        "dot_classes": "ob-dot w-2 h-2 rounded-full bg-neutral-300 transition-colors duration-300 ease-in-out",
+        "show_on_all_markets": false,
+        "markets_to_show_on": "uk",
+        "markets_to_exclude_on": "en-eu,de-eu"
+      }
+    },
+    "ob_collection_slider_old_W6D6iC": {
+      "type": "ob-collection-slider-old",
+      "custom_css": [
+        "@media (max-width: 720px) {.js-ptab-target {min-height: 375px; }}"
+      ],
+      "name": "Collection Products EU",
+      "settings": {
+        "collection": "womens-bestsellers-eu",
+        "product_list": [],
+        "title": "Womens Bestsellers",
+        "wrapper_class": "",
+        "text_class": "text-2xl md:text-4xl uppercase  mx-auto text-center marujo",
+        "slider_enabled": true,
+        "autoplay": false,
+        "loop": false,
+        "slides_mobile": 2,
+        "slides_md": 3,
+        "slides_lg": 5,
+        "slide_gap": 10,
+        "slide_by": "all",
+        "drag_scroll": true,
+        "show_dots": true,
+        "dots_container_classes": "relative ob-dots w-full justify-center items-center flex gap-2 z-10 my-4",
+        "dot_classes": "ob-dot w-2 h-2 rounded-full bg-neutral-300 transition-colors duration-300 ease-in-out",
+        "show_on_all_markets": false,
+        "markets_to_show_on": "en-eu,de-eu",
+        "markets_to_exclude_on": "uk"
+      }
+    },
+    "ob_three_text_fields_39R9bX": {
+      "type": "ob-three-text-fields",
+      "blocks": {
+        "text_lines_fRXRTT": {
+          "type": "text-lines",
+          "settings": {
+            "country_iso": "*",
+            "text-field-outer-wrapper-classes": "py-4 bg-[#f2f3f5]",
+            "text-field-inner-wrapper-classes": "text-2xl md:text-3xl uppercase font-semibold text-center",
+            "text-field-1": "AS SEEN ON",
+            "text-field-1-classes": "",
+            "text-field-2": "",
+            "text-field-2-classes": "",
+            "text-field-3": "",
+            "text-field-3-classes": "",
+            "text-field-4": "",
+            "text-field-4-classes": "",
+            "html-field": "",
+            "html-field-classes": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_lines_fRXRTT"
+      ],
+      "name": "Three Text Fields",
+      "settings": {}
+    },
+    "ob_conditional_banner_3UByqh": {
+      "type": "ob-conditional-banner",
+      "blocks": {
+        "collection_banner_UwwRaL": {
+          "type": "collection-banner",
+          "settings": {
+            "block_active": true,
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": "",
+            "banner_background": "",
+            "wrapper_classes": "pb-4",
+            "title": "As seen on",
+            "text": "",
+            "customers": "both",
+            "url_handle": "*",
+            "not_url_handle": "",
+            "country_iso": "*",
+            "banner_link": "",
+            "desktop_image": "shopify://shop_images/AsSeenOn-Desktop.jpg",
+            "mobile_image": "shopify://shop_images/AsSeenOn-Mobile_eb5ecb7e-f11a-4fa2-95d9-6dfd32161f35.jpg",
+            "desktop_image_classes": "mx-auto w-full hidden md:block",
+            "mobile_image_classes": "mx-auto w-full md:hidden",
+            "desktop_svg": "",
+            "mobile_svg": "",
+            "desktop_svg_classes": "absolute inset-0 w-full h-full mx-auto hidden md:block",
+            "mobile_svg_classes": "absolute inset-0 w-full h-full mx-auto md:hidden"
+          }
+        }
+      },
+      "block_order": [
+        "collection_banner_UwwRaL"
+      ],
+      "name": "Conditional Banner",
+      "settings": {
+        "banner_background": "",
+        "wrapper_classes": ""
+      }
+    },
+    "ob_instagram_feed_ytdcEL": {
+      "type": "ob-instagram-feed",
+      "blocks": {
+        "shop_the_look_GFipY3": {
+          "type": "shop-the-look",
+          "settings": {
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": "",
+            "display": "block",
+            "display-medium": "md:block",
+            "collection-link": "https://www.myoddballs.com/collections/him-individuals",
+            "image_wrapper_classes": "m-1",
+            "img_alt_text": "Mens Boxers Collection",
+            "image": "shopify://shop_images/UPDATED_IMAGES_SMALL_SQUARE_BUTTON_-_WATER_BOTTLE_copy.jpg",
+            "overlay": true,
+            "opacity": 100,
+            "cta-section-classes": "md:m-4 m-4 md:w-2/3",
+            "cta-section-inner-classes": "p-4",
+            "position-y": "bottom-0",
+            "position-x": "left-0",
+            "title-text-size": "text-xl",
+            "text-size-medium": "md:text-4xl",
+            "call-to-action-title-font-weight": "font-bold",
+            "cta-title-classes": "text-white text-4xl md:mb-3 tracking-wider text-shadow  marujo",
+            "call-to-action-title": "Mens Boxers",
+            "btn-type": "rounded",
+            "call-to-action-btn-text": "Shop Now",
+            "btn-text-size": "text-xs",
+            "btn-text-size-medium": "md:text-base",
+            "call-to-action-btn-font-weight": "font-bold",
+            "call-to-action-btn-font-style": "",
+            "cta-btn-classes": "oddballs-button oddballs-button--secondary py-1 px-3 md:py-2 rounded-xl md:rounded-full uppercase",
+            "btn-outer-wrapper": ""
+          }
+        },
+        "shop_the_look_JGaeyt": {
+          "type": "shop-the-look",
+          "settings": {
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": "",
+            "display": "block",
+            "display-medium": "md:block",
+            "collection-link": "https://www.myoddballs.com/collections/swimming-shorts",
+            "image_wrapper_classes": "m-1",
+            "img_alt_text": "Swim Shorts",
+            "image": "shopify://shop_images/UPDATED_IMAGES_SMALL_SQUARE_BUTTON_-_WATER_BOTTLE_copy_2.jpg",
+            "overlay": true,
+            "opacity": 100,
+            "cta-section-classes": "md:m-4 m-4 md:w-2/3",
+            "cta-section-inner-classes": "p-4",
+            "position-y": "bottom-0",
+            "position-x": "left-0",
+            "title-text-size": "text-xl",
+            "text-size-medium": "md:text-4xl",
+            "call-to-action-title-font-weight": "font-bold",
+            "cta-title-classes": "text-white text-4xl md:mb-3 tracking-wider text-shadow  marujo",
+            "call-to-action-title": "Swim Shorts",
+            "btn-type": "rounded",
+            "call-to-action-btn-text": "Shop Now",
+            "btn-text-size": "text-xs",
+            "btn-text-size-medium": "md:text-base",
+            "call-to-action-btn-font-weight": "font-bold",
+            "call-to-action-btn-font-style": "",
+            "cta-btn-classes": "oddballs-button oddballs-button--secondary py-1 px-3 md:py-2 rounded-xl md:rounded-full",
+            "btn-outer-wrapper": "uppercase"
+          }
+        },
+        "shop_the_look_FrUJqw": {
+          "type": "shop-the-look",
+          "settings": {
+            "show_on_all_markets": false,
+            "markets_to_show_on": "uk",
+            "markets_to_exclude_on": "",
+            "display": "block",
+            "display-medium": "md:block",
+            "collection-link": "https://www.myoddballs.com/collections/pyjamas",
+            "image_wrapper_classes": "m-1",
+            "img_alt_text": "Pyjamas",
+            "image": "shopify://shop_images/UPDATED_IMAGES_SMALL_SQUARE_BUTTON_-_WATER_BOTTLE_copy_3.jpg",
+            "overlay": false,
+            "opacity": 100,
+            "cta-section-classes": "md:m-4 m-4 md:w-2/3",
+            "cta-section-inner-classes": "p-4",
+            "position-y": "bottom-0",
+            "position-x": "left-0",
+            "title-text-size": "text-xl",
+            "text-size-medium": "md:text-4xl",
+            "call-to-action-title-font-weight": "font-bold",
+            "cta-title-classes": "text-white text-4xl md:mb-3 tracking-wider text-shadow  marujo",
+            "call-to-action-title": "Pyjamas",
+            "btn-type": "rounded",
+            "call-to-action-btn-text": "Shop Now",
+            "btn-text-size": "text-xs",
+            "btn-text-size-medium": "md:text-base",
+            "call-to-action-btn-font-weight": "font-bold",
+            "call-to-action-btn-font-style": "",
+            "cta-btn-classes": "oddballs-button oddballs-button--secondary py-1 px-3 md:py-2 rounded-xl md:rounded-full uppercase",
+            "btn-outer-wrapper": ""
+          }
+        },
+        "shop_the_look_aFgNeC": {
+          "type": "shop-the-look",
+          "settings": {
+            "show_on_all_markets": false,
+            "markets_to_show_on": "en-eu",
+            "markets_to_exclude_on": "",
+            "display": "block",
+            "display-medium": "md:block",
+            "collection-link": "https://www.myoddballs.com/collections/his-briefs",
+            "image_wrapper_classes": "m-1",
+            "img_alt_text": "Pyjamas",
+            "image": "shopify://shop_images/Briefs_best_sellers_collection.png",
+            "overlay": true,
+            "opacity": 100,
+            "cta-section-classes": "md:m-4 m-4 md:w-2/3",
+            "cta-section-inner-classes": "p-4",
+            "position-y": "bottom-0",
+            "position-x": "left-0",
+            "title-text-size": "text-xl",
+            "text-size-medium": "md:text-4xl",
+            "call-to-action-title-font-weight": "font-bold",
+            "cta-title-classes": "text-white text-4xl md:mb-3 tracking-wider text-shadow  marujo",
+            "call-to-action-title": "Men's Briefs",
+            "btn-type": "rounded",
+            "call-to-action-btn-text": "Shop Now",
+            "btn-text-size": "text-xs",
+            "btn-text-size-medium": "md:text-base",
+            "call-to-action-btn-font-weight": "font-bold",
+            "call-to-action-btn-font-style": "",
+            "cta-btn-classes": "oddballs-button oddballs-button--secondary py-1 px-3 md:py-2 rounded-xl md:rounded-full uppercase",
+            "btn-outer-wrapper": ""
+          }
+        },
+        "shop_the_look_PqkJpq": {
+          "type": "shop-the-look",
+          "settings": {
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": "",
+            "display": "block",
+            "display-medium": "md:block",
+            "collection-link": "https://www.myoddballs.com/collections/seamless-underwear",
+            "image_wrapper_classes": "m-1",
+            "img_alt_text": "Seamless Underwear",
+            "image": "shopify://shop_images/UPDATED_IMAGES_SMALL_SQUARE_BUTTON_-_WATER_BOTTLE_copy_6.jpg",
+            "overlay": true,
+            "opacity": 100,
+            "cta-section-classes": "md:m-4 m-4 md:w-2/3",
+            "cta-section-inner-classes": "p-4",
+            "position-y": "bottom-0",
+            "position-x": "left-0",
+            "title-text-size": "text-xl",
+            "text-size-medium": "md:text-4xl",
+            "call-to-action-title-font-weight": "font-bold",
+            "cta-title-classes": "text-white text-4xl md:mb-3 tracking-wider text-shadow  marujo",
+            "call-to-action-title": "Seamless",
+            "btn-type": "rounded",
+            "call-to-action-btn-text": "Shop Now",
+            "btn-text-size": "text-xs",
+            "btn-text-size-medium": "md:text-base",
+            "call-to-action-btn-font-weight": "font-bold",
+            "call-to-action-btn-font-style": "",
+            "cta-btn-classes": "oddballs-button oddballs-button--secondary py-1 px-3 md:py-2 rounded-xl md:rounded-full uppercase",
+            "btn-outer-wrapper": ""
+          }
+        },
+        "shop_the_look_RDA6MW": {
+          "type": "shop-the-look",
+          "settings": {
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": "",
+            "display": "block",
+            "display-medium": "md:block",
+            "collection-link": "https://www.myoddballs.com/collections/socks",
+            "image_wrapper_classes": "m-1",
+            "img_alt_text": "Socks",
+            "image": "shopify://shop_images/UPDATED_IMAGES_SMALL_SQUARE_BUTTON_-_WATER_BOTTLE_copy_5.jpg",
+            "overlay": true,
+            "opacity": 100,
+            "cta-section-classes": "md:m-4 m-4 md:w-2/3",
+            "cta-section-inner-classes": "p-4",
+            "position-y": "bottom-0",
+            "position-x": "left-0",
+            "title-text-size": "text-xl",
+            "text-size-medium": "md:text-4xl",
+            "call-to-action-title-font-weight": "font-bold",
+            "cta-title-classes": "text-white text-4xl md:mb-3 tracking-wider text-shadow  marujo",
+            "call-to-action-title": "Socks",
+            "btn-type": "rounded",
+            "call-to-action-btn-text": "Shop Now",
+            "btn-text-size": "text-xs",
+            "btn-text-size-medium": "md:text-base",
+            "call-to-action-btn-font-weight": "font-bold",
+            "call-to-action-btn-font-style": "",
+            "cta-btn-classes": "oddballs-button oddballs-button--secondary py-1 px-3 md:py-2 rounded-xl md:rounded-full uppercase",
+            "btn-outer-wrapper": ""
+          }
+        },
+        "shop_the_look_a8XMiC": {
+          "type": "shop-the-look",
+          "settings": {
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": "",
+            "display": "block",
+            "display-medium": "md:block",
+            "collection-link": "https://www.myoddballs.com/collections/her-individuals",
+            "image_wrapper_classes": "m-1",
+            "img_alt_text": "Women's Briefs",
+            "image": "shopify://shop_images/UPDATED_IMAGES_SMALL_SQUARE_BUTTON_-_WATER_BOTTLE_copy_4.jpg",
+            "overlay": true,
+            "opacity": 100,
+            "cta-section-classes": "md:m-4 m-4 md:w-2/3",
+            "cta-section-inner-classes": "p-4",
+            "position-y": "bottom-0",
+            "position-x": "left-0",
+            "title-text-size": "text-xl",
+            "text-size-medium": "md:text-4xl",
+            "call-to-action-title-font-weight": "font-bold",
+            "cta-title-classes": "text-white text-4xl md:mb-3 tracking-wider text-shadow  marujo",
+            "call-to-action-title": "Women's Briefs",
+            "btn-type": "rounded",
+            "call-to-action-btn-text": "Shop Now",
+            "btn-text-size": "text-xs",
+            "btn-text-size-medium": "md:text-base",
+            "call-to-action-btn-font-weight": "font-bold",
+            "call-to-action-btn-font-style": "",
+            "cta-btn-classes": "oddballs-button oddballs-button--secondary py-1 px-3 md:py-2 rounded-xl md:rounded-full uppercase",
+            "btn-outer-wrapper": ""
+          }
+        }
+      },
+      "block_order": [
+        "shop_the_look_GFipY3",
+        "shop_the_look_JGaeyt",
+        "shop_the_look_FrUJqw",
+        "shop_the_look_aFgNeC",
+        "shop_the_look_PqkJpq",
+        "shop_the_look_RDA6MW",
+        "shop_the_look_a8XMiC"
+      ],
+      "custom_css": [
+        ".call-to-action-section {position: absolute; z-index: 2;}",
+        ".img-overlay-full {background: linear-gradient( 0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 100% ); z-index: 1; height: 40%; width: 100%; position: absolute; bottom: 0;}",
+        ".line-height {line-height: 0.88em;}",
+        "@media only screen and (min-width: 640px) {.line-height {line-height: 0.8em; }}",
+        ".text-shadow {text-shadow: 1px 1px 3px #000000a8;}"
+      ],
+      "settings": {
+        "outer_wrapper_classes": "border-black border-solid blend-divide py-4 pb-8",
+        "inner_wrapper_classes": "max-w-7xl mx-auto",
+        "grid_classes": "grid grid-cols-2 md:grid-cols-3",
+        "header": "SHOP OUR BEST SELLING COLLECTIONS",
+        "insta_handle": "FOLLOW US ON INSTAGRAM @MYODDBALLS",
+        "insta_link": "https://www.instagram.com/myoddballs",
+        "header_classes": "text-2xl md:text-4xl uppercase  mx-auto text-center marujo px-4 mb-8",
+        "insta_handle_classes": "",
+        "footer-title": "pt-4  uppercase px-4 mx-auto text-center text-magenta text-2xl md:text-4xl mx-auto text-center marujo",
+        "brutal_classes": "",
+        "add-to-footer": false
+      }
+    },
+    "ob_hero_banner_with_nav_slider_Wg4fti": {
+      "type": "ob-hero-banner-with-nav-slider",
+      "name": "Hero Banner With Slider",
+      "settings": {
+        "metaobject": "interactive-elements",
+        "reverse": false
+      }
+    },
+    "ob_partnership_marquee_slider_qiTTw7": {
+      "type": "ob-partnership-marquee-slider",
+      "blocks": {
+        "collection_PdzAFH": {
+          "type": "collection",
+          "settings": {
+            "show_on_all_markets": false,
+            "markets_to_show_on": "uk",
+            "markets_to_exclude_on": "",
+            "title": "Teenage Mutant Ninja Turtles",
+            "img": "shopify://shop_images/tmnt_collection_selector.png",
+            "url": "shopify://collections/teenage-mutant-ninja-turtles"
+          }
+        },
+        "collection_yxKc84": {
+          "type": "collection",
+          "settings": {
+            "show_on_all_markets": true,
+            "markets_to_show_on": "uk",
+            "markets_to_exclude_on": "",
+            "title": "Rocky Horror Show",
+            "img": "shopify://shop_images/rocky_horror_logo.png",
+            "url": "shopify://collections/rocky-horror"
+          }
+        },
+        "collection_8ry4Hr": {
+          "type": "collection",
+          "settings": {
+            "show_on_all_markets": false,
+            "markets_to_show_on": "uk",
+            "markets_to_exclude_on": "",
+            "title": "Star Trek",
+            "img": "shopify://shop_images/star_trek_logo_2.png",
+            "url": "shopify://collections/star-trek"
+          }
+        },
+        "collection_9UrxwF": {
+          "type": "collection",
+          "settings": {
+            "show_on_all_markets": false,
+            "markets_to_show_on": "uk",
+            "markets_to_exclude_on": "",
+            "title": "Alzheimer's Research UK",
+            "img": "shopify://shop_images/SHOP_BY_DESIGN_ALZHEIMERS_RESEARCH_UK_NEW.png",
+            "url": "shopify://collections/alzheimers-research"
+          }
+        },
+        "collection_NyWPpX": {
+          "type": "collection",
+          "settings": {
+            "show_on_all_markets": true,
+            "markets_to_show_on": "uk",
+            "markets_to_exclude_on": "",
+            "title": "Pringles",
+            "img": "shopify://shop_images/Pringles-SBD_d36eff91-100c-41c9-9428-1a7632de6149.png",
+            "url": "shopify://collections/pringles"
+          }
+        },
+        "collection_GYJYMJ": {
+          "type": "collection",
+          "settings": {
+            "show_on_all_markets": false,
+            "markets_to_show_on": "uk",
+            "markets_to_exclude_on": "",
+            "title": "Official England FA",
+            "img": "shopify://shop_images/SHOPBYDESIGN-ENGLAND-FOOTBALL.jpg",
+            "url": "shopify://collections/design-england-fa"
+          }
+        },
+        "collection_VcRtKj": {
+          "type": "collection",
+          "settings": {
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": "",
+            "title": "Kelloggs®",
+            "img": "shopify://shop_images/kelloggs_sbd_50555f71-2672-4ed1-8ec6-77fd0bdc0881.png",
+            "url": "shopify://collections/kelloggs"
+          }
+        },
+        "collection_ba3rqg": {
+          "type": "collection",
+          "settings": {
+            "show_on_all_markets": false,
+            "markets_to_show_on": "uk",
+            "markets_to_exclude_on": "",
+            "title": "Mr. Men Little Miss",
+            "img": "shopify://shop_images/Mr_Men_Little_Miss.png",
+            "url": "shopify://collections/mr-men-little-miss"
+          }
+        },
+        "collection_PgpU4K": {
+          "type": "collection",
+          "settings": {
+            "show_on_all_markets": false,
+            "markets_to_show_on": "uk",
+            "markets_to_exclude_on": "",
+            "title": "Official England Rugby Licence",
+            "img": "shopify://shop_images/SHOPBYDESIGN-ENGLAND-RUGBY.jpg",
+            "url": "shopify://collections/design-england-rugby"
+          }
+        },
+        "collection_iqWAHP": {
+          "type": "collection",
+          "disabled": true,
+          "settings": {
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": "",
+            "title": "Elmer",
+            "img": "shopify://shop_images/elmer_sbd_image.png",
+            "url": "shopify://collections/elmer"
+          }
+        },
+        "collection_M7Ycbx": {
+          "type": "collection",
+          "settings": {
+            "show_on_all_markets": false,
+            "markets_to_show_on": "uk",
+            "markets_to_exclude_on": "",
+            "title": "Welsh FA",
+            "img": "shopify://shop_images/SHOPBYDESIGN-WFA-FOOTBALL.jpg",
+            "url": "shopify://collections/design-cymru"
+          }
+        },
+        "collection_FQfaPE": {
+          "type": "collection",
+          "settings": {
+            "show_on_all_markets": false,
+            "markets_to_show_on": "uk",
+            "markets_to_exclude_on": "",
+            "title": "Emoji ®",
+            "img": "shopify://shop_images/Emoji-SBD.png",
+            "url": "shopify://collections/emoji"
+          }
+        },
+        "collection_8tCmxd": {
+          "type": "collection",
+          "settings": {
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": "",
+            "title": "The Rolling Stones",
+            "img": "shopify://shop_images/SHOPBYDESIGN-ROLLING-STONES.png",
+            "url": "shopify://collections/the-rolling-stones"
+          }
+        },
+        "collection_HWGLHt": {
+          "type": "collection",
+          "settings": {
+            "show_on_all_markets": false,
+            "markets_to_show_on": "uk",
+            "markets_to_exclude_on": "",
+            "title": "Beano",
+            "img": "shopify://shop_images/Beano-SBD.png",
+            "url": "shopify://collections/beano"
+          }
+        },
+        "collection_x7fDFD": {
+          "type": "collection",
+          "settings": {
+            "show_on_all_markets": false,
+            "markets_to_show_on": "uk",
+            "markets_to_exclude_on": "",
+            "title": "Team GB",
+            "img": "shopify://shop_images/Team_GB.png",
+            "url": "shopify://collections/team-gb"
+          }
+        },
+        "collection_6BdaNw": {
+          "type": "collection",
+          "settings": {
+            "show_on_all_markets": false,
+            "markets_to_show_on": "uk",
+            "markets_to_exclude_on": "",
+            "title": "Official England Cricket Licence",
+            "img": "shopify://shop_images/SHOPBYDESIGN-ENGLAND-CRICKET.jpg",
+            "url": "shopify://collections/england-cricket"
+          }
+        },
+        "collection_fjVUQG": {
+          "type": "collection",
+          "settings": {
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": "",
+            "title": "AC/DC",
+            "img": "shopify://shop_images/SBD-ACDC_0d61aa84-5b32-4db0-9c70-00c04528e348.png",
+            "url": "shopify://collections/acdc"
+          }
+        },
+        "collection_LAw6GX": {
+          "type": "collection",
+          "settings": {
+            "show_on_all_markets": false,
+            "markets_to_show_on": "uk",
+            "markets_to_exclude_on": "",
+            "title": "Dogs Trust",
+            "img": "shopify://shop_images/SHOPBYDESIGN-DOGS-TRUST_75c290ec-f0e7-423b-b533-be8b059314d4.jpg",
+            "url": "shopify://collections/dogs-trust"
+          }
+        },
+        "collection_zDzn4j": {
+          "type": "collection",
+          "settings": {
+            "show_on_all_markets": false,
+            "markets_to_show_on": "uk",
+            "markets_to_exclude_on": "",
+            "title": "Doddie Weir",
+            "img": "shopify://shop_images/SHOPBYDESIGN-DODDIE-WIER.jpg",
+            "url": "shopify://collections/doddie-weir"
+          }
+        },
+        "collection_zEGPKN": {
+          "type": "collection",
+          "settings": {
+            "show_on_all_markets": false,
+            "markets_to_show_on": "uk",
+            "markets_to_exclude_on": "",
+            "title": "Prostate Cancer UK",
+            "img": "shopify://shop_images/SHOPBYDESIGN-PROSTATE-CANCER.jpg",
+            "url": "shopify://collections/prostate-cancer-uk"
+          }
+        },
+        "collection_ckL3Hx": {
+          "type": "collection",
+          "settings": {
+            "show_on_all_markets": false,
+            "markets_to_show_on": "uk",
+            "markets_to_exclude_on": "",
+            "title": "Gas Monkey",
+            "img": "shopify://shop_images/Gas_Monkey.png",
+            "url": "shopify://collections/gas-monkey"
+          }
+        }
+      },
+      "block_order": [
+        "collection_PdzAFH",
+        "collection_yxKc84",
+        "collection_8ry4Hr",
+        "collection_9UrxwF",
+        "collection_NyWPpX",
+        "collection_GYJYMJ",
+        "collection_VcRtKj",
+        "collection_ba3rqg",
+        "collection_PgpU4K",
+        "collection_iqWAHP",
+        "collection_M7Ycbx",
+        "collection_FQfaPE",
+        "collection_8tCmxd",
+        "collection_HWGLHt",
+        "collection_x7fDFD",
+        "collection_6BdaNw",
+        "collection_fjVUQG",
+        "collection_LAw6GX",
+        "collection_zDzn4j",
+        "collection_zEGPKN",
+        "collection_ckL3Hx"
+      ],
+      "settings": {
+        "show_on_all_markets": false,
+        "markets_to_show_on": "uk",
+        "markets_to_exclude_on": "",
+        "heading": "We make jointly branded underwear for some of the world's biggest brands",
+        "button_style": "primary",
+        "button_text": "Shop Now",
+        "button_link": "https://www.myoddballs.com/pages/shop-by-design#sport",
+        "is_rounded": true,
+        "extra_classes": "mt-8 uppercase font-bold",
+        "button_id": "",
+        "custom_attributes": ""
+      }
+    },
+    "ob_text_video_slider_f9LpW7": {
+      "type": "ob-text-video-slider",
+      "custom_css": [],
+      "settings": {
+        "handle": "home-page-two",
+        "extra-attributes": "",
+        "section_wrapper_classes": "relative",
+        "extra-logged-in": "",
+        "extra-logged-out": "",
+        "show_dots": true,
+        "dots_container_classes": "ob-dots absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10",
+        "dot_classes": "ob-dot w-2 h-2 rounded-full bg-gray-300 transition-colors duration-200",
+        "slider_enabled": true,
+        "autoplay": true,
+        "loop": true,
+        "slides_mobile": 1,
+        "slides_md": 1,
+        "slides_lg": 1,
+        "slide_gap": 0,
+        "cta-setting": false,
+        "position": "start",
+        "title": "Title",
+        "title-text-classes": "text-3xl md:text-6xl capitalize dbl-cta-title pb-1 font-bebas",
+        "title-text-postion": "left",
+        "title-text-size": 18,
+        "title-color": "",
+        "desktop-title-text-size": 32,
+        "paragragh": "My Paragraph",
+        "p-classes": "",
+        "paragraph-text-postion": "left",
+        "paragragh-font-size": 12,
+        "paragraph-color": "",
+        "desktop-paragraph-text-size": 18,
+        "btn-one-text": "button one",
+        "btn-one-classes": "px-8 relative p-2 rounded-md uppercase btn-shadow-lg block border-solid border-2 border-md border-black text-black font-semibold text-center  transition-colors duration-200",
+        "btn-1-url": "",
+        "btn-one-color": "#ffffff",
+        "btn-one-bg-color": "#000000",
+        "btn-two-text": "button two",
+        "btn-two-classes": "px-8 relative p-2 rounded-md uppercase btn-shadow-lg block border-solid border-2 border-md border-black text-black font-semibold text-center  transition-colors duration-200",
+        "btn-2-url": "",
+        "btn-two-color": "#000000",
+        "btn-two-bg-color": "#ffffff",
+        "button-postion": "start"
+      }
+    },
+    "ob_conditional_banner_JecCQT": {
+      "type": "ob-conditional-banner",
+      "blocks": {
+        "7aedd716-eef2-4840-ad2a-d9b955209ce5": {
+          "type": "page-banner",
+          "settings": {
+            "block_active": true,
+            "show_on_all_markets": false,
+            "markets_to_show_on": "uk",
+            "markets_to_exclude_on": "",
+            "banner_background": "",
+            "wrapper_classes": "",
+            "title": "",
+            "text": "",
+            "text_wrapper_classes": "",
+            "customers": "both",
+            "url_handle": "*",
+            "not_url_handle": "",
+            "country_iso": "*",
+            "banner_link": "",
+            "desktop_image": "shopify://shop_images/Desktop-BG-BNPL.jpg",
+            "mobile_image": "shopify://shop_images/Mobile-BG-BNPL.jpg",
+            "desktop_image_classes": "mx-auto w-full hidden md:block",
+            "mobile_image_classes": "mx-auto w-full md:hidden",
+            "desktop_svg": "Desktop-FG-BNPL.svg",
+            "mobile_svg": "Mobile-FG-BNPL.svg",
+            "desktop_svg_classes": "absolute inset-0 w-full h-full mx-auto hidden md:block",
+            "mobile_svg_classes": "absolute inset-0 w-full h-full mx-auto md:hidden"
+          }
+        }
+      },
+      "block_order": [
+        "7aedd716-eef2-4840-ad2a-d9b955209ce5"
+      ],
+      "settings": {
+        "banner_background": "",
+        "wrapper_classes": ""
+      }
+    },
+    "ob_trust_pilot_widget_4LK6wd": {
+      "type": "ob-trust-pilot-widget",
+      "settings": {
+        "outer_wrapper_classes": "border-b-2 border-solid border-black",
+        "wrapper_classes": "max-w-7xl mx-auto py-10 px-2",
+        "widget_header": "We'd be nowhere without our amazing customers!",
+        "widget_header_classes": "text-2xl md:text-4xl uppercase  mx-auto text-center marujo px-4 mb-8",
+        "widget_subheader": "",
+        "widget_subheader_classes": "font-bebas text-center text-4xl md:text-5xl uppercase pb-3",
+        "widget_code": "<!-- TrustBox widget - Slider -->\n<div class=\"trustpilot-widget\" data-locale=\"en-GB\" data-template-id=\"54ad5defc6454f065c28af8b\" data-businessunit-id=\"5c7f9459871dac0001ea0238\" data-style-height=\"240px\" data-style-width=\"100%\" data-theme=\"light\" data-stars=\"5\" data-review-languages=\"en\">\n<a href=\"https://uk.trustpilot.com/review/myoddballs.com\" target=\"_blank\" rel=\"noopener\">Trustpilot</a>\n</div>\n<!-- End TrustBox widget -->",
+        "widget_wrapper_classes": "",
+        "use_microcombo": false
+      }
+    },
+    "ob_klaviyo_forms_xPNBiR": {
+      "type": "ob-klaviyo-forms",
+      "blocks": {
+        "form_pzaHe8": {
+          "type": "form",
+          "settings": {
+            "country_iso": "*",
+            "show_on_all_markets": false,
+            "markets_to_show_on": "uk",
+            "markets_to_exclude_on": "",
+            "slide_active": true,
+            "title": "GB - Sign Up",
+            "klaviyo_id": "W2k3eK",
+            "html_id": "Lkqws1",
+            "wrapper_classes": "homepage-form bg-magenta text-white py-5 homepage-sign-up",
+            "url_handle": "*",
+            "not_url_handle": "",
+            "domains": "*",
+            "device": "all",
+            "customers": "all"
+          }
+        },
+        "form_CpjEea": {
+          "type": "form",
+          "settings": {
+            "country_iso": "*",
+            "show_on_all_markets": false,
+            "markets_to_show_on": "en-eu",
+            "markets_to_exclude_on": "",
+            "slide_active": true,
+            "title": "EN EU - Sign Up",
+            "klaviyo_id": "XMUQHv",
+            "html_id": "Lkqws1",
+            "wrapper_classes": "homepage-form bg-magenta text-white py-5 homepage-sign-up",
+            "url_handle": "*",
+            "not_url_handle": "",
+            "domains": "*",
+            "device": "all",
+            "customers": "all"
+          }
+        },
+        "form_CpjEea1": {
+          "type": "form",
+          "settings": {
+            "country_iso": "*",
+            "show_on_all_markets": false,
+            "markets_to_show_on": "de-eu",
+            "markets_to_exclude_on": "",
+            "slide_active": true,
+            "title": "DE - Sign Up",
+            "klaviyo_id": "SCdXxX",
+            "html_id": "SCdXxX",
+            "wrapper_classes": "homepage-form bg-magenta text-white py-5 homepage-sign-up",
+            "url_handle": "*",
+            "not_url_handle": "",
+            "domains": "*",
+            "device": "all",
+            "customers": "all"
+          }
+        }
+      },
+      "block_order": [
+        "form_pzaHe8",
+        "form_CpjEea",
+        "form_CpjEea1"
+      ],
+      "settings": {
+        "section_width": "full",
+        "custom_width": ""
+      }
+    },
+    "ob_image_text_grid_8PipJ8": {
+      "type": "ob-image-text-grid",
+      "blocks": {
+        "3431830b-b097-4fce-a1c3-37140f1152da": {
+          "type": "image-and-text",
+          "settings": {
+            "country_iso": "*",
+            "title": "SAY BALLS TO BORING UNDERWEAR!",
+            "block_wrapper_classes": "col-span-1 lg: col-span-1  flex  justify-center  py-6  px-4  gap-x-5  items-center border-b-2  border-solid",
+            "block_title": "SAY BALLS TO BORING UNDERWEAR!",
+            "title_classes": "text-2xl md:text-4xl uppercase  mx-auto text-center marujo px-4 mb-8",
+            "description": "",
+            "description_classes": "",
+            "svg": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "4e1d8497-0927-4578-bf8a-f44031a5f73e": {
+          "type": "image-and-text",
+          "settings": {
+            "country_iso": "*",
+            "title": "Intro",
+            "block_wrapper_classes": "col-span-1 lg: col-span-1  flex  py-4  px-4  gap-x-5  items-center    border-solid",
+            "block_title": "",
+            "title_classes": "text",
+            "description": "Founded in 2014, OddBalls was created to shake up the boring underwear market with bold, vibrant designs. Since day one, our mission has been to bring comfort through colourful prints and top-quality products. OddBalls isn’t just about fun underwear – it’s about championing diversity and inclusion with something for everyone. Whether you’re after <a href=\"/collections/him-individuals\" class=\" text-magenta-500\">men’s</a> or <a href=\"collections/ladies-boxer-shorts\" class=\" text-magenta-500\">women’s boxers</a>, briefs, knickers, or undies – call them what you like – we’ve got you covered.",
+            "description_classes": "",
+            "svg": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "25d07071-4307-451a-a6af-4f25ac57134f": {
+          "type": "image-and-text",
+          "settings": {
+            "country_iso": "GB",
+            "title": "Sports Teams",
+            "block_wrapper_classes": "col-span-1 lg: col-span-1  flex  px-4  gap-x-5 t   border-solid",
+            "block_title": "",
+            "title_classes": "text",
+            "description": "Our <a href=\"/pages/shop-by-design#partnerships\" class=\" text-magenta-500\">partnerships</a> celebrate your most-loved brands and icons. From collaborations with <a href=\"/collections/england-rugby\" class=\" text-magenta-500\">England Rugby</a>, <a href=\"/collections/design-welsh-rugby-union\" class=\" text-magenta-500\">Welsh Rugby Union</a>, and <a href=\"/collections/team-gb\" class=\" text-magenta-500\">Team GB </a> to iconic names like <a href=\"/collections/acdc\" class=\" text-magenta-500\">ACDC</a>, <a href=\"/collections/emoji\" class=\" text-magenta-500\">Emoji</a>, and <a href=\"collections/teenage-mutant-ninja-turtles\" class=\" text-magenta-500\">Teenage Mutant Ninja Turtles</a>.  We've also teamed up with  <a href=\"/collections/the-rolling-stones\" class=\" text-magenta-500\">The Rolling Stones</a>, <a href=\"/collections/mr-men\" class=\" text-magenta-500\">Mr Men</a>, <a href=\"/collections/gas-monkey\" class=\" text-magenta-500\">Gas Monkey</a> and <a href=\"/collections/beano\" class=\" text-magenta-500\">Beano</a>. Check out all of our underwear designs  <a href=\"/pages/shop-by-design\" class=\" text-magenta-500\">here. </a>",
+            "description_classes": "",
+            "svg": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "884a46b8-f914-4584-ba15-615ae696cee6": {
+          "type": "image-and-text",
+          "disabled": true,
+          "settings": {
+            "country_iso": "GB",
+            "title": "Licensees",
+            "block_wrapper_classes": "col-span-1 lg: col-span-1  flex  py-4  px-4  gap-x-5    border-solid",
+            "block_title": "",
+            "title_classes": "text",
+            "description": "We've also teamed up with  <a href=\"/collections/the-rolling-stones\" class=\" text-magenta-500\">The Rolling Stones</a>, <a href=\"/collections/mr-men\" class=\" text-magenta-500\">Mr Men</a>, <a href=\"/collections/gas-monkey\" class=\" text-magenta-500\">Gas Monkey</a> and <a href=\"/collections/beano\" class=\" text-magenta-500\">Beano</a>, Check out all of our underwear designs  <a href=\"/pages/shop-by-design\" class=\" text-magenta-500\">here. </a>",
+            "description_classes": "",
+            "svg": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "88274b59-9880-49e1-ada1-581ae87289e7": {
+          "type": "image-and-text",
+          "settings": {
+            "country_iso": "US,CA",
+            "title": "US/CA - Rugby",
+            "block_wrapper_classes": "col-span-1 lg: col-span-1  flex  py-4  px-4  gap-x-5   border-solid",
+            "block_title": "",
+            "title_classes": "text",
+            "description": "With our roots firmly in rugby, we’re proud to have partnerships with a number of sporting teams, producing products for <a href=\"/collections/usa-rugby\" class=\" text-magenta-500\">USA Rugby underwear</a>, The British & Irish Lions, Welsh Rugby Union, England Rugby and more.",
+            "description_classes": "",
+            "svg": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "852e778f-4d5a-439c-8eb5-3a3bae35d00e": {
+          "type": "image-and-text",
+          "settings": {
+            "country_iso": "GB",
+            "title": "Love a treat?",
+            "block_wrapper_classes": "col-span-1  flex  py-4  px-4  gap-x-5  items-center",
+            "block_title": "",
+            "title_classes": "text",
+            "description": "Fancy something new each month, our <a href=\"/pages/subscription-selector\" class=\" text-magenta-500\">Subscriptions</a> deliver brand new underwear and sock designs straight to your door or buy for the perfect gift. No need for boring pants EVER again!",
+            "description_classes": "",
+            "svg": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "a252037d-f61a-4a40-9311-1111a54ddf00": {
+          "type": "image-and-text",
+          "settings": {
+            "country_iso": "GB",
+            "title": "GB - Money Raised",
+            "block_wrapper_classes": "col-span-1 lg: col-span-1  flex  px-4  gap-x-5  items-center    border-solid",
+            "block_title": "",
+            "title_classes": "text",
+            "description": "Recognising our potential to do even more, we decided to use our bright fun underwear to raise awareness for <a href=\"/pages/about-us#charity\" class=\" text-magenta-500\">several charities</a> as well as Testicular Cancer. We are proud to have donated over £1,000,000 to charities since 2014.",
+            "description_classes": "",
+            "svg": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "7e341bf5-9fd0-402a-b745-a1cf3f961685": {
+          "type": "image-and-text",
+          "settings": {
+            "country_iso": "US",
+            "title": "US - Money Raised",
+            "block_wrapper_classes": "col-span-1 lg: col-span-1  flex  px-4  gap-x-5  items-center   border-solid",
+            "block_title": "",
+            "title_classes": "text",
+            "description": "Originally founded to raise awareness of Testicular Cancer, we now donate to, support and make underwear for some brilliant charities – and have donated over $1,000,000 since 2014. Our aim is to donate over $1,200,000 to <a href=\"/pages/shop-by-design#charity\" class=\" text-magenta-500\">charities</a>, by 2023.<br>",
+            "description_classes": "",
+            "svg": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "185e41c5-e562-4026-9161-a993df083410": {
+          "type": "image-and-text",
+          "settings": {
+            "country_iso": "CA",
+            "title": "CA - Money Raised",
+            "block_wrapper_classes": "col-span-1 lg: col-span-1  flex  px-4  gap-x-5  items-center  cursor-pointer  border-solid",
+            "block_title": "",
+            "title_classes": "text",
+            "description": "Originally founded to raise awareness of Testicular Cancer, we now donate to, support and make underwear for some brilliant charities – and have donated over  $1,300,000 since 2014. Our aim is to donate over $1,600,000 to <a href=\"/pages/shop-by-design#charity\" class=\" text-magenta-500\">charities</a>, by 2024.",
+            "description_classes": "",
+            "svg": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "7f967fc1-2553-4596-9786-f3d577aa7074": {
+          "type": "image-and-text",
+          "settings": {
+            "country_iso": "GB",
+            "title": "Outro",
+            "block_wrapper_classes": "col-span-1 lg: col-span-1  flex  py-4  px-4  gap-x-5    border-solid",
+            "block_title": "",
+            "title_classes": "text",
+            "description": "Whether you're looking to treat yourself, or need gifts for family and friends, we're sure you'll find something you LOVE. Join the OddBalls community today - after all life's too short for boring underwear!",
+            "description_classes": "",
+            "svg": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        }
+      },
+      "block_order": [
+        "3431830b-b097-4fce-a1c3-37140f1152da",
+        "4e1d8497-0927-4578-bf8a-f44031a5f73e",
+        "25d07071-4307-451a-a6af-4f25ac57134f",
+        "884a46b8-f914-4584-ba15-615ae696cee6",
+        "88274b59-9880-49e1-ada1-581ae87289e7",
+        "852e778f-4d5a-439c-8eb5-3a3bae35d00e",
+        "a252037d-f61a-4a40-9311-1111a54ddf00",
+        "7e341bf5-9fd0-402a-b745-a1cf3f961685",
+        "185e41c5-e562-4026-9161-a993df083410",
+        "7f967fc1-2553-4596-9786-f3d577aa7074"
+      ],
+      "settings": {
+        "outer_wrapper_classes": "blend-divide  border-b-2  border-solid  bg-cyan-500",
+        "inner_wrapper_classes": "max-w-7xl  mx-auto  py-12  px-4 sm: px-6 lg: py-16 lg: px-8",
+        "grid_wrapper_classes": "bg-white  grid  grid-cols-1   border-2  border-solid  rounded-md",
+        "title": "",
+        "title_classes": "text-center  text-base  font-semibold  uppercase  text-gray-600  tracking-wider",
+        "section_bg_colour": "",
+        "block_bg_colour": "",
+        "block_bg_colour_hover": "",
+        "block_text_colour": "",
+        "block_text_colour_hover": "",
+        "block_image_classes": "",
+        "block_svg_classes": "",
+        "custom_css": ""
+      }
+    },
+    "scroll_to_LjdWPj": {
+      "type": "scroll-to",
+      "name": "Scroll To",
+      "settings": {
+        "scroll_to": "sign-up-marker"
+      }
+    }
+  },
+  "order": [
+    "mobile_circular_category_nav_QbKJVt",
+    "ob_hero_banner_with_nav_slider_cMt3Fd",
+    "ob_hero_banner_with_nav_slider_DRLx9K",
+    "ob_hero_banner_with_nav_slider_4CfJ8L",
+    "ob_trust_pilot_widget_3MFawT",
+    "ob_collection_slider_old_FBFAUH",
+    "ob_hero_banner_with_nav_slider_EhytX7",
+    "ob_metaobject_collection_conditional_banner_LBhAmy",
+    "ob_text_video_slider_fekpf3",
+    "main",
+    "scroll_to_piEqGg",
+    "ob_collection_slider_old_V3yGp3",
+    "ob_collection_slider_old_bhPBp3",
+    "ob_collection_slider_old_W6D6iC",
+    "ob_three_text_fields_39R9bX",
+    "ob_conditional_banner_3UByqh",
+    "ob_instagram_feed_ytdcEL",
+    "ob_hero_banner_with_nav_slider_Wg4fti",
+    "ob_partnership_marquee_slider_qiTTw7",
+    "ob_text_video_slider_f9LpW7",
+    "ob_conditional_banner_JecCQT",
+    "ob_trust_pilot_widget_4LK6wd",
+    "scroll_to_LjdWPj",
+    "ob_klaviyo_forms_xPNBiR",
+    "ob_image_text_grid_8PipJ8"
+  ]
+}

@@ -1,0 +1,255 @@
+<div class="hidden lg:flex lg:flex-1  lg:{{ section.settings.position }} lg:space-x-6 items-center">
+  
+   {% for block in section.blocks %}
+      {% case block.type %}
+        <!-- custom link -->
+        {% when 'link' %}
+                <a href="{{ block.settings.alt-link }}" class="{{ block.settings.classes }}">{{ block.settings.title }}</a>
+
+        <!-- sign in -->
+        {% when 'sign-in' %}
+            {% if customer %}
+  
+                <a href="/account/logout" class="{{ block.settings.classes }}">Log Out</a>
+            {% else %}
+                <a href="/account" class="{{ block.settings.classes }}">Sign in </a>
+                <a href="/account/register" class="{{ block.settings.classes }}">Register</a>
+            {% endif %}
+        
+        {% when 'currency' %}
+        
+          <!-- Currency selector -->
+        {% if current_country != 'CA' %}
+          <div x-data="{modalIsOpen: false}">
+          <button @click="modalIsOpen = true" type="button" class="js-toggle-iso-selector md:flex items-center cursor-pointer hidden">
+            {% assign country_iso = localization.country.iso_code | downcase %}
+            {% render 'ob-flag-icons', icon:country_iso, class:'tw-flex mr-1' %}
+            <div>
+              {% for currency in shop.enabled_currencies %}
+                {% if currency == cart.currency %}
+                <span class="{{ block.settings.classes }}">{{currency.iso_code}} {{currency.symbol}}</span>
+                {% endif %}
+              {% endfor %}
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" class="text-white w-3 h-3 ml-2" stroke="white" viewBox="9.52 13.52 14.95 8.47"><path d="M22.782 13.8L17 19.582 11.218 13.8a1 1 0 0 0-1.414 1.414L16.29 21.7a.992.992 0 0 0 .71.292.997.997 0 0 0 .71-.292l6.486-6.486a1 1 0 0 0-1.414-1.414z"></path></svg>                
+        </button>
+        {% render 'ob-country-popover' %}
+          </div>
+      {% endif %}
+
+      {% when 'cart' %}
+        <a {% if settings.enable_cart_drawer %}x-on:click="sideCart = !sideCart"{% else %} href="/cart" {% endif%} class="group -m-2 flex items-center p-2">
+            <svg class="h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+            </svg>
+            <span class="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800 flex flex-col ">
+              {% if cart.item_count > 0 %}
+                <div class="">
+                  {{ cart.item_count }}
+                </div>
+              {% endif %}
+            </span>
+            <span class="sr-only">items in cart, view basket</span>
+          </a>
+
+        {% when "account" %}
+            <a href="/account" class="-m-2 p-2 text-gray-400 hover:text-gray-500">
+                  <span class="sr-only">Account</span>
+                  <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                  </svg>
+            </a>
+      {% when 'logo' %}
+            <a href="{{ shop.url }}">
+              {% if settings.logo %}
+                <img src="{{ settings.logo | img_url: '150x' }}" alt="Site Logo">
+              {% else %}
+                <h2>{{ shop.name }}</h2>
+            {% endif %}
+          </a>
+
+      {% when 'search' %}
+          <div class="min-w-0 flex-1 md:px-8 lg:px-0 xl:col-span-6">
+        <div class="flex items-center px-6 py-4 md:mx-auto md:max-w-3xl lg:mx-0 lg:max-w-none xl:px-0">
+          <div class="w-full">
+            <label for="search" class="sr-only">Search</label>
+            <div class="relative">
+              <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                <svg class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z" clip-rule="evenodd" />
+                </svg>
+              </div>
+              <input id="search" name="q" class="block w-full rounded-md border-0 bg-white py-1.5 pl-10 pr-3 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6" placeholder="Search" type="search">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {% when 'alerts' %}
+      <a href="#" class="wisp"><svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="22" height="22" viewBox="0 0 24 24" stroke="black" xmlns="<http://www.w3.org/2000/svg>"><path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path></svg></a>
+        
+      {% endcase %}
+    {% endfor %}
+</div>
+
+
+
+{% schema %}
+  {
+    "name": "header section",
+    "class": "flex-1",
+    "enabled_on": {
+    "groups": ["header"]
+      },
+    "settings": [
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading",
+        "default": "Header Section"
+      },
+      {
+        "type": "select",
+        "id": "position",
+        "label": "Content Alignment",
+        "options": [
+          {
+            "label": "left",
+            "value": "justify-start"
+          },
+          {
+            "label": "center",
+            "value": "justify-center"
+          },
+          {
+            "label": "right",
+            "value": "justify-end"
+          }
+        ],
+        "default": "justify-start"
+      }
+      
+    ],
+    "blocks": [
+     {
+       "name": "Custom Link",
+       "type": "link",
+       "settings": [
+         {
+           "type": "text",
+           "id": "title",
+           "label": "Link Text",
+            "default": "Custom Link"
+         },
+         {
+           "type": "text",
+           "id": "url",
+           "label": "Link Url"
+         },
+         {
+           "type": "text",
+           "id": "classes",
+           "label": "Tailwind Classes",
+           "default": "text-sm font-medium text-white hover:text-gray-100 uppercase"
+         }
+       ]
+     },
+     {
+       "name": "Currency Selector",
+       "type": "currency",
+       "settings": [
+         {
+           "type": "checkbox",
+           "id": "add-flag",
+           "default": true,
+           "label": "add flags"
+         },
+         {
+           "type": "text",
+           "id": "classes",
+           "label": "Tailwind Classes",
+           "default": "text-sm font-medium text-white hover:text-gray-100 uppercase"
+         }
+       ]
+     },
+     {
+       "name": "Sign in / register",
+       "type": "sign-in",
+       "settings": [
+         {
+           "type": "text",
+           "id": "classes",
+           "label": "Tailwind Classes",
+           "default": "text-sm font-medium text-white hover:text-gray-100 uppercase"
+         }
+       ]
+     },
+     {
+       "name": "Cart Svg",
+       "type": "cart",
+       "settings": [
+         {
+           "type": "text",
+           "id": "classes",
+           "label": "Tailwind Classes",
+           "default": "text-sm font-medium text-white hover:text-gray-100 uppercase"
+         }
+       ]
+     },
+     {
+       "name": "Account Svg",
+       "type": "account",
+       "settings": [
+         {
+           "type": "text",
+           "id": "classes",
+           "label": "Tailwind Classes",
+           "default": "text-sm font-medium text-white hover:text-gray-100 uppercase"
+         }
+       ]
+     },
+     {
+       "name": "Logo",
+       "type": "logo",
+       "settings": [
+         {
+           "type": "text",
+           "id": "classes",
+           "label": "Tailwind Classes",
+           "default": "text-sm font-medium text-white hover:text-gray-100 uppercase"
+         }
+       ]
+     },
+     {
+       "name": "Search Bar",
+       "type": "search",
+       "settings": [
+         {
+           "type": "text",
+           "id": "classes",
+           "label": "Tailwind Classes",
+           "default": "text-sm font-medium text-white hover:text-gray-100 uppercase"
+         }
+       ]
+     },
+     {
+       "name": "Notifications",
+       "type": "alerts",
+       "settings": [
+         {
+           "type": "text",
+           "id": "classes",
+           "label": "Tailwind Classes",
+           "default": "text-sm font-medium text-white hover:text-gray-100 uppercase"
+         }
+       ]
+     }
+    ],
+    "presets": [
+       {
+      "name": "Header Section",
+      "category": "Custom"
+    }
+    ]
+  }
+{% endschema %}

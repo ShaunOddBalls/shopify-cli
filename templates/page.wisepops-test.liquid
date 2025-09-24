@@ -1,0 +1,35 @@
+    <div class="discount-container">
+        <span class="discount-code" id="discountCode">SAVE20</span>
+        <button class="copy-button" onclick="copyAndRedirect()">Copy & Apply Discount</button>
+    </div>
+
+    <script>
+        // Listen for popup events
+        wisepops('listen', 'after-tracked-click', function(event) {
+            copyAndRedirect();
+        });
+
+        function copyAndRedirect() {
+            // Get the discount code
+            const discountCode = document.getElementById('discountCode').textContent;
+            
+            // Copy to clipboard
+            navigator.clipboard.writeText(discountCode).then(() => {
+                // Redirect to checkout with discount code
+                const shopifyCheckout = '/checkout?discount=' + discountCode;
+                window.location.href = shopifyCheckout;
+                
+                // Optional: Close the popup if it's open
+                wisepops('close');
+            }).catch(err => {
+                console.error('Failed to copy code:', err);
+            });
+        }
+
+        // Optional: Listen for form submission events
+        wisepops('listen', 'after-form-submit', function(event) {
+            const discountCode = document.getElementById('discountCode').textContent;
+            // You can handle form submissions here if needed
+            wisepops('close');
+        });
+    </script>

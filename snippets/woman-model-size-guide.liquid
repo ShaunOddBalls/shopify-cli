@@ -1,0 +1,32 @@
+{% assign model_metaobjects = shop.metaobjects['size_guide_model'].values %}
+
+{% for metaobject in model_metaobjects %}
+  {% if metaobject.women_model %}
+  <div class="flex md:px-8 px-2 py-12">
+    <div class="flex-1 px-1 md:px-12">
+      <img src="{{ metaobject.img_url }}" />
+    </div>
+    <div class="w-min md:px-40 md:text-xl md:pr-20">
+      <h1 class="whitespace-nowrap font-bold uppercase md:text-2xl mb-3 md:mb-8">
+        Meet {{ metaobject.model_name }}
+      </h1>
+      <div class="whitespace-nowrap mb-1 md:mb-2">Height: {{ metaobject.height }}</div>
+      <div class="whitespace-nowrap mb-1 md:mb-2">Waist: {{ metaobject.waist }}</div>
+      <div class="whitespace-nowrap mb-1 md:mb-2">Bust: {{ metaobject.bust }}</div>
+      <div class="whitespace-nowrap mb-1 md:mb-2">Hips: {{ metaobject.hips }}</div>
+
+      <h1 class="whitespace-nowrap font-bold uppercasemd: md:text-2xl mt-3 md:mt-6 md:mt-12 mb-3 md:mb-8">
+        Size in Curator
+      </h1>
+      <div>
+        {% assign items = metaobject.product_sizes | remove: '[' | remove: ']' | remove: '"' | split: ',' %}
+          {% for item in items %}
+            <div class="mb-2">{{ item }}</div>
+          {% endfor %}
+
+      </div>
+    </div>
+    
+  </div>
+    {% endif %}
+{% endfor %}

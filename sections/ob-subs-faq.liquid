@@ -1,0 +1,81 @@
+{%schema %}
+{
+  "presets": [
+    {
+      "name": "ob subs faq"
+    }
+  ],
+  "name": "ob subs Faq",
+  "settings": [
+    {
+      "type": "text",
+      "id": "wrapper_classes",
+      "label": "wrapper classes"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "text",
+      "id": "title_classes",
+      "label": "Title Classes"
+    },
+    {
+      "type": "text",
+      "id": "block_classes",
+      "label": "Block Classes"
+    },
+  ],
+  "blocks": [
+    {
+      "type": "block",
+      "name": "Block",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question_classes",
+          "label": "Question Classes",
+          "default": "bg-gray-50 p-4"
+        },
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "Why did the scarecrow win an award?"
+        },
+        {
+          "type": "text",
+          "id": "answer_classes",
+          "label": "Answer Classes",
+          "default": "p-4"
+        },
+        {
+          "type": "text",
+          "id": "answer",
+          "label": "Answer",
+          "default": "Because he was outstanding in his field."
+        }
+      ]
+    }
+]
+}
+{% endschema %}
+<div class="{{section.settings.wrapper_classes}}">
+<div class="{{ section.settings.title_classes }}">
+    {{section.settings.title }}
+</div>
+{% for block in section.blocks %}
+    <div class="subs-faq-block-wrapper {{ section.settings.block_classes }}">
+    <div class="subs-faq-question-wrapper flex justify-between {{block.settings.question_classes }}">
+        <div>{{ block.settings.question }}</div>
+        <svg style="transition:all 0.3s ease;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="js-faq-arrow rotate-180 h-4 w-4"><!-- Font Awesome Pro 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) --><path d="M168.5 164.2l148 146.8c4.7 4.7 4.7 12.3 0 17l-19.8 19.8c-4.7 4.7-12.3 4.7-17 0L160 229.3 40.3 347.8c-4.7 4.7-12.3 4.7-17 0L3.5 328c-4.7-4.7-4.7-12.3 0-17l148-146.8c4.7-4.7 12.3-4.7 17 0z"></path></svg>
+    </div>
+    <div style="max-height:0px;transition:all 0.3s ease; overflow:hidden;" class="subs-faq-answer-wrapper {{ block.settings.answer_classes }}">
+        {{ block.settings.answer }}
+    </div>
+</div>
+{% endfor %}
+
+</div>

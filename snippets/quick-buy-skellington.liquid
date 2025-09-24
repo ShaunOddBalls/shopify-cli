@@ -1,0 +1,141 @@
+{% assign product = all_products['hippyjungle'] %}
+
+
+{%- form 'product', product, data-product-id: product.id, id: product_form_id, class: "flex h-full flex-col divide-y divide-gray-200 bg-white shadow-xl", novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
+<div class="h-0 flex-1 overflow-y-auto focus:outline-none">
+  <div id="cart-attributes-container">
+    {% render 'ob-product-form-attributes', cart_attributes:cart_attributes, product:product %}
+  </div>
+  <input type="hidden" name="attributes[_quickbuy]" value="B" />
+                    <input type="hidden" name="properties[_quickbuy]" value="B" />
+
+  <div class="flex flex-col" style="max-height:64vh;">
+    <div style="max-width:100vw; overflow-x:hidden" class="h-0 flex-1">
+    <header class="qb-header relative flex items-center justify-between px-6 pb-2 border-b">
+      <div class="absolute top-2 right-2">
+        <!-- <div class="product-label text-xs font-mulish sub-title rounded-sm" style="padding:3px 10px;border-radius:3px;background:#00aeef;border:2px solid #00aeef;color:#FFFFFF; box-shadow: 1px 1px 1px rgb(0 0 0 / 30%);" tag="label-sale-value-discount">
+          save £2.00
+        </div> -->
+      </div>
+      <div>
+        <div class="">
+          <div id="qb-image-outer-wrapper" class="relative py-2">
+            <div id="default-quick-buy-image" class="flex" style=" max-height:168px; overflow:auto; gap:10px;">
+              
+            </div>
+            <div class="product-thumbnails hidden flex absolute bottom-0 items-center justify-center" style="backdrop-filter: blur(1px); width:100%; justify-content:center;  gap:0.5rem; background: #ffffff4f; padding:0.25rem 0; max-width:100vw; overflow:auto;">
+            </div>
+          </div>
+          <div class="flex flex-col justify-center">
+            <div class="typography typography--body-md">
+              <div>
+                <h2 id="default-quick-buy-header-title" class="text-xl lg:text-3xl uppercase font-semibold mb-2">British &amp; Irish Lions Bundle</h2>
+                <h3 id="default-quick-buy-header-sub-title" class="text-[#7D7D7D]">Mens Boxer Shorts 2 Pack</h3>
+              </div>
+            </div>
+            <div class="quick-buy-trustpilot">
+            {% render 'ob-trustpilot-small', product:product %}
+            </div>
+            <div class="flex">
+              <div id="default-quick-buy-prod-price" class="typography typography--body-md font-medium text-magenta-500 text-semibold">
+                £24.00
+              </div>
+              <del id="default-quick-buy-comp-price" class="ml-2" style="display: block;">
+                £26.00
+              </del>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+  <!-- Placeholder print Selector -------------->
+  <div class="flex w-full justify-center hidden">
+    <div class="overflow-auto" style="overflow:auto; max-width:calc(100vw - 3rem);">
+      <div class="flex gap-2 overflow-auto whitespace-nowrap w-max" id="qb-pattern-selector">
+        {% for i in (0..10) %}
+          <div class="h-6 w-6 rounded-full animate-mt"></div>
+        {% endfor %}
+      </div>
+    </div>
+      
+    </div>
+      <div class="divide-y divide-gray-200">
+        <div class="space-y-6 px-6">
+          <!-- Variant Options -->
+     
+
+          <div id="qb-product-variants" class="gap-4 my-6 mt-0"></div>
+      
+
+          <!-- Selling Plans -->
+          <div id="selling-plan-container"></div>
+
+          <div id="out-of-stock-container" class="tw-text-xs tw-mt-4 hidden">
+            <div class="tw-text-xs tw-mt-4">
+              Size out of stock? <a class="tw-text-magenta-500 out-of-stock-message2 klaviyo-bis-trigger" style="color:#f00f83 !important;" href="#">Click here</a> to get notified when it's back in stock
+            </div>
+          </div>
+
+          <!-- Product JSON hidden input -->
+          <input type="hidden" id="product-json-7643946778685" value='{{ product | json }}'>
+        </div>
+      </div>
+  </div>
+
+  <!-- Gift Cards -->
+  <div id="gift-card-form-container" class="qb-gift-card-form px-6"></div>
+  </div>
+
+      <div class="flex flex-shrink-0 justify-end px-6 py-6 h-max" style="border-width:1px 0 0 0; border-color:#d9d9d9; border-style:solid;">
+        <div class="grid grid-cols-4 w-full gap-2">
+                      
+            <div id="qb-atc-button" data-cro-feature-loaded="quick-buy-atc"  data-cro-feature-viewed="quick-buy-atc" data-cro-feature-clicked="quick-buy-atc" class="event-quickbuy-atc capitalize add-to-cart-button w-full bg-magenta-500 rounded-full text-white text-base font-semibold justify-center items-center flex py-3 col-span-3 relative" style="bottom:0px; top:0px; height:40px ">
+              <div id="add-to-cart-loaded" class="pointer-events-none button-text capitalize">Add To Basket</div>
+              <div id="add-to-cart-loading" class="pointer-events-none w-full absolute flex justify-center loading-button-loader items-center h-full" style="display:none;"><svg class="loading-ele-outer h-6 w-6" viewBox="25 25 50 50"><circle class="loading-ele-inner" style="stroke: white;" cx="50" cy="50" r="20" fill="none" stroke-width="4"></circle></svg></div>
+            </div>
+                          <div id="quantity-selector" class="cols-span-1 rounded-full px-2.5 py-2">
+                  <div id="" class="decrement qs">-</div>
+                  <div id="" class=" quantity qs">1</div>
+                  <div id="" class="increment qs">+</div>
+                </div>
+        </div>
+
+      <input type="hidden" id="qb-prod-info" value='{{  product | json | escape }}' />
+    </div>
+  </div> 
+
+{% endform %}
+
+<style>
+  .t
+  .outline-1 {
+    outline-style: var(--tw-outline-style);
+    outline-width: 1px;
+  }
+  .outline-2 {
+    outline-style: var(--tw-outline-style);
+    outline-width: 2px;
+  }
+
+  .recipient-fields {
+    overflow: hidden;
+    height: 0;
+    transition: height 0.3s ease;
+    display: none;
+  }
+
+  .error-message {
+    display: block;
+  }
+
+  .error-message.hidden {
+    display: none;
+  }
+.quick-buy-trustpilot .justify-between {
+  display: flex;
+  flex-direction: row; 
+  justify-content: flex-start;
+  column-gap: 10px;
+}
+</style>

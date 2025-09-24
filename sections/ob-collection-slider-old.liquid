@@ -1,0 +1,276 @@
+{% assign collection = section.settings.collection %}
+{% assign markets_to_show = section.settings.markets_to_show_on | split: ',' %}
+{% assign markets_to_exclude_on = section.settings.markets_to_exclude_on | split: ',' %}
+{% assign show_on_all_markets = section.settings.show_on_all_markets %}
+{% assign section_id = section.id %}
+{% assign show_block = 'false' %}
+{%- capture show_block -%}
+  {%- render 'ob-process-show-on-by-market', show_on_all_markets: show_on_all_markets, markets_to_show: markets_to_show, markets_to_exclude_on: markets_to_exclude_on -%}
+{% endcapture %}
+
+{% if show_block contains 'true' %}
+  <div class="blend-divide relative">
+    <h2 class="{{ section.settings.text_class }} pb-4">
+      {{ section.settings.title }}
+    </h2>
+
+    <div class="ob-slider-container w-full relative product-recommendation-ob-slider" id="{{ section_id }}">
+      <div
+        class="ob-slider overflow-hidden w-full"
+        data-autoplay="{{ section.settings.autoplay }}"
+        data-slides-mobile="{{ section.settings.slides_mobile }}"
+        data-slides-md="{{ section.settings.slides_md }}"
+        data-slides-lg="{{ section.settings.slides_lg }}"
+        data-gap="{{ section.settings.slide_gap }}"
+        data-loop="{{ section.settings.loop }}"
+        data-slide-by="{{ section.settings.slide_by }}"
+        data-drag-scroll="{{ section.settings.drag_scroll }}"
+        data-slider-enabled="{{ section.settings.slider_enabled }}"
+        data-dots="{{ section.settings.show_dots }}"
+      >
+        
+        <div class="ob-slides-wrappers gap-[{{ section.settings.slide_gap }}px] flex transition-transform duration-500 ease-in-out">
+          {% assign product_count = 0 %}
+          {%- comment %}<locksmith:03e4>{% endcomment -%}
+            {%- assign locksmith_4946_forloop__size = 0 %}{% for product in collection.products %}{% capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product, subject_parent: collection, variable: 'transparent' %}{% endcapture %}{% if var == 'true' %}{% assign locksmith_4946_forloop__size = locksmith_4946_forloop__size | plus: 1 %}{% endif %}{% endfor %}{% assign locksmith_4946_forloop__index = nil -%}
+          {%- comment %}</locksmith:03e4>{% endcomment -%}
+          {% for product in collection.products %}
+            {%- comment %}<locksmith:2904>{% endcomment -%}
+              {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product, subject_parent: collection, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% if locksmith_4946_forloop__index == nil %}{% assign locksmith_4946_forloop__index = 1 %}{% assign locksmith_4946_forloop__index0 = 0 %}{% else %}{% assign locksmith_4946_forloop__index = locksmith_4946_forloop__index | plus: 1 %}{% assign locksmith_4946_forloop__index0 = locksmith_4946_forloop__index0 | plus: 1 %}{% endif %}{% if locksmith_4946_forloop__index == 1 %}{% assign locksmith_4946_forloop__first = true %}{% else %}{% assign locksmith_4946_forloop__first = false %}{% endif %}{% if locksmith_4946_forloop__index == locksmith_4946_forloop__size %}{% assign locksmith_4946_forloop__last = true %}{% else %}{% assign locksmith_4946_forloop__last = false %}{% endif %}{% assign locksmith_4946_forloop__rindex = locksmith_4946_forloop__size | minus: locksmith_4946_forloop__index | minus: 1 %}{% assign locksmith_4946_forloop__rindex0 = locksmith_4946_forloop__size | minus: locksmith_4946_forloop__index0 | minus: 1 %}{% else %}{% continue %}{% endif -%}
+            {%- comment %}</locksmith:2904>{% endcomment -%}
+            {% if product_count < 15 %}
+              {% if product.type != 'Mid-Collection Banners' and product.available %}
+                <div class="product-card-wrapper flex-none min-h-[200px] w-[calc(50%-{{ section.settings.slide_gap | divided_by: 2 }}px)] sm:w-[calc(33.333%-{{ section.settings.slide_gap | times: 0.67 }}px)] md:w-[calc(25%-{{ section.settings.slide_gap | times: 0.75 }}px)] lg:w-[calc(20%-{{ section.settings.slide_gap | times: 0.8 }}px)] ob-slide">
+                  {% render 'ob-product-card', product: product, labelTags: labelTags, index: locksmith_4946_forloop__index, grid_type: "recommendation-silder"  %}
+                </div>
+                {% assign product_count = product_count | plus: 1 %}
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+      {% comment %}
+        <div
+          class="{{ section.settings.dots_container_classes }}"
+          role="tablist"
+          aria-label="Product slider navigation"
+        >
+          {% for i in (1..product_count) %}
+            <button
+              class="{{ section.settings.dot_classes }} {% if forloop.first %} active {% endif %}"
+              data-dot-index="{{ forloop.index0 }}"
+              role="tab"
+              aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
+              aria-label="Go to slide {{ forloop.index }} of {{ product_count }}"
+            >
+              <span class="sr-only">Slide {{ forloop.index }} of {{ product_count }}</span>
+            </button>
+          {% endfor %}
+        </div> 
+      {% endcomment %}
+      
+      {% render "ob-slider-pagnation-dots", 
+         dots_container_classes: section.settings.dots_container_classes, 
+         dot_classes: section.settings.dot_classes, 
+         product_count: product_count,
+         slides_mobile: section.settings.slides_mobile,
+         slides_md: section.settings.slides_md,
+         slides_lg: section.settings.slides_lg,
+         slide_by: section.settings.slide_by,
+         show_dots: section.settings.show_dots %}
+    </div>
+  </div>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Collection Products",
+  "settings": [
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Pick a collection"
+    },
+    {
+      "type": "product_list",
+      "id": "product_list",
+      "label": "Product List",
+      "limit": 16
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title (optional)"
+    },
+    {
+      "type": "text",
+      "id": "wrapper_class",
+      "label": "Wrapper Class (optional)"
+    },
+    {
+      "type": "text",
+      "id": "text_class",
+      "label": "Text Class (optional)",
+      "default": "text-2xl md:text-4xl uppercase  mx-auto text-center marujo mb-4"
+    },
+    {
+      "type": "header",
+      "content": "Slider Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "slider_enabled",
+      "label": "Enable slider",
+      "default": true,
+      "info": "Turn the slider functionality on or off."
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Autoplay",
+      "default": false,
+      "info": "Automatically cycle through slides."
+    },
+    {
+      "type": "checkbox",
+      "id": "loop",
+      "label": "Loop slides",
+      "default": false,
+      "info": "Restart from the first slide after the last one."
+    },
+    {
+      "type": "header",
+      "content": "Slide Layout"
+    },
+    {
+      "type": "range",
+      "id": "slides_mobile",
+      "label": "Slides on mobile",
+      "min": 1,
+      "max": 15,
+      "step": 1,
+      "default": 2,
+      "info": "Number of slides shown on small screens."
+    },
+    {
+      "type": "range",
+      "id": "slides_md",
+      "label": "Slides on tablet",
+      "min": 1,
+      "max": 15,
+      "step": 1,
+      "default": 3,
+      "info": "Number of slides shown on medium screens."
+    },
+    {
+      "type": "range",
+      "id": "slides_lg",
+      "label": "Slides on desktop",
+      "min": 1,
+      "max": 15,
+      "step": 1,
+      "default": 5,
+      "info": "Number of slides shown on large screens."
+    },
+    {
+      "type": "range",
+      "id": "slide_gap",
+      "label": "Slide gap (px)",
+      "min": 0,
+      "max": 60,
+      "step": 1,
+      "default": 10,
+      "info": "Spacing between each slide."
+    },
+    {
+      "type": "select",
+      "id": "slide_by",
+      "label": "Slides to move",
+      "options": [
+        {
+          "label": "One at a time",
+          "value": "1"
+        },
+        {
+          "label": "All visible slides",
+          "value": "all"
+        }
+      ],
+      "default": "all",
+      "info": "Number of slides to move when navigating"
+    },
+    {
+      "type": "checkbox",
+      "id": "drag_scroll",
+      "label": "Enable drag scroll",
+      "default": true,
+      "info": "Allow users to drag/swipe to navigate slides"
+    },
+    {
+      "type": "header",
+      "content": "Pagination"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_dots",
+      "label": "Show pagination dots",
+      "default": true,
+      "info": "Display navigation dots below the slider."
+    },
+    {
+      "type": "text",
+      "id": "dots_container_classes",
+      "label": "Dots container classes",
+      "default": "relative ob-dots w-full justify-center items-center flex gap-2 z-10 my-4"
+    },
+    {
+      "type": "text",
+      "id": "dot_classes",
+      "label": "Individual dot classes",
+      "default": "ob-dot w-2 h-2 rounded-full bg-neutral-300 transition-colors duration-300 ease-in-out"
+    },
+    {
+      "type": "header",
+      "content": "Market Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_on_all_markets",
+      "default": true,
+      "label": "Show On All Markets",
+      "info": "on to show on all"
+    },
+    {
+      "type": "text",
+      "id": "markets_to_show_on",
+      "label": "Markets to show on",
+      "info": "Example would look like: uk, en-eu (shows on UK and EU markets)"
+    },
+    {
+      "type": "text",
+      "id": "markets_to_exclude_on",
+      "label": "Markets to Exclude on",
+      "info": "Example would look like: uk, en-eu (Would not show on UK and EU markets)"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "Label",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collection Products",
+      "settings": {}
+    }
+  ]
+}
+{% endschema %}

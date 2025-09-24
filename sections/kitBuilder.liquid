@@ -1,0 +1,25 @@
+{% schema %}
+  {
+    "name": "Kitbuilder",
+    "settings": [],
+    "presets": [
+      {
+        "name": "Kitbuilder"
+      }
+    ]
+  }
+{% endschema %}
+
+<script> 
+    document.addEventListener("KitBuilderLoaded", function () {
+        KitBuilder.init("#kitBuilder");
+    }); 
+</script>
+<script src="https://api.kitbuilder.co.uk/api/bootstrapper?distributorId=37343540&key=69b03d7b8c98ee51b1d793f4ca24d925" async></script>
+
+<div class="kitbuilder-section w-full h-full">
+  <div class="w-full marujo py-6 bg-magenta"><h1 class="text-4xl text-white text-center mx-auto">Design Your Own Oddballs<h1></div>
+  <div id="kit-builder-container" class="">
+  <div id="kitBuilder"><noscript>Kit Builder requires JavaScript to be enabled</noscript></div>
+  </div>
+</div>

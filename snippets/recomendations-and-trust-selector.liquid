@@ -1,0 +1,81 @@
+<div class="bg-gray-100 w-full mt-4 px-3 py-2 mb-6">
+  <div id="trust-recomentations-selector" class="px-2 mx-auto flex relative justify-center   text-gray-800 rounded-full w-full max-w-3xl">
+  		<div data-target="ob_product_tag_recommendations" class="cursor-pointer font-bold w-1/2 py-3 md:py-4 text-center slider-control trust-selector" style="z-index:1">{{ "ob_product_page.recommendations" | t }} </div>
+      	<div data-target="ob_product_tabs_content" class="cursor-pointer  font-bold w-1/2 py-3 md:py-4 text-center slider-control trust-selector" style="z-index:1">{{ "ob_product_page.reviews" | t }} </div>
+          <div class="selection-tab-selection shadow-sm h-full bg-white absolute flex items-center font-bold justify-center rounded-full font-bold !text-black h-[88%]" style="width: 50%;top: 50%;bottom: 50%;transform: translate(0%, -50%);left: 2px;"></div>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  function moveSlider(element, position, text) {
+
+    // if (position > 0) {
+    //   element.style.left = "0px";
+    // } else {
+    //   element.style.left = "2px";
+    // }
+
+    
+    var translateXVal = (position * 100) + "%";
+    // Update the element's HTML content
+    // element.innerHTML = text;    
+    // Apply the transform
+    element.style.transform = `translate(${translateXVal}, -50%)`;
+  }
+
+  function switchDisplay(target) {
+  // Select elements that match the target ID pattern
+  const matchingElements = document.querySelectorAll("[id*='" + target + "']");
+  
+  // Remove 'hidden' class from all matching elements
+  matchingElements.forEach(function(element) {
+    element.classList.remove('hidden');
+  });
+  
+  // Declare variable to store elements to hide
+  let elementsToHide;
+  
+  // Depending on the target, hide specific elements
+  if (target === "ob_product_tag_recommendations") {
+    console.log("recomendations: " + target); // Fixed syntax here
+    elementsToHide = document.querySelectorAll("[id*='ob_product_tabs_content']");
+    elementsToHide.forEach(function(element) {
+      console.log('hiding', element);
+      element.classList.add('hidden');
+    });
+  } else {
+    elementsToHide = document.querySelectorAll("[id*='ob_product_tag_recommendations']");
+    elementsToHide.forEach(function(element) {
+      element.classList.add('hidden');
+    });
+  }
+}
+
+var selectors = document.querySelectorAll('.trust-selector');
+
+selectors.forEach(function(selector) {
+  selector.addEventListener('click', function() {
+    // Get the text content of the clicked element
+    const text = this.innerText;
+
+    // Get the sibling element with class 'selection-tab-selection'
+    const slide = Array.from(this.parentElement.children).find(function(child) {
+      return child.classList.contains('selection-tab-selection');
+    });
+
+    // Get the position of the clicked element in the parent element
+    const parentElement = this.parentElement;
+    const position = Array.from(parentElement.children).indexOf(this);
+
+    // Get the target value from the 'data-target' attribute
+    const target = this.getAttribute('data-target');
+
+    // Call the moveSlider function with the correct element
+    moveSlider(slide, position, text);
+    switchDisplay(target); // Call switchDisplay
+  });
+});
+});
+
+</script>

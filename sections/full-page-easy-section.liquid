@@ -1,0 +1,219 @@
+{% schema %}
+{
+  "name": "New Easy bundle page",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "@app"
+    },
+    {
+      "type": "title",
+      "name": "Title",
+      "settings": [
+        {
+          "id": "wrapper_classes",
+          "type": "text",
+          "label": "Wrapper CSS classes",
+          "default": "text-2xl font-bold mb-4"
+        },
+        {
+          "id": "inner_wrapper_settings",
+          "type": "text",
+          "label": "Inner Wrapper CSS classes",
+          "default": "text-2xl font-bold mb-4"
+        },
+        {
+          "id": "title_text",
+          "type": "text",
+          "label": "Text"
+        },
+      ]
+    },
+    {
+      "type": "paragraph",
+      "name": "Paragraph",
+      "settings": [
+        {
+          "id": "wrapper_classes",
+          "type": "text",
+          "label": "Wrapper CSS classes",
+          "default": "text-base text-gray-700"
+        },{
+          "id": "inner_wrapper_settings",
+          "type": "text",
+          "label": "Inner Wrapper CSS classes",
+          "default": "text-2xl font-bold mb-4"
+        },
+        {
+          "id": "paragraph_text",
+          "type": "text",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "New Easy bundle"
+    }
+  ]
+}
+{% endschema %}
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontSize: {
+          xxs: ['.55rem', '0.9rem'],
+        },
+        colors: {
+          cyan: {
+            DEFAULT: '#009FE2',
+            50: '#C8EFFF',
+            100: '#AFE7FF',
+            200: '#7CD8FF',
+            300: '#49C9FF',
+            400: '#16BAFF',
+            500: '#009FE2',
+            600: '#007BAF',
+            700: '#00577C',
+            800: '#003349',
+            900: '#000F16',
+          },
+          magenta: {
+            DEFAULT: '#F00F83',
+            50: '#FEE7F3',
+            100: '#FCCFE6',
+            200: '#F99FCD',
+            300: '#F66FB5',
+            400: '#F33F9C',
+            500: '#F00F83',
+            600: '#C00C69',
+            700: '#90094F',
+            800: '#600634',
+            900: '#30031A',
+          },
+        },
+      },
+    },
+  };
+</script>
+
+<!-- Title and Paragraph blocks rendered at the top -->
+<div class="md:flex justify-center items-center bg-[#ff9100]">
+  {% for block in section.blocks %}
+    {% if block.type == 'title' %}   
+      <div class="{{ block.settings.wrapper_classes }}">
+        <h2 class="{{ block.settings.inner_wrapper_settings }}">{{ block.settings.title_text }}</h2>
+      </div>
+    {% elsif block.type == "paragraph" %}
+       <div class="{{ block.settings.wrapper_classes }}">
+            <p class="{{ block.settings.inner_wrapper_settings }}">{{ block.settings.paragraph_text }}</p>
+      </div>
+    {% endif %}
+  {% endfor %}
+</div>
+
+<div class="loading-placeholder min-h-screen md:min-h-[582px] w-full   p-4 md:border-b md:p-6 max-w-7xl mx-auto md:grid md:grid-cols-12 gap-4 md:border-b animate-pulse">
+  <div class="w-full flex flex-col  justify-start my-6 border round-md h-20 px-8 rounded-md gap-2 p-2 md:hidden">
+    <div class="w-full bg-gray-200 h-5 rounded-full"></div>
+    <div class="w-[80%] bg-gray-200 h-5 rounded-full"></div>
+    <div class="w-[80%] bg-gray-200 h-5 rounded-full"></div>
+  </div>
+
+  <div class="border-t md:col-span-7 flex flex-col">
+    <div class="w-full md:py-8 px-6 border-t md:border-r flex md:border-l justify-between border-gray-200 uppercase font-bold text-lg py-4 md:text-2xl items-center">
+      <div class="p-4  bg-gray-200 text-gray-200 rounded-full">SWIM SHORTS</div>
+      <div class="p-4 w-[5%] bg-gray-200 rounded-full aspect-square"></div>
+    </div>
+    <div class="w-full md:py-8 px-6 border-t md:border-r flex md:border-l justify-between border-gray-200 uppercase font-bold text-lg py-4 md:text-2xl items-center">
+      <div class="p-4  bg-gray-200 text-gray-200 rounded-full">SWIM SHORTS</div>
+      <div class="p-4 w-[5%] bg-gray-200 rounded-full aspect-square"></div>
+    </div>
+    <div class="w-full md:py-8 px-6 border-t md:border-r flex md:border-l justify-between border-gray-200 uppercase font-bold text-lg py-4 md:text-2xl items-center">
+      <div class="p-4  bg-gray-200 text-gray-200 rounded-full">SWIM SHORTS</div>
+      <div class="p-4 w-[5%] bg-gray-200 rounded-full aspect-square"></div>
+    </div>
+    <div class="w-full md:py-8 px-6 border-t md:border-r flex md:border-l justify-between border-gray-200 uppercase font-bold text-lg py-4 md:text-2xl items-center">
+      <div class="p-4  bg-gray-200 text-gray-200 rounded-full">SWIM SHORTS</div>
+      <div class="p-4 w-[5%] bg-gray-200 rounded-full aspect-square"></div>
+    </div>
+    <div class="w-full md:py-8 px-6 border-t md:border-r flex md:border-l justify-between border-gray-200 uppercase font-bold text-lg py-4 md:text-2xl items-center border-b">
+      <div class="p-4  bg-gray-200 text-gray-200 rounded-full">SWIM SHORTS</div>
+      <div class="p-4 w-[5%] bg-gray-200 rounded-full aspect-square"></div>
+    </div>
+  </div>
+  <div class="md:col-span-5 relative border rounded-md p-4 border mt-16 md:mt-0">
+    <div
+      class="bg-gray-200 h-10 w-[30%] px-5 text-white font-bold absolute left-1/2 right-1/2 -translate-x-1/2 flex items-center -top-5 rounded-full justify-center"
+    ></div>
+
+    <div class="w-full flex items-center justify-center my-6">
+      <div class="w-[50%] bg-gray-200 p-4 h-4 rounded-full"></div>
+    </div>
+
+    <div class="w-full flex flex-col  justify-start my-6 border round-md h-20 px-8 rounded-md gap-2 p-2">
+      <div class="w-full bg-gray-200 h-5 rounded-full"></div>
+      <div class="w-[80%] bg-gray-200 h-5 rounded-full"></div>
+      <div class="w-[80%] bg-gray-200 h-5 rounded-full"></div>
+    </div>
+
+    <div class="w-full flex flex-col  items-center justify-end mt-12 md:mt-28  round-md px-8 rounded-md gap-2 p-2">
+      <div class="w-[50%] bg-gray-200 h-8 rounded-full"></div>
+      <div class="w-[50%] bg-gray-200 h-8 rounded-full"></div>
+      <div class="w-full bg-gray-200 h-12 rounded-full"></div>
+    </div>
+  </div>
+</div>
+<div
+  id="summer-bundle-container"
+  class="min-h-screen hidden md:min-h-[582px] w-full p-4 md:border-b md:p-6 max-w-7xl summer-bundle-container mx-auto md:grid md:grid-cols-12 gap-4 md:border-b"
+>
+  <div id="summer-bundle-ui" class="border-t md:col-span-7 border-b"></div>
+
+  <div
+    id="easy-bundle-selection"
+    class="hidden border-t-2 p-t-4 md:rounded-lg md:border-r md:border-l md:border-b mt-8 md:mt-0 border-solid relative w-full bg-white md:col-span-5 md:p-4 md:sticky md:top-[164px] md:max-h-[581px]"
+  >
+    <div class="bundle-header hidden my-6 text-2xl uppercase md:block text-center font-bold">Your bundle</div>
+    <div class="bundle-hide-container hidden md:block">
+      {% render 'summer-bundle-progress-bar' %}
+    </div>
+    <div class="cursor-pointer bg-magenta h-10 w-[30%] px-5 text-white font-bold absolute left-1/2 right-1/2 -translate-x-1/2 flex items-center -top-5 rounded-full justify-center">
+      <span id="bundle-item-count">0</span>
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M3 4.50059C3 4.00353 3.40294 3.60059 3.9 3.60059H5.83438C6.88071 3.60059 7.76448 4.37015 7.91285 5.40059H19.5C19.7507 5.40059 19.99 5.50514 20.1604 5.68908C20.3307 5.87302 20.4166 6.11966 20.3974 6.36961L19.9678 11.9537C19.8356 13.673 18.4019 15.0006 16.6775 15.0006H9.05636L9.16772 15.936C9.18568 16.087 9.31365 16.2006 9.46562 16.2006H17.1C17.5971 16.2006 18 16.6035 18 17.1006C18 17.5976 17.5971 18.0006 17.1 18.0006H9.46562C8.40184 18.0006 7.50609 17.2051 7.38034 16.1488L6.13228 5.66512C6.11432 5.51422 5.98635 5.40059 5.83438 5.40059H3.9C3.40294 5.40059 3 4.99764 3 4.50059ZM8.84207 13.2006H16.6775C17.4613 13.2006 18.113 12.5971 18.1731 11.8156L18.5281 7.20059H8.12778L8.84207 13.2006ZM12 20.4006C12 21.0633 11.4627 21.6006 10.8 21.6006C10.1373 21.6006 9.6 21.0633 9.6 20.4006C9.6 19.7378 10.1373 19.2006 10.8 19.2006C11.4627 19.2006 12 19.7378 12 20.4006ZM18 20.4006C18 21.0633 17.4627 21.6006 16.8 21.6006C16.1373 21.6006 15.6 21.0633 15.6 20.4006C15.6 19.7378 16.1373 19.2006 16.8 19.2006C17.4627 19.2006 18 19.7378 18 20.4006Z" fill="#FFFFFF"></path>
+      </svg>
+    </div>
+    <div class="md:hidden ">
+      {% render 'summer-bundle-progress-bar' %}
+    </div>
+    <div id="view-bundle-ui" class="gap-4 grid grid-cols-4 mt-8"></div>
+    <div class="w-full flex flex-col p-6">
+      <div id="totals" class="text-center text-lg pt-3 pb-5">
+        <span class="font-semibold">Subtotal: </span>
+        <span id="bundle-price" class="text-magenta bundle-price font-semibold mr-2"></span>
+        <span id="bundle-compare-price" class="bundle-compare-price text-gray-500 line-through"></span>
+      </div>
+      <div class="w-full grid grid-cols-1  gap-2">
+        <div
+          id="bundle-cta"
+          class="text-nowrap bg-magenta text-white w-full py-5 rounded-full flex justify-center font-bold uppercase text-xs disabled opacity-50"
+        >
+          Add Bundle To Cart
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Render remaining blocks (like @app) -->
+<div id="easy-section" class="relative">
+  {% for block in section.blocks %}
+    {% unless block.type == 'title' or block.type == 'paragraph' %}
+      {% render block %}
+    {% endunless %}
+  {% endfor %}
+</div>

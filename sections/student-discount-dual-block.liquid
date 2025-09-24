@@ -1,0 +1,101 @@
+{% schema %}
+{
+  "name": "SD-dual-block",
+  "blocks": [{
+    "type": "block",
+    "name": "block",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "background_image",
+        "label": "Background Image"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title Text"
+      },
+      {
+        "type": "text",
+        "id": "button_text",
+        "label": "Button Text"
+      },
+      {
+        "type": "url",
+        "id": "button_link",
+        "label": "Button Link"
+      },
+      {
+        "type": "text",
+        "id": "button_classes",
+        "label": "Button Classes",
+        "default": "px-4 py-1 text-center text-white uppercase font-bold border-2 border-solid border-white rounded-full"
+      },
+      {
+        "type": "select",
+        "id": "content_position",
+        "label": "Mobile Text Position",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          }
+        ],
+        "default": "left"
+      }
+    ]
+  }],
+  "presets": [
+    {
+      "name": "Student discount dual block",
+      "blocks": [
+        {
+          "type": "block"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<div class="student-blocks-section block md:grid md:grid-cols-2 md:gap-2 ">
+  {% for block in section.blocks %}
+    <div  class="student-custom-block-dual w-full max-md:mb-2" {{ block.shopify_attributes }}>
+      {% if block.settings.background_image %}
+        <div class="background-image w-full h-full relative py-16  md:py-20 {% if block.settings.content_position == "right" %} max-md:flex max-md:justify-end max-md:pr-12{% endif %}" style="background-image: url('{{ block.settings.background_image | img_url: 'master' }}');">
+          <div class="w-min h-full flex flex-col justify-center items-center pl-12">
+            {% if block.settings.title %}
+              <div class="">
+                <h2 class="text-white text-2xl md:text-4xl font-bold text-wrap pb-4">{{ block.settings.title }}</h2>
+              </div>
+            {% endif %}
+            {% if block.settings.button_text %}
+              <div class="w-full flex justify-center">
+                <a href="{{ block.settings.button_link }}" class="{{ block.settings.button_classes }}">{{ block.settings.button_text }}</a>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      {% endif %}
+    </div>
+  {% endfor %}
+</div>
+
+<style>
+  .student-blocks-section {
+    width: 100%;
+  }
+  .student-custom--block {
+    margin-bottom: 30px;
+  }
+  .background-image {
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+  }
+  
+</style>

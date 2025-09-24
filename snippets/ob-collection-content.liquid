@@ -1,0 +1,143 @@
+<input id="coll-id" type="hidden" value="{{ collection.id }}" />
+<input id="coll-handle" type="hidden" value="{{ collection.handle }}" />
+
+
+    <div class="border-y">
+	<div class="flex h-12 md:wrapper md:h-16 md:justify-between">
+	  <div class="relative flex flex-1 items-center md:flex-grow-0 whitespace-nowrap border-r">
+		<button class="button button--variant-ghost w-full h-full rounded-[0] pl-2 hover:enabled:bg-transparent show-filters-button" data-toggle="collapse" data-target=".filters-nav" data-class="clicked">
+		  {{ 'collection_page.show_filters' | t }}
+		  <div class="button__end-icon">
+			<svg xmlns="http://www.w3.org/2000/svg" width="20px" class="rotate-icon icon w-2" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 8 8">
+			  <path d="M7.70601 2.04498C7.7645 2.10494 7.7645 2.20217 7.70601 2.26213L4.10509 5.95383C4.0466 6.0138 3.95176 6.0138 3.89327 5.95383C3.83478 5.89387 3.83478 5.79664 3.89327 5.73667L7.49419 2.04498C7.55268 1.98501 7.64752 1.98501 7.70601 2.04498Z" fill="currentColor"></path>
+			  <path d="M4.10648 5.95503C4.04799 6.01499 3.95316 6.01499 3.89467 5.95503L0.293746 2.26333C0.235254 2.20336 0.235254 2.10613 0.293746 2.04617C0.352238 1.9862 0.447073 1.9862 0.505565 2.04617L4.10648 5.73787C4.16498 5.79783 4.16498 5.89506 4.10648 5.95503Z" fill="currentColor"></path>
+			  <path fill-rule="evenodd" clip-rule="evenodd" d="M7.49419 2.04498C7.55268 1.98501 7.64752 1.98501 7.70601 2.04498C7.7645 2.10494 7.7645 2.20217 7.70601 2.26213L4.12172 5.93678C4.11718 5.94316 4.1121 5.94927 4.10648 5.95503C4.10651 5.955 4.10646 5.95505 4.10648 5.95503C4.05103 6.01179 3.96289 6.0148 3.90407 5.96389C3.90081 5.96113 3.89774 5.95811 3.89467 5.95503C3.89424 5.95459 3.8937 5.95427 3.89327 5.95383L3.88838 5.94858L0.293746 2.26333C0.235254 2.20336 0.235254 2.10613 0.293746 2.04617C0.352238 1.9862 0.447073 1.9862 0.505565 2.04617L3.9993 5.62797L7.49419 2.04498ZM3.9993 5.26994L7.31523 1.87041C7.47183 1.70986 7.72837 1.70986 7.88497 1.87041C8.03818 2.02748 8.03818 2.27963 7.88497 2.4367L4.31111 6.10066C4.30309 6.11061 4.29454 6.12027 4.28545 6.12959C4.1373 6.28147 3.89971 6.28967 3.74191 6.15418C3.73241 6.1461 3.7232 6.13751 3.71431 6.12839C3.71158 6.1256 3.70891 6.12278 3.70628 6.11993L0.114783 2.43789C-0.0384243 2.28082 -0.0384244 2.02868 0.114783 1.87161C0.271385 1.71106 0.527927 1.71106 0.684529 1.87161L3.9993 5.26994Z" fill="currentColor"></path>
+			</svg>
+		  </div>
+		</button>
+	  </div>
+	  <div class="relative flex flex-1 whitespace-nowrap items-center md:flex-grow-0 md:border-l md">
+		<button class="button button--variant-ghost w-full h-full rounded-[0] pr-2 hover:enabled:bg-transparent" data-toggle="collapse" data-target=".sort-nav" data-class="clicked">
+		  {{ 'collection_page.sort_by' | t }}
+		  <div class="button__end-icon [&_svg]:max-w-full [&_svg]:h-full [&_svg]:transition-transform">
+			<svg xmlns="http://www.w3.org/2000/svg" width="20" class="rotate-icon icon w-2" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 8 8">
+			  <path d="M7.70601 2.04498C7.7645 2.10494 7.7645 2.20217 7.70601 2.26213L4.10509 5.95383C4.0466 6.0138 3.95176 6.0138 3.89327 5.95383C3.83478 5.89387 3.83478 5.79664 3.89327 5.73667L7.49419 2.04498C7.55268 1.98501 7.64752 1.98501 7.70601 2.04498Z" fill="currentColor"></path>
+			  <path d="M4.10648 5.95503C4.04799 6.01499 3.95316 6.01499 3.89467 5.95503L0.293746 2.26333C0.235254 2.20336 0.235254 2.10613 0.293746 2.04617C0.352238 1.9862 0.447073 1.9862 0.505565 2.04617L4.10648 5.73787C4.16498 5.79783 4.16498 5.89506 4.10648 5.95503Z" fill="currentColor"></path>
+			  <path fill-rule="evenodd" clip-rule="evenodd" d="M7.49419 2.04498C7.55268 1.98501 7.64752 1.98501 7.70601 2.04498C7.7645 2.10494 7.7645 2.20217 7.70601 2.26213L4.12172 5.93678C4.11718 5.94316 4.1121 5.94927 4.10648 5.95503C4.10651 5.955 4.10646 5.95505 4.10648 5.95503C4.05103 6.01179 3.96289 6.0148 3.90407 5.96389C3.90081 5.96113 3.89774 5.95811 3.89467 5.95503C3.89424 5.95459 3.8937 5.95427 3.89327 5.95383L3.88838 5.94858L0.293746 2.26333C0.235254 2.20336 0.235254 2.10613 0.293746 2.04617C0.352238 1.9862 0.447073 1.9862 0.505565 2.04617L3.9993 5.62797L7.49419 2.04498ZM3.9993 5.26994L7.31523 1.87041C7.47183 1.70986 7.72837 1.70986 7.88497 1.87041C8.03818 2.02748 8.03818 2.27963 7.88497 2.4367L4.31111 6.10066C4.30309 6.11061 4.29454 6.12027 4.28545 6.12959C4.1373 6.28147 3.89971 6.28967 3.74191 6.15418C3.73241 6.1461 3.7232 6.13751 3.71431 6.12839C3.71158 6.1256 3.70891 6.12278 3.70628 6.11993L0.114783 2.43789C-0.0384243 2.28082 -0.0384244 2.02868 0.114783 1.87161C0.271385 1.71106 0.527927 1.71106 0.684529 1.87161L3.9993 5.26994Z" fill="currentColor"></path>
+			</svg>
+		  </div>
+		</button>
+		<div class="sort-nav hidden z-40 shadow-2 max-sm:shadow-none max-sm:fixed max-sm:top-0 max-sm:left-0 max-sm:right-0 max-sm:bottom-0 sm:absolute sm:top-full sm:right-2 sm:py-5 sm:px-4 sm:bg-white sm:rounded-sm" role="dialog" aria-hidden="false" aria-modal="true">
+		  <div class="absolute top-0 left-0 w-full h-full bg-black/80 z-[-1] sm:hidden" data-toggle="collapse" data-target=".sort-nav" aria-expanded="true"></div>
+		  <div class="sort-nav-inner bg-white max-sm:rounded-t-2xl max-sm:fixed max-sm:left-0 max-sm:right-0 max-sm:bottom-0">
+			<div class="py-4 px-6 flex justify-between items-center border-b sm:hidden">
+			  <p class="typography typography--heading-six text-sm">Sort By</p>
+			  <button class="button button--variant-ghost button--icon bg-[#F5F5F5] !w-6 !h-6" data-toggle="collapse" data-target=".sort-nav" aria-label="Close">
+				<svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 14 14">
+				  <rect width="16.9705" height="1.13137" rx="0.565684" transform="matrix(0.707106 -0.707108 0.707106 0.707108 0.600586 12.6001)" fill="currentColor"></rect>
+				  <rect width="16.9705" height="1.13137" rx="0.565684" transform="matrix(-0.707106 -0.707107 0.707106 -0.707108 12.6006 13.4001)" fill="currentColor"></rect>
+				</svg>
+			  </button>
+			</div>
+			<div  class="radio-group" role="radiogroup">
+			  <div class="sort-option radio-group__item max-sm:py-5 max-sm:mx-6 max-sm:border-b max-sm:last:border-0" data-sort="relevance">
+				<input type="radio" id="sort-most-relevant" name="sort" checked />
+				<label class="typography typography--body-md" for="sort-most-relevant">{{ "collection_page.most_relevant" | t }}</label>
+			  </div>
+			  <div class="sort-option radio-group__item max-sm:py-5 max-sm:mx-6 max-sm:border-b max-sm:last:border-0" data-sort="asc">
+				<input type="radio" id="sort-price-asc" name="sort" />
+				<label class="typography typography--body-md" for="sort-price-asc">{{ "collection_page.low_to_high" | t }}</label>
+			  </div>
+			  <div class="sort-option radio-group__item max-sm:py-5 max-sm:mx-6 max-sm:border-b max-sm:last:border-0" data-sort="desc">
+				<input type="radio" id="sort-price-desc" name="sort" />
+				<label class="typography typography--body-md" for="sort-price-desc">{{ "collection_page.high_to_low" | t }}</label>
+			  </div>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	</div>
+  </div>
+      {% assign collection_tabs = collection.metafields.custom.collection_tabs.value | split: ',' %}
+      {% assign tab_length =collection_tabs | size  %}
+    {% if tab_length > 0 %}
+      <div class="overflow-x-auto border-b ">
+      	<fieldset>
+      		<legend class="sr-only" role="group">Collection quick links</legend>
+      		<div class="wrapper flex md:justify-center py-4 md:gap-x-6 gap-x-2">
+      		  {% for tab in collection_tabs %}
+      			{% assign tab_handle = tab | handleize %}
+      			{% assign is_current = false %}
+      			{% if collection.handle == tab_handle or forloop.first and collection.handle == collection.handle %}
+      			  {% assign is_current = true %}
+      			{% endif %}
+      			<a href="{{ tab_handle | prepend: '/collections/' }}" 
+      			   class="tab{% if is_current %} tab--selected{% endif %}" 
+      			   role="tab" 
+      			   aria-selected="{{ is_current }}">
+      			  {{ tab | strip }}
+      			</a>
+      		  {% endfor %}
+      		</div>
+      	</fieldset>
+    </div>
+  {% endif %}
+  {%- paginate collection.products by 50 -%}   
+  <div id="collectionGridWrap" class="flex relative sm:wrapper flex-1 {% if isNosto == "true" %}grid-loading {% endif %} ">
+    {% render 'ob-collection-facets' collection:collection %}
+    <div id="AjaxinateContainer" data-count="{{ collection.products.size | modulo: 4 }}" class="grid grid-cols-{{ section.settings.columns_mobile }} md:grid-cols-{{ section.settings.columns_desktop }} xl:grid-cols-{{ section.settings.columns_desktop_xl }} 2xl:grid-cols-{{ section.settings.columns_desktop_2xl }} 3xl:grid-cols-{{ section.settings.columns_desktop_3xl }} grid-flow-dense auto-rows-[1fr] gap-x-2.5 gap-y-2 my-8 w-full overflow-hidden">
+
+        {% comment %} ---------------- old loop for google indexing --------------------- {% endcomment %}
+        {% assign product_count = 0 %}
+        {%- for product in collection.products %}
+          {%- comment %}<locksmith:ab67>{% endcomment -%}
+            {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product, subject_parent: collection, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+          {%- comment %}</locksmith:ab67>{% endcomment -%}
+          {% unless product.tags contains 'hide-me' %}
+        {% assign show_product = 'yes' %}
+        {% if product.tags contains 'hide_me' %}
+            {% assign show_product = 'no' %}
+        {%  endif  %}
+        {%  if product.available %}
+            {% assign show_product = 'yes' %}
+        {%  else  %}
+             {% assign show_product = 'no' %}
+             {%  if product.tags contains 'show-out-of-stock' or  product.tags contains 'show-out-of-stock-sold-out' %}
+                 {% assign show_product = 'yes' %}
+             {% endif %}
+        {%  endif %}
+          {% if product.tags contains 'not-for-sale' %}
+          {% assign show_product = 'no' %}
+        {%  endif  %}
+        {%  if show_product == 'yes' %}
+        {% assign product_count = product_count | plus: 1 %}  
+            {% render 'ob-grid-item', product:product %}
+        {% endif %}
+            {% endunless %}
+        {% endfor %}
+        {% comment %} ---------------- old loop for google indexing END --------------------- {% endcomment %}
+      
+    </div>
+    
+  </div>
+  <div id="AjaxinatePagination" class="w-full flex justify-center">
+      <div id="coll-see-more" class="button button--variant-outline" data-page-loc="0">
+        <a href="{{ paginate.next.url }}" id="see-more-text">{{ 'collection_page.see_more' | t }}</a>
+        <div id="see-more-loader" class="w-4"><svg class="loading-ele-outer" viewBox="25 25 50 50"><circle class="loading-ele-inner" cx="50" cy="50" r="20" fill="none" stroke-width="4"></circle></svg></div>
+      </div>
+  </div>
+    {%- endpaginate -%}
+  <div class="flex flex-col gap-y-3 items-center border-b pb-14">
+    {% capture view_more_count_html %}<span id="current-product-number"></span>{% endcapture %}
+    {% capture view_more_total_html %}<span id="collection-total-products">{{ collection.all_products_count }}</span>{% endcapture %}
+    {% capture view_more_text %}{{ 'collection_page.view_more_count_html' | t: count: view_more_count_html, total: view_more_total_html }}{% endcapture %}
+	<p class="typography typography--body-sm">{{ view_more_text }}</p>
+  </div>
+  <div id="dummy-div"></div>
+
+
+
+
+
+
+    

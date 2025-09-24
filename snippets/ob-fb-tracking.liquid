@@ -1,0 +1,180 @@
+<!-- Facebook Pixel Code -->
+   <script>
+	{% capture event_loc_time %}{{ "14-06-2019" | date: "%s"}}{{ canonical_url }}{% endcapture %}
+	 var fb_page_hash = "{{event_loc_time | sha256 }}";
+	
+	!function(f,b,e,v,n,t,s)
+	{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+	n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+	if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+	n.queue=[];t=b.createElement(e);t.async=!0;
+	t.src=v;s=b.getElementsByTagName(e)[0];
+	s.parentNode.insertBefore(t,s)}(window, document,'script',
+	'https://connect.facebook.net/en_US/fbevents.js');
+    if (typeof fbq === 'undefined') {
+    	fbq('init', '627191840754746');
+    	fbq('track', 'PageView');
+    }
+     else {
+           	console.log('fbq found');
+    	console.log(fbq);
+     }
+	console.log('fbeventId = '+fb_page_hash);
+  </script>
+  <noscript>
+	<img height="1" width="1" style="display:none" 
+		 src="https://www.facebook.com/tr?id=627191840754746&ev=PageView&noscript=1"/>
+  </noscript>
+  <!-- End Facebook Pixel Code -->
+  
+  
+  <script>
+	//global functions
+	function triggerCustomAddToCartEvent(product) {
+        console.log('triggerCustomAddToCartEvent');
+		const event = new CustomEvent('customAddToCart', {
+		  detail: { product: product }
+		});
+		document.body.dispatchEvent(event);
+	}
+
+
+  // Wait for the DOM to load
+
+
+
+  document.addEventListener('DOMContentLoaded', function () {
+  
+	  // Listen for atc_form submission events
+	  document.body.addEventListener('submit', async function (e) {
+		  // Get the atc_form that triggered the submission
+		  let atc_form = e.target;
+		  console.log('----------addEventListener --------------');
+		  // Check if the atc_form's action attribute contains '/cart/add' which is typical for Shopify Add to Cart atc_forms
+		  if (atc_form && atc_form.action && atc_form.action.includes('/cart/add')) {
+  
+			  // Get the product ID from the atc_form's data attribute or a child element within the atc_form
+			  let productId = atc_form.getAttribute('data-productid') || atc_form.querySelector('[data-productid]')?.getAttribute('data-productid');
+  
+			  if (productId) {
+				  console.log('productId = '+productId);
+				  try {
+					  const productData = await getProductById(productId);
+					  fireAddToCartEvent(productData);
+				  } catch (error) {
+					  console.error('Error processing Add to Cart:', error);
+					  // Fallback to basic product data
+					  try {
+						  const fallbackProductData = {
+							  id: productId,
+							  title: atc_form.querySelector('[name="product-title"]')?.value || 'Unknown Product',
+							  price: parseFloat(atc_form.querySelector('[name="price"]')?.value || '0'),
+							  currency: 'GBP'
+						  };
+						  fireAddToCartEvent(fallbackProductData);
+					  } catch (fallbackError) {
+						  console.error('Error creating fallback product data:', fallbackError);
+					  }
+				  }
+			  }
+		  }
+	  });
+  
+	  // Listen for a custom event, e.g., 'customAddToCart'
+	  document.body.addEventListener('customAddToCart', function (e) {
+		  // Check if the event contains product data
+		  if (e.detail && e.detail.product) {
+			  let productData = e.detail.product;
+  
+			  // Ensure the product data has the necessary fields
+			  if (productData.id && productData.title && productData.price) {
+				  // Create the product details for Facebook Pixel
+				  const productDetails = {
+					  content_ids: [productData.id],
+					  content_name: productData.title,
+					  content_type: 'product',
+					  value: parseFloat(productData.price) / 100, // Assuming price is in cents
+					  currency: productData.currency || 'GPP' // Default to USD if currency is not provided
+				  };
+				  // Fire the Facebook Pixel Add to Cart event
+				  if (typeof fbq === 'function') {
+                  console.log('-------------------customAddToCart--------------------');
+                  console.log(productDetails)
+					  fbq('track', 'AddToCart', productDetails);
+                      //fbq('track', 'AddToCartTest', productDetails);
+				  }
+  
+				  console.log('Facebook Pixel Add to Cart event fired:', productDetails);
+			  } else {
+				  console.error('Product data is missing required fields.');
+			  }
+		  } else {
+			  console.error('Event does not contain product data.');
+		  }
+	  });
+  });
+  
+  function fireAddToCartEvent(productData) {
+	  try {
+		  // Create the product details for Facebook Pixel
+		  const productDetails = {
+			  content_ids: [productData.id],
+			  content_name: productData.title,
+			  content_type: 'product',
+			  value: parseFloat(productData.variants?.[0]?.price || productData.price) / 100, // Assuming price is in cents
+			  currency: productData.currency || 'GBP' // Default to GBP if currency is not provided
+		  };
+
+		  // Fire the Facebook Pixel Add to Cart event
+		  if (typeof fbq === 'function') {
+			  fbq('track', 'AddToCart', productDetails);
+			  console.log('Facebook Pixel Add to Cart event fired:', productDetails);
+		  } else {
+			  console.warn('fbq function not available. Facebook Pixel event not fired.');
+		  }
+	  } catch (error) {
+		  console.error('Error firing Add to Cart event:', error.message);
+	  }
+  }
+  
+  async function getProductById(id) {
+    try {
+      const suggestResponse = await fetch(`/search/suggest.json?q=id:${id}&resources[type]=product&limit=1`);
+      if (!suggestResponse.ok) throw new Error(`Suggest API error: ${suggestResponse.status}`);
+      
+      const suggestData = await suggestResponse.json();
+      const product = suggestData.resources.results.products[0];
+      if (!product) throw new Error('Product not found in suggest results');
+      
+      const productResponse = await fetch(`/products/${product.handle}.js`);
+      if (!productResponse.ok) throw new Error(`Product API error: ${productResponse.status}`);
+      
+      return await productResponse.json();
+    } catch (error) {
+      console.error('Error in getProductById:', error);
+      throw error; // Re-throw to handle it in the calling function
+    }
+  }
+
+    async function atc_track(productId) {
+      
+      try {
+        const productData = await getProductById(productId);
+        console.log("Product data fetched:", productData);
+        
+        if (typeof triggerCustomAddToCartEvent === 'function') {
+
+          setTimeout(() => {
+                    console.log("------------ atc_track called with productId:", productId);
+              triggerCustomAddToCartEvent(productData);
+          }, 200);
+        
+        } else {
+          console.warn('triggerCustomAddToCartEvent is not a function');
+        }
+      } catch (error) {
+        console.error("Error in atc_track:", error.message);
+      }
+    }
+    
+  </script>

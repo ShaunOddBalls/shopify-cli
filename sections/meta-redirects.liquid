@@ -1,0 +1,49 @@
+{% assign protocol = 'https://' %}
+{% assign domain = shop.domain %}
+{% assign current_absolute_url = protocol | append: domain | append: request.path %}
+
+{% for block in section.blocks %}
+  {% if block.settings.from_url == current_absolute_url %}
+    <script>
+
+        try {
+              window.location.replace({{ block.settings.to_url | json }});
+        } catch (errorto_url) {
+          console.error(errorto_url);
+        }
+    </script>
+    {% break %}
+  {% endif %}
+{% endfor %}
+
+{% schema %}
+{
+  "name": "JS Redirect",
+  "tag": "div",
+  "class": "redirect",
+  "blocks": [
+    {
+      "type": "redirect_rule",
+      "name": "Redirect Rule",
+      "settings": [
+        {
+          "type": "text",
+          "id": "from_url",
+          "label": "From URL (path only, e.g. /old-page)"
+        },
+        {
+          "type": "text",
+          "id": "to_url",
+          "label": "To URL (e.g. /new-page or https://...)"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 20,
+  "presets": [
+    {
+      "name": "JS Redirect"
+    }
+  ]
+}
+{% endschema %}

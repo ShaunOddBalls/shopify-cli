@@ -1,0 +1,283 @@
+{% schema %}
+  {
+    "name": "Info Marque",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "mobile_background_image",
+        "label": "mobile background image",
+      },
+      {
+        "type": "image_picker",
+        "id": "desktop_background_image",
+        "label": "desktop background image",
+      },
+      {
+        "type": "header",
+        "content": "Title"
+      },
+      {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Heading Text"
+    },
+      {
+      "type": "text",
+      "id": "title_classes",
+      "label": "Heading classes",
+      "default": "text-2xl md:text-4xl uppercase mx-auto text-left marujo px-6 mb-8 "
+    },
+      {
+      "type": "textarea",
+      "id": "top_text",
+      "label": "Top paragraph Text",
+
+    },
+      {
+      "type": "text",
+      "id": "top_text_classes",
+      "label": "Top paragraph Classes",
+      "default": "text-left max-w-5xl"
+    },
+    {
+      "type": "textarea",
+      "id": "bottom_text",
+      "label": "Bottom paragraph Text",
+    },
+    {
+      "type": "text",
+      "id": "bottom_text_classes",
+      "label": "Bottom paragraph Classes",
+      "default": "text-left max-w-5xl"
+    },
+    {
+      "type": "select",
+      "id": "button_style",
+      "label": "Button Style",
+      "options": [
+        {
+          "value": "primary",
+          "label": "Primary"
+        },
+        {
+          "value": "secondary",
+          "label": "Secondary"
+        },
+        {
+          "value": "outline",
+          "label": "Outline"
+        }
+        ],
+        "default": "primary"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Text",
+          "default": "Shop Now"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Link"
+        },
+        {
+          "type": "checkbox",
+          "id": "is_rounded",
+          "label": "Use rounded style",
+          "default": false
+        },
+        {
+          "type": "text",
+          "id": "extra_classes",
+          "label": "Extra Classes",
+          "info": "Add any additional classes, separated by spaces"
+        },
+        {
+          "type": "text",
+          "id": "button_id",
+          "label": "Button ID",
+          "info": "Add a unique ID to the button"
+        },
+        {
+          "type": "text",
+          "id": "custom_attributes",
+          "label": "Custom Attributes",
+          "info": "Add custom attributes to the button (e.g., data-custom='value')"
+        }
+    ],
+    "blocks": [
+      {
+        "name": "Collection Block",
+        "type": "collection",
+        "settings": [
+        {
+        "type": "text",
+         "id": "title",
+         "label": "image alt text"
+        },
+        {
+            "type": "image_picker",
+            "id": "img",
+            "label": "Image"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Collection Link"
+        }
+      ],
+     }
+   ],
+   "presets": [
+      {
+        "name": "Info Marquee Slide",
+        "blocks": [
+          {
+            "type": "collection"
+          },
+          {
+            "type": "collection"
+          },
+          {
+            "type": "collection"
+          },
+          {
+            "type": "collection"
+          },
+          {
+            "type": "collection"
+          },
+          {
+            "type": "collection"
+          },
+          {
+            "type": "collection"
+          },
+          {
+            "type": "collection"
+          },
+          {
+            "type": "collection"
+          },
+          {
+            "type": "collection"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
+
+<style>
+   .partnership-marquee .swiper-wrapper {
+  transition-timing-function: linear !important;
+}
+</style>
+<div class="background-color mx-auto overflow-hidden">
+<div class="mx-autopy-6 text-center relative  overflow-visable max-w-7xl mx-auto" id="charity">
+     
+    {% if section.settings.desktop_background_image %}
+         <div class="lg:w-1/2 h-full absolute top-0 right-0 hidden lg:block overflow-visible pointer-events-none z-20" >
+            <img class="w-auto h-full object-cover"
+                    src="{{ section.settings.desktop_background_image | img_url: '1200x' }}" 
+                    alt="{{ section.settings.image.alt | escape }}"
+                    loading="lazy">
+        </div>
+    {% endif %}
+    
+  <h2 class="{{ section.settings.title_classes }}">{{ section.settings.heading }}</h2>
+  
+   {% if section.settings.top_text %}
+     <div class="px-6 pb-6 z-10 relative"><p class="{{ section.settings.top_text_classes }}">{{ section.settings.top_text }}</p></div> 
+   {% endif %}
+    
+  <div class="swiper !overflow-visible partnership-marquee-{{ section.id }} z-10">
+    <div class="swiper-wrapper">
+      {% for block in section.blocks %}
+        <div class="swiper-slide">
+          {% if block.settings.img != blank %}
+            <a href="{{ block.settings.url }}" aria-label="go to {{ block.settings.title }} collection">
+              <img loading="lazy" height="176px" width="176px" class="w-44 h-44 border border-black border-opacity-60 rounded-md" src="{{ block.settings.img | image_url: width: 176, height: 176}}" alt="{{ block.settings.img.alt }}" />
+            </a>
+          {% else %}
+            <a href="{%- render 'ob-process-international-link', url:block.settings.url %}" aria-label="go to {{ block.settings.title }} collection">
+              <img class="w-44 h-44 border border-black border-opacity-60 rounded-md slide" src="img/brands/1.avif" alt="{{ block.settings.title }} image" />
+            </a>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  {% if section.settings.bottom_text %}
+     <div class="pt-6 px-6 z-10 relative"><p class="{{ section.settings.bottom_text_classes }}">{{ section.settings.bottom_text }}</p></div> 
+   {% endif %}
+
+  {% if section.settings.button_text %}
+    <div class="w-full p-6 z-10 relative">
+      <a href="{%- render 'ob-process-international-link', url:section.settings.button_link %}" class="{{ section.settings.extra_classes }}">{{ section.settings.button_text }}</a>
+    </div>
+  {% endif %}
+
+  {% if section.settings.mobile_background_image %}
+        <div class="w-full h-full relative top-0 left-0 md:hidden overflow-visable pointer-events-none" >
+          <img class="w-full h-full object-cover"
+                    src="{{ section.settings.mobile_background_image | img_url: '1200x' }}" 
+                    alt="{{ section.settings.image.alt | escape }}"
+                    loading="lazy"/>
+        </div>
+    {% endif %}
+</div>
+</div>
+
+<style>
+  .partnership-marquee-{{ section.id }} .swiper-wrapper {
+  transition-timing-function: linear !important;
+}
+  
+</style>
+
+<script>
+ document.addEventListener('DOMContentLoaded', function() {
+  new Swiper('.partnership-marquee-{{ section.id }}', {
+    slidesPerView: 'auto',
+    spaceBetween: 10,
+    loop: true,
+    allowTouchMove: true,
+    
+    autoplay: {
+      delay: 0,
+      disableOnInteraction: false,
+      pauseOnMouseEnter: true,
+    },
+    
+    speed: 3000,
+    loopedSlides: 5,
+    grabCursor: true,
+
+    // Add this for linear movement
+    effect: 'slide',
+    watchSlidesProgress: true,
+    
+    breakpoints: {
+      320: {
+        slidesPerView: 2,
+      },
+      480: {
+        slidesPerView: 3,
+      },
+      768: {
+        slidesPerView: 4,
+      },
+      1024: {
+        slidesPerView: 5,
+      },
+      1324: {
+        slidesPerView: 7,
+      }
+    }
+  });
+});
+</script>

@@ -1,0 +1,6 @@
+{% layout none %}
+{% comment %} --------------- REDEEM SUB SELECTOR QUICKBUY --------------- {% endcomment %}
+{% capture cart_attributes %}
+<input type="hidden" name="attributes[ _Sub Redeem Page]" value="{{ product.id }}">
+{% endcapture %}
+{% render 'ob-product-qb', cart_attributes:cart_attributes, product:product %}

@@ -1,0 +1,210 @@
+{%- if template.name contains 'product' or template.name contains 'collection' or template.name contains 'search' or template.name contains 'customers' -%}
+
+    {% capture breadcrumb_arrow %}
+        <svg class="flex-shrink-0 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+          <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+        </svg>
+    {% endcapture %}
+    {% capture home_icon %}
+          <svg class="flex-shrink-0 w-3 h-3 md:h-4 md:w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+          </svg>      
+    {% endcapture %}
+      
+    <nav breadcrumbbs-section class="overflow-hidden breadcrumbb text-xs flex items-center bg-gray-white px-2 md:px-5 py-2 border-b border-gray-100 text-xxs md:text-xs" role="navigation" aria-label="breadcrumbs">
+      <div class="flex items-center md:wrapper sm:wrapper">
+      <span class="breadcrumb__link"><a href="{{ routes.root_url }}">{{ home_icon }}{% comment %} %}{{ 'general.breadcrumb.homepage' | t}}{% endcomment %}</a></span>
+
+      {%- if template contains 'search' -%}
+
+        <span class="breadcrumb__separator">/</span>
+        <span class="breadcrumb__current whitespace-nowrap text-ellipsis">{{ 'general.breadcrumb.search' | t: terms: search.terms }}</span>
+
+      {%- elsif template.name contains 'account' or template.name contains 'addresses' -%}
+
+        <span class="breadcrumb__link"><a href="{{ routes.root_url }}">{{ home_icon }}{% comment %} %}{{ 'general.breadcrumb.homepage' | t}}{% endcomment %}</a></span>
+
+        {% comment %}
+        <span class="breadcrumb__separator">/</span>
+        <span class="breadcrumb__current">{{ page.title }}</span>
+        {% endcomment %}
+ 
+      {%- else -%}
+      
+        {%- unless template contains 'product' -%}
+          {% comment %}
+          <span class="breadcrumb__separator">/</span>
+          {% endcomment %}
+          {{ breadcrumb_arrow }}
+          {%- if template contains 'collections' -%}
+            <span class="breadcrumb__current whitespace-nowrap text-ellipsis">{{ 'general.breadcrumb.collections' | t }}</span>
+          {%- elsif collection -%}
+            <span class="breadcrumb__link">{{ 'general.breadcrumb.collections' | t }}</span>
+          {%- endif -%}
+        {%- endunless -%}
+
+        {%- if collection -%}
+          {{ breadcrumb_arrow }}
+          {% comment %}
+          <span class="breadcrumb__separator">/</span>
+          {% endcomment %}
+          {%- if template contains 'collection' -%}
+            <span class="breadcrumb__current whitespace-nowrap text-ellipsis">{{ collection.title | escape }}</span>
+          {%- else -%}
+            <span class="breadcrumb__link">
+              {%- liquid
+                if collection.handle
+                  capture url
+                    echo routes.collections_url 
+                      echo '/'
+                    echo collection.handle
+                  endcapture
+                  echo collection.title | link_to: url
+                endif
+              -%}
+            </span>
+          {%- endif -%}
+          
+        {%- elsif product -%}
+
+              {% assign design_tag = ''%}
+              {% assign designvalue_tag = ''%}
+              {% assign producttype_tag = ''%}
+              {% assign department_tag = ''%}
+              {% for tag in product.tags %}
+                    {% assign tag = tag | downcase %}
+                    {% if tag contains 'design-' %}
+                        {% unless tag contains '-design-'   %}
+                            {% assign colourway = tag %}
+                            {% assign design_tag = tag %}
+                            {% assign design_name = tag | replace: 'design-','' | replace: '-',' ' %}
+                            {% assign colorway_collection = collections[colourway] %}
+                        	  {% assign subtitle = '' %}
+                        {% endunless %}
+                    {% endif %}
+                    {% if tag contains 'designvalue-' %}
+                          {% assign designvalue_tag = tag %}
+                          {% assign colourwayvalue = tag | replace: 'designvalue-','' %}
+                      	{% assign subtitle = '' %}
+                    {% endif %}
+                    {% if tag contains 'department-' %}
+                          {% assign department_tag = tag %}
+                          {% assign department_name = tag | replace: 'department-', '' %}
+                      	{% assign subtitle = '' %}
+                    {% endif %}
+                    {% if tag contains 'Product-Type-' %}
+                          {% assign producttype_tag = tag %}
+                          {% assign producttype_name = tag | replace: 'Product-Type-', '' %}
+                      	{% assign subtitle = '' %}
+                    {% endif %}
+              {% endfor %}
+              {% if producttype_tag == '' %}
+              	{% assign producttype_tag = product.type | handle %}
+              	{% assign producttype_name = product.type %}
+              {% endif %}
+              
+              {% assign producttype_raw = product.type | handle %}
+              {% assign producttype_name_raw = product.type %}
+              {% assign array = 'department,design,type,subscription' | split: ',' %}
+              
+              
+              
+              {% for type in array %}
+              {% if type == 'design' %}
+              	{% if design_tag != '' %}
+                    {%  unless collections[design_tag].products.size < 2 %}
+                    {% capture url %}/collections/{{design_tag}}{% endcapture %}
+                    {{ breadcrumb_arrow }}<span class="breadcrumb__link capitalize whitespace-nowrap"><a href="{%- render 'ob-process-international-link', url:url %}">{{ design_name }}</a></span>
+                    {% endunless %}
+              	{% endif %}
+              {% elsif type == 'department' %}
+              	{% if department_tag != '' %}
+                  {%  unless collections[department_tag].products.size < 2 %}
+                  {% capture url %}/collections/{{ department_tag}}{% endcapture %}
+                  {{ breadcrumb_arrow }}<span class="breadcrumb__link capitalize whitespace-nowrap"><a href="{%- render 'ob-process-international-link', url:url %}">{{ department_name }}</a></span>
+                  {% endunless %}
+              	{% endif %}
+              {% elsif type == 'type'%}
+                {% unless product.type == "Custom" %}
+              	{% if producttype_raw != blank %}
+              	  {% if producttype_raw == 'bralette' %}
+              		{% assign producttype_raw = 'bralettes' %}
+              	  {% endif %}
+              	  {% if producttype_raw == 'ladies-boxers' %}
+              		{% assign producttype_raw = 'ladies-boxers-1' %}
+              	  {% endif %}
+                    {% capture url %}/collections/{{producttype_raw}}{% endcapture %}
+                    {{ breadcrumb_arrow }}
+                                       
+                  <span class="breadcrumb__link capitalize whitespace-nowrap">
+                    <a href="{%- render 'ob-process-international-link', url:url %}">
+                      {% assign translation_value = producttype_raw | replace: " ", "_" | replace: "-", "_" | downcase %}
+                        {% assign translation_key = "general.breadcrumb.product_type." | append: translation_value %}
+                        {% assign translation = translation_key | t %}
+                        {% assign translation_downcase = translation | downcase %}
+                          {% if translation_downcase contains "translation missing" %}
+                            {{ producttype_name_raw }}
+                          {% else %}
+                            {{ translation }}
+                          {% endif %}
+                    </a>
+                  </span>
+              	{% endif %}
+                  
+                {% endunless %}
+              {% elsif type == 'subscription' %}
+              	{% if subscription_handle != blank %}
+                    {% if department_tag == 'department-mens' %}
+                        {% assign subscription_handle = 'mens-subscriptions' %}
+                    {% elsif department_tag == 'department-ladies'%}
+                        {% assign subscription_handle = 'womens-subscriptions' %}
+                    {% elsif department_tag == 'department-kids' %}
+                        {% assign subscription_handle =' kids-subscription' %}
+                    {% endif %}
+                    {% capture url %}/collections/{{subscription_handle}}{% endcapture %}
+                    {{ breadcrumb_arrow }}<span class="breadcrumb__link capitalize whitespace-nowrap"><a href="{%- render 'ob-process-international-link', url:url %}">Membership</a></span>
+              	{% endif %}
+              {% endif %}
+              {% endfor %}
+
+        {%- elsif blog or article -%}
+
+          <span class="breadcrumb__link"><a href="{%- render 'ob-process-international-link', url:blog.url %}">{{ 'general.breadcrumb.blog' | t }}</a></span>
+
+          {%- if article -%}
+            {% comment %}
+            <span class="breadcrumb__separator">/</span>
+            {% endcomment %}
+            {{ breadcrumb_arrow }}
+            <span class="breadcrumb__current whitespace-nowrap text-ellipsis">{{ article.title | escape }}</span>
+          {%- endif -%}
+
+        {%- elsif template contains 'customers' -%}
+
+          <span class="breadcrumb__current whitespace-nowrap text-ellipsis">{{ 'general.breadcrumb.account' | t }}</span>
+
+        {%- elsif template contains 'cart' -%}
+
+          <span class="breadcrumb__current whitespace-nowrap text-ellipsis">{{ 'general.breadcrumb.cart' | t }}</span>
+
+        {%- else -%}  
+
+          <span class="breadcrumb__current whitespace-nowrap text-ellipsis">{{ page.title | escape }}</span>
+
+        {%- endif -%}
+
+        {%- if product -%}
+
+            {% comment %}
+            <span class="breadcrumb__separator">/</span>
+            {% endcomment %}
+            {{ breadcrumb_arrow }}
+          <span class="breadcrumb__current whitespace-nowrap text-ellipsis">{{ product.title | replace: '[G2]', '' | escape }}</span>
+
+        {%- endif -%}
+
+      {%- endif -%}
+      </div>
+    </nav>
+
+  {%- endif -%}

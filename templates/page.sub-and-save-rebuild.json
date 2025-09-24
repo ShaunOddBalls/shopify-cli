@@ -1,0 +1,421 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "ob_hero_banner_with_nav_slider_PrUk4q": {
+      "type": "ob-hero-banner-with-nav-slider",
+      "disabled": true,
+      "name": "Hero Banner With Slider",
+      "settings": {
+        "metaobject": "home-page-banner-test",
+        "reverse": false
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "sub_selector_section_VWfNyT": {
+      "type": "ob-sub-selector-section",
+      "blocks": {
+        "product_banner_EzfLER": {
+          "type": "product-banner",
+          "disabled": true,
+          "settings": {
+            "block_active": true,
+            "is_multibuy_banner": false,
+            "banner_background": "",
+            "wrapper_classes": "",
+            "title": "Subscriber",
+            "text": "",
+            "customers": "both",
+            "country_iso": "*",
+            "product_types": "",
+            "exclude_tags": "",
+            "desktop_image": "shopify://shop_images/Subscription-Banner-Edited-Bounce.gif",
+            "mobile_image": "shopify://shop_images/Subscription-Banner-Edited-Bounce.gif",
+            "desktop_image_classes": "mx-auto w-full hidden md:block",
+            "mobile_image_classes": "mx-auto w-full md:hidden",
+            "desktop_svg": "",
+            "mobile_svg": "",
+            "desktop_svg_classes": "absolute inset-0 w-full h-full mx-auto hidden md:block",
+            "mobile_svg_classes": "absolute inset-0 w-full h-full mx-auto md:hidden",
+            "video_outer_wrap": "absolute inset-0 absolute inset-0 w-full h-full mx-auto",
+            "video_wrap": "col-span-12 absolute inset-0 w-full h-full",
+            "block_video_desktop": "",
+            "block_video_desktop_class": "object-cover h-full w-full",
+            "block_video_mobile": "",
+            "block_video_mobile_class": "object-cover h-full w-full"
+          }
+        },
+        "title_iabP47": {
+          "type": "title",
+          "settings": {
+            "text": "OddBalls Subscription",
+            "wrapper_classes": "w-full px-6  pt-6",
+            "text_classes": "text-2xl marujo"
+          }
+        },
+        "paragraph_HnKzBm": {
+          "type": "paragraph",
+          "settings": {
+            "text": "Get ultra-comfy underwear or stylish socks every month—your choice! Enjoy bonus socks with the underwear plan, plus early access to exclusive deals, and a flexible, cancel-anytime subscription. Delivered monthly to your door with free express shipping on all orders. Questions? Click <a href=\"https://www.myoddballs.com/pages/subscription-faq\">here</a>.",
+            "wrapper_classes": "py-4 px-6",
+            "text_classes": ""
+          }
+        },
+        "step_9GthHh": {
+          "type": "step",
+          "settings": {
+            "title": "Men's",
+            "filter-tags": "department-mens",
+            "subscription_option_1_title": "Boxer shorts + Socks",
+            "subscription_option_1_svg": "shopify://shop_images/Sub-MensBoxers_1411dfe1-6c83-4fb5-83e1-ebc8f0567444.png",
+            "subscription_option_1_product_type": "mens-boxer-shorts-individuals",
+            "subscription_option_2_title": "Briefs + Socks",
+            "subscription_option_2_svg": "shopify://shop_images/Sub-MensBrief_ee61c0fb-6a5e-4d6a-bfd4-6a67740ffa33.png",
+            "subscription_option_2_product_type": "product-type-mens-briefs",
+            "subscription_option_3_title": "Bamboo Boxer Shorts + Socks",
+            "subscription_option_3_svg": "shopify://shop_images/Sub-MenBamboo_e64fe9a4-a4f2-4d8c-8419-6e2c4356ae9d.png",
+            "subscription_option_3_product_type": "bamboo-boxer-shorts-individuals",
+            "subscription_option_4_title": "*",
+            "subscription_option_4_product_type": "",
+            "subscription_option_5_title": "*",
+            "subscription_option_5_product_type": "",
+            "subscription_option_6_title": "*",
+            "subscription_option_6_product_type": "",
+            "subscription_option_7_title": "*",
+            "subscription_option_7_product_type": "",
+            "subscription_option_8_title": "Socks",
+            "subscription_option_8_svg": "shopify://shop_images/Sub-Socks_6077fe17-ac4e-45f3-9de2-7a6abcbc2ded.png",
+            "subscription_option_8_product_type": "product-type-socks",
+            "design_list": "adventurous,classic",
+            "design_rules": "mens-boxer-shorts-individuals,product-type-mens-briefs,bamboo-boxer-shorts-individuals"
+          }
+        },
+        "step_tXVHBq": {
+          "type": "step",
+          "settings": {
+            "title": "Women's",
+            "filter-tags": "department-womens",
+            "subscription_option_1_title": "Briefs + Socks",
+            "subscription_option_1_svg": "shopify://shop_images/Sub-LadiesBrief.png",
+            "subscription_option_1_product_type": "product-type-ladies-briefs",
+            "subscription_option_2_title": "Boxer Shorts + socks",
+            "subscription_option_2_svg": "shopify://shop_images/Sub-LadiesBoxer_f9863f41-c4c4-4012-bc36-08d831194898.png",
+            "subscription_option_2_product_type": "product-type-ladies-boxer-shorts",
+            "subscription_option_3_title": "Seamless + socks",
+            "subscription_option_3_svg": "shopify://shop_images/Sub-Seamless_b71f2d6b-bdbd-44e0-9ff3-c4424281e3c4.png",
+            "subscription_option_3_product_type": "product-type-seamless",
+            "subscription_option_4_title": "Bralette + socks",
+            "subscription_option_4_svg": "shopify://shop_images/Sub-Bralette_c47aef31-649d-4f69-bf60-8284a1ddcc5b.png",
+            "subscription_option_4_product_type": "product-type-bralette",
+            "subscription_option_5_title": "Thong + socks",
+            "subscription_option_5_svg": "shopify://shop_images/Sub-Thong_6d42a715-9f25-4764-8106-61e37deb2c83.png",
+            "subscription_option_5_product_type": "product-type-thong",
+            "subscription_option_6_title": "Bamboo Boxer Shorts + Socks",
+            "subscription_option_6_svg": "shopify://shop_images/Sub-LadiesBamboo_eae805fa-55d5-4b09-b0e3-9c1e8ec20cac.png",
+            "subscription_option_6_product_type": "ladies-bamboo-boxer-shorts-individuals",
+            "subscription_option_7_title": "Full Seamless + Socks",
+            "subscription_option_7_svg": "shopify://shop_images/Sub-FullSeamless_cd983e7b-c88d-4543-a946-d1cc8afb41ed.png",
+            "subscription_option_7_product_type": "product-type-full-seamless",
+            "subscription_option_8_title": "Socks",
+            "subscription_option_8_svg": "shopify://shop_images/Sub-Socks.png",
+            "subscription_option_8_product_type": "product-type-socks",
+            "design_list": "adventurous,classic,",
+            "design_rules": "product-type-ladies-boxer-shorts,product-type-bralette,product-type-thong,product-type-ladies-briefs,"
+          }
+        },
+        "step_TGgdMW": {
+          "type": "step",
+          "settings": {
+            "title": "Kids",
+            "filter-tags": "department-kids",
+            "subscription_option_1_title": "Goolies + Socks",
+            "subscription_option_1_svg": "shopify://shop_images/Sub-Goolies_dc5b8961-48d8-4aaa-b13f-b674ade18faf.png",
+            "subscription_option_1_product_type": "product-type-goolies",
+            "subscription_option_2_title": "*",
+            "subscription_option_2_product_type": "",
+            "subscription_option_3_title": "*",
+            "subscription_option_3_product_type": "",
+            "subscription_option_4_title": "*",
+            "subscription_option_4_product_type": "",
+            "subscription_option_5_title": "*",
+            "subscription_option_5_product_type": "",
+            "subscription_option_6_title": "*",
+            "subscription_option_6_product_type": "",
+            "subscription_option_7_title": "*",
+            "subscription_option_7_product_type": "",
+            "subscription_option_8_title": "*",
+            "subscription_option_8_svg": "shopify://shop_images/Sub-Socks_6077fe17-ac4e-45f3-9de2-7a6abcbc2ded.png",
+            "subscription_option_8_product_type": "Product-Type-Socks",
+            "design_list": "adventurous,classic",
+            "design_rules": ""
+          }
+        }
+      },
+      "block_order": [
+        "product_banner_EzfLER",
+        "title_iabP47",
+        "paragraph_HnKzBm",
+        "step_9GthHh",
+        "step_tXVHBq",
+        "step_TGgdMW"
+      ],
+      "custom_css": [
+        ".tw-text-bluey {color: #01c1e4;}"
+      ],
+      "settings": {
+        "background_heading": "",
+        "mobile_img": "shopify://shop_images/BannerText.svg",
+        "desktop_img": "shopify://shop_images/subscription-desktop-svg.svg",
+        "mobile_background_img": "shopify://shop_images/subscription-desktop-svg.svg",
+        "step_one_text": "1. Please select a subscription type",
+        "step_two_text": "2. Please select your underwear",
+        "step_tree_text": "3. Please select your design type",
+        "card_title_wrapper_classes": "flex justify-center items-center h-full py-2",
+        "card_title_classes": "text-xs text-center",
+        "background-color": "#ffffff",
+        "opacity": 100,
+        "backdrop-blur": 10
+      }
+    },
+    "ob_image_carousell_f8aFBF": {
+      "type": "ob-image-carousell",
+      "blocks": {
+        "slide_fJnLQN": {
+          "type": "slide",
+          "settings": {
+            "svg_code": "",
+            "title": "VIP DISCOUNTS",
+            "description": "VIP discounts sent straight to your inbox",
+            "background_color": "#ec4899"
+          }
+        },
+        "slide_zTMJAA": {
+          "type": "slide",
+          "settings": {
+            "svg_code": "",
+            "title": "FREE DELIVERY",
+            "description": "Enjoy free UK delivery on every order",
+            "background_color": "#34c5fa"
+          }
+        },
+        "slide_acfRw3": {
+          "type": "slide",
+          "settings": {
+            "svg_code": "",
+            "title": "EARLY ACCESS",
+            "description": "Early access to new products and collections",
+            "background_color": "#f97316"
+          }
+        },
+        "slide_FkMAR4": {
+          "type": "slide",
+          "settings": {
+            "svg_code": "",
+            "title": "FREE GIFTS",
+            "description": "Exclusive gifts and perks just for subscribers",
+            "background_color": "#a855f7"
+          }
+        },
+        "slide_hxtmBg": {
+          "type": "slide",
+          "settings": {
+            "svg_code": "",
+            "title": "FREE SOCKS",
+            "description": "Get socks with every pair of undies!",
+            "background_color": "#14b8a6"
+          }
+        },
+        "slide_xbFJ7y": {
+          "type": "slide",
+          "settings": {
+            "svg_code": "",
+            "title": "New designs",
+            "description": "Brand new design each month",
+            "background_color": "#fa8ec8"
+          }
+        },
+        "slide_bm8ELi": {
+          "type": "slide",
+          "settings": {
+            "svg_code": "",
+            "title": "Free GIFTS",
+            "description": "Add your benefit description here",
+            "background_color": "#162d6e"
+          }
+        }
+      },
+      "block_order": [
+        "slide_fJnLQN",
+        "slide_zTMJAA",
+        "slide_acfRw3",
+        "slide_FkMAR4",
+        "slide_hxtmBg",
+        "slide_xbFJ7y",
+        "slide_bm8ELi"
+      ],
+      "name": "Card Stack Carousel",
+      "settings": {
+        "show_on_all_markets": true,
+        "markets_to_show_on": "",
+        "markets_to_exclude_on": "",
+        "title": "Subscription Benefits",
+        "title-classes": "marujo",
+        "subtitle": "",
+        "autoplay": false,
+        "enable_stagger": true,
+        "show_navigation": true,
+        "show_dots": true,
+        "block_title_classes": "text-2xl font-bold mb-4 uppercase tracking-wide text-nowrap",
+        "block_paragragh_classes": "text-base opacity-90"
+      }
+    },
+    "ob_three_text_fields_FRnrJa": {
+      "type": "ob-three-text-fields",
+      "blocks": {
+        "text_lines_bTUMTm": {
+          "type": "text-lines",
+          "settings": {
+            "country_iso": "*",
+            "text-field-outer-wrapper-classes": "",
+            "text-field-inner-wrapper-classes": "marujo text-center text-4xl max-w-7xl px-4 md:px-0  py-6",
+            "text-field-1": "we'd be nowhere without our amazing customers",
+            "text-field-1-classes": "",
+            "text-field-2": "",
+            "text-field-2-classes": "",
+            "text-field-3": "",
+            "text-field-3-classes": "",
+            "text-field-4": "",
+            "text-field-4-classes": "",
+            "html-field": "",
+            "html-field-classes": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_lines_bTUMTm"
+      ],
+      "disabled": true,
+      "name": "Three Text Fields",
+      "settings": {}
+    },
+    "ob_trustpilot_product_reviews_carousel_cMCefE": {
+      "type": "ob-trustpilot-product-reviews-carousel",
+      "disabled": true,
+      "name": "Trustpilot product rev carousel",
+      "settings": {
+        "widget_active": true,
+        "wrapper_classes": "",
+        "inner_classes": "",
+        "title_classes": "",
+        "title_text": "",
+        "sku": [
+          "monthly-subscription-mbsfs",
+          "socks-monthly-subscription-b",
+          "03-month-pre-paid-classic-subscription-ladies-thong-free-socks-monthly-subscription",
+          "06-month-pre-paid-classic-subscription-ladies-thong-socks-monthly-subscription",
+          "12-month-pre-paid-classic-subscription-ladies-boxer-shorts-socks-monthly-subscription",
+          "03-month-pre-paid-classic-subscription-ladies-boxer-shorts-free-socks-monthly-subscription",
+          "06-month-pre-paid-classic-subscription-ladies-boxer-shorts-socks-monthly-subscription",
+          "classic-subscription-b-ladies-boxer-shorts-socks-monthly-subscription-b",
+          "12-month-pre-paid-classic-subscription-ladies-thong-socks-monthly-subscription"
+        ]
+      }
+    },
+    "faq_content_8JdEfU": {
+      "type": "faq-content",
+      "blocks": {
+        "faq_item_AWiB4c": {
+          "type": "faq_item",
+          "settings": {
+            "article": "",
+            "question_override": "",
+            "answer_override": ""
+          }
+        },
+        "faq_item_bAcJUR": {
+          "type": "faq_item",
+          "settings": {
+            "article": "",
+            "question_override": "",
+            "answer_override": ""
+          }
+        },
+        "faq_item_eggNCB": {
+          "type": "faq_item",
+          "settings": {
+            "article": "",
+            "question_override": "",
+            "answer_override": ""
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_AWiB4c",
+        "faq_item_bAcJUR",
+        "faq_item_eggNCB"
+      ],
+      "disabled": true,
+      "name": "FAQ Content",
+      "settings": {
+        "category_id": "general",
+        "category_title": "FAQS",
+        "blog_handle": "",
+        "show_article_count": true,
+        "section_background_color": "#ffffff",
+        "content_background_color": "#ffffff",
+        "answer_background_color": "#f8f9fa"
+      }
+    },
+    "ob_collection_slider_old_wwFULz": {
+      "type": "ob-collection-slider-old",
+      "disabled": true,
+      "name": "Collection Products",
+      "settings": {
+        "collection": "oddballs-subscriptions",
+        "product_list": [],
+        "title": "other items in <span class=\"text-magenta\">subscription</span> design",
+        "wrapper_class": "",
+        "text_class": "text-2xl md:text-4xl uppercase  mx-auto text-center marujo mb-4",
+        "slider_enabled": true,
+        "autoplay": false,
+        "loop": false,
+        "slides_mobile": 2,
+        "slides_md": 3,
+        "slides_lg": 5,
+        "slide_gap": 10,
+        "slide_by": "all",
+        "drag_scroll": true,
+        "show_dots": true,
+        "dots_container_classes": "relative ob-dots w-full justify-center items-center flex gap-2 z-10 my-4",
+        "dot_classes": "ob-dot w-2 h-2 rounded-full bg-neutral-300 transition-colors duration-300 ease-in-out",
+        "show_on_all_markets": true,
+        "markets_to_show_on": "",
+        "markets_to_exclude_on": ""
+      }
+    }
+  },
+  "order": [
+    "ob_hero_banner_with_nav_slider_PrUk4q",
+    "main",
+    "sub_selector_section_VWfNyT",
+    "ob_image_carousell_f8aFBF",
+    "ob_three_text_fields_FRnrJa",
+    "ob_trustpilot_product_reviews_carousel_cMCefE",
+    "faq_content_8JdEfU",
+    "ob_collection_slider_old_wwFULz"
+  ]
+}

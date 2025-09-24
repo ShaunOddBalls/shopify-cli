@@ -1,0 +1,61 @@
+{% schema %}
+  {
+    "name": "App Promo Footer",
+    "settings": [
+      {
+        "type":"text",
+        "id" : "title",
+        "label": "Title"
+      },
+      {
+        "type":"image_picker",
+        "id" : "bg_image",
+        "label": "background image"
+      },
+      {
+        "type":"image_picker",
+        "id" : "mobile_bg_image",
+        "label": "mobile background image"
+      },
+      {
+        "type":"image_picker",
+        "id" : "icon_1",
+        "label": "Icon 1"
+      },
+      {
+        "type":"text",
+        "id" : "icon_1_link",
+        "label": "Icon 1 Link"
+      },
+      {
+        "type":"image_picker",
+        "id" : "icon_2",
+        "label": "Icon 2"
+      },
+      {
+        "type":"text",
+        "id" : "icon_2_link",
+        "label": "Icon 2 Link"
+      }
+    ],
+    "presets": [{
+      "name": "App Promo Footer"
+    }]
+  }
+{% endschema %}
+
+<div class="relative w-full marujo">
+   {{ section.settings.bg_image | image_url: width: "1200px", height: "300px" | image_tag: class:"max-md:hidden w-full"  }}
+  {{ section.settings.mobile_bg_image | image_url: width: "1200px", height: "300px" | image_tag: class:"md:hidden w-full"  }}
+  <div class="absolute top-0 left-0 h-full flex items-center flex-col justify-center w-full z-10">
+    <div class="text-xl md:text-5xl text-white mb-4 text-center">{{ section.settings.title }}</div>
+    <div class="grid grid-cols-2 gap-2 app-install-buttons ">
+      <a href="{{ section.settings.icon_1_link }}">{{ section.settings.icon_1 | image_url: width: "200px", height: "50px" | image_tag  }}   </a>   
+      <a href="{{ section.settings.icon_2_link }}">{{ section.settings.icon_2 | image_url: width: "200px", height: "50px" | image_tag  }}   </a>
+    </div>
+  </div>
+</div>
+
+<style>
+
+</style>

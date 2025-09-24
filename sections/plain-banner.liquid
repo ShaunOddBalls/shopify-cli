@@ -1,0 +1,53 @@
+{% schema %}
+{
+  "name": "Plain banner",
+  "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "mobile_image",
+        "label": "Mobile Image"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "text",
+        "id": "sub_title",
+        "label": "sub title"
+      },
+      {
+        "type": "text",
+        "id": "text",
+        "label": "text"
+      },
+],
+  "presets": [
+    {
+      "name": "Plain banner",
+    }
+  ]
+}
+{% endschema %}
+<div class="relative">
+  
+  <div class="w-full h-full mb-4 flex flex-col items-center absolute">
+    <div class="h-full z-1 flex flex-col items-center" >
+      <div class="text-center max-md:text-2xl md:text-7xl md:pb-4 text-white w-min" style="height:75%; display:flex; align-items:end;">
+        <div>{{ section.settings.title }}</div>
+      </div>
+      <div class="text-center text-xs  md:text-3xl text-white">{{ section.settings.sub_title }}</div>
+      <div class="text-center text-2xs md:text-xl text-blue-400">{{ section.settings.text }}</div>
+    </div>
+    
+  </div>
+  
+  <img class="w-full md:hidden" height="150px" width="500px" src="{{ section.settings.mobile_image | img_url: 'master' }}" />
+  <img class="w-full max-md:hidden" height="100px" width="500px" src="{{ section.settings.image | img_url: 'master' }}" />
+</div>

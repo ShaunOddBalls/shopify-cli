@@ -1,0 +1,722 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "ss_25_header_fHnpaH": {
+      "type": "ss-25-header",
+      "name": "ss-25-header",
+      "settings": {
+        "image": "shopify://shop_images/Desktop-BG_751ae3a2-32ad-4388-870c-ecc8e7554901.webp",
+        "mobile_image": "shopify://shop_images/Mobile-BG_a695449d-4def-44a7-946f-742ef80211b0.webp",
+        "mobile_svg": "shopify://shop_images/Mobile-FG_cbfc956f-00fe-4aef-bd2d-cd6710d3c27b.svg",
+        "title": "SUMMER SALE ENDS SOON",
+        "subtitle": "20-40% OFF EVERYTHING"
+      }
+    },
+    "ob_trust_pilot_widget_3MFawT": {
+      "type": "ob-trust-pilot-widget",
+      "settings": {
+        "outer_wrapper_classes": "border-black border-solid blend-divide",
+        "wrapper_classes": "max-w-7xl mx-auto pb-2 pt-4",
+        "widget_header": "",
+        "widget_header_classes": "text-black text-center uppercase text-4xl md:text-6xl pb-3",
+        "widget_subheader": "",
+        "widget_subheader_classes": "",
+        "widget_code": "<!-- TrustBox widget - Micro Combo -->\n<div class=\"trustpilot-widget hidden\" data-locale=\"en-GB\" data-template-id=\"5419b6ffb0d04a076446a9af\" data-businessunit-id=\"5c7f9459871dac0001ea0238\" data-style-height=\"40px\" data-style-width=\"100%\" data-theme=\"light\">\n  <a href=\"https://uk.trustpilot.com/review/myoddballs.com\" target=\"_blank\" rel=\"noopener\">Trustpilot</a>\n</div>\n<!-- End TrustBox widget -->",
+        "widget_wrapper_classes": "max-w-lg mx-auto",
+        "use_microcombo": true
+      }
+    },
+    "ob_image_text_grid_rGWHDf": {
+      "type": "ob-image-text-grid",
+      "blocks": {
+        "image_and_text_ENM7rU": {
+          "type": "image-and-text",
+          "settings": {
+            "country_iso": "*",
+            "title": "",
+            "block_wrapper_classes": "col-span-12 flex justify-center  px-4 items-center text-center relative",
+            "block_title": "",
+            "title_classes": "text",
+            "description": "<h2 class=\"text-center font-bebas  font-bold text-2xl lg:text-2xl\">🌴Our Summer Sale is now LIVE!🌴</h2>",
+            "description_classes": "",
+            "svg": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_and_text_ENM7rU"
+      ],
+      "name": "Image Text Grid",
+      "settings": {
+        "outer_wrapper_classes": "relative boxing-day-bottom-text",
+        "inner_wrapper_classes": "col-span-12 flex justify-center  px-4 items-center text-center",
+        "grid_wrapper_classes": "",
+        "title": "",
+        "title_classes": "text-center text-base font-semibold uppercase text-gray-600 tracking-wider",
+        "section_bg_colour": "",
+        "block_bg_colour": "",
+        "block_bg_colour_hover": "",
+        "block_text_colour": "",
+        "block_text_colour_hover": "",
+        "block_image_classes": "",
+        "block_svg_classes": "",
+        "custom_css": ""
+      }
+    },
+    "ss_25_things_HnBAgy": {
+      "type": "SS-25-things",
+      "blocks": {
+        "image_block_djL9JU": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/SALE_TOP_BUTTONS_-_MEN_S_BOXERS.jpg",
+            "page": "him-individuals",
+            "url": "",
+            "title": "Men's Boxers",
+            "button-classes": "bg-white px-2 py-1 rounded-full",
+            "text-classes": "font-bold",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "image_block_LB9wVp": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/TopButtons-SummerSale-02.png",
+            "page": "swimming-shorts",
+            "url": "",
+            "title": "Swimming Shorts",
+            "button-classes": "bg-white px-2 py-1 rounded-full",
+            "text-classes": "font-bold",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "image_block_FLXE8t": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/SALE_TOP_BUTTONS_-_PYJAMAS.jpg",
+            "page": "pyjamas",
+            "url": "",
+            "title": "Pyjamas",
+            "button-classes": "bg-white px-2 py-1 rounded-full",
+            "text-classes": "font-bold",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "image_block_pappED": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/SALE_TOP_BUTTONS_-_SEAMLESS.jpg",
+            "page": "seamless-underwear",
+            "url": "",
+            "title": "Seamless Underwear",
+            "button-classes": "bg-white px-2 py-1 rounded-full",
+            "text-classes": "font-bold",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "image_block_Yn8h9F": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/TopButtons-SummerSale-01.png",
+            "page": "socks",
+            "url": "",
+            "title": "Socks",
+            "button-classes": "bg-white px-2 py-1 rounded-full",
+            "text-classes": "font-bold",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "image_block_Dgy3xn": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/SALE_TOP_BUTTONS_-_BRIEFS.jpg",
+            "page": "her-individuals",
+            "url": "",
+            "title": "Women's Briefs",
+            "button-classes": "bg-white px-2 py-1 rounded-full",
+            "text-classes": "font-bold",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_block_djL9JU",
+        "image_block_LB9wVp",
+        "image_block_FLXE8t",
+        "image_block_pappED",
+        "image_block_Yn8h9F",
+        "image_block_Dgy3xn"
+      ],
+      "name": "SS-25-Things",
+      "settings": {
+        "title": ""
+      }
+    },
+    "ss_25_reviews_CThtYa": {
+      "type": "SS-25-reviews",
+      "name": "SS-25-reviews",
+      "settings": {
+        "collection": "him-individuals",
+        "wrapperclasses": "",
+        "quote": "\"FEELS LIKE MY BALLS CHECKED INTO A 5 STAR RESORT\"",
+        "name": "MARTIN - NEWCASTLE",
+        "buttontext": "SHOP MEN'S BOXERS",
+        "buttonclasses": "border border-solid border-white rounded-full py-1 px-2 text-white  mt-4",
+        "backgroundcolor": "#f49423",
+        "textcolor": "#ffffff",
+        "desktopImage": "shopify://shop_images/31517a2c-20e2-404f-812d-27991fd636b6.jpg",
+        "mobileImage": "shopify://shop_images/UPDATED_IMAGES_MOB-18.jpg"
+      }
+    },
+    "ss_25_rotating_banner_X9hK7H": {
+      "type": "SS-25-rotating-banner",
+      "name": "SS 25 Rotating banner",
+      "settings": {
+        "text": "20-40% off everything - sitewide -",
+        "background_color": "#0082c5",
+        "text_color": "#ffffff"
+      }
+    },
+    "ss_25_blocks_8ij7e4": {
+      "type": "SS-25-blocks",
+      "blocks": {
+        "image_block_y79rJe": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/UPDATED_IMAGES_SMALL_SQUARE_BUTTON_-_LOOSE_FIT.jpg",
+            "page": "mens-loose-fit-boxers",
+            "url": "",
+            "title": "Men's Loose Fit Boxers",
+            "button-classes": "font-bold",
+            "text-classes": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "image_block_JnRNKE": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/SALE_SMALL_SQUARE_BUTTON_-_SWIM_BRIEFS_2303b85c-3404-4700-bcd2-d5600e3d37c4.jpg",
+            "page": "swimmers",
+            "url": "",
+            "title": "Swimming Briefs",
+            "button-classes": "font-bold",
+            "text-classes": "",
+            "show_on_all_markets": false,
+            "markets_to_show_on": "uk",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "image_block_63GfL8": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/UPDATED_IMAGES_SMALL_SQUARE_BUTTON_-_MENS_BRIEFS.jpg",
+            "page": "his-briefs",
+            "url": "",
+            "title": "Men's Briefs",
+            "button-classes": "font-bold",
+            "text-classes": "",
+            "show_on_all_markets": false,
+            "markets_to_show_on": "en-eu",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "image_block_qwUY4E": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/UPDATED_IMAGES_SMALL_SQUARE_BUTTON_-_BAMBOO.jpg",
+            "page": "bamboo-underwear",
+            "url": "",
+            "title": "Bamboo Boxers",
+            "button-classes": "font-bold",
+            "text-classes": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "image_block_eKYrR7": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/UPDATED_IMAGES_SMALL_SQUARE_BUTTON_-_THONG.jpg",
+            "page": "ladies-thongs",
+            "url": "",
+            "title": "Women's Thongs",
+            "button-classes": "font-bold",
+            "text-classes": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "image_block_KhQTYf": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/UPDATED_LARGE_BUTTON_-_LADIES_BOXERS.jpg",
+            "page": "ladies-boxer-shorts",
+            "url": "",
+            "title": "Women's Boxers",
+            "button-classes": "bg-white px-2 py-1 rounded-full font-bold",
+            "text-classes": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_block_y79rJe",
+        "image_block_JnRNKE",
+        "image_block_63GfL8",
+        "image_block_qwUY4E",
+        "image_block_eKYrR7",
+        "image_block_KhQTYf"
+      ],
+      "name": "SS-25-Blocks",
+      "settings": {}
+    },
+    "summer_shop_squished_three_tUKPBJ": {
+      "type": "summer-shop-squished-three",
+      "blocks": {
+        "image_block_mCVFBH": {
+          "type": "image_block",
+          "settings": {
+            "image": "shopify://shop_images/PicnicBlankets_e10a7e97-fa2f-4eea-ae43-9d4ba12dddd0.jpg",
+            "page": "picnic-blankets",
+            "url": "https://www.myoddballs.com/collections/picnic-blankets",
+            "title": "Picnic Blankets",
+            "sub_title": "Free on orders  over £40",
+            "text_classes": "whitespace-nowrap text-white",
+            "button_text": "Shop Now",
+            "show_on_all_markets": false,
+            "markets_to_show_on": "uk",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "image_block_anpcRh": {
+          "type": "image_block",
+          "settings": {
+            "image": "shopify://shop_images/WashBags_copy.jpg",
+            "page": "wash-bags",
+            "url": "https://www.myoddballs.com/collections/wash-bags",
+            "title": "Wash Bags",
+            "sub_title": "Free on orders  over £40",
+            "text_classes": "",
+            "button_text": "Shop Now",
+            "show_on_all_markets": false,
+            "markets_to_show_on": "uk",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "image_block_UTjiQH": {
+          "type": "image_block",
+          "settings": {
+            "image": "shopify://shop_images/Sunglasses_copy.jpg",
+            "page": "sunglasses",
+            "url": "https://www.myoddballs.com/collections/sunglasses",
+            "title": "Sunglasses",
+            "sub_title": "Free on orders over £40",
+            "text_classes": "text-white",
+            "button_text": "Shop Now",
+            "show_on_all_markets": false,
+            "markets_to_show_on": "uk",
+            "markets_to_exclude_on": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_block_mCVFBH",
+        "image_block_anpcRh",
+        "image_block_UTjiQH"
+      ],
+      "custom_css": [],
+      "name": "Summer Shop Small Buttons",
+      "settings": {
+        "title": "Holiday Essentials:",
+        "show_on_all_markets": false,
+        "markets_to_show_on": "uk",
+        "markets_to_exclude_on": ""
+      }
+    },
+    "ss_25_rotating_banner_bRH8zh": {
+      "type": "SS-25-rotating-banner",
+      "name": "SS 25 Rotating banner",
+      "settings": {
+        "text": "20-40% off everything - sitewide -",
+        "background_color": "#0082c5",
+        "text_color": "#ffffff"
+      }
+    },
+    "ss_25_blocks_LfcNDy": {
+      "type": "SS-25-blocks",
+      "blocks": {
+        "image_block_xzDzHd": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/UPDATED_IMAGES_SMALL_SQUARE_BUTTON_-_SOCKS.jpg",
+            "page": "socks",
+            "url": "",
+            "title": "Socks",
+            "button-classes": "font-bold",
+            "text-classes": "",
+            "show_on_all_markets": false,
+            "markets_to_show_on": "en-eu",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "image_block_iVwpwP": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/SALE_SMALL_SQUARE_BUTTON_-_BRALETTE.jpg",
+            "page": "bralette",
+            "url": "",
+            "title": "Bralettes",
+            "button-classes": "font-bold",
+            "text-classes": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "image_block_N4ieYr": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/UPDATED_IMAGES_SMALL_SQUARE_BUTTON_-_SPORTS_T_SHIRTS.jpg",
+            "page": "training-tops",
+            "url": "",
+            "title": "Men's Training Tops",
+            "button-classes": "font-bold",
+            "text-classes": "",
+            "show_on_all_markets": false,
+            "markets_to_show_on": "uk",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "image_block_nGRWeF": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/SALE_SMALL-SQUARE-BUTTON---SUB---TIKI.jpg",
+            "page": "",
+            "url": "https://www.myoddballs.com/collections/oddballs-subscriptions",
+            "title": "Subscriptions",
+            "button-classes": "font-bold shadow-5",
+            "text-classes": "",
+            "show_on_all_markets": false,
+            "markets_to_show_on": "uk",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "image_block_Kb7HhR": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/UPDATED_IMAGES_SMALL_SQUARE_BUTTON_-_MENS_BRIEFS.jpg",
+            "page": "his-briefs",
+            "url": "",
+            "title": "Men's Briefs",
+            "button-classes": "font-bold",
+            "text-classes": "",
+            "show_on_all_markets": false,
+            "markets_to_show_on": "uk",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "image_block_zwPccg": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/UPDATED_LARGE_BUTTON_-_SWIMSHORTS.jpg",
+            "page": "swimming-shorts",
+            "url": "",
+            "title": "Men's Swim Shorts",
+            "button-classes": "bg-white px-2 py-1 rounded-full font-bold",
+            "text-classes": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_block_xzDzHd",
+        "image_block_iVwpwP",
+        "image_block_N4ieYr",
+        "image_block_nGRWeF",
+        "image_block_Kb7HhR",
+        "image_block_zwPccg"
+      ],
+      "name": "SS-25-Blocks",
+      "settings": {}
+    },
+    "ss_25_rotating_banner_hUTbA4": {
+      "type": "SS-25-rotating-banner",
+      "name": "SS 25 Rotating banner",
+      "settings": {
+        "text": "20-40% off everything - sitewide -",
+        "background_color": "#009fd2",
+        "text_color": "#ffffff"
+      }
+    },
+    "ss_25_reviews_JFGwKV": {
+      "type": "SS-25-reviews",
+      "name": "SS-25-reviews",
+      "settings": {
+        "collection": "seamless-underwear",
+        "wrapperclasses": "mb-4",
+        "quote": "\"NOT TO BE DRAMATIC, BUT THESE PANTS FIXED MY WHOLE MOOD!\"",
+        "name": "Emma - London",
+        "buttontext": "SHOP SEAMLESS",
+        "buttonclasses": "border border-solid border-white rounded-full py-1 px-2 text-white  mt-4",
+        "backgroundcolor": "#f49423",
+        "textcolor": "#ffffff",
+        "desktopImage": "shopify://shop_images/REVIEW_BANNER_IMAGES_REVIEW_DESKTOP_-_SEAMLESS_8ab5e181-ee0b-4321-b19e-94b6540a8aa1.jpg",
+        "mobileImage": "shopify://shop_images/UPDATED_IMAGES_MOB-19.jpg"
+      }
+    },
+    "summer_shop_squished_three_iFQrgt": {
+      "type": "summer-shop-squished-three",
+      "blocks": {
+        "image_block_W8bqKj": {
+          "type": "image_block",
+          "settings": {
+            "image": "shopify://shop_images/SALE_20_OFF.jpg",
+            "page": "wash-bags",
+            "url": "https://www.myoddballs.com/collections/wash-bags",
+            "title": "",
+            "sub_title": "",
+            "text_classes": "",
+            "button_text": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "image_block_FM9rnd": {
+          "type": "image_block",
+          "settings": {
+            "image": "shopify://shop_images/SALE_30_OFF.jpg",
+            "page": "sunglasses",
+            "url": "https://www.myoddballs.com/collections/sunglasses",
+            "title": "",
+            "sub_title": "",
+            "text_classes": "",
+            "button_text": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "image_block_WhLYRR": {
+          "type": "image_block",
+          "settings": {
+            "image": "shopify://shop_images/SALE_40_OFF.jpg",
+            "page": "picnic-blankets",
+            "url": "https://www.myoddballs.com/collections/picnic-blankets",
+            "title": "",
+            "sub_title": "",
+            "text_classes": "",
+            "button_text": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_block_W8bqKj",
+        "image_block_FM9rnd",
+        "image_block_WhLYRR"
+      ],
+      "disabled": true,
+      "name": "Summer Shop Small Buttons",
+      "settings": {
+        "title": "Shop by Discount:",
+        "show_on_all_markets": true,
+        "markets_to_show_on": "",
+        "markets_to_exclude_on": ""
+      }
+    },
+    "ss_25_blocks_AJgF7K": {
+      "type": "SS-25-blocks",
+      "blocks": {
+        "image_block_K8q6xn": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/SummerSale_GROOMING_SETS.png",
+            "page": "grooming-sets",
+            "url": "",
+            "title": "Men's Grooming Kits",
+            "button-classes": "font-bold",
+            "text-classes": "",
+            "show_on_all_markets": false,
+            "markets_to_show_on": "uk",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "image_block_rVwye6": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/UPDATED_IMAGES_SMALL_SQUARE_BUTTON_-_SOCKS.jpg",
+            "page": "socks",
+            "url": "",
+            "title": "Socks",
+            "button-classes": "font-bold",
+            "text-classes": "",
+            "show_on_all_markets": false,
+            "markets_to_show_on": "uk",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "image_block_ewfNzr": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/UPDATED_IMAGES_SMALL_SQUARE_BUTTON_-_WATER_BOTTLE.jpg",
+            "page": "reusable-water-bottles",
+            "url": "",
+            "title": "Water Bottles",
+            "button-classes": "font-bold",
+            "text-classes": "",
+            "show_on_all_markets": false,
+            "markets_to_show_on": "uk",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "image_block_UyUdhf": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/UPDATED_IMAGES_SMALL_SQUARE_BUTTON_-_GOOLIES.jpg",
+            "page": "goolies",
+            "url": "",
+            "title": "Boy's Boxer Shorts",
+            "button-classes": "font-bold",
+            "text-classes": "",
+            "show_on_all_markets": false,
+            "markets_to_show_on": "uk",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "image_block_b87pJX": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/UPDATED_FLEECE_BLANKETS_copy.jpg",
+            "page": "fleece-blanket",
+            "url": "",
+            "title": "Fleece Blankets",
+            "button-classes": "bg-white px-2 py-1 rounded-full font-bold",
+            "text-classes": "",
+            "show_on_all_markets": false,
+            "markets_to_show_on": "uk",
+            "markets_to_exclude_on": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_block_K8q6xn",
+        "image_block_rVwye6",
+        "image_block_ewfNzr",
+        "image_block_UyUdhf",
+        "image_block_b87pJX"
+      ],
+      "name": "SS-25-Blocks",
+      "settings": {}
+    },
+    "ss_25_rotating_banner_ajbBda": {
+      "type": "SS-25-rotating-banner",
+      "name": "SS 25 Rotating banner",
+      "settings": {
+        "text": "20-40% off everything - sitewide -",
+        "background_color": "#0082c5",
+        "text_color": "#ffffff"
+      }
+    },
+    "ob_image_text_grid_cP4Mxp": {
+      "type": "ob-image-text-grid",
+      "blocks": {
+        "image_and_text_eQxJWG": {
+          "type": "image-and-text",
+          "settings": {
+            "country_iso": "*",
+            "title": "",
+            "block_wrapper_classes": "col-span-12 flex justify-center  px-4 items-center text-center relative",
+            "block_title": "",
+            "title_classes": "text",
+            "description": "<h2 class=\"text-center font-bebas text-2xl lg:text-4xl\">☀️Summer Sale – 20–40% Off Everything☀️</h2>\n<br>\n\n<p class=\"text-md lg:text-lg\">\nThe OddBalls Summer Sale is officially on, with 20–40% off everything sitewide. Whether you're packing for a holiday, refreshing your everyday essentials, or shopping ahead for back-to-work comfort, now’s the perfect time to stock up on our best-selling underwear, swimwear, and accessories — all at discounted prices.\n\n</p> <br> \n<p class=\"text-md lg:text-lg\">\n\nOur core underwear collection is included in the sale, with major savings across our most popular styles. Shop <a href=\"https://www.myoddballs.com/collections/him-individuals\" class=\"link\">men’s boxers</a> in colourful prints, breathable <a href=\"https://www.myoddballs.com/collections/bamboo-boxer-shorts\" class=\"link\"> bamboo boxers</a>  for all-day comfort, and relaxed <a href=\"https://www.myoddballs.com/collections/mens-loose-fit-boxers\" class=\"link\">loose-fit cotton boxers</a> that are perfect for warmer days. For women, you’ll find classic <a href=\"https://www.myoddballs.com/collections/mens-loose-fit-boxers\" class=\"link\">boxer short styles</a>, <a href=\"https://www.myoddballs.com/collections/her-individuals\" class=\"link\">briefs</a>, and <a href=\"https://www.myoddballs.com/collections/ladies-thongs\" class=\"link\">thongs</a> in our signature seasonal designs. If you're looking to buy in bulk or save even more, don’t miss our exclusive summer sale underwear bundles — multi-packs featuring a mix of bestsellers and limited-edition summer prints, only available while stocks last.\n\n</p> <br> \n<p class=\"text-md lg:text-lg\">\n\nIf you're off to the beach or chilling poolside, our <a href=\"https://www.myoddballs.com/collections/swimming-shorts\" class=\"link\">men’s swim shorts</a> are also included in the sale. Choose from <a href=\"https://www.myoddballs.com/collections/mens-swim-shorts-with-compression-liner\" class=\"link\">compression-lined</a> styles for added support or our  <a href=\"https://www.myoddballs.com/collections/mens-classic-swim-shorts\" class=\"link\">classic swim shorts</a> made with breathable, quick-drying fabric. Each pair is finished with practical features like mesh or compression linings, adjustable drawstring waists, and side pockets — designed for everything from active swims to bathing in the sun.\n\n</p> <br> \n<p class=\"text-md lg:text-lg\">\n\nNo summer fit is complete without accessories, and our <a href=\"https://www.myoddballs.com/collections/quick-dry-towels\" class=\"link\">quick-dry travel towels</a> and <a href=\"https://www.myoddballs.com/collections/cotton-towel\" class=\"link\">oversized beach towels</a> are made for hot days and spontaneous swims. You’ll also find lightweight <a href=\"https://www.myoddballs.com/collections/sports-shorts\" class=\"link\">gym shorts</a>, <a href=\"https://www.myoddballs.com/collections/training-tops\" class=\"link\">training tops</a> and supportive <a href=\"https://www.myoddballs.com/collections/socks/style-sports\" class=\"link\">sports socks</a> in our <a href=\"https://www.myoddballs.com/collections/mens-sportswear\" class=\"link\">men’s activewear range</a> — ideal for pre-beach workouts or travel days on the move. As an extra treat, we’re offering a <a href=\"https://www.myoddballs.com/collections/free-gift\" class=\"link\">free gift</a> when you spend over £40. Choose from summer essentials like <a href=\"https://www.myoddballs.com/collections/wash-bags\" class=\"link\">wash bags</a>, <a href=\"https://www.myoddballs.com/collections/picnic-blankets\" class=\"link\">picnic blankets</a> or OddBalls <a href=\"https://www.myoddballs.com/collections/sunglasses\" class=\"link\">sunglasses</a> — all perfect accessories for your next getaway. Stock is limited and popular styles are already moving fast. Now’s the time to take advantage of the OddBalls Summer Sale.\n\n</p>",
+            "description_classes": "",
+            "svg": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_and_text_eQxJWG"
+      ],
+      "name": "Image Text Grid",
+      "settings": {
+        "outer_wrapper_classes": "relative pb-6 boxing-day-bottom-text",
+        "inner_wrapper_classes": "col-span-12 flex justify-center  py-3 px-4 items-center text-center",
+        "grid_wrapper_classes": "",
+        "title": "",
+        "title_classes": "text-center text-base font-semibold uppercase text-gray-600 tracking-wider",
+        "section_bg_colour": "",
+        "block_bg_colour": "",
+        "block_bg_colour_hover": "",
+        "block_text_colour": "",
+        "block_text_colour_hover": "",
+        "block_image_classes": "",
+        "block_svg_classes": "",
+        "custom_css": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "ss_25_header_fHnpaH",
+    "ob_trust_pilot_widget_3MFawT",
+    "ob_image_text_grid_rGWHDf",
+    "ss_25_things_HnBAgy",
+    "ss_25_reviews_CThtYa",
+    "ss_25_rotating_banner_X9hK7H",
+    "ss_25_blocks_8ij7e4",
+    "summer_shop_squished_three_tUKPBJ",
+    "ss_25_rotating_banner_bRH8zh",
+    "ss_25_blocks_LfcNDy",
+    "ss_25_rotating_banner_hUTbA4",
+    "ss_25_reviews_JFGwKV",
+    "summer_shop_squished_three_iFQrgt",
+    "ss_25_blocks_AJgF7K",
+    "ss_25_rotating_banner_ajbBda",
+    "ob_image_text_grid_cP4Mxp"
+  ]
+}

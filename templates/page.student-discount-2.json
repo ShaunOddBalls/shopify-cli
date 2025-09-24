@@ -1,0 +1,497 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "ob_student_quad_button_rnhGeQ": {
+      "type": "ob-student-quad-button",
+      "settings": {
+        "title_text": "Students,",
+        "subtitle_text": "Love Oddballs",
+        "mobile_image": "shopify://shop_images/Banners-StudentPage_Mobile-BG_a6b6b293-c8fb-400e-8533-1fcb8644f44f.jpg",
+        "desktop_image": "shopify://shop_images/Banners-StudentPage_Desktop-BG_d86f6347-fb19-4b3d-a8a4-37fc70ce8b84.jpg",
+        "button_1_top_text": "Student Beans",
+        "button_1_bottom_text": "Get Student Beans",
+        "button_1_link": "",
+        "button_2_top_text": "Unidays",
+        "button_2_bottom_text": "getUnidays",
+        "button_2_link": ""
+      }
+    },
+    "ob_image_text_grid_RD7tiy": {
+      "type": "ob-image-text-grid",
+      "blocks": {
+        "image_and_text_GJYHPU": {
+          "type": "image-and-text",
+          "settings": {
+            "country_iso": "*",
+            "title": "",
+            "block_wrapper_classes": "col-span-12 flex justify-center  px-4 items-center text-center relative",
+            "block_title": "",
+            "title_classes": "text",
+            "description": "<h2 class=\"text-center font-bebas text-xl lg:text-3xl\">🎓 Student Discount – Save 20% at OddBalls!🎓</h2>",
+            "description_classes": "",
+            "svg": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_and_text_GJYHPU"
+      ],
+      "settings": {
+        "outer_wrapper_classes": "",
+        "inner_wrapper_classes": "relative",
+        "grid_wrapper_classes": "col-span-12 flex justify-center  py-3 px-4 items-center text-center font-bold",
+        "title": "",
+        "title_classes": "typography--title-five uppercase  mx-auto text-center",
+        "section_bg_colour": "",
+        "block_bg_colour": "",
+        "block_bg_colour_hover": "",
+        "block_text_colour": "",
+        "block_text_colour_hover": "",
+        "block_image_classes": "",
+        "block_svg_classes": "",
+        "custom_css": ""
+      }
+    },
+    "ob_rotating_banner_pCndXn": {
+      "type": "ob-rotating-banner",
+      "settings": {
+        "text": "Student Discount",
+        "background_color": "#70ffef",
+        "text_color": "#ffffff"
+      }
+    },
+    "student_discount_tri_block_XEJWph": {
+      "type": "student-discount-tri-block",
+      "blocks": {
+        "block_PaWzQT": {
+          "type": "block",
+          "settings": {
+            "background_image": "shopify://shop_images/Buttons-StudentPage_-_Gemrman_Site_Button-Students_7ab43c22-54c7-4930-a5a6-cf55bc3f74fa.png",
+            "title": "Student Beans",
+            "button_text": "Student Beans Discount",
+            "button_link": "https://www.myoddballs.com/pages/student-beans"
+          }
+        },
+        "block_JAVjYj": {
+          "type": "block",
+          "settings": {
+            "background_image": "shopify://shop_images/Buttons-StudentPage_-_Gemrman_Site_Button-BlueLight_1f43939c-bf94-40f7-b997-76dbc575e9e6.png",
+            "title": "UNIDAYS",
+            "button_text": "Unidays discount",
+            "button_link": "https://www.myoddballs.com/pages/unidays"
+          }
+        },
+        "block_8qzhAp": {
+          "type": "block",
+          "settings": {
+            "background_image": "shopify://shop_images/Buttons-StudentPage_-_Gemrman_Site_Button-Sale_e563ba23-411f-4ac2-a9bb-c0ef42230bb7.png",
+            "title": "Sale",
+            "button_text": "shop sale",
+            "button_link": "https://www.myoddballs.com/pages/clearance"
+          }
+        }
+      },
+      "block_order": [
+        "block_PaWzQT",
+        "block_JAVjYj",
+        "block_8qzhAp"
+      ],
+      "settings": {}
+    },
+    "student_discount_dual_block_kVkpYx": {
+      "type": "student-discount-dual-block",
+      "blocks": {
+        "block_xVFpfC": {
+          "type": "block",
+          "settings": {
+            "background_image": "shopify://shop_images/Buttons-StudentPage_-_Gemrman_Site_Buttons-Mens_a8012667-8332-41fc-a968-ca0673ed52bb.png",
+            "title": "Men's Bestsellers",
+            "button_text": "shop now",
+            "button_link": "https://www.myoddballs.com/#temp-tp-wrapper",
+            "button_classes": "px-4 py-1 text-center text-white uppercase font-bold border-2 border-solid border-white rounded-full",
+            "content_position": "left"
+          }
+        },
+        "block_xVFpfc": {
+          "type": "block",
+          "settings": {
+            "background_image": "shopify://shop_images/Buttons-StudentPage_-_Gemrman_Site_Button-Womens_1ff073e9-9598-4067-9653-c952284c92fe.png",
+            "title": "Women's Bestsellers",
+            "button_text": "shop now",
+            "button_link": "https://www.myoddballs.com/#temp-tp-wrapper",
+            "button_classes": "px-4 py-1 text-center text-white uppercase font-bold border-2 border-solid border-white rounded-full",
+            "content_position": "left"
+          }
+        }
+      },
+      "block_order": [
+        "block_xVFpfC",
+        "block_xVFpfc"
+      ],
+      "settings": {}
+    },
+    "ob_rotating_banner_br6JHm": {
+      "type": "ob-rotating-banner",
+      "settings": {
+        "text": "BUY NOW PAY LATER WITH KLARNA & CLEARPAY",
+        "background_color": "#f00f83",
+        "text_color": "#ffffff"
+      }
+    },
+    "ob_image_text_grid_jAgmgC": {
+      "type": "ob-image-text-grid",
+      "blocks": {
+        "image_and_text_FPQ8kB": {
+          "type": "image-and-text",
+          "settings": {
+            "country_iso": "*",
+            "title": "",
+            "block_wrapper_classes": "col-span-12 flex justify-center  px-4 items-center text-center relative",
+            "block_title": "",
+            "title_classes": "text",
+            "description": "<p class=\"text-md lg:text-lg\">\nWhether you're studying for exams, heading out with mates, or playing sports with your teammates, comfort is key. At OddBalls, we make bold, comfortable underwear – and students get 20% off everything full-price! We've teamed up with Student Beans, UNiDAYS, and Blue Light Card to make saving simple.\n</p>",
+            "description_classes": "",
+            "svg": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_and_text_FPQ8kB"
+      ],
+      "settings": {
+        "outer_wrapper_classes": "",
+        "inner_wrapper_classes": "relative",
+        "grid_wrapper_classes": "col-span-12 flex justify-center  py-3 px-4 items-center text-center",
+        "title": "",
+        "title_classes": "text-center text-base font-semibold uppercase text-gray-600 tracking-wider",
+        "section_bg_colour": "",
+        "block_bg_colour": "",
+        "block_bg_colour_hover": "",
+        "block_text_colour": "",
+        "block_text_colour_hover": "",
+        "block_image_classes": "",
+        "block_svg_classes": "",
+        "custom_css": ""
+      }
+    },
+    "ob_collection_slider_old_FTBaA6": {
+      "type": "ob-collection-slider-old",
+      "settings": {
+        "collection": "best-sellers-homepage",
+        "product_list": [],
+        "title": "Men's Bestsellers",
+        "wrapper_class": "",
+        "text_class": "text-2xl md:text-4xl uppercase  mx-auto text-center marujo"
+      }
+    },
+    "student_discount_with_ticks_yXTfBQ": {
+      "type": "student-discount-with-ticks",
+      "blocks": {
+        "block_PUqhrq": {
+          "type": "block",
+          "settings": {
+            "background_image": "shopify://shop_images/Buttons-StudentPage_-_Gemrman_Site_Button-Seamless_1561c246-6c44-4f7a-a24d-b2ae5d376c96.png",
+            "title": "Seamless",
+            "button_text": "Shop now",
+            "one_check": "Comfortable & seamless",
+            "two_check": "Brief or Full Bried",
+            "three_check": "Colourful Prints",
+            "button_link": "https://www.myoddballs.com/collections/seamless-underwear"
+          }
+        },
+        "block_99zgMD": {
+          "type": "block",
+          "settings": {
+            "background_image": "shopify://shop_images/Buttons-StudentPage_-_Gemrman_Site_Button-Bamboo_9654bf03-fb0e-4933-80ee-804f60988384.png",
+            "title": "Bamboo",
+            "button_text": "Shop Now",
+            "one_check": "Soft Bamboo Viscose",
+            "two_check": "Anti Chafe panels",
+            "three_check": "Breathable",
+            "button_link": "https://www.myoddballs.com/collections/bamboo-boxer-shorts"
+          }
+        }
+      },
+      "block_order": [
+        "block_PUqhrq",
+        "block_99zgMD"
+      ],
+      "settings": {}
+    },
+    "ob_rotating_banner_9WmVMH": {
+      "type": "ob-rotating-banner",
+      "settings": {
+        "text": "FREE UK DELIVERY ON ORDERS OVER £35",
+        "background_color": "#ffac0a",
+        "text_color": "#ffffff"
+      }
+    },
+    "ob_collection_slider_old_Un6CKf": {
+      "type": "ob-collection-slider-old",
+      "settings": {
+        "collection": "womens-best-sellers-homepage",
+        "product_list": [],
+        "title": "Women's Bestsellers",
+        "wrapper_class": "",
+        "text_class": "text-2xl md:text-4xl uppercase  mx-auto text-center marujo"
+      }
+    },
+    "student_discount_tri_block_qfUL7g": {
+      "type": "student-discount-tri-block",
+      "blocks": {
+        "block_JkXkXb": {
+          "type": "block",
+          "settings": {
+            "background_image": "shopify://shop_images/Buttons-StudentPage_-_Gemrman_Site_Button-PerfectPair_5c462def-bb47-4304-aa8b-c01badcfd032.png",
+            "title": "Perfect Pair",
+            "button_text": "Shop Perfect Pair",
+            "button_link": "https://www.myoddballs.com/pages/perfect-pair"
+          }
+        },
+        "block_rV6mLr": {
+          "type": "block",
+          "settings": {
+            "background_image": "shopify://shop_images/Buttons-StudentPage_-_Gemrman_Site_Button-TMNT_c9c17c6b-3487-457c-980b-a0c5054297a3.png",
+            "title": "TMNT",
+            "button_text": "Shop tmnt",
+            "button_link": "https://www.myoddballs.com/collections/teenage-mutant-ninja-turtles"
+          }
+        },
+        "block_eehiFq": {
+          "type": "block",
+          "settings": {
+            "background_image": "shopify://shop_images/Unbrellas.png",
+            "title": "Shop Gifts",
+            "button_text": "Shop Gifts",
+            "button_link": "https://www.myoddballs.com/collections/free-gift"
+          }
+        }
+      },
+      "block_order": [
+        "block_JkXkXb",
+        "block_rV6mLr",
+        "block_eehiFq"
+      ],
+      "settings": {}
+    },
+    "tabs_and_blocks_zWt4gt": {
+      "type": "tabs-and-blocks",
+      "blocks": {
+        "content_faq_JXgQ38": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "How much is the OddBalls student discount?",
+            "title_text": "How much is the OddBalls student discount?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "You get 20% off all full-price products when verified through Student Beans and UNiDAYS.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_EyyKRk": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "Who qualifies for OddBalls student discount?",
+            "title_text": "Who qualifies for OddBalls student discount?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "Any student with a valid account on Student Beans or UNiDAYS.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_jEfmzF": {
+          "type": "content-faq",
+          "disabled": true,
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "Can I use it on sale or bundles?",
+            "title_text": "Can I use student discount on sale or bundles?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "The discount applies to full-price items only – but our sale section is always packed with bargains!",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_VPBHYi": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "How often can I use the discount?",
+            "title_text": "How often can I use my student discount?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "There’s no limit! As long as you’re verified, you can use your code whenever you like.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_BqjY69": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "My code’s not working – help!",
+            "title_text": "My code’s not working – help!",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "Check the expiry date and make sure you’re not trying to use it on sale items. If you're still stuck, please get in touch with UNiDAYS or Student Beans directly.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_P69Q7a": {
+          "type": "content-faq",
+          "disabled": true,
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "How much is delivery?",
+            "title_text": "How much is delivery?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "We offer free UK delivery on orders over £35. For orders under that, standard shipping costs apply – you can find all the details on our Delivery Info page.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_FiRgDn": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "Can I return items bought with a student discount?",
+            "title_text": "Can I return items bought with a student discount?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "We offer easy returns within our standard policy— https://www.myoddballs.com/pages/faqs?view=faq&hcUrl=%2Fen-US%2Freturn-of-unused-goods-548617",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_fnzztd": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "What are the best OddBalls products for students?",
+            "title_text": "What are the best OddBalls products for students?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "Students love our Men’s and Women’s Underwear collections, especially the Subscription Boxes – new designs delivered to your door each month, no laundry or washing panic required. Our Accessories and Socks are also student favourites for chilled days and fun nights.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_qgpa43": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "Do you have products for sports students or gym-goers?",
+            "title_text": "Do you have products for sports students or gym-goers?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "Absolutely – our Sports Underwear is made for movement. Take a look at our Bamboo Underwear or Men's Briefs collections, with glowing reviews from our sports wearers. Lightweight, breathable, and moisture-wicking, they’re perfect under gym gear, match kits, or your favourite joggers.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_bDNTH3": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "What’s in the OddBalls Subscription Box – is it worth it?",
+            "title_text": "What’s in the OddBalls Subscription Box – is it worth it?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "Definitely. You get a new, exclusive design every month, plus it’s better value than buying individually. It’s super flexible too – you can cancel at any time.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_mPtrq6": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "Do you do matching sets?",
+            "title_text": "Do you do matching sets?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "Yes! Students love our Perfect Pair feature – find matching boxers, bralettes, and more for you and your partner, best mate, or flatmate. Great for birthdays, Valentine’s, or just because.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        }
+      },
+      "block_order": [
+        "content_faq_JXgQ38",
+        "content_faq_EyyKRk",
+        "content_faq_jEfmzF",
+        "content_faq_VPBHYi",
+        "content_faq_BqjY69",
+        "content_faq_P69Q7a",
+        "content_faq_FiRgDn",
+        "content_faq_fnzztd",
+        "content_faq_qgpa43",
+        "content_faq_bDNTH3",
+        "content_faq_mPtrq6"
+      ],
+      "settings": {
+        "outer_wrapper_attr": "data-attribute for linking section content",
+        "outer_wrapper_classes": "2xl:mx-auto  py-12 lg:px-20 md:px-6 px-4",
+        "inner_wrapper_classes": "grid grid-cols-12 gap-6",
+        "header_wrapper_classes": "col-span-12 flex flex-col justify-center items-center text-center space-y-4",
+        "all_tabs_wrapper_classes": "",
+        "content_wrapper_classes": "col-span-12 mt-16 grid grid-cols-12",
+        "option_menu_selected": false,
+        "title": "Student Discount FAQs",
+        "title_classes": "text-3xl lg:text-4xl font-semibold  leading-9 md:leading-7 lg:leading-9 text-gray-800",
+        "description": "From how to unlock your discount to where it can be used, we’ve answered all the most common questions about our student offer. Whether you're signing up through Student Beans, UNiDAYS, or Blue Light Card, or just want to know the ins and outs of the discount, you’ll find everything you need right here.",
+        "description_classes": "text-base leading-6 text-center text-gray-600 w-full md:w-10/12"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "ob_student_quad_button_rnhGeQ",
+    "ob_image_text_grid_RD7tiy",
+    "ob_rotating_banner_pCndXn",
+    "student_discount_tri_block_XEJWph",
+    "student_discount_dual_block_kVkpYx",
+    "ob_rotating_banner_br6JHm",
+    "ob_image_text_grid_jAgmgC",
+    "ob_collection_slider_old_FTBaA6",
+    "student_discount_with_ticks_yXTfBQ",
+    "ob_rotating_banner_9WmVMH",
+    "ob_collection_slider_old_Un6CKf",
+    "student_discount_tri_block_qfUL7g",
+    "tabs_and_blocks_zWt4gt"
+  ]
+}

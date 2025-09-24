@@ -1,0 +1,527 @@
+{% assign iconClass = "h-6 w-6" %}
+<nav class="w-full lg:hidden bg-white shadow-md" x-data="{ open: false }">
+  <div class="w-full flex justify-between items-center px-4 py-4">
+    <!-- Left Side: Hamburger Icon and Search -->
+    <div class="flex items-center space-x-4">
+      <!-- Hamburger / Close Icon -->
+      <div @click="open = !open" class="cursor-pointer">
+        <div x-show="!open">
+          {% render 'icon-hamburger', iconClasses: iconClass %}
+        </div>
+        <div x-show="open">
+          <svg class="{{ iconClass }} text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </div>
+      </div>
+      <!-- Search Icon -->
+      <div>
+        <svg class="{{ iconClass }} text-gray-600 search-box" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35m1.707-4.833A7.5 7.5 0 1110.5 3.5a7.5 7.5 0 017.5 7.5z" />
+        </svg>
+      </div>
+    </div>
+
+    <!-- Middle: Site Logo or Name -->
+    <div class="flex justify-center flex-grow items-center">
+      <a href="{{ shop.url }}">
+        {% if settings.logo %}
+          <img src="{{ settings.logo | img_url: '150x' }}" alt="Site Logo" class="h-8">
+        {% else %}
+          <h2 class="text-lg font-bold">{{ shop.name }}</h2>
+        {% endif %}
+      </a>
+    </div>
+    
+    <!-- Right Side: Notifications and Cart -->
+    <div class="flex items-center space-x-4">
+      <!-- Notifications Button -->
+      <span>
+        <a href="#" class="wisp {{ iconClass }}"><svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="24" height="24" viewBox="0 0 24 24" stroke="black" xmlns="<http://www.w3.org/2000/svg>"><path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path></svg></a>
+      </span>
+      <!-- Cart Icon and Item Count -->
+    <div>
+      <a {% if settings.enable_cart_drawer %}x-on:click="sideCart = !sideCart"{% else %} href="/cart" {% endif%} class="flex items-center">
+        <svg class="{{ iconClass }} text-gray-400 group-hover:text-gray-500" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+        </svg>
+        <span class="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800 flex flex-col">
+          {% if cart.item_count > 0 %}
+            <div>{{ cart.item_count }}</div>
+          {% endif %}
+        </span>
+        <span class="sr-only">items in cart, view basket</span>
+      </a>
+          </div>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div x-show="open" x-transition:enter="transition ease-out duration-300 transform" x-transition:enter-start="-translate-x-full" x-transition:enter-end="translate-x-0" x-transition:leave="transition ease-in duration-300 transform" x-transition:leave-start="translate-x-0" x-transition:leave-end="-translate-x-full" class="fixed inset-0 z-50 flex flex-col bg-white">
+    <div class="shadow-lg p-4">
+      <!-- mobile menu header -->
+      <div class="flex justify-between align-center">
+        {% if current_country != 'CA' %}
+          <div x-data="{modalIsOpen: false}">
+            <button @click="modalIsOpen = true" type="button" class="flex items-center cursor-pointer">
+              {% assign country_iso = localization.country.iso_code | downcase %}
+              {% render 'ob-flag-icons', icon:country_iso, class:'tw-flex mr-1' %}
+              <div>
+                {% for currency in shop.enabled_currencies %}
+                  {% if currency == cart.currency %}
+                    <span class="{{ block.settings.classes }}">{{currency.iso_code}} {{currency.symbol}}</span>
+                  {% endif %}
+                {% endfor %}
+              </div>
+              <svg xmlns="http://www.w3.org/2000/svg" class="text-white w-3 h-3 ml-2" stroke="white" viewBox="9.52 13.52 14.95 8.47"><path d="M22.782 13.8L17 19.582 11.218 13.8a1 1 0 0 0-1.414 1.414L16.29 21.7a.992.992 0 0 0 .71.292.997.997 0 0 0 .71-.292l6.486-6.486a1 1 0 0 0-1.414-1.414z"></path></svg>                
+            </button>
+            {% render 'ob-country-popover' %}
+          </div>
+        {% endif %}
+        <button @click="open = false" class="p-2 focus:outline-none">
+          <svg class="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+            
+      <!-- Search -->
+      <div class="w-full mb-2">
+        <h2 class="text-xl uppercase font-bold">Shop</h2>
+        <div class="flex items-center mt-3">
+          <div class="w-full">
+            <label for="search" class="sr-only">Search</label>
+            <div class="relative">
+              <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                <svg class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z" clip-rule="evenodd" />
+                </svg>
+              </div>
+              <input name="q" class="block w-full rounded-md border-0 bg-white text-lg py-1.5 pl-10 pr-3 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:leading-6 h-10 search-box" placeholder="Search" type="search">
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- ./Search -->
+    </div>
+
+      <!-- Tab Navigation -->
+    <div class="py-2 overflow-y-scroll" x-data="{ activeTab: 1 }">
+      <nav class="relative flex" aria-label="Tabs" role="tablist">
+        {%- comment %}<locksmith:48c4>{% endcomment -%}
+          {%- assign locksmith_dd62_forloop__size = 0 %}{% for link in section.settings.menu.links %}{% capture var %}{% render 'locksmith-variables', scope: 'subject', subject: link, subject_parent: section.settings.menu, variable: 'transparent' %}{% endcapture %}{% if var == 'true' %}{% assign locksmith_dd62_forloop__size = locksmith_dd62_forloop__size | plus: 1 %}{% endif %}{% endfor %}{% assign locksmith_dd62_forloop__index = nil -%}
+        {%- comment %}</locksmith:48c4>{% endcomment -%}
+        {% for link in section.settings.menu.links %}
+            {%- comment %}<locksmith:d7f6>{% endcomment -%}
+              {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: link, subject_parent: section.settings.menu, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% if locksmith_dd62_forloop__index == nil %}{% assign locksmith_dd62_forloop__index = 1 %}{% assign locksmith_dd62_forloop__index0 = 0 %}{% else %}{% assign locksmith_dd62_forloop__index = locksmith_dd62_forloop__index | plus: 1 %}{% assign locksmith_dd62_forloop__index0 = locksmith_dd62_forloop__index0 | plus: 1 %}{% endif %}{% if locksmith_dd62_forloop__index == 1 %}{% assign locksmith_dd62_forloop__first = true %}{% else %}{% assign locksmith_dd62_forloop__first = false %}{% endif %}{% if locksmith_dd62_forloop__index == locksmith_dd62_forloop__size %}{% assign locksmith_dd62_forloop__last = true %}{% else %}{% assign locksmith_dd62_forloop__last = false %}{% endif %}{% assign locksmith_dd62_forloop__rindex = locksmith_dd62_forloop__size | minus: locksmith_dd62_forloop__index | minus: 1 %}{% assign locksmith_dd62_forloop__rindex0 = locksmith_dd62_forloop__size | minus: locksmith_dd62_forloop__index0 | minus: 1 %}{% else %}{% continue %}{% endif -%}
+            {%- comment %}</locksmith:d7f6>{% endcomment -%}
+            <div
+                :class="{ 'active text-white': activeTab === {{ locksmith_dd62_forloop__index }}, 'text-gray-500': activeTab !== {{ locksmith_dd62_forloop__index }} }"
+                @click="activeTab = {{ locksmith_dd62_forloop__index }}"
+                style="z-index:2"
+                class="link inline-flex flex-1 items-center justify-center border-b-2 border-transparent px-1 py-2 text-sm uppercase cursor-pointer"
+                role="tab"
+            >
+                {{ link.title }}
+            </div>
+        {% endfor %}
+        <div class="tab-indicator pointer-events-none absolute h-full w-1/4 duration-300 p-1" style="z-index:1;" :style="{ transform: `translateX(${(activeTab - 1) * 100}%)` }">
+            <div class="bg-cyan-500 w-full h-full rounded-md"></div>
+        </div>
+      </nav>
+      <!-- ./Tab Naviagation -->
+
+      <!-- Image Slider --> 
+      <div class="overflow-x-auto whitespace-nowrap pt-2">
+        {% for link in section.settings.menu.links %}
+          {%- comment %}<locksmith:4901>{% endcomment -%}
+            {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: link, subject_parent: section.settings.menu, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+          {%- comment %}</locksmith:4901>{% endcomment -%}
+          {% for block in section.blocks %}
+            {% assign linkTitleLowercase = link.title | downcase %}
+            {% assign displayOnToLowerCase = block.settings.title | downcase %}
+            {% assign excludeOn = block.settings.dont-display | downcase %}
+            {% if linkTitleLowercase == displayOnToLowerCase or block.settings.title == "*" and excludeOn != linkTitleLowercase  %}
+             
+              <template x-if="activeTab === {{ forloop.parentloop.index }}">
+                <div class="inline-block w-[80vw] sm:w-[60vw] md:w-[50vw] lg:w-[40vw] xl:w-[30vw] mx-2">
+                  <a href="{{ block.settings.link }}">
+                    <div class="relative h-[200px] md:h-[250px]">
+                      {% if block.settings.image %}
+                        <img src="{{ block.settings.image | img_url: '1200x600' }}" alt="{{ block.settings.title }}" class="w-full h-full object-cover rounded-md">
+                      {% else %}
+                        <img src="https://via.placeholder.com/1200x600" alt="Placeholder Image" class="w-full h-full object-cover rounded-md">
+                      {% endif %}
+                      <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-10 text-white text-center py-4 px-4 h-full w-full">
+                        <h3 class="uppercase absolute bottom-2 text-left text-2xl font-bold">{{ block.settings.text }}</h3>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </template>
+            {% endif %}
+          {% endfor %}
+        {% endfor %}
+      </div>
+      <!-- ./ Image Slider -->
+
+      <!-- Tab Content -->
+      <div>
+        {%- comment %}<locksmith:8d5a>{% endcomment -%}
+          {%- assign locksmith_ccfa_forloop__size = 0 %}{% for link in section.settings.menu.links %}{% capture var %}{% render 'locksmith-variables', scope: 'subject', subject: link, subject_parent: section.settings.menu, variable: 'transparent' %}{% endcapture %}{% if var == 'true' %}{% assign locksmith_ccfa_forloop__size = locksmith_ccfa_forloop__size | plus: 1 %}{% endif %}{% endfor %}{% assign locksmith_ccfa_forloop__index = nil -%}
+        {%- comment %}</locksmith:8d5a>{% endcomment -%}
+        {% for link in section.settings.menu.links %}
+          {%- comment %}<locksmith:2fe3>{% endcomment -%}
+            {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: link, subject_parent: section.settings.menu, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% if locksmith_ccfa_forloop__index == nil %}{% assign locksmith_ccfa_forloop__index = 1 %}{% assign locksmith_ccfa_forloop__index0 = 0 %}{% else %}{% assign locksmith_ccfa_forloop__index = locksmith_ccfa_forloop__index | plus: 1 %}{% assign locksmith_ccfa_forloop__index0 = locksmith_ccfa_forloop__index0 | plus: 1 %}{% endif %}{% if locksmith_ccfa_forloop__index == 1 %}{% assign locksmith_ccfa_forloop__first = true %}{% else %}{% assign locksmith_ccfa_forloop__first = false %}{% endif %}{% if locksmith_ccfa_forloop__index == locksmith_ccfa_forloop__size %}{% assign locksmith_ccfa_forloop__last = true %}{% else %}{% assign locksmith_ccfa_forloop__last = false %}{% endif %}{% assign locksmith_ccfa_forloop__rindex = locksmith_ccfa_forloop__size | minus: locksmith_ccfa_forloop__index | minus: 1 %}{% assign locksmith_ccfa_forloop__rindex0 = locksmith_ccfa_forloop__size | minus: locksmith_ccfa_forloop__index0 | minus: 1 %}{% else %}{% continue %}{% endif -%}
+          {%- comment %}</locksmith:2fe3>{% endcomment -%}
+          <div x-show="activeTab === {{ locksmith_ccfa_forloop__index }}" class="p-4" x-cloak>
+            <ul>
+              {%- comment %}<locksmith:25d8>{% endcomment -%}
+                {%- assign locksmith_a582_forloop__size = 0 %}{% for sublink in link.links %}{% capture var %}{% render 'locksmith-variables', scope: 'subject', subject: sublink, subject_parent: link, variable: 'transparent' %}{% endcapture %}{% if var == 'true' %}{% assign locksmith_a582_forloop__size = locksmith_a582_forloop__size | plus: 1 %}{% endif %}{% endfor %}{% assign locksmith_a582_forloop__index = nil -%}
+              {%- comment %}</locksmith:25d8>{% endcomment -%}
+              {% for sublink in link.links %}
+                {%- comment %}<locksmith:4c49>{% endcomment -%}
+                  {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: sublink, subject_parent: link, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% if locksmith_a582_forloop__index == nil %}{% assign locksmith_a582_forloop__index = 1 %}{% assign locksmith_a582_forloop__index0 = 0 %}{% else %}{% assign locksmith_a582_forloop__index = locksmith_a582_forloop__index | plus: 1 %}{% assign locksmith_a582_forloop__index0 = locksmith_a582_forloop__index0 | plus: 1 %}{% endif %}{% if locksmith_a582_forloop__index == 1 %}{% assign locksmith_a582_forloop__first = true %}{% else %}{% assign locksmith_a582_forloop__first = false %}{% endif %}{% if locksmith_a582_forloop__index == locksmith_a582_forloop__size %}{% assign locksmith_a582_forloop__last = true %}{% else %}{% assign locksmith_a582_forloop__last = false %}{% endif %}{% assign locksmith_a582_forloop__rindex = locksmith_a582_forloop__size | minus: locksmith_a582_forloop__index | minus: 1 %}{% assign locksmith_a582_forloop__rindex0 = locksmith_a582_forloop__size | minus: locksmith_a582_forloop__index0 | minus: 1 %}{% else %}{% continue %}{% endif -%}
+                {%- comment %}</locksmith:4c49>{% endcomment -%}
+                <li x-data="{ open: false }" class="{% unless locksmith_a582_forloop__last %}border-b{% endunless %} border-gray-200">
+                  {% if sublink.links and sublink.links.size > 0 %}
+                    <!-- Sublink with dropdown -->
+                    <a href="javascript:void(0);" @click="open = !open" class="block py-2 cursor-pointer flex items-center justify-between">
+                      <span class="font-bold">{{ sublink.title }}</span>
+                      <svg :class="{ 'rotate-45': open }" class="w-4 h-4 transition-transform transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+                      </svg>
+                    </a>
+                    <ul x-show="open" x-transition x-collapse>
+                      {%- comment %}<locksmith:e071>{% endcomment -%}
+                        {%- assign locksmith_a1b7_forloop__size = 0 %}{% for subsub in sublink.links %}{% capture var %}{% render 'locksmith-variables', scope: 'subject', subject: subsub, subject_parent: sublink, variable: 'transparent' %}{% endcapture %}{% if var == 'true' %}{% assign locksmith_a1b7_forloop__size = locksmith_a1b7_forloop__size | plus: 1 %}{% endif %}{% endfor %}{% assign locksmith_a1b7_forloop__index = nil -%}
+                      {%- comment %}</locksmith:e071>{% endcomment -%}
+                      {% for subsub in sublink.links %}
+                        {%- comment %}<locksmith:19ce>{% endcomment -%}
+                          {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: subsub, subject_parent: sublink, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% if locksmith_a1b7_forloop__index == nil %}{% assign locksmith_a1b7_forloop__index = 1 %}{% assign locksmith_a1b7_forloop__index0 = 0 %}{% else %}{% assign locksmith_a1b7_forloop__index = locksmith_a1b7_forloop__index | plus: 1 %}{% assign locksmith_a1b7_forloop__index0 = locksmith_a1b7_forloop__index0 | plus: 1 %}{% endif %}{% if locksmith_a1b7_forloop__index == 1 %}{% assign locksmith_a1b7_forloop__first = true %}{% else %}{% assign locksmith_a1b7_forloop__first = false %}{% endif %}{% if locksmith_a1b7_forloop__index == locksmith_a1b7_forloop__size %}{% assign locksmith_a1b7_forloop__last = true %}{% else %}{% assign locksmith_a1b7_forloop__last = false %}{% endif %}{% assign locksmith_a1b7_forloop__rindex = locksmith_a1b7_forloop__size | minus: locksmith_a1b7_forloop__index | minus: 1 %}{% assign locksmith_a1b7_forloop__rindex0 = locksmith_a1b7_forloop__size | minus: locksmith_a1b7_forloop__index0 | minus: 1 %}{% else %}{% continue %}{% endif -%}
+                        {%- comment %}</locksmith:19ce>{% endcomment -%}
+                        <li class="flex items-center justify-between {% if locksmith_a1b7_forloop__first %}border-t {% endif %}{% unless locksmith_a1b7_forloop__last %}border-b {% endunless %}border-gray-200">
+                          <a href="{{ subsub.url }}" class="block py-2 pl-4 flex-grow">{{ subsub.title }}</a>
+                          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="#f00f83">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                          </svg>
+                        </li>
+                      {% endfor %}
+                    </ul>
+                  {% else %}
+                    <!-- Sublink without dropdown -->
+                    <li class="flex items-center justify-between {% if locksmith_a582_forloop__first %}border-t {% endif %}{% unless locksmith_a582_forloop__last %}border-b {% endunless %}border-gray-200">
+                          <a href="{{ link.url }}" class="block py-2 flex-grow font-bold">{{ sublink.title }}</a>
+                          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="#f00f83">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                          </svg>
+                        </li>
+                  {% endif %}
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endfor %}
+      </div>
+                              
+    <!-- Nav Banner -->
+   {% for block in section.blocks %}
+      {% if block.type == "mobile-nav-banner" %}
+        <div class="relative w-full">
+          {% if block.settings.background-image %}
+            <img src="{{ block.settings.background-image | img_url: '1200x600' }}" alt="{{ block.settings.title }}" class="w-full h-full object-cover">
+          {% else %}
+            <img src="https://via.placeholder.com/1200x600" alt="Placeholder Image" class="w-full h-full object-cover">
+          {% endif %}
+          {% if block.settings.foreground-image %}
+            <div class="absolute inset-0 flex items-center justify-center z-10">
+              <img src="{{ block.settings.foreground-image | img_url: '300x150' }}" alt="{{ block.settings.title }}" class="h-full">
+            </div>
+          {% endif %}
+        </div>
+      {% endif %}
+    {% endfor %}
+    <!-- ./Nav Banner -->
+
+    <!-- Nav footer -->
+         <footer class="nav-footer tw-full bg-gray-100 p-2">
+           <h2 class="text-sm font-bold">More</h2>
+           <ul>
+             <li class="text-sm text-gray-500 block py-1"><a href="/account/login"></a>Login</li>
+             <li class="text-sm text-gray-500 block py-1"><a href="/account/signup"></a>Register</li>
+           </ul>
+           
+         </footer>                     
+    <!-- ./Footer -->
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+{% schema %}
+{
+  "name": "Mobile Nav Menu",
+  "class": "section-header mega-menu ",
+  "enabled_on": {
+    "groups": ["header"]
+      },
+  "settings": [
+    {
+      "type": "select",
+      "id": "logo_position",
+      "options": [
+        {
+          "value": "top-left",
+          "label": "t:sections.header.settings.logo_position.options__2.label"
+        },
+        {
+          "value": "top-center",
+          "label": "t:sections.header.settings.logo_position.options__3.label"
+        },
+        {
+          "value": "middle-left",
+          "label": "t:sections.header.settings.logo_position.options__1.label"
+        },
+        {
+          "value": "middle-center",
+          "label": "t:sections.header.settings.logo_position.options__4.label"
+        }
+      ],
+      "default": "middle-left",
+      "label": "t:sections.header.settings.logo_position.label",
+      "info": "t:sections.header.settings.logo_help.content"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "default": "main-menu",
+      "label": "t:sections.header.settings.menu.label"
+    },
+    {
+      "type": "select",
+      "id": "menu_type_desktop",
+      "options": [
+        {
+          "value": "dropdown",
+          "label": "t:sections.header.settings.menu_type_desktop.options__1.label"
+        },
+        {
+          "value": "mega",
+          "label": "t:sections.header.settings.menu_type_desktop.options__2.label"
+        },
+        {
+          "value": "drawer",
+          "label": "t:sections.header.settings.menu_type_desktop.options__3.label"
+        }
+      ],
+      "default": "dropdown",
+      "label": "t:sections.header.settings.menu_type_desktop.label",
+      "info": "t:sections.header.settings.menu_type_desktop.info"
+    },
+    {
+      "type": "select",
+      "id": "sticky_header_type",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:sections.header.settings.sticky_header_type.options__1.label"
+        },
+        {
+          "value": "on-scroll-up",
+          "label": "t:sections.header.settings.sticky_header_type.options__2.label"
+        },
+        {
+          "value": "always",
+          "label": "t:sections.header.settings.sticky_header_type.options__3.label"
+        },
+        {
+          "value": "reduce-logo-size",
+          "label": "t:sections.header.settings.sticky_header_type.options__4.label"
+        }
+      ],
+      "default": "on-scroll-up",
+      "label": "t:sections.header.settings.sticky_header_type.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_line_separator",
+      "default": true,
+      "label": "t:sections.header.settings.show_line_separator.label"
+    },
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "options": [
+        {
+          "value": "accent-1",
+          "label": "t:sections.all.colors.accent_1.label"
+        },
+        {
+          "value": "accent-2",
+          "label": "t:sections.all.colors.accent_2.label"
+        },
+        {
+          "value": "background-1",
+          "label": "t:sections.all.colors.background_1.label"
+        },
+        {
+          "value": "background-2",
+          "label": "t:sections.all.colors.background_2.label"
+        },
+        {
+          "value": "inverse",
+          "label": "t:sections.all.colors.inverse.label"
+        }
+      ],
+      "default": "background-1",
+      "label": "t:sections.all.colors.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.header.settings.header__3.content",
+      "info": "t:sections.header.settings.header__4.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_country_selector",
+      "default": false,
+      "label": "t:sections.header.settings.enable_country_selector.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.header.settings.header__5.content",
+      "info": "t:sections.header.settings.header__6.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_language_selector",
+      "default": false,
+      "label": "t:sections.header.settings.enable_language_selector.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.header.settings.mobile_layout.content"
+    },
+    {
+      "type": "select",
+      "id": "mobile_logo_position",
+      "options": [
+        {
+          "value": "center",
+          "label": "t:sections.header.settings.mobile_logo_position.options__1.label"
+        },
+        {
+          "value": "left",
+          "label": "t:sections.header.settings.mobile_logo_position.options__2.label"
+        }
+      ],
+      "default": "center",
+      "label": "t:sections.header.settings.mobile_logo_position.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.spacing"
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.header.settings.margin_bottom.label",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 36,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 36,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 20
+    }
+  ],
+  "blocks": [
+    {
+      "type": "@app"
+    },
+    {
+      "type": "mobile-nav-image",
+      "name": "mobile Nav Image",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "link to display on",
+          "info": "link title to display on. Input * for all",
+          "default": "*"
+        },
+        {
+          "type": "text",
+          "id": "dont-display",
+          "label": "link to not display on",
+          "info": "link title to not display on. Input"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Image text",
+          "default": "Collection One"
+        },
+        {
+          "type": "text",
+          "id": "url",
+          "label": "Image url",
+          "default": "#"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "image"
+        }
+      ]
+    },
+    {
+      "type": "mobile-nav-banner",
+      "name": "mobile Nav Banner",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "foreground-image",
+          "label": "forground image"
+        },
+        {
+          "type": "image_picker",
+          "id": "background-image",
+          "label": "background image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+      {
+          "name": "Mobile menu"
+      }
+    ]
+}
+{% endschema %}

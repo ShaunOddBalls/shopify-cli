@@ -1,0 +1,1197 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "custom_liquid_X9jBLp": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "custom_liquid": "<link rel=\"stylesheet\" href=\"https://use.typekit.net/zcg2uty.css\">",
+        "color_scheme": "",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "ob_conditional_banner_BCbErp": {
+      "type": "ob-conditional-banner",
+      "blocks": {
+        "page_banner_RD7EAk": {
+          "type": "page-banner",
+          "settings": {
+            "block_active": true,
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": "",
+            "banner_background": "",
+            "wrapper_classes": "",
+            "title": "",
+            "text": "",
+            "text_wrapper_classes": "",
+            "customers": "both",
+            "url_handle": "*",
+            "not_url_handle": "",
+            "country_iso": "*",
+            "banner_link": "",
+            "desktop_image": "shopify://shop_images/Desktop-BG_f874ce59-19a0-4fff-9a31-66cc48f31d94.webp",
+            "mobile_image": "shopify://shop_images/Mobile-BG_44127811-69a2-4f12-ba3e-020f528e6493.webp",
+            "desktop_image_classes": "mx-auto w-full hidden md:block",
+            "mobile_image_classes": "mx-auto w-full md:hidden",
+            "desktop_svg": "Desktop-FG_2ef749a5-9026-4f94-a673-7354b231a811.svg",
+            "mobile_svg": "Mobile-FG_5f58f664-222e-4b3e-99da-f48e2f427304.svg",
+            "desktop_svg_classes": "absolute inset-0 w-full h-full mx-auto hidden md:block",
+            "mobile_svg_classes": "absolute inset-0 w-full h-full mx-auto md:hidden"
+          }
+        }
+      },
+      "block_order": [
+        "page_banner_RD7EAk"
+      ],
+      "name": "Conditional Banner",
+      "settings": {
+        "banner_background": "",
+        "wrapper_classes": ""
+      }
+    },
+    "ob_trust_pilot_widget_3MFawT": {
+      "type": "ob-trust-pilot-widget",
+      "settings": {
+        "outer_wrapper_classes": "border-black border-solid blend-divide",
+        "wrapper_classes": "max-w-7xl mx-auto pb-2 pt-4",
+        "widget_header": "",
+        "widget_header_classes": "text-black text-center uppercase text-4xl md:text-6xl pb-3",
+        "widget_subheader": "",
+        "widget_subheader_classes": "",
+        "widget_code": "<!-- TrustBox widget - Micro Combo -->\n<div class=\"trustpilot-widget hidden\" data-locale=\"en-GB\" data-template-id=\"5419b6ffb0d04a076446a9af\" data-businessunit-id=\"5c7f9459871dac0001ea0238\" data-style-height=\"40px\" data-style-width=\"100%\" data-theme=\"light\">\n  <a href=\"https://uk.trustpilot.com/review/myoddballs.com\" target=\"_blank\" rel=\"noopener\">Trustpilot</a>\n</div>\n<!-- End TrustBox widget -->",
+        "widget_wrapper_classes": "max-w-lg mx-auto",
+        "use_microcombo": true
+      }
+    },
+    "ob_image_text_grid_rGWHDf": {
+      "type": "ob-image-text-grid",
+      "blocks": {
+        "image_and_text_ENM7rU": {
+          "type": "image-and-text",
+          "settings": {
+            "country_iso": "*",
+            "title": "",
+            "block_wrapper_classes": "col-span-12 flex justify-center px-4 items-center text-center relative",
+            "block_title": "",
+            "title_classes": "text",
+            "description": "<h2 class=\"text-center font-bebas text-xl lg:text-2xl\">Men’s Underwear That Feels as Good as It Looks</h2>",
+            "description_classes": "",
+            "svg": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_and_text_ENM7rU"
+      ],
+      "name": "Image Text Grid",
+      "settings": {
+        "outer_wrapper_classes": "relative boxing-day-bottom-text",
+        "inner_wrapper_classes": "col-span-12 flex justify-center  px-4 items-center text-center",
+        "grid_wrapper_classes": "",
+        "title": "",
+        "title_classes": "text-center text-base font-semibold uppercase text-gray-600 tracking-wider",
+        "section_bg_colour": "",
+        "block_bg_colour": "",
+        "block_bg_colour_hover": "",
+        "block_text_colour": "",
+        "block_text_colour_hover": "",
+        "block_image_classes": "",
+        "block_svg_classes": "",
+        "custom_css": ""
+      }
+    },
+    "ss_25_things_HnBAgy": {
+      "type": "SS-25-things",
+      "blocks": {
+        "image_block_djL9JU": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/Square-4_5114f1e8-3766-4d9f-980b-9b2b8a06d01d.jpg",
+            "page": "him-individuals",
+            "url": "",
+            "title": "Boxers",
+            "button-classes": "bg-white px-2 py-1 rounded-lg",
+            "text-classes": "font-bold",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "image_block_LB9wVp": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/Square-2_94ce4bd9-be71-4d1f-942b-9c05dfff4a32.jpg",
+            "page": "bamboo-boxer-shorts",
+            "url": "",
+            "title": "Bamboo",
+            "button-classes": "bg-white px-2 py-1 rounded-lg",
+            "text-classes": "font-bold",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "image_block_FLXE8t": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/Square-3_3d7775bc-90b1-42d3-8fbb-eea411713e93.jpg",
+            "page": "mens-loose-fit-boxers",
+            "url": "",
+            "title": "Loose Fit",
+            "button-classes": "bg-white px-2 py-1 rounded-lg",
+            "text-classes": "font-bold",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "image_block_pappED": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/Square-1_5fa30f7f-40c4-4833-a277-148a6c7aa2be.jpg",
+            "page": "his-briefs",
+            "url": "",
+            "title": "Briefs",
+            "button-classes": "bg-white px-2 py-1 rounded-lg",
+            "text-classes": "font-bold",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "image_block_Yn8h9F": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/Square-5_c3a95ef7-22a4-4e1d-a796-bb4114d62a6e.jpg",
+            "page": "mens-bundles",
+            "url": "",
+            "title": "Bundles",
+            "button-classes": "bg-white px-2 py-1 rounded-lg",
+            "text-classes": "font-bold",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "image_block_Dgy3xn": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/Square-6_c79bd75e-f27f-4f3a-820e-0b6ef173c60b.jpg",
+            "page": "oddballs-subscriptions",
+            "url": "",
+            "title": "Subscriptions",
+            "button-classes": "bg-white px-1 py-1 rounded-lg",
+            "text-classes": "font-bold",
+            "show_on_all_markets": false,
+            "markets_to_show_on": "uk",
+            "markets_to_exclude_on": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_block_djL9JU",
+        "image_block_LB9wVp",
+        "image_block_FLXE8t",
+        "image_block_pappED",
+        "image_block_Yn8h9F",
+        "image_block_Dgy3xn"
+      ],
+      "name": "SS-25-Things",
+      "settings": {
+        "title": ""
+      }
+    },
+    "ss_25_rotating_banner_hUTbA4": {
+      "type": "SS-25-rotating-banner",
+      "name": "SS 25 Rotating banner",
+      "settings": {
+        "text": "Free product when you spend over £40🎁",
+        "background_color": "#009fd2",
+        "text_color": "#ffffff"
+      }
+    },
+    "ob_tailwind_image_text_video_swiper_7BNzkw": {
+      "type": "ob-tailwind-image-text-video-swiper",
+      "blocks": {
+        "multi_use_image_block_WqBJqr": {
+          "type": "multi_use_image_block",
+          "settings": {
+            "block_active": true,
+            "country_iso": "*",
+            "url_handle": "*",
+            "not_url_handle": "",
+            "title": "Men's Underwear",
+            "block_link": "",
+            "link_classes": "block",
+            "block_wrap": "col-span-6 relative",
+            "block_image_desktop": "shopify://shop_images/Screenshot_2025-08-19_143515.png",
+            "block_image_desktop_class": "object-cover h-full w-full hidden sm:block",
+            "placeholder_desktop": "medium",
+            "block_image_mobile": "shopify://shop_images/Screenshot_2025-08-19_143535.png",
+            "block_image_mobile_class": "object-cover h-full w-full block sm:hidden",
+            "placeholder_mobile": "medium",
+            "video_wrap": "col-span-12 absolute inset-0 w-full h-full",
+            "block_video_desktop": "Mens Desktop 2025.mp4",
+            "block_video_desktop_class": "object-cover h-full w-full",
+            "block_video_mobile": "Mens Mobile 2025.mp4",
+            "block_video_mobile_class": "object-cover h-full w-full",
+            "video_title": "",
+            "video_addon_class": "z-50 justify-center absolute text-white w-full h-full flex flex-col items-center p-5",
+            "video_title_class": "text-4xl",
+            "video_text": "",
+            "video_text_class": "",
+            "video_button_text": "",
+            "video_button_class": "",
+            "video_button_url": "",
+            "svg_wrap": "absolute w-full h-full inset-0",
+            "block_svg_desktop": "",
+            "block_svg_desktop_class": "w-full h-full hidden sm:block",
+            "block_svg_mobile": "",
+            "block_svg_mobile_class": "w-full h-full block sm:hidden"
+          }
+        }
+      },
+      "block_order": [
+        "multi_use_image_block_WqBJqr"
+      ],
+      "name": "TW Img Text Video Swiper",
+      "settings": {
+        "country_iso": "*",
+        "section_wrapper_classes": "border-solid  top-hero-wrapper my-6",
+        "is_swiper": "false",
+        "lazy_images": "false",
+        "text_wrap": "absolute bottom-10 right-20",
+        "title": "",
+        "text_header_classes": "text-5xl pb-1",
+        "description": "",
+        "text_description": "text-xl",
+        "swiper_classes": "",
+        "swiper_wrapper_classes": "",
+        "custom_css": "",
+        "custom_options": "",
+        "slides_per_view_mobile": 1,
+        "space_between_mobile": 0,
+        "slides_per_view_640": 1,
+        "space_between_640": 0,
+        "slides_per_view_768": 1,
+        "space_between_768": 0,
+        "slides_per_view_1024": 1,
+        "space_between_1024": 0,
+        "slides_per_view_1280": 1,
+        "space_between_1280": 0,
+        "pagination_checked": false,
+        "navigation_checked": false,
+        "scrollbar_checked": false,
+        "effect": "slide",
+        "autoplay_checked": true,
+        "autoplay_delay": 3000,
+        "autoplay_loop_checked": false
+      }
+    },
+    "ss_25_reviews_CThtYa": {
+      "type": "SS-25-reviews",
+      "custom_css": [
+        ".md\\:hidden {display: none;}"
+      ],
+      "name": "SS-25-reviews",
+      "settings": {
+        "collection": "him-individuals",
+        "wrapperclasses": "pb-4 font-gelica",
+        "quote": "\"FEELS LIKE MY BALLS CHECKED INTO A 5 STAR RESORT\"",
+        "name": "JACOB - LONDON",
+        "buttontext": "SHOP MEN'S BOXERS",
+        "buttonclasses": "border border-solid border-white rounded-full py-1 px-2 text-white  mt-4 text-center font-gelica",
+        "backgroundcolor": "#070d3a",
+        "textcolor": "#ffffff",
+        "desktopImage": "shopify://shop_images/BAMBOO_CREATIVE__18.png",
+        "mobileImage": "shopify://shop_images/UPDATED_IMAGES_MOB-18.jpg"
+      }
+    },
+    "ob_three_text_fields_9eE4dF": {
+      "type": "ob-three-text-fields",
+      "blocks": {
+        "text_lines_XMUnCx": {
+          "type": "text-lines",
+          "settings": {
+            "country_iso": "*",
+            "text-field-outer-wrapper-classes": "",
+            "text-field-inner-wrapper-classes": "text-center text-black relative max-w-4xl mx-auto py-2",
+            "text-field-1": "Gifts for every interest:",
+            "text-field-1-classes": "font-bebas md:text-2xl  text-xl font-bold",
+            "text-field-2": "",
+            "text-field-2-classes": "px-4 md:text-l mt-2",
+            "text-field-3": "",
+            "text-field-3-classes": "",
+            "text-field-4": "",
+            "text-field-4-classes": "",
+            "html-field": "",
+            "html-field-classes": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_lines_XMUnCx"
+      ],
+      "name": "Three Text Fields",
+      "settings": {}
+    },
+    "lw_circles_text_link_RGbH4A": {
+      "type": "lw-circles-text-link",
+      "blocks": {
+        "image_block_p3ygCq": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/Gifts-4.png",
+            "page": "https://www.myoddballs.com/collections/gifts-for-tv-lovers",
+            "title": "",
+            "button-classes": "mt-4 text-center shadow-xl rounded-full w-full mx-auto max-w-[175px] bg-black",
+            "text-classes": "text-white px-2 py-1 font-bold text-xs uppercase lw-black rounded-full text-nowrap",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "image_block_aMzzVN": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/Gifts-6.png",
+            "page": "https://www.myoddballs.com/collections/gifts-for-sports-lovers",
+            "title": "",
+            "button-classes": "mt-4 text-center shadow-xl rounded-full w-full mx-auto max-w-[175px] bg-black",
+            "text-classes": "text-white px-2 py-1 font-bold text-xs uppercase lw-black rounded-full text-nowrap",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "image_block_qAirLF": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/Gifts-5.png",
+            "page": "https://www.myoddballs.com/collections/gifts-for-music-lovers",
+            "title": "",
+            "button-classes": "mt-4 text-center shadow-xl rounded-full w-full mx-auto max-w-[175px] bg-black",
+            "text-classes": "text-white px-2 py-1 font-bold text-xs uppercase lw-black rounded-full text-nowrap",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "image_block_cXpnpW": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/Gifts-7.png",
+            "page": "https://www.myoddballs.com/collections/gifts-for-foodies",
+            "title": "",
+            "button-classes": "mt-4 text-center shadow-xl rounded-full w-full mx-auto max-w-[175px] bg-black",
+            "text-classes": "text-white px-2 py-1 font-bold text-xs uppercase lw-black rounded-full text-nowrap",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "image_block_CPmkgm": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/Gifts-2.png",
+            "page": "https://www.myoddballs.com/collections/charity-gifts",
+            "title": "",
+            "button-classes": "mt-4 text-center shadow-xl rounded-full w-full mx-auto max-w-[175px] bg-black",
+            "text-classes": "text-white px-2 py-1 font-bold text-xs uppercase lw-black rounded-full text-nowrap",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "image_block_EKtp89": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/Gifts-3.png",
+            "page": "https://www.myoddballs.com/collections/nostalgic-gifts",
+            "title": "",
+            "button-classes": "mt-4 text-center shadow-xl rounded-full w-full mx-auto max-w-[175px] bg-black",
+            "text-classes": "text-white px-2 py-1 font-bold text-xs uppercase lw-black rounded-full text-nowrap",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_block_p3ygCq",
+        "image_block_aMzzVN",
+        "image_block_qAirLF",
+        "image_block_cXpnpW",
+        "image_block_CPmkgm",
+        "image_block_EKtp89"
+      ],
+      "name": "lw-circles-text-link",
+      "settings": {}
+    },
+    "ss_25_rotating_banner_X9hK7H": {
+      "type": "SS-25-rotating-banner",
+      "name": "SS 25 Rotating banner",
+      "settings": {
+        "text": "Free shipping on orders over £35🚚",
+        "background_color": "#0082c5",
+        "text_color": "#ffffff"
+      }
+    },
+    "ss_25_blocks_8ij7e4": {
+      "type": "SS-25-blocks",
+      "blocks": {
+        "image_block_y79rJe": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/Football.jpg",
+            "page": "football-underwear",
+            "url": "",
+            "title": "Football",
+            "button-classes": "bg-white px-2 py-1 rounded-lg",
+            "text-classes": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "image_block_63GfL8": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/UPDATED_IMAGES_SMALL_SQUARE_BUTTON_-_MENS_BRIEFS.jpg",
+            "page": "his-briefs",
+            "url": "",
+            "title": "Men's Briefs",
+            "button-classes": "bg-white px-2 py-1 rounded-lg",
+            "text-classes": "",
+            "show_on_all_markets": false,
+            "markets_to_show_on": "en-eu",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "image_block_JnRNKE": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/Classic_boxers_82e2f65a-7c4c-4b03-93d0-836929e9b4cb.png",
+            "page": "",
+            "url": "https://www.myoddballs.com/collections/plain-underwear/department-mens",
+            "title": "Classics",
+            "button-classes": "bg-white px-2 py-1 rounded-lg",
+            "text-classes": "",
+            "show_on_all_markets": false,
+            "markets_to_show_on": "uk",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "image_block_qwUY4E": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/mens_pattern.png",
+            "page": "",
+            "url": "https://www.myoddballs.com/collections/style-adventurous/department-mens",
+            "title": "Patterned",
+            "button-classes": "bg-white px-2 py-1 rounded-lg",
+            "text-classes": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "image_block_eKYrR7": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/Licensed_b4af20b3-cad1-4f36-86ef-bf9ae4980907.jpg",
+            "page": "",
+            "url": "https://www.myoddballs.com/pages/shop-by-design#partnerships",
+            "title": "Partnerships",
+            "button-classes": "bg-white px-2 py-1 rounded-lg",
+            "text-classes": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "image_block_KhQTYf": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/Rugby_402870f3-7867-4612-808f-f4859bc94215.jpg",
+            "page": "rugby-underwear",
+            "url": "",
+            "title": "Rugby",
+            "button-classes": "bg-white px-2 py-1 rounded-lg font-bold",
+            "text-classes": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "image_block_kA3DRG": {
+          "type": "image_block",
+          "disabled": true,
+          "settings": {
+            "circle_image": "shopify://shop_images/Gifts.jpg",
+            "page": "gifts-for-him",
+            "url": "",
+            "title": "Gifts for Him",
+            "button-classes": "bg-white px-2 py-1 rounded-lg font-bold",
+            "text-classes": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "image_block_M6FGAW": {
+          "type": "image_block",
+          "disabled": true,
+          "settings": {
+            "circle_image": "shopify://shop_images/Sale.jpg",
+            "page": "mens-underwear-sale",
+            "url": "",
+            "title": "Sale",
+            "button-classes": "bg-white px-2 py-1 rounded-lg font-bold",
+            "text-classes": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_block_y79rJe",
+        "image_block_63GfL8",
+        "image_block_JnRNKE",
+        "image_block_qwUY4E",
+        "image_block_eKYrR7",
+        "image_block_KhQTYf",
+        "image_block_kA3DRG",
+        "image_block_M6FGAW"
+      ],
+      "name": "SS-25-Blocks",
+      "settings": {}
+    },
+    "summer_shop_squished_three_tUKPBJ": {
+      "type": "summer-shop-squished-three",
+      "blocks": {
+        "image_block_mCVFBH": {
+          "type": "image_block",
+          "settings": {
+            "image": "shopify://shop_images/PicnicBlankets_e10a7e97-fa2f-4eea-ae43-9d4ba12dddd0.jpg",
+            "page": "picnic-blankets",
+            "url": "https://www.myoddballs.com/collections/picnic-blankets",
+            "title": "Picnic Blankets",
+            "sub_title": "Free on orders  over £40",
+            "text_classes": "whitespace-nowrap text-white",
+            "button_text": "Shop Now",
+            "show_on_all_markets": false,
+            "markets_to_show_on": "uk",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "image_block_anpcRh": {
+          "type": "image_block",
+          "settings": {
+            "image": "shopify://shop_images/WashBags_copy.jpg",
+            "page": "wash-bags",
+            "url": "https://www.myoddballs.com/collections/wash-bags",
+            "title": "Wash Bags",
+            "sub_title": "Free on orders  over £40",
+            "text_classes": "",
+            "button_text": "Shop Now",
+            "show_on_all_markets": false,
+            "markets_to_show_on": "uk",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "image_block_UTjiQH": {
+          "type": "image_block",
+          "settings": {
+            "image": "shopify://shop_images/Sunglasses_copy.jpg",
+            "page": "sunglasses",
+            "url": "https://www.myoddballs.com/collections/sunglasses",
+            "title": "Sunglasses",
+            "sub_title": "Free on orders over £40",
+            "text_classes": "text-white",
+            "button_text": "Shop Now",
+            "show_on_all_markets": false,
+            "markets_to_show_on": "uk",
+            "markets_to_exclude_on": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_block_mCVFBH",
+        "image_block_anpcRh",
+        "image_block_UTjiQH"
+      ],
+      "custom_css": [],
+      "name": "Summer Shop Small Buttons",
+      "settings": {
+        "title": "Summer Essentials:",
+        "show_on_all_markets": false,
+        "markets_to_show_on": "uk",
+        "markets_to_exclude_on": ""
+      }
+    },
+    "ss_25_rotating_banner_bRH8zh": {
+      "type": "SS-25-rotating-banner",
+      "disabled": true,
+      "name": "SS 25 Rotating banner",
+      "settings": {
+        "text": "20-40% off everything - sitewide -",
+        "background_color": "#0082c5",
+        "text_color": "#ffffff"
+      }
+    },
+    "ss_25_blocks_LfcNDy": {
+      "type": "SS-25-blocks",
+      "blocks": {
+        "image_block_Kb7HhR": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/DadLad.jpg",
+            "page": "dad-and-lad-bundles",
+            "url": "",
+            "title": "Dad & Lad",
+            "button-classes": "font-bold bg-white px-2 py-1 rounded-lg",
+            "text-classes": "",
+            "show_on_all_markets": false,
+            "markets_to_show_on": "uk",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "image_block_iVwpwP": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/Grooming_159c057b-c2b5-4932-8036-e964a8c278ec.jpg",
+            "page": "grooming-sets",
+            "url": "",
+            "title": "Grooming Sets",
+            "button-classes": "font-bold bg-white px-2 py-1 rounded-lg",
+            "text-classes": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "image_block_tQ8RAK": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/Socks_e688885c-4d2c-49ec-87e3-813f9d7fd69f.jpg",
+            "page": "socks",
+            "url": "",
+            "title": "Socks",
+            "button-classes": "font-bold bg-white px-2 py-1 rounded-lg",
+            "text-classes": "",
+            "show_on_all_markets": false,
+            "markets_to_show_on": "uk",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "image_block_xzDzHd": {
+          "type": "image_block",
+          "disabled": true,
+          "settings": {
+            "circle_image": "shopify://shop_images/UPDATED_IMAGES_SMALL_SQUARE_BUTTON_-_SOCKS.jpg",
+            "page": "socks",
+            "url": "",
+            "title": "Socks",
+            "button-classes": "font-bold",
+            "text-classes": "",
+            "show_on_all_markets": false,
+            "markets_to_show_on": "en-eu",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "image_block_nGRWeF": {
+          "type": "image_block",
+          "disabled": true,
+          "settings": {
+            "circle_image": "shopify://shop_images/TrainingTops_28fac250-d024-4dfe-a7b9-50200de867d9.jpg",
+            "page": "training-tops",
+            "url": "",
+            "title": "Training Tops",
+            "button-classes": "font-bold bg-white px-2 py-1 rounded-lg",
+            "text-classes": "",
+            "show_on_all_markets": false,
+            "markets_to_show_on": "uk",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "image_block_N4ieYr": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/Sale.jpg",
+            "page": "",
+            "url": "https://www.myoddballs.com/collections/mens-underwear-sale",
+            "title": "Sale",
+            "button-classes": "font-bold bg-white px-2 py-1 rounded-lg",
+            "text-classes": "",
+            "show_on_all_markets": false,
+            "markets_to_show_on": "uk",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "image_block_zwPccg": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/Gifts.jpg",
+            "page": "gifts-for-him",
+            "url": "",
+            "title": "Gifts for Him",
+            "button-classes": "bg-white px-2 py-1 rounded-lg font-bold",
+            "text-classes": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "image_block_TfjjdD": {
+          "type": "image_block",
+          "disabled": true,
+          "settings": {
+            "circle_image": "shopify://shop_images/Square-6_c79bd75e-f27f-4f3a-820e-0b6ef173c60b.jpg",
+            "page": "socks",
+            "url": "",
+            "title": "Socks",
+            "button-classes": "font-bold bg-white px-2 py-1 rounded-lg",
+            "text-classes": "",
+            "show_on_all_markets": false,
+            "markets_to_show_on": "uk",
+            "markets_to_exclude_on": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_block_Kb7HhR",
+        "image_block_iVwpwP",
+        "image_block_tQ8RAK",
+        "image_block_xzDzHd",
+        "image_block_nGRWeF",
+        "image_block_N4ieYr",
+        "image_block_zwPccg",
+        "image_block_TfjjdD"
+      ],
+      "name": "SS-25-Blocks",
+      "settings": {}
+    },
+    "ss_25_reviews_JFGwKV": {
+      "type": "SS-25-reviews",
+      "disabled": true,
+      "name": "SS-25-reviews",
+      "settings": {
+        "collection": "seamless-underwear",
+        "wrapperclasses": "mb-4",
+        "quote": "\"NOT TO BE DRAMATIC, BUT THESE PANTS FIXED MY WHOLE MOOD!\"",
+        "name": "Emma - London",
+        "buttontext": "SHOP SEAMLESS",
+        "buttonclasses": "border border-solid border-white rounded-full py-1 px-2 text-white  mt-4",
+        "backgroundcolor": "#f49423",
+        "textcolor": "#ffffff",
+        "desktopImage": "shopify://shop_images/REVIEW_BANNER_IMAGES_REVIEW_DESKTOP_-_SEAMLESS_8ab5e181-ee0b-4321-b19e-94b6540a8aa1.jpg",
+        "mobileImage": "shopify://shop_images/UPDATED_IMAGES_MOB-19.jpg"
+      }
+    },
+    "summer_shop_squished_three_iFQrgt": {
+      "type": "summer-shop-squished-three",
+      "blocks": {
+        "image_block_W8bqKj": {
+          "type": "image_block",
+          "settings": {
+            "image": "shopify://shop_images/SALE_20_OFF.jpg",
+            "page": "wash-bags",
+            "url": "https://www.myoddballs.com/collections/wash-bags",
+            "title": "",
+            "sub_title": "",
+            "text_classes": "",
+            "button_text": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "image_block_FM9rnd": {
+          "type": "image_block",
+          "settings": {
+            "image": "shopify://shop_images/SALE_30_OFF.jpg",
+            "page": "sunglasses",
+            "url": "https://www.myoddballs.com/collections/sunglasses",
+            "title": "",
+            "sub_title": "",
+            "text_classes": "",
+            "button_text": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "image_block_WhLYRR": {
+          "type": "image_block",
+          "settings": {
+            "image": "shopify://shop_images/SALE_40_OFF.jpg",
+            "page": "picnic-blankets",
+            "url": "https://www.myoddballs.com/collections/picnic-blankets",
+            "title": "",
+            "sub_title": "",
+            "text_classes": "",
+            "button_text": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_block_W8bqKj",
+        "image_block_FM9rnd",
+        "image_block_WhLYRR"
+      ],
+      "disabled": true,
+      "name": "Summer Shop Small Buttons",
+      "settings": {
+        "title": "Shop by Discount:",
+        "show_on_all_markets": true,
+        "markets_to_show_on": "",
+        "markets_to_exclude_on": ""
+      }
+    },
+    "ss_25_blocks_AJgF7K": {
+      "type": "SS-25-blocks",
+      "blocks": {
+        "image_block_K8q6xn": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/SummerSale_GROOMING_SETS.png",
+            "page": "grooming-sets",
+            "url": "",
+            "title": "Men's Grooming Kits",
+            "button-classes": "font-bold",
+            "text-classes": "",
+            "show_on_all_markets": false,
+            "markets_to_show_on": "uk",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "image_block_rVwye6": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/UPDATED_IMAGES_SMALL_SQUARE_BUTTON_-_SOCKS.jpg",
+            "page": "socks",
+            "url": "",
+            "title": "Socks",
+            "button-classes": "font-bold",
+            "text-classes": "",
+            "show_on_all_markets": false,
+            "markets_to_show_on": "uk",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "image_block_ewfNzr": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/UPDATED_IMAGES_SMALL_SQUARE_BUTTON_-_WATER_BOTTLE.jpg",
+            "page": "reusable-water-bottles",
+            "url": "",
+            "title": "Water Bottles",
+            "button-classes": "font-bold",
+            "text-classes": "",
+            "show_on_all_markets": false,
+            "markets_to_show_on": "uk",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "image_block_UyUdhf": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/UPDATED_IMAGES_SMALL_SQUARE_BUTTON_-_GOOLIES.jpg",
+            "page": "goolies",
+            "url": "",
+            "title": "Boy's Boxer Shorts",
+            "button-classes": "font-bold",
+            "text-classes": "",
+            "show_on_all_markets": false,
+            "markets_to_show_on": "uk",
+            "markets_to_exclude_on": ""
+          }
+        },
+        "image_block_b87pJX": {
+          "type": "image_block",
+          "settings": {
+            "circle_image": "shopify://shop_images/UPDATED_FLEECE_BLANKETS_copy.jpg",
+            "page": "fleece-blanket",
+            "url": "",
+            "title": "Fleece Blankets",
+            "button-classes": "bg-white px-2 py-1 rounded-full font-bold",
+            "text-classes": "",
+            "show_on_all_markets": false,
+            "markets_to_show_on": "uk",
+            "markets_to_exclude_on": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_block_K8q6xn",
+        "image_block_rVwye6",
+        "image_block_ewfNzr",
+        "image_block_UyUdhf",
+        "image_block_b87pJX"
+      ],
+      "disabled": true,
+      "name": "SS-25-Blocks",
+      "settings": {}
+    },
+    "ob_image_text_grid_cP4Mxp": {
+      "type": "ob-image-text-grid",
+      "blocks": {
+        "image_and_text_eQxJWG": {
+          "type": "image-and-text",
+          "settings": {
+            "country_iso": "*",
+            "title": "",
+            "block_wrapper_classes": "col-span-12 flex justify-center  px-4 items-center text-center relative",
+            "block_title": "",
+            "title_classes": "text",
+            "description": "<h2 class=\"text-center font-bebas text-2xl lg:text-4xl\">Comfortable, supportive, and built to fit just right📏</h2>\n<br>\n\n<p class=\"text-md lg:text-lg\">\nShop the full range of OddBalls men’s underwear – from colourful printed boxers to classic briefs – all designed for comfort and durability.. Whether you’re looking to buy men’s boxers online, stock up on everyday essentials, browse our partnership collections, or find the perfect men’s underwear gift, you’ll find it here.\nOur collection includes <a href=\"https://www.myoddballs.com/collections/him-individuals\" class=\"link\"> men’s boxer shorts</a>, <a href=\"https://www.myoddballs.com/collections/her-individuals\" class=\"link\">briefs</a>, <a href=\"https://www.myoddballs.com/collections/mens-loose-fit-boxers\" class=\"link\">loose-fit cotton boxers</a>, and <a href=\"https://www.myoddballs.com/collections/bamboo-boxer-shorts\" class=\"link\"> bamboo underwear</a>, each crafted from premium, breathable fabrics that keep you comfortable all day. We design underwear that moves with you – whether you’re at the gym, at work, relaxing at home, or unwrapping them as a gift.\n\n</p> <br> \n<p class=\"text-md lg:text-lg\">\n</p><h2 class=\"text-center font-bebas text-2xl lg:text-4xl\">Why Choose OddBalls Men’s Underwear?</h2>\n<br>\n\n<p class=\"text-md lg:text-lg\">\nOddBalls is known for bright colours, <a href=\"https://www.myoddballs.com/pages/shop-by-design#partnerships\" class=\"link\">exclusive licensed designs</a>, and a fit you’ll want to wear every day. But it’s not just about looks – our men’s underwear is made with flatlock stitching to prevent irritation, supportive waistbands that won’t dig in, and fabrics chosen for breathability, softness, and stretch.\n\n</p> <br> \n<p class=\"text-md lg:text-lg\">\n</p><h2 class=\"text-center font-bebas text-2xl lg:text-4xl\">Shop by Style, Fabric, or Occasion</h2>\n<br>\n\n<p class=\"text-md lg:text-lg\">\nLooking for the best men’s underwear for sports? Try our bamboo range for moisture-wicking performance. Want comfortable everyday boxers? Our cotton styles are soft, breathable, and long-lasting. Need a <a href=\"https://www.myoddballs.com/collections/gifts-for-him\" class=\"link\">gift</a>? Explore our <a href=\"https://www.myoddballs.com/collections/mens-underwear-bundles\" class=\"link\">men’s underwear bundles</a>, <a href=\"https://www.myoddballs.com/collections/oddballs-subscriptions\" class=\"link\">subscriptions</a>, and licensed collections for presents that are as fun as they are practical.\n\n</p>",
+            "description_classes": "",
+            "svg": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_and_text_eQxJWG"
+      ],
+      "name": "Image Text Grid",
+      "settings": {
+        "outer_wrapper_classes": "relative pb-6 boxing-day-bottom-text",
+        "inner_wrapper_classes": "col-span-12 flex justify-center  py-3 px-4 items-center text-center",
+        "grid_wrapper_classes": "",
+        "title": "",
+        "title_classes": "text-center text-base font-semibold uppercase text-gray-600 tracking-wider",
+        "section_bg_colour": "",
+        "block_bg_colour": "",
+        "block_bg_colour_hover": "",
+        "block_text_colour": "",
+        "block_text_colour_hover": "",
+        "block_image_classes": "",
+        "block_svg_classes": "",
+        "custom_css": ""
+      }
+    },
+    "tabs_and_blocks_eeeYGD": {
+      "type": "tabs-and-blocks",
+      "blocks": {
+        "content_faq_9Vpakr": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "What’s the most comfortable men’s underwear?",
+            "title_text": "What’s the most comfortable men’s underwear?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "Comfort comes down to fit and fabric – bamboo offers a silky, breathable feel, while cotton delivers classic softness.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_WRtkJE": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "How do I choose the right size?",
+            "title_text": "How do I choose the right size?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "Check our size guide for waist measurements – we recommend a snug but non-restrictive fit for maximum comfort.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_T9ahG4": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "What’s the difference between boxers and briefs?",
+            "title_text": "What’s the difference between boxers and briefs?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "Boxers offer more coverage and a relaxed fit, while briefs give closer support – it’s all about personal preference.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_8TqeNK": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "How often should I replace my men’s underwear?",
+            "title_text": "How often should I replace my men’s underwear?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "For hygiene and comfort, it’s recommended to replace underwear every 6–12 months, or sooner if the fabric loses elasticity, becomes worn, or feels less supportive.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_dXLQDN": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "What fabric is best for men’s underwear – cotton or bamboo?",
+            "title_text": "What fabric is best for men’s underwear – cotton or bamboo?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "Both are excellent choices. Cotton is soft, breathable, and durable, while bamboo offers a silky feel, excellent moisture control, and natural odour resistance. It really comes down to personal preference.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_YYBn9G": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "Can I machine wash OddBalls underwear?",
+            "title_text": "Can I machine wash OddBalls underwear?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "Yes – for best results, wash at 30°C and avoid bleach or fabric softener. Air drying will help maintain shape, elasticity, and colour vibrancy.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_YacLqY": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "Which men’s underwear is best for sports or the gym?",
+            "title_text": "Which men’s underwear is best for sports or the gym?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "Bamboo styles are great for active wear thanks to their moisture-wicking and temperature-regulating properties. Our cotton boxers and briefs are also comfortable for lighter activities and everyday wear.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_pziPRy": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "Do you sell men’s underwear gift sets?",
+            "title_text": "Do you sell men’s underwear gift sets?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "Yes – our men’s underwear bundles and licensed collections make great gifts. We also offer subscriptions so they’ll never run out of their favourites.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_kfCUHi": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "Are OddBalls men’s underwear true to size?",
+            "title_text": "Are OddBalls men’s underwear true to size?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "Yes – our sizing is based on standard UK waist measurements. If you’re between sizes, we recommend going up for a more relaxed fit.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        },
+        "content_faq_X4RRir": {
+          "type": "content-faq",
+          "settings": {
+            "tab_identifier": "",
+            "country_iso": "*",
+            "block_wrapper_classes": "col-span-12 flex flex-col items-start justify-start mx-auto text-left w-full border-b border-solid border-black overflow-hidden",
+            "id": "",
+            "title": "What makes OddBalls underwear different?",
+            "title_text": "What makes OddBalls underwear different?",
+            "block_title_classes": "w-full px-8 pt-5 pb-3 text-lg md:text-xl font-medium leading-7 md:leading-5 text-left text-gray-800 font-bebas border-none",
+            "description": "Aside from bold designs and our exclusive partnership prints you won’t find anywhere else, we use premium fabrics, comfortable waistbands, and flatlock stitching to ensure all-day comfort. We also donate to a number of charities when you buy one of our charity partnership designs.",
+            "block_description_classes": "px-8 pb-5 text-sm leading-6 dark:text-gray-400 text-gray-600"
+          }
+        }
+      },
+      "block_order": [
+        "content_faq_9Vpakr",
+        "content_faq_WRtkJE",
+        "content_faq_T9ahG4",
+        "content_faq_8TqeNK",
+        "content_faq_dXLQDN",
+        "content_faq_YYBn9G",
+        "content_faq_YacLqY",
+        "content_faq_pziPRy",
+        "content_faq_kfCUHi",
+        "content_faq_X4RRir"
+      ],
+      "name": "Tabs and Blocks",
+      "settings": {
+        "outer_wrapper_attr": "data-attribute for linking section content",
+        "outer_wrapper_classes": "2xl:mx-auto  py-4 lg:px-20 md:px-6 px-4",
+        "inner_wrapper_classes": "grid grid-cols-12 gap-6",
+        "header_wrapper_classes": "col-span-12 flex flex-col justify-center items-center text-center space-y-4",
+        "all_tabs_wrapper_classes": "",
+        "content_wrapper_classes": "col-span-12 mt-16 grid grid-cols-12",
+        "option_menu_selected": false,
+        "title": "Men’s Underwear FAQs",
+        "title_classes": "uppercase text-center font-bold text-xl",
+        "description": "Here are the answers to our most frequently asked questions about OddBalls men’s underwear. Whether you’re choosing the perfect style, finding the right size, deciding between fabrics, or learning more about our bundles, subscriptions, and licensed collections – you’ll find everything you need right here.",
+        "description_classes": "text-base leading-6 text-center text-gray-600 w-full md:w-10/12"
+      }
+    }
+  },
+  "order": [
+    "custom_liquid_X9jBLp",
+    "main",
+    "ob_conditional_banner_BCbErp",
+    "ob_trust_pilot_widget_3MFawT",
+    "ob_image_text_grid_rGWHDf",
+    "ss_25_things_HnBAgy",
+    "ss_25_rotating_banner_hUTbA4",
+    "ob_tailwind_image_text_video_swiper_7BNzkw",
+    "ss_25_reviews_CThtYa",
+    "ob_three_text_fields_9eE4dF",
+    "lw_circles_text_link_RGbH4A",
+    "ss_25_rotating_banner_X9hK7H",
+    "ss_25_blocks_8ij7e4",
+    "summer_shop_squished_three_tUKPBJ",
+    "ss_25_rotating_banner_bRH8zh",
+    "ss_25_blocks_LfcNDy",
+    "ss_25_reviews_JFGwKV",
+    "summer_shop_squished_three_iFQrgt",
+    "ss_25_blocks_AJgF7K",
+    "ob_image_text_grid_cP4Mxp",
+    "tabs_and_blocks_eeeYGD"
+  ]
+}

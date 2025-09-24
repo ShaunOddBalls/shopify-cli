@@ -1,0 +1,112 @@
+{%- comment %}<locksmith:b253>{% endcomment -%}
+  {%- include 'locksmith' -%}
+{%- comment %}</locksmith:b253>{% endcomment -%}
+
+<!doctype html>
+<html class="js" lang="{{ request.locale.iso_code }}">
+  <head>
+    {{ locksmith_initializations }}
+    <script type="text/javascript" src="{{'custom.js'| asset_url}}" defer></script>
+    <link rel="stylesheet" href="{{ 'custom.css' | asset_url }}">
+<!-- Start of Shoplift scripts -->
+{% render 'shoplift' %}
+<!-- End of Shoplift scripts -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0">
+  <script src="//unpkg.com/alpinejs" defer></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            magenta: {
+              100: 'rgb(252, 207, 230)',
+              500: '#f00f83',
+            }
+          }
+        }
+      }
+    }
+  </script>
+   <link rel="dns-prefetch" href="//loader.wisepops.com">
+
+    {{ content_for_header }}
+
+    <!-- DOOFINDER-SHOPIFY -->
+    {% if content_for_header contains 'doofinder-installed.js' %} {% render 'doofinder-script-tag' %} {% endif %}
+    <script>
+      GEBO = {
+        settings:{
+          shop_money_format: '{{ shop.money_format }}'
+        },
+        helpers:{
+            loader: `<svg class="loading-ele-outer" viewBox="25 25 50 50"><circle class="loading-ele-inner" cx="50" cy="50" r="20" fill="none" stroke-width="4"></circle></svg>`
+        }
+        
+      }
+    </script>
+
+  </head>
+  
+
+  <body x-data="{ sideCart: false }" class="{{ template.name }} {{ product.handle }}">
+    <div id="show-cart" class="w-full h-10 bg-red-500 text-white text-center">
+      open cart
+    </div>
+    {% assign my_product = settings.variable_values_product %}
+        {% if my_product %}
+        {% for variant in my_product.variants %}
+          {% if variant.title == 'FreeGift_MinSpend' %}
+            {% assign fg_threshold = variant.price | money_without_currency  %}
+          {% endif %}
+          {% if variant.title == 'FreeShipping_MinSpend' %}
+            {% assign fs_threshold = variant.price | money_without_currency  %}
+          {% endif %}
+          {% if variant.title == 'FreeGift_Value' %}
+            {% assign fg_value = variant.price | money_without_currency  %}
+          {% endif %}
+        {% endfor %}
+          <div id="free-gift-value" class="hidden">{{ fg_value }}</div>
+          <div id="free-gift-threshold" class="hidden">{{ fg_threshold }}</div>  
+          <div id="free-shipping-threshold" class="hidden">{{ fs_threshold }}</div>
+      {% else %}
+        <p>Product not found.</p>
+      {% endif %}
+    {% render 'popup' %}
+
+    
+  <div class="bg-gray-900 ">
+    <div class="mx-auto flex h-10 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+      {% sections 'ob-top-header-group' %}
+    </div>
+  </div>
+    
+  <div class="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8 mt-2">
+    {% sections 'ob-middle-header-group' %}
+  </div>
+  <div class="">
+    {% sections "ob-bottom-header-group" %}
+    {% sections "ob-mobile-side-nav-group" %}
+  </div>
+
+
+
+  
+
+    <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
+      {{ content_for_layout }}
+    </main>
+
+    {% sections 'ob-footer-group' %}
+
+  
+
+  </body>
+  {% include 'wisepops' %}
+</html>
+<style>
+  .popup-active #chat-button{
+    display:none;
+  }
+</style>

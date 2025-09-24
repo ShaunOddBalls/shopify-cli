@@ -1,0 +1,38 @@
+{% schema %}
+  {
+    "name": "Summer Shop Video",
+    "settings": [
+      {
+        "type": "video",
+        "id": "desktop_video",
+        "label": "Desktop Video"
+      },
+      {
+        "type": "video",
+        "id": "mobile_video",
+        "label": "Mobile Video"
+      },
+    ],
+      "presets": [
+    {
+      "name": "Summer Shop Video",
+    }
+  ]
+  }
+{% endschema %}
+<div class="ss-video">
+  
+<div class="hidden md:block">
+    {{ section.settings.desktop_video | video_tag: autoplay: true, loop: true }}
+
+</div>
+<div class="max-md:block md:hidden">
+  {{ section.settings.mobile_video | video_tag: autoplay: true, loop: true }}
+  
+</div>
+</div>
+<style>
+  .ss-video video{
+    width:100%;
+  }
+</style>

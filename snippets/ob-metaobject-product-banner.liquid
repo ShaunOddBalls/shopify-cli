@@ -1,0 +1,10 @@
+{% assign current_prod = product %}
+{% for banner in shop.metaobjects.product_page_banner.values %}
+  {% for banner_product in banner.product_list.value %}
+    {% if banner_product == current_prod %}
+      <div class="px-4 font-semibold w-full js-product-page-banner py-2 rounded-full mb-2 text center" style="background-color:{{ banner.banner_bg_color.value }}; color: {{ banner.banner_text_color.value }}">
+        {{ banner.banner_text.value }}
+      </div>
+      {% endif %}
+  {% endfor %}
+{% endfor %}

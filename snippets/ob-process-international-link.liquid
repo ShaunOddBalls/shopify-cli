@@ -1,0 +1,27 @@
+{%- comment -%}Formats URL to ensure proper market folder inclusion. Handles absolute and relative URLs. Usage: {% render 'link-' url: some_url %}{%- endcomment -%}
+{% comment %}
+{%- assign is_absolute = false -%}
+{%- if url contains shop.url -%}
+  {%- assign is_absolute = true -%}
+{%- endif -%}
+{%- assign formatted_url = url -%}
+{%- if is_absolute -%}
+  {%- assign formatted_url = url | remove: shop.url -%}
+{%- endif -%}
+{%- assign market_folder = routes.root_url | remove: '/' -%}
+{%- if formatted_url contains market_folder -%}{%- assign has_market_folder = true -%}{%- else -%}{%- assign has_market_folder = false -%}{%- endif -%}
+{%- if market_folder != blank -%}
+  {%- unless has_market_folder -%}
+    {%- unless formatted_url contains '/' -%}
+      {{- routes.root_url -}}/{{- formatted_url -}}
+    {%- else -%}
+      {{- routes.root_url -}}{{- formatted_url -}}
+    {%- endunless -%}
+  {%- else -%}
+    {{- formatted_url -}}
+  {%- endunless -%}
+{%- else -%}
+  {{- formatted_url -}}
+{%- endif -%}
+{% endcomment %}{%- comment -%}Formats URL to ensure proper market folder inclusion. Handles absolute and relative URLs. Usage: {% render 'link-' url: some_url %}{%- endcomment -%}{%- assign is_absolute = false -%}{%- assign clean_url = url | strip -%}{%- assign clean_shop_url = shop.url | strip -%}{% if clean_url contains clean_shop_url %}{% assign is_absolute = true %}{% endif %}{%- assign formatted_url = url -%}{%- if is_absolute -%}{%- assign formatted_url = url | remove: shop.url -%}{%- endif -%}{%- assign market_folder = routes.root_url | remove: '/' -%}{%- if formatted_url contains market_folder -%}{%- assign has_market_folder = true -%}{%- else -%}{%- assign has_market_folder = false -%}{%- endif -%}
+{%- if market_folder != blank -%}{%- unless has_market_folder -%}{%- unless formatted_url contains '/' -%}{{- routes.root_url -}}/{{- formatted_url -}}{%- else -%}{{- routes.root_url -}}{{- formatted_url -}}{%- endunless -%}{%- else -%}{{- formatted_url -}}{%- endunless -%}{%- else -%}{{- formatted_url -}}{%- endif -%}

@@ -1,0 +1,76 @@
+{% comment %}
+  Snippet: Accepts an image URL and renders a responsive <picture> tag
+  Usage:
+  {% render 'srcset-image-responsive',
+     image: section.settings.image,
+     class: 'my-class',
+     alt: 'Alt text',
+     loading: 'lazy',           // or 'eager'
+     size: 'mobile' or 'desktop',
+     full_width: true or false  // optional
+  %}
+{% endcomment %}
+
+{%- assign class_name = class | default: '' -%}
+{%- assign alt_text = alt | default: '' -%}
+{%- assign loading_attr = loading | default: 'lazy' -%}
+{%- assign size_mode = size | default: 'mobile' -%}
+{%- assign is_full_width = full_width | default: false -%}
+
+{%- if size_mode == "mobile" -%}
+  {%- assign widths = '190,290,390,490,590,690,768' | split: ',' -%}
+  {%- if is_full_width -%}
+    {%- assign sizes_attr = '100vw' -%}
+  {%- else -%}
+    {%- assign sizes_attr = '(min-width: 700px) 590px, (min-width: 600px) 490px, (min-width: 500px) 390px, (min-width: 400px) 298px, 80vw' -%}
+  {%- endif -%}
+
+  <picture>
+    <source
+      media="(max-width: 768px)"
+      srcset="
+        {%- for w in widths -%}
+          {{ image | image_url: width: w | strip }} {{ w }}w{% unless forloop.last %}, {% endunless %}
+        {%- endfor -%}
+      "
+      sizes="{{ sizes_attr }}"
+    >
+    <img
+      src="{{ image | image_url: width: 768 }}"
+      alt="{{ alt_text }}"
+      loading="{{ loading_attr }}"
+      class="{{ class_name }}"
+      sizes="{{ sizes_attr }}"
+      width="768"
+      height="auto"
+    >
+  </picture>
+
+{%- elsif size_mode == "desktop" -%}
+  {%- assign widths = '768,1200,1500,2400' | split: ',' -%}
+  {%- if is_full_width -%}
+    {%- assign sizes_attr = '100vw' -%}
+  {%- else -%}
+    {%- assign sizes_attr = '(min-width: 1500px) 1400px, (min-width: 1200px) 1100px, (min-width: 768px) 768px, 90vw' -%}
+  {%- endif -%}
+
+  <picture>
+    <source
+      srcset="
+        {%- for w in widths -%}
+          {{ image | image_url: width: w | strip }} {{ w }}w{% unless forloop.last %}, {% endunless %}
+        {%- endfor -%}
+      "
+      sizes="{{ sizes_attr }}"
+    >
+    <img
+      src="{{ image | image_url: width: 1500 }}"
+      alt="{{ alt_text }}"
+      loading="{{ loading_attr }}"
+      class="{{ class_name }}"
+      sizes="{{ sizes_attr }}"
+      width="1500"
+      height="auto"
+    >
+  </picture>
+{%- endif -%}

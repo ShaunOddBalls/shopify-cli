@@ -1,0 +1,62 @@
+{% schema %}
+  {
+    "name": "coppafeel-blocks",
+    "settings": [
+
+    ],
+    "blocks": [
+        {
+          "type": "collection_block",
+          "name": "Collection block",
+          "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "image",
+                    "label": "image"
+
+                },
+                {
+                    "type": "text",
+                    "id": "buttontext",
+                    "label": "button text"
+                 },
+                 {
+                    "type":"collection",
+                    "id": "collection",
+                    "label": "collection"
+                },
+                {
+                "type": "text",
+                "id": "classes",
+                "label": "button classes",
+                "default": "px-2 md:px-4 py-1 md:py-2 bg-white rounded-lg"
+            }
+            ]
+        }
+    ],
+    "presets":[{"name":"coppafeel-blocks"}]
+  }
+{% endschema %}
+<div class="grid md:grid-cols-2 w-screen coppafeel-block-wrapper">
+{% for block in section.blocks %}
+{%- comment %}<locksmith:c3dd>{% endcomment -%}
+  {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: block.settings.collection, subject_parent: section, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+{%- comment %}</locksmith:c3dd>{% endcomment -%}
+<div class="relative">
+
+    {{ block.settings.image | media_tag: image_size: '800x' }}
+    <a href="/collections/{{ block.settings.collection }}" class="absolute bottom-0 w-full flex justify-center z-10">
+        <div class="{{ block.settings.classes }}">
+            {{ block.settings.buttontext }}
+        </div>
+    </a>
+</div>
+{% endfor %}
+
+</div>
+
+<style>
+    .coppafeel-block-wrapper img{
+    width:100%;
+}
+</style>

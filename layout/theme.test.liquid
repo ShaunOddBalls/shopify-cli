@@ -1,0 +1,553 @@
+{%- comment %}<locksmith:d9ce>{% endcomment -%}
+  {%- include 'locksmith' -%}
+{%- comment %}</locksmith:d9ce>{% endcomment -%}
+
+<!doctype html>
+<html lang="{{ request.locale.iso_code }}">
+  <head>
+    {{ locksmith_initializations }}
+    {% assign current_url = 'https://' | append: request.host | append: request.path %}
+    {% if current_url == 'https://www.myoddballs.com/collections/obble/obble' %}
+      <link rel="canonical" href="https://www.myoddballs.com/obble">
+    {% endif %}
+    <!--
+      <script
+        src="https://js-de.sentry-cdn.com/48fbd7415c2ffc9bd7d328ccaa9de255.min.js"
+        crossorigin="anonymous"
+      ></script>
+    -->
+    {%- if settings.favicon -%}
+      <link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png">
+    {%- endif -%}
+    {% render 'ob-basic-structure-css' %}
+    <!-- Preconnect for performance -->
+    <!--
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    -->
+    <link rel="preconnect" href="https://static.klaviyo.com">
+    <link rel="preconnect" href="https://static.rechargecdn.com">
+    <link rel="preconnect" href="https://ecommplugins-scripts.trustpilot.com">
+    <link rel="preconnect" href="https://cdn.getcarro.com">
+
+    <!-- DNS prefetch -->
+    <link rel="dns-prefetch" href="//static.klaviyo.com">
+    <link rel="dns-prefetch" href="//static.rechargecdn.com">
+    <link rel="dns-prefetch" href="//cdn.getcarro.com">
+    <link rel="dns-prefetch" href="//cdn.shopify.com">
+    <link rel="dns-prefetch" href="//ajax.googleapis.com">
+
+    <!-- Preload important fonts -->
+    <!--
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    -->
+    <!-- Critical CSS -->
+    <!-- Include Toastify CSS -->
+    <!--
+      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    -->
+    <link rel="stylesheet" href="{{ 'ob-scroll.carousel.min.css' | asset_url }}">
+    <link rel="stylesheet" href="{{ 'ob-swiper.min.css' | asset_url }}">
+    <link rel="stylesheet" href="{{ 'ob-style.css' | asset_url }}">
+    <link rel="stylesheet" href="{{ 'custom.css' | asset_url }}">
+    <!-- css for pages -->
+    {% if template.suffix == 'perfect-pair' %}
+      <link rel="stylesheet" href="{{ 'ob-perfect-pair.css' | asset_url }}">
+    {% endif %}
+    {% if template contains 'careers' %}
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap">
+      <link rel="stylesheet" href="{{ 'ob-careers.css' | asset_url }}">
+    {%- endif -%}
+    {% render 'ob-theme-seo-microdata-schema' %}
+    {% render 'ob-theme-open-graph' %}
+
+    {% assign customer_id = '' %}
+    {% assign sha_customer_email = '' %}
+
+    {% if customer %}
+      {% assign customer_id = customer.id %}
+      {% assign sha_customer_email = customer.email %}
+    {% endif %}
+
+    <script type="text/javascript">
+      (function (a, b, c, d, e, f, g) {
+        e['ire_o'] = c;
+        e[c] =
+          e[c] ||
+          function () {
+            (e[c].a = e[c].a || []).push(arguments);
+          };
+        f = d.createElement(b);
+        g = d.getElementsByTagName(b)[0];
+        f.async = 1;
+        f.src = a;
+        g.parentNode.insertBefore(f, g);
+      })('https://utt.impactcdn.com/A5336542-fbf1-4d8a-baa6-f314a65c936c1.js', 'script', 'ire', document, window);
+      ire('identify', {
+        customerid: '{{ customer_id }}' /*INSERT CUSTOMER ID*/,
+        customeremail: '{{ sha_customer_email }}' /*INSERT SHA1 HASHED CUSTOMER EMAIL*/,
+      });
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Specify a custom TailwindCSS configuration -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontSize: {
+              xxs: ['.55rem', '0.9rem'],
+            },
+            colors: {
+              cyan: {
+                DEFAULT: '#009FE2',
+                50: '#C8EFFF',
+                100: '#AFE7FF',
+                200: '#7CD8FF',
+                300: '#49C9FF',
+                400: '#16BAFF',
+                500: '#009FE2',
+                600: '#007BAF',
+                700: '#00577C',
+                800: '#003349',
+                900: '#000F16',
+              },
+              magenta: {
+                DEFAULT: '#F00F83',
+                50: '#FEE7F3',
+                100: '#FCCFE6',
+                200: '#F99FCD',
+                300: '#F66FB5',
+                400: '#F33F9C',
+                500: '#F00F83',
+                600: '#C00C69',
+                700: '#90094F',
+                800: '#600634',
+                900: '#30031A',
+              },
+            },
+          },
+        },
+      };
+    </script>
+
+    <script>
+      var Shopify = Shopify || {};
+      Shopify.money_format = '{{ shop.money_format }}';
+    </script>
+
+     <!-- <script>
+      let translations = JSON.parse(`{{ 'js' | t: json | replace: '&quot;', '"' | replace: '=&gt;', ':' | replace: '&gt;', '>' |  replace: '&lt;', '<' | replace: '"=>"', ":" }}`)
+        console.log("---------------------------------");
+      console.log(translations);
+      console.log("_-----------------------------------")
+    </script> -->
+    {{ content_for_header }}
+
+    <script>
+      window.Shopify = window.Shopify || {theme: {id: {{ theme.id }}, role: '{{ theme.role }}' } };
+      window._template = {
+          directory: "{{ template.directory }}",
+          name: "{{ template.name }}",
+          suffix: "{{ template.suffix }}"
+      }
+    </script>
+    <script src="https://cdn.intelligems.io/f79ffe6040d4.js"></script>
+
+    {%- if localization.available_countries.size > 1 or localization.available_languages.size > 1 -%}
+      {{ 'component-localization-form.css' | asset_url | stylesheet_tag: preload: true }}
+      <script src="{{ 'localization-form.js' | asset_url }}" defer="defer"></script>
+    {%- endif -%}
+
+    <script>
+      window.shopUrl = '{{ request.origin }}';
+      // ... rest of existing script ...
+    </script>
+  </head>
+  <body
+    {{ template.name }}
+    id="{{ page_title | handle }}"
+    data-theme="{{ theme.name | handle }}"
+    customer_status="{{ login_check }}"
+    live
+    class="
+              freeShippingA
+      {% if customer %} customer-logged-in {% endif %}
+      template-{{ template.name }} template-{{ template | replace: '.', ' ' | handle }}
+      {% if settings.enable_quick_buy == false %} quick-buy-disabled {% endif %}
+      {% if settings.thumb_resize == "fit" %} fit-product-grid-images {% endif %}
+    "
+    currency="{{ cart.currency.iso_code }}"
+    currency-symbol="{{ cart.currency.symbol }}"
+    current_currency="{{ current_currency }}"
+    current_country="{{ current_country }}"
+    market="{{ localization.market.handle }}"
+    language="{{ localization.language.iso_code }}"
+    country-url="{{ localization.language.root_url }}"
+    country-iso="{{ localization.country.iso_code }}"
+  >
+    {% comment %}
+      <div style= "position:absolute; z-index:99999999999999999; background-color: white">
+        {% assign my_product = settings.variable_values_product %}
+      {% assign fg_value = "false" %}
+      {% assign fg_threshold = "false" %}
+      {% assign fs_threshold = "false" %}
+      {% if my_product %}
+        {% for variant in my_product.variants %}
+          {{ variant.title }}
+
+          {% if variant.option1 == "FreeGift_MinSpend" %}
+
+            {% if variant.option2 == localization.country.iso_code %}
+              {% assign fg_threshold = variant.price | money_without_currency %}
+            {% endif %}
+          {% endif %}
+          {% if variant.option1 == "FreeShipping_MinSpend" %}
+            {% if variant.option2 == localization.country.iso_code %}
+              {% assign fs_threshold = variant.price | money_without_currency %}
+            {% endif %}
+          {% endif %}
+          {% if variant.option1 == "FreeGift_Value" %}
+            {% if variant.option2 == localization.country.iso_code %}
+              {% assign fg_value = variant.price | money_without_currency %}
+            {% endif %}
+          {% endif %}
+        {% endfor %}
+      {% else %}
+        <p>Product not found.</p>
+      {% endif %}
+
+      </div>
+    {% endcomment %}
+
+    <div id="top-right-toast" class="fixed toast top-2 right-2"></div>
+    <div id="top-left-toast" class="fixed toast top-2 left-2"></div>
+    <div id="bottom-right-toast" class="fixed toast bottom-2 right-2"></div>
+    <div id="bottom-left-toast" class="fixed toast bottom-2 left-2"></div>
+    {% render 'ob-fb-tracking' %}
+    {% render 'ob-tracking-scripts' %}
+    {% sections 'ob-header-group' %}
+
+    {% if canonical_url contains '/a/refer-a-friend/' %}
+      <div id="refer-a-freind-modal" class="hidden inset-0 h-full w-full bg-black bg-opacity-70 z-40">
+        <div class="js-refer-modal absolute w-full h-full inset-0 z-1 fixed"></div>
+        <div class="absolute transform -translate-y-1/2 -translate-x-1/2 left-1/2 top-1/2 z-2 w-11/12 max-w-lg w-full bg-white rounded-md max-h-90v border-2 border-solid border-black md:p-10 px-5 py-2">
+          <div class="w-full relative">
+            <div
+              class="js-refer-modal -right-2 top-0 lg:-right-5 lg:-top-5 absolute border-2 bg-white border-solid border-black rounded-md btn-shadow-outline p-1 cursor-pointer"
+              style="z-index: 1;"
+            >
+              <svg
+                aria-hidden="true"
+                focusable="false"
+                role="presentation"
+                width="17"
+                height="17"
+                viewBox="0 0 17 17"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M1.41418 0L16.9705 15.5563L15.5563 16.9706L-2.89679e-05 1.41421L1.41418 0Z" fill="#111111"></path>
+                <path d="M16.9706 1.41431L1.41423 16.9707L1.85966e-05 15.5564L15.5564 9.31025e-05L16.9706 1.41431Z" fill="#111111"></path>
+              </svg>
+            </div>
+          </div>
+          <div id="refer-a-friend-widget"></div>
+        </div>
+      </div>
+
+      {% section 'ob-refered-friend-hero-banner' %}
+      {% section 'ob-refered-friend-reason' %}
+      {% section 'ob-refer-a-friend-trust-pilot' %}
+      {% section 'ob-refered-friend-faq' %}
+    {% endif %}
+    {{ content_for_layout }}
+
+    {% section 'ob-footer-links' %}
+    <script>
+      GEBO = {
+        settings: {
+          shop_money_format: '{{ shop.money_format }}',
+        },
+        helpers: {
+          loader: `<svg class="loading-ele-outer" viewBox="25 25 50 50"><circle class="loading-ele-inner" cx="50" cy="50" r="20" fill="none" stroke-width="4"></circle></svg>`,
+        },
+      };
+    </script>
+
+    {% render 'ob-cart-drawer' %}
+    {% assign my_product = settings.variable_values_product %}
+    {% assign fg_value = 'false' %}
+    {% assign fg_threshold = 'false' %}
+    {% assign fs_threshold = 'false' %}
+    {% assign 100_money = "false" %}
+    {% assign default_country = 'Default' %}
+
+    {% if my_product %}
+      {% for variant in my_product.variants %}
+        {% if variant.option1 == 'FreeGift_MinSpend' %}
+          {% if variant.option2 == localization.country.iso_code %}
+            {% assign fg_threshold = variant.price | money_without_currency %}
+          {% elsif variant.option2 == default_country %}
+            {% assign fg_threshold_default = variant.price | money_without_currency %}
+          {% endif %}
+        {% endif %}
+        {% if variant.option1 == 'FreeShipping_MinSpend' %}
+          {% if variant.option2 == localization.country.iso_code %}
+            {% assign fs_threshold = variant.price | money_without_currency %}
+          {% elsif variant.option2 == default_country %}
+            {% assign fs_threshold_default = variant.price | money_without_currency %}
+          {% endif %}
+        {% endif %}
+        {% if variant.option1 == 'FreeGift_Value' %}
+          {% if variant.option2 == localization.country.iso_code %}
+            {% assign fg_value = variant.price | money_without_currency %}
+          {% elsif variant.option2 == default_country %}
+            {% assign fg_value_default = variant.price | money_without_currency %}
+          {% endif %}
+        {% endif %}
+        {% if variant.option1 == '100Pounds' %}
+          {% if variant.option2 == localization.country.iso_code %}
+            {% assign 100_money = variant.price | money_without_currency %}
+          {% elsif variant.option2 == default_country %}
+            {% assign 100_money_default = variant.price | money_without_currency %}
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+    {% else %}
+      <p>Product not found.</p>
+    {% endif %}
+
+    {% if fg_value == 'false' and fg_value_default %}
+      {% assign fg_value = fg_value_default %}
+    {% endif %}
+    {% if fg_threshold == 'false' and fg_threshold_default %}
+      {% assign fg_threshold = fg_threshold_default %}
+    {% endif %}
+    {% if fs_threshold == 'false' and fs_threshold_default %}
+      {% assign fs_threshold = fs_threshold_default %}
+    {% endif %}
+    {% if 100_money == "false" and 100_money_default %}
+      {% assign 100_money = 100_money_default %}
+    {% endif %}
+
+    {% if fg_value != 'false' %}
+      <div id="free-gift-value" class="hidden {{ localization.country.iso_code }}">{{ fg_value }}</div>
+    {% else %}
+      <div id="free-gift-value" class="hidden {{ localization.country.iso_code }} not found">
+        {{ 2000 | money_without_currency }}
+      </div>
+    {% endif %}
+    {% if fg_threshold != 'false' %}
+      <div id="free-gift-threshold" class="hidden">{{ fg_threshold }}</div>
+    {% else %}
+      <div id="free-gift-threshold" class="hidden">{{ 4000 | money_without_currency }}</div>
+    {% endif %}
+    {% if fs_threshold != 'false' %}
+      <div id="free-shipping-threshold" class="hidden">{{ fs_threshold }}</div>
+    {% else %}
+      <div id="free-shipping-threshold" class="hidden">{{ 3500 | money_without_currency }}</div>
+    {% endif %}
+    {% if 100_money != "false" %}
+      <input id="100-money" type="hidden" value="{{ 100_money }}">
+    {% else %}
+      <input id="100-money" type="hidden" value="{{ 100000 | money_without_currency }}">
+    {% endif %}
+
+    {% unless template.name == 'cart' %}
+      {% render 'popup' %}
+      <!-- JS -->
+      <!-- Include Toastify JS -->
+      <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script> -->
+      <script src="{{ 'ob-add-to-cart.js' | asset_url }}" defer="defer"></script>
+      <script src="{{ 'ob-scroll.carousel.min.js' | asset_url }}" defer="defer"></script>
+      <script src="{{ 'ob-swiper.min.js' | asset_url }}" defer="defer"></script>
+      <script src="{{ 'ob-accordion.js' | asset_url }}" defer="defer"></script>
+      <script src="{{ 'ob-custom.js' | asset_url }}" defer="defer"></script>
+      <script src="{{ 'custom.js' | asset_url }}" defer="defer"></script>
+      <script src="{{ 'ob-nosto-main-search.js' | asset_url }}" defer="defer"></script>
+
+      {% comment %} Tracking scripts {% endcomment %}
+      {% render 'ob-tracking-scripts' %}
+    {% endunless %}
+
+    {% comment %}Page Scripts {% endcomment %}
+    {% if template.name == 'page' or canonical_url contains '/a/refer-a-friend/' %}
+      <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+      ></script>
+    {% endif %}
+
+    {% case template.suffix %}
+      {% when 'sub-and-save-rebuild' %}
+        <script src="{{ 'ob-sub-selector.js' | asset_url }}" defer="defer"></script>
+
+      {% when 'gift-redeem-selector' %}
+        <script src="{{ 'ob-sub-selector-redeem.js' | asset_url }}" defer="defer"></script>
+
+      {% when 'gift-selector' %}
+        <script src="{{ 'ob-sub-selector-gift.js' | asset_url }}" defer="defer"></script>
+
+      {% when 'buy-pre-paid-subscription' %}
+        <script src="{{ 'ob-gift-sub-selector.js' | asset_url }}" defer="defer"></script>
+
+      {% when 'perfect-pair' %}
+        <script src="{{ 'ob-perfect-pair-2.js' | asset_url }}" defer="defer"></script>
+
+      {% when 'bab-page' %}
+        <script
+          src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"
+        ></script>
+        {% if settings['bab-sale'] == 'off' %}
+          <script type="text/javascript" src="{{'ob-bab.js' | asset_url}}" defer></script>
+        {% else %}
+          <script type="text/javascript" src="{{ 'ob-bab2.js' | asset_url}}" defer></script>
+        {% endif %}
+
+      {% when 'ob-gift-selector' %}
+        <script src="{{ 'ob-gift-selector.js' | asset_url }}" defer="defer"></script>
+
+      {% when 'careers' %}
+        <script src="{{ 'ob-careers.js' | asset_url }}" defer="defer"></script>
+
+      {% when 'ob-discount-selector' %}
+        <script src="{{ 'ob-discount-selector.js' | asset_url }}" defer="defer"></script>
+    {% endcase %}
+
+    {% if canonical_url contains '/a/refer-a-friend/' %}
+      <script type="text/javascript" src="{{ 'ob-redeem-page.js' | asset_url}}" defer></script>
+    {% endif %}
+
+    {% assign pages_arr = 'faqs,contact-us' | split: ',' %}
+    {% assign add_gorgias_chat = 'no' %}
+    {% if template.name == 'index' and template.name == "collection" and template.name == "product" %}
+      {% assign add_gorgias_chat = 'yes' %}
+    {% endif %}
+    {% if template.name == 'page' %}
+      {% if pages_arr contains page.handle %}
+        {% assign add_gorgias_chat = 'yes' %}
+      {% endif %}
+    {% endif %}
+    {% if add_gorgias_chat == 'yes' %}
+    {% else %}
+      <style>
+        #gorgias-chat-container {
+          display: none !important;
+        }
+      </style>
+    {% endif %}
+    <!-- Gorgias Chat Widget Start -->
+    <script
+      id="gorgias-chat-widget-install-v2"
+      src="https://config.gorgias.chat/gorgias-chat-bundle-loader.js?applicationId=29798"
+      defer
+    ></script>
+    <script id="gorgias-chat-shopify-install">
+      !(function (_) {
+        (_.SHOPIFY_PERMANENT_DOMAIN = '{{shop.permanent_domain}}'),
+          (_.SHOPIFY_CUSTOMER_ID = '{{customer.id}}'),
+          (_.SHOPIFY_CUSTOMER_EMAIL = '{{customer.email}}');
+      })(window || {});
+    </script>
+    <!-- Gorgias Chat Widget End -->
+    <!--
+      <script
+        src="{{ 'instant-page-5.2.0.js' | asset_url }}"
+        type="module"
+        integrity="sha384-jnZyxPjiipYXnSU0ygqeac2q7CVYMbh84q0uHVRRxEtvFPiQYbXWUorga2aqZJ0z"
+      ></script>
+    -->
+
+    {% capture collection_xmas_banner %}
+        <div class="px-1 pb-2 gap-2 {%  if settings.christmas_banner_metaobject_collection.popup_optional.value.system.handle %}js-open-generic-banner{% endif %} flex  text-xs items-center" style="color:{{ settings.christmas_banner_metaobject_collection.text_color.value }}; background-color:{{ settings.christmas_banner_metaobject.banner_color.value }}" data-metaobjecthandle="{{ settings.christmas_banner_metaobject.popup_optional.value.system.handle }}">
+          {{ settings.christmas_banner_metaobject_collection.svg_icon_side_html.value }}
+          {{ settings.christmas_banner_metaobject_collection.banner_header.value }}
+        </div>                    
+        {% endcapture %}
+
+    {% if settings['xmas-delivery-collection'] == 'on' %}
+      {% assign show_banner = false %}
+      {% unless settings.christmas_banner_metaobject_collection.countrys_to_show_on.value == blank %}
+        {% for value in settings.christmas_banner_metaobject_collection.countrys_to_show_on.value %}
+          {% if value == cart.currency.iso_code %}
+            {% assign show_banner = true %}
+          {% endif %}
+        {% endfor %}
+      {% else %}
+        {% assign show_banner = true %}
+      {% endunless %}
+      {% if show_banner %}
+        <div id="christmas_banner_metaobject_collection">
+          {{ collection_xmas_banner }}
+        </div>
+      {% endif %}
+    {% endif %}
+
+    {% comment %} Impact tracking {% endcomment %}
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        try {
+          let retryCount = 0;
+          const maxRetries = 7;
+
+          function waitForShopifyAPI() {
+            if (window.Shopify && window.Shopify.customerPrivacy) {
+              console.log('Shopify customer privacy API detected.');
+
+              var consentStatus = window.Shopify.customerPrivacy.getTrackingConsent();
+              console.log('Initial consent status:', consentStatus);
+
+              const newConsentStatus = consentStatus === 'yes' ? 'granted' : 'denied';
+              console.log('Updating Impact consent on page load:', newConsentStatus);
+
+              updateImpactConsent(newConsentStatus);
+            } else if (retryCount < maxRetries) {
+              retryCount++;
+              console.warn(`Shopify customer privacy API not available, retrying... (${retryCount}/${maxRetries})`);
+              setTimeout(waitForShopifyAPI, 500); // Retry every 500ms
+            } else {
+              console.error('Max retries reached. Shopify customer privacy API not available.');
+            }
+          }
+
+          // Start checking for API availability
+          waitForShopifyAPI();
+
+          // Listen for consent changes
+          document.addEventListener('visitorConsentCollected', function () {
+            if (window.Shopify && window.Shopify.customerPrivacy) {
+              console.log('visitorConsentCollected event detected.');
+
+              const consentStatus = window.Shopify.customerPrivacy.getTrackingConsent();
+              const newConsentStatus = consentStatus === 'yes' ? 'granted' : 'denied';
+
+              console.log('Consent changed:', newConsentStatus);
+              updateImpactConsent(newConsentStatus);
+            }
+          });
+
+          function updateImpactConsent(consentStatus) {
+            console.log('Preparing to update Impact consent with status:', consentStatus);
+
+            if (typeof ire === 'function') {
+              console.log('Impact consent function found, updating...');
+              ire('consent', 'update', { tracking: consentStatus });
+              console.log('Impact consent updated:', consentStatus);
+            } else {
+              console.error('Impact tracking function not found.');
+            }
+          }
+        } catch (error) {
+          console.log('Impact: ', error);
+        }
+      });
+    </script>
+  </body>
+</html>

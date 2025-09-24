@@ -1,0 +1,167 @@
+<!-- sections/ob-collection-product-slider.liquid -->
+  {% assign markets_to_show = section.settings.markets_to_show_on | split: ',' %}
+  {% assign markets_to_exclude_on = section.settings.markets_to_exclude_on | split: ',' %}
+  {% assign show_on_all_markets = section.settings.show_on_all_markets %}
+  {% assign show_block = 'false' %}
+  {%- capture show_block -%}
+  {%- render 'ob-process-show-on-by-market', show_on_all_markets: show_on_all_markets, markets_to_show: markets_to_show, markets_to_exclude_on: markets_to_exclude_on -%}
+  {% endcapture %}
+  <!-- show_block:  {{ show_block }} -->
+{% if section.settings.collection != blank or section.settings.product_list != blank %}
+  {% assign collection = section.settings.collection %}
+  {% if show_block contains 'true' %}
+
+
+  
+  <div
+    data-target="product-tag-recommendations"
+    class="js-ptab-target2 blend-dividex {{ section.settings.wrapper_class }}"
+  >
+    {% capture url %}{{ section.settings.collection.url }}{% endcapture %}
+    {% capture title %}{{ section.settings.title }}{% endcapture %}
+    <div
+      id="slider-title-{{ url | replace: '/',''}}"
+      class="{% if collection.products %}{% if collection.products.size == 0 %}{% if section.settings.product_list.size == 0 %}hidden{% endif %}{% endif %}{% endif %} {{ section.settings.text_class }}"
+    >
+      {{ title }}
+    </div>
+    <tag-product-recommendations2
+      id="{{ section.id }}-{{ url.handle }}-1"
+      class="{% if collection.products %}{% if collection.products.size == 0 %}{% if section.settings.product_list.size == 0 %}hidden{% endif %}{% endif %}{% endif %} m-6 tag-product-recommendations"
+      handle="{{ url }}"
+    >
+      {% assign label_sep = '' -%}
+      {%- include 'ob-include-set-current-country' -%}
+      {%- for block in section.blocks %}
+        {%- include 'ob-include-country-ok-to-proceed', thingObj: block -%}
+        {% if country_ok_to_proceed == 'yes' -%}
+          {% if block.settings.label != blank %}
+            {{ label_sep }}{{ block.settings.label }}
+            {% assign label_sep = ', ' -%}
+          {% endif %}
+        {%- endif -%}
+      {%- endfor %}
+
+      {% if collection.products.size > 0 or section.settings.product_list.size > 0 %}
+        <div class="tag-product-recommendations block m-6">
+          <css-slider
+            class="css-slider--simple-dots relative"
+            data-options='
+              {
+                "selector": ".cart-product-item",
+                "navigation": false,
+                "groupCells": true
+              }
+            '
+            style="display:flex"
+          >
+            {% if section.settings.product_list != blank %}
+              {% for product in section.settings.product_list %}
+                <div class="cart-product-item w-1/2 md:w-1/2 lg:w-1/3 xxl:w-1/4 xxxl:w-1/5 outline-gray my-1 cart-product-item-{{ product.title | replace:" ", "-" }}">
+                  {%- render 'ob-product-item', product: product, index: forloop.index0 -%}
+                </div>
+              {% endfor %}
+            {% else %}
+              {%- comment %}<locksmith:ecbe>{% endcomment -%}
+                {%- assign locksmith_f583_forloop__size = 0 %}{% for product in collection.products limit: 16 %}{% capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product, subject_parent: collection, variable: 'transparent' %}{% endcapture %}{% if var == 'true' %}{% assign locksmith_f583_forloop__size = locksmith_f583_forloop__size | plus: 1 %}{% endif %}{% endfor %}{% assign locksmith_f583_forloop__index = nil -%}
+              {%- comment %}</locksmith:ecbe>{% endcomment -%}
+              {% for product in collection.products limit: 16 %}
+                {%- comment %}<locksmith:d741>{% endcomment -%}
+                  {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product, subject_parent: collection, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% if locksmith_f583_forloop__index == nil %}{% assign locksmith_f583_forloop__index = 1 %}{% assign locksmith_f583_forloop__index0 = 0 %}{% else %}{% assign locksmith_f583_forloop__index = locksmith_f583_forloop__index | plus: 1 %}{% assign locksmith_f583_forloop__index0 = locksmith_f583_forloop__index0 | plus: 1 %}{% endif %}{% if locksmith_f583_forloop__index == 1 %}{% assign locksmith_f583_forloop__first = true %}{% else %}{% assign locksmith_f583_forloop__first = false %}{% endif %}{% if locksmith_f583_forloop__index == locksmith_f583_forloop__size %}{% assign locksmith_f583_forloop__last = true %}{% else %}{% assign locksmith_f583_forloop__last = false %}{% endif %}{% assign locksmith_f583_forloop__rindex = locksmith_f583_forloop__size | minus: locksmith_f583_forloop__index | minus: 1 %}{% assign locksmith_f583_forloop__rindex0 = locksmith_f583_forloop__size | minus: locksmith_f583_forloop__index0 | minus: 1 %}{% else %}{% continue %}{% endif -%}
+                {%- comment %}</locksmith:d741>{% endcomment -%}
+                {% if product.available %}
+                  <div class="cart-product-item w-1/2 md:w-1/2 lg:w-1/3 xxl:w-1/4 xxxl:w-1/5 outline-gray my-1 cart-product-item-{{ product.title | replace:" ", "-" }}">
+                    {%- render 'ob-product-item', product: product, index: locksmith_f583_forloop__index0 -%}
+                  </div>
+                {% endif %}
+              {%- endfor -%}
+            {% endif %}
+
+            <div
+              class="css-slider-navigation-container absolute bottom-0 left-1/2 temp-dots"
+              style="transform:translate(-50%, -20px)"
+            >
+              <div class="css-slider-dot-navigation" style="display: block;">
+                <button class="css-slider-dot" data-index="0"></button>
+                <button class="css-slider-dot" data-index="1"></button>
+                <button class="css-slider-dot" data-index="2"></button>
+                <button class="css-slider-dot" data-index="3"></button>
+              </div>
+            </div>
+          </css-slider>
+        </div>
+      {% endif %}
+    </tag-product-recommendations2>
+  </div>
+  {% endif %}
+{% endif %}
+
+{% schema %}
+{
+  "name": "Collection Products",
+  "settings": [
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Pick a collection"
+    },
+    {
+      "type": "product_list",
+      "id": "product_list",
+      "label": "Product List",
+      "limit": 16
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title (optional)"
+    },
+    {
+      "type": "text",
+      "id": "wrapper_class",
+      "label": "Wrapper Class (optional)"
+    },
+    {
+      "type": "text",
+      "id": "text_class",
+      "label": "Text Class (optional)",
+      "default": "justify-center border-t-0 mx-6 border-color border-solid pb-1 text-center text-lg lg:text-2xl uppercase",
+      "info": " justify-center border-t-0 mx-6 border-color border-solid pb-1 text-center text-lg lg:text-2xl uppercase"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_on_all_markets",
+      "default": true,
+      "label": "Show On All Markets",
+      "info": "on to show on all"
+    },
+    {
+      "type": "text",
+      "id": "markets_to_show_on",
+      "label": "Markets to show on",
+      "info": "Example would look like: uk, en-eu (shows on UK and EU markets)"
+    },
+    {
+      "type": "text",
+      "id": "markets_to_exclude_on",
+      "label": "Markets to Exclude on",
+      "info": "Example would look like: uk, en-eu (Would not show on UK and EU markets)"
+    }
+
+    
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "Label",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,115 @@
+{% schema %}
+  {
+    "name": "App Banner",
+    "settings": [
+      {
+        "type": "text",
+        "id": "mobile_top_text",
+        "label": "mobile top text"
+      },
+      {
+        "type": "text",
+        "id": "mobile_bottom_text",
+        "label": "mobile bottom text"
+      },
+      {
+        "type": "text",
+        "id": "desktop_top_text",
+        "label": "desktop top text"
+      },
+      {
+        "type": "text",
+        "id": "desktop_bottom_text",
+        "label": "desktop bottom text"
+      },
+      {
+        "type": "text",
+        "id": "actual_bottom_text",
+        "label": "actual bottom text"
+      },
+
+      {
+        "type":"image_picker",
+        "id" : "bg_image",
+        "label": "background image"
+      },
+      {
+        "type":"image_picker",
+        "id" : "mobile_bg_image",
+        "label": "mobile background image"
+      },
+      {
+        "type":"image_picker",
+        "id" : "icon_1",
+        "label": "Icon 1"
+      },
+      {
+        "type":"text",
+        "id" : "icon_1_link",
+        "label": "Icon 1 Link"
+      },
+      {
+        "type":"image_picker",
+        "id" : "icon_2",
+        "label": "Icon 2"
+      },
+      {
+        "type":"text",
+        "id" : "icon_2_link",
+        "label": "Icon 2 Link"
+      },
+      {
+        "type": "text",
+        "id": "underline_colour",
+        "label" : "underline colour",
+        "default" : "#7b0000"
+      }
+    ],
+    "presets" : [{
+      "name" : "App Banner"
+    }]
+  }
+{% endschema %}
+
+<div class="w-full app-banner relative marujo">
+  {{ section.settings.bg_image | image_url: width: "1200px" | image_tag: class:"max-md:hidden"  }}
+  {{ section.settings.mobile_bg_image | image_url: width: "1200px" | image_tag: class:"md:hidden"  }}
+  <div class="absolute top-0 pt-8 sm:pt--0 left-0 h-full flex items-start flex-col justify-center pl-4 md:pl-12 w-min">
+    <div class="md:hidden text-white font-bold text-3xl md:text-6xl whitespace-nowrap">
+      {{ section.settings.mobile_top_text }}
+    </div>
+    <div class="md:hidden text-white font-bold text-2xl md:text-5xl whitespace-nowrap">
+      {% assign bottom_text_arr = section.settings.mobile_bottom_text | split: " " %}
+      {% for item in bottom_text_arr %}
+        <span class="underlinex">{{ item }}</span>
+      {% endfor %}
+    </div>
+    <div class="max-md:hidden text-white font-bold text-2xl md:text-5xl whitespace-nowrap">
+      {{ section.settings.desktop_top_text }}
+    </div>
+    <div class="max-md:hidden text-white font-bold text-2xl md:text-5xl whitespace-nowrap">
+      {% assign bottom_text_arr = section.settings.desktop_bottom_text | split: " " %}
+      {% for item in bottom_text_arr %}
+        <span class="underlinex">{{ item }}</span>
+      {% endfor %}
+    </div>
+    <div class="text-white font=bold text-md md:text-2xl whitespace-nowrap">
+      {{ section.settings.actual_bottom_text }}
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-2 app-install-buttons w-full mt-2 md:mt-4">
+      <a href="{{ section.settings.icon_1_link }}">{{ section.settings.icon_1 | image_url: width: "300px", height: "50px" | image_tag  }}   </a>   
+      <a href="{{ section.settings.icon_2_link }}">{{ section.settings.icon_2 | image_url: width: "300px", height: "50px" | image_tag  }}   </a>
+    </div>
+  </div>
+  
+</div>
+
+<style>
+  .app-banner img{
+    width:100%
+  }
+  .underline {
+  text-decoration: underline;
+  text-decoration-color: {{ section.settings.underline_colour }};
+}
+</style>

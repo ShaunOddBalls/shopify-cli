@@ -1,0 +1,90 @@
+{% schema %}
+{
+  "name": "Product page Hero",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "hero_block",
+      "name": "Hero Block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "desktop_image",
+          "label": "Desktop Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "mobile_image",
+          "label": "Mobile Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "desktop_overlay",
+          "label": "Desktop Overlay Image (Optional)"
+        },
+        {
+          "type": "image_picker",
+          "id": "mobile_overlay",
+          "label": "Mobile Overlay Image (Optional)"
+        },
+        {
+          "type": "text",
+          "id": "tags",
+          "label": "Display for Product Tags (comma separated)"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product page Hero"
+    }
+  ]
+}
+{% endschema %}
+
+<div class="w-full space-y-8">
+  {% for block in section.blocks %}
+    {% assign block_tags = block.settings.tags | downcase %}
+    {% assign block_tags = block_tags | split: ',' %}
+    {% assign display_block = false %}
+
+    {% if block_tags == blank %}
+      {% assign display_block = true %}
+    {% else %}
+      {% for tag in product.tags %}
+        {% assign down_case_tag = tag | downcase %}
+        {% if block_tags contains down_case_tag %}
+          {% assign display_block = true %}
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+    {% if display_block %}
+      <div class="relative w-full">
+        <!-- Mobile Background -->
+        {% if block.settings.mobile_image %}
+          <img src="{{ block.settings.mobile_image | img_url: '480x480' }}" 
+               alt="Mobile Hero" class="block sm:hidden w-full h-auto object-cover">
+        {% endif %}
+
+        <!-- Desktop Background -->
+        {% if block.settings.desktop_image %}
+          <img src="{{ block.settings.desktop_image | img_url: '1024x1024' }}" 
+               alt="Desktop Hero" class="hidden sm:block w-full h-auto object-cover">
+        {% endif %}
+
+        <!-- Overlay Images -->
+        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+          {% if block.settings.mobile_overlay %}
+            <img src="{{ block.settings.mobile_overlay | img_url: '480x480' }}" 
+                 alt="Mobile Overlay" class="block sm:hidden h-auto w-auto">
+          {% endif %}
+          {% if block.settings.desktop_overlay %}
+            <img src="{{ block.settings.desktop_overlay | img_url: '1024x1024' }}" 
+                 alt="Desktop Overlay" class="hidden sm:block h-auto w-auto">
+          {% endif %}
+        </div>
+      </div> 
+    {% endif %}
+  {% endfor %}
+</div>

@@ -1,0 +1,29 @@
+{% if section.settings.load_url != blank %}<div style="z-index:9000;" class="ajax-quiz-wrapper" data-url="{{ section.settings.load_url }}" id="quiz_{{ section.settings.template }}"></div>{% endif %}
+{% schema %}
+  {
+    "name": "add sub selector",
+    "settings": [
+      {
+        "type": "text",
+        "id": "load_url",
+        "label": "Load URL"
+      },
+      {
+        "type": "text",
+        "id": "template",
+        "label": "Template name"
+      }
+    ],
+	"presets": [
+      {
+        "name": "add sub selector"
+      }
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

@@ -1,0 +1,142 @@
+<div class="careers-wrapper mx-auto text-gray-900 font-normal">
+  <div class="px-[12px] md:px-[36px] xl:px-3 mt-[50px] lg:mt-[70px]">
+    <div class="text-center mb-2">
+      <h2 class="font-bold mx-auto text-[35px] leading-[44px] md:text-[46px] md:leading-[52px] lg:text-heading-1 text-gray-900 mb-5 md:mb-[30px] max-w-[725px]">
+        {{ section.settings.heading }}
+      </h2>
+      <p class="text-quote md:text-lead-lg text-gray-600 mx-auto max-w-[976px]">{{ section.settings.subheading }}</p>
+    </div>
+    <div class="flex flex-col lg:flex-row lg:flex-wrap gap-x-10 justify-between">
+      {% if section.blocks.size == 0 %}
+        <p class="card-job-title text-[18px] md:text-heading-5 mb-2 text-center mx-auto">
+          No vacancies at the moment. Please check back later.
+        </p>
+      {% else %}
+        {% for block in section.blocks %}
+          {% if block.type == 'category' %}
+            <h5 class="text-heading-4 font-bold text-gray-900 flex-none w-full mt-10 mb-5">
+              {{ block.settings.category }}
+            </h5>
+          {% endif %}
+          {% if block.type == 'job' %}
+            {% assign index = forloop.index %}
+            <div
+              data-popup="theme_job_modal_wrapper-{{ index }}"
+              class="job-card open-popup lg:flex-1 px-8 py-12 transition-all duration-300 bg-white border-2 border-solid  shadow-lg hover:translate-y-[-3px]"
+            >
+              <h3 class="card-job-title font-bold text-[18px] md:text-heading-5 mb-2">{{ block.settings.title }}</h3>
+              <p class="text-base text-gray-600">{{ block.settings.desc }}</p>
+            </div>
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+  {% for block in section.blocks %}
+    {% if block.type == 'job' %}
+      {% assign index = forloop.index %}
+
+      <div id="theme_job_modal_wrapper-{{ index }}" class="page-popup-content" style="display:none; z-index:3;">
+        <div class="popup-safety-screen"></div>
+        <div class="popup-section relative">
+          <div
+            id="theme_job_modal_header-{{ index }}"
+            class="popup-header text-center flex items-center justify-between text-lg"
+          >
+            Apply Now
+            <div class="popup-safety-screen-button">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <line x1="4.93" y1="4.93" x2="19.07" y2="19.07" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></line>
+                <line x1="19.07" y1="4.93" x2="4.93" y2="19.07" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></line>
+              </svg>
+            </div>
+          </div>
+          <div id="theme_job_modal_contents-{{ index }}" class="popup-content overflow-y-scroll mx-4 pb-4 py-2">
+            <div>
+              {{ pages[block.settings.details].content }}
+            </div>
+            {% if block.settings.form_id != blank %}
+              <iframe
+                id="JotFormIFrame-{{ block.settings.form_id }}"
+                class="jobs-form"
+                title="Online Job Application Form"
+                onload="window.parent.scrollTo(0,0)"
+                allowtransparency="true"
+                allow="geolocation; microphone; camera; fullscreen"
+                src="https://form.jotform.com/{{ block.settings.form_id }}"
+                frameborder="0"
+                style="min-width:100%;max-width:100%;height:539px;border:none;"
+                scrolling="no"
+              >
+              </iframe>
+              <script defer src="https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js"></script>
+              <script defer>
+                window.jotformEmbedHandler(
+                  "iframe[id='JotFormIFrame-{{ block.settings.form_id }}']",
+                  'https://form.jotform.com/'
+                );
+              </script>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    {% endif %}
+  {% endfor %}
+</div>
+{% schema %}
+{
+  "name": "Vacancies",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "category",
+      "name": "Category",
+      "settings": [
+        {
+          "type": "text",
+          "id": "category",
+          "label": "Job Category"
+        }
+      ]
+    },
+    {
+      "type": "job",
+      "name": "Job",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Job Title"
+        },
+        {
+          "type": "textarea",
+          "id": "desc",
+          "label": "Job Description"
+        },
+        {
+          "type": "page",
+          "id": "details",
+          "label": "Job Details"
+        },
+        {
+          "type": "text",
+          "id": "form_id",
+          "label": "Form ID",
+          "default": "MTIxMTgz"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
