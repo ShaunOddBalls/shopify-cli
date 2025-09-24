@@ -1,0 +1,34 @@
+{% schema %}
+{
+  "name": "spook-by-design",
+  "presets": [
+    {
+      "name": "spook-by-design"
+    }
+  ],
+  "settings": [{ "type": "text", "id": "title", "label": "title" }],
+  "blocks": [
+    {
+      "name": "block",
+      "type": "block",
+      "settings": [
+        {
+          "type": "text",
+          "label": "button text",
+          "id": "button-text"
+        },
+        {
+          "type": "image_picker",
+          "label": "background image",
+          "id": "background_image"
+        },
+        {
+          "type": "image_picker",
+          "label": "gif",
+          "id": "gif"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

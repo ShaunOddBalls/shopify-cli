@@ -1,0 +1,158 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "spook_by_design_UU4qP4": {
+      "type": "spook-by-design",
+      "blocks": {
+        "block_AQgjrk": {
+          "type": "block",
+          "settings": {
+            "button-text": "shop now",
+            "background_image": "shopify://shop_images/Spooky-BG.webp",
+            "gif": "shopify://shop_images/Spooky_Branding.gif"
+          }
+        }
+      },
+      "block_order": [
+        "block_AQgjrk"
+      ],
+      "name": "spook-by-design",
+      "settings": {
+        "title": ""
+      }
+    },
+    "ob_image_text_grid_7EDhTE": {
+      "type": "ob-image-text-grid",
+      "blocks": {
+        "image_and_text_VG43Ey": {
+          "type": "image-and-text",
+          "settings": {
+            "country_iso": "*",
+            "title": "",
+            "block_wrapper_classes": "col-span-12 flex justify-center  px-4 items-center text-center relative",
+            "block_title": "",
+            "title_classes": "text",
+            "description": "<h2 class=\"text-center font-bebas text-3xl lg:text-4xl\">Sign Up To Enter Our Competition!🎉 </h2>",
+            "description_classes": "",
+            "svg": "",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_and_text_VG43Ey"
+      ],
+      "disabled": true,
+      "settings": {
+        "outer_wrapper_classes": "relative pb-6",
+        "inner_wrapper_classes": "col-span-12 flex justify-center  py-3 px-4 items-center text-center",
+        "grid_wrapper_classes": "mt-6 grid grid-cols-2 gap-0.5 md:grid-cols-3 lg:mt-8",
+        "title": "",
+        "title_classes": "text-center text-base font-semibold uppercase text-gray-600 tracking-wider",
+        "section_bg_colour": "",
+        "block_bg_colour": "",
+        "block_bg_colour_hover": "",
+        "block_text_colour": "",
+        "block_text_colour_hover": "",
+        "block_image_classes": "",
+        "block_svg_classes": "",
+        "custom_css": ""
+      }
+    },
+    "ob_klaviyo_forms_CbcNwF": {
+      "type": "ob-klaviyo-forms",
+      "blocks": {
+        "form_YURChX": {
+          "type": "form",
+          "disabled": true,
+          "settings": {
+            "country_iso": "*",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": "",
+            "slide_active": true,
+            "title": "Northumbria Uni",
+            "klaviyo_id": "YaHfeb",
+            "html_id": "",
+            "wrapper_classes": "",
+            "url_handle": "student-giveaway",
+            "not_url_handle": "",
+            "domains": "*",
+            "device": "all",
+            "customers": "all"
+          }
+        },
+        "form_jpntDe": {
+          "type": "form",
+          "settings": {
+            "country_iso": "*",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": "",
+            "slide_active": true,
+            "title": "Newcastle Pride",
+            "klaviyo_id": "QPxN97",
+            "html_id": "",
+            "wrapper_classes": "",
+            "url_handle": "student-giveaway",
+            "not_url_handle": "",
+            "domains": "*",
+            "device": "all",
+            "customers": "all"
+          }
+        },
+        "form_4UicR7": {
+          "type": "form",
+          "settings": {
+            "country_iso": "*",
+            "show_on_all_markets": true,
+            "markets_to_show_on": "",
+            "markets_to_exclude_on": "",
+            "slide_active": true,
+            "title": "Valentines Day",
+            "klaviyo_id": "XsyydY",
+            "html_id": "",
+            "wrapper_classes": "",
+            "url_handle": "valentines-day",
+            "not_url_handle": "",
+            "domains": "*",
+            "device": "all",
+            "customers": "all"
+          }
+        }
+      },
+      "block_order": [
+        "form_YURChX",
+        "form_jpntDe",
+        "form_4UicR7"
+      ],
+      "settings": {
+        "section_width": "full",
+        "custom_width": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "spook_by_design_UU4qP4",
+    "ob_image_text_grid_7EDhTE",
+    "ob_klaviyo_forms_CbcNwF"
+  ]
+}

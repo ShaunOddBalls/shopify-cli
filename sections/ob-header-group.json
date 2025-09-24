@@ -187,7 +187,6 @@
         },
         "text_block_nTXcRL": {
           "type": "text-block",
-          "disabled": true,
           "settings": {
             "title": "<p>Enjoy 15% Off Your First Order – No Duties, Just Comfort</p>",
             "show_on_all_markets": false,
@@ -197,6 +196,7 @@
         },
         "text_block_tCr3Ei": {
           "type": "text-block",
+          "disabled": true,
           "settings": {
             "title": "<p>World Bamboo Day – <strong>20% off bamboo underwear</strong>🐼🌿</p>",
             "show_on_all_markets": true,
