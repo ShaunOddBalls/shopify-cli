@@ -1,0 +1,76 @@
+.slider-slider{
+    position: absolute;
+    width:33%;
+    height:100%;
+    z-index: -1;
+    border-radius: 999999px;
+    background-color: #f00f83;
+    transition:all 0.3s ease
+}
+.selection-slider:has(input[value="mens"]:checked){
+    .mens-selector{
+        color:white
+    }
+    .slider-slider {
+        transform: translateX(0%);
+    }
+}
+.selection-slider:has(input[value="womens"]:checked){
+    .womens-selector{
+        color:white
+    }
+    .slider-slider {
+        transform: translateX(100%);
+    } 
+}
+.selection-slider:has(input[value="kids"]:checked){
+.kids-selector{
+        color:white
+    }
+    .slider-slider {
+        transform: translateX(200%);
+    }
+}
+.type-choice:has(input:checked){
+    color:#f00f83;
+}
+.size-option:has(input:checked){
+    color:#f00f83;
+}
+.adult-sizes{
+    display: none;
+}
+.kids-sizes{
+    display: none;
+}
+.selection-template-outer-wrapper:has(.adult-size-input:checked) .adult-sizes{
+    display: grid;
+}
+.selection-template-outer-wrapper:has(.kids-size-input:checked) .kids-sizes{
+    display: grid;
+}
+.add-another-cta{
+    pointer-events:none;
+}
+.find-pairs-cta{
+    pointer-events: none;
+}
+.selection-template-outer-wrapper:has(.kids-size-input:checked) .selection-template-inner-wrapper:has(.kids-option-input:checked){
+    .add-another-cta{
+        pointer-events:auto;
+    }
+    .find-pairs-cta{
+        pointer-events: auto;
+    }
+}
+.selection-template-outer-wrapper:has(.adult-size-input:checked) .selection-template-inner-wrapper:has(.adult-option-input:checked){
+    .add-another-cta{
+        pointer-events:auto;
+    }
+    .find-pairs-cta{
+        pointer-events: auto;
+    }
+}
+
+
+
