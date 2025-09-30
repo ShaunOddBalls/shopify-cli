@@ -1,9 +1,12 @@
 hello
 <script src="{{ 'perfect-pairjamas.js' | asset_url }}" defer="defer"></script>
 <link rel="stylesheet" href="{{ 'perfect-pairjamas.css' | asset_url }}">
+<div id="current-form-loc">
 
-<div class="selection-template-outer-wrapper" style="max-width:40rem;">
-    <div class="selection-template-inner-wrapper">
+</div>
+
+<div class="section-template selection-outer-wrapper" style="max-width:40rem; display:none;">
+    <div class="selection-inner-wrapper">
 
 
     <div class="selection-intro-text">
@@ -12,15 +15,15 @@ hello
     </div>
     <div  class="selection-slider grid grid-cols-3 relative">
         <label class="mens-selector py-2 active w-full text-center">
-            <input checked class="hidden adult-size-input" type="radio" value="mens" name="selection-choice" />
+            <input checked class="hidden category-input adult-category-input" type="radio" value="mens" name="selection-choice" />
             Men
         </label>
         <label class="womens-selector py-2 active w-full text-center">
-            <input class="hidden adult-size-input" type="radio" value="womens" name="selection-choice" />
+            <input class="hidden category-input adult-category-input" type="radio" value="womens" name="selection-choice" />
             Women
         </label>
         <label class="kids-selector py-2 active w-full text-center">
-            <input class="hidden kids-size-input" type="radio" value="kids" name="selection-choice" />
+            <input class="hidden category-input kids-category-input" type="radio" value="kids" name="selection-choice" />
             Kids
         </label>
         <div class="slider-slider">
@@ -31,11 +34,11 @@ hello
     <div class="type-selector">
         <div class="grid grid-cols-2">
             <label class="w-full type-choice">
-                <input checked class="hidden" type="radio" value="long" name="type-choice" />
+                <input checked class="hidden type-input" type="radio" value="long" name="type-choice" />
                 long
             </label>
             <label class="w-full type-choice">
-                <input class="hidden" type="radio" value="short" name="type-choice" />
+                <input class="hidden type-input" type="radio" value="short" name="type-choice" />
                 Short
             </label>
         </div>
@@ -43,50 +46,50 @@ hello
     </div>
     <div class="grid grid-cols-4 adult-sizes" >
         <label class="size-option">
-            <input name="size" value="small" type="radio" class="hidden adult-option-input" />
+            <input name="size" value="small" type="radio" class="hidden size-input adult-size-input" />
             small
         </label>
         <label class="size-option">
-            <input name="size" value="medium" type="radio" class="hidden adult-option-input" />
+            <input name="size" value="medium" type="radio" class="hidden size-input adult-size-input" />
             medium
         </label>
         <label class="size-option">
-            <input name="size" value="large" type="radio" class="hidden adult-option-input" />
+            <input name="size" value="large" type="radio" class="hidden size-input adult-size-input" />
             large
         </label>
         <label class="size-option">
-            <input name="size" value="XL" type="radio" class="hidden adult-option-input" />
+            <input name="size" value="XL" type="radio" class="hidden size-input adult-size-input" />
             XL
         </label>
         <label class="size-option">
-            <input name="size" value="2XL" type="radio" class="hidden adult-option-input" />
+            <input name="size" value="2XL" type="radio" class="hidden size-input adult-size-input" />
             2XL
         </label>
         <label class="size-option">
-            <input name="size" value="3XL" type="radio" class="hidden adult-option-input" />
+            <input name="size" value="3XL" type="radio" class="hidden size-input adult-size-input" />
             3XL
         </label>
 
     </div>
     <div class="grid grid-cols-4 kids-sizes" >
         <label class="size-option">
-            <input name="size" value="5-6yrs" type="radio" class="hidden kids-option-input" />
+            <input name="size" value="5-6yrs" type="radio" class="hidden size-input kids-size-input" />
             5-6yrs
         </label>
         <label class="size-option">
-            <input name="size" value="6-7yrs" type="radio" class="hidden kids-option-input" />
+            <input name="size" value="6-7yrs" type="radio" class="hidden size-input kids-size-input" />
             6-7yrs
         </label>
         <label class="size-option">
-            <input name="size" value="7-8yrs" type="radio" class="hidden kids-option-input" />
+            <input name="size" value="7-8yrs" type="radio" class="hidden size-input kids-size-input" />
             7-8yrs
         </label>
         <label class="size-option">
-            <input name="size" value="9-10yrs" type="radio" class="hidden kids-option-input" />
+            <input name="size" value="9-10yrs" type="radio" class="hidden size-input kids-size-input" />
             9-10yrs
         </label>
         <label class="size-option">
-            <input name="size" value="11-12yrs" type="radio" class="hidden kids-option-input" />
+            <input name="size" value="11-12yrs" type="radio" class="hidden size-input kids-size-input" />
             11-12yrs
         </label>
 
@@ -99,4 +102,4 @@ hello
     </div>
 
 </div>
-    </div>
+</div>

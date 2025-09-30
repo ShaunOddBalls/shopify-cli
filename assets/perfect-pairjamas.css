@@ -43,32 +43,44 @@
 .kids-sizes{
     display: none;
 }
-.selection-template-outer-wrapper:has(.adult-size-input:checked) .adult-sizes{
+.selection-outer-wrapper:has(.adult-category-input:checked) .adult-sizes{
     display: grid;
 }
-.selection-template-outer-wrapper:has(.kids-size-input:checked) .kids-sizes{
+.selection-outer-wrapper:has(.kids-category-input:checked) .kids-sizes{
     display: grid;
 }
 .add-another-cta{
     pointer-events:none;
+    background-color: azure;
+    color: black;
 }
 .find-pairs-cta{
     pointer-events: none;
+    background-color: azure;
+    color: black;
 }
-.selection-template-outer-wrapper:has(.kids-size-input:checked) .selection-template-inner-wrapper:has(.kids-option-input:checked){
+.selection-outer-wrapper:has(.kids-category-input:checked) .selection-inner-wrapper:has(.kids-size-input:checked){
     .add-another-cta{
+        background-color: aqua;
+        color: white;
         pointer-events:auto;
     }
     .find-pairs-cta{
         pointer-events: auto;
+        background-color: #f00f83;
+        color:white;
     }
 }
-.selection-template-outer-wrapper:has(.adult-size-input:checked) .selection-template-inner-wrapper:has(.adult-option-input:checked){
+.selection-outer-wrapper:has(.adult-category-input:checked) .selection-inner-wrapper:has(.adult-size-input:checked){
     .add-another-cta{
+        background-color: aqua;
+        color: white;
         pointer-events:auto;
     }
     .find-pairs-cta{
         pointer-events: auto;
+        background-color: #f00f83;
+        color:white;
     }
 }
 
