@@ -1,6 +1,9 @@
 hello
 <script src="{{ 'perfect-pairjamas.js' | asset_url }}" defer="defer"></script>
 <link rel="stylesheet" href="{{ 'perfect-pairjamas.css' | asset_url }}">
+<div id="form-loc">
+
+</div>
 <div id="current-form-loc">
 
 </div>
@@ -8,7 +11,7 @@ hello
 <div style="max-width: 400px;" class="grid grid-cols-4" id="prints-loc">
 
 </div>
-<div style="max-width: 400px;" class="grid grid-cols-2" id="selected-prods">
+<div style="max-width: 400px;" class="grid grid-cols-3" id="selected-prods">
     <div id="mens-prod">
         Mens
         <img  class="w-full"/>
@@ -26,6 +29,9 @@ hello
         <img  class="w-full"/>
         <div class="title"></div>
         <div class="sizes"></div>
+    </div>
+    <div class="col-span-2" id="add-pairjamas-to-cart">
+        add to cart
     </div>
 </div>
 

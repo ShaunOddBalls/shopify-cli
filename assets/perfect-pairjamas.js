@@ -202,8 +202,134 @@
         currentFormLoc.appendChild(formClone)
         
     }
+    const addPairjamasToCart = () => {
+        let prodsToAdd = []
+        console.log(currentSelectedProds);
+        console.log(choiceList);
+        choiceList.forEach((choice)=>{
+            let matchingProd = currentSelectedProds.find((prod)=>{
+                return prod.category = choice.category && prod.variants[0].title == choice.size;
+            })
+            prodsToAdd.push(matchingProd);
+        })
+            for(product of prodsToAdd){
+              const form = document.createElement('form');
+                form.method = 'post';
+                form.action = '/cart/add';
+                form.id = `product-form-${product.id}`;
+                form.acceptCharset = 'UTF-8';
+                form.classList.add('flex', 'h-full', 'flex-col', 'border-t', 'bg-white', 'product-form', "hidden");
+                form.enctype = 'multipart/form-data';
+                form.setAttribute('data-product-id', product.id);
+                form.setAttribute('novalidate', 'novalidate');
+                form.setAttribute('data-type', 'add-to-cart-form');
+                const hiddenInputs = [
+                    { name: 'form_type', value: 'product' },
+                    { name: 'utf8', value: '✓' },
+                    { name: 'id', value: product.variants[0].id, class: 'product-selected-variant-id', 'data-product-id': product.id },
+                    { name: 'quantity', value: '1', class: 'product__quantity', id: 'qty-template--16162885926973__main' },
+                    { name: 'attributes[_freeshp]', value: '' },
+                    { name: 'properties[_co]', value: '{{ settings.mutlibuy_variant | json }}' },
+                    { name: 'product-id', value: product.id },
+                    { name: 'properties[_Perfect Pairjamas]', value: product.id }
+                ];
+                hiddenInputs.forEach(inputData => {
+                    const input = document.createElement('input');
+                    input.type = 'hidden';
+                    input.name = inputData.name;
+                    input.value = inputData.value;
+                    if (inputData.class) input.classList.add(inputData.class);
+                    if (inputData.id) input.id = inputData.id;
+                    if (inputData['data-product-id']) input.setAttribute('data-product-id', inputData['data-product-id']);
+                    
+                    form.appendChild(input);
+                });
+                  const atcButton = document.createElement('button');
+                  atcButton.type = 'submit';
+                  atcButton.classList.add('add-to-cart-button', 'hidden');
+                  form.appendChild(atcButton);
+                  const prodData = document.createElement('input');
+                  prodData.classList.add("js-prod-data")
+                  prodData.value = JSON.stringify(product.product);
+                  prodData.setAttribute("type", "hidden");
+                  prodData.id = "product-json-" + product.prodId;
+                  form.append(prodData);
+                  form.addEventListener('submit', function(event) {
+                      event.preventDefault();
+                  });
+
+        document.getElementById("form-loc").append(form);
+        
+      }
+
+      addFormsToCart(0)
+
+    }
+
+    async function addFormsToCart(index) {
+          const forms = document.querySelectorAll('#match-balls-form-container .product-form');
+          for (let form of forms) {
+              const addToCartButton = form.querySelector('.add-to-cart-button');
+              addToCartButton.click();
+              await ppAddToCart(form, form.querySelector('.product-selected-variant-id').value);
+          }
+       document.querySelector('#add-match-to-cart').innerHTML = "Add To Cart";
+    }
+
+function ppAddToCart(form, currentVariant) {
+    return new Promise((resolve, reject) => {
+        const productData = JSON.parse(form.querySelector('.js-prod-data').value);
+
+        const formData = new FormData(form);
+        const dataString = new URLSearchParams(formData).toString();
+        fetch('/cart/add.js', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'Accept': 'application/json',
+            },
+            body: dataString,
+        })
+        .then(response => {
+            console.log('Cart add response:', response);
+            if (response.ok) {
+                return response.json();
+            } else {
+                return response.json().then((json) => {
+                    throw new Error(json.description || 'Failed to add to cart');
+                });
+            }
+        })
+        .then(cartItem => {
+            console.log('Item added to cart:', cartItem);
+            const event = new CustomEvent('itemAddedToCart', {
+                detail: {
+                    variant: currentVariant,
+                    product: productData,
+                    formData: formData,
+                },
+            });
+            document.dispatchEvent(event);
+            const quantityDiv = document.getElementById("cart-items-number");
+            const resetRevent = new CustomEvent('revertToCart');
+            document.dispatchEvent(resetRevent);
+
+            const cartevent = new CustomEvent('updateCart');
+            document.dispatchEvent(cartevent);
+
+            resolve(cartItem); // Resolve the promise when item is successfully added
+        })
+        .catch(error => {
+            console.error('ATC: Error adding to cart:', error);
+            reject(error); // Reject the promise if there's an error
+        });
+    });
+}
 
     document.addEventListener("click", (e)=>{
+        if(e.target.closest("#add-pairjamas-to-cart")){
+            addPairjamasToCart()
+        }
         if(e.target.closest(".add-another-cta")){
             addPair()
             deleteForm()
