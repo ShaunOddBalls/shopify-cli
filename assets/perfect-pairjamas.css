@@ -15,6 +15,19 @@
         transform: translateX(0%);
     }
 }
+.first-stage-inner-wrapper{
+    max-width: 80rem;
+    @media(min-width:720px){
+        min-width: 80rem;
+    }
+}
+#current-form-loc{
+    @media(min-width:720px){
+        min-width:400px;
+    }
+}
+
+
 .size-option{
     display: flex;
     justify-content: center;

@@ -72,6 +72,8 @@
         });
         updateFinalUi();
     }
+    const setPriceEle = document.getElementById("set-total-price")
+    const setCompPriceEle = document.getElementById("set-comp-price")
 
     const updateFinalUi = () => {
         const currentDesignEle = document.getElementById("current-design-name");
@@ -79,7 +81,8 @@
 
         const categories = ["mens", "womens", "kids"];
         const lengths = ["short", "long"];
-
+        let totalPrice = 0;
+        let totalCompPrice = 0;
         categories.forEach((cat) => {
             lengths.forEach((len) => {
             const prodEle = document.getElementById(`${cat}-prod-${len}`);
@@ -105,19 +108,21 @@
                 return !prod.isButtonUp
             })
             let prodToUse = !hasDifferentStyles || !choices[0].isSwapped ? prods.find((prod)=>{
-                return !prod.isButtonUp
+                return !prod.isButtonUp || prods[0]
             }) : prods.find((prod)=>{
-                return prod.isButtonUp
-            })
+                return prod.isButtonUp 
+            }) || prods[0]
             console.log(choices)
 
             const price = prodToUse?.variants[0]?.price || 0;
+            totalPrice = totalPrice + Number(price)
             const compPrice = prodToUse?.variants[0]?.compare_at_price || 0;
+            totalCompPrice = totalCompPrice + Number(compPrice)
             const priceEle = prodEle.querySelector(".prod-price");
             const compPriceEle = prodEle.querySelector(".comp-price");
-            if (priceEle) priceEle.innerHTML = price;
+            if (priceEle) priceEle.innerHTML = "£" + price;
             if (compPriceEle)
-                compPriceEle.innerHTML = compPrice == price ? "" : compPrice;
+                compPriceEle.innerHTML = compPrice == price ? "" : "£" + compPrice;
 
             const imgEle = prodEle.querySelector("img");
             if (imgEle) imgEle.src = prodToUse?.image || "";
@@ -143,8 +148,10 @@
             }
             });
         });
+            setPriceEle.innerHTML = "£" + totalPrice;
+            setCompPriceEle.innerHTML = totalPrice == totalCompPrice ? "" : "£" + totalCompPrice;
         };
-
+    
     const designLoc = document.getElementById("prints-loc");
 
     const createOption = (matchingDesign,prods) => {
