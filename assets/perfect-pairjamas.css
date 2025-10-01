@@ -15,7 +15,7 @@
         transform: translateX(0%);
     }
 }
-.first-stage-inner-wrapper{
+.inner-wrapper{
     max-width: 80rem;
     @media(min-width:720px){
         min-width: 80rem;
