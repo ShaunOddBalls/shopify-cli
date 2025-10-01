@@ -1,40 +1,100 @@
-hello
 <script src="{{ 'perfect-pairjamas.js' | asset_url }}" defer="defer"></script>
 <link rel="stylesheet" href="{{ 'perfect-pairjamas.css' | asset_url }}">
 <div id="form-loc">
 
 </div>
-<div id="current-form-loc">
+<div id="inital-stage">
 
+    <div id="current-form-loc">
+        
+    </div>
 </div>
 
-<div style="max-width: 400px;" class="grid grid-cols-4" id="prints-loc">
 
-</div>
-<div style="max-width: 400px;" class="grid grid-cols-3" id="selected-prods">
-    <div id="mens-prod">
-        Mens
-        <img  class="w-full"/>
-        <div class="title"></div>
-        <div class="sizes"></div>
+
+<div id="final-stage" style="max-width:400px;" class="hidden">
+
+    <div style="max-width: 400px;" class="grid grid-cols-3" id="selected-prods">
+        <div id="mens-prod-short" class="flex flex-col items-center justify-center">
+            Mens Shorts
+            <img  class="w-full"/>
+            <div class="swap-div"></div>
+            <div class="title"></div>
+            <div class="sizes"></div>
+            <div class="price">
+                <span class="prod-price text-magenta"></span>
+                <del class="comp-price"></del>
+            </div>
+        </div>
+        <div id="womens-prod-short" class="flex flex-col items-center justify-center">
+            womens shorts
+            <img  class="w-full"/>
+            <div class="swap-div"></div>
+            <div class="title"></div>
+            <div class="sizes"></div>
+            <div class="price">
+                <span class="prod-price text-magenta"></span>
+                <del class="comp-price"></del>
+            </div>
+        </div>
+        <div id="kids-prod-short" class="flex flex-col items-center justify-center">
+            kids shorts
+            <img  class="w-full"/>
+            <div class="swap-div"></div>
+            <div class="title"></div>
+            <div class="sizes"></div>
+            <div class="price">
+                <span class="prod-price text-magenta"></span>
+                <del class="comp-price"></del>
+            </div>
+        </div>
+        <div id="mens-prod-long" class="flex flex-col items-center justify-center">
+            Mens long
+            <img  class="w-full"/>
+            <div class="swap-div"></div>
+            <div class="title"></div>
+            <div class="sizes"></div>
+            <div class="price">
+                <span class="prod-price text-magenta"></span>
+                <del class="comp-price"></del>
+            </div>
+        </div>
+        <div id="womens-prod-long" class="flex flex-col items-center justify-center">
+            womens long
+            <img  class="w-full"/>
+            <div class="swap-div"></div>
+            <div class="title"></div>
+            <div class="sizes"></div>
+            <div class="price">
+                <span class="prod-price text-magenta"></span>
+                <del class="comp-price"></del>
+            </div>
+        </div>
+        <div id="kids-prod-long" class="flex flex-col items-center justify-center">
+            kids long
+            <img  class="w-full"/>
+            <div class="swap-div"></div>
+            <div class="title"></div>
+            <div class="sizes"></div>
+            <div class="price">
+                <span class="prod-price text-magenta"></span>
+                <del class="comp-price"></del>
+            </div>
+        </div>
+        <div class="col-span-3">
+            <div>
+                Current Design is: <span id="current-design-name"></span> 
+            </div>
+        </div>
     </div>
-    <div id="womens-prod">
-        womens
-        <img  class="w-full"/>
-        <div class="title"></div>
-        <div class="sizes"></div>
+    <div style="max-width: 400px;" class="grid grid-cols-4 gap-4" id="prints-loc">
+
     </div>
-    <div id="kids-prod">
-        kids
-        <img  class="w-full"/>
-        <div class="title"></div>
-        <div class="sizes"></div>
-    </div>
-    <div class="col-span-2" id="add-pairjamas-to-cart">
+    <div class="col-span-2 w-full text-center bg-magenta-500 text-white rouned-full my-4 py-2 rounded-full" id="add-pairjamas-to-cart">
         add to cart
     </div>
 </div>
-
+    
 <div class="section-template selection-outer-wrapper" style="max-width:40rem; display:none;">
     <div class="selection-inner-wrapper">
 
@@ -43,16 +103,16 @@ hello
         <span class="pair-number">1st</span> pair
         <div> what kind of pyjamas we want?</div>
     </div>
-    <div  class="selection-slider grid grid-cols-3 relative">
-        <label class="mens-selector py-2 active w-full text-center">
+    <div  class="selection-slider grid grid-cols-3 relative rounded-full" style="background: #f3f4f6;">
+        <label class="mens-selector py-2 active w-full text-center z-10">
             <input checked class="hidden category-input adult-category-input" type="radio" value="mens" name="selection-choice" />
             Men
         </label>
-        <label class="womens-selector py-2 active w-full text-center">
+        <label class="womens-selector py-2 active w-full text-center z-10">
             <input class="hidden category-input adult-category-input" type="radio" value="womens" name="selection-choice" />
             Women
         </label>
-        <label class="kids-selector py-2 active w-full text-center">
+        <label class="kids-selector py-2 active w-full text-center z-10">
             <input class="hidden category-input kids-category-input" type="radio" value="kids" name="selection-choice" />
             Kids
         </label>
@@ -62,19 +122,29 @@ hello
 
     </div>
     <div class="type-selector">
-        <div class="grid grid-cols-2">
-            <label class="w-full type-choice">
+        <div class="font-bold">Select product length</div>
+        <div class="grid grid-cols-4">
+            <label class="w-full type-choice flex flex-col items-center justify-center">
                 <input checked class="hidden type-input" type="radio" value="long" name="type-choice" />
-                long
+                <div>
+                    <img height="80px" width="80px" src="https://cdn.shopify.com/s/files/1/0353/7249/files/CottonPJs-Long.svg?v=1759313533" />
+                </div>
+                <div>long</div>
             </label>
-            <label class="w-full type-choice">
+            <label class="w-full type-choice flex flex-col items-center justify-center">
                 <input class="hidden type-input" type="radio" value="short" name="type-choice" />
-                Short
+                <div>
+                    <img height="80px" width="80px" src="https://cdn.shopify.com/s/files/1/0353/7249/files/CottonPJs-Short.svg?v=1759313536" />
+                </div>
+                <div>short</div>
             </label>
         </div>
 
+    </div> 
+    <div class="font-bold">
+        Select size
     </div>
-    <div class="grid grid-cols-4 adult-sizes" >
+    <div class="grid grid-cols-4 gap-4 adult-sizes" >
         <label class="size-option">
             <input name="size" value="Small" type="radio" class="hidden size-input adult-size-input" />
             small
@@ -101,7 +171,7 @@ hello
         </label>
 
     </div>
-    <div class="grid grid-cols-4 kids-sizes" >
+    <div class="grid grid-cols-4 gap-4 kids-sizes" >
         <label class="size-option">
             <input name="size" value="5-6 Yrs" type="radio" class="hidden size-input kids-size-input" />
             5-6yrs
@@ -124,11 +194,14 @@ hello
         </label>
 
     </div>
-    <div class="w-full text-center add-another-cta">
-        add another
-    </div>
-    <div class="w-full text-center find-pairs-cta">
-        find-pairs
+    <div id="button-container" class="py-4 flex flex-col gap-2">
+
+        <div class="w-full text-center add-another-cta rounded-full py-2">
+            add another
+        </div>
+        <div class="w-full text-center find-pairs-cta rounded-full py-2">
+            find pairs
+        </div>
     </div>
 
 </div>

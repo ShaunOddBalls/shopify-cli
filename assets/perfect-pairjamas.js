@@ -1,7 +1,9 @@
 (document.addEventListener("DOMContentLoaded", ()=>{
 
     let currentSelectedProds = []
-
+    let currentSelectedDesign;
+    const firstStage = document.getElementById("inital-stage");
+    const finalStage = document.getElementById("final-stage")
     let design_list = []; 
     function get_designs(){
     var design_list_url = `https://oddballs-data--development.gadget.app/apps/oddballs-data/metaobject?handle=design_list_with_extras`;
@@ -33,7 +35,7 @@
 
     const currentFormLoc = document.querySelector("#current-form-loc");
     let currentFormEle
-    const choiceList = [];
+    let choiceList = [];
     const addPair = () =>{
         const checkedInputs = Array.from(document.querySelectorAll(".current-form input:checked"));
         const categoryInput = checkedInputs.find((input)=>{
@@ -51,84 +53,103 @@
         const selection = {
             category,
             type,
-            size
+            size,
+            swapped : false
         }
         choiceList.push(selection);
 
     }
 
-    const updateFinalUi = () =>{
-        console.log(currentSelectedProds)
-        const selectedProdsEle = document.getElementById("selected-prods");
-        let mensProdEle = document.getElementById("mens-prod")
-        let womensProdEle = document.getElementById("womens-prod")
-        let kidsProdEle = document.getElementById("kids-prod")
-        const mensProds = currentSelectedProds.filter((prod)=>{
-            return prod.category == "mens"
-        })
-        const womensProds = currentSelectedProds.filter((prod)=>{
-            return prod.category == "womens"
-        })
-        const kidsProds = currentSelectedProds.filter((prod)=>{
-            return prod.category == "kids"
-        })
-        if(mensProds.length == 0){
-            mensProdEle.style.display = "none"
-        }
-        if(womensProds.length == 0){
-           womensProdEle.style.display = "none"
-        }
-        if(kidsProds.length == 0){
-           kidsProdEle.style.display = "none"
-        }      
-        const mensChoices = choiceList.filter((choice)=>{
-            return choice.category == "mens"
-        })
-        const womensChoices = choiceList.filter((choice)=>{
-            return choice.category == "womens"
-        })
-        const kidsChoices = choiceList.filter((choice)=>{
-            return choice.category == "kids"
-        })
-        const mensImage = mensProds[0]?.image;
-        const mensImageEle = mensProdEle.querySelector("img");
-        mensImageEle.src=mensImage;
-        const mensSizesEle = document.querySelector("#mens-prod .sizes");
-        mensSizesEle.innerHTML = "";
-        mensChoices.forEach((choice)=>{
-            let size = choice.size
-            const tempEle = document.createElement("div");
-            tempEle.innerHTML = size
-            mensSizesEle.appendChild(tempEle)
-        })
-        const womensImage = womensProds[0]?.image;
-        const womensImageEle = womensProdEle.querySelector("img");
-        womensImageEle.src=womensImage
-        const womensSizesEle = document.querySelector("#womens-prod .sizes");
-        womensSizesEle.innerHTML= ""
-        womensChoices.forEach((choice)=>{
-            let size = choice.size
-            const tempEle = document.createElement("div");
-            tempEle.innerHTML = size
-            womensSizesEle.appendChild(tempEle)
-        })
-        const kidsImage = kidsProds[0]?.image;
-        const kidsImageEle = kidsProdEle.querySelector("img");
-        kidsImageEle.src=kidsImage
-        const kidsSizesEle = document.querySelector("#kids-prod .sizes");
-        kidsSizesEle.innerHTML = ""
-        kidsChoices.forEach((choice)=>{
-            let size = choice.size
-            const tempEle = document.createElement("div");
-            tempEle.innerHTML = size
-            kidsSizesEle.appendChild(tempEle)
-        })
+    const swapChoice = (cat, len) =>{
+          choiceList = choiceList.map((choice) => {
+            if (choice.category === cat && choice.type === len) {
+            return {
+                ...choice,
+                isSwapped: !choice.isSwapped
+            };
+            }
+            return choice;
+        });
+        updateFinalUi();
     }
+
+    const updateFinalUi = () => {
+        const currentDesignEle = document.getElementById("current-design-name");
+        currentDesignEle.innerHTML = currentSelectedDesign;
+
+        const categories = ["mens", "womens", "kids"];
+        const lengths = ["short", "long"];
+
+        categories.forEach((cat) => {
+            lengths.forEach((len) => {
+            const prodEle = document.getElementById(`${cat}-prod-${len}`);
+            if (!prodEle) return; 
+            const prods = currentSelectedProds.filter(
+                (prod) => prod.category === cat && prod.length === len
+            );
+            
+            if (prods.length === 0) {
+                prodEle.style.display = "none";
+                return;
+            }
+            console.log(prods)
+            
+            
+            prodEle.style.display = "block";
+            const choices = choiceList.filter(
+                (choice) => choice.category === cat && choice.type === len
+            );
+            const hasDifferentStyles = prods.some((prod)=>{
+                return prod.isButtonUp
+            }) &&   prods.some((prod)=>{
+                return !prod.isButtonUp
+            })
+            let prodToUse = !hasDifferentStyles || !choices[0].isSwapped ? prods.find((prod)=>{
+                return !prod.isButtonUp
+            }) : prods.find((prod)=>{
+                return prod.isButtonUp
+            })
+            console.log(choices)
+
+            const price = prodToUse?.variants[0]?.price || 0;
+            const compPrice = prodToUse?.variants[0]?.compare_at_price || 0;
+            const priceEle = prodEle.querySelector(".prod-price");
+            const compPriceEle = prodEle.querySelector(".comp-price");
+            if (priceEle) priceEle.innerHTML = price;
+            if (compPriceEle)
+                compPriceEle.innerHTML = compPrice == price ? "" : compPrice;
+
+            const imgEle = prodEle.querySelector("img");
+            if (imgEle) imgEle.src = prodToUse?.image || "";
+            choiceEle = prodEle.querySelector('.swap-div')
+            choiceEle.innerHTML = ""
+            if(hasDifferentStyles){
+                const innerSwapDiv = document.createElement("div");
+                innerSwapDiv.innerHTML = "also available in a different style"
+                choiceEle.appendChild(innerSwapDiv); 
+                innerSwapDiv.addEventListener("click", ()=>{
+                    swapChoice(cat, len)
+                })
+            }
+
+            const sizesEle = prodEle.querySelector(".sizes");
+            if (sizesEle) {
+                sizesEle.innerHTML = "";
+                choices.forEach((choice) => {
+                    const tempEle = document.createElement("div");
+                    tempEle.innerHTML = choice.size;
+                    sizesEle.appendChild(tempEle);
+                });
+            }
+            });
+        });
+        };
 
     const designLoc = document.getElementById("prints-loc");
 
     const createOption = (matchingDesign,prods) => {
         const imageUrl = matchingDesign.node.fields.find((field)=>{return field.key=="img_url"}).value
+        const designName = matchingDesign.node.fields.find((field)=>{return field.key=="tag"}).value.replace("design-","").replace("-", " ")
         const optionEle = document.createElement('div');
         optionEle.className="w-full rounded-md option-wrapper relative";
         const image = document.createElement("img");
@@ -142,6 +163,7 @@
         designLoc.appendChild(optionEle)
         optionEle.addEventListener("click", ()=>{
             currentSelectedProds = prods;
+            currentSelectedDesign = designName;
             updateFinalUi();
         })
 
@@ -154,6 +176,7 @@
             })
             if(matchingDesign){
                 if(!prodFound){
+                    currentSelectedDesign = matchingDesign.node.fields.find((field)=>{return field.key=="tag"}).value.replace("-", " ")
                     currentSelectedProds = prods
                     prodFound = true;
                 }
@@ -178,6 +201,8 @@
             }
 
             const data = await res.json();
+            console.log(data)
+
             createOptions(data)
         } catch (err) {
             console.error("Error sending choices:", err);
@@ -204,11 +229,21 @@
     }
     const addPairjamasToCart = () => {
         let prodsToAdd = []
-        console.log(currentSelectedProds);
-        console.log(choiceList);
         choiceList.forEach((choice)=>{
             let matchingProd = currentSelectedProds.find((prod)=>{
-                return prod.category = choice.category && prod.variants[0].title == choice.size;
+                let toReturn = true
+                if(prod.category != choice.category){
+                    toReturn = false
+                }
+                if(!prod.variants[0].title == choice.size){
+                    toReturn = false
+                }
+                if(choice.isSwapped){
+                    if(!prod.isButtonUp){
+                        toReturn = false
+                    }
+                }
+                return toReturn
             })
             prodsToAdd.push(matchingProd);
         })
@@ -241,7 +276,7 @@
                     if (inputData.class) input.classList.add(inputData.class);
                     if (inputData.id) input.id = inputData.id;
                     if (inputData['data-product-id']) input.setAttribute('data-product-id', inputData['data-product-id']);
-                    
+                   
                     form.appendChild(input);
                 });
                   const atcButton = document.createElement('button');
@@ -250,36 +285,36 @@
                   form.appendChild(atcButton);
                   const prodData = document.createElement('input');
                   prodData.classList.add("js-prod-data")
-                  prodData.value = JSON.stringify(product.product);
+                  prodData.value = JSON.stringify(product);
                   prodData.setAttribute("type", "hidden");
-                  prodData.id = "product-json-" + product.prodId;
+                  prodData.id = "product-json-" + product.id;
                   form.append(prodData);
                   form.addEventListener('submit', function(event) {
                       event.preventDefault();
                   });
-
+ 
         document.getElementById("form-loc").append(form);
-        
+       
       }
-
+ 
       addFormsToCart(0)
-
+ 
     }
-
+ 
     async function addFormsToCart(index) {
-          const forms = document.querySelectorAll('#match-balls-form-container .product-form');
+          const forms = document.querySelectorAll('#form-loc .product-form');
           for (let form of forms) {
               const addToCartButton = form.querySelector('.add-to-cart-button');
               addToCartButton.click();
               await ppAddToCart(form, form.querySelector('.product-selected-variant-id').value);
           }
-       document.querySelector('#add-match-to-cart').innerHTML = "Add To Cart";
+    //    document.querySelector('#add-match-to-cart').innerHTML = "Add To Cart";
     }
-
+ 
 function ppAddToCart(form, currentVariant) {
     return new Promise((resolve, reject) => {
         const productData = JSON.parse(form.querySelector('.js-prod-data').value);
-
+ 
         const formData = new FormData(form);
         const dataString = new URLSearchParams(formData).toString();
         fetch('/cart/add.js', {
@@ -313,10 +348,10 @@ function ppAddToCart(form, currentVariant) {
             const quantityDiv = document.getElementById("cart-items-number");
             const resetRevent = new CustomEvent('revertToCart');
             document.dispatchEvent(resetRevent);
-
+ 
             const cartevent = new CustomEvent('updateCart');
             document.dispatchEvent(cartevent);
-
+ 
             resolve(cartItem); // Resolve the promise when item is successfully added
         })
         .catch(error => {
@@ -336,6 +371,8 @@ function ppAddToCart(form, currentVariant) {
             createForm()
         }
         if(e.target.closest(".find-pairs-cta")){
+            firstStage.classList.add("hidden")
+            finalStage.classList.remove("hidden")
             addPair()
             // deleteForm()
             getMatches()

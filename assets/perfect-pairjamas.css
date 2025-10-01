@@ -2,7 +2,7 @@
     position: absolute;
     width:33%;
     height:100%;
-    z-index: -1;
+    z-index: 1;
     border-radius: 999999px;
     background-color: #f00f83;
     transition:all 0.3s ease
@@ -14,6 +14,14 @@
     .slider-slider {
         transform: translateX(0%);
     }
+}
+.size-option{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #dbd7d7;
+    border-radius:0.305rem;
+    padding: 1rem;
 }
 .selection-slider:has(input[value="womens"]:checked){
     .womens-selector{
@@ -31,11 +39,23 @@
         transform: translateX(200%);
     }
 }
+.type-choice{
+    border-radius:0.305rem;
+}
 .type-choice:has(input:checked){
-    color:#f00f83;
+    background-color:#f00f83;
+    color:white;
+    border: 2px solid white;
+    outline: 2px solid #f00f83;
+    img{
+        filter: brightness(0) invert(1);
+    }
 }
 .size-option:has(input:checked){
-    color:#f00f83;
+    background-color:#f00f83;
+    color:white;
+    border: 2px solid white;
+    outline: 2px solid #f00f83;
 }
 .adult-sizes{
     display: none;
